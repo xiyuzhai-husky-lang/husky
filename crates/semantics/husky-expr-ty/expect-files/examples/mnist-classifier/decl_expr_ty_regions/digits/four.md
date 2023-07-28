@@ -56,9 +56,7 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -69,7 +67,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -82,16 +80,16 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -238,49 +236,33 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 68,
-                                    },
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Borrow(
+                                    Leash,
                                 ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 93,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
+                            ),
+                            arguments: [
+                                FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
+                            ],
+                            base_ty_term: Some(
+                                EtherealTerm(`Leash ConcaveComponent`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        0,
                                     ),
-                                },
+                                ),
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -291,7 +273,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: CurryDestination(
+                            expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: Category(
                                         TermCategory {
@@ -308,18 +290,18 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -332,16 +314,16 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -351,7 +333,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsExactly(
+                            expectation: Expectation::EqsExactly(
                                 ExpectSubtype {
                                     expected: Category(
                                         TermCategory {
@@ -368,16 +350,16 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        Subtype(
+                                        FluffyTermExpectationOutcome::Subtype(
                                             ExpectSubtypeOutcome,
                                         ),
                                     ),
@@ -385,7 +367,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -398,16 +380,16 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -481,9 +463,7 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -494,7 +474,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -507,16 +487,16 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -590,9 +570,7 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -603,7 +581,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -616,16 +594,16 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -789,9 +767,7 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -802,9 +778,9 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: EqsFunctionType(
+                            expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: Sort,
+                                    final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
@@ -813,49 +789,59 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Curry(
-                                    EtherealTermCurry(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Curry(
+                                    EtherealTermCurry {
+                                        curry_kind: Explicit,
+                                        variance: Independent,
+                                        parameter_variable: Some(
+                                            EtherealTermVariable {
+                                                ty: EtherealTerm(`Type`),
+                                                idx: 0,
+                                            },
+                                        ),
+                                        parameter_ty: EtherealTerm(`Type`),
+                                        return_ty: EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
+                                    },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsFunctionCallType(
+                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
                                                 implicit_parameter_substitutions: [],
-                                                return_ty: Curry(
-                                                    EtherealTermCurry(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
+                                                return_ty: FluffyTerm::Curry(
+                                                    EtherealTermCurry {
+                                                        curry_kind: Explicit,
+                                                        variance: Independent,
+                                                        parameter_variable: None,
+                                                        parameter_ty: EtherealTerm(`variable_ad_hoc_fmt`),
+                                                        return_ty: EtherealTerm(`Type`),
+                                                    },
                                                 ),
-                                                variant: Curry {
+                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
                                                     variance: Independent,
                                                     parameter_symbol: Some(
-                                                        Variable(
-                                                            EtherealTermVariable(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
+                                                        FluffyTerm::Variable(
+                                                            EtherealTermVariable {
+                                                                ty: EtherealTerm(`Type`),
+                                                                idx: 0,
+                                                            },
                                                         ),
                                                     ),
-                                                    parameter_ty: Category(
+                                                    parameter_ty: FluffyTerm::Category(
                                                         TermCategory {
                                                             universe: TermUniverse(
                                                                 1,
                                                             ),
                                                         },
                                                     ),
-                                                    return_ty: Curry(
-                                                        EtherealTermCurry(
-                                                            Id {
-                                                                value: 12,
-                                                            },
-                                                        ),
+                                                    return_ty: FluffyTerm::Curry(
+                                                        EtherealTermCurry {
+                                                            curry_kind: Explicit,
+                                                            variance: Independent,
+                                                            parameter_variable: None,
+                                                            parameter_ty: EtherealTerm(`variable_ad_hoc_fmt`),
+                                                            return_ty: EtherealTerm(`Type`),
+                                                        },
                                                     ),
                                                 },
                                             },
@@ -865,7 +851,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: CurryDestination(
+                            expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: Category(
                                         TermCategory {
@@ -882,20 +868,20 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsFunctionType(
+                            expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: Sort,
+                                    final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
@@ -904,38 +890,36 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: Curry(
-                                    EtherealTermCurry(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Curry(
+                                    EtherealTermCurry {
+                                        curry_kind: Explicit,
+                                        variance: Independent,
+                                        parameter_variable: None,
+                                        parameter_ty: EtherealTerm(`MnistLabel`),
+                                        return_ty: EtherealTerm(`Type`),
+                                    },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsFunctionCallType(
+                                        FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
                                                 implicit_parameter_substitutions: [],
-                                                return_ty: Category(
+                                                return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(
                                                             1,
                                                         ),
                                                     },
                                                 ),
-                                                variant: Curry {
+                                                variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
                                                     variance: Independent,
                                                     parameter_symbol: None,
-                                                    parameter_ty: EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 99,
-                                                                },
-                                                            ),
+                                                    parameter_ty: FluffyTerm::EntityPath(
+                                                        TermEntityPath::TypeOntology(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ),
                                                     ),
-                                                    return_ty: Category(
+                                                    return_ty: FluffyTerm::Category(
                                                         TermCategory {
                                                             universe: TermUniverse(
                                                                 1,
@@ -950,7 +934,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: CurryDestination(
+                            expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: EntityPath(
                                         TypeOntology(
@@ -969,20 +953,16 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 99,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist::MnistLabel`, `Enum`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -995,16 +975,16 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -1151,49 +1131,33 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 68,
-                                    },
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Borrow(
+                                    Leash,
                                 ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 93,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
+                            ),
+                            arguments: [
+                                FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
+                            ],
+                            base_ty_term: Some(
+                                EtherealTerm(`Leash ConcaveComponent`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        0,
                                     ),
-                                },
+                                ),
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1204,7 +1168,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: CurryDestination(
+                            expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: Category(
                                         TermCategory {
@@ -1221,18 +1185,18 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -1245,16 +1209,16 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -1264,7 +1228,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsExactly(
+                            expectation: Expectation::EqsExactly(
                                 ExpectSubtype {
                                     expected: Category(
                                         TermCategory {
@@ -1281,16 +1245,16 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        Subtype(
+                                        FluffyTermExpectationOutcome::Subtype(
                                             ExpectSubtypeOutcome,
                                         ),
                                     ),
@@ -1298,7 +1262,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -1311,16 +1275,16 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -1467,49 +1431,33 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 68,
-                                    },
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Borrow(
+                                    Leash,
                                 ),
-                                refined_path: Left(
-                                    Borrow(
-                                        Leash,
-                                    ),
-                                ),
-                                arguments: [
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 93,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
+                            ),
+                            arguments: [
+                                FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
+                            ],
+                            base_ty_term: Some(
+                                EtherealTerm(`Leash ConcaveComponent`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        0,
                                     ),
-                                },
+                                ),
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1520,7 +1468,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: CurryDestination(
+                            expectation: Expectation::CurryDestination(
                                 ExpectCurryDestination {
                                     curry_destination: Category(
                                         TermCategory {
@@ -1537,18 +1485,18 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -1561,16 +1509,16 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),
@@ -1580,7 +1528,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsExactly(
+                            expectation: Expectation::EqsExactly(
                                 ExpectSubtype {
                                     expected: Category(
                                         TermCategory {
@@ -1597,16 +1545,16 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        Subtype(
+                                        FluffyTermExpectationOutcome::Subtype(
                                             ExpectSubtypeOutcome,
                                         ),
                                     ),
@@ -1614,7 +1562,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
+                            expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
                                         1,
@@ -1627,16 +1575,16 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: Category(
+                                expectee: FluffyTerm::Category(
                                     TermCategory {
                                         universe: TermUniverse(
                                             1,
                                         ),
                                     },
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        EqsSort(
+                                        FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
                                             ),

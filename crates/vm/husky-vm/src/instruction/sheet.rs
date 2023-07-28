@@ -3,12 +3,13 @@ use husky_coword::Ident;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct InstructionSheet {
+#[deprecated(note = "to be replaced by Instructions in husky-instruction")]
+pub struct Instructions {
     pub instructions: Vec<Instruction>,
     pub variable_stack: VariableStack,
 }
 
-impl InstructionSheet {
+impl Instructions {
     pub fn new(inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             instructions: vec![],

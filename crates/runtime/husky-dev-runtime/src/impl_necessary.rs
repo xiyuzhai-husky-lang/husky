@@ -23,7 +23,7 @@ impl InterpreterQueryGroup for DevRuntime {
     fn item_opt_instruction_sheet_by_uid(
         &self,
         uid: husky_vm::EntityUid,
-    ) -> Option<Arc<husky_vm::InstructionSheet>> {
+    ) -> Option<Arc<husky_vm::Instructions>> {
         todo!()
         // let item_path = self.item_route_by_uid(uid);
         // self.item_instruction_sheet(item_path)
@@ -43,8 +43,8 @@ impl Upcast<dyn ValReprDb> for DevRuntime {
     }
 }
 
-impl Upcast<dyn EvalFeature<'static>> for DevRuntime {
-    fn upcast(&self) -> &(dyn EvalFeature<'static> + 'static) {
+impl Upcast<dyn EvalFeature> for DevRuntime {
+    fn upcast(&self) -> &(dyn EvalFeature + 'static) {
         self
     }
 }
@@ -55,8 +55,8 @@ impl Upcast<dyn DataViewerDb> for DevRuntime {
     }
 }
 
-impl EvalFeature<'static> for DevRuntime {
-    fn session(&self) -> &Session<'static> {
+impl EvalFeature for DevRuntime {
+    fn session(&self) -> &Session {
         match self.variant {
             HuskyRuntimeVariant::None => todo!(),
             HuskyRuntimeVariant::Learning { ref session } => session,
@@ -67,7 +67,7 @@ impl EvalFeature<'static> for DevRuntime {
         &self.config.evaluator
     }
 
-    fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>> {
+    fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature> {
         Some(self)
     }
 }

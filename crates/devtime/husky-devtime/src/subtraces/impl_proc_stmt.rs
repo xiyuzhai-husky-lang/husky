@@ -7,8 +7,8 @@ impl Debugtime {
         loop_kind: VMLoopKind,
         loop_stmt: &Arc<ProcStmt>,
         body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
-        stack_snapshot: &StackSnapshot<'static>,
-        body_instruction_sheet: &Arc<InstructionSheet>,
+        stack_snapshot: &StackSnapshot,
+        body_instruction_sheet: &Instructions,
     ) -> Vec<TraceId> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let evaluator = self.runtime().evaluator(sample_id);
@@ -41,8 +41,8 @@ impl Debugtime {
         &mut self,
         loop_stmt: &Arc<ProcStmt>,
         stmts: &[Arc<ProcStmt>],
-        instruction_sheet: &InstructionSheet,
-        loop_frame_data: &LoopFrameData<'static>,
+        instruction_sheet: &Instructions,
+        loop_frame_data: &LoopFrameData,
         parent: &Trace,
     ) -> Vec<TraceId> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
@@ -85,8 +85,8 @@ impl Debugtime {
     pub(crate) fn proc_branch_subtraces(
         &mut self,
         stmts: &[Arc<ProcStmt>],
-        instruction_sheet: &InstructionSheet,
-        stack_snapshot: &StackSnapshot<'static>,
+        instruction_sheet: &Instructions,
+        stack_snapshot: &StackSnapshot,
         parent: &Trace,
     ) -> Vec<TraceId> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();

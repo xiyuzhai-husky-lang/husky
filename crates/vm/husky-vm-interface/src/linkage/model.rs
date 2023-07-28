@@ -22,20 +22,20 @@ impl PartialEq for __ModelLinkage {
 
 impl Eq for __ModelLinkage {}
 
-pub enum GenericArgument<'eval> {
-    Literal { value: __Register<'eval> },
-    NonConstant { values: Vec<__Register<'eval>> },
+pub enum GenericArgument {
+    Literal { value: __RegularValue },
+    NonConstant { values: Vec<__RegularValue> },
 }
 
-impl<'eval> GenericArgument<'eval> {
-    pub fn values(&self) -> &[__Register<'eval>] {
+impl GenericArgument {
+    pub fn values(&self) -> &[__RegularValue] {
         match self {
             GenericArgument::Literal { .. } => panic!(),
             GenericArgument::NonConstant { ref values } => values,
         }
     }
 
-    pub fn value(&self) -> &__Register<'eval> {
+    pub fn value(&self) -> &__RegularValue {
         match self {
             GenericArgument::Literal { ref value } => value,
             GenericArgument::NonConstant { .. } => panic!(),
@@ -44,50 +44,50 @@ impl<'eval> GenericArgument<'eval> {
 }
 
 pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    fn train_dyn<'eval>(
+    fn train_dyn(
         &self,
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
-    ) -> __VMResult<__Register<'eval>>;
-    fn eval_dyn<'eval>(
+    ) -> __VMResult<__RegularValue>;
+    fn eval_dyn(
         &self,
-        internal: &__Register<'eval>,
-        arguments: &[__Register<'eval>],
-    ) -> __VMResult<__Register<'eval>>;
+        internal: &__RegularValue,
+        arguments: &[__RegularValue],
+    ) -> __VMResult<__RegularValue>;
 }
 
 pub trait Model:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized + 'static
 {
-    type Internal: for<'eval> __Registrable<'eval>;
+    type Internal: __Registrable;
     fn internal_ty_vtable() -> &'static __RegisterTyVTable;
 
-    fn train<'eval>(
+    fn train(
         &self,
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<Self::Internal>;
-    fn eval<'eval>(
+    fn eval(
         &self,
         internal: &Self::Internal,
-        arguments: &[__Register<'eval>],
-    ) -> __VMResult<__Register<'eval>>;
+        arguments: &[__RegularValue],
+    ) -> __VMResult<__RegularValue>;
 }
 
 impl<T: Model> ModelDyn for T {
-    fn train_dyn<'eval>(
+    fn train_dyn(
         &self,
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         Ok(self.train(arguments, labels)?.to_register())
     }
 
-    fn eval_dyn<'eval>(
+    fn eval_dyn(
         &self,
-        internal: &__Register<'eval>,
-        arguments: &[__Register<'eval>],
-    ) -> __VMResult<__Register<'eval>> {
+        internal: &__RegularValue,
+        arguments: &[__RegularValue],
+    ) -> __VMResult<__RegularValue> {
         let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
         self.eval(internal, arguments)
     }

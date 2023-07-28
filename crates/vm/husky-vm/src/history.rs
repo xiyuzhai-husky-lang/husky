@@ -8,12 +8,12 @@ pub use entry::HistoryEntry;
 use husky_print_utils::p;
 
 #[derive(Debug, Default)]
-pub struct History<'eval> {
-    entries: HashMap<InstructionId, HistoryEntry<'eval>>,
+pub struct History {
+    entries: HashMap<InstructionId, HistoryEntry>,
 }
 
-impl<'eval> History<'eval> {
-    pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry<'eval>) {
+impl History {
+    pub fn write(&mut self, ins: &Instruction, entry: HistoryEntry) {
         if let Some(old_value) = self.entries.insert(ins.ins_id(), entry) {
             p!(ins.src.source(), ins.src.text_range(), ins.src);
             p!(old_value);
@@ -22,17 +22,17 @@ impl<'eval> History<'eval> {
     }
 }
 
-impl History<'static> {
+impl History {
     pub fn register_result<T: InstructionSource>(
         &self,
         t: &T,
-    ) -> Option<__VMResult<__Register<'static>>> {
+    ) -> Option<__VMResult<__RegularValue>> {
         self.entries
             .get(&t.instruction_id())
             .map(|entry| entry.result())
     }
 
-    pub fn get<T: InstructionSource>(&self, t: &T) -> Option<&HistoryEntry<'static>> {
+    pub fn get<T: InstructionSource>(&self, t: &T) -> Option<&HistoryEntry> {
         self.entries.get(&t.instruction_id())
     }
 

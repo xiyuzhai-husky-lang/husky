@@ -1,5 +1,5 @@
 use super::*;
 
-impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
+impl<'a, 'static: 'a> FeatureEvaluator<'a> {
     pub fn do_something(&self) {}
 }

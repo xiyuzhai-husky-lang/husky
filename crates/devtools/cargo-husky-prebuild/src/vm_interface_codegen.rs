@@ -68,7 +68,7 @@ impl std::fmt::Display for ImplFp {
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
+impl<{static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
 ) -> Output {{
     type __StaticSelf = fn({static_arg_types_with_comma}
     ) -> <Output as __StaticInfo>::__StaticSelf;
@@ -84,7 +84,7 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({ar
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
+impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
     for fn({arg_types}) -> Output {{
     fn __to_void_pointer(self) -> *const c_void {{
         self as *const c_void
@@ -96,7 +96,7 @@ impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
 impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
     for fn({arg_types}) -> Output {{
     type __CtxThinFp = fn(
-        {static_arg_types_with_comma}&dyn __EvalContext<'static>
+        {static_arg_types_with_comma}&dyn __EvalContext
     ) -> Output;
 }}
 
@@ -104,9 +104,9 @@ impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
+impl<{static_arg_types_decl}Output: __StaticInfo> __StaticInfo
     for fn(
-        {arg_types_with_comma}&dyn __EvalContext<'eval>
+        {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{
     type __StaticSelf = fn({static_arg_types_with_comma}
     ) -> <Output as __StaticInfo>::__StaticSelf;
@@ -122,9 +122,9 @@ impl<'eval, {static_arg_types_decl}Output: __StaticInfo> __StaticInfo
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
+impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
     for fn(
-        {arg_types_with_comma}&dyn __EvalContext<'eval>
+        {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{
     fn __to_void_pointer(self) -> *const c_void {{
         self as *const c_void
@@ -133,9 +133,9 @@ impl<'eval, {arg_types_decl}Output: __StaticInfo> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, {arg_types_decl}Output: __StaticInfo> const __CtxThinFp
+impl<{arg_types_decl}Output: __StaticInfo> const __CtxThinFp
     for fn(
-        {arg_types_with_comma}&dyn __EvalContext<'eval>
+        {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{}}
 "#,
         ))

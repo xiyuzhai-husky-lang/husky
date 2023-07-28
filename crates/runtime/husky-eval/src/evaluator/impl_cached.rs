@@ -3,12 +3,12 @@ use husky_vm::*;
 
 use super::FeatureEvaluator;
 
-impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
+impl<'temp> FeatureEvaluator<'temp, 'static> {
     pub(super) fn eval_cached(
         &self,
         eval_key: EvalKey,
-        f: impl FnOnce(&Self) -> __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
+        f: impl FnOnce(&Self) -> __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {

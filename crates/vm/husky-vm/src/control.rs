@@ -1,20 +1,20 @@
 use crate::*;
 
 #[derive(Debug, Clone)]
-pub enum VMControl<'eval> {
+pub enum VMControl {
     None,
-    Return(__Register<'eval>),
+    Return(__RegularValue),
     Break,
     Err(__VMError),
 }
 
-impl<'eval> Default for VMControl<'eval> {
+impl Default for VMControl {
     fn default() -> Self {
         VMControl::None
     }
 }
 
-impl<'eval> From<__VMResult<()>> for VMControl<'eval> {
+impl From<__VMResult<()>> for VMControl {
     fn from(result: __VMResult<()>) -> Self {
         match result {
             Ok(_) => Default::default(),
@@ -23,8 +23,8 @@ impl<'eval> From<__VMResult<()>> for VMControl<'eval> {
     }
 }
 
-impl<'eval> From<__VMResult<VMControl<'eval>>> for VMControl<'eval> {
-    fn from(result: __VMResult<VMControl<'eval>>) -> Self {
+impl From<__VMResult<VMControl>> for VMControl {
+    fn from(result: __VMResult<VMControl>) -> Self {
         match result {
             Ok(control) => control,
             Err(e) => Self::Err(e),
@@ -32,8 +32,8 @@ impl<'eval> From<__VMResult<VMControl<'eval>>> for VMControl<'eval> {
     }
 }
 
-impl<'eval> VMControl<'eval> {
-    pub(crate) fn snapshot(&self) -> ControlSnapshot<'eval> {
+impl VMControl {
+    pub(crate) fn snapshot(&self) -> ControlSnapshot {
         match self {
             VMControl::None => ControlSnapshot::None,
             VMControl::Return(value) => ControlSnapshot::Return(value.snapshot()),
@@ -44,9 +44,9 @@ impl<'eval> VMControl<'eval> {
 }
 
 #[derive(Debug, Clone)]
-pub enum ControlSnapshot<'eval> {
+pub enum ControlSnapshot {
     None,
-    Return(__Register<'eval>),
+    Return(__RegularValue),
     Break,
     Err(__VMError),
 }

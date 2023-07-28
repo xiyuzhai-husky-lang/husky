@@ -31,7 +31,7 @@ impl EtherealTermRitchieVariadicParameter {
         db: &dyn EtherealTermDb,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        todo!();
+        // todo!();
         self.ty.show_with_db_fmt(f, db, ctx)
     }
 }

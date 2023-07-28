@@ -30,7 +30,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(&ident);
         let is_output_option = return_ty.is_option();
         self.write(format!(
-            "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
+            "(__ctx: &dyn __EvalContext) -> {}&'static ",
             match is_output_option {
                 true => "Option<",
                 false => "",
@@ -47,7 +47,7 @@ impl<'a> RustCodeGenerator<'a> {
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
+            .downcast_{}leash(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
             match return_ty.is_option() {
@@ -70,7 +70,7 @@ impl<'a> RustCodeGenerator<'a> {
         self.write(&ident);
         let is_output_option = return_ty.is_option();
         self.write(format!(
-            "<'eval>(__ctx: &dyn __EvalContext<'eval>) -> {}&'eval ",
+            "(__ctx: &dyn __EvalContext) -> {}&'static ",
             match is_output_option {
                 true => "Option<",
                 false => "",
@@ -87,7 +87,7 @@ impl<'a> RustCodeGenerator<'a> {
     if let Some(__result) = __ctx.opt_cached_feature(__feature) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
+            .downcast_{}leash(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
             match return_ty.is_option() {
@@ -109,18 +109,18 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         todo!()
         // let needs_eval_context: bool = self.db.needs_eval_context(base_route);
-        // let needs_eval_ref = (needs_eval_context
-        //     || self.db.item_route_variant_contains_eval_ref(base_route))
+        // let needs_leash = (needs_eval_context
+        //     || self.db.item_route_variant_contains_leash(base_route))
         //     && !self
         //         .db
-        //         .item_route_variant_contains_eval_ref(base_route.parent());
+        //         .item_route_variant_contains_leash(base_route.parent());
         // self.write("\n");
         // self.indent(indent);
         // self.write("pub(crate) fn ");
         // let ident = base_route.ident();
         // self.write(&ident);
-        // if needs_eval_ref {
-        //     self.write("<'eval>")
+        // if needs_leash {
+        //     self.write("")
         // }
         // self.write("(");
         // for (i, parameter) in parameters.iter().enumerate() {
@@ -135,7 +135,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                 self.write("&")
         //             }
         //         }
-        //         ParameterModifier::Leash => self.write("&'eval "),
+        //         ParameterModifier::Leash => self.write("&'static "),
         //         ParameterModifier::Owned => todo!(),
         //         ParameterModifier::TempRefMut => todo!(),
         //         ParameterModifier::OwnedMut => todo!(),
@@ -149,7 +149,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     if parameters.len() > 0 {
         //         self.write(", ")
         //     }
-        //     self.write("__ctx: &dyn __EvalContext<'eval>");
+        //     self.write("__ctx: &dyn __EvalContext");
         // }
         // self.write(") -> ");
         // self.gen_item_route(output, EntityRouteRole::Decl);
@@ -168,17 +168,17 @@ impl<'a> RustCodeGenerator<'a> {
         stmts: &[Arc<FuncStmt>],
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
-        let needs_eval_ref = needs_eval_context
-            || self.db.item_route_variant_contains_eval_ref(base_route)
+        let needs_leash = needs_eval_context
+            || self.db.item_route_variant_contains_leash(base_route)
                 && !self
                     .db
-                    .item_route_variant_contains_eval_ref(base_route.parent());
+                    .item_route_variant_contains_leash(base_route.parent());
         self.indent(indent);
         self.write("pub(crate) fn ");
         let ident = base_route.ident();
         self.write(&ident);
-        if needs_eval_ref {
-            self.write("<'eval>")
+        if needs_leash {
+            self.write("")
         }
         self.write("(");
         for (i, parameter) in parameters.iter().enumerate() {
@@ -192,7 +192,7 @@ impl<'a> RustCodeGenerator<'a> {
             if parameters.len() > 0 {
                 self.write(", ")
             }
-            self.write("__ctx: &dyn __EvalContext<'eval>");
+            self.write("__ctx: &dyn __EvalContext");
         }
         self.write(") -> ");
         self.gen_item_route(output, EntityRouteRole::Decl);

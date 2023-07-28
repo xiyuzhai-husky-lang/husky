@@ -43,7 +43,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                         if item_path.spatial_arguments.len() > 1 {
         //                             self.write(", ")
         //                         }
-        //                         self.write("&dyn __EvalContext<'static>")
+        //                         self.write("&dyn __EvalContext")
         //                     }
         //                     _ => (),
         //                 }
@@ -72,7 +72,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                     | EntityRouteRole::ForAnyLifetimeOther => self.write("&"),
         //                     EntityRouteRole::Caller
         //                     | EntityRouteRole::Decl
-        //                     | EntityRouteRole::Other => self.write("&'eval "),
+        //                     | EntityRouteRole::Other => self.write("&'static "),
         //                     EntityRouteRole::StaticDecl => self.write("&'static "),
         //                     EntityRouteRole::StaticThinFpTyDecl { .. } => self.write("&'static "),
         //                     EntityRouteRole::FpValue => todo!(),
@@ -110,23 +110,23 @@ impl<'a> RustCodeGenerator<'a> {
         //         EntityRouteVariant::TargetOutputType => todo!(),
         //     }
         // }
-        // let needs_eval_ref = match role {
+        // let needs_leash = match role {
         //     EntityRouteRole::Decl
         //     | EntityRouteRole::StaticThinFpTyDecl { .. }
         //     | EntityRouteRole::StaticDecl => {
-        //         self.db.item_route_variant_contains_eval_ref(item_path)
+        //         self.db.item_route_variant_contains_leash(item_path)
         //     }
         //     _ => false,
         // };
-        // if needs_eval_ref || item_path.spatial_arguments.len() > 0 {
+        // if needs_leash || item_path.spatial_arguments.len() > 0 {
         //     match role {
         //         EntityRouteRole::Caller | EntityRouteRole::StaticCallRoute => self.write("::"),
         //         _ => (),
         //     }
         //     self.write("<");
-        //     if needs_eval_ref {
+        //     if needs_leash {
         //         match role {
-        //             EntityRouteRole::Decl => self.write("'eval"),
+        //             EntityRouteRole::Decl => self.write("'static"),
         //             EntityRouteRole::StaticThinFpTyDecl { .. } | EntityRouteRole::StaticDecl => {
         //                 self.write("'static")
         //             }
@@ -134,7 +134,7 @@ impl<'a> RustCodeGenerator<'a> {
         //         }
         //     }
         //     for i in 0..item_path.spatial_arguments.len() {
-        //         if i > 0 || needs_eval_ref {
+        //         if i > 0 || needs_leash {
         //             self.write(", ")
         //         }
         //         match item_path.spatial_arguments[i] {

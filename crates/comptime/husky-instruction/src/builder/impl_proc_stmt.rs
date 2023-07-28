@@ -2,7 +2,7 @@ use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{
-    Instruction, InstructionVariant, VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch,
+    Instruction, InstructionData, VMConditionBranch, VMLoopKind, VMPattern, VMPatternBranch,
     __RegistrableSafe,
 };
 
@@ -33,12 +33,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
+                self.push_instruction(Instruction::new(InstructionData::Assert, stmt))
             }
             ProcStmtVariant::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Return {
+                    InstructionData::Return {
                         return_ty: result.intrinsic_ty(),
                     },
                     stmt,
@@ -52,11 +52,11 @@ impl<'a> InstructionSheetBuilder<'a> {
                 ref stmts,
             } => self.compile_loop(loop_variant, stmt.clone(), stmts),
             ProcStmtVariant::Break => {
-                self.push_instruction(Instruction::new(InstructionVariant::Break, stmt))
+                self.push_instruction(Instruction::new(InstructionData::Break, stmt))
             }
             ProcStmtVariant::ConditionFlow { ref branches, .. } => {
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::ConditionFlow {
+                    InstructionData::ConditionFlow {
                         branches: self.compile_proc_condition_flow(branches),
                     },
                     stmt,
@@ -72,7 +72,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     false,
                 );
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::PatternMatch {
+                    InstructionData::PatternMatch {
                         branches: self.compile_proc_pattern_match(branches),
                     },
                     stmt,
@@ -102,7 +102,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Loop {
+                    InstructionData::Loop {
                         body,
                         loop_kind: VMLoopKind::For {
                             initial_boundary_kind: initial_boundary.kind,
@@ -125,7 +125,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Loop {
+                    InstructionData::Loop {
                         body,
                         loop_kind: VMLoopKind::ForExt {
                             final_boundary_kind: final_boundary.kind,
@@ -145,13 +145,13 @@ impl<'a> InstructionSheetBuilder<'a> {
                     false,
                 );
                 block_sheet_builder.push_instruction(Instruction::new(
-                    InstructionVariant::BreakIfFalse,
+                    InstructionData::BreakIfFalse,
                     loop_stmt.clone(),
                 ));
                 block_sheet_builder.compile_proc_stmts(body_stmts);
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Loop {
+                    InstructionData::Loop {
                         body,
                         loop_kind: VMLoopKind::Loop,
                     },
@@ -167,12 +167,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                     false,
                 );
                 block_sheet_builder.push_instruction(Instruction::new(
-                    InstructionVariant::BreakIfFalse,
+                    InstructionData::BreakIfFalse,
                     loop_stmt.clone(),
                 ));
                 let body = block_sheet_builder.finalize();
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Loop {
+                    InstructionData::Loop {
                         body,
                         loop_kind: VMLoopKind::Loop,
                     },
@@ -188,7 +188,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)
         // } else {
         //     self.push_instruction(Instruction::new(
-        //         InstructionVariant::PushLiteralValue {
+        //         InstructionData::PushLiteralValue {
         //             value: 0i32.to_register(),
         //             explicit: false,
         //             ty: RootBuiltinIdent::I32.into(),
@@ -201,7 +201,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_proc_condition_flow(
         &self,
         branches: &[Arc<ProcConditionFlowBranch>],
-    ) -> Avec<VMConditionBranch> {
+    ) -> VMConditionBranchs {
         Arc::new(
             branches
                 .iter()

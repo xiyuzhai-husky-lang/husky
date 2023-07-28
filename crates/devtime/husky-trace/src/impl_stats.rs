@@ -3,7 +3,7 @@ use crate::*;
 use husky_print_utils::msg_once;
 
 use husky_trace_protocol::TraceStats;
-use husky_vm::{__Register, __VMResult};
+use husky_vm::{__RegularValue, __VMResult};
 
 impl TraceVariant {
     pub fn opt_stats_result(
@@ -35,8 +35,8 @@ impl TraceVariant {
     }
 }
 
-fn feature_repr_opt_stats<'eval>(
-    db: &dyn EvalFeature<'eval>,
+fn feature_repr_opt_stats(
+    db: &dyn EvalFeature,
     partitions: &Partitions,
     repr: &ValRepr,
     opt_arrival_indicator: Option<&ValDomain>,
@@ -50,8 +50,8 @@ fn feature_repr_opt_stats<'eval>(
     )
 }
 
-fn feature_stmt_opt_stats<'eval>(
-    _db: &dyn EvalFeature<'eval>,
+fn feature_stmt_opt_stats(
+    _db: &dyn EvalFeature,
     _partitions: &Partitions,
     _stmt: &ValStmt,
 ) -> __VMResult<Option<TraceStats>> {
@@ -74,8 +74,8 @@ fn feature_stmt_opt_stats<'eval>(
     // }
 }
 
-fn feature_branch_opt_stats<'eval>(
-    db: &dyn EvalFeature<'eval>,
+fn feature_branch_opt_stats(
+    db: &dyn EvalFeature,
     partitions: &Partitions,
     branch: &FeatureLazyBranch,
 ) -> __VMResult<Option<TraceStats>> {
@@ -85,16 +85,16 @@ fn feature_branch_opt_stats<'eval>(
     //     db,
     //     partitions,
     //     branch.block.return_ty.route,
-    //     |sample_id| -> __VMResult<__Register<'eval>> {
+    //     |sample_id| -> __VMResult<__RegularValue> {
     //         match branch.variant {
     //             FeatureLazyBranchVariant::If { ref condition } => {
     //                 if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
-    //                     return Ok(__Register::unreturned());
+    //                     return Ok(__RegularValue::unreturned());
     //                 }
     //             }
     //             FeatureLazyBranchVariant::Elif { ref condition } => {
     //                 if !db.eval_feature_expr(condition, sample_id)?.to_bool() {
-    //                     return Ok(__Register::unreturned());
+    //                     return Ok(__RegularValue::unreturned());
     //                 }
     //             }
     //             FeatureLazyBranchVariant::Else => (),
@@ -105,8 +105,8 @@ fn feature_branch_opt_stats<'eval>(
     // )
 }
 
-fn feature_expr_opt_stats<'eval>(
-    db: &dyn EvalFeature<'eval>,
+fn feature_expr_opt_stats(
+    db: &dyn EvalFeature,
     partitions: &Partitions,
     expr: &FeatureLazyExpr,
 ) -> __VMResult<Option<TraceStats>> {
@@ -119,11 +119,11 @@ fn feature_expr_opt_stats<'eval>(
     )
 }
 
-fn feature_opt_stats<'eval>(
+fn feature_opt_stats(
     _db: &dyn EvalFeature,
     _partitions: &Partitions,
     _feature_ty: EtherealTerm,
-    _compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
+    _compute_value: impl Fn(SampleId) -> __VMResult<__RegularValue>,
     _opt_arrival_indicator: Option<&ValDomain>,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()

@@ -1,13 +1,13 @@
 use husky_any::{DeprecatedVirtualStruct, __DEPRECATED_VIRTUAL_STRUCT_VTABLE};
 use husky_vm_binding::Binding;
-use husky_vm_interface::{__Register, __RegisterDataKind};
+use husky_vm_interface::{__RegisterDataKind, __RegularValue};
 
-pub trait VMRegisterMethodX<'eval>: Sized {
-    fn virtual_struct_field(self, field_idx: u8, field_binding: Binding) -> __Register<'eval>;
+pub trait VMRegisterMethodX: Sized {
+    fn virtual_struct_field(self, field_idx: u8, field_binding: Binding) -> __RegularValue;
 }
 
-impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
-    fn virtual_struct_field(mut self, field_idx: u8, field_binding: Binding) -> __Register<'eval> {
+impl VMRegisterMethodX for __RegularValue {
+    fn virtual_struct_field(mut self, field_idx: u8, field_binding: Binding) -> __RegularValue {
         if self.vtable.typename_str_hash_u64
             != __DEPRECATED_VIRTUAL_STRUCT_VTABLE.typename_str_hash_u64
         {
@@ -21,9 +21,9 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
                 __RegisterDataKind::Leash => {
-                    let this_value: &'eval DeprecatedVirtualStruct =
-                        self.downcast_eval_ref(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE);
-                    this_value.bind_field_eval_ref(field_idx)
+                    let this_value: &'static DeprecatedVirtualStruct =
+                        self.downcast_leash(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE);
+                    this_value.bind_field_leash(field_idx)
                 }
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),

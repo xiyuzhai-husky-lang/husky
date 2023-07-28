@@ -49,7 +49,7 @@ inductive TraceVariant
       (history : History)
     | LoopFrame
       (loop_stmt : ProcStmt)
-      (body_instruction_sheet: InstructionSheet)
+      (body_instruction_sheet: Instructions)
       (body_stmts : List ProcStmt)
       (loop_frame_data: LoopFrameData)
     | EagerExpr

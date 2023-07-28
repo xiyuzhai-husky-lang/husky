@@ -1,13 +1,13 @@
 use crate::*;
 use avec::Avec;
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
+impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_condition_flow(
         &mut self,
         ins: &Instruction,
         branches: &Avec<VMConditionBranch>,
         mode: Mode,
-    ) -> VMControl<'eval> {
+    ) -> VMControl {
         let stack_len = self.stack.len();
         let mut indexed_branch_iter = branches.iter().enumerate();
         let opt_indexed_branch_entered = loop {

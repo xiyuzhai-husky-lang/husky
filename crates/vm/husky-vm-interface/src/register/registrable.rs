@@ -4,10 +4,10 @@ mod impl_primitive;
 
 use super::*;
 
-pub trait __Registrable<'eval>:
+pub trait __Registrable:
     __StaticInfo + std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized
 {
-    unsafe fn __to_register(self) -> __Register<'eval>;
+    unsafe fn __to_register(self) -> __RegularValue;
 }
 
 impl __StaticInfo for PrimitiveValueData {
@@ -22,14 +22,14 @@ impl __StaticInfo for PrimitiveValueData {
     }
 }
 
-impl<'eval, T> __Registrable<'eval> for Option<T>
+impl<T> __Registrable for Option<T>
 where
-    T: __Registrable<'eval>,
+    T: __Registrable,
 {
-    unsafe fn __to_register(self) -> __Register<'eval> {
+    unsafe fn __to_register(self) -> __RegularValue {
         match self {
             Some(v) => v.__to_register(),
-            None => __Register::none(0),
+            None => __RegularValue::none(0),
         }
     }
 }

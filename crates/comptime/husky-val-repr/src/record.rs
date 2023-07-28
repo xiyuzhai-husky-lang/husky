@@ -3,11 +3,7 @@ use husky_item_semantics::{EntityDefnVariant, FieldDefnVariant};
 use crate::*;
 use std::sync::Arc;
 
-pub(crate) fn record_field_repr<'eval>(
-    db: &dyn ValReprDb,
-    this: ValRepr,
-    field_ident: Ident,
-) -> ValRepr {
+pub(crate) fn record_field_repr(db: &dyn ValReprDb, this: ValRepr, field_ident: Ident) -> ValRepr {
     match this {
         ValRepr::Value { .. } => todo!(),
         ValRepr::LazyExpr(ref expr) => expr_record_field(db, expr, field_ident),
@@ -18,11 +14,7 @@ pub(crate) fn record_field_repr<'eval>(
     }
 }
 
-pub(crate) fn expr_record_field<'eval>(
-    db: &dyn ValReprDb,
-    this: &ValExpr,
-    field_ident: Ident,
-) -> ValRepr {
+pub(crate) fn expr_record_field(db: &dyn ValReprDb, this: &ValExpr, field_ident: Ident) -> ValRepr {
     match this.variant {
         FeatureLazyExprVariant::Variable { ref value, .. } => {
             expr_record_field(db, value, field_ident)

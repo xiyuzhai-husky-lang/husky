@@ -1,6 +1,6 @@
 use crate::*;
 use husky_val_repr::{FeatureLazyExpr, FeatureLazyExprVariant, TrainModel, ValDomain};
-use husky_vm::{GenericArgument, __Register, __VMError};
+use husky_vm::{GenericArgument, __RegularValue, __VMError};
 
 impl TrainModel for DevRuntime {
     fn train(
@@ -8,7 +8,7 @@ impl TrainModel for DevRuntime {
         model: husky_vm::__ModelLinkage,
         opt_arrival_indicator: Option<&ValDomain>,
         opds: &[ValExpr],
-    ) -> husky_vm::__VMResult<__Register<'static>> {
+    ) -> husky_vm::__VMResult<__RegularValue> {
         let session = self.session();
         let dev_division = session.dev();
         let mut arguments: Vec<GenericArgument> = opds

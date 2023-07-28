@@ -4,11 +4,11 @@ use husky_coword::Ident;
 
 pub const STACK_SIZE: usize = 255;
 
-pub struct VMStack<'eval> {
-    values: ArrayVec<__Register<'eval>, STACK_SIZE>,
+pub struct VMStack {
+    values: ArrayVec<__RegularValue, STACK_SIZE>,
 }
 
-impl<'eval> std::fmt::Debug for VMStack<'eval> {
+impl std::fmt::Debug for VMStack {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("VMStack")
             .field("values", &self.values)
@@ -16,15 +16,15 @@ impl<'eval> std::fmt::Debug for VMStack<'eval> {
     }
 }
 
-impl<'eval, T: Iterator<Item = __Register<'eval>>> From<T> for VMStack<'eval> {
+impl<T: Iterator<Item = __RegularValue>> From<T> for VMStack {
     fn from(t: T) -> Self {
         Self::new(t)
     }
 }
 
-impl<'eval> VMStack<'eval> {
+impl VMStack {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = __VMResult<__Register<'eval>>>,
+        argument_iter: impl Iterator<Item = __VMResult<__RegularValue>>,
     ) -> __VMResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
@@ -33,7 +33,7 @@ impl<'eval> VMStack<'eval> {
         Ok(Self { values })
     }
 
-    pub(crate) fn new(argument_iter: impl Iterator<Item = __Register<'eval>>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = __RegularValue>) -> Self {
         let mut values = ArrayVec::new();
         for value in argument_iter {
             values.push(value)
@@ -41,11 +41,11 @@ impl<'eval> VMStack<'eval> {
         Self { values }
     }
 
-    pub(crate) fn value(&self, idx: VMStackIdx) -> &__Register<'eval> {
+    pub(crate) fn value(&self, idx: VMStackIdx) -> &__RegularValue {
         &self.values[idx.raw()]
     }
 
-    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut __Register<'eval> {
+    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut __RegularValue {
         &mut self.values[idx.raw()]
     }
 
@@ -53,7 +53,7 @@ impl<'eval> VMStack<'eval> {
         &mut self,
         stack_idx: VMStackIdx,
         binding: Binding,
-    ) -> &mut __Register<'eval> {
+    ) -> &mut __RegularValue {
         unsafe {
             let value = &mut self.values[stack_idx.raw()];
             let stack_value = value.bind(binding);
@@ -62,7 +62,7 @@ impl<'eval> VMStack<'eval> {
         self.values.last_mut().unwrap()
     }
 
-    pub(crate) fn snapshot(&mut self, message: String) -> StackSnapshot<'eval> {
+    pub(crate) fn snapshot(&mut self, message: String) -> StackSnapshot {
         StackSnapshot {
             message,
             values: self
@@ -73,7 +73,7 @@ impl<'eval> VMStack<'eval> {
         }
     }
 
-    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __Register<'eval> {
+    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __RegularValue {
         self.values[stack_idx.raw()].snapshot()
     }
 
@@ -81,19 +81,19 @@ impl<'eval> VMStack<'eval> {
         self.values.len()
     }
 
-    pub(crate) fn push(&mut self, value: __Register<'eval>) {
+    pub(crate) fn push(&mut self, value: __RegularValue) {
         assert_ne!(value.vtable as *const _, &__VOID_VTABLE as *const _);
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> __Register<'eval> {
+    pub(crate) fn pop(&mut self) -> __RegularValue {
         self.values.pop().unwrap()
     }
 
-    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = __Register<'eval>> + 'a {
+    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = __RegularValue> + 'a {
         self.values.drain((self.len() - k as usize)..)
     }
 
-    pub(crate) fn eval_top(&mut self) -> __Register<'eval> {
+    pub(crate) fn eval_top(&mut self) -> __RegularValue {
         self.values.last().unwrap().snapshot()
     }
 

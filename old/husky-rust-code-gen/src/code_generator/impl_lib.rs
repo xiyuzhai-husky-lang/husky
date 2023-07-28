@@ -11,8 +11,8 @@ impl<'a> RustCodeGenerator<'a> {
         // pub mod __registration__;
         // use __husky::root::*;
 
-        // fn __input<'a, 'eval: 'a>(
-        //     __ctx: &'a dyn __EvalContext<'eval>
+        // fn __input<'a, 'static: 'a>(
+        //     __ctx: &'a dyn __EvalContext
         // ) -> &'a "#,
         //         ));
         //         self.gen_item_route(target_parameter_ty, EntityRouteRole::Decl);

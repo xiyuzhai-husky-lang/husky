@@ -293,8 +293,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //     let parameter_ty = parameter.ty();
     //     match parameter.modifier {
     //         ParameterModifier::None => {
-    //             if parameter_ty.is_eval_ref() {
-    //                 self.gen_parameter_downcast_eval_ref(i, parameter)
+    //             if parameter_ty.is_leash() {
+    //                 self.gen_parameter_downcast_leash(i, parameter)
     //             } else {
     //                 if self.db.is_copyable(parameter_ty).unwrap() {
     //                     self.gen_parameter_downcast_copy(i, parameter)
@@ -312,8 +312,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //                     }
     //                     CanonicalQualifier::Leash => {
     //                         match canonical_parameter_ty.option_level() {
-    //                             0 => self.gen_parameter_downcast_eval_ref(i, parameter),
-    //                             1 => self.gen_parameter_downcast_opt_eval_ref(i, parameter),
+    //                             0 => self.gen_parameter_downcast_leash(i, parameter),
+    //                             1 => self.gen_parameter_downcast_opt_leash(i, parameter),
     //                             _ => todo!(),
     //                         }
     //                     }
@@ -326,7 +326,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //         }
     //         ParameterModifier::OwnedMut => todo!(),
     //         ParameterModifier::MemberAccess => todo!(),
-    //         ParameterModifier::Leash => self.gen_parameter_downcast_eval_ref(i, parameter),
+    //         ParameterModifier::Leash => self.gen_parameter_downcast_leash(i, parameter),
     //         ParameterModifier::TempRef => todo!(),
     //         ParameterModifier::TempRefMut => todo!(),
     //     }
@@ -422,26 +422,26 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //     ))
     // }
 
-    // fn gen_parameter_downcast_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
+    // fn gen_parameter_downcast_leash(&mut self, i: usize, parameter: &ParameterDecl) {
     //     let parameter_name = parameter.ident;
     //     let parameter_ty = parameter.ty();
     //     self.write(&format!(
     //         r#"
-    //                 let {parameter_name}: &'eval "#
+    //                 let {parameter_name}: &'static "#
     //     ));
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
     //     self.gen_item_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
-    //     self.write(&format!(" = __arguments[{i}].downcast_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
+    //     self.write(&format!(" = __arguments[{i}].downcast_leash(&__registration__::{mangled_parameter_ty_vtable});"))
     // }
-    // fn gen_parameter_downcast_opt_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
+    // fn gen_parameter_downcast_opt_leash(&mut self, i: usize, parameter: &ParameterDecl) {
     //     let parameter_name = parameter.ident;
     //     let parameter_ty = parameter.ty();
     //     self.write(&format!(
     //         r#"
-    //                 let {parameter_name}: Option<&'eval "#
+    //                 let {parameter_name}: Option<&'static "#
     //     ));
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
     //     self.gen_item_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
-    //     self.write(&format!("> = __arguments[{i}].downcast_opt_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
+    //     self.write(&format!("> = __arguments[{i}].downcast_opt_leash(&__registration__::{mangled_parameter_ty_vtable});"))
     // }
 }

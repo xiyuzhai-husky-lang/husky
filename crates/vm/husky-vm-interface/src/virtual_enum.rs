@@ -18,11 +18,11 @@ impl __StaticInfo for __VirtualEnum {
     }
 }
 
-impl<'eval> __Registrable<'eval> for __VirtualEnum {
-    unsafe fn __to_register(self) -> __Register<'eval>
+impl __Registrable for __VirtualEnum {
+    unsafe fn __to_register(self) -> __RegularValue
     where
-        Self: 'eval,
+        Self: 'static,
     {
-        __Register::new_box(self, &__VIRTUAL_ENUM_VTABLE)
+        __RegularValue::new_box(self, &__VIRTUAL_ENUM_VTABLE)
     }
 }

@@ -10,14 +10,14 @@ use husky_vm::{__VMResult, eval_fast};
 use std::sync::Arc;
 
 #[derive(Debug)]
-pub struct Session<'eval> {
+pub struct Session {
     config: Arc<Config>,
-    pub(crate) dev: Division<'eval>,
-    val: Division<'eval>,
-    test: Division<'eval>,
+    pub(crate) dev: Division,
+    val: Division,
+    test: Division,
 }
 
-impl<'eval> Session<'eval> {
+impl Session {
     pub fn new(package: &Package, db: &dyn ValReprDb, vm_config: &VMConfig) -> __VMResult<Self> {
         let config = package.config.clone();
         let dataset: Dataset = eval_fast(
@@ -39,11 +39,11 @@ impl<'eval> Session<'eval> {
         })
     }
 
-    pub fn dev(&self) -> &Division<'eval> {
+    pub fn dev(&self) -> &Division {
         &self.dev
     }
 
-    pub fn val(&self) -> &Division<'eval> {
+    pub fn val(&self) -> &Division {
         &self.val
     }
 }

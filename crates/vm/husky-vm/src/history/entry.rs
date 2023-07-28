@@ -3,40 +3,40 @@ use avec::Avec;
 use crate::*;
 
 #[derive(Debug)]
-pub enum HistoryEntry<'eval> {
+pub enum HistoryEntry {
     PureExpr {
-        result: __VMResult<__Register<'eval>>,
+        result: __VMResult<__RegularValue>,
         ty: EtherealTerm,
     },
     Exec {
-        mutations: Vec<MutationData<'eval>>,
+        mutations: Vec<MutationData>,
     },
     Loop {
         loop_kind: VMLoopKind,
-        control: ControlSnapshot<'eval>,
-        stack_snapshot: StackSnapshot<'eval>,
-        body_instruction_sheet: Arc<InstructionSheet>,
-        mutations: Vec<MutationData<'eval>>,
+        control: ControlSnapshot,
+        stack_snapshot: StackSnapshot,
+        body_instruction_sheet: Instructions,
+        mutations: Vec<MutationData>,
     },
     ControlFlow {
         opt_branch_entered: Option<u8>,
         vm_branches: Avec<VMConditionBranch>,
-        control: ControlSnapshot<'eval>,
-        stack_snapshot: StackSnapshot<'eval>,
-        mutations: Vec<MutationData<'eval>>,
+        control: ControlSnapshot,
+        stack_snapshot: StackSnapshot,
+        mutations: Vec<MutationData>,
     },
     PatternMatching {
         opt_branch_entered: Option<u8>,
         vm_branches: Avec<VMPatternBranch>,
-        control: ControlSnapshot<'eval>,
-        stack_snapshot: StackSnapshot<'eval>,
-        mutations: Vec<MutationData<'eval>>,
+        control: ControlSnapshot,
+        stack_snapshot: StackSnapshot,
+        mutations: Vec<MutationData>,
     },
     Break,
 }
 
-impl<'eval> HistoryEntry<'eval> {
-    pub fn result(&self) -> __VMResult<__Register<'eval>> {
+impl HistoryEntry {
+    pub fn result(&self) -> __VMResult<__RegularValue> {
         match self {
             HistoryEntry::PureExpr { ref result, .. } => result.clone(),
             HistoryEntry::Exec { mutations } => {
@@ -54,11 +54,11 @@ impl<'eval> HistoryEntry<'eval> {
 
     pub(crate) fn loop_entry(
         loop_kind: VMLoopKind,
-        control: &VMControl<'eval>,
-        stack_snapshot: StackSnapshot<'eval>,
-        body: Arc<InstructionSheet>,
-        mutations: Vec<MutationData<'eval>>,
-    ) -> HistoryEntry<'eval> {
+        control: &VMControl,
+        stack_snapshot: StackSnapshot,
+        body: Instructions,
+        mutations: Vec<MutationData>,
+    ) -> HistoryEntry {
         HistoryEntry::Loop {
             loop_kind,
             control: control.snapshot(),

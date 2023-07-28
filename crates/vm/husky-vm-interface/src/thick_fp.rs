@@ -19,7 +19,7 @@ impl<F: __BaseThinFp> Eq for ThickFp<F> {}
 
 impl<F> ThickFp<F>
 where
-    F: for<'eval> __BaseThinFp,
+    F: __BaseThinFp,
 {
     pub(crate) const fn new(needs_eval_context: bool, fp: *const c_void) -> Self {
         Self {
@@ -45,7 +45,7 @@ where
         }
     }
 
-    pub fn call1<'eval, A1, Output>(self, a1: A1, __ctx: &dyn __EvalContext<'eval>) -> Output
+    pub fn call1<'static, A1, Output>(self, a1: A1, __ctx: &dyn __EvalContext) -> Output
     where
         A1: __StaticInfo,
         F: Fn(A1::__StaticSelf) -> Output,
@@ -53,8 +53,7 @@ where
         unsafe {
             match self.needs_eval_context {
                 true => {
-                    let f: fn(A1, &dyn __EvalContext<'eval>) -> Output =
-                        std::mem::transmute(self.fp);
+                    let f: fn(A1, &dyn __EvalContext) -> Output = std::mem::transmute(self.fp);
                     f(a1, __ctx)
                 }
                 false => {
@@ -66,7 +65,7 @@ where
     }
 }
 
-impl<'eval, F: __BaseThinFp> __StaticInfo for ThickFp<F>
+impl<F: __BaseThinFp> __StaticInfo for ThickFp<F>
 where
     F::__StaticSelf: __BaseThinFp,
 {

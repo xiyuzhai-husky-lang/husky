@@ -17,8 +17,8 @@ where
     }
 }
 
-impl<'a, 'eval, T: __Registrable<'eval>> __Registrable<'eval> for CyclicSlice<'a, T> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
+impl<'a, T: __Registrable> __Registrable for CyclicSlice<'a, T> {
+    unsafe fn __to_register(self) -> __RegularValue {
         todo!()
     }
 }

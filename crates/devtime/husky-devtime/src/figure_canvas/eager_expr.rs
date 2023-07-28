@@ -4,7 +4,7 @@ impl Debugtime {
     pub(crate) fn eager_expr_figure(
         &self,
         expr: &EagerExpr,
-        history: &History<'static>,
+        history: &History,
     ) -> SpecificFigureCanvasData {
         if let Some(entry) = history.get(expr) {
             match entry {

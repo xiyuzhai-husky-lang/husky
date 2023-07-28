@@ -72,15 +72,15 @@ pub(crate) use insert_new;
 
 use crate::context::DeveloperGuiContext;
 
-pub(crate) fn create_static_ref<'a, T>(visibility: Scope<'a>, value: T) -> &'static T {
-    unsafe { as_static_ref(create_ref(visibility, value)) }
+pub(crate) fn create_leash<'a, T>(visibility: Scope<'a>, value: T) -> &'static T {
+    unsafe { as_leash(create_ref(visibility, value)) }
 }
 
 pub(crate) fn create_static_signal<'a, T>(visibility: Scope<'a>, value: T) -> &'static Signal<T>
 where
     T: Signalable,
 {
-    unsafe { as_static_ref(create_signal(visibility, value)) }
+    unsafe { as_leash(create_signal(visibility, value)) }
 }
 pub(crate) fn create_static_memo<'a, T>(
     visibility: Scope<'a>,
@@ -90,7 +90,7 @@ where
     T: Signalable + 'a,
 {
     unsafe {
-        as_static_ref(create_memo(
+        as_leash(create_memo(
             visibility,
             f,
             "create_static_memotodo".to_string(),
@@ -98,11 +98,11 @@ where
     }
 }
 
-pub(crate) unsafe fn as_static_ref<'a, T>(value: &T) -> &'static T {
+pub(crate) unsafe fn as_leash<'a, T>(value: &T) -> &'static T {
     let ptr: *const T = value;
     &*ptr
 }
 
 pub(crate) fn use_dev_context<'a>(visibility: Scope<'a>) -> &'static DeveloperGuiContext {
-    unsafe { as_static_ref(use_context::<DeveloperGuiContext>(visibility)) }
+    unsafe { as_leash(use_context::<DeveloperGuiContext>(visibility)) }
 }

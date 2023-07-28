@@ -1,20 +1,23 @@
 use crate::*;
 use husky_entity_path::ItemPath;
 
-pub trait InstructionDb {
-    fn item_instruction_sheet(&self, item_path: ItemPath) -> Option<Arc<InstructionSheet>>;
-    fn method_opt_instruction_sheet(
-        &self,
-        member_route: EtherealTerm,
-    ) -> Option<Arc<InstructionSheet>>;
-    fn dataset_config_instruction_sheet(&self, target_entrance: ItemPath) -> Arc<InstructionSheet>;
-    fn enum_literal_to_i32(&self, item_path: ItemPath) -> i32;
-}
+pub trait InstructionDb: salsa::DbWithJar<InstructionJar> {}
+
+#[salsa::jar (db = InstructionDb)]
+pub struct InstructionJar(Instructions);
+
+// fn item_instruction_sheet(&self, item_path: ItemPath) -> Option<InstructionRegion>;
+// fn method_opt_instruction_sheet(
+//     &self,
+//     member_route: EtherealTerm,
+// ) -> Option<InstructionRegion>;
+// fn dataset_config_instruction_sheet(&self, target_entrance: ItemPath) -> InstructionRegion;
+// fn enum_literal_to_i32(&self, item_path: ItemPath) -> i32;
 
 fn item_instruction_sheet(
-    _db: &dyn InstructionDb,
+    db: &dyn InstructionDb,
     _item_path: ItemPath,
-) -> Option<Arc<InstructionSheet>> {
+) -> Option<InstructionRegion> {
     todo!()
     // let item_defn = db.item_defn(route).unwrap();
     // match item_defn.variant {
@@ -79,7 +82,7 @@ fn item_instruction_sheet(
 fn method_opt_instruction_sheet(
     _db: &dyn InstructionDb,
     _member_route: EtherealTerm,
-) -> Option<Arc<InstructionSheet>> {
+) -> Option<InstructionRegion> {
     todo!()
     // let ty = member_route.parent();
     // let item_defn = db.item_defn(ty).unwrap();
@@ -116,7 +119,7 @@ fn method_opt_instruction_sheet(
 fn dataset_config_instruction_sheet(
     _db: &dyn InstructionDb,
     _target_entrance: ItemPath,
-) -> Arc<InstructionSheet> {
+) -> InstructionRegion {
     todo!()
     // let package = db.package(target_entrance).unwrap();
     // new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)

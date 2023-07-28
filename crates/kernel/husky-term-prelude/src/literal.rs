@@ -52,8 +52,6 @@ pub enum TermLiteral {
     F64(TermF64Literal),
     /// string literal
     String(StringLiteral),
-    /// eval lifetime
-    EvalLifetime,
     /// static lifetime
     StaticLifetime,
 }
@@ -105,7 +103,6 @@ impl TermLiteral {
             TermLiteral::F32(_) => PreludeFloatTypePath::F32.into(),
             TermLiteral::F64(_) => PreludeFloatTypePath::F64.into(),
             TermLiteral::String(_) => PreludeTypePath::StringLiteral,
-            TermLiteral::EvalLifetime => PreludeTypePath::Lifetime,
             TermLiteral::StaticLifetime => PreludeTypePath::Lifetime,
         }
     }
@@ -124,7 +121,6 @@ impl TermLiteral {
             TermLiteral::F64(_) => todo!(),
             TermLiteral::Bool(_) => todo!(),
             TermLiteral::String(_) => todo!(),
-            TermLiteral::EvalLifetime => f.write_str("'eval"),
             TermLiteral::StaticLifetime => f.write_str("'static"),
             TermLiteral::I8(_) => todo!(),
             TermLiteral::I16(_) => todo!(),

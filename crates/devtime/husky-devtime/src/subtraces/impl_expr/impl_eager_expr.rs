@@ -5,7 +5,7 @@ impl Debugtime {
         &mut self,
         parent: &Trace,
         expr: &EagerExpr,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
     ) -> Vec<TraceId> {
         match expr.variant {
             EagerExprVariant::Variable { .. } => todo!(),
@@ -27,7 +27,7 @@ impl Debugtime {
     pub(crate) fn eager_opn_subtraces(
         &mut self,
         parent: &Trace,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
         opn_variant: &EagerOpnVariant,
         opds: &[Arc<EagerExpr>],
     ) -> Vec<TraceId> {

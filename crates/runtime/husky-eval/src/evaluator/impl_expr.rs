@@ -15,8 +15,8 @@ use std::{panic::catch_unwind, sync::Arc};
 
 use super::FeatureEvaluator;
 
-impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
-    pub(crate) fn eval_expr(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
+impl<'temp> FeatureEvaluator<'temp, 'static> {
+    pub(crate) fn eval_expr(&self, expr: &FeatureLazyExpr) -> __VMResult<__RegularValue> {
         let result = match expr.variant {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
@@ -148,7 +148,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_expr_cached(&self, expr: &FeatureLazyExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_expr_cached(&self, expr: &FeatureLazyExpr) -> __VMResult<__RegularValue> {
         match expr.variant {
             FeatureLazyExprVariant::EntityFeature {
                 repr: ValRepr::TargetInput { .. },
@@ -168,7 +168,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         field_binding: Binding,
         field_ident: husky_text::RangedIdent,
         expr: &FeatureLazyExpr,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
             linkage
@@ -217,12 +217,12 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    pub(crate) fn eval_xml_expr(&self, expr: &FeatureHtmlExpr) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_xml_expr(&self, expr: &FeatureHtmlExpr) -> __VMResult<__RegularValue> {
         match expr.variant {
             FeatureHtmlExprVariant::Value(ref value_expr) => {
                 let this: ValRepr = value_expr.clone().into();
                 let visual_data = self.visualize_feature(this)?;
-                Ok(__Register::new_box(visual_data, &__VISUAL_DATA_VTABLE))
+                Ok(__RegularValue::new_box(visual_data, &__VISUAL_DATA_VTABLE))
             }
             FeatureHtmlExprVariant::Tag {
                 tag_kind,
@@ -243,7 +243,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                         .collect::<__VMResult<IdentPairMap<_>>>()?,
                 };
 
-                Ok(__Register::new_box(
+                Ok(__RegularValue::new_box(
                     VisualData::from(xml_value.into()),
                     &__VISUAL_DATA_VTABLE,
                 ))
@@ -253,10 +253,10 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
 
     fn eval_routine_call(
         &self,
-        opt_instrns: &Option<Arc<InstructionSheet>>,
+        opt_instrns: &Option<Instructions>,
         opt_linkage: Option<__Linkage>,
         arguments: &[ValExpr],
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         let db = self.db;
         let vm_config = self.vm_config();
         let values = arguments
@@ -280,7 +280,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &self,
         this: &FeatureLazyExpr,
         patt: &PurePattern,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         let this_value = self.eval_expr(this)?;
         Ok(match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),

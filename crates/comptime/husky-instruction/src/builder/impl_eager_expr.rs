@@ -21,7 +21,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         assert!(!discard);
         //         let stack_idx = self.sheet.variable_stack.stack_idx(varname);
         //         self.push_instruction(Instruction::new(
-        //             InstructionVariant::PushVariable {
+        //             InstructionData::PushVariable {
         //                 varname: varname.into(),
         //                 stack_idx,
         //                 binding,
@@ -36,7 +36,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         // no discard
         //         assert!(!discard);
         //         self.push_instruction(Instruction::new(
-        //             InstructionVariant::PushLiteralValue {
+        //             InstructionData::PushLiteralValue {
         //                 value: convert_primitive_literal_to_register(value, expr.intrinsic_ty()),
         //                 explicit: true,
         //                 ty: expr.intrinsic_ty(),
@@ -53,7 +53,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     } => self.compile_opn(opn_variant, opds, expr, output_stack_idx, discard),
         //     EagerExprVariant::Lambda(_, _) => todo!(),
         //     EagerExprVariant::ThisValue { binding } => self.push_instruction(Instruction::new(
-        //         InstructionVariant::PushVariable {
+        //         InstructionData::PushVariable {
         //             varname: ContextualIdent::ThisValue.into(),
         //             stack_idx: VMStackIdx::this(),
         //             binding,
@@ -72,7 +72,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     } => match self.context.value() {
         //         InstructionGenContext::Normal => {
         //             self.push_instruction(Instruction::new(
-        //                 InstructionVariant::PushVariable {
+        //                 InstructionData::PushVariable {
         //                     varname: ContextualIdent::ThisValue.into(),
         //                     stack_idx: VMStackIdx::this(),
         //                     binding: this_binding,
@@ -88,7 +88,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     field_ident.ident,
         //                     field_binding,
         //                 ) {
-        //                     InstructionVariant::CallRoutine {
+        //                     InstructionData::CallRoutine {
         //                         return_ty: expr.intrinsic_ty(),
         //                         nargs: 1,
         //                         resolved_linkage: linkage,
@@ -102,7 +102,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     //     FieldKind::StructRegular
         //                     //     | FieldKind::StructDefault
         //                     //     | FieldKind::StructDerived => {
-        //                     //         InstructionVariant::VirtualStructField {
+        //                     //         InstructionData::VirtualStructField {
         //                     //             field_idx: this_ty_decl
         //                     //                 .field_idx(field_ident.ident)
         //                     //                 .try_into()
@@ -121,7 +121,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         }
         //         InstructionGenContext::NewVirtualStruct { output_stack_idx } => self
         //             .push_instruction(Instruction::new(
-        //                 InstructionVariant::PushVariable {
+        //                 InstructionData::PushVariable {
         //                     varname: field_ident.ident.into(),
         //                     stack_idx: output_stack_idx + field_idx,
         //                     binding: field_binding,
@@ -133,7 +133,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //             )),
         //     },
         //     EagerExprVariant::EnumKindLiteral(route) => self.push_instruction(Instruction::new(
-        //         InstructionVariant::PushLiteralValue {
+        //         InstructionData::PushLiteralValue {
         //             value: __VirtualEnum {
         //                 kind_idx: self.db.enum_literal_to_i32(route),
         //             }
@@ -144,14 +144,14 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         expr.clone(),
         //     )),
         //     EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
-        //         InstructionVariant::EntityFeature {
+        //         InstructionData::EntityFeature {
         //             feature_uid: self.db.item_uid(route),
         //             ty: expr.intrinsic_ty(),
         //         },
         //         expr.clone(),
         //     )),
         //     EagerExprVariant::EntityThickFp { route } => self.push_instruction(Instruction::new(
-        //         InstructionVariant::PushEntityFp {
+        //         InstructionData::PushEntityFp {
         //             opt_linkage: self.db.routine_linkage(route),
         //             opt_instruction_sheet: self.db.item_instruction_sheet(route),
         //             ty: expr.intrinsic_ty(),
@@ -163,7 +163,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     ImplicitConversion::None => (),
         //     ImplicitConversion::WrapInSome { number_of_somes } => {
         //         self.push_instruction(Instruction::new(
-        //             InstructionVariant::WrapInSome { number_of_somes },
+        //             InstructionData::WrapInSome { number_of_somes },
         //             expr.clone(),
         //         ))
         //     }
@@ -195,7 +195,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 __Linkage::Member { .. } => todo!(),
         //                 __Linkage::Transfer(resolved_linkage) => {
         //                     self.push_instruction(Instruction::new(
-        //                         InstructionVariant::CallRoutine {
+        //                         InstructionData::CallRoutine {
         //                             return_ty: expr.intrinsic_ty(),
         //                             nargs: opds.len().try_into().unwrap(),
         //                             resolved_linkage,
@@ -208,7 +208,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //             }
         //         } else {
         //             self.push_instruction(Instruction::new(
-        //                 InstructionVariant::CallInterpreted {
+        //                 InstructionData::CallInterpreted {
         //                     routine_uid: self.db.item_uid(routine.route),
         //                     nargs: opds.len().try_into().unwrap(),
         //                     return_ty: expr.intrinsic_ty(),
@@ -231,7 +231,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 self.db
         //                     .field_linkage_resolved(*this_ty, field_ident.ident, *field_binding)
         //             {
-        //                 InstructionVariant::CallRoutine {
+        //                 InstructionData::CallRoutine {
         //                     resolved_linkage: linkage,
         //                     nargs: 1,
         //                     return_ty: expr.intrinsic_ty(),
@@ -244,7 +244,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 // match field_decl.field_kind {
         //                 //     FieldKind::StructRegular
         //                 //     | FieldKind::StructDefault
-        //                 //     | FieldKind::StructDerived => InstructionVariant::VirtualStructField {
+        //                 //     | FieldKind::StructDerived => InstructionData::VirtualStructField {
         //                 //         field_idx: this_ty_decl
         //                 //             .field_idx(field_ident.ident)
         //                 //             .try_into()
@@ -323,7 +323,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         //         self.context.exit();
         //         //         if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
         //         //             match linkage {
-        //         //                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
+        //         //                 __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
         //         //                     return_ty: expr.intrinsic_ty(),
         //         //                     nargs: opds.len().try_into().unwrap(),
         //         //                     resolved_linkage: linkage,
@@ -336,7 +336,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         //             match kind {
         //         //                 TyKind::Enum => todo!(),
         //         //                 TyKind::Record => todo!(),
-        //         //                 TyKind::Struct => InstructionVariant::NewVirtualStruct {
+        //         //                 TyKind::Struct => InstructionData::NewVirtualStruct {
         //         //                     ty: ranged_ty.route,
         //         //                     fields: ty_decl.eager_fields().map(|decl| decl.ident).collect(),
         //         //                 },
@@ -371,7 +371,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         self.push_instruction(Instruction::new(
         //             match linkage {
         //                 __Linkage::Member(_) => todo!(),
-        //                 __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
+        //                 __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
         //                     resolved_linkage: linkage,
         //                     nargs: opds.len().try_into().unwrap(),
         //                     return_ty,
@@ -383,7 +383,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         ))
         //     }
         //     EagerOpnVariant::ValueCall => self.push_instruction(Instruction::new(
-        //         InstructionVariant::CallRoutine {
+        //         InstructionData::CallRoutine {
         //             resolved_linkage: __VALUE_CALL_LINKAGE.transfer(),
         //             nargs: opds.len().try_into().unwrap(),
         //             return_ty: expr.intrinsic_ty(),
@@ -403,7 +403,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         todo!()
         // let this_ty = opds[0].intrinsic_ty();
-        // let ins_variant = InstructionVariant::CallRoutine {
+        // let ins_variant = InstructionData::CallRoutine {
         //     resolved_linkage: match opr {
         //         EagerSuffixOpr::Incr | EagerSuffixOpr::Decr | EagerSuffixOpr::AsTy(_) => {
         //             match this_ty {
@@ -513,7 +513,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         todo!()
         // match opds[0].intrinsic_ty() {
         //     EtherealTerm::Root(_) => {
-        //         let ins_kind = InstructionVariant::CallRoutine {
+        //         let ins_kind = InstructionData::CallRoutine {
         //             resolved_linkage: match opr {
         //                 BinaryOpr::PureClosed(pure_binary_opr) => {
         //                     resolve_primitive_pure_binary_opr_linkage(
@@ -562,14 +562,14 @@ impl<'a> InstructionSheetBuilder<'a> {
         //             BinaryOpr::Comparison(_) => todo!(),
         //             BinaryOpr::ShortcuitLogic(_) => todo!(),
         //             // BinaryShortcuitLogicOpr::And => todo!(),
-        //             // BinaryComparisonOpr::Neq => InstructionVariant::CallRoutine {
+        //             // BinaryComparisonOpr::Neq => InstructionData::CallRoutine {
         //             //     resolved_linkage: __NEQ_LINKAGE.transfer(),
         //             //     nargs: 2,
         //             //     return_ty: expr.intrinsic_ty(),
         //             //     discard,
         //             // },
         //             // BinaryShortcuitLogicOpr::Or => todo!(),
-        //             // BinaryComparisonOpr::Eq => InstructionVariant::CallRoutine {
+        //             // BinaryComparisonOpr::Eq => InstructionData::CallRoutine {
         //             //     resolved_linkage: __EQ_LINKAGE.transfer(),
         //             //     nargs: 2,
         //             //     return_ty: expr.intrinsic_ty(),
@@ -583,7 +583,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                 if let Some(_binary_opr) = opt_binary_opr {
         //                     todo!()
         //                 } else {
-        //                     InstructionVariant::CallRoutine {
+        //                     InstructionData::CallRoutine {
         //                         resolved_linkage: __ASSIGN_LINKAGE.transfer(),
         //                         nargs: 2,
         //                         return_ty: RootBuiltinIdent::Void.into(),
@@ -614,7 +614,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         // match this_ty {
         //     EtherealTerm::Root(_) => {
         //         let instruction = Instruction::new(
-        //             InstructionVariant::CallRoutine {
+        //             InstructionData::CallRoutine {
         //                 resolved_linkage: resolve_primitive_prefix_opr_linkage(
         //                     prefix,
         //                     opds[0].intrinsic_ty().root(),
@@ -640,7 +640,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));
         self.push_instruction(Instruction::new(
-            InstructionVariant::CallRoutine {
+            InstructionData::CallRoutine {
                 return_ty: expr.intrinsic_ty(),
                 nargs: opds.len().try_into().unwrap(),
                 resolved_linkage: index_linkage.bind(element_binding),
@@ -657,16 +657,16 @@ impl<'a> InstructionSheetBuilder<'a> {
         output_binding: Binding,
         nargs: u8,
         discard: bool,
-    ) -> InstructionVariant {
+    ) -> InstructionData {
         if let Some(linkage) = self.db.method_linkage(method_route) {
             match linkage {
-                __Linkage::Member { .. } => InstructionVariant::CallRoutine {
+                __Linkage::Member { .. } => InstructionData::CallRoutine {
                     resolved_linkage: linkage.bind(output_binding),
                     nargs,
                     return_ty,
                     discard,
                 },
-                __Linkage::Transfer(linkage) => InstructionVariant::CallRoutine {
+                __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
                     return_ty,
                     nargs,
 
@@ -679,7 +679,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             todo!()
             // let method_uid = self.db.item_uid(method_route);
             // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(method_route).unwrap();
-            // InstructionVariant::CallInterpreted {
+            // InstructionData::CallInterpreted {
             //     routine_uid: method_uid,
             //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)
             //         .try_into()

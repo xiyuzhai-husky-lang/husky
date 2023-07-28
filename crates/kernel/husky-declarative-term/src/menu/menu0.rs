@@ -6,7 +6,6 @@ pub struct DeclarativeTermMenu0 {
     universe1: TermUniverse,
     prop: TermCategory,
     ty0: TermCategory,
-    eval_lifetime: DeclarativeTermLiteral,
     static_lifetime: DeclarativeTermLiteral,
     unit: DeclarativeTerm,
     never: DeclarativeTerm,
@@ -67,7 +66,6 @@ impl DeclarativeTermMenu0 {
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         DeclarativeTermMenu0 {
-            eval_lifetime: TermLiteral::EvalLifetime.into(),
             static_lifetime: TermLiteral::StaticLifetime.into(),
             universe0,
             universe1,
@@ -305,10 +303,6 @@ impl DeclarativeTermMenu0 {
 
     pub fn r64(&self) -> DeclarativeTerm {
         self.r64
-    }
-
-    pub fn eval_lifetime(&self) -> DeclarativeTerm {
-        self.eval_lifetime.into()
     }
 
     pub fn static_lifetime(&self) -> DeclarativeTerm {

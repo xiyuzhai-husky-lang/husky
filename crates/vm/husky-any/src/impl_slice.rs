@@ -12,11 +12,9 @@ where
     }
 }
 
-fn gen_iter<'temp, 'eval: 'temp, T>(
-    slice: &'temp [T],
-) -> Box<dyn Iterator<Item = __Register<'eval>> + 'temp>
+fn gen_iter<'temp, T>(slice: &'temp [T]) -> Box<dyn Iterator<Item = __RegularValue> + 'temp>
 where
-    T: __Registrable + 'eval,
+    T: __Registrable + 'static,
 {
-    Box::new(slice.iter().map(|t| __Register::new_temp_ref::<T>(t)))
+    Box::new(slice.iter().map(|t| __RegularValue::new_temp_ref::<T>(t)))
 }

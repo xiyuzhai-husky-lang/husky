@@ -25,7 +25,7 @@ fn main() {
     sycamore::render_to_static(
         |visibility| {
             let context = unsafe {
-                as_static_ref(provide_context(
+                as_leash(provide_context(
                     visibility,
                     DeveloperGuiContext::new_ref(visibility),
                 ))
@@ -53,6 +53,6 @@ fn main() {
                 }
             }
         },
-        unsafe { as_static_ref(&gui) },
+        unsafe { as_leash(&gui) },
     );
 }

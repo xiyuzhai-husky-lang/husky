@@ -9,8 +9,8 @@ use crate::*;
 
 use husky_check_utils::should_eq;
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
-    pub(crate) fn exec_all(&mut self, _sheet: &InstructionSheet, _mode: Mode) -> VMControl<'eval> {
+impl<'temp> Interpreter<'temp> {
+    pub(crate) fn exec_all(&mut self, _sheet: &Instructions, _mode: Mode) -> VMControl {
         todo!()
         // for ins in &sheet.instructions {
         //     if self.vm_config.verbose {
@@ -31,7 +31,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //         )
         //     }
         //     let control = match ins.variant {
-        //         InstructionVariant::PushVariable {
+        //         InstructionData::PushVariable {
         //             binding,
         //             stack_idx,
         //             range,
@@ -66,7 +66,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionVariant::PushEntityFp {
+        //         InstructionData::PushEntityFp {
         //             opt_linkage, ty, ..
         //         } => {
         //             self.stack.push(
@@ -83,7 +83,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionVariant::PushLiteralValue {
+        //         InstructionData::PushLiteralValue {
         //             ref value,
         //             ty,
         //             explicit,
@@ -105,7 +105,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionVariant::CallRoutine {
+        //         InstructionData::CallRoutine {
         //             resolved_linkage,
         //             nargs,
         //             return_ty,
@@ -136,7 +136,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             }
         //             control
         //         }
-        //         InstructionVariant::CallInterpreted {
+        //         InstructionData::CallInterpreted {
         //             routine_uid,
         //             nargs, // including this
         //             return_ty,
@@ -163,7 +163,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             };
         //             result.into()
         //         }
-        //         InstructionVariant::NewVirtualStruct { ty, ref fields } => {
+        //         InstructionData::NewVirtualStruct { ty, ref fields } => {
         //             self.push_new_virtual_struct(ty, fields);
         //             match mode {
         //                 Mode::Fast | Mode::TrackMutation => (),
@@ -180,11 +180,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             }
         //             VMControl::None
         //         }
-        //         InstructionVariant::Return { .. } => {
+        //         InstructionData::Return { .. } => {
         //             let return_value = self.stack.pop();
         //             VMControl::Return(return_value)
         //         }
-        //         InstructionVariant::Loop {
+        //         InstructionData::Loop {
         //             ref body,
         //             loop_kind,
         //         } => {
@@ -212,7 +212,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             };
         //             control
         //         }
-        //         InstructionVariant::BreakIfFalse => {
+        //         InstructionData::BreakIfFalse => {
         //             let control = if !self.stack.pop().to_bool() {
         //                 VMControl::Break
         //             } else {
@@ -220,7 +220,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             };
         //             control
         //         }
-        //         InstructionVariant::VirtualStructField {
+        //         InstructionData::VirtualStructField {
         //             field_idx,
         //             field_binding,
         //             field_ty,
@@ -240,7 +240,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             };
         //             VMControl::None
         //         }
-        //         InstructionVariant::Assert => {
+        //         InstructionData::Assert => {
         //             let is_condition_satisfied = self.stack.pop().to_bool();
         //             if !is_condition_satisfied {
         //                 VMControl::Err(__VMError::new_normal(format!("assert failure")))
@@ -248,30 +248,30 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //                 VMControl::None
         //             }
         //         }
-        //         InstructionVariant::Require => {
+        //         InstructionData::Require => {
         //             let is_condition_satisfied = self.stack.pop().to_bool();
         //             if !is_condition_satisfied {
-        //                 VMControl::Return(__Register::none(0))
+        //                 VMControl::Return(__RegularValue::none(0))
         //             } else {
         //                 VMControl::None
         //             }
         //         }
-        //         InstructionVariant::Break => {
+        //         InstructionData::Break => {
         //             if mode == Mode::TrackHistory {
         //                 self.history.write(ins, HistoryEntry::Break)
         //             }
         //             VMControl::Break
         //         }
-        //         InstructionVariant::ConditionFlow { ref branches } => {
+        //         InstructionData::ConditionFlow { ref branches } => {
         //             self.exec_condition_flow(ins, branches, mode)
         //         }
-        //         InstructionVariant::PatternMatch { ref branches } => {
+        //         InstructionData::PatternMatch { ref branches } => {
         //             self.exec_pattern_matching(ins, branches, mode)
         //         }
-        //         InstructionVariant::EntityFeature { feature_uid, ty } => {
+        //         InstructionData::EntityFeature { feature_uid, ty } => {
         //             self.exec_feature_eval(feature_uid, mode, ins, ty).into()
         //         }
-        //         InstructionVariant::WrapInSome { number_of_somes: _ } => todo!(),
+        //         InstructionData::WrapInSome { number_of_somes: _ } => todo!(),
         //     };
         //     match control {
         //         VMControl::None => (),
@@ -285,7 +285,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         &mut self,
         linkage: __Linkage,
         nargs: u8,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         match linkage {
             __Linkage::Member { .. } => todo!(),
             __Linkage::Transfer(linkage) => {

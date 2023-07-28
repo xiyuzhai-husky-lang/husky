@@ -8,21 +8,18 @@ use std::panic::catch_unwind;
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct __ResolvedLinkage {
-    pub wrapper: for<'eval> unsafe fn(
-        &mut [__Register<'eval>],
-        Option<&dyn __EvalContext<'eval>>,
-    ) -> __Register<'eval>,
+    pub wrapper: unsafe fn(&mut [__RegularValue], Option<&dyn __EvalContext>) -> __RegularValue,
     pub opt_thick_fp: __OptVirtualThickFp,
     pub dev_src: __StaticDevSource,
 }
 
 #[cfg(feature = "extra")]
 impl __ResolvedLinkage {
-    // pub fn eval<'eval>(
+    // pub fn eval(
     //     self,
-    //     opt_ctx: Option<&dyn __EvalContext<'eval>>,
-    //     mut arguments: Vec<__Register<'eval>>,
-    // ) -> __VMResult<__Register<'eval>> {
+    //     opt_ctx: Option<&dyn __EvalContext>,
+    //     mut arguments: Vec<__RegularValue>,
+    // ) -> __VMResult<__RegularValue> {
     //     catch_unwind(move || unsafe { (self.wrapper)(opt_ctx, &mut arguments).into_eval() })
     //         .map_err(|e| __VMError {
     //             message: format!("error: {e:?} when calling linkage",),
@@ -30,11 +27,11 @@ impl __ResolvedLinkage {
     //         })
     // }
 
-    pub fn call_catch_unwind<'eval>(
+    pub fn call_catch_unwind(
         self,
-        opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        mut arguments: Vec<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
+        opt_ctx: Option<&dyn __EvalContext>,
+        mut arguments: Vec<__RegularValue>,
+    ) -> __VMResult<__RegularValue> {
         catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
             if let Some(msg) = e.downcast_ref::<String>() {
                 __VMError::linkage_call_error(msg)
@@ -46,11 +43,11 @@ impl __ResolvedLinkage {
         })
     }
 
-    pub fn call<'eval>(
+    pub fn call(
         self,
-        opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        arguments: &mut [__Register<'eval>],
-    ) -> __Register<'eval> {
+        opt_ctx: Option<&dyn __EvalContext>,
+        arguments: &mut [__RegularValue],
+    ) -> __RegularValue {
         unsafe { (self.wrapper)(arguments, opt_ctx) }
     }
 }

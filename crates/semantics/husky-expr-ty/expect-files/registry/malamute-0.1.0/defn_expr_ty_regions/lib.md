@@ -102,84 +102,57 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            SymbolAtPlace {
-                                term: EtherealTermSymbol(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                                place: Const,
+                    entries: [
+                        SolidTermData::SymbolAtPlace {
+                            term: EtherealTermSymbol {
+                                ty: EtherealTerm(`Type`),
+                                idx: 0,
                             },
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Float(
-                                            F32,
-                                        ),
+                            place: Const,
+                        },
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::num::f32`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Num(
+                                    Float(
+                                        F32,
                                     ),
                                 ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 60,
-                                                },
-                                            ),
-                                        ),
+                            ),
+                            arguments: [],
+                            base_ty_term: Some(
+                                EtherealTerm(`f32`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        2,
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            2,
-                                        ),
-                                    ),
-                                },
                             },
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
+                        },
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::num::i32`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Num(
+                                    Int(
+                                        I32,
                                     ),
                                 ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
-                                            ),
-                                        ),
+                            ),
+                            arguments: [],
+                            base_ty_term: Some(
+                                EtherealTerm(`i32`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        3,
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            3,
-                                        ),
-                                    ),
-                                },
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -288,18 +261,15 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            SymbolAtPlace {
-                                term: EtherealTermSymbol(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                                place: Const,
+                    entries: [
+                        SolidTermData::SymbolAtPlace {
+                            term: EtherealTermSymbol {
+                                ty: EtherealTerm(`Type`),
+                                idx: 0,
                             },
-                        ],
-                    },
+                            place: Const,
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],

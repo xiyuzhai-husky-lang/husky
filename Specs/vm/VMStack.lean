@@ -2,10 +2,10 @@ import Specs.vm.Register
 import Specs.vm.Instruction
 
 structure VMStack where
-  values : List __Register
+  values : List __RegularValue
 
 namespace VMStack
-open InstructionVariant
+open InstructionData
 def exec (ins: Instruction) : VMStack :=
   match ins.variant with
   | PushVariable

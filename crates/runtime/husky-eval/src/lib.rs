@@ -8,18 +8,18 @@ use husky_ethereal_term::EtherealTerm;
 use husky_trace_protocol::{SampleId, VisualData};
 
 use husky_val_repr::*;
-use husky_vm::{VMConfig, __Register, __VMResult};
+use husky_vm::{VMConfig, __RegularValue, __VMResult};
 use std::sync::{Arc, Mutex};
 use upcast::Upcast;
 
-// pub trait EvalFeature<'eval>: ValReprDb {
-//     fn session(&self) -> &Session<'eval>;
+// pub trait EvalFeature: ValReprDb {
+//     fn session(&self) -> &Session;
 //     fn evaluator_config(&self) -> &EvaluatorConfig;
 //     fn vm_config(&self) -> &VMConfig {
 //         &self.evaluator_config().vm
 //     }
 
-//     fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a, 'eval> {
+//     fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a> {
 //         let dev = self.session().dev();
 //         let sheet = &dev.sheets[sample_id.0];
 //         let target_input = dev.load(sample_id).input;
@@ -33,9 +33,9 @@ use upcast::Upcast;
 //         }
 //     }
 
-//     // None for 'eval is shorter than 'static
+//     // None for 'static is shorter than 'static
 //     // Some(self) otherwise
-//     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature<'static>>;
+//     fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature>;
 
 //     fn visualize_feature(&self, this: ValRepr, sample_id: SampleId) -> __VMResult<VisualData> {
 //         self.evaluator(sample_id).visualize_feature(this)
@@ -45,7 +45,7 @@ use upcast::Upcast;
 //         &self,
 //         repr: &ValRepr,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_feature_repr(repr)
 //     }
 
@@ -53,7 +53,7 @@ use upcast::Upcast;
 //         &self,
 //         repr: &ValRepr,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_feature_repr_cached(repr)
 //     }
 
@@ -61,7 +61,7 @@ use upcast::Upcast;
 //         &self,
 //         block: &ValBlock,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_lazy_block(block)
 //     }
 
@@ -69,7 +69,7 @@ use upcast::Upcast;
 //         &self,
 //         stmt: &ValStmt,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_stmt(stmt)
 //     }
 
@@ -77,7 +77,7 @@ use upcast::Upcast;
 //         &self,
 //         branch: &FeatureLazyBranch,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_lazy_branch(branch)
 //     }
 
@@ -85,7 +85,7 @@ use upcast::Upcast;
 //         &self,
 //         expr: &FeatureLazyExpr,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_expr(expr)
 //     }
 
@@ -93,7 +93,7 @@ use upcast::Upcast;
 //         &self,
 //         expr: &FeatureLazyExpr,
 //         sample_id: SampleId,
-//     ) -> __VMResult<__Register<'eval>> {
+//     ) -> __VMResult<__RegularValue> {
 //         self.evaluator(sample_id).eval_expr_cached(expr)
 //     }
 

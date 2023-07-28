@@ -2,7 +2,7 @@ use husky_eager_semantics::EagerOpnVariant;
 
 use crate::*;
 
-impl<'eval> Trace {
+impl Trace {
     pub fn subtraces_container_class(&self) -> Option<SubtracesContainerClass> {
         todo!()
         // if !self.raw_data.can_have_subtraces {

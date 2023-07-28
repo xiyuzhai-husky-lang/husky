@@ -55,7 +55,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -66,7 +66,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 99,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -129,7 +129,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -140,7 +140,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 99,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -321,7 +321,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -332,7 +332,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 99,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -695,7 +695,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -706,7 +706,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 99,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -884,7 +884,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 77,
+                                                value: 76,
                                             },
                                         ),
                                     ),
@@ -895,7 +895,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 77,
+                                        value: 76,
                                     },
                                 ),
                             ),
@@ -990,7 +990,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 36,
+                                                value: 35,
                                             },
                                         ),
                                     ),
@@ -1001,7 +1001,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 36,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -1281,7 +1281,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -1292,7 +1292,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 99,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -1407,7 +1407,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 77,
+                                                value: 76,
                                             },
                                         ),
                                     ),
@@ -1418,7 +1418,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 77,
+                                        value: 76,
                                     },
                                 ),
                             ),
@@ -1513,7 +1513,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 36,
+                                                value: 35,
                                             },
                                         ),
                                     ),
@@ -1524,7 +1524,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 36,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -1917,78 +1917,48 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 92,
-                                    },
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            refined_path: Right(
+                                CustomTypePath(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 92,
-                                            },
-                                        ),
+                            ),
+                            arguments: [],
+                            base_ty_term: Some(
+                                EtherealTerm(`LineSegmentSketch`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        0,
                                     ),
                                 ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 92,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
                             },
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
+                        },
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::num::i32`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Num(
+                                    Int(
+                                        I32,
                                     ),
                                 ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
-                                            ),
-                                        ),
+                            ),
+                            arguments: [],
+                            base_ty_term: Some(
+                                EtherealTerm(`i32`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        1,
                                     ),
                                 ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [
@@ -2001,7 +1971,7 @@
                                 fill: None,
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -2012,7 +1982,7 @@
                                 fill: None,
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -2023,7 +1993,7 @@
                                 fill: None,
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -2034,7 +2004,7 @@
                                 fill: None,
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
                     ],
                     first_unresolved_term_idx: 0,
@@ -2044,7 +2014,7 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2053,16 +2023,16 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2071,18 +2041,18 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 99,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2091,16 +2061,16 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2109,18 +2079,18 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 99,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2129,16 +2099,16 @@
                                     expr_idx: 5,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2147,20 +2117,16 @@
                                     expr_idx: 7,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2169,20 +2135,16 @@
                                     expr_idx: 8,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2191,20 +2153,16 @@
                                     expr_idx: 9,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2213,16 +2171,16 @@
                                     expr_idx: 10,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2231,18 +2189,18 @@
                                     expr_idx: 11,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 99,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2251,25 +2209,21 @@
                                     expr_idx: 12,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -2280,18 +2234,14 @@
                                     expr_idx: 13,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -2299,7 +2249,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2308,20 +2258,16 @@
                                     expr_idx: 14,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2330,20 +2276,16 @@
                                     expr_idx: 15,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2352,20 +2294,16 @@
                                     expr_idx: 17,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2374,20 +2312,16 @@
                                     expr_idx: 18,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2396,20 +2330,16 @@
                                     expr_idx: 19,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
+                            expectation: Expectation::AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
@@ -2418,25 +2348,21 @@
                                     expr_idx: 24,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -2447,18 +2373,14 @@
                                     expr_idx: 25,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::bool`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -2466,7 +2388,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2475,16 +2397,16 @@
                                     expr_idx: 26,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2493,16 +2415,16 @@
                                     expr_idx: 27,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2511,16 +2433,16 @@
                                     expr_idx: 28,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2529,18 +2451,18 @@
                                     expr_idx: 29,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 99,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2549,25 +2471,21 @@
                                     expr_idx: 30,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -2578,18 +2496,14 @@
                                     expr_idx: 31,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -2597,7 +2511,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2606,20 +2520,16 @@
                                     expr_idx: 32,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2628,20 +2538,16 @@
                                     expr_idx: 33,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2650,20 +2556,16 @@
                                     expr_idx: 35,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2672,20 +2574,16 @@
                                     expr_idx: 36,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2694,18 +2592,18 @@
                                     expr_idx: 37,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`CyclicSliceLeashed`),
+                                        argument: EtherealTerm(`Point2d`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2714,16 +2612,16 @@
                                     expr_idx: 45,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2732,18 +2630,18 @@
                                     expr_idx: 46,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`Leash`),
+                                        argument: EtherealTerm(`RawContour`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2752,29 +2650,21 @@
                                     expr_idx: 50,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::unit`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -2785,18 +2675,14 @@
                                     expr_idx: 57,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::unit`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -2804,7 +2690,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2813,16 +2699,16 @@
                                     expr_idx: 58,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         2,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2831,16 +2717,16 @@
                                     expr_idx: 59,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         2,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2849,16 +2735,16 @@
                                     expr_idx: 60,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2867,18 +2753,18 @@
                                     expr_idx: 61,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 99,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2887,16 +2773,16 @@
                                     expr_idx: 62,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         1,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2905,20 +2791,16 @@
                                     expr_idx: 64,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2927,20 +2809,16 @@
                                     expr_idx: 65,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2949,18 +2827,18 @@
                                     expr_idx: 66,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`CyclicSliceLeashed`),
+                                        argument: EtherealTerm(`Point2d`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2969,16 +2847,16 @@
                                     expr_idx: 74,
                                     kind: Expr,
                                 },
-                                expectee: Solid(
+                                expectee: FluffyTerm::Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -2987,18 +2865,18 @@
                                     expr_idx: 75,
                                     kind: Expr,
                                 },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`Leash`),
+                                        argument: EtherealTerm(`RawContour`),
+                                        shift: 0,
+                                    },
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyOriginal(
+                            expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
@@ -3007,29 +2885,21 @@
                                     expr_idx: 79,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::unit`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -3040,18 +2910,14 @@
                                     expr_idx: 86,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::unit`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -3059,16 +2925,12 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -3079,18 +2941,14 @@
                                     expr_idx: 89,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::bool`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -3098,7 +2956,7 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
+                            expectation: Expectation::AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
@@ -3107,25 +2965,21 @@
                                     expr_idx: 91,
                                     kind: Expr,
                                 },
-                                expectee: Hollow(
+                                expectee: FluffyTerm::Hollow(
                                     HollowTerm(
                                         3,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -3136,18 +2990,14 @@
                                     expr_idx: 92,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::bool`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Trivial,
                                         ),
                                     ),
@@ -3155,16 +3005,12 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
+                            expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 41,
-                                                },
-                                            ),
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::bool`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -3175,18 +3021,14 @@
                                     expr_idx: 93,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 40,
-                                            },
-                                        ),
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::never`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: Resolved(
+                                resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        ImplicitlyConvertible(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
                                             Never,
                                         ),
                                     ),

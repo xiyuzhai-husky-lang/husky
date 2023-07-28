@@ -33,7 +33,7 @@ where
 //     K::__StaticSelf: std::hash::Hash,
 //     <K as __StaticInfo>::__StaticSelf: Eq,
 // {
-//     unsafe fn __to_register__<'eval>(self) -> __Register<'eval> {
+//     unsafe fn __to_register__(self) -> __RegularValue {
 //         todo!()
 //     }
 

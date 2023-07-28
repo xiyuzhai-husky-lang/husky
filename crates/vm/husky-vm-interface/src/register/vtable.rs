@@ -10,7 +10,7 @@ pub struct __RegisterTyVTable {
     pub clone: unsafe extern "C" fn(data: *mut c_void) -> *mut c_void,
     pub drop: unsafe extern "C" fn(data: *mut c_void),
     pub eq: unsafe extern "C" fn(this: &c_void, this: &c_void) -> bool,
-    pub assign: unsafe extern "C" fn(args: *mut __Register),
+    pub assign: unsafe extern "C" fn(args: *mut __RegularValue),
     pub typename_str_hash_u64: u64,
     pub typename_str: &'static str,
 }

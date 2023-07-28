@@ -6,8 +6,8 @@ use husky_vm_binding::Binding;
 use husky_vm_primitive_value::PrimitiveValueData;
 
 #[cfg(feature = "extra")]
-impl<'eval> __Register<'eval> {
-    pub unsafe fn verbatim_copy(&self) -> __Register<'eval> {
+impl __RegularValue {
+    pub unsafe fn verbatim_copy(&self) -> __RegularValue {
         Self {
             data_kind: self.data_kind,
             data: self.data,
@@ -15,7 +15,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn snapshot(&self) -> __Register<'eval> {
+    pub fn snapshot(&self) -> __RegularValue {
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue
@@ -30,7 +30,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub(crate) unsafe fn clone_ptr_into_box(&self) -> __Register<'eval> {
+    pub(crate) unsafe fn clone_ptr_into_box(&self) -> __RegularValue {
         let ptr = self.data.as_ptr;
         let data = unsafe {
             __RegisterData {
@@ -49,9 +49,9 @@ impl<'eval> __Register<'eval> {
     //     // unsafe { (*self.opt_data.unwrap()).__primitive_dyn__(self.data_kind) }
     // }
 
-    pub fn bind_copy(&self) -> __Register<'eval> {
+    pub fn bind_copy(&self) -> __RegularValue {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => __Register {
+            __RegisterDataKind::PrimitiveValue => __RegularValue {
                 data_kind: self.data_kind,
                 data: self.data,
                 vtable: self.vtable,
@@ -66,10 +66,12 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn bind_move(&mut self) -> __Register<'eval> {
+    pub fn bind_move(&mut self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => unsafe { self.verbatim_copy() },
-            __RegisterDataKind::Box => std::mem::replace(self, __Register::new_moved(self.vtable)),
+            __RegisterDataKind::Box => {
+                std::mem::replace(self, __RegularValue::new_moved(self.vtable))
+            }
             __RegisterDataKind::Leash => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
@@ -79,10 +81,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn eval_bind_eval_ref(&'eval self) -> __Register<'eval> {
+    pub fn eval_bind_leash(&'static self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box | __RegisterDataKind::Leash => __Register {
+            __RegisterDataKind::Box | __RegisterDataKind::Leash => __RegularValue {
                 data_kind: __RegisterDataKind::Leash,
                 data: self.data,
                 vtable: self.vtable,
@@ -95,7 +97,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn temp_bind_eval_ref(&self) -> __Register<'eval> {
+    pub fn temp_bind_leash(&self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
@@ -108,9 +110,9 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn bind_temp_ref(&self) -> __Register<'eval> {
+    pub fn bind_temp_ref(&self) -> __RegularValue {
         match self.data_kind {
-            __RegisterDataKind::PrimitiveValue => __Register {
+            __RegisterDataKind::PrimitiveValue => __RegularValue {
                 data_kind: __RegisterDataKind::TempRef,
                 data: __RegisterData {
                     as_ptr: &self.data as *const _ as *mut c_void,
@@ -118,7 +120,7 @@ impl<'eval> __Register<'eval> {
                 vtable: self.vtable,
             },
             __RegisterDataKind::Box | __RegisterDataKind::Leash | __RegisterDataKind::TempRef => {
-                __Register {
+                __RegularValue {
                     data_kind: __RegisterDataKind::TempRef,
                     data: self.data,
                     vtable: self.vtable,
@@ -131,7 +133,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn bind_temp_mut(&self) -> __Register<'eval> {
+    pub fn bind_temp_mut(&self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => {
                 // C standard (N1570, 6.7.2.1 Structure and union specifiers) says:
@@ -144,13 +146,13 @@ impl<'eval> __Register<'eval> {
                 let data = __RegisterData {
                     as_ptr: &self.data as *const _ as *mut c_void,
                 };
-                __Register {
+                __RegularValue {
                     data_kind: __RegisterDataKind::TempMut,
                     data,
                     vtable: self.vtable,
                 }
             }
-            __RegisterDataKind::Box => __Register {
+            __RegisterDataKind::Box => __RegularValue {
                 data_kind: __RegisterDataKind::TempMut,
                 data: self.data,
                 vtable: self.vtable,
@@ -164,9 +166,9 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn bind(&mut self, binding: Binding) -> __Register<'eval> {
+    pub unsafe fn bind(&mut self, binding: Binding) -> __RegularValue {
         match binding {
-            Binding::Leash => self.temp_bind_eval_ref(),
+            Binding::Leash => self.temp_bind_leash(),
             Binding::TempRef => self.bind_temp_ref(),
             Binding::TempMut => self.bind_temp_mut(),
             Binding::Move => self.bind_move(),
@@ -175,7 +177,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub unsafe fn extrinsic_clone(&self) -> __Register<'eval> {
+    pub unsafe fn extrinsic_clone(&self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue
             | __RegisterDataKind::Leash
@@ -188,7 +190,7 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn intrinsic_clone(&self) -> __Register<'eval> {
+    pub fn intrinsic_clone(&self) -> __RegularValue {
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
@@ -263,10 +265,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn share_cached(&self) -> __Register<'eval> {
+    pub fn share_cached(&self) -> __RegularValue {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => panic!(),
-            __RegisterDataKind::Box | __RegisterDataKind::Leash => __Register {
+            __RegisterDataKind::Box | __RegisterDataKind::Leash => __RegularValue {
                 data_kind: __RegisterDataKind::Leash,
                 data: self.data,
                 vtable: self.vtable,
@@ -286,7 +288,7 @@ impl<'eval> __Register<'eval> {
     }
 }
 
-impl<'eval> From<PrimitiveValueData> for __Register<'eval> {
+impl From<PrimitiveValueData> for __RegularValue {
     fn from(value: PrimitiveValueData) -> Self {
         match value {
             PrimitiveValueData::I32(_) => todo!(),

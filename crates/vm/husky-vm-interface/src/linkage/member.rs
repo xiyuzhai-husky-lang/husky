@@ -4,7 +4,7 @@ use super::*;
 #[repr(C)]
 pub struct __MemberLinkage {
     pub copy_resolved_linkage: __ResolvedLinkage,
-    pub eval_ref_resolved_linkage: __ResolvedLinkage,
+    pub leash_resolved_linkage: __ResolvedLinkage,
     pub temp_ref_resolved_linkage: __ResolvedLinkage,
     pub temp_mut_resolved_linkage: __ResolvedLinkage,
     pub move_resolved_linkage: __ResolvedLinkage,
@@ -17,7 +17,7 @@ use husky_vm_binding::Binding;
 impl __MemberLinkage {
     pub fn bind(&self, binding: Binding) -> __ResolvedLinkage {
         match binding {
-            Binding::Leash => self.eval_ref_resolved_linkage,
+            Binding::Leash => self.leash_resolved_linkage,
             Binding::TempRef => self.temp_ref_resolved_linkage,
             Binding::TempMut => self.temp_mut_resolved_linkage,
             Binding::Move => self.move_resolved_linkage,
@@ -38,7 +38,7 @@ macro_rules! method_elem_linkage {
                 $ELEMENT_TYPE_VTABLE,
                 $method_name
             ),
-            eval_ref_resolved_linkage: method_elem_eval_ref_fp!(
+            leash_resolved_linkage: method_elem_leash_fp!(
                 $Type,
                 $TYPE_VTABLE,
                 $ELEMENT_TYPE_VTABLE,
@@ -70,12 +70,12 @@ macro_rules! method_elem_linkage {
 #[macro_export]
 macro_rules! lazy_field_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_FIELD_TY: ty, $FIELD_TY_VTABLE: expr, $field: ident) => {{
-        fn __wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
-            let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
-            __Register::new_eval_ref::<$INTRINSIC_FIELD_TY>(
+        fn __wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
+            let this_value: &'static $Type = values[0].downcast_leash(&$TYPE_VTABLE);
+            __RegularValue::new_leash::<$INTRINSIC_FIELD_TY>(
                 this_value.$field(__opt_ctx.unwrap()),
                 &$FIELD_TY_VTABLE,
             )
@@ -107,7 +107,7 @@ macro_rules! eager_field_linkage {
                 $FIELD_TY_VTABLE,
                 $field
             ),
-            eval_ref_resolved_linkage: field_eval_ref_fp!(
+            leash_resolved_linkage: field_leash_fp!(
                 $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,
@@ -164,7 +164,7 @@ macro_rules! index_linkage {
                 $canonical_kind,
                 $reg_memory_kind
             ),
-            eval_ref_resolved_linkage: index_eval_ref_fp!(
+            leash_resolved_linkage: index_leash_fp!(
                 $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,

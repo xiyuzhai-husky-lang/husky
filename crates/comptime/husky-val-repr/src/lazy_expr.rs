@@ -7,13 +7,13 @@ use husky_primitive_literal_semantics::{
 pub use xml::*;
 use EntityPath;
 
-use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
+use husky_vm::{__Linkage, __RegistrableSafe, __RegularValue, __VirtualEnum};
 
 use husky_coword::RootBuiltinIdent;
 use husky_ethereal_term::EtherealTerm;
 use husky_item_semantics::*;
 use husky_lazy_semantics::*;
-use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
+use husky_vm::{Binding, Instructions, __ResolvedLinkage, __VMResult};
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -56,17 +56,17 @@ impl std::hash::Hash for FeatureLazyExpr {
     }
 }
 
-impl<'eval> PartialEq for FeatureLazyExpr {
+impl PartialEq for FeatureLazyExpr {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl<'eval> Eq for FeatureLazyExpr {}
+impl Eq for FeatureLazyExpr {}
 
 #[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyExprVariant {
-    Literal(__Register<'static>),
+    Literal(__RegularValue),
     PrefixOpr {
         opr: PrefixOpr,
         opds: Vec<ValExpr>,
@@ -85,7 +85,7 @@ pub enum FeatureLazyExprVariant {
         opr: BinaryPureClosedOpr,
         opds: Vec<ValExpr>,
         opt_linkage: Option<__Linkage>,
-        opt_instruction_sheet: Option<Arc<InstructionSheet>>,
+        opt_instruction_sheet: Option<InstructionRegion>,
     },
     Variable {
         varname: Ident,
@@ -127,12 +127,12 @@ pub enum FeatureLazyExprVariant {
         has_this: bool,
         model_defn: Arc<EntityDefn>,
         opt_arrival_indicator: Option<ValDomain>,
-        internal: __VMResult<__Register<'static>>,
+        internal: __VMResult<__RegularValue>,
     },
     RoutineCall {
         opds: Vec<ValExpr>,
         has_this: bool,
-        opt_instruction_sheet: Option<Arc<InstructionSheet>>,
+        opt_instruction_sheet: Option<InstructionRegion>,
         opt_linkage: Option<__Linkage>,
         routine_defn: Arc<EntityDefn>,
     },

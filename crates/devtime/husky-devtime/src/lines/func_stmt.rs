@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(crate) fn func_stmt_tokens(&mut self, stmt: &FuncStmt, history: &Arc<History<'static>>) {
+    pub(crate) fn func_stmt_tokens(&mut self, stmt: &FuncStmt, history: &Arc<History>) {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,
@@ -31,7 +31,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         stmt: &FuncStmt,
         branch: &FuncConditionFlowBranch,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
     ) {
         match branch.variant {
             FuncConditionFlowBranchVariant::If { ref condition } => {

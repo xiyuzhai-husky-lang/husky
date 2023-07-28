@@ -1,6 +1,6 @@
 use super::*;
 
-pub(super) fn item_route_variant_contains_eval_ref(
+pub(super) fn item_route_variant_contains_leash(
     _db: &dyn RustTranspileDb,
     _item_path: EtherealTerm,
 ) -> bool {
@@ -39,7 +39,7 @@ pub(super) fn item_route_variant_contains_eval_ref(
     //                     FieldKind::StructRegular
     //                     | FieldKind::StructDefault
     //                     | FieldKind::StructDerived => {
-    //                         if db.item_route_contains_eval_ref(field_decl.ty) {
+    //                         if db.item_route_contains_leash(field_decl.ty) {
     //                             return true;
     //                         }
     //                     }
@@ -55,31 +55,31 @@ pub(super) fn item_route_variant_contains_eval_ref(
     //     EntityKind::Trait => todo!(),
     //     EntityKind::Member(_) => {
     //         let call_fugitive_syn_decl = db.item_call_fugitive_syn_decl(base_route).unwrap();
-    //         if db.item_route_contains_eval_ref(base_route.parent()) {
+    //         if db.item_route_contains_leash(base_route.parent()) {
     //             return true;
     //         }
     //         for parameter in call_fugitive_syn_decl.primary_parameters.iter() {
-    //             if db.item_route_contains_eval_ref(parameter.ty()) {
+    //             if db.item_route_contains_leash(parameter.ty()) {
     //                 return true;
     //             }
     //         }
-    //         if db.item_route_contains_eval_ref(call_fugitive_syn_decl.output.ty()) {
+    //         if db.item_route_contains_leash(call_fugitive_syn_decl.output.ty()) {
     //             return true;
     //         }
     //     }
     //     EntityKind::Function { .. } => {
     //         let call_fugitive_syn_decl = db.item_call_fugitive_syn_decl(base_route).unwrap();
     //         for parameter in call_fugitive_syn_decl.primary_parameters.iter() {
-    //             if parameter_contains_eval_ref(db, parameter) {
+    //             if parameter_contains_leash(db, parameter) {
     //                 return true;
     //             }
     //         }
     //         for parameter in call_fugitive_syn_decl.keyword_parameters.iter() {
-    //             if parameter_contains_eval_ref(db, parameter) {
+    //             if parameter_contains_leash(db, parameter) {
     //                 return true;
     //             }
     //         }
-    //         if db.item_route_contains_eval_ref(call_fugitive_syn_decl.output.ty()) {
+    //         if db.item_route_contains_leash(call_fugitive_syn_decl.output.ty()) {
     //             return true;
     //         }
     //     }
@@ -90,7 +90,7 @@ pub(super) fn item_route_variant_contains_eval_ref(
     // false
 }
 
-// fn parameter_contains_eval_ref(
+// fn parameter_contains_leash(
 //     db: &dyn RustTranspileDb,
 //     parameter: &infer_decl::ParameterDecl,
 // ) -> bool {
@@ -98,22 +98,22 @@ pub(super) fn item_route_variant_contains_eval_ref(
 //         ParameterModifier::Leash => return true,
 //         _ => (),
 //     }
-//     db.item_route_contains_eval_ref(parameter.ty())
+//     db.item_route_contains_leash(parameter.ty())
 // }
 
-pub(super) fn item_route_contains_eval_ref(
+pub(super) fn item_route_contains_leash(
     _db: &dyn RustTranspileDb,
     _item_path: EtherealTerm,
 ) -> bool {
     todo!()
-    // if db.item_route_variant_contains_eval_ref(item_path) {
+    // if db.item_route_variant_contains_leash(item_path) {
     //     return true;
     // }
     // for argument in item_path.spatial_arguments.iter() {
     //     match argument {
     //         SpatialArgument::Const(_) => (),
     //         SpatialArgument::EntityRoute(item_path) => {
-    //             if db.item_route_contains_eval_ref(*item_path) {
+    //             if db.item_route_contains_leash(*item_path) {
     //                 return true;
     //             }
     //         }

@@ -5,7 +5,7 @@ use husky_coword::{Ident, IdentPairMap};
 use husky_ethereal_term::EtherealTerm;
 use husky_vm_binding::Binding;
 
-use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
+use husky_vm_interface::{__Linkage, __RegistrableSafe, __RegularValue, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
@@ -29,15 +29,11 @@ pub enum HuskyDataViewer {
 }
 
 impl HuskyDataViewer {
-    pub fn print<'eval>(&self, _value: &__Register<'eval>) -> String {
+    pub fn print(&self, _value: &__RegularValue) -> String {
         todo!()
     }
 
-    pub fn serialize<'eval>(
-        &self,
-        _db: &dyn DataViewerDb,
-        _value: &__Register<'eval>,
-    ) -> serde_json::Value {
+    pub fn serialize(&self, _db: &dyn DataViewerDb, _value: &__RegularValue) -> serde_json::Value {
         todo!()
         // match self {
         //     HuskyDataViewer::Primitive { ty } => match ty {
@@ -83,16 +79,16 @@ impl HuskyDataViewer {
         // }
     }
 
-    pub fn member_eval_indexed_iter<'a, 'eval>(
+    pub fn member_eval_indexed_iter<'a>(
         &'a self,
-        value: &'a __Register<'eval>,
-    ) -> impl Iterator<Item = (i32, __Register<'eval>)> + 'a {
+        value: &'a __RegularValue,
+    ) -> impl Iterator<Item = (i32, __RegularValue)> + 'a {
         let (start, end, index) = match self {
             HuskyDataViewer::Primitive { .. } => todo!(),
             HuskyDataViewer::Struct { .. } => todo!(),
             HuskyDataViewer::Vec { ilen, index, .. } => {
                 let ilen = ilen
-                    .call(None, &mut vec![value.temp_bind_eval_ref()])
+                    .call(None, &mut vec![value.temp_bind_leash()])
                     .downcast_i32();
                 let index = index.bind(Binding::Leash);
                 (0, ilen, index)
@@ -101,10 +97,10 @@ impl HuskyDataViewer {
                 start, end, index, ..
             } => {
                 let start = start
-                    .call(None, &mut vec![value.temp_bind_eval_ref()])
+                    .call(None, &mut vec![value.temp_bind_leash()])
                     .downcast_i32();
                 let end = end
-                    .call(None, &mut vec![value.temp_bind_eval_ref()])
+                    .call(None, &mut vec![value.temp_bind_leash()])
                     .downcast_i32();
                 let index = index.bind(Binding::Leash);
                 (start, end, index)
@@ -113,15 +109,15 @@ impl HuskyDataViewer {
         (start..end).into_iter().map(move |i| {
             (
                 i,
-                index.call(None, &mut vec![value.temp_bind_eval_ref(), i.to_register()]),
+                index.call(None, &mut vec![value.temp_bind_leash(), i.to_register()]),
             )
         })
     }
 
-    pub fn member_temp_iter<'a, 'eval>(
+    pub fn member_temp_iter<'a>(
         &'a self,
-        value: &'a __Register<'eval>,
-    ) -> impl Iterator<Item = __Register<'eval>> + 'a {
+        value: &'a __RegularValue,
+    ) -> impl Iterator<Item = __RegularValue> + 'a {
         let (start, end, index) = match self {
             HuskyDataViewer::Primitive { .. } => todo!(),
             HuskyDataViewer::Struct { .. } => todo!(),

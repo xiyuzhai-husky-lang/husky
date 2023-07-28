@@ -111,7 +111,7 @@ pub struct WgpuConfiguration {
     pub supported_backends: wgpu::Backends,
 
     /// Configuration passed on device request, given an adapter
-    pub device_descriptor: Arc<dyn Fn(&wgpu::Adapter) -> wgpu::DeviceDescriptor<'static>>,
+    pub device_descriptor: Arc<dyn Fn(&wgpu::Adapter) -> wgpu::DeviceDescriptor>,
 
     /// Present mode used for the primary surface.
     pub present_mode: wgpu::PresentMode,

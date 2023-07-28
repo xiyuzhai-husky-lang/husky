@@ -4,35 +4,35 @@ use std::{
     panic::{RefUnwindSafe, UnwindSafe},
 };
 
-pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
+pub trait __EvalContext: RefUnwindSafe + UnwindSafe {
     fn item_uid(&self, item_route_text: &str) -> u64;
 
     fn opt_cached_lazy_field(
         &self,
         this: *const c_void,
         uid: u64,
-    ) -> Option<__VMResult<__Register<'eval>>>;
+    ) -> Option<__VMResult<__RegularValue>>;
 
     fn cache_feature(
         &self,
         feature: usize,
-        value: __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>>;
+        value: __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue>;
 
-    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>>;
+    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__RegularValue>>;
 
     fn cache_lazy_field(
         &self,
         this: *const c_void,
         uid: u64,
-        value: __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>>;
+        value: __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue>;
 
     fn feature_ptr(&self, feature_route_text: &str) -> usize;
 
-    fn eval_feature_from_uid(&self, feature_item_uid: u64) -> __VMResult<__Register<'eval>>;
+    fn eval_feature_from_uid(&self, feature_item_uid: u64) -> __VMResult<__RegularValue>;
 
-    fn target_input(&self) -> &__Register<'eval>;
+    fn target_input(&self) -> &__RegularValue;
 }
 
 #[macro_export]
