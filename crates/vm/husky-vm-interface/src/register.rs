@@ -29,6 +29,67 @@ pub enum __RegularValueData {
     OptionBox(RawHirType, Option<Box<*mut c_void>>),
     OptionLeash(RawHirType, Option<Leash>),
     OptionRef(RawHirType, Option<Ref>),
+    Unit(RawHirType, ()),
+    Bool(RawHirType, bool),
+    I8(RawHirType, i8),
+    I16(RawHirType, i16),
+    I32(RawHirType, i32),
+    I64(RawHirType, i64),
+    ISize(RawHirType, isize),
+    U32(RawHirType, u32),
+    U64(RawHirType, u64),
+    USize(RawHirType, usize),
+    R32(RawHirType, u32),
+    R64(RawHirType, u64),
+    RSize(RawHirType, usize),
+}
+
+#[test]
+fn regular_value_layout_works() {
+    fn t(v: __RegularValueData) {
+        assert_eq!(v.raw_hir_ty(), v.raw_hir_ty_safe())
+    }
+    t(__RegularValueData::I8(RawHirType(215), 12));
+    t(__RegularValueData::I16(RawHirType(215), 12));
+    t(__RegularValueData::I32(RawHirType(215), 12));
+    t(__RegularValueData::I64(RawHirType(215), 12));
+    t(__RegularValueData::ISize(RawHirType(215), 12));
+}
+
+impl __RegularValueData {
+    // todo: write tests for check that this agrees with raw_hir_ty_safe
+    pub fn raw_hir_ty(&self) -> RawHirType {
+        type Array = [u32; 4];
+        let this = self as *const _ as *const Array;
+        unsafe {
+            let this: &Array = &*this;
+            RawHirType(this[1])
+        }
+    }
+
+    fn raw_hir_ty_safe(&self) -> RawHirType {
+        match self {
+            __RegularValueData::Box(raw_hir_ty, _)
+            | __RegularValueData::Leash(raw_hir_ty, _)
+            | __RegularValueData::Ref(raw_hir_ty, _)
+            | __RegularValueData::OptionBox(raw_hir_ty, _)
+            | __RegularValueData::OptionLeash(raw_hir_ty, _)
+            | __RegularValueData::OptionRef(raw_hir_ty, _)
+            | __RegularValueData::Unit(raw_hir_ty, _)
+            | __RegularValueData::Bool(raw_hir_ty, _)
+            | __RegularValueData::I8(raw_hir_ty, _)
+            | __RegularValueData::I16(raw_hir_ty, _)
+            | __RegularValueData::I32(raw_hir_ty, _)
+            | __RegularValueData::I64(raw_hir_ty, _)
+            | __RegularValueData::ISize(raw_hir_ty, _)
+            | __RegularValueData::U32(raw_hir_ty, _)
+            | __RegularValueData::U64(raw_hir_ty, _)
+            | __RegularValueData::USize(raw_hir_ty, _)
+            | __RegularValueData::R32(raw_hir_ty, _)
+            | __RegularValueData::R64(raw_hir_ty, _)
+            | __RegularValueData::RSize(raw_hir_ty, _) => *raw_hir_ty,
+        }
+    }
 }
 
 #[test]
@@ -40,6 +101,7 @@ fn regular_value_data_size_works() {
 }
 
 // interface for `HirType` defined in `husky-hir-ty`
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RawHirType(u32);
 
 pub struct Leash(&'static c_void);
