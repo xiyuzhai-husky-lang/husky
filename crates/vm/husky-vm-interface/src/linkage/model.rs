@@ -22,30 +22,38 @@ impl PartialEq for __ModelLinkageGroup {
 
 impl Eq for __ModelLinkageGroup {}
 
-pub enum GnArgument {
+/// generic argument means something totally different from that in other languages,
+/// `generic argument` in other languages translates to `template argument`
+/// and `generic argument` in Husky means argument generic over a dataset
+///
+/// I'm working on a better explanation
+pub enum GenericArgument {
     Literal { value: __RegularValue },
     NonConstant { values: Vec<__RegularValue> },
 }
 
-impl GnArgument {
+impl GenericArgument {
     pub fn values(&self) -> &[__RegularValue] {
         match self {
-            GnArgument::Literal { .. } => panic!(),
-            GnArgument::NonConstant { ref values } => values,
+            GenericArgument::Literal { .. } => panic!(),
+            GenericArgument::NonConstant { ref values } => values,
         }
     }
 
     pub fn value(&self) -> &__RegularValue {
         match self {
-            GnArgument::Literal { ref value } => value,
-            GnArgument::NonConstant { .. } => panic!(),
+            GenericArgument::Literal { ref value } => value,
+            GenericArgument::NonConstant { .. } => panic!(),
         }
     }
 }
 
 pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    fn train_dyn(&self, arguments: Vec<GnArgument>, labels: Vec<i32>)
-        -> __VMResult<__RegularValue>;
+    fn train_dyn(
+        &self,
+        arguments: Vec<GenericArgument>,
+        labels: Vec<i32>,
+    ) -> __VMResult<__RegularValue>;
     fn eval_dyn(
         &self,
         internal: &__RegularValue,
@@ -59,7 +67,11 @@ pub trait Model:
     type Internal: __Registrable;
     fn internal_ty_vtable() -> &'static __RegisterTyVTable;
 
-    fn train(&self, arguments: Vec<GnArgument>, labels: Vec<i32>) -> __VMResult<Self::Internal>;
+    fn train(
+        &self,
+        arguments: Vec<GenericArgument>,
+        labels: Vec<i32>,
+    ) -> __VMResult<Self::Internal>;
     fn eval(
         &self,
         internal: &Self::Internal,
@@ -70,7 +82,7 @@ pub trait Model:
 impl<T: Model> ModelDyn for T {
     fn train_dyn(
         &self,
-        arguments: Vec<GnArgument>,
+        arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<__RegularValue> {
         Ok(self.train(arguments, labels)?.to_register())
