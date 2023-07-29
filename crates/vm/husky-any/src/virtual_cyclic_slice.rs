@@ -35,8 +35,8 @@ impl __StaticInfo for DeprecatedVirtualCyclicSlice {
     }
 }
 
-impl __Registrable for DeprecatedVirtualCyclicSlice {
-    unsafe fn __to_register(self) -> __RegularValue {
-        todo!()
-    }
-}
+// impl __Registrable for DeprecatedVirtualCyclicSlice {
+//     unsafe fn __to_register(self) -> __RegularValue {
+//         todo!()
+//     }
+// }

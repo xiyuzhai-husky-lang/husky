@@ -7,8 +7,11 @@ pub struct VMPatternBranch {
 }
 
 #[derive(Debug, PartialEq)]
+pub struct __PrimitiveValue;
+
+#[derive(Debug, PartialEq)]
 pub enum VMPattern {
-    Primitive(__RegularValue),
+    Primitive(__PrimitiveValue),
     EnumKind { kind_idx: i32 },
     Or(Vec<VMPattern>),
 }
@@ -16,7 +19,8 @@ pub enum VMPattern {
 impl VMPattern {
     pub fn contains<'temp>(&self, value: &__RegularValue) -> bool {
         match self {
-            VMPattern::Primitive(primitive) => value == primitive,
+            VMPattern::Primitive(primitive) => todo!(),
+            // value == primitive,
             VMPattern::Or(subpatterns) => {
                 for subpattern in subpatterns {
                     if subpattern.contains(value) {
@@ -26,8 +30,9 @@ impl VMPattern {
                 false
             }
             VMPattern::EnumKind { kind_idx } => {
-                let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
-                value.kind_idx == *kind_idx
+                todo!()
+                // let value: &__VirtualEnum = value.downcast_temp_ref(&__VIRTUAL_ENUM_VTABLE);
+                // value.kind_idx == *kind_idx
             }
         }
     }

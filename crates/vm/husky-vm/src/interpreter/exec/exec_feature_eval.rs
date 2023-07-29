@@ -13,13 +13,14 @@ impl<'temp> Interpreter<'temp> {
         match mode {
             Mode::Fast | Mode::TrackMutation => (),
             Mode::TrackHistory => {
-                self.history.write(
-                    ins,
-                    HistoryEntry::PureExpr {
-                        result: result.clone(),
-                        ty,
-                    },
-                );
+                todo!()
+                // self.history.write(
+                //     ins,
+                //     HistoryEntry::PureExpr {
+                //         result: result.clone(),
+                //         ty,
+                //     },
+                // );
             }
         }
         self.stack.push(result?);
