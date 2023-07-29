@@ -22,6 +22,9 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
+husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
+    "constant"
+] }
 # syntax
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-ast = { path = "../../syntax/husky-ast" }
