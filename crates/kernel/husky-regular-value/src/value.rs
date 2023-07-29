@@ -32,20 +32,20 @@ pub enum __RegularValue {
     F64(f64),
     StringLiteral(StringLiteralId),
     /// `Box<T>`
-    Box(Box<dyn __RegularDyn>),
+    Box(Box<dyn __RegularStaticDyn>),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn __RegularDyn),
+    Leash(&'static dyn __RegularStaticDyn),
     /// `&T` for T Sized
-    SizedRef(*const dyn __RegularDyn),
+    SizedRef(*const dyn __RegularStaticDyn),
     /// `&mut T` for T Sized
-    SizedRefMut(*mut dyn __RegularDyn),
-    OptionBox(Option<Box<dyn __RegularDyn>>),
-    OptionLeash(Option<&'static dyn __RegularDyn>),
-    OptionSizedRef(Option<*const dyn __RegularDyn>),
-    OptionSizedRefMut(Option<*const dyn __RegularDyn>),
+    SizedRefMut(*mut dyn __RegularStaticDyn),
+    OptionBox(Option<Box<dyn __RegularStaticDyn>>),
+    OptionLeash(Option<&'static dyn __RegularStaticDyn>),
+    OptionSizedRef(Option<*const dyn __RegularStaticDyn>),
+    OptionSizedRefMut(Option<*mut dyn __RegularStaticDyn>),
     /// T where T is not in above cases
-    Intrinsic(Box<dyn __RegularDyn>),
+    Intrinsic(Box<dyn __RegularStaticDyn>),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

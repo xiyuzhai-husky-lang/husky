@@ -3,6 +3,7 @@ use crate::*;
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 ///
 /// stand is used to recover RefMut from snapshot
+#[cfg(feature = "vm_support")]
 #[derive(Debug, Clone)]
 #[repr(u8)]
 pub enum __RegularValueStand {
@@ -32,15 +33,15 @@ pub enum __RegularValueStand {
     F32(f32),
     F64(f64),
     StringLiteral(StringLiteralId),
-    Intrinsic(Box<dyn __RegularDyn>),
-    Box(Box<dyn __RegularDyn>),
-    Leash(&'static dyn __RegularDyn),
-    SizedRef(Arc<dyn __RegularDyn>),
-    SizedRefMut(Box<dyn __RegularDyn>),
-    OptionBox(Option<Box<dyn __RegularDyn>>),
-    OptionLeash(Option<&'static dyn __RegularDyn>),
-    OptionSizedRef(Option<Arc<dyn __RegularDyn>>),
-    OptionSizedRefMut(Option<Box<dyn __RegularDyn>>),
+    Intrinsic(Box<dyn __RegularStaticDyn>),
+    Box(Box<dyn __RegularStaticDyn>),
+    Leash(&'static dyn __RegularStaticDyn),
+    SizedRef(Arc<dyn __RegularStaticDyn>),
+    SizedRefMut(Box<dyn __RegularStaticDyn>),
+    OptionBox(Option<Box<dyn __RegularStaticDyn>>),
+    OptionLeash(Option<&'static dyn __RegularStaticDyn>),
+    OptionSizedRef(Option<Arc<dyn __RegularStaticDyn>>),
+    OptionSizedRefMut(Option<Box<dyn __RegularStaticDyn>>),
 }
 
 impl From<&mut __RegularValueStand> for __RegularValue {
@@ -89,12 +90,12 @@ impl From<&mut __RegularValueStand> for __RegularValue {
                 };
                 __RegularValue::Box(box_value)
             }
-            __RegularValueStand::Leash(_) => todo!(),
+            __RegularValueStand::Leash(leash) => __RegularValue::Leash(*leash),
             __RegularValueStand::SizedRef(arc_value) => {
-                __RegularValue::SizedRef(&**arc_value as *const dyn __RegularDyn)
+                __RegularValue::SizedRef(&**arc_value as *const dyn __RegularStaticDyn)
             }
             __RegularValueStand::SizedRefMut(boxed_value) => {
-                __RegularValue::SizedRefMut(&mut **boxed_value as *mut dyn __RegularDyn)
+                __RegularValue::SizedRefMut(&mut **boxed_value as *mut dyn __RegularStaticDyn)
             }
             __RegularValueStand::OptionBox(opt_box_value) => {
                 let __RegularValueStand::OptionBox(opt_box_value) =
@@ -105,8 +106,18 @@ impl From<&mut __RegularValueStand> for __RegularValue {
                 __RegularValue::OptionBox(opt_box_value)
             }
             __RegularValueStand::OptionLeash(leash) => __RegularValue::OptionLeash(*leash),
-            __RegularValueStand::OptionSizedRef(_) => todo!(),
-            __RegularValueStand::OptionSizedRefMut(_) => todo!(),
+            __RegularValueStand::OptionSizedRef(opt_arc_value) => __RegularValue::OptionSizedRef(
+                opt_arc_value
+                    .as_ref()
+                    .map(|arc_value| &**arc_value as *const dyn __RegularStaticDyn),
+            ),
+            __RegularValueStand::OptionSizedRefMut(opt_box_value) => {
+                __RegularValue::OptionSizedRefMut(
+                    opt_box_value
+                        .as_mut()
+                        .map(|box_value| &mut **box_value as *mut dyn __RegularStaticDyn),
+                )
+            }
         }
     }
 }
