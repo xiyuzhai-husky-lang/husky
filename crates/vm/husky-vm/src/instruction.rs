@@ -61,7 +61,7 @@ pub enum InstructionData {
         explicit: bool,
     },
     PushLiteralValue {
-        value: __RegularValue,
+        // value: PrimitiveValue,
         ty: EtherealTerm,
         explicit: bool,
     },

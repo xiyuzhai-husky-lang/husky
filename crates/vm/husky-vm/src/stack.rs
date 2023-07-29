@@ -55,9 +55,10 @@ impl VMStack {
         binding: Binding,
     ) -> &mut __RegularValue {
         unsafe {
-            let value = &mut self.values[stack_idx.raw()];
-            let stack_value = value.bind(binding);
-            self.push(stack_value);
+            todo!()
+            // let value = &mut self.values[stack_idx.raw()];
+            // let stack_value = value.bind(binding);
+            // self.push(stack_value);
         }
         self.values.last_mut().unwrap()
     }
@@ -65,24 +66,24 @@ impl VMStack {
     pub(crate) fn snapshot(&mut self, message: String) -> StackSnapshot {
         StackSnapshot {
             message,
-            values: self
-                .values
-                .iter_mut()
-                .map(|value| value.snapshot())
-                .collect(),
+            values: todo!(),
+            // self
+            //     .values
+            //     .iter_mut()
+            //     .map(|value| value.snapshot())
+            //     .collect(),
         }
     }
 
-    pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __RegularValue {
-        self.values[stack_idx.raw()].snapshot()
-    }
+    // pub(crate) fn eval(&mut self, stack_idx: VMStackIdx) -> __RegularValueSnapshot {
+    //     self.values[stack_idx.raw()].snapshot()
+    // }
 
     pub(crate) fn len(&self) -> usize {
         self.values.len()
     }
 
     pub(crate) fn push(&mut self, value: __RegularValue) {
-        assert_ne!(value.vtable as *const _, &__VOID_VTABLE as *const _);
         self.values.push(value);
     }
     pub(crate) fn pop(&mut self) -> __RegularValue {
@@ -93,9 +94,9 @@ impl VMStack {
         self.values.drain((self.len() - k as usize)..)
     }
 
-    pub(crate) fn eval_top(&mut self) -> __RegularValue {
-        self.values.last().unwrap().snapshot()
-    }
+    // pub(crate) fn eval_top(&mut self) -> __RegularValueSnapshot {
+    //     self.values.last().unwrap().snapshot()
+    // }
 
     pub(crate) fn truncate(&mut self, len: usize) {
         self.values.truncate(len)

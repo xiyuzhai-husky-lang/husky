@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub enum VMControl {
     None,
     Return(__RegularValue),
@@ -36,7 +36,8 @@ impl VMControl {
     pub(crate) fn snapshot(&self) -> ControlSnapshot {
         match self {
             VMControl::None => ControlSnapshot::None,
-            VMControl::Return(value) => ControlSnapshot::Return(value.snapshot()),
+            VMControl::Return(value) => todo!(),
+            // ControlSnapshot::Return(value.snapshot()),
             VMControl::Break => ControlSnapshot::Break,
             VMControl::Err(e) => ControlSnapshot::Err(e.clone()),
         }
@@ -46,7 +47,7 @@ impl VMControl {
 #[derive(Debug, Clone)]
 pub enum ControlSnapshot {
     None,
-    Return(__RegularValue),
+    Return(__RegularValueSnapshot),
     Break,
     Err(__VMError),
 }

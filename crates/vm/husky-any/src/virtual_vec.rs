@@ -41,8 +41,8 @@ impl __StaticInfo for DeprecatedVirtualVec {
     }
 }
 
-impl __Registrable for DeprecatedVirtualVec {
-    unsafe fn __to_register(self) -> __RegularValue {
-        __RegularValue::new_box(self, &__DEPRECATED_VIRTUAL_VEC_VTABLE)
-    }
-}
+// impl __Registrable for DeprecatedVirtualVec {
+//     unsafe fn __to_register(self) -> __RegularValue {
+//         __RegularValue::new_box(self, &__DEPRECATED_VIRTUAL_VEC_VTABLE)
+//     }
+// }

@@ -91,13 +91,6 @@ impl<'temp> Interpreter<'temp> {
         }
     }
 
-    fn push_new_virtual_struct(&mut self, ty: EtherealTerm, fields: &[Ident]) {
-        let parameters = self.stack.drain(fields.len().try_into().unwrap());
-        let value =
-            unsafe { DeprecatedVirtualStruct::new_struct(ty, parameters, fields).__to_register() };
-        self.stack.push(value)
-    }
-
     fn save_snapshot(&mut self, message: String) {
         if let Some(ref snapshot) = self.opt_snapshot_saved {
             ps!(snapshot.message);

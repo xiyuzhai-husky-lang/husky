@@ -65,8 +65,7 @@ pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
 pub trait Model:
     std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe + Sized + 'static
 {
-    type Internal: __Registrable;
-    fn internal_ty_vtable() -> &'static __RegisterTyVTable;
+    type Internal: __Regular;
 
     fn train(
         &self,
@@ -86,7 +85,8 @@ impl<T: Model> ModelDyn for T {
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<__RegularValue> {
-        Ok(self.train(arguments, labels)?.to_register())
+        todo!()
+        // Ok(self.train(arguments, labels)?.to_register())
     }
 
     fn eval_dyn(
@@ -94,7 +94,8 @@ impl<T: Model> ModelDyn for T {
         internal: &__RegularValue,
         arguments: &[__RegularValue],
     ) -> __VMResult<__RegularValue> {
-        let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
-        self.eval(internal, arguments)
+        todo!()
+        // let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
+        // self.eval(internal, arguments)
     }
 }

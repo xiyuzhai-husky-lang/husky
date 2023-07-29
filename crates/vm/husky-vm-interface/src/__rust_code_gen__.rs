@@ -72,39 +72,41 @@ pub static __VOID_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 #[rustfmt::skip]
 impl __RegularValue {
     pub fn downcast_void(&self) -> void {
-        unsafe {
-            if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
-                panic!("expect `void` but get {} instead", self.vtable.typename_str)
-            }
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data.as_void,
-                __RegisterDataKind::Leash
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => *(self.data.as_ptr as *const void),
-                _ => panic!(),
-            }
-        }
+        todo!()
+        // unsafe {
+        //     if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
+        //         panic!("expect `void` but get {} instead", self.vtable.typename_str)
+        //     }
+        //     match self.data_kind {
+        //         __RegisterDataKind::PrimitiveValue => self.data.as_void,
+        //         __RegisterDataKind::Leash
+        //         | __RegisterDataKind::TempRef
+        //         | __RegisterDataKind::TempMut
+        //         | __RegisterDataKind::Box => *(self.data.as_ptr as *const void),
+        //         _ => panic!(),
+        //     }
+        // }
     }
 
     pub fn downcast_opt_void(&self) -> Option<void> {
-        unsafe {
-            if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
-                panic!("expect `void` but get `{}` instead", self.vtable.typename_str)
-            }
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
-                __RegisterDataKind::Leash
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
-                __RegisterDataKind::SomeNone => {
-                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
-                    None
-                },
-                _ => panic!(),
-            }
-        }
+        todo!()
+        // unsafe {
+        //     if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
+        //         panic!("expect `void` but get `{}` instead", self.vtable.typename_str)
+        //     }
+        //     match self.data_kind {
+        //         __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
+        //         __RegisterDataKind::Leash
+        //         | __RegisterDataKind::TempRef
+        //         | __RegisterDataKind::TempMut
+        //         | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
+        //         __RegisterDataKind::SomeNone => {
+        //             assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+        //             None
+        //         },
+        //         _ => panic!(),
+        //     }
+        // }
     }
 }
 
@@ -173,39 +175,41 @@ pub static __BOOL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 #[rustfmt::skip]
 impl __RegularValue {
     pub fn downcast_bool(&self) -> bool {
-        unsafe {
-            if self.vtable.typename_str_hash_u64 != 729807561129781588 {
-                panic!("expect `bool` but get {} instead", self.vtable.typename_str)
-            }
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => self.data.as_bool,
-                __RegisterDataKind::Leash
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => *(self.data.as_ptr as *const bool),
-                _ => panic!(),
-            }
-        }
+        todo!()
+        // unsafe {
+        //     if self.vtable.typename_str_hash_u64 != 729807561129781588 {
+        //         panic!("expect `bool` but get {} instead", self.vtable.typename_str)
+        //     }
+        //     match self.data_kind {
+        //         __RegisterDataKind::PrimitiveValue => self.data.as_bool,
+        //         __RegisterDataKind::Leash
+        //         | __RegisterDataKind::TempRef
+        //         | __RegisterDataKind::TempMut
+        //         | __RegisterDataKind::Box => *(self.data.as_ptr as *const bool),
+        //         _ => panic!(),
+        //     }
+        // }
     }
 
     pub fn downcast_opt_bool(&self) -> Option<bool> {
-        unsafe {
-            if self.vtable.typename_str_hash_u64 != 729807561129781588 {
-                panic!("expect `bool` but get `{}` instead", self.vtable.typename_str)
-            }
-            match self.data_kind {
-                __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
-                __RegisterDataKind::Leash
-                | __RegisterDataKind::TempRef
-                | __RegisterDataKind::TempMut
-                | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
-                __RegisterDataKind::SomeNone => {
-                    assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
-                    None
-                },
-                _ => panic!(),
-            }
-        }
+        todo!()
+        // unsafe {
+        //     if self.vtable.typename_str_hash_u64 != 729807561129781588 {
+        //         panic!("expect `bool` but get `{}` instead", self.vtable.typename_str)
+        //     }
+        //     match self.data_kind {
+        //         __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
+        //         __RegisterDataKind::Leash
+        //         | __RegisterDataKind::TempRef
+        //         | __RegisterDataKind::TempMut
+        //         | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
+        //         __RegisterDataKind::SomeNone => {
+        //             assert_eq!(unsafe {self.data.as_number_of_somes}, 0);
+        //             None
+        //         },
+        //         _ => panic!(),
+        //     }
+        // }
     }
 }
 

@@ -16,6 +16,7 @@ mod signature;
 mod snapshot;
 mod stack;
 mod stack_idx;
+mod value;
 
 pub use self::config::*;
 pub use self::control::{ControlSnapshot, VMControl};

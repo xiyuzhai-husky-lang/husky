@@ -59,29 +59,34 @@ impl<'temp> Interpreter<'temp> {
                 ..
             } => {
                 let final_bound_shifted = {
-                    let final_bound = self.stack.pop().downcast_i32();
-                    match final_boundary_kind {
-                        BoundaryKind::UpperOpen => final_bound - 1,
-                        BoundaryKind::UpperClosed => final_bound,
-                        BoundaryKind::LowerOpen => final_bound + 1,
-                        BoundaryKind::LowerClosed => final_bound,
-                    }
+                    todo!()
+                    // let final_bound = self.stack.pop().downcast_i32();
+                    // match final_boundary_kind {
+                    //     BoundaryKind::UpperOpen => final_bound - 1,
+                    //     BoundaryKind::UpperClosed => final_bound,
+                    //     BoundaryKind::LowerOpen => final_bound + 1,
+                    //     BoundaryKind::LowerClosed => final_bound,
+                    // }
                 };
                 let initial_bound_shifted = {
-                    let initial_bound = self.stack.pop().downcast_i32();
-                    match initial_boundary_kind {
-                        BoundaryKind::UpperOpen => initial_bound - 1,
-                        BoundaryKind::UpperClosed => initial_bound,
-                        BoundaryKind::LowerOpen => initial_bound + 1,
-                        BoundaryKind::LowerClosed => initial_bound,
-                    }
+                    todo!()
+                    // let initial_bound = self.stack.pop().downcast_i32();
+                    // match initial_boundary_kind {
+                    //     BoundaryKind::UpperOpen => initial_bound - 1,
+                    //     BoundaryKind::UpperClosed => initial_bound,
+                    //     BoundaryKind::LowerOpen => initial_bound + 1,
+                    //     BoundaryKind::LowerClosed => initial_bound,
+                    // }
                 };
                 let n = step.n(initial_bound_shifted, final_bound_shifted);
                 let mut control = VMControl::None;
                 let stack_len = self.stack.len();
                 for i in 0..n {
                     let frame_var = step.frame_var(initial_bound_shifted, i);
-                    self.stack.push(unsafe { frame_var.__to_register() });
+                    self.stack.push(unsafe {
+                        todo!()
+                        // frame_var.__to_register()
+                    });
                     exec_before_each_frame(self);
                     let frame_control = self.exec_all(body, mode);
                     exec_after_each_frame(self, frame_var, &frame_control);
@@ -110,51 +115,52 @@ impl<'temp> Interpreter<'temp> {
                 step,
                 ..
             } => {
-                let initial_value = self.stack.value(frame_varidx).downcast_i32();
-                let final_bound_shifted = {
-                    let final_bound = self.stack.pop().downcast_i32();
-                    match final_boundary_kind {
-                        BoundaryKind::UpperOpen => final_bound - 1,
-                        BoundaryKind::UpperClosed => final_bound,
-                        BoundaryKind::LowerOpen => final_bound + 1,
-                        BoundaryKind::LowerClosed => final_bound,
-                    }
-                };
-                let n = step.n(initial_value, final_bound_shifted);
-                let mut control = VMControl::None;
-                let stack_len = self.stack.len();
-                for _ in 0..n {
-                    exec_before_each_frame(self);
-                    let frame_control = self.exec_all(body, mode);
-                    exec_after_each_frame(
-                        self,
-                        self.stack.value(frame_varidx).downcast_i32(),
-                        &frame_control,
-                    );
-                    self.stack.truncate(stack_len);
-                    match frame_control {
-                        VMControl::None => (),
-                        VMControl::Return(value) => {
-                            control = VMControl::Return(value);
-                            break;
-                        }
-                        VMControl::Break => {
-                            control = VMControl::None;
-                            break;
-                        }
-                        VMControl::Err(e) => {
-                            control = VMControl::Err(e);
-                            break;
-                        }
-                    }
-                    unsafe {
-                        *self
-                            .stack
-                            .value_mut(frame_varidx)
-                            .downcast_temp_mut::<i32>(&__I32_VTABLE) += step.0
-                    }
-                }
-                Ok(control)
+                todo!()
+                // let initial_value = self.stack.value(frame_varidx).downcast_i32();
+                // let final_bound_shifted = {
+                //     let final_bound = self.stack.pop().downcast_i32();
+                //     match final_boundary_kind {
+                //         BoundaryKind::UpperOpen => final_bound - 1,
+                //         BoundaryKind::UpperClosed => final_bound,
+                //         BoundaryKind::LowerOpen => final_bound + 1,
+                //         BoundaryKind::LowerClosed => final_bound,
+                //     }
+                // };
+                // let n = step.n(initial_value, final_bound_shifted);
+                // let mut control = VMControl::None;
+                // let stack_len = self.stack.len();
+                // for _ in 0..n {
+                //     exec_before_each_frame(self);
+                //     let frame_control = self.exec_all(body, mode);
+                //     exec_after_each_frame(
+                //         self,
+                //         self.stack.value(frame_varidx).downcast_i32(),
+                //         &frame_control,
+                //     );
+                //     self.stack.truncate(stack_len);
+                //     match frame_control {
+                //         VMControl::None => (),
+                //         VMControl::Return(value) => {
+                //             control = VMControl::Return(value);
+                //             break;
+                //         }
+                //         VMControl::Break => {
+                //             control = VMControl::None;
+                //             break;
+                //         }
+                //         VMControl::Err(e) => {
+                //             control = VMControl::Err(e);
+                //             break;
+                //         }
+                //     }
+                //     unsafe {
+                //         *self
+                //             .stack
+                //             .value_mut(frame_varidx)
+                //             .downcast_temp_mut::<i32>(&__I32_VTABLE) += step.0
+                //     }
+                // }
+                // Ok(control)
             }
             VMLoopKind::Loop => {
                 // ugly, urhh

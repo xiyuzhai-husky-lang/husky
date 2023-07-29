@@ -37,19 +37,20 @@ pub enum HistoryEntry {
 
 impl HistoryEntry {
     pub fn result(&self) -> __VMResult<__RegularValue> {
-        match self {
-            HistoryEntry::PureExpr { ref result, .. } => result.clone(),
-            HistoryEntry::Exec { mutations } => {
-                if mutations.len() != 1 {
-                    todo!()
-                }
-                Ok(mutations[0].after.clone())
-            }
-            HistoryEntry::Loop { .. } => todo!(),
-            HistoryEntry::ControlFlow { .. } => todo!(),
-            HistoryEntry::Break => todo!(),
-            HistoryEntry::PatternMatching { .. } => todo!(),
-        }
+        todo!()
+        // match self {
+        //     HistoryEntry::PureExpr { ref result, .. } => result.clone(),
+        //     HistoryEntry::Exec { mutations } => {
+        //         if mutations.len() != 1 {
+        //             todo!()
+        //         }
+        //         Ok(mutations[0].after.clone())
+        //     }
+        //     HistoryEntry::Loop { .. } => todo!(),
+        //     HistoryEntry::ControlFlow { .. } => todo!(),
+        //     HistoryEntry::Break => todo!(),
+        //     HistoryEntry::PatternMatching { .. } => todo!(),
+        // }
     }
 
     pub(crate) fn loop_entry(
