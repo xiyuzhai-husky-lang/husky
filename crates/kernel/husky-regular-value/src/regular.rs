@@ -1,15 +1,15 @@
+mod incubator;
+mod incubator_dyn;
 mod snapshot;
 mod snapshot_dyn;
-mod stand;
-mod stand_dyn;
 mod r#static;
 mod static_dyn;
 
+pub use self::incubator::*;
+pub use self::incubator_dyn::*;
 pub use self::r#static::*;
 pub use self::snapshot::*;
 pub use self::snapshot_dyn::*;
-pub use self::stand::*;
-pub use self::stand_dyn::*;
 pub use self::static_dyn::*;
 
 use crate::*;
@@ -27,7 +27,7 @@ impl<T> __Regular for &mut T
 where
     T: __Regular,
 {
-    type __Static = __StaticRefMut<T>;
+    type __Static = __StaticRefMut<<T as __Regular>::__Static>;
 }
 
 impl PartialEq for Box<dyn __RegularStaticDyn> {
