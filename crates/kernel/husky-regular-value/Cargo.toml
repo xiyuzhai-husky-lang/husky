@@ -10,3 +10,4 @@ husky-hir-constant = { path = "../../kernel/husky-hir-constant", optional = true
 
 [features]
 constant = ["dep:husky-term-prelude", "dep:husky-hir-constant"]
+vm_support = []

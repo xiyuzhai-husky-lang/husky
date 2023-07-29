@@ -37,10 +37,10 @@ pub use husky_any::*;
 pub use husky_vm_binding::Binding;
 pub use husky_vm_interface::*;
 
+use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_loop_syntax::*;
-
-use husky_coword::Ident;
+use husky_regular_value::*;
 use std::sync::Arc;
 
 pub fn eval_fast<'temp>(

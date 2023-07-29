@@ -9,17 +9,24 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 arrayvec = "0.7.2"
 indexmap = "1.8.1"
 colored = "2.0.0"
+# abstraction
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+vec-like = { path = "../../abstraction/vec-like" }
+avec = { path = "../../abstraction/avec" }
+# kernel
+husky-coword = { path = "../../kernel/husky-coword" }
+husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
+    "vm_support"
+] }
+# utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-cyclic-slice = { path = "../../abstraction/cyclic-slice" }
-vec-like = { path = "../../abstraction/vec-like" }
-avec = { path = "../../abstraction/avec" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-any = { path = "../husky-any" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+# vm
+husky-any = { path = "../../vm/husky-any" }
 husky-text = { path = "../../lex/husky-text" }
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-vm-register-method = { path = "../husky-vm-register-method" }
