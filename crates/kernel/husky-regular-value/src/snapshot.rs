@@ -46,9 +46,9 @@ pub enum __RegularValueSnapshot {
     Intrinsic(Arc<dyn __RegularSnapshotDyn>),
 }
 
-impl From<&__RegularValue> for __RegularValueSnapshot {
-    fn from(value: &__RegularValue) -> Self {
-        match value {
+impl __RegularValue {
+    pub unsafe fn snapshot(&self) -> __RegularValueSnapshot {
+        match self {
             __RegularValue::Moved => __RegularValueSnapshot::Moved,
             __RegularValue::Unit(_) => __RegularValueSnapshot::Unit(()),
             __RegularValue::Bool(val) => __RegularValueSnapshot::Bool(*val),

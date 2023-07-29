@@ -31,28 +31,23 @@
 
 #[cfg(feature = "constant")]
 mod constant;
+#[cfg(feature = "vm_support")]
+mod incubator;
 mod regular;
 #[cfg(feature = "vm_support")]
 mod snapshot;
-mod snapshot_dyn;
-#[cfg(feature = "vm_support")]
-mod stand;
-mod stand_dyn;
 mod static_info;
 mod value;
-mod value_dyn;
 
 use std::num::NonZeroU32;
 
 #[cfg(feature = "constant")]
 pub use self::constant::*;
+#[cfg(feature = "vm_support")]
+pub use self::incubator::*;
 pub use self::regular::*;
 #[cfg(feature = "vm_support")]
 pub use self::snapshot::*;
-pub use self::snapshot_dyn::*;
-#[cfg(feature = "vm_support")]
-pub use self::stand::*;
-pub use self::stand_dyn::*;
 pub use self::static_info::*;
 pub use self::value::*;
 
