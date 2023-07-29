@@ -16,5 +16,5 @@ pub enum HirTemplateArgument {
     /// It should be noted that phantom template parameter should only accept vacant parameter.
     Vacant,
     Type(HirType),
-    Constant(HirConstant),
+    TypeConstant(HirTypeConstant),
 }

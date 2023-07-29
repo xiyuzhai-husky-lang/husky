@@ -9,7 +9,7 @@ description = "Generic LSP server scaffold."
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
 either = "1.8.1"
-ordered-float = "3.0.0"
+ordered-float.workspace = true
 thiserror.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }

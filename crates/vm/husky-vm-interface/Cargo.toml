@@ -5,13 +5,16 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-ordered-float = "3.0.0"
+ordered-float.workspace = true
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
-husky-vm-binding = { path = "../husky-vm-binding", optional = true }
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
+# kernel
+husky-regular-value = { path = "../../kernel/husky-regular-value" }
+# utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
-husky-regular-value = { path = "../../vm/husky-regular-value" }
+# vm
+husky-vm-binding = { path = "../../vm/husky-vm-binding", optional = true }
+husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 
 [features]
 binding = ["dep:husky-vm-binding"]

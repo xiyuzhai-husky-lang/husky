@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 toml_datetime = "0.6.1"
 thiserror.workspace = true
-ordered-float = "3.0.0"
+ordered-float.workspace = true
 smallvec.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
