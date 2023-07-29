@@ -7,8 +7,9 @@ use std::sync::Arc;
 #[derive(Debug, Clone)]
 #[repr(u8)]
 pub enum __RegularValueSnapshot {
-    /// useful for snapshot
-    Empty = 0,
+    /// useful for snapshot caching on stack
+    None,
+    Moved,
     Unit(()),
     Bool(bool),
     Char(char),
