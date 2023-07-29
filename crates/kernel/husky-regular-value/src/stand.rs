@@ -1,14 +1,12 @@
 use crate::*;
-use std::sync::Arc;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 ///
-/// we use Arc for everything on heap to reduce clone costs
+/// stand is used to recover RefMut from snapshot
 #[derive(Debug, Clone)]
 #[repr(u8)]
-pub enum __RegularValueSnapshot {
-    /// useful for snapshot
-    Empty = 0,
+pub enum __RegularValueStand {
+    Moved = 0,
     Unit(()),
     Bool(bool),
     Char(char),
@@ -33,13 +31,13 @@ pub enum __RegularValueSnapshot {
     F32(f32),
     F64(f64),
     StringLiteral(StringLiteralId),
-    Box(Arc<dyn __RegularDyn>),
+    Intrinsic(Box<dyn __RegularDyn>),
+    Box(Box<dyn __RegularDyn>),
     Leash(&'static dyn __RegularDyn),
     SizedRef(Arc<dyn __RegularDyn>),
-    SizedRefMut(Arc<dyn __RegularDyn>),
+    SizedRefMut(Box<dyn __RegularDyn>),
     OptionBox(Option<__BoxDynRegularDyn>),
     OptionLeash(Option<&'static dyn __RegularDyn>),
     OptionSizedRef(Option<Arc<dyn __RegularDyn>>),
-    OptionSizedRefMut(Option<Arc<dyn __RegularDyn>>),
-    Intrinsic(Arc<dyn __RegularDyn>),
+    OptionSizedRefMut(Option<Box<dyn __RegularDyn>>),
 }
