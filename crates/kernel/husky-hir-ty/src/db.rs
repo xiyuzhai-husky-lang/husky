@@ -3,4 +3,9 @@ use crate::*;
 pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> {}
 
 #[salsa::jar(db = HirTypeDb)]
-pub struct HirTypeJar(HirType);
+pub struct HirTypeJar(
+    HirTypePathLeading,
+    HirTypeTypeAssociatedType,
+    HirTypeTraitAssociatedType,
+    HirConstantSymbol,
+);

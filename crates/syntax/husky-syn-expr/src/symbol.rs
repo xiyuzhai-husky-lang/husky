@@ -113,7 +113,7 @@ impl CurrentSynSymbol {
     pub fn ident(&self) -> Option<Ident> {
         match self.variant {
             CurrentSynSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant:
+                template_parameter_variant:
                     CurrentImplicitParameterSymbol::Type { ident_token }
                     | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
             }
@@ -124,7 +124,7 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSynSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime { .. },
+                template_parameter_variant: CurrentImplicitParameterSymbol::Lifetime { .. },
             } => None,
         }
     }
@@ -138,7 +138,7 @@ impl CurrentSynSymbol {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentSynSymbolKind {
     ImplicitParameter {
-        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind,
+        template_parameter_kind: CurrentImplicitParameterSynSymbolKind,
     },
     ExplicitRegularParameter {
         pattern_symbol_idx: PatternSynSymbolIdx,
@@ -164,7 +164,7 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentSynSymbolVariant {
     ImplicitParameter {
-        implicit_parameter_variant: CurrentImplicitParameterSymbol,
+        template_parameter_variant: CurrentImplicitParameterSymbol,
     },
     ExplicitRegularParameter {
         ident: Ident,
@@ -188,7 +188,7 @@ impl CurrentSynSymbolVariant {
     fn modifier(&self, pattern_expr_region: &PatternSynExprRegion) -> SymbolModifier {
         match self {
             CurrentSynSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant,
+                template_parameter_variant,
             } => SymbolModifier::Const,
             CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
@@ -248,9 +248,9 @@ impl CurrentSynSymbolVariant {
     pub fn kind(&self) -> CurrentSynSymbolKind {
         match self {
             CurrentSynSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant,
+                template_parameter_variant,
             } => CurrentSynSymbolKind::ImplicitParameter {
-                implicit_parameter_kind: implicit_parameter_variant.kind(),
+                template_parameter_kind: template_parameter_variant.kind(),
             },
             CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..

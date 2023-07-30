@@ -8,7 +8,7 @@ pub struct TupleStructTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     lpar: LeftParenthesisToken,
     #[return_ref]
     field_comma_list:
@@ -21,7 +21,7 @@ pub struct TupleStructTypeSynNodeDecl {
 impl TupleStructTypeSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter(),
@@ -65,7 +65,7 @@ impl TupleStructTypeSynDecl {
         syn_node_decl: TupleStructTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

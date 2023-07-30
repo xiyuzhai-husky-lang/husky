@@ -6,14 +6,14 @@ pub struct ExternTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 
 impl ExternTypeSynNodeDecl {
     pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         todo!()
-        // self.implicit_parameter_decl_list(db)
+        // self.template_parameter_decl_list(db)
         //     .as_ref()
         //     .map(ImplicitParameterDeclList::template_parameters)
         //     .unwrap_or(&[])
@@ -21,7 +21,7 @@ impl ExternTypeSynNodeDecl {
 
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter(),
@@ -73,7 +73,7 @@ impl ExternTypeSynDecl {
         syn_node_decl: ExternTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

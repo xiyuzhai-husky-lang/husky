@@ -6,7 +6,7 @@ pub struct TraitAssociatedFnSynNodeDecl {
     pub path: TraitItemPath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
@@ -20,7 +20,7 @@ pub struct TraitAssociatedFnSynNodeDecl {
 impl TraitAssociatedFnSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter()

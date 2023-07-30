@@ -7,7 +7,7 @@ pub struct TraitMethodFnSynNodeDecl {
     pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: Option<Generics>,
+    template_parameter_decl_list: Option<Generics>,
     #[return_ref]
     parameter_decl_list: SelfParameterAndExplicitParameters<true>,
     pub curry_token: Option<CurryToken>,

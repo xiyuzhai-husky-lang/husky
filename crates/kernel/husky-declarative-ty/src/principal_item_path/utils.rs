@@ -11,16 +11,16 @@ pub(super) fn curry_from_template_parameters(
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let mut term = term.into();
     debug_assert_eq!(variances.len(), template_parameters.len());
-    for (variance, implicit_parameter) in
+    for (variance, template_parameter) in
         std::iter::zip(variances.iter(), template_parameters.iter()).rev()
     {
-        let symbol = implicit_parameter.symbol();
+        let symbol = template_parameter.symbol();
         term = DeclarativeTermCurry::new_dependent(
             db,
             term_curry_kind,
             *variance,
             symbol,
-            implicit_parameter.ty(db)?,
+            template_parameter.ty(db)?,
             term,
         )
         .into()

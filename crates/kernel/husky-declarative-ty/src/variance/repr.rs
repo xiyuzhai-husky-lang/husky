@@ -32,7 +32,7 @@ pub(crate) fn item_variance_reprs(
     match path {
         ItemPath::Submodule(_) => todo!(),
         ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_implicit_parameter_variance_reprs(db, path),
+            ModuleItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
             ModuleItemPath::Trait(path) => trai_item_variance_reprs(db, path),
             ModuleItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
@@ -49,7 +49,7 @@ pub(crate) fn item_variance_reprs(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_implicit_parameter_variance_reprs(
+pub(crate) fn ty_template_parameter_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
@@ -61,8 +61,8 @@ pub(crate) fn ty_implicit_parameter_variance_reprs(
     let template_parameters = signature.template_parameters(db);
     let reprs = template_parameters
         .iter()
-        .map(|implicit_parameter| VarianceRepr {
-            base: implicit_parameter
+        .map(|template_parameter| VarianceRepr {
+            base: template_parameter
                 .annotated_variance()
                 .unwrap_or(TYPE_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
@@ -83,8 +83,8 @@ pub(crate) fn ty_implicit_parameter_variance_reprs(
         //      TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
         // }
     }
-    for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), template_parameters.iter()) {
-        if let Some(_annotated_variance) = implicit_parameter.annotated_variance() {
+    for (_repr, template_parameter) in std::iter::zip(reprs.iter(), template_parameters.iter()) {
+        if let Some(_annotated_variance) = template_parameter.annotated_variance() {
             // verify the calculated is the same as the annotated
             // todo!()
         }

@@ -7,7 +7,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     pub node: TraitForTypeItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     #[return_ref]
@@ -22,7 +22,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
 impl TraitForTypeMethodFnSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -56,7 +56,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = ctx.try_parse_option();
         let parameter_decl_list =
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
         let curry_token = ctx.try_parse_option();
@@ -72,7 +72,7 @@ impl<'a> DeclParser<'a> {
             node.syn_node_path(db),
             node,
             ast_idx,
-            implicit_parameter_decl_list,
+            template_parameter_decl_list,
             parameter_decl_list,
             curry_token,
             return_ty,
@@ -102,7 +102,7 @@ impl TraitForTypeMethodFnSynDecl {
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

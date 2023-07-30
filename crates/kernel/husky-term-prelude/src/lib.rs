@@ -8,6 +8,7 @@ mod final_destination;
 mod item_path;
 mod literal;
 mod modifier;
+pub mod symbol;
 mod universe;
 
 pub use self::category::*;

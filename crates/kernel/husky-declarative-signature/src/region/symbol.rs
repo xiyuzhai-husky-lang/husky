@@ -1,12 +1,13 @@
 use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
+use husky_term_prelude::symbol::TermSymbolRegistry;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct SymbolDeclarativeTermRegion {
-    registry: DeclarativeTermSymbolRegistry,
+    symbol_registry: TermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<DeclarativeTerm>,
     self_value_term: Option<DeclarativeTermSymbol>,
@@ -34,19 +35,23 @@ impl SymbolSignature {
 }
 
 impl SymbolDeclarativeTermRegion {
+    pub(crate) fn symbol_registry_mut(&mut self) -> &mut TermSymbolRegistry {
+        &mut self.symbol_registry
+    }
+
     #[inline(always)]
-    pub(crate) fn add_new_implicit_parameter_symbol_signature(
+    pub(crate) fn add_new_template_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         idx: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        term_symbol: DeclarativeTermSymbol,
     ) {
-        let symbol = self.registry.new_symbol(db, ty);
         self.add_new_current_symbol_signature(
             db,
             idx,
             SymbolSignature {
-                term_symbol: Some(symbol),
+                term_symbol: Some(term_symbol),
                 ty,
                 modifier: SymbolModifier::Const,
             },
@@ -96,9 +101,9 @@ impl SymbolDeclarativeTermRegion {
         parent: Option<&SymbolDeclarativeTermRegion>,
         symbol_region: &SynSymbolRegion,
     ) -> Self {
-        let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
+        let registry = parent.map_or(Default::default(), |parent| parent.symbol_registry.clone());
         Self {
-            registry,
+            symbol_registry: registry,
             symbol_signatures: SymbolOrderedMap::new(
                 parent.map(|parent| &parent.symbol_signatures),
             ),
@@ -117,7 +122,7 @@ impl SymbolDeclarativeTermRegion {
             self.self_ty_term = match region_path {
                 RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Trait(
                     _,
-                ))) => Some(self.new_self_ty_term_parameter_symbol(db)),
+                ))) => Some(self.new_self_ty_symbol(db).into()),
                 RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Type(
                     ty_node_path,
                 ))) => Some(self.ty_defn_self_ty_term(
@@ -131,9 +136,7 @@ impl SymbolDeclarativeTermRegion {
                         }
                         ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
                             match impl_block_path.ty_sketch(db) {
-                                TypeSketch::DeriveAny => {
-                                    Some(self.new_self_ty_term_parameter_symbol(db))
-                                }
+                                TypeSketch::DeriveAny => Some(self.new_self_ty_symbol(db).into()),
                                 TypeSketch::Path(ty_path) => None, // reserved for later stage
                             }
                         }
@@ -145,20 +148,17 @@ impl SymbolDeclarativeTermRegion {
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value_term.is_none() {
             self.self_value_term = Some(
-                self.registry
-                    .new_symbol(db, Ok(self.self_ty_term.expect("self type should exists")))
-                    .into(),
+                DeclarativeTermSymbol::new_self_value(
+                    db,
+                    &mut self.symbol_registry,
+                    self.self_ty_term.expect("self type should exists"),
+                )
+                .into(),
             )
         }
     }
-    fn new_self_ty_term_parameter_symbol(
-        &mut self,
-        db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeTerm {
-        // todo: general universe
-        self.registry
-            .new_symbol(db, Ok(DeclarativeTerm::TYPE))
-            .into()
+    fn new_self_ty_symbol(&mut self, db: &dyn DeclarativeSignatureDb) -> DeclarativeTermSymbol {
+        DeclarativeTermSymbol::new_self_ty(db, &mut self.symbol_registry)
     }
 
     /// this only works on type definitions

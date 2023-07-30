@@ -32,6 +32,7 @@ use Variance::*;
 /// _ -> X: ∀ u, Type u -> Type u
 /// ```
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[repr(u8)]
 pub enum Variance {
     Independent = 0b00,
     Covariant = 0b01,

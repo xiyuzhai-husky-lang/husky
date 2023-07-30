@@ -59,7 +59,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                 access_start,
                 None,
                 CurrentSynSymbolVariant::ImplicitParameter {
-                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                    template_parameter_variant: CurrentImplicitParameterSymbol::Type {
                         ident_token,
                     },
                 },
@@ -97,7 +97,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                     access_start,
                     None,
                     CurrentSynSymbolVariant::ImplicitParameter {
-                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                        template_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                             label_token,
                         },
                     },
@@ -134,7 +134,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                         access_start,
                         None,
                         CurrentSynSymbolVariant::ImplicitParameter {
-                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                            template_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                 ident_token,
                                 ty_expr_idx: ty_expr,
                             },

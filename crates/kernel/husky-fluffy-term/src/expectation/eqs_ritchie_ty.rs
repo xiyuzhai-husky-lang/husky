@@ -81,7 +81,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
             } => meta.set_ok(
                 ExpectEqsRitchieTypeOutcome {
                     ritchie_kind,
-                    implicit_parameter_substitutions: smallvec![],
+                    template_parameter_substitutions: smallvec![],
                     parameter_contracted_tys: parameter_contracted_tys.to_smallvec(),
                     return_ty,
                 },
@@ -105,7 +105,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
     pub(crate) ritchie_kind: RitchieKind,
-    pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+    pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
     pub(crate) return_ty: FluffyTerm,
 }
@@ -151,7 +151,7 @@ impl ExpectEqsRitchieType {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
         expectee: FluffyTerm,
-        mut implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+        mut template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     ) -> Option<ExpectationEffect> {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -177,7 +177,7 @@ impl ExpectEqsRitchieType {
                 parameter_variable,
                 parameter_ty,
                 return_ty,
-                implicit_parameter_substitutions,
+                template_parameter_substitutions,
             ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
@@ -188,7 +188,7 @@ impl ExpectEqsRitchieType {
             } => state.set_ok(
                 ExpectEqsRitchieTypeOutcome {
                     ritchie_kind,
-                    implicit_parameter_substitutions,
+                    template_parameter_substitutions,
                     parameter_contracted_tys: parameter_contracted_tys.to_smallvec(),
                     return_ty,
                 },
@@ -217,7 +217,7 @@ impl ExpectEqsRitchieType {
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        mut implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+        mut template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     ) -> Option<ExpectationEffect> {
         match curry_kind {
             CurryKind::Explicit => todo!(),
@@ -229,7 +229,7 @@ impl ExpectEqsRitchieType {
                         HoleSource::Expectation(meta.idx()),
                         parameter_variable,
                     );
-                    implicit_parameter_substitutions.push(ImplicitParameterSubstitution::new(
+                    template_parameter_substitutions.push(ImplicitParameterSubstitution::new(
                         parameter_variable,
                         implicit_symbol,
                     ));
@@ -237,9 +237,9 @@ impl ExpectEqsRitchieType {
                         db,
                         terms,
                         HoleSource::Expectation(meta.idx()),
-                        &implicit_parameter_substitutions,
+                        &template_parameter_substitutions,
                     );
-                    self.resolve_aux(db, terms, meta, expectee, implicit_parameter_substitutions)
+                    self.resolve_aux(db, terms, meta, expectee, template_parameter_substitutions)
                 }
                 None => todo!(),
             },

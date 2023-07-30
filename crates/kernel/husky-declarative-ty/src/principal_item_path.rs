@@ -222,7 +222,7 @@ pub fn ty_ontology_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) = ty_implicit_parameter_variances(db, path) else {
+    let Ok(variances) = ty_template_parameter_variances(db, path) else {
         todo!()
     };
     curry_from_template_parameters(
@@ -263,8 +263,8 @@ pub fn ty_variant_path_declarative_ty(
     match signature_template {
         TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
         TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
-            let Ok(parent_ty_implicit_parameter_variances) =
-                ty_implicit_parameter_variances(db, path.parent_ty_path(db))
+            let Ok(parent_ty_template_parameter_variances) =
+                ty_template_parameter_variances(db, path.parent_ty_path(db))
             else {
                 todo!()
             };
@@ -272,7 +272,7 @@ pub fn ty_variant_path_declarative_ty(
             curry_from_template_parameters(
                 db,
                 CurryKind::Implicit,
-                parent_ty_implicit_parameter_variances,
+                parent_ty_template_parameter_variances,
                 signature_template
                     .parent_ty_template(db)
                     .template_parameters(db),
@@ -280,8 +280,8 @@ pub fn ty_variant_path_declarative_ty(
             )
         }
         TypeVariantDeclarativeSignatureTemplate::Tuple(signature_template) => {
-            let Ok(parent_ty_implicit_parameter_variances) =
-                ty_implicit_parameter_variances(db, path.parent_ty_path(db))
+            let Ok(parent_ty_template_parameter_variances) =
+                ty_template_parameter_variances(db, path.parent_ty_path(db))
             else {
                 todo!()
             };
@@ -289,7 +289,7 @@ pub fn ty_variant_path_declarative_ty(
             curry_from_template_parameters(
                 db,
                 CurryKind::Implicit,
-                parent_ty_implicit_parameter_variances,
+                parent_ty_template_parameter_variances,
                 signature_template
                     .parent_ty_template(db)
                     .template_parameters(db),
