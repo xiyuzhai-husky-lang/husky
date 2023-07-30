@@ -99,6 +99,8 @@ pub enum DecrIdentToken {
     Derive(DeriveToken),
 }
 
+// "derive"
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct DeriveToken {
     token_idx: TokenIdx,
@@ -135,4 +137,37 @@ where
 #[test]
 fn derive_token_works() {
     // todo
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct PhantomToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomToken
+where
+    Context: TokenStreamParser<'a> + HasTokenDb,
+{
+    type Error = TokenError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                Token::Ident(ident) => match ident.data(ctx.token_db()) {
+                    "phantom" => Ok(Some(Self { token_idx })),
+                    _ => Ok(None),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
 }

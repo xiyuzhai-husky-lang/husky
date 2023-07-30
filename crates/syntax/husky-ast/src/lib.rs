@@ -48,9 +48,9 @@ pub enum Ast {
         visibility_expr: VisibilityExpr,
         state_after_visibility_expr: Option<TokenStreamState>,
     },
-    /// specify internal attributes
+    /// specify comptime hints(sorceries)
     /// doesn't need to be processed until comptime
-    Attr { token_group_idx: TokenGroupIdx },
+    Hint { token_group_idx: TokenGroupIdx },
     /// decoration, used for deriving trait implementations, etc.
     /// needs to be processed before inference
     Decr {

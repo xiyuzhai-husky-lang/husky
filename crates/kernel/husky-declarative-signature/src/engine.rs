@@ -89,33 +89,43 @@ impl<'a> DeclarativeTermEngine<'a> {
                     let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
-                    let CurrentSynSymbolVariant::ImplicitParameter {
+                    let CurrentSynSymbolVariant::TemplateParameter {
                         template_parameter_variant,
+                        syn_attrs,
                     } = current_symbol.variant()
                     else {
                         unreachable!()
                     };
+                    let attrs = syn_attrs.attrs();
                     let (ty, term_symbol) = match template_parameter_variant {
-                        CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+                        CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                             DeclarativeTermSymbol::new_lifetime(
                                 self.db,
                                 self.declarative_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                             )
                         }
-                        CurrentImplicitParameterSymbol::Type { ident_token } => {
+                        CurrentTemplateParameterSynSymbolVariant::Type { ident_token } => {
                             DeclarativeTermSymbol::new_ty(
                                 self.db,
                                 self.declarative_term_menu,
                                 &mut self.symbol_declarative_term_region.symbol_registry_mut(),
                             )
                         }
-                        CurrentImplicitParameterSymbol::Constant {
+                        CurrentTemplateParameterSynSymbolVariant::Constant {
                             ident_token,
                             ty_expr_idx,
                         } => {
                             let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
-                            (ty, DeclarativeTermSymbol::new(self.db, ty, todo!()))
+                            (
+                                ty,
+                                DeclarativeTermSymbol::new_const(
+                                    self.db,
+                                    attrs,
+                                    ty,
+                                    &mut self.symbol_declarative_term_region.symbol_registry_mut(),
+                                ),
+                            )
                         }
                         _ => todo!(),
                     };
@@ -189,7 +199,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     ) {
         let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
-            CurrentSynSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ParenicRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {

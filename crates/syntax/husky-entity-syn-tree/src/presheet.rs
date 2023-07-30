@@ -212,7 +212,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Err { .. }
-            | Ast::Attr { .. }
+            | Ast::Hint { .. }
             | Ast::Decr { .. }
             | Ast::BasicStmtOrBranch { .. }
             | Ast::IfElseStmts { .. }

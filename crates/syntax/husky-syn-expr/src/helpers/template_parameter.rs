@@ -58,8 +58,9 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolVariant::ImplicitParameter {
-                    template_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                CurrentSynSymbolVariant::TemplateParameter {
+                    syn_attrs: todo!(),
+                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                         ident_token,
                     },
                 },
@@ -96,10 +97,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
-                    CurrentSynSymbolVariant::ImplicitParameter {
-                        template_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
-                            label_token,
-                        },
+                    CurrentSynSymbolVariant::TemplateParameter {
+                        syn_attrs: todo!(),
+                        template_parameter_variant:
+                            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token },
                     },
                 )],
                 Some(PatternTypeConstraint::ImplicitTypeParameter),
@@ -133,11 +134,13 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolVariant::ImplicitParameter {
-                            template_parameter_variant: CurrentImplicitParameterSymbol::Constant {
-                                ident_token,
-                                ty_expr_idx: ty_expr,
-                            },
+                        CurrentSynSymbolVariant::TemplateParameter {
+                            syn_attrs: todo!(),
+                            template_parameter_variant:
+                                CurrentTemplateParameterSynSymbolVariant::Constant {
+                                    ident_token,
+                                    ty_expr_idx: ty_expr,
+                                },
                         },
                     )],
                     Some(PatternTypeConstraint::ImplicitTypeParameter),

@@ -9,6 +9,7 @@ mod item_path;
 mod literal;
 mod modifier;
 pub mod symbol;
+pub mod template_parameter;
 mod universe;
 
 pub use self::category::*;

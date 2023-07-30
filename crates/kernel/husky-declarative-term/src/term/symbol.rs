@@ -1,11 +1,16 @@
 mod registry;
 mod set;
 
+use crate::helpers::DeclarativeTermFamily;
+
 pub use self::registry::*;
 pub use self::set::*;
 
 use super::*;
-use husky_term_prelude::symbol::{TermSymbolIndex, TermSymbolRegistry};
+use husky_term_prelude::{
+    symbol::{TermSymbolIndex, TermSymbolRegistry},
+    template_parameter::TemplateParameterAttrs,
+};
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -67,6 +72,25 @@ impl DeclarativeTermSymbol {
             ty,
             DeclarativeTermSymbol::new(db, ty, registry.issue_self_ty_index()),
         )
+    }
+
+    pub fn new_const(
+        db: &dyn DeclarativeTermDb,
+        attrs: TemplateParameterAttrs,
+        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        registry: &mut TermSymbolRegistry,
+    ) -> Self {
+        let idx = match ty {
+            Ok(ty) => match ty.family(db) {
+                DeclarativeTermFamily::Sort => todo!(),
+                DeclarativeTermFamily::TypePath(ty_path) => {
+                    registry.issue_const_path_leading_index(attrs, ty_path)
+                }
+                DeclarativeTermFamily::Other => todo!(),
+            },
+            Err(_) => todo!(),
+        };
+        Self::new(db, ty, idx)
     }
 
     pub unsafe fn new_ad_hoc(
