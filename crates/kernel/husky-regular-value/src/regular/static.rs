@@ -8,7 +8,7 @@ pub trait __RegularStatic: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'stati
 }
 
 #[derive(Debug)]
-pub struct __RegularValueStaticRefMut<T>(*mut T)
+pub struct __RegularValueStaticRefMut<T>(pub(super) *mut T)
 where
     T: __RegularStatic;
 
