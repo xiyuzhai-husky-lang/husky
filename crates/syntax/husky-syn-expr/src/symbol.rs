@@ -8,8 +8,9 @@ pub use self::map::*;
 pub use self::ordered_map::*;
 pub use self::region::*;
 
-use husky_term_prelude::template_parameter::TemplateParameterAttrs;
+use husky_term_prelude::template_parameter::{TemplateParameterAttr, TemplateParameterAttrs};
 use idx_arena::ordered_map::ArenaOrderedMap;
+use parsec::{StreamParser, TryParseFromStream};
 use vec_like::SmallVecSet;
 
 use crate::*;
@@ -116,7 +117,7 @@ impl CurrentSynSymbol {
         match self.variant {
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant:
-                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token }
+                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. }
                     | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
                 ..
             }
@@ -170,6 +171,7 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 pub enum CurrentSynSymbolVariant {
     TemplateParameter {
         syn_attrs: TemplateParameterSynAttrs,
+        annotated_variance_token: Option<VarianceToken>,
         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
     },
     ParenicRegularParameter {
@@ -192,7 +194,7 @@ pub enum CurrentSynSymbolVariant {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TemplateParameterSynAttrs {
-    syn_attrs: SmallVecSet<TemplateParameterInlineDecr, 1>,
+    syn_attrs: SmallVec<[TemplateParameterSynAttr; 1]>,
     attrs: TemplateParameterAttrs,
 }
 
@@ -202,9 +204,28 @@ impl TemplateParameterSynAttrs {
     }
 }
 
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TemplateParameterSynAttrs {
+    type Error = ExprError;
+
+    fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
+        let mut syn_attrs: SmallVec<[TemplateParameterSynAttr; 1]> = smallvec::smallvec![];
+        while let Some(_) = sp.try_parse_option::<AtToken>()? {
+            todo!()
+        }
+        let attrs = TemplateParameterAttrs::from_syn_attrs(&syn_attrs);
+        Ok(TemplateParameterSynAttrs { syn_attrs, attrs })
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TemplateParameterInlineDecr {
+pub enum TemplateParameterSynAttr {
     Phantom(AtToken, PhantomToken),
+}
+
+impl Into<TemplateParameterAttr> for &TemplateParameterSynAttr {
+    fn into(self) -> TemplateParameterAttr {
+        todo!()
+    }
 }
 
 impl CurrentSynSymbolVariant {
@@ -253,7 +274,7 @@ impl CurrentTemplateParameterSynSymbolVariant {
                     label: label_token.label(),
                 }
             }
-            CurrentTemplateParameterSynSymbolVariant::Type { ident_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
                 InheritedImplicitParameterSynSymbol::Type {
                     ident: ident_token.ident(),
                 }
@@ -302,7 +323,7 @@ impl CurrentSynSymbolVariant {
 impl CurrentTemplateParameterSynSymbolVariant {
     fn kind(&self) -> CurrentImplicitParameterSynSymbolKind {
         match self {
-            CurrentTemplateParameterSynSymbolVariant::Type { ident_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
                 CurrentImplicitParameterSynSymbolKind::Type {
                     ident_token: *ident_token,
                 }

@@ -24,7 +24,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 3,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 lcurl: Ok(
@@ -334,7 +334,7 @@ Ok(
                                     20,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -568,7 +568,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 1,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(

@@ -108,7 +108,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),
@@ -117,7 +117,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 3,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -202,7 +202,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),
@@ -211,7 +211,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 3,
+                                    value: 4,
                                 },
                             ),
                         ),

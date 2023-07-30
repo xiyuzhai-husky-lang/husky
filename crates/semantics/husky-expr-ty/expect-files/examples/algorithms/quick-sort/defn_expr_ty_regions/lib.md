@@ -291,7 +291,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -318,7 +318,15 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                             ],
@@ -347,7 +355,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 2,
                                             },
                                         ),
                                     ),
@@ -503,7 +511,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: FluffyTerm::Variable(
                                                             EtherealTermVariable {
@@ -624,7 +632,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -1279,7 +1295,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -1308,7 +1324,15 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                             ],
@@ -1379,7 +1403,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 2,
                                             },
                                         ),
                                     ),
@@ -1479,7 +1503,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 2,
                                             },
                                         ),
                                     ),
@@ -1590,7 +1614,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 1,
+                                                value: 2,
                                             },
                                         ),
                                     ),
@@ -1808,7 +1832,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: FluffyTerm::Variable(
                                                             EtherealTermVariable {
@@ -1929,7 +1953,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -2051,7 +2083,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: FluffyTerm::Variable(
                                                             EtherealTermVariable {
@@ -2172,7 +2204,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -2294,7 +2334,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: FluffyTerm::Variable(
                                                             EtherealTermVariable {
@@ -2415,7 +2455,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -2830,7 +2878,7 @@
                                         element_ty: Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 1,
+                                                    value: 2,
                                                 },
                                             ),
                                         ),
@@ -2842,7 +2890,15 @@
                             FluffyTerm::Symbol(
                                 EtherealTermSymbol {
                                     ty: EtherealTerm(`Type`),
-                                    idx: 0,
+                                    idx: TermSymbolIndex(
+                                        Type {
+                                            attrs: TemplateParameterAttrs {
+                                                phantom: false,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                 },
                             ),
                         ),
@@ -3110,7 +3166,7 @@
                                         element_ty: Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 1,
+                                                    value: 2,
                                                 },
                                             ),
                                         ),
@@ -3122,7 +3178,15 @@
                             FluffyTerm::Symbol(
                                 EtherealTermSymbol {
                                     ty: EtherealTerm(`Type`),
-                                    idx: 0,
+                                    idx: TermSymbolIndex(
+                                        Type {
+                                            attrs: TemplateParameterAttrs {
+                                                phantom: false,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
                                 },
                             ),
                         ),
@@ -3464,7 +3528,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -3495,7 +3559,15 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                             ],
@@ -3938,7 +4010,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -4221,7 +4301,15 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 0,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,

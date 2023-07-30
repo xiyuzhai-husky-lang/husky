@@ -72,7 +72,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 2,
+                                                value: 8,
                                             },
                                         ),
                                         traits: [],
@@ -137,7 +137,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 2,
+                                            value: 5,
                                         },
                                     ),
                                     traits: [],
@@ -149,7 +149,7 @@
                             ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
                                     Id {
-                                        value: 15,
+                                        value: 17,
                                     },
                                 ),
                             ),

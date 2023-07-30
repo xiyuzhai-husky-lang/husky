@@ -23,7 +23,7 @@ Ok(
                                 },
                             },
                             ast_idx: 0,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -105,7 +105,7 @@ Ok(
                                 },
                             },
                             ast_idx: 1,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -187,7 +187,7 @@ Ok(
                                 },
                             },
                             ast_idx: 2,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -269,7 +269,7 @@ Ok(
                                 },
                             },
                             ast_idx: 3,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {

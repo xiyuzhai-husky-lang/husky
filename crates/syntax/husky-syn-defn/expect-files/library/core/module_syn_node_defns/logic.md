@@ -18,7 +18,7 @@ Ok(
                                 },
                             },
                             ast_idx: 2,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -98,7 +98,7 @@ Ok(
                                 },
                             },
                             ast_idx: 3,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
@@ -274,8 +274,15 @@ Ok(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `P`,
                                                                 token_idx: TokenIdx(
@@ -291,8 +298,15 @@ Ok(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Q`,
                                                                 token_idx: TokenIdx(
@@ -308,13 +322,13 @@ Ok(
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -356,7 +370,7 @@ Ok(
                                 },
                             },
                             ast_idx: 4,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
@@ -532,8 +546,15 @@ Ok(
                                                         31,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `P`,
                                                                 token_idx: TokenIdx(
@@ -549,8 +570,15 @@ Ok(
                                                         35,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Q`,
                                                                 token_idx: TokenIdx(
@@ -566,13 +594,13 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),

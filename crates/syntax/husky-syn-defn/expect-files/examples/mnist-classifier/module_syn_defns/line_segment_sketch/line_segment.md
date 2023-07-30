@@ -1107,7 +1107,7 @@ Ok(
                                                         43,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `pt`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1374,7 +1374,7 @@ Ok(
                                                                 43,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `pt`,
                                                                 pattern_symbol_idx: 0,
                                                             },

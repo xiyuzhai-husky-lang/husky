@@ -18,7 +18,7 @@ Ok(
                                 },
                             },
                             ast_idx: 3,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
@@ -105,8 +105,15 @@ Ok(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -122,7 +129,7 @@ Ok(
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),

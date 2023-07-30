@@ -90,7 +90,16 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -108,16 +117,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 4,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -270,7 +270,16 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -288,16 +297,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 4,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -324,13 +324,29 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 1,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 1,
+                                            },
+                                        ),
                                     },
                                 ),
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 3,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 3,
+                                            },
+                                        ),
                                     },
                                 ),
                             ],

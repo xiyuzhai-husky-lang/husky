@@ -102,8 +102,23 @@ Ok(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: Some(
+                                                            VarianceToken::Covariant(
+                                                                CovariantToken {
+                                                                    token_idx: TokenIdx(
+                                                                        4,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: `'a`,
                                                                 token_idx: TokenIdx(
@@ -119,8 +134,23 @@ Ok(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: Some(
+                                                            VarianceToken::Covariant(
+                                                                CovariantToken {
+                                                                    token_idx: TokenIdx(
+                                                                        7,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
@@ -136,13 +166,13 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -259,8 +289,23 @@ Ok(
                                                         17,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: Some(
+                                                            VarianceToken::Covariant(
+                                                                CovariantToken {
+                                                                    token_idx: TokenIdx(
+                                                                        15,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: `'a`,
                                                                 token_idx: TokenIdx(
@@ -276,8 +321,23 @@ Ok(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: Some(
+                                                            VarianceToken::Invariant(
+                                                                InvariantToken {
+                                                                    token_idx: TokenIdx(
+                                                                        18,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
@@ -293,13 +353,13 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -396,8 +456,23 @@ Ok(
                                                         28,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: Some(
+                                                            VarianceToken::Covariant(
+                                                                CovariantToken {
+                                                                    token_idx: TokenIdx(
+                                                                        26,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
                                                                 token_idx: TokenIdx(
@@ -413,7 +488,7 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
@@ -518,7 +593,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
@@ -599,8 +674,15 @@ Ok(
                                                 33,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                syn_attrs: TemplateParameterSynAttrs {
+                                                    syn_attrs: [],
+                                                    attrs: TemplateParameterAttrs {
+                                                        phantom: false,
+                                                    },
+                                                },
+                                                annotated_variance_token: None,
+                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
@@ -616,7 +698,7 @@ Ok(
                                 allow_self_value: False,
                                 pattern_ty_constraints: [
                                     (
-                                        ImplicitTypeParameter,
+                                        TemplateTypeParameter,
                                         ArenaIdxRange(
                                             0..1,
                                         ),

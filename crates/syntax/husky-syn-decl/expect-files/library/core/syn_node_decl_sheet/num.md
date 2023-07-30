@@ -24,7 +24,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 32,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -108,7 +108,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 37,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -192,7 +192,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 42,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -276,7 +276,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 47,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -360,7 +360,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 52,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -444,7 +444,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 57,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -528,7 +528,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 62,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -612,7 +612,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 67,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -696,7 +696,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 72,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -780,7 +780,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 77,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -864,7 +864,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 82,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -948,7 +948,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 87,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1032,7 +1032,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 92,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1116,7 +1116,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 97,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 syn_expr_region: SynExprRegion {
@@ -1227,7 +1227,7 @@ Ok(
                                     30,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -1392,7 +1392,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 0,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -1667,7 +1667,7 @@ Ok(
                                     41,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -1928,7 +1928,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 1,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -2286,7 +2286,7 @@ Ok(
                                                             52,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2373,7 +2373,7 @@ Ok(
                                     82,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -2538,7 +2538,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 2,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -2813,7 +2813,7 @@ Ok(
                                     93,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -3074,7 +3074,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 3,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -3432,7 +3432,7 @@ Ok(
                                                             104,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3519,7 +3519,7 @@ Ok(
                                     134,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -3684,7 +3684,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 4,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -3959,7 +3959,7 @@ Ok(
                                     145,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -4222,7 +4222,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 5,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -4580,7 +4580,7 @@ Ok(
                                                             155,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -4667,7 +4667,7 @@ Ok(
                                     185,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -4832,7 +4832,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 6,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -5107,7 +5107,7 @@ Ok(
                                     196,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -5368,7 +5368,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 7,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -5726,7 +5726,7 @@ Ok(
                                                             207,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5813,7 +5813,7 @@ Ok(
                                     237,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -5978,7 +5978,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 8,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -6253,7 +6253,7 @@ Ok(
                                     248,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -6514,7 +6514,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 9,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -6872,7 +6872,7 @@ Ok(
                                                             259,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -6959,7 +6959,7 @@ Ok(
                                     289,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -7124,7 +7124,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 10,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -7399,7 +7399,7 @@ Ok(
                                     300,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -7660,7 +7660,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 11,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -8018,7 +8018,7 @@ Ok(
                                                             311,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -8105,7 +8105,7 @@ Ok(
                                     341,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -8270,7 +8270,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 12,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -8545,7 +8545,7 @@ Ok(
                                     352,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -8806,7 +8806,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 13,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -9164,7 +9164,7 @@ Ok(
                                                             363,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -9251,7 +9251,7 @@ Ok(
                                     393,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -9416,7 +9416,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 14,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -9691,7 +9691,7 @@ Ok(
                                     404,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -9952,7 +9952,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 15,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -10310,7 +10310,7 @@ Ok(
                                                             415,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -10397,7 +10397,7 @@ Ok(
                                     445,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -10562,7 +10562,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 16,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -10837,7 +10837,7 @@ Ok(
                                     456,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -11098,7 +11098,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 17,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -11456,7 +11456,7 @@ Ok(
                                                             467,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -11543,7 +11543,7 @@ Ok(
                                     497,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -11708,7 +11708,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 18,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -11983,7 +11983,7 @@ Ok(
                                     508,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -12244,7 +12244,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 19,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -12602,7 +12602,7 @@ Ok(
                                                             519,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -12689,7 +12689,7 @@ Ok(
                                     549,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -12854,7 +12854,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 20,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -13129,7 +13129,7 @@ Ok(
                                     560,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -13390,7 +13390,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 21,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -13748,7 +13748,7 @@ Ok(
                                                             571,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -13835,7 +13835,7 @@ Ok(
                                     601,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -14000,7 +14000,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 22,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -14275,7 +14275,7 @@ Ok(
                                     612,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -14536,7 +14536,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 23,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -14894,7 +14894,7 @@ Ok(
                                                             623,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -14981,7 +14981,7 @@ Ok(
                                     653,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -15146,7 +15146,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 24,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -15438,7 +15438,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 25,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -15713,7 +15713,7 @@ Ok(
                                     672,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -15976,7 +15976,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 26,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -16334,7 +16334,7 @@ Ok(
                                                             682,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -16421,7 +16421,7 @@ Ok(
                                     712,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {
@@ -16586,7 +16586,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 27,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -16861,7 +16861,7 @@ Ok(
                                     723,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             trai_expr: TraitExpr {
@@ -17122,7 +17122,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 28,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -17480,7 +17480,7 @@ Ok(
                                                             734,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },

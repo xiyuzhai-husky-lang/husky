@@ -1026,7 +1026,7 @@ Ok(
                         drained: false,
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -1077,7 +1077,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -1128,7 +1128,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -1179,7 +1179,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -1230,7 +1230,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -1281,7 +1281,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -1332,7 +1332,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -1383,7 +1383,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -1434,7 +1434,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -1485,7 +1485,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -1536,7 +1536,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -1587,7 +1587,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -1638,7 +1638,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -1689,7 +1689,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
@@ -1740,7 +1740,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),

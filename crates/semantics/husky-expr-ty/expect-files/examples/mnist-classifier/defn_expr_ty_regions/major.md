@@ -164,7 +164,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`List`),

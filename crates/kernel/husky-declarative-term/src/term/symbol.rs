@@ -56,9 +56,14 @@ impl DeclarativeTermSymbol {
         db: &dyn DeclarativeTermDb,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
+        attrs: TemplateParameterAttrs,
+        variance: Option<Variance>,
     ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
         let ty = Ok(menu.lifetime_ty());
-        (ty, Self::new(db, ty, registry.issue_lifetime_index()))
+        (
+            ty,
+            Self::new(db, ty, registry.issue_lifetime_index(attrs, variance)),
+        )
     }
 
     #[inline(always)]
@@ -66,11 +71,13 @@ impl DeclarativeTermSymbol {
         db: &dyn DeclarativeTermDb,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
+        attrs: TemplateParameterAttrs,
+        variance: Option<Variance>,
     ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
         let ty = Ok(menu.ty0().into());
         (
             ty,
-            DeclarativeTermSymbol::new(db, ty, registry.issue_self_ty_index()),
+            DeclarativeTermSymbol::new(db, ty, registry.issue_ty_index(attrs, variance)),
         )
     }
 
@@ -86,7 +93,26 @@ impl DeclarativeTermSymbol {
                 DeclarativeTermFamily::TypePath(ty_path) => {
                     registry.issue_const_path_leading_index(attrs, ty_path)
                 }
-                DeclarativeTermFamily::Other => todo!(),
+                DeclarativeTermFamily::Other => registry.issue_const_other_index(attrs),
+            },
+            Err(_) => registry.issue_const_err_index(attrs),
+        };
+        Self::new(db, ty, idx)
+    }
+
+    /// ephem is short for `ephemeral`
+    pub fn new_ephem(
+        db: &dyn DeclarativeTermDb,
+        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+        registry: &mut TermSymbolRegistry,
+    ) -> Self {
+        let idx = match ty {
+            Ok(ty) => match ty.family(db) {
+                DeclarativeTermFamily::Sort => todo!(),
+                DeclarativeTermFamily::TypePath(ty_path) => {
+                    registry.issue_ephem_path_leading_index(ty_path)
+                }
+                DeclarativeTermFamily::Other => registry.issue_ephem_other_index(),
             },
             Err(_) => todo!(),
         };

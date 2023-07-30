@@ -45,7 +45,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),

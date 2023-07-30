@@ -161,7 +161,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 39,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -365,7 +365,7 @@ Ok(
                                                             23,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -919,7 +919,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 43,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -1123,7 +1123,7 @@ Ok(
                                                             254,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1183,7 +1183,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 44,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -1387,7 +1387,7 @@ Ok(
                                                             283,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },

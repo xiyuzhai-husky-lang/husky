@@ -610,6 +610,16 @@ pub enum VarianceToken {
     Invariant(InvariantToken),
 }
 
+impl Into<Variance> for VarianceToken {
+    fn into(self) -> Variance {
+        match self {
+            VarianceToken::Covariant(_) => Variance::Covariant,
+            VarianceToken::Contravariant(_) => Variance::Contravariant,
+            VarianceToken::Invariant(_) => Variance::Invariant,
+        }
+    }
+}
+
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarianceToken
 where
     Context: TokenStreamParser<'a>,

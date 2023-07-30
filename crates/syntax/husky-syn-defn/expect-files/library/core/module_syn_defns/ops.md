@@ -74,8 +74,15 @@ Ok(
                                                     12,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -91,7 +98,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -179,8 +186,15 @@ Ok(
                                                     41,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -196,7 +210,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -284,8 +298,15 @@ Ok(
                                                     70,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -301,7 +322,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -389,8 +410,15 @@ Ok(
                                                     99,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -406,7 +434,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -494,8 +522,15 @@ Ok(
                                                     124,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -511,7 +546,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -599,8 +634,15 @@ Ok(
                                                     153,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -616,7 +658,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -704,8 +746,15 @@ Ok(
                                                     178,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -721,7 +770,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -809,8 +858,15 @@ Ok(
                                                     207,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -826,7 +882,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -914,8 +970,15 @@ Ok(
                                                     232,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -931,7 +994,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1019,8 +1082,15 @@ Ok(
                                                     261,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -1036,7 +1106,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1124,8 +1194,15 @@ Ok(
                                                     286,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -1141,7 +1218,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1229,8 +1306,15 @@ Ok(
                                                     315,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -1246,7 +1330,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1466,8 +1550,15 @@ Ok(
                                                     388,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
                                                             token_idx: TokenIdx(
@@ -1483,7 +1574,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1571,8 +1662,15 @@ Ok(
                                                     410,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                        syn_attrs: [],
+                                                        attrs: TemplateParameterAttrs {
+                                                            phantom: false,
+                                                        },
+                                                    },
+                                                    annotated_variance_token: None,
+                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `T`,
                                                             token_idx: TokenIdx(
@@ -1588,7 +1686,7 @@ Ok(
                                     allow_self_value: False,
                                     pattern_ty_constraints: [
                                         (
-                                            ImplicitTypeParameter,
+                                            TemplateTypeParameter,
                                             ArenaIdxRange(
                                                 0..1,
                                             ),
@@ -1689,8 +1787,15 @@ Ok(
                                                         439,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `R`,
                                                                 token_idx: TokenIdx(
@@ -1706,8 +1811,15 @@ Ok(
                                                         441,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `C`,
                                                                 token_idx: TokenIdx(
@@ -1723,13 +1835,13 @@ Ok(
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),

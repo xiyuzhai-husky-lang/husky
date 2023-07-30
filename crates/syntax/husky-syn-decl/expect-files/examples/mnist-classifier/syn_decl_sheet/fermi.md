@@ -577,7 +577,7 @@ Ok(
                                                             150,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `concave_components`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -588,7 +588,7 @@ Ok(
                                                             157,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `templates`,
                                                             pattern_symbol_idx: 1,
                                                         },

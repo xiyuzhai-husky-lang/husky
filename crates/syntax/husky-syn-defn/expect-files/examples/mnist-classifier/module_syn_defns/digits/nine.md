@@ -3632,7 +3632,7 @@ Ok(
                                                         214,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -3817,7 +3817,7 @@ Ok(
                                                                 214,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -4287,7 +4287,7 @@ Ok(
                                                         243,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -4472,7 +4472,7 @@ Ok(
                                                                 243,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },

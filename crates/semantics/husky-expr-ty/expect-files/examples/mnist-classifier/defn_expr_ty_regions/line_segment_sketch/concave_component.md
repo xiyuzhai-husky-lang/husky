@@ -1235,7 +1235,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(
@@ -1465,7 +1465,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::bool`, `Extern`),
@@ -1701,7 +1701,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::bool`, `Extern`),
@@ -1942,7 +1942,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -4665,7 +4665,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -4746,7 +4746,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -4858,7 +4858,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -5406,7 +5406,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),

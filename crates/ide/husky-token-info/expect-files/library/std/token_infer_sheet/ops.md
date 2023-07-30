@@ -28,7 +28,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `B`,
                             token_idx: TokenIdx(

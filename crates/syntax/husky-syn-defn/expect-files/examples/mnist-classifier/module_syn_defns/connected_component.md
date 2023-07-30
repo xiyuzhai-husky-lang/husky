@@ -638,7 +638,7 @@ Ok(
                                                         48,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -823,7 +823,7 @@ Ok(
                                                                 48,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `ct`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -1454,7 +1454,7 @@ Ok(
                                                         571,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `a`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1465,7 +1465,7 @@ Ok(
                                                         575,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `x`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1695,7 +1695,7 @@ Ok(
                                                                 571,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `a`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -1706,7 +1706,7 @@ Ok(
                                                                 575,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `x`,
                                                                 pattern_symbol_idx: 1,
                                                             },
@@ -2718,7 +2718,7 @@ Ok(
                                                         657,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `img`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -2902,7 +2902,7 @@ Ok(
                                                                 657,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `img`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -14219,7 +14219,7 @@ Ok(
                                                         445,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `k`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -14486,7 +14486,7 @@ Ok(
                                                                 445,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `k`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -15513,7 +15513,7 @@ Ok(
                                                         508,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `k`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -15780,7 +15780,7 @@ Ok(
                                                                 508,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `k`,
                                                                 pattern_symbol_idx: 0,
                                                             },

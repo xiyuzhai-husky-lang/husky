@@ -1113,7 +1113,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -1822,7 +1822,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -2531,7 +2531,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -3240,7 +3240,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -3949,7 +3949,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -4658,7 +4658,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -5367,7 +5367,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -6076,7 +6076,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -6785,7 +6785,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -7494,7 +7494,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -8203,7 +8203,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -8912,7 +8912,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -9738,7 +9738,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -10447,7 +10447,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),

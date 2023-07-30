@@ -69,16 +69,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 5,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -88,6 +79,15 @@
                             EtherealTermSymbol(
                                 Id {
                                     value: 6,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 7,
                                 },
                             ),
                         ),
@@ -106,7 +106,15 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: 0,
+                                idx: TermSymbolIndex(
+                                    Type {
+                                        attrs: TemplateParameterAttrs {
+                                            phantom: false,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
                             },
                             place: Const,
                         },
@@ -238,7 +246,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -247,7 +255,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 5,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -265,7 +273,15 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: 0,
+                                idx: TermSymbolIndex(
+                                    Type {
+                                        attrs: TemplateParameterAttrs {
+                                            phantom: false,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
                             },
                             place: Const,
                         },

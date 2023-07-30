@@ -490,7 +490,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1117,7 +1117,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1630,7 +1630,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2476,7 +2476,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2989,7 +2989,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7731,7 +7731,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -8618,7 +8618,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -9185,7 +9185,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),

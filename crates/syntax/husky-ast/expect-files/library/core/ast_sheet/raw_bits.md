@@ -38,7 +38,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Attr {
+                Ast::Hint {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
