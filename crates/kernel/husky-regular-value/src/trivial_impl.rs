@@ -54,10 +54,8 @@ where
 {
     type __Incubator = __RegularValueIncubatorTrivialImpl<T>;
 
-    fn clone_into_incubator_box(&self) -> Box<dyn __RegularIncubatorDyn> {
-        Box::new(__RegularValueIncubatorTrivialImpl(ManuallyDrop::new(
-            self.0.clone(),
-        )))
+    fn clone_into_incubator(&self) -> Self::__Incubator {
+        __RegularValueIncubatorTrivialImpl(ManuallyDrop::new(self.0.clone()))
     }
 }
 
