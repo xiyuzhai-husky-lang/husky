@@ -19,36 +19,36 @@ pub enum __RegularIncubatorValue {
     I32(i32),
     I64(i64),
     I128(i128),
-    ISize(i128),
+    ISize(isize),
     U8(u8),
     U16(u16),
     U32(u32),
     U64(u64),
     U128(u128),
-    USize(u128),
+    USize(usize),
     R8(u8),
     R16(u16),
     R32(u32),
     R64(u64),
     R128(u128),
-    RSize(u128),
+    RSize(usize),
     F32(f32),
     F64(f64),
     StringLiteral(StringLiteralId),
     Intrinsic(Box<dyn __RegularIncubatorDyn>),
     Box(Box<dyn __RegularIncubatorDyn>),
-    Leash(&'static dyn __RegularStaticDyn),
-    SizedRef(Box<dyn __RegularIncubatorDyn>, Box<dyn __RegularStaticDyn>),
-    SizedRefMut(Box<dyn __RegularIncubatorDyn>, Box<dyn __RegularStaticDyn>),
+    Leash(&'static dyn __RegularStandDyn),
+    SizedRef(Box<dyn __RegularIncubatorDyn>, Box<dyn __RegularStandDyn>),
+    SizedRefMut(Box<dyn __RegularIncubatorDyn>, Box<dyn __RegularStandDyn>),
     OptionBox(Option<Box<dyn __RegularIncubatorDyn>>),
-    OptionLeash(Option<&'static dyn __RegularStaticDyn>),
+    OptionLeash(Option<&'static dyn __RegularStandDyn>),
     OptionSizedRef(
         Option<Box<dyn __RegularIncubatorDyn>>,
-        Option<Box<dyn __RegularStaticDyn>>,
+        Option<Box<dyn __RegularStandDyn>>,
     ),
     OptionSizedRefMut(
         Option<Box<dyn __RegularIncubatorDyn>>,
-        Option<Box<dyn __RegularStaticDyn>>,
+        Option<Box<dyn __RegularStandDyn>>,
     ),
 }
 
@@ -165,7 +165,7 @@ impl __RegularIncubatorValue {
                 )
             }
             __RegularIncubatorValue::OptionSizedRefMut(_, opt_box_value) => {
-                __RegularValue::OptionSizedRefMut(
+                __RegularValue::OptionSizedMut(
                     opt_box_value
                         .as_mut()
                         .map(|box_value| &mut **box_value as *mut _),

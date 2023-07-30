@@ -5,23 +5,32 @@ use std::{
 };
 
 #[derive(Debug)]
-pub struct __RegularValueTrivialImpl<T>(T)
+pub struct __RegularValueStandTrivialImpl<T>(T)
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static;
 
-impl<T> __Regular for __RegularValueTrivialImpl<T>
+impl<T> __RegularValueStandTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type __Static = __RegularValueStaticTrivialImpl<T>;
+    pub(crate) fn upcast(t: T) -> Self {
+        Self(t)
+    }
+
+    pub(crate) fn downcast(self) -> T {
+        self.0
+    }
+
+    pub(crate) fn downcast_ref(&self) -> &T {
+        &self.0
+    }
+
+    pub(crate) fn downcast_mut(&mut self) -> &mut T {
+        &mut self.0
+    }
 }
 
-#[derive(Debug)]
-pub struct __RegularValueStaticTrivialImpl<T>(T)
-where
-    T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static;
-
-impl<T> __RegularStatic for __RegularValueStaticTrivialImpl<T>
+impl<T> __RegularStand for __RegularValueStandTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
@@ -61,9 +70,9 @@ impl<T> __RegularIncubator for __RegularValueIncubatorTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type __Static = __RegularValueStaticTrivialImpl<T>;
+    type __Stand = __RegularValueStandTrivialImpl<T>;
 
-    unsafe fn incubate(&mut self) -> Self::__Static {
-        __RegularValueStaticTrivialImpl(ManuallyDrop::take(&mut self.0))
+    unsafe fn incubate(&mut self) -> Self::__Stand {
+        __RegularValueStandTrivialImpl(ManuallyDrop::take(&mut self.0))
     }
 }

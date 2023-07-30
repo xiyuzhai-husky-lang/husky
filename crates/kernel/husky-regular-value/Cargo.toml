@@ -7,7 +7,10 @@ edition = "2021"
 [dependencies]
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
 husky-hir-constant = { path = "../../kernel/husky-hir-constant", optional = true }
+# utils
+wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [features]
 constant = ["dep:husky-term-prelude", "dep:husky-hir-constant"]
-vm_support = []
+helpers = []
+vm_support = ["helpers"]
