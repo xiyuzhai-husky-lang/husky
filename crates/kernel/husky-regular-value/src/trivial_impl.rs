@@ -63,9 +63,7 @@ where
 {
     type __Static = __RegularValueStaticTrivialImpl<T>;
 
-    unsafe fn incubate_box(&mut self) -> Box<dyn __RegularStaticDyn> {
-        Box::new(__RegularValueStaticTrivialImpl(ManuallyDrop::take(
-            &mut self.0,
-        )))
+    unsafe fn incubate(&mut self) -> Self::__Static {
+        __RegularValueStaticTrivialImpl(ManuallyDrop::take(&mut self.0))
     }
 }

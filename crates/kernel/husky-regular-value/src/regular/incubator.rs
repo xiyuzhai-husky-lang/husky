@@ -3,7 +3,7 @@ use super::*;
 pub trait __RegularIncubator: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type __Static: __RegularStatic<__Incubator = Self>;
 
-    unsafe fn incubate_box(&mut self) -> Box<dyn __RegularStaticDyn>;
+    unsafe fn incubate(&mut self) -> Self::__Static;
 }
 
 /// &mut T
@@ -19,7 +19,7 @@ where
 {
     type __Static = __RegularValueStaticRefMut<T>;
 
-    unsafe fn incubate_box(&mut self) -> Box<dyn __RegularStaticDyn> {
-        unreachable!()
+    unsafe fn incubate(&mut self) -> Self::__Static {
+        __RegularValueStaticRefMut(&mut self.0 .1 as *mut T)
     }
 }

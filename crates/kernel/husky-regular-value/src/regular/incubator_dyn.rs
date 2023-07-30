@@ -9,6 +9,6 @@ where
     T: __RegularIncubator,
 {
     unsafe fn incubate_box_dyn(&mut self) -> Box<dyn __RegularStaticDyn> {
-        todo!()
+        Box::new(self.incubate())
     }
 }
