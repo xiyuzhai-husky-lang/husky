@@ -9,4 +9,4 @@ pub use self::ty_constant::*;
 
 use self::db::*;
 use husky_entity_path::*;
-use husky_hir_constant::*;
+use husky_hir_prelude::*;

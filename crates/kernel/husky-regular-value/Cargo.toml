@@ -6,11 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 husky-term-prelude = { path = "../../kernel/husky-term-prelude", optional = true }
-husky-hir-constant = { path = "../../kernel/husky-hir-constant", optional = true }
+husky-hir-prelude = { path = "../../kernel/husky-hir-prelude", optional = true }
 # utils
 wild-utils = { path = "../../utils/husky-wild-utils" }
 
 [features]
-constant = ["dep:husky-term-prelude", "dep:husky-hir-constant"]
+constant = ["dep:husky-term-prelude", "dep:husky-hir-prelude"]
 helpers = []
 vm_support = ["helpers"]
