@@ -97,11 +97,11 @@ impl AstSheet {
                     .rev()
                     .map(|ast_idx| (ast_idx, &self.ast_arena[ast_idx]))
                     .take_while(|(_, ast)| match ast {
-                        Ast::Attr { .. } | Ast::Decr { .. } => true,
+                        Ast::Hint { .. } | Ast::Decr { .. } => true,
                         _ => false,
                     })
                     .filter_map(|(ast_idx, ast)| match ast {
-                        Ast::Attr { .. } => None,
+                        Ast::Hint { .. } => None,
                         Ast::Decr {
                             token_group_idx,
                             ident,

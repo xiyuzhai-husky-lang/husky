@@ -1,4 +1,4 @@
-use crate::Variance;
+use crate::{template_parameter::TemplateParameterAttrs, Variance};
 use husky_entity_path::TypePath;
 
 /// wrapper so such the construction is private
@@ -18,13 +18,21 @@ impl TermSymbolIndex {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[repr(u8)]
 pub enum TermSymbolIndexInner {
-    Const {
-        phantom: bool,
+    ConstPathLeading {
+        attrs: TemplateParameterAttrs,
         disambiguator: u8,
         ty_path: TypePath,
     },
+    ConstOther {
+        attrs: TemplateParameterAttrs,
+        disambiguator: u8,
+    },
+    ConstErr {
+        attrs: TemplateParameterAttrs,
+        disambiguator: u8,
+    },
     Type {
-        phantom: bool,
+        attrs: TemplateParameterAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -64,6 +72,14 @@ impl TermSymbolRegistry {
     }
 
     pub fn issue_lifetime_index(&self) -> TermSymbolIndex {
+        todo!()
+    }
+
+    pub fn issue_const_path_leading_index(
+        &self,
+        attrs: TemplateParameterAttrs,
+        ty_path: TypePath,
+    ) -> TermSymbolIndex {
         todo!()
     }
 }

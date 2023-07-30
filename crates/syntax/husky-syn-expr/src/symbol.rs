@@ -8,7 +8,9 @@ pub use self::map::*;
 pub use self::ordered_map::*;
 pub use self::region::*;
 
+use husky_term_prelude::template_parameter::TemplateParameterAttrs;
 use idx_arena::ordered_map::ArenaOrderedMap;
+use vec_like::SmallVecSet;
 
 use crate::*;
 use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
@@ -112,19 +114,22 @@ impl CurrentSynSymbol {
 
     pub fn ident(&self) -> Option<Ident> {
         match self.variant {
-            CurrentSynSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant:
-                    CurrentImplicitParameterSymbol::Type { ident_token }
-                    | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
+                    CurrentTemplateParameterSynSymbolVariant::Type { ident_token }
+                    | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
+                ..
             }
             | CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                 Some(ident_token.ident())
             }
-            CurrentSynSymbolVariant::ExplicitRegularParameter { ident, .. }
+            CurrentSynSymbolVariant::ParenicRegularParameter { ident, .. }
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
-            CurrentSynSymbolVariant::ImplicitParameter {
-                template_parameter_variant: CurrentImplicitParameterSymbol::Lifetime { .. },
+            CurrentSynSymbolVariant::TemplateParameter {
+                template_parameter_variant:
+                    CurrentTemplateParameterSynSymbolVariant::Lifetime { .. },
+                ..
             } => None,
         }
     }
@@ -163,10 +168,11 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentSynSymbolVariant {
-    ImplicitParameter {
-        template_parameter_variant: CurrentImplicitParameterSymbol,
+    TemplateParameter {
+        syn_attrs: TemplateParameterSynAttrs,
+        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
     },
-    ExplicitRegularParameter {
+    ParenicRegularParameter {
         ident: Ident,
         pattern_symbol_idx: PatternSynSymbolIdx,
     },
@@ -184,13 +190,31 @@ pub enum CurrentSynSymbolVariant {
     },
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub struct TemplateParameterSynAttrs {
+    syn_attrs: SmallVecSet<TemplateParameterInlineDecr, 1>,
+    attrs: TemplateParameterAttrs,
+}
+
+impl TemplateParameterSynAttrs {
+    pub fn attrs(&self) -> TemplateParameterAttrs {
+        self.attrs
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TemplateParameterInlineDecr {
+    Phantom(AtToken, PhantomToken),
+}
+
 impl CurrentSynSymbolVariant {
     fn modifier(&self, pattern_expr_region: &PatternSynExprRegion) -> SymbolModifier {
         match self {
-            CurrentSynSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
+                ..
             } => SymbolModifier::Const,
-            CurrentSynSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ParenicRegularParameter {
                 pattern_symbol_idx, ..
             }
             | CurrentSynSymbolVariant::LetVariable {
@@ -208,7 +232,7 @@ impl CurrentSynSymbolVariant {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 #[non_exhaustive]
-pub enum CurrentImplicitParameterSymbol {
+pub enum CurrentTemplateParameterSynSymbolVariant {
     Lifetime {
         label_token: LifetimeLabelToken,
     },
@@ -221,20 +245,20 @@ pub enum CurrentImplicitParameterSymbol {
     },
 }
 
-impl CurrentImplicitParameterSymbol {
+impl CurrentTemplateParameterSynSymbolVariant {
     fn bequeath(&self) -> InheritedImplicitParameterSynSymbol {
         match self {
-            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                 InheritedImplicitParameterSynSymbol::Lifetime {
                     label: label_token.label(),
                 }
             }
-            CurrentImplicitParameterSymbol::Type { ident_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Type { ident_token } => {
                 InheritedImplicitParameterSynSymbol::Type {
                     ident: ident_token.ident(),
                 }
             }
-            CurrentImplicitParameterSymbol::Constant {
+            CurrentTemplateParameterSynSymbolVariant::Constant {
                 ident_token,
                 ty_expr_idx,
             } => InheritedImplicitParameterSynSymbol::Constant {
@@ -247,12 +271,13 @@ impl CurrentImplicitParameterSymbol {
 impl CurrentSynSymbolVariant {
     pub fn kind(&self) -> CurrentSynSymbolKind {
         match self {
-            CurrentSynSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
+                ..
             } => CurrentSynSymbolKind::ImplicitParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
-            CurrentSynSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ParenicRegularParameter {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
@@ -274,20 +299,20 @@ impl CurrentSynSymbolVariant {
     }
 }
 
-impl CurrentImplicitParameterSymbol {
+impl CurrentTemplateParameterSynSymbolVariant {
     fn kind(&self) -> CurrentImplicitParameterSynSymbolKind {
         match self {
-            CurrentImplicitParameterSymbol::Type { ident_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Type { ident_token } => {
                 CurrentImplicitParameterSynSymbolKind::Type {
                     ident_token: *ident_token,
                 }
             }
-            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+            CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
                 CurrentImplicitParameterSynSymbolKind::Lifetime {
                     label_token: *label_token,
                 }
             }
-            CurrentImplicitParameterSymbol::Constant { ident_token, .. } => {
+            CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. } => {
                 CurrentImplicitParameterSynSymbolKind::Constant {
                     ident_token: *ident_token,
                 }

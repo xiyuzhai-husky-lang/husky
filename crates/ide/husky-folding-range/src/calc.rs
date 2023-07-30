@@ -35,7 +35,7 @@ impl<'a> FoldingRangeCalculator<'a> {
         let (ast_range, kind) = match ast {
             Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Attr { .. }
+            | Ast::Hint { .. }
             | Ast::Decr { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }

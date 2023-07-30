@@ -165,7 +165,7 @@ impl<'a> AstParser<'a> {
                 }
                 Keyword::Async => todo!(),
             },
-            Token::Punctuation(Punctuation::POUND) => Ast::Attr { token_group_idx },
+            Token::Punctuation(Punctuation::POUND) => Ast::Hint { token_group_idx },
             Token::Punctuation(Punctuation::AT) => match token_group.second() {
                 Some(Token::Ident(ident)) => Ast::Decr {
                     token_group_idx,

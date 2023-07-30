@@ -54,10 +54,11 @@ impl<'a> ExprTypeEngine<'a> {
         current_symbol_idx: idx_arena::ArenaIdx<CurrentSynSymbol>,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
-            CurrentSynSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
+                ..
             } => todo!(),
-            CurrentSynSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ParenicRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
             CurrentSynSymbolVariant::LetVariable {
