@@ -9,11 +9,11 @@ pub trait __RegularSnapshot: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'sta
 #[derive(Debug)]
 pub struct __RegularSnapshotValueRefMut<T>(pub(super) Box<T::__Snapshot>)
 where
-    T: __RegularStatic;
+    T: __RegularStand;
 
 impl<T> __RegularSnapshot for __RegularSnapshotValueRefMut<T>
 where
-    T: __RegularStatic,
+    T: __RegularStand,
 {
     type __Incubator = __RegularValueIncubatorRefMut<T>;
 

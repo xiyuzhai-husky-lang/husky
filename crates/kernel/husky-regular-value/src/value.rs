@@ -26,37 +26,37 @@ pub enum __RegularValue {
     I32(i32),
     I64(i64),
     I128(i128),
-    ISize(i128),
+    ISize(isize),
     U8(u8),
     U16(u16),
     U32(u32),
     U64(u64),
     U128(u128),
-    USize(u128),
+    USize(usize),
     R8(u8),
     R16(u16),
     R32(u32),
     R64(u64),
     R128(u128),
-    RSize(u128),
+    RSize(usize),
     F32(f32),
     F64(f64),
     StringLiteral(StringLiteralId),
     /// `Box<T>`
-    Box(Box<dyn __RegularStaticDyn>),
+    Box(Box<dyn __RegularStandDyn>),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn __RegularStaticDyn),
+    Leash(&'static dyn __RegularStandDyn),
     /// `&T` for T Sized
-    SizedRef(*const dyn __RegularStaticDyn),
+    SizedRef(*const dyn __RegularStandDyn),
     /// `&mut T` for T Sized
-    SizedRefMut(*mut dyn __RegularStaticDyn),
-    OptionBox(Option<Box<dyn __RegularStaticDyn>>),
-    OptionLeash(Option<&'static dyn __RegularStaticDyn>),
-    OptionSizedRef(Option<*const dyn __RegularStaticDyn>),
-    OptionSizedRefMut(Option<*mut dyn __RegularStaticDyn>),
+    SizedMut(*mut dyn __RegularStandDyn),
+    OptionBox(Option<Box<dyn __RegularStandDyn>>),
+    OptionLeash(Option<&'static dyn __RegularStandDyn>),
+    OptionSizedRef(Option<*const dyn __RegularStandDyn>),
+    OptionSizedMut(Option<*mut dyn __RegularStandDyn>),
     /// T where T is not in above cases
-    Intrinsic(Box<dyn __RegularStaticDyn>),
+    Intrinsic(Box<dyn __RegularStandDyn>),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
