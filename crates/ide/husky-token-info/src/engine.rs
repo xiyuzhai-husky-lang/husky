@@ -451,8 +451,8 @@ impl<'a> InferContext<'a> {
             },
             CurrentSynSymbolKind::FrameVariable(_) => (),
             CurrentSynSymbolKind::ImplicitParameter {
-                implicit_parameter_kind,
-            } => match implicit_parameter_kind {
+                template_parameter_kind,
+            } => match template_parameter_kind {
                 CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.sheet.add(
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {

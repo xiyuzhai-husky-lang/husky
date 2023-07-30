@@ -123,9 +123,9 @@ fn construct_self_ty(
     template_parameters: &[DeclarativeTemplateParameter],
 ) -> DeclarativeTerm {
     let mut self_ty: DeclarativeTerm = path.into();
-    for implicit_parameter in template_parameters {
+    for template_parameter in template_parameters {
         self_ty =
-            DeclarativeTermExplicitApplication::new(db, self_ty, implicit_parameter.symbol().into())
+            DeclarativeTermExplicitApplication::new(db, self_ty, template_parameter.symbol().into())
                 .into()
     }
     self_ty

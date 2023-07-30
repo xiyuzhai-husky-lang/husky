@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTypeConstant {
+pub enum HirConstant {
     Unit(()),
     Bool(bool),
     Char(char),
@@ -24,4 +24,25 @@ pub enum HirTypeConstant {
     R64(u64),
     R128(u128),
     RSize(usize),
+    // todo: should we add more types here?
+    // Rust only allows for these things
+    Symbol(HirConstantSymbol),
+}
+
+#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
+pub struct HirConstantSymbol {
+    pub ty: HirType,
+    pub index: SymbolIndex,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct SymbolIndex {
+    ty_family: HirTypeFamily,
+    index: u8,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum HirTypeFamily {
+    PathLeading(TypePath),
+    Symbol,
 }

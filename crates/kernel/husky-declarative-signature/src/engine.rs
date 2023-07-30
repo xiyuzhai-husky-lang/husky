@@ -90,26 +90,43 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .next()
                         .expect("ty constraint should match with current symbols");
                     let CurrentSynSymbolVariant::ImplicitParameter {
-                        implicit_parameter_variant,
+                        template_parameter_variant,
                     } = current_symbol.variant()
                     else {
                         unreachable!()
                     };
-                    let ty = match implicit_parameter_variant {
+                    let (ty, term_symbol) = match template_parameter_variant {
                         CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                            Ok(self.declarative_term_menu.lifetime_ty().into())
+                            DeclarativeTermSymbol::new_lifetime(
+                                self.db,
+                                self.declarative_term_menu,
+                                &mut self.symbol_declarative_term_region.symbol_registry_mut(),
+                            )
                         }
                         CurrentImplicitParameterSymbol::Type { ident_token } => {
-                            Ok(self.declarative_term_menu.ty0().into())
+                            DeclarativeTermSymbol::new_ty(
+                                self.db,
+                                self.declarative_term_menu,
+                                &mut self.symbol_declarative_term_region.symbol_registry_mut(),
+                            )
                         }
                         CurrentImplicitParameterSymbol::Constant {
                             ident_token,
                             ty_expr_idx,
-                        } => self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into),
+                        } => {
+                            let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
+                            (ty, DeclarativeTermSymbol::new(self.db, ty, todo!()))
+                        }
                         _ => todo!(),
                     };
+                    // let term_symbol = self.symbol_registry.new_symbol(db, ty);
                     self.symbol_declarative_term_region
-                        .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
+                        .add_new_template_parameter_symbol_signature(
+                            self.db,
+                            symbols.start(),
+                            ty,
+                            term_symbol,
+                        )
                 }
                 PatternTypeConstraint::ExplicitRegularParameter {
                     pattern_expr_idx: pattern_expr,
@@ -127,7 +144,12 @@ impl<'a> DeclarativeTermEngine<'a> {
                 PatternTypeConstraint::ExplicitVariadicParameter { ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     self.symbol_declarative_term_region
-                        .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
+                        .add_new_template_parameter_symbol_signature(
+                            self.db,
+                            symbols.start(),
+                            ty,
+                            todo!(),
+                        )
                 }
             }
         }

@@ -5,6 +5,7 @@ pub use self::registry::*;
 pub use self::set::*;
 
 use super::*;
+use husky_term_prelude::symbol::{TermSymbolIndex, TermSymbolRegistry};
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -15,16 +16,65 @@ pub struct DeclarativeTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub idx: u8,
+    pub idx: TermSymbolIndex,
 }
-
-pub enum RefinedGenericIndex {}
 
 impl DeclarativeTermSymbol {
     pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
 
-    pub fn new_ad_hoc(db: &dyn DeclarativeTermDb, ty: DeclarativeTerm, disambiguator: u8) -> Self {
-        Self::new(db, Ok(ty), Self::AD_HOD_IDX_START + disambiguator)
+    #[inline(always)]
+    pub fn new_self_ty(db: &dyn DeclarativeTermDb, registry: &mut TermSymbolRegistry) -> Self {
+        // todo: general universe??? or ignore universes totally
+        DeclarativeTermSymbol::new(
+            db,
+            Ok(DeclarativeTerm::TYPE),
+            registry.issue_self_ty_index(),
+        )
+    }
+
+    #[inline(always)]
+    pub fn new_self_value(
+        db: &dyn DeclarativeTermDb,
+        registry: &mut TermSymbolRegistry,
+        self_ty_term: DeclarativeTerm,
+    ) -> Self {
+        // todo: general universe??? or ignore universes totally
+        DeclarativeTermSymbol::new(
+            db,
+            Ok(DeclarativeTerm::TYPE),
+            registry.issue_self_value_index(),
+        )
+    }
+
+    #[inline(always)]
+    pub fn new_lifetime(
+        db: &dyn DeclarativeTermDb,
+        menu: &DeclarativeTermMenu,
+        registry: &mut TermSymbolRegistry,
+    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+        let ty = Ok(menu.lifetime_ty());
+        (ty, Self::new(db, ty, registry.issue_lifetime_index()))
+    }
+
+    #[inline(always)]
+    pub fn new_ty(
+        db: &dyn DeclarativeTermDb,
+        menu: &DeclarativeTermMenu,
+        registry: &mut TermSymbolRegistry,
+    ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
+        let ty = Ok(menu.ty0().into());
+        (
+            ty,
+            DeclarativeTermSymbol::new(db, ty, registry.issue_self_ty_index()),
+        )
+    }
+
+    pub unsafe fn new_ad_hoc(
+        db: &dyn DeclarativeTermDb,
+        ty: DeclarativeTerm,
+        disambiguator: u8,
+    ) -> Self {
+        Self::new(db, Ok(ty), TermSymbolIndex::new_ad_hoc(disambiguator))
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -55,6 +105,7 @@ impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTer
         _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
-        f.write_fmt(format_args!("${}", self.idx(db)))
+        // ad hoc
+        f.write_fmt(format_args!("${:?}", self.idx(db)))
     }
 }

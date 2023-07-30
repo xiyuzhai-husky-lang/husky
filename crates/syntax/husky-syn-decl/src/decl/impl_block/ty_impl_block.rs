@@ -9,7 +9,7 @@ pub struct TypeImplBlockSynNodeDecl {
     pub impl_block: TypeImplBlockSynNode,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub self_ty_expr: SelfTypeExpr,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
@@ -19,7 +19,7 @@ pub struct TypeImplBlockSynNodeDecl {
 impl TypeImplBlockSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -80,7 +80,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, None);
         let impl_token = ctx.try_parse_option().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = ctx.try_parse_option();
         let ty = ctx.try_parse_option().unwrap().unwrap();
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeImplBlockSynNodeDecl::new(
@@ -89,7 +89,7 @@ impl<'a> DeclParser<'a> {
             ast_idx,
             node,
             impl_token,
-            implicit_parameter_decl_list,
+            template_parameter_decl_list,
             ty,
             eol_colon,
             parser.finish(),
@@ -128,7 +128,7 @@ impl TypeImplBlockSynDecl {
         syn_node_decl: TypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

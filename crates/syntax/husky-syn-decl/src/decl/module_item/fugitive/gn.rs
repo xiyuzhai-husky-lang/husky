@@ -7,7 +7,7 @@ pub struct GnSynNodeDecl {
     pub ast_idx: AstIdx,
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
@@ -20,7 +20,7 @@ pub struct GnSynNodeDecl {
 impl GnSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = ctx.try_parse_option();
         let parameter_decl_list =
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
 
@@ -68,7 +68,7 @@ impl<'a> DeclParser<'a> {
             syn_node_path,
             ast_idx,
             parser.finish(),
-            implicit_parameter_decl_list,
+            template_parameter_decl_list,
             parameter_decl_list,
             curry_token,
             return_ty,
@@ -96,7 +96,7 @@ impl GnSynDecl {
         syn_node_decl: GnSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

@@ -6,14 +6,14 @@ pub struct InductiveTypeSynNodeDecl {
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 
 impl InductiveTypeSynNodeDecl {
     pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         todo!()
-        // self.implicit_parameter_decl_list(db)
+        // self.template_parameter_decl_list(db)
         //     .as_ref()
         //     .map(ImplicitParameterDeclList::template_parameters)
         //     .unwrap_or(&[])
@@ -21,7 +21,7 @@ impl InductiveTypeSynNodeDecl {
 
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter(),
@@ -45,12 +45,12 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let template_parameter_decl_list = ctx.try_parse_option();
         InductiveTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
-            implicit_parameter_decl_list,
+            template_parameter_decl_list,
             parser.finish(),
         )
     }
@@ -73,7 +73,7 @@ impl InductiveTypeSynDecl {
         syn_node_decl: InductiveTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

@@ -55,7 +55,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
             CurrentSynSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant,
+                template_parameter_variant,
             } => todo!(),
             CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..

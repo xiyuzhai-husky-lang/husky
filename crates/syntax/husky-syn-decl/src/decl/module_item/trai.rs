@@ -6,14 +6,14 @@ pub struct TraitSynNodeDecl {
     pub syn_node_path: TraitSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
+    template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.implicit_parameter_decl_list(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter(),
@@ -90,7 +90,7 @@ impl TraitSynDecl {
     ) -> DeclResult<TraitSynDecl> {
         let ast_idx = syn_node_decl.ast_idx(db);
         let template_parameters = syn_node_decl
-            .implicit_parameter_decl_list(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())

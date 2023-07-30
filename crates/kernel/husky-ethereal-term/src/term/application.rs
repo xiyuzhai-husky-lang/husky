@@ -239,7 +239,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol =
-                        DeclarativeTermSymbol::new_ad_hoc(db, new_parameter_ty, shift);
+                        unsafe { DeclarativeTermSymbol::new_ad_hoc(db, new_parameter_ty, shift) };
                     Ok(DeclarativeTermCurry::new_dependent(
                         db,
                         argument_ty.curry_kind(db),

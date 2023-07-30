@@ -84,7 +84,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 ..
             } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
-                    implicit_parameter_substitutions: smallvec![],
+                    template_parameter_substitutions: smallvec![],
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                         ritchie_kind,
@@ -110,7 +110,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectEqsFunctionTypeOutcome {
-    pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+    pub(crate) template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: FluffyTerm,
     pub(crate) variant: ExpectEqsFunctionTypeOutcomeVariant,
 }
@@ -155,7 +155,7 @@ impl ExpectEqsFunctionType {
         match curry_kind {
             CurryKind::Explicit => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
-                    implicit_parameter_substitutions: smallvec![],
+                    template_parameter_substitutions: smallvec![],
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
                         variance,
@@ -173,7 +173,7 @@ impl ExpectEqsFunctionType {
                         HoleSource::Expectation(state.idx()),
                         parameter_symbol,
                     );
-                    let mut implicit_parameter_substitutions =
+                    let mut template_parameter_substitutions =
                         smallvec![ImplicitParameterSubstitution::new(
                             parameter_symbol,
                             implicit_symbol,
@@ -183,9 +183,9 @@ impl ExpectEqsFunctionType {
                         db,
                         terms,
                         HoleSource::Expectation(state.idx()),
-                        &implicit_parameter_substitutions,
+                        &template_parameter_substitutions,
                     );
-                    self.resolve_aux(db, state, terms, expectee, implicit_parameter_substitutions)
+                    self.resolve_aux(db, state, terms, expectee, template_parameter_substitutions)
                 }
                 None => todo!(), // self.resolve(db, terms, idx, return_ty),
             },
@@ -230,7 +230,7 @@ impl ExpectEqsFunctionType {
             } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
                     // todo: is this really correct?
-                    implicit_parameter_substitutions: substitution_rules,
+                    template_parameter_substitutions: substitution_rules,
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                         ritchie_kind,

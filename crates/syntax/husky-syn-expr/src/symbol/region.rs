@@ -179,9 +179,9 @@ impl SynSymbolRegion {
                 CurrentSynSymbolVariant::LetVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::ImplicitParameter {
-                    ref implicit_parameter_variant,
+                    ref template_parameter_variant,
                 } => {
-                    InheritedSynSymbolKind::ImplicitParameter(implicit_parameter_variant.bequeath())
+                    InheritedSynSymbolKind::ImplicitParameter(template_parameter_variant.bequeath())
                 }
                 CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                     InheritedSynSymbolKind::ExplicitParameter {

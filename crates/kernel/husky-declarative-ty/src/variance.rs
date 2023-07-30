@@ -52,7 +52,7 @@ pub(crate) fn item_variances(
     match path {
         ItemPath::Submodule(_) => Ok(&[]),
         ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_implicit_parameter_variances(db, path)
+            ModuleItemPath::Type(path) => ty_template_parameter_variances(db, path)
                 .as_ref()
                 .map(Vec::as_ref),
             ModuleItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
@@ -67,7 +67,7 @@ pub(crate) fn item_variances(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_implicit_parameter_variances(
+pub(crate) fn ty_template_parameter_variances(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<Variance>> {
