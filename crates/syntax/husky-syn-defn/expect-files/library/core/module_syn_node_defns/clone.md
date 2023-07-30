@@ -17,7 +17,7 @@ Ok(
                             },
                         },
                         ast_idx: 2,
-                        implicit_parameter_decl_list: Ok(
+                        template_parameter_decl_list: Ok(
                             None,
                         ),
                         syn_expr_region: SynExprRegion {
@@ -95,7 +95,7 @@ Ok(
                             11,
                         ),
                     },
-                    implicit_parameter_decl_list: Ok(
+                    template_parameter_decl_list: Ok(
                         None,
                     ),
                     trai_expr: TraitExpr {
@@ -283,7 +283,7 @@ Ok(
                                 is_generic: false,
                             },
                             ast_idx: 1,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             parenic_parameter_decl_list: Ok(

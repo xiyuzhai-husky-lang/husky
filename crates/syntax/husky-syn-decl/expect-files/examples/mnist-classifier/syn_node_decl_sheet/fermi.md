@@ -24,7 +24,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 22,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 lcurl: Ok(
@@ -325,7 +325,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 24,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -693,7 +693,7 @@ Ok(
                                                             150,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `concave_components`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -704,7 +704,7 @@ Ok(
                                                             157,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `templates`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -804,7 +804,7 @@ Ok(
                                     24,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             self_ty_expr: SelfTypeExpr {

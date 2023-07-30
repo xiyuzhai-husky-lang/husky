@@ -277,7 +277,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -7753,7 +7753,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -8117,7 +8117,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -8326,7 +8326,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -9458,7 +9458,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -10076,7 +10076,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -10588,7 +10588,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -11342,7 +11342,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -11619,7 +11619,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -11927,7 +11927,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(
@@ -12757,7 +12757,7 @@
                                         FluffyTermExpectationOutcome::EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [
+                                                template_parameter_substitutions: [
                                                     ImplicitParameterSubstitution {
                                                         variable: Variable(
                                                             EtherealTermVariable(

@@ -50,7 +50,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -143,7 +143,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -162,7 +162,15 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: 0,
+                                idx: TermSymbolIndex(
+                                    Type {
+                                        attrs: TemplateParameterAttrs {
+                                            phantom: false,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
                             },
                             place: StackPure {
                                 location: StackLocationIdx(
@@ -240,7 +248,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -324,7 +332,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),
@@ -408,7 +416,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 1,
+                                    value: 2,
                                 },
                             ),
                         ),

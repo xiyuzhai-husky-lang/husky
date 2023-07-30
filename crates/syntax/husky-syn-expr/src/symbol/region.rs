@@ -44,7 +44,7 @@ pub struct SynSymbolRegion {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternTypeConstraint {
-    ImplicitTypeParameter,
+    TemplateTypeParameter,
     ExplicitRegularParameter {
         pattern_expr_idx: PatternSynExprIdx,
         ty_expr_idx: SynExprIdx,

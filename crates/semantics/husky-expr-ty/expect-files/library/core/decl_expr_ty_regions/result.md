@@ -56,7 +56,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),
@@ -65,7 +65,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 3,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -425,15 +425,6 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
                                     value: 3,
                                 },
                             ),
@@ -443,7 +434,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 5,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -452,7 +443,16 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 6,
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 8,
                                 },
                             ),
                         ),
@@ -498,7 +498,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -581,7 +581,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Curry(
                                                     EtherealTermCurry {
                                                         curry_kind: Explicit,
@@ -670,7 +670,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::EntityPath(
                                                     TermEntityPath::TypeOntology(
                                                         TypePath(`core::basic::Trait`, `Extern`),
@@ -769,7 +769,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Curry(
                                                     EtherealTermCurry {
                                                         curry_kind: Explicit,
@@ -858,7 +858,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(
@@ -1069,15 +1069,6 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
                                     value: 3,
                                 },
                             ),
@@ -1087,7 +1078,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 5,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -1096,7 +1087,16 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 6,
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 8,
                                 },
                             ),
                         ),
@@ -1466,15 +1466,6 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
-                    ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
                                     value: 3,
                                 },
                             ),
@@ -1484,7 +1475,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 5,
+                                    value: 4,
                                 },
                             ),
                         ),
@@ -1493,7 +1484,16 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 6,
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 8,
                                 },
                             ),
                         ),
@@ -1521,13 +1521,29 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 1,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 1,
+                                            },
+                                        ),
                                     },
                                 ),
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: 3,
+                                        idx: TermSymbolIndex(
+                                            Type {
+                                                attrs: TemplateParameterAttrs {
+                                                    phantom: false,
+                                                },
+                                                variance: None,
+                                                disambiguator: 3,
+                                            },
+                                        ),
                                     },
                                 ),
                             ],
@@ -1577,7 +1593,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Curry(
                                                     EtherealTermCurry {
                                                         curry_kind: Explicit,
@@ -1666,7 +1682,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(
@@ -1783,7 +1799,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Curry(
                                                     EtherealTermCurry {
                                                         curry_kind: Explicit,
@@ -1872,7 +1888,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(

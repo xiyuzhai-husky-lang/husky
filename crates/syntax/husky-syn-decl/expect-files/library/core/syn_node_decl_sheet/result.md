@@ -24,7 +24,7 @@ Ok(
                                     },
                                 },
                                 ast_idx: 6,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
                                             langle: LeftAngleBracketOrLessThanToken(
@@ -130,8 +130,15 @@ Ok(
                                                             10,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                            syn_attrs: TemplateParameterSynAttrs {
+                                                                syn_attrs: [],
+                                                                attrs: TemplateParameterAttrs {
+                                                                    phantom: false,
+                                                                },
+                                                            },
+                                                            annotated_variance_token: None,
+                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
@@ -147,8 +154,15 @@ Ok(
                                                             12,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                            syn_attrs: TemplateParameterSynAttrs {
+                                                                syn_attrs: [],
+                                                                attrs: TemplateParameterAttrs {
+                                                                    phantom: false,
+                                                                },
+                                                            },
+                                                            annotated_variance_token: None,
+                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
@@ -164,13 +178,13 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ImplicitTypeParameter,
+                                                    TemplateTypeParameter,
                                                     ArenaIdxRange(
                                                         0..1,
                                                     ),
                                                 ),
                                                 (
-                                                    ImplicitTypeParameter,
+                                                    TemplateTypeParameter,
                                                     ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -227,7 +241,7 @@ Ok(
                                     23,
                                 ),
                             },
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
@@ -395,7 +409,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `T2`,
                                                             token_idx: TokenIdx(
@@ -416,7 +430,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 3,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `E2`,
                                                             token_idx: TokenIdx(
@@ -447,7 +461,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `T1`,
                                                             token_idx: TokenIdx(
@@ -468,7 +482,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `E1`,
                                                             token_idx: TokenIdx(
@@ -605,8 +619,15 @@ Ok(
                                                         26,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T1`,
                                                                 token_idx: TokenIdx(
@@ -622,8 +643,15 @@ Ok(
                                                         28,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T2`,
                                                                 token_idx: TokenIdx(
@@ -639,8 +667,15 @@ Ok(
                                                         30,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E1`,
                                                                 token_idx: TokenIdx(
@@ -656,8 +691,15 @@ Ok(
                                                         32,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E2`,
                                                                 token_idx: TokenIdx(
@@ -673,25 +715,25 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     2..3,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     3..4,
                                                 ),
@@ -866,7 +908,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 1,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `T2`,
                                                                             token_idx: TokenIdx(
@@ -887,7 +929,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 3,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E2`,
                                                                             token_idx: TokenIdx(
@@ -918,7 +960,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 0,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `T1`,
                                                                             token_idx: TokenIdx(
@@ -939,7 +981,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 2,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E1`,
                                                                             token_idx: TokenIdx(
@@ -1076,8 +1118,15 @@ Ok(
                                                                         26,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `T1`,
                                                                                 token_idx: TokenIdx(
@@ -1093,8 +1142,15 @@ Ok(
                                                                         28,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `T2`,
                                                                                 token_idx: TokenIdx(
@@ -1110,8 +1166,15 @@ Ok(
                                                                         30,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E1`,
                                                                                 token_idx: TokenIdx(
@@ -1127,8 +1190,15 @@ Ok(
                                                                         32,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E2`,
                                                                                 token_idx: TokenIdx(
@@ -1144,25 +1214,25 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     0..1,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     1..2,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     2..3,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     3..4,
                                                                 ),
@@ -1398,7 +1468,7 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 4,
-                                implicit_parameter_decl_list: Ok(
+                                template_parameter_decl_list: Ok(
                                     None,
                                 ),
                                 parenic_parameter_decl_list: Ok(
@@ -1516,7 +1586,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 1,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `T2`,
                                                                             token_idx: TokenIdx(
@@ -1537,7 +1607,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 3,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E2`,
                                                                             token_idx: TokenIdx(
@@ -1568,7 +1638,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 0,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `T1`,
                                                                             token_idx: TokenIdx(
@@ -1589,7 +1659,7 @@ Ok(
                                                                 ),
                                                                 current_symbol_idx: 2,
                                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E1`,
                                                                             token_idx: TokenIdx(
@@ -1726,8 +1796,15 @@ Ok(
                                                                         26,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `T1`,
                                                                                 token_idx: TokenIdx(
@@ -1743,8 +1820,15 @@ Ok(
                                                                         28,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `T2`,
                                                                                 token_idx: TokenIdx(
@@ -1760,8 +1844,15 @@ Ok(
                                                                         30,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E1`,
                                                                                 token_idx: TokenIdx(
@@ -1777,8 +1868,15 @@ Ok(
                                                                         32,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                                            syn_attrs: [],
+                                                                            attrs: TemplateParameterAttrs {
+                                                                                phantom: false,
+                                                                            },
+                                                                        },
+                                                                        annotated_variance_token: None,
+                                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E2`,
                                                                                 token_idx: TokenIdx(
@@ -1794,25 +1892,25 @@ Ok(
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     0..1,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     1..2,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     2..3,
                                                                 ),
                                                             ),
                                                             (
-                                                                ImplicitTypeParameter,
+                                                                TemplateTypeParameter,
                                                                 ArenaIdxRange(
                                                                     3..4,
                                                                 ),
@@ -2084,7 +2182,7 @@ Ok(
                                                             54,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `result`,
                                                             pattern_symbol_idx: 0,
                                                         },

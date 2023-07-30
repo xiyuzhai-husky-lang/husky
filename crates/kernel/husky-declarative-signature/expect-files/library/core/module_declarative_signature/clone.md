@@ -38,7 +38,7 @@
                         self_ty: DerivedAny(
                             DeclarativeTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),

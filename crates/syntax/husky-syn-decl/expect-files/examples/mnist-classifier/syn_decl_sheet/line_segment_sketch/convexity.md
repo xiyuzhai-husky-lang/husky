@@ -222,7 +222,7 @@ Ok(
                                                             23,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -233,7 +233,7 @@ Ok(
                                                             27,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                             ident: `index`,
                                                             pattern_symbol_idx: 1,
                                                         },

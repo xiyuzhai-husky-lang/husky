@@ -51,6 +51,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> SynExprResult<Option<Self>> {
+        let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
@@ -59,7 +60,8 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                 access_start,
                 None,
                 CurrentSynSymbolVariant::TemplateParameter {
-                    syn_attrs: todo!(),
+                    syn_attrs,
+                    annotated_variance_token,
                     template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                         ident_token,
                     },
@@ -67,9 +69,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
             );
             let symbols = ctx.define_symbols(
                 [parameter_symbol],
-                Some(PatternTypeConstraint::ImplicitTypeParameter),
+                Some(PatternTypeConstraint::TemplateTypeParameter),
             );
             Ok(Some(TemplateParameterDecl {
+                // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -98,12 +101,13 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                     access_start,
                     None,
                     CurrentSynSymbolVariant::TemplateParameter {
-                        syn_attrs: todo!(),
+                        syn_attrs,
+                        annotated_variance_token,
                         template_parameter_variant:
                             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token },
                     },
                 )],
-                Some(PatternTypeConstraint::ImplicitTypeParameter),
+                Some(PatternTypeConstraint::TemplateTypeParameter),
             );
             Ok(Some(TemplateParameterDecl {
                 annotated_variance_token,
@@ -128,6 +132,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                 OriginalExprError::ExpectedConstantImplicitParameterType,
             );
             let access_start = ctx.save_state().next_token_idx();
+            let syn_attrs = ctx.try_parse()?;
             let symbol = ctx
                 .define_symbols(
                     [CurrentSynSymbol::new(
@@ -135,7 +140,8 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                         access_start,
                         None,
                         CurrentSynSymbolVariant::TemplateParameter {
-                            syn_attrs: todo!(),
+                            syn_attrs,
+                            annotated_variance_token,
                             template_parameter_variant:
                                 CurrentTemplateParameterSynSymbolVariant::Constant {
                                     ident_token,
@@ -143,7 +149,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                                 },
                         },
                     )],
-                    Some(PatternTypeConstraint::ImplicitTypeParameter),
+                    Some(PatternTypeConstraint::TemplateTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
             Ok(Some(TemplateParameterDecl {

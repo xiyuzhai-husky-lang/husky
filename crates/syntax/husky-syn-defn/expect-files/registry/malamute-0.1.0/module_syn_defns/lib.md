@@ -69,7 +69,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -115,8 +115,15 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
                                                                 token_idx: TokenIdx(
@@ -132,8 +139,15 @@ Ok(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
                                                                 token_idx: TokenIdx(
@@ -150,13 +164,13 @@ Ok(
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -245,7 +259,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -291,8 +305,15 @@ Ok(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
                                                                 token_idx: TokenIdx(
@@ -308,8 +329,15 @@ Ok(
                                                         25,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
                                                                 token_idx: TokenIdx(
@@ -326,13 +354,13 @@ Ok(
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -486,7 +514,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -543,7 +571,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 0,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -564,7 +592,7 @@ Ok(
                                                 ),
                                                 current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentToken {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
@@ -687,8 +715,15 @@ Ok(
                                                         64,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
                                                                 token_idx: TokenIdx(
@@ -704,8 +739,15 @@ Ok(
                                                         69,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                    variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                        syn_attrs: TemplateParameterSynAttrs {
+                                                            syn_attrs: [],
+                                                            attrs: TemplateParameterAttrs {
+                                                                phantom: false,
+                                                            },
+                                                        },
+                                                        annotated_variance_token: None,
+                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
                                                                 token_idx: TokenIdx(
@@ -738,7 +780,7 @@ Ok(
                                                         79,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                         ident: `skip`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -749,13 +791,13 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     0..1,
                                                 ),
                                             ),
                                             (
-                                                ImplicitTypeParameter,
+                                                TemplateTypeParameter,
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -834,7 +876,7 @@ Ok(
                                                         ),
                                                         current_symbol_idx: 0,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
@@ -891,7 +933,7 @@ Ok(
                                                         ),
                                                         current_symbol_idx: 0,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
@@ -912,7 +954,7 @@ Ok(
                                                         ),
                                                         current_symbol_idx: 1,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                 ident_token: IdentToken {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
@@ -1035,8 +1077,15 @@ Ok(
                                                                 64,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                syn_attrs: TemplateParameterSynAttrs {
+                                                                    syn_attrs: [],
+                                                                    attrs: TemplateParameterAttrs {
+                                                                        phantom: false,
+                                                                    },
+                                                                },
+                                                                annotated_variance_token: None,
+                                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -1052,8 +1101,15 @@ Ok(
                                                                 69,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                syn_attrs: TemplateParameterSynAttrs {
+                                                                    syn_attrs: [],
+                                                                    attrs: TemplateParameterAttrs {
+                                                                        phantom: false,
+                                                                    },
+                                                                },
+                                                                annotated_variance_token: None,
+                                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
                                                                         token_idx: TokenIdx(
@@ -1086,7 +1142,7 @@ Ok(
                                                                 79,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenicRegularParameter {
                                                                 ident: `skip`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -1097,13 +1153,13 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
                                                     (
-                                                        ImplicitTypeParameter,
+                                                        TemplateTypeParameter,
                                                         ArenaIdxRange(
                                                             0..1,
                                                         ),
                                                     ),
                                                     (
-                                                        ImplicitTypeParameter,
+                                                        TemplateTypeParameter,
                                                         ArenaIdxRange(
                                                             1..2,
                                                         ),
@@ -1343,7 +1399,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1384,7 +1440,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1405,7 +1461,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
                                                     ident: `label`,
                                                     token_idx: TokenIdx(
@@ -1436,7 +1492,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 0,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1457,7 +1513,7 @@ Ok(
                                         ),
                                         current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
                                                     ident: `label`,
                                                     token_idx: TokenIdx(
@@ -1595,8 +1651,15 @@ Ok(
                                                 35,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                syn_attrs: TemplateParameterSynAttrs {
+                                                    syn_attrs: [],
+                                                    attrs: TemplateParameterAttrs {
+                                                        phantom: false,
+                                                    },
+                                                },
+                                                annotated_variance_token: None,
+                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
@@ -1612,8 +1675,15 @@ Ok(
                                                 40,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                            variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                syn_attrs: TemplateParameterSynAttrs {
+                                                    syn_attrs: [],
+                                                    attrs: TemplateParameterAttrs {
+                                                        phantom: false,
+                                                    },
+                                                },
+                                                annotated_variance_token: None,
+                                                template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                     ident_token: IdentToken {
                                                         ident: `label`,
                                                         token_idx: TokenIdx(
@@ -1630,13 +1700,13 @@ Ok(
                                 allow_self_value: False,
                                 pattern_ty_constraints: [
                                     (
-                                        ImplicitTypeParameter,
+                                        TemplateTypeParameter,
                                         ArenaIdxRange(
                                             0..1,
                                         ),
                                     ),
                                     (
-                                        ImplicitTypeParameter,
+                                        TemplateTypeParameter,
                                         ArenaIdxRange(
                                             1..2,
                                         ),
@@ -1736,7 +1806,7 @@ Ok(
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -1777,7 +1847,7 @@ Ok(
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -1798,7 +1868,7 @@ Ok(
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
                                                                         token_idx: TokenIdx(
@@ -1829,7 +1899,7 @@ Ok(
                                                             ),
                                                             current_symbol_idx: 0,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -1850,7 +1920,7 @@ Ok(
                                                             ),
                                                             current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
                                                                         token_idx: TokenIdx(
@@ -1988,8 +2058,15 @@ Ok(
                                                                     35,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [],
+                                                                        attrs: TemplateParameterAttrs {
+                                                                            phantom: false,
+                                                                        },
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `Label`,
                                                                             token_idx: TokenIdx(
@@ -2005,8 +2082,15 @@ Ok(
                                                                     40,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                                variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                    syn_attrs: TemplateParameterSynAttrs {
+                                                                        syn_attrs: [],
+                                                                        attrs: TemplateParameterAttrs {
+                                                                            phantom: false,
+                                                                        },
+                                                                    },
+                                                                    annotated_variance_token: None,
+                                                                    template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                                         ident_token: IdentToken {
                                                                             ident: `label`,
                                                                             token_idx: TokenIdx(
@@ -2023,13 +2107,13 @@ Ok(
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [
                                                         (
-                                                            ImplicitTypeParameter,
+                                                            TemplateTypeParameter,
                                                             ArenaIdxRange(
                                                                 0..1,
                                                             ),
                                                         ),
                                                         (
-                                                            ImplicitTypeParameter,
+                                                            TemplateTypeParameter,
                                                             ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -2195,7 +2279,7 @@ Ok(
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2236,7 +2320,7 @@ Ok(
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2257,7 +2341,7 @@ Ok(
                                                                     ),
                                                                     current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
                                                                                 ident: `label`,
                                                                                 token_idx: TokenIdx(
@@ -2288,7 +2372,7 @@ Ok(
                                                                     ),
                                                                     current_symbol_idx: 0,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2309,7 +2393,7 @@ Ok(
                                                                     ),
                                                                     current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                                                        template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
                                                                                 ident: `label`,
                                                                                 token_idx: TokenIdx(
@@ -2447,8 +2531,15 @@ Ok(
                                                                             35,
                                                                         ),
                                                                         access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                            syn_attrs: TemplateParameterSynAttrs {
+                                                                                syn_attrs: [],
+                                                                                attrs: TemplateParameterAttrs {
+                                                                                    phantom: false,
+                                                                                },
+                                                                            },
+                                                                            annotated_variance_token: None,
+                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
                                                                                 ident_token: IdentToken {
                                                                                     ident: `Label`,
                                                                                     token_idx: TokenIdx(
@@ -2464,8 +2555,15 @@ Ok(
                                                                             40,
                                                                         ),
                                                                         access_end: None,
-                                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
-                                                                            implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                                        variant: CurrentSynSymbolVariant::TemplateParameter {
+                                                                            syn_attrs: TemplateParameterSynAttrs {
+                                                                                syn_attrs: [],
+                                                                                attrs: TemplateParameterAttrs {
+                                                                                    phantom: false,
+                                                                                },
+                                                                            },
+                                                                            annotated_variance_token: None,
+                                                                            template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
                                                                                 ident_token: IdentToken {
                                                                                     ident: `label`,
                                                                                     token_idx: TokenIdx(
@@ -2482,13 +2580,13 @@ Ok(
                                                             allow_self_value: False,
                                                             pattern_ty_constraints: [
                                                                 (
-                                                                    ImplicitTypeParameter,
+                                                                    TemplateTypeParameter,
                                                                     ArenaIdxRange(
                                                                         0..1,
                                                                     ),
                                                                 ),
                                                                 (
-                                                                    ImplicitTypeParameter,
+                                                                    TemplateTypeParameter,
                                                                     ArenaIdxRange(
                                                                         1..2,
                                                                     ),

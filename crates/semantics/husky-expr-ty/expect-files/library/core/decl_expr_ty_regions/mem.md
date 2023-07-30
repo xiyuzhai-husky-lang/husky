@@ -54,7 +54,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 4,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -158,7 +158,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 4,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -167,7 +167,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -416,7 +416,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 2,
+                                    value: 3,
                                 },
                             ),
                         ),
@@ -480,7 +480,7 @@
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [],
+                                                template_parameter_substitutions: [],
                                                 return_ty: FluffyTerm::Category(
                                                     TermCategory {
                                                         universe: TermUniverse(

@@ -18,7 +18,7 @@ Ok(
                                 },
                             },
                             ast_idx: 10,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -98,7 +98,7 @@ Ok(
                                 },
                             },
                             ast_idx: 12,
-                            implicit_parameter_decl_list: Ok(
+                            template_parameter_decl_list: Ok(
                                 None,
                             ),
                             lpar: LeftParenthesisToken(

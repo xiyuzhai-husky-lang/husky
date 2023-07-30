@@ -16,7 +16,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 2,
+                                                value: 5,
                                             },
                                         ),
                                         traits: [],
@@ -25,7 +25,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 6,
                                             },
                                         ),
                                         traits: [],
@@ -59,15 +59,6 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                    traits: [],
-                                },
-                                DeclarativeTemplateParameter {
-                                    annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
-                                        Id {
                                             value: 5,
                                         },
                                     ),
@@ -77,7 +68,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 26,
+                                            value: 6,
                                         },
                                     ),
                                     traits: [],
@@ -86,7 +77,16 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 27,
+                                            value: 9,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 10,
                                         },
                                     ),
                                     traits: [],
@@ -98,7 +98,7 @@
                             ExplicitApplication(
                                 DeclarativeTermExplicitApplication(
                                     Id {
-                                        value: 37,
+                                        value: 39,
                                     },
                                 ),
                             ),
