@@ -1,19 +1,23 @@
 use super::*;
 
-pub type __Snapshot<T> = <T as __RegularStatic>::__Snapshot;
-
 pub trait __RegularSnapshot: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type __Incubator: __RegularIncubator;
+
+    fn clone_into_incubator_box(&self) -> Box<dyn __RegularIncubatorDyn>;
 }
 
 #[derive(Debug)]
-pub struct __SnapshotRefMut<T>(pub(super) Box<__Snapshot<T>>)
+pub struct __RegularSnapshotValueRefMut<T>(pub(super) Box<T::__Snapshot>)
 where
     T: __RegularStatic;
 
-impl<T> __RegularSnapshot for __SnapshotRefMut<T>
+impl<T> __RegularSnapshot for __RegularSnapshotValueRefMut<T>
 where
     T: __RegularStatic,
 {
-    type __Incubator = __IncubatorRefMut<T>;
+    type __Incubator = __RegularValueIncubatorRefMut<T>;
+
+    fn clone_into_incubator_box(&self) -> Box<dyn __RegularIncubatorDyn> {
+        unreachable!()
+    }
 }

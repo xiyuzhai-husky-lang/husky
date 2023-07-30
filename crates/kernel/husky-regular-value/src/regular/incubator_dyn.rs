@@ -1,7 +1,14 @@
 use super::*;
 
 pub trait __RegularIncubatorDyn: std::fmt::Debug + UnwindSafe + RefUnwindSafe + 'static {
-    fn incubate_box(&mut self) -> Box<dyn __RegularStaticDyn>;
-    fn incubate_sized_ref(&self) -> *const dyn __RegularStaticDyn;
-    fn incubate_sized_mut(&mut self) -> *mut dyn __RegularStaticDyn;
+    unsafe fn incubate_box_dyn(&mut self) -> Box<dyn __RegularStaticDyn>;
+}
+
+impl<T> __RegularIncubatorDyn for T
+where
+    T: __RegularIncubator,
+{
+    unsafe fn incubate_box_dyn(&mut self) -> Box<dyn __RegularStaticDyn> {
+        todo!()
+    }
 }

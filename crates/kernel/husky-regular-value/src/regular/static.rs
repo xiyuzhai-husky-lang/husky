@@ -7,22 +7,20 @@ pub trait __RegularStatic: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'stati
     unsafe fn clone_into_snapshot(&self) -> Self::__Snapshot;
 }
 
-pub type __Static<T> = <T as __Regular>::__Static;
-
 #[derive(Debug)]
-pub struct __StaticRefMut<T>(*mut T)
+pub struct __RegularValueStaticRefMut<T>(*mut T)
 where
     T: __RegularStatic;
 
-impl<T> __RegularStatic for __StaticRefMut<T>
+impl<T> __RegularStatic for __RegularValueStaticRefMut<T>
 where
     T: __RegularStatic,
 {
-    type __Snapshot = __SnapshotRefMut<T>;
+    type __Snapshot = __RegularSnapshotValueRefMut<T>;
 
-    type __Incubator = __IncubatorRefMut<T>;
+    type __Incubator = __RegularValueIncubatorRefMut<T>;
 
     unsafe fn clone_into_snapshot(&self) -> Self::__Snapshot {
-        __SnapshotRefMut(Box::new((*self.0).clone_into_snapshot()))
+        __RegularSnapshotValueRefMut(Box::new((*self.0).clone_into_snapshot()))
     }
 }

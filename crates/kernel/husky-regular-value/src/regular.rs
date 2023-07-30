@@ -27,7 +27,7 @@ impl<T> __Regular for &mut T
 where
     T: __Regular,
 {
-    type __Static = __StaticRefMut<<T as __Regular>::__Static>;
+    type __Static = __RegularValueStaticRefMut<<T as __Regular>::__Static>;
 }
 
 impl PartialEq for Box<dyn __RegularStaticDyn> {

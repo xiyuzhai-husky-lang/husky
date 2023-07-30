@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug, Clone)]
 pub struct StackSnapshot {
     pub message: String, // for debug
-    pub(crate) values: Vec<__RegularValueSnapshot>,
+    pub(crate) values: Vec<__RegularSnapshotValue>,
 }
 
 impl StackSnapshot {
@@ -24,7 +24,7 @@ impl From<&StackSnapshot> for VMStack {
 }
 
 impl std::ops::Index<VMStackIdx> for StackSnapshot {
-    type Output = __RegularValueSnapshot;
+    type Output = __RegularSnapshotValue;
 
     fn index(&self, index: VMStackIdx) -> &Self::Output {
         &self.values[index.raw()]
