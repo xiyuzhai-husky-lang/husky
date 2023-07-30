@@ -1,7 +1,7 @@
 use ordered_float::NotNan;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirConstant {
+pub enum HirLiteral {
     Unit(()),
     Char(char),
     Bool(bool),

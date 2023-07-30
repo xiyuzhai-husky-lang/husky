@@ -1,5 +1,5 @@
 [package]
-name = "husky-hir-constant"
+name = "husky-hir-prelude"
 version = "0.1.0"
 edition = "2021"
 
