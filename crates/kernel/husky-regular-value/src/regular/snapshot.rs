@@ -3,7 +3,7 @@ use super::*;
 pub trait __RegularSnapshot: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type __Incubator: __RegularIncubator;
 
-    fn clone_into_incubator_box(&self) -> Box<dyn __RegularIncubatorDyn>;
+    fn clone_into_incubator(&self) -> Self::__Incubator;
 }
 
 #[derive(Debug)]
@@ -17,7 +17,19 @@ where
 {
     type __Incubator = __RegularValueIncubatorRefMut<T>;
 
-    fn clone_into_incubator_box(&self) -> Box<dyn __RegularIncubatorDyn> {
-        unreachable!()
+    fn clone_into_incubator(&self) -> Self::__Incubator {
+        todo!()
+    }
+}
+pub trait __RegularSnapshotDyn: std::fmt::Debug {
+    fn clone_into_incubator_box_dyn(&self) -> Box<dyn __RegularIncubatorDyn>;
+}
+
+impl<T> __RegularSnapshotDyn for T
+where
+    T: __RegularSnapshot,
+{
+    fn clone_into_incubator_box_dyn(&self) -> Box<dyn __RegularIncubatorDyn> {
+        todo!()
     }
 }
