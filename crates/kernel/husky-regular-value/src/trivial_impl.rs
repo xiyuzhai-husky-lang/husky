@@ -5,11 +5,11 @@ use std::{
 };
 
 #[derive(Debug)]
-pub struct __RegularValueStandTrivialImpl<T>(T)
+pub struct __RegularStandTrivialImpl<T>(T)
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static;
 
-impl<T> __RegularValueStandTrivialImpl<T>
+impl<T> __RegularStandTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
@@ -30,47 +30,47 @@ where
     }
 }
 
-impl<T> __RegularStand for __RegularValueStandTrivialImpl<T>
+impl<T> __RegularStand for __RegularStandTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type __Snapshot = __RegularValueSnapshotTrivialImpl<T>;
+    type __Snapshot = __RegularSnapshotTrivialImpl<T>;
 
-    type __Incubator = __RegularValueIncubatorTrivialImpl<T>;
+    type __Incubator = __RegularIncubatorTrivialImpl<T>;
 
     unsafe fn clone_into_snapshot(&self) -> Self::__Snapshot {
-        __RegularValueSnapshotTrivialImpl(self.0.clone())
+        __RegularSnapshotTrivialImpl(self.0.clone())
     }
 }
 
 #[derive(Debug)]
-pub struct __RegularValueSnapshotTrivialImpl<T>(T)
+pub struct __RegularSnapshotTrivialImpl<T>(T)
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static;
 
-impl<T> __RegularSnapshot for __RegularValueSnapshotTrivialImpl<T>
+impl<T> __RegularSnapshot for __RegularSnapshotTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type __Incubator = __RegularValueIncubatorTrivialImpl<T>;
+    type __Incubator = __RegularIncubatorTrivialImpl<T>;
 
     fn clone_into_incubator(&self) -> Self::__Incubator {
-        __RegularValueIncubatorTrivialImpl(ManuallyDrop::new(self.0.clone()))
+        __RegularIncubatorTrivialImpl(ManuallyDrop::new(self.0.clone()))
     }
 }
 
 #[derive(Debug)]
-pub struct __RegularValueIncubatorTrivialImpl<T>(ManuallyDrop<T>)
+pub struct __RegularIncubatorTrivialImpl<T>(ManuallyDrop<T>)
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static;
 
-impl<T> __RegularIncubator for __RegularValueIncubatorTrivialImpl<T>
+impl<T> __RegularIncubator for __RegularIncubatorTrivialImpl<T>
 where
     T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type __Stand = __RegularValueStandTrivialImpl<T>;
+    type __Stand = __RegularStandTrivialImpl<T>;
 
     unsafe fn incubate(&mut self) -> Self::__Stand {
-        __RegularValueStandTrivialImpl(ManuallyDrop::take(&mut self.0))
+        __RegularStandTrivialImpl(ManuallyDrop::take(&mut self.0))
     }
 }

@@ -95,6 +95,6 @@ impl __RegularValue {
     where
         T: std::fmt::Debug + Clone + UnwindSafe + RefUnwindSafe + 'static,
     {
-        __RegularValue::Intrinsic(Box::new(__RegularValueStandTrivialImpl::upcast(t)))
+        __RegularValue::Intrinsic(Box::new(__RegularStandTrivialImpl::upcast(t)))
     }
 }
