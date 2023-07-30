@@ -47,7 +47,7 @@ impl VMControl {
 #[derive(Debug, Clone)]
 pub enum ControlSnapshot {
     None,
-    Return(__RegularValueSnapshot),
+    Return(__RegularSnapshotValue),
     Break,
     Err(__VMError),
 }

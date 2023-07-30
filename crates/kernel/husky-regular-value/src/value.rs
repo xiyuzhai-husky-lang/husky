@@ -1,3 +1,13 @@
+#[cfg(feature = "vm_support")]
+mod incubator;
+#[cfg(feature = "vm_support")]
+mod snapshot;
+
+#[cfg(feature = "vm_support")]
+pub use self::incubator::*;
+#[cfg(feature = "vm_support")]
+pub use self::snapshot::*;
+
 use crate::*;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
@@ -6,7 +16,8 @@ pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 #[derive(Debug)]
 #[repr(u8)]
 pub enum __RegularValue {
-    Moved = 0,
+    Invalid,
+    Moved,
     Unit(()),
     Bool(bool),
     Char(char),
