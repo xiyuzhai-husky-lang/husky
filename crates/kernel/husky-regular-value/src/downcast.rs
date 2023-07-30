@@ -160,7 +160,7 @@ impl __RegularValue {
         };
         let box_value = box_value as Box<dyn std::any::Any>;
         box_value
-            .downcast::<__RegularValueStandTrivialImpl<T>>()
+            .downcast::<__RegularStandTrivialImpl<T>>()
             .expect("type right")
             .downcast()
     }
@@ -175,7 +175,7 @@ impl __RegularValue {
         let ref_value = ref_value as *const dyn std::any::Any;
         wild_utils::arb_ref(
             (*ref_value)
-                .downcast_ref::<__RegularValueStandTrivialImpl<T>>()
+                .downcast_ref::<__RegularStandTrivialImpl<T>>()
                 .expect("type right")
                 .downcast_ref(),
         )
@@ -191,7 +191,7 @@ impl __RegularValue {
         let mut_value = mut_value as *mut dyn std::any::Any;
         wild_utils::arb_ref(
             (*mut_value)
-                .downcast_mut::<__RegularValueStandTrivialImpl<T>>()
+                .downcast_mut::<__RegularStandTrivialImpl<T>>()
                 .expect("type right")
                 .downcast_mut(),
         )
