@@ -2,6 +2,8 @@ pub mod db;
 pub mod symbol;
 pub mod template_argument;
 pub mod template_parameter;
+#[cfg(test)]
+mod tests;
 pub mod trai;
 pub mod ty;
 pub mod ty_constant;
