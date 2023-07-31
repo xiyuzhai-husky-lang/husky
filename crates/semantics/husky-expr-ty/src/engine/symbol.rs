@@ -27,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn parameter_pattern_ty(&self, pattern_expr_idx: PatternSynExprIdx) -> EtherealTerm {
+    fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EtherealTerm {
         match self
             .expr_region_data
             .symbol_region()

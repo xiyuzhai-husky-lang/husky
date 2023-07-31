@@ -25,8 +25,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn alloc_pattern_expr(
         &mut self,
         expr: SynPatternExpr,
-        env: PatternSynExprInfo,
-    ) -> PatternSynExprIdx {
+        env: SynPatternExprInfo,
+    ) -> SynPatternExprIdx {
         self.parser
             .pattern_expr_region
             .alloc_one_pattern_expr(expr, env)

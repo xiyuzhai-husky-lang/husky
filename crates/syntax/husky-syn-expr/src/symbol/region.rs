@@ -46,14 +46,14 @@ pub struct SynSymbolRegion {
 pub enum PatternTypeConstraint {
     TemplateTypeParameter,
     ExplicitRegularParameter {
-        pattern_expr_idx: PatternSynExprIdx,
+        pattern_expr_idx: SynPatternExprIdx,
         ty_expr_idx: SynExprIdx,
     },
     ExplicitVariadicParameter {
         ty: SynExprIdx,
     },
     LetVariables {
-        pattern: PatternSynExprIdx,
+        pattern: SynPatternExprIdx,
         ty: SynExprIdx,
     },
     FrameVariable,
@@ -217,7 +217,7 @@ impl SynSymbolRegion {
 
     pub fn regular_parameter_pattern_ty_constraint(
         &self,
-        target: PatternSynExprIdx,
+        target: SynPatternExprIdx,
     ) -> Option<SynExprIdx> {
         self.pattern_ty_constraints
             .iter()

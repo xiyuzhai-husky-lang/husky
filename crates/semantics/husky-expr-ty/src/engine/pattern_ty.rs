@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_pattern_and_symbols_ty(
         &mut self,
-        pattern_expr_idx: PatternSynExprIdx,
+        pattern_expr_idx: SynPatternExprIdx,
         ty: FluffyTerm,
         symbols: CurrentSynSymbolIdxRange,
     ) {
@@ -14,14 +14,14 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_ty(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: FluffyTerm) {
+    fn save_pattern_ty(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FluffyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(pattern_expr_idx)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternSynExprIdx) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
             SynPatternExpr::Literal(_) => todo!(),
             SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
@@ -71,7 +71,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_new_pattern_symbol_ty(
         &mut self,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> Option<FluffyTerm> {
         let ty_result = self.calc_new_pattern_symbol_ty(pattern_symbol_idx);
         let ty = ty_result.as_ref().ok().copied();
@@ -82,16 +82,16 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_pattern_symbol_ty(
         &mut self,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> PatternSymbolTypeResult<FluffyTerm> {
         match self.expr_region_data[pattern_symbol_idx] {
-            PatternSynSymbol::Atom(pattern_expr_idx) => self
+            SynPatternSymbol::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternExprTypeError.into()),
         }
     }
 
-    fn get_pattern_expr_ty(&self, pattern_expr_idx: PatternSynExprIdx) -> Option<FluffyTerm> {
+    fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> Option<FluffyTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty().ok().copied())

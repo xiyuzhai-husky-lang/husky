@@ -12,6 +12,10 @@
                 ),
             ),
         ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_ty_infos: [],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
@@ -64,6 +68,10 @@
                 ),
             ),
         ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_ty_infos: [],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
@@ -116,6 +124,10 @@
                 ),
             ),
         ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_ty_infos: [],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
@@ -169,6 +181,10 @@
                 ),
             ),
         ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
         expr_ty_infos: [
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(

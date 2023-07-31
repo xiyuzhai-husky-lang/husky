@@ -16,8 +16,8 @@ pub(super) struct DeclarativeTermEngine<'a> {
     symbol_declarative_term_region: SymbolDeclarativeTermRegion,
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
+    pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
@@ -53,8 +53,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 expr_region_data.symbol_region(),
             ),
             expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
-            pattern_expr_ty_infos: PatternSynExprMap::new(expr_region_data.pattern_expr_arena()),
-            pattern_symbol_ty_infos: PatternSynSymbolMap::new(
+            pattern_expr_ty_infos: SynPatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            pattern_symbol_ty_infos: SynPatternSymbolMap::new(
                 expr_region_data
                     .pattern_expr_region()
                     .pattern_symbol_arena(),
@@ -185,7 +185,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_symbol_signatures_in_parenic_parameter(
         &mut self,
-        pattern_expr: PatternSynExprIdx,
+        pattern_expr: SynPatternExprIdx,
         ty: SynExprIdx,
         symbols: CurrentSynSymbolIdxRange,
     ) {

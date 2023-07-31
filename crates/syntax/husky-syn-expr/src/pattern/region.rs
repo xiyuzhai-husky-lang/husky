@@ -2,21 +2,21 @@ use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub struct PatternSynExprRegion {
-    pattern_expr_arena: PatternSynExprArena,
-    pattern_expr_contracts: PatternSynExprOrderedMap<Contract>,
-    pattern_infos: Vec<PatternSynExprInfo>,
-    pattern_symbol_arena: PatternSynSymbolArena,
-    pattern_symbol_maps: PatternSynExprOrderedMap<IdentPairMap<PatternSynSymbolIdx>>,
-    pattern_symbol_modifiers: PatternSynSymbolOrderedMap<SymbolModifier>,
+pub struct SynPatternExprRegion {
+    pattern_expr_arena: SynPatternExprArena,
+    pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
+    pattern_infos: Vec<SynPatternExprInfo>,
+    pattern_symbol_arena: SynPatternSymbolArena,
+    pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
+    pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
 }
 
-impl PatternSynExprRegion {
+impl SynPatternExprRegion {
     pub fn alloc_one_pattern_expr(
         &mut self,
         expr: SynPatternExpr,
-        env: PatternSynExprInfo,
-    ) -> PatternSynExprIdx {
+        env: SynPatternExprInfo,
+    ) -> SynPatternExprIdx {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
@@ -32,9 +32,9 @@ impl PatternSynExprRegion {
     // expr must be allocated already
     fn collect_symbols(
         &mut self,
-        pattern_expr_idx: PatternSynExprIdx,
-    ) -> IdentPairMap<PatternSynSymbolIdx> {
-        let symbols: IdentPairMap<PatternSynSymbolIdx> =
+        pattern_expr_idx: SynPatternExprIdx,
+    ) -> IdentPairMap<SynPatternSymbolIdx> {
+        let symbols: IdentPairMap<SynPatternSymbolIdx> =
             match self.pattern_expr_arena[pattern_expr_idx] {
                 SynPatternExpr::Literal(_) => Default::default(),
                 SynPatternExpr::Ident {
@@ -42,7 +42,7 @@ impl PatternSynExprRegion {
                     symbol_modifier_keyword_group: contract,
                 } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
-                    self.alloc_new_symbol(PatternSynSymbol::Atom(pattern_expr_idx)),
+                    self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
                 )),
                 SynPatternExpr::Entity(_) => todo!(),
                 SynPatternExpr::Tuple { name, fields } => todo!(),
@@ -62,7 +62,7 @@ impl PatternSynExprRegion {
         symbols
     }
 
-    fn alloc_new_symbol(&mut self, symbol: PatternSynSymbol) -> PatternSynSymbolIdx {
+    fn alloc_new_symbol(&mut self, symbol: SynPatternSymbol) -> SynPatternSymbolIdx {
         let modifier = symbol.pattern_symbol_modifier(&self.pattern_expr_arena);
         let idx = self.pattern_symbol_arena.alloc_one(symbol);
         self.pattern_symbol_modifiers.insert_next(idx, modifier);
@@ -71,77 +71,77 @@ impl PatternSynExprRegion {
 
     pub fn pattern_exprs<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (PatternSynExprIdx, &'a SynPatternExpr)> + 'a {
+    ) -> impl Iterator<Item = (SynPatternExprIdx, &'a SynPatternExpr)> + 'a {
         self.pattern_expr_arena.indexed_iter()
     }
 
     pub fn pattern_expr_symbols(
         &self,
-        pattern_expr_idx: PatternSynExprIdx,
-    ) -> &[(Ident, PatternSynSymbolIdx)] {
+        pattern_expr_idx: SynPatternExprIdx,
+    ) -> &[(Ident, SynPatternSymbolIdx)] {
         &self.pattern_symbol_maps[pattern_expr_idx]
     }
 
-    pub fn pattern_info(&self, pattern_expr_idx: PatternSynExprIdx) -> PatternSynExprInfo {
+    pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprInfo {
         self.pattern_infos[pattern_expr_idx.raw()]
     }
 
-    pub fn pattern_expr_arena(&self) -> &PatternSynExprArena {
+    pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {
         &self.pattern_expr_arena
     }
 
-    pub fn pattern_symbol_arena(&self) -> &PatternSynSymbolArena {
+    pub fn pattern_symbol_arena(&self) -> &SynPatternSymbolArena {
         &self.pattern_symbol_arena
     }
 }
 
-impl std::ops::Index<PatternSynExprIdx> for PatternSynExprRegion {
+impl std::ops::Index<SynPatternExprIdx> for SynPatternExprRegion {
     type Output = SynPatternExpr;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
         &self.pattern_expr_arena[index]
     }
 }
 
-impl std::ops::Index<PatternSynSymbolIdx> for PatternSynExprRegion {
-    type Output = PatternSynSymbol;
+impl std::ops::Index<SynPatternSymbolIdx> for SynPatternExprRegion {
+    type Output = SynPatternSymbol;
 
-    fn index(&self, index: PatternSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
-impl std::ops::Index<&PatternSynSymbolIdx> for PatternSynExprRegion {
-    type Output = PatternSynSymbol;
+impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
+    type Output = SynPatternSymbol;
 
-    fn index(&self, index: &PatternSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: &SynPatternSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
 impl SynExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
+    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
         self.pattern_expr_region()
             .pattern_contract(pattern_expr_idx)
     }
 
     pub fn pattern_symbol_modifier(
         &self,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> SymbolModifier {
         self.pattern_expr_region()
             .pattern_symbol_modifier(pattern_symbol_idx)
     }
 }
 
-impl PatternSynExprRegion {
-    fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
+impl SynPatternExprRegion {
+    fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 
     pub fn pattern_symbol_modifier(
         &self,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     ) -> SymbolModifier {
         self.pattern_symbol_modifiers[pattern_symbol_idx]
     }

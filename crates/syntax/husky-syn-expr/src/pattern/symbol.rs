@@ -4,17 +4,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum PatternSynSymbol {
-    Atom(PatternSynExprIdx),
+pub enum SynPatternSymbol {
+    Atom(SynPatternExprIdx),
 }
 
-impl PatternSynSymbol {
+impl SynPatternSymbol {
     pub(super) fn pattern_symbol_modifier(
         &self,
-        pattern_expr_arena: &PatternSynExprArena,
+        pattern_expr_arena: &SynPatternExprArena,
     ) -> SymbolModifier {
         match self {
-            PatternSynSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
+            SynPatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
                 SynPatternExpr::Ident {
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -25,7 +25,7 @@ impl PatternSynSymbol {
     }
 }
 
-pub type PatternSynSymbolArena = Arena<PatternSynSymbol>;
-pub type PatternSynSymbolIdx = ArenaIdx<PatternSynSymbol>;
-pub type PatternSynSymbolMap<V> = ArenaMap<PatternSynSymbol, V>;
-pub type PatternSynSymbolOrderedMap<V> = ArenaOrderedMap<PatternSynSymbol, V>;
+pub type SynPatternSymbolArena = Arena<SynPatternSymbol>;
+pub type SynPatternSymbolIdx = ArenaIdx<SynPatternSymbol>;
+pub type SynPatternSymbolMap<V> = ArenaMap<SynPatternSymbol, V>;
+pub type SynPatternSymbolOrderedMap<V> = ArenaOrderedMap<SynPatternSymbol, V>;

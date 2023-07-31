@@ -35,7 +35,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum SpecificParameterDecl {
     Regular {
-        pattern: PatternSynExprIdx,
+        pattern: SynPatternExprIdx,
         variables: CurrentSynSymbolIdxRange,
         colon: ColonToken,
         ty: SynExprIdx,
@@ -50,7 +50,7 @@ pub enum SpecificParameterDecl {
         ty: SynExprIdx,
     },
     Keyed {
-        pattern: PatternSynExprIdx,
+        pattern: SynPatternExprIdx,
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
         variable: CurrentSynSymbolIdx,
@@ -68,7 +68,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternSynExprInfo::Parameter)? {
+        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(SynPatternExprInfo::Parameter)? {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(pattern_expr_idx);

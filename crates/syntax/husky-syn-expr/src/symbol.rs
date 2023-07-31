@@ -86,7 +86,7 @@ pub struct CurrentSynSymbol {
 
 impl CurrentSynSymbol {
     pub fn new(
-        pattern_expr_region: &PatternSynExprRegion,
+        pattern_expr_region: &SynPatternExprRegion,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
         variant: CurrentSynSymbolVariant,
@@ -145,13 +145,13 @@ pub enum CurrentSynSymbolKind {
         template_parameter_kind: CurrentImplicitParameterSynSymbolKind,
     },
     ExplicitRegularParameter {
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ExplicitVariadicParameter {
         ident_token: IdentToken,
     },
     LetVariable {
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     },
     FrameVariable(SynExprIdx),
 }
@@ -174,7 +174,7 @@ pub enum CurrentSynSymbolVariant {
     },
     ParenicRegularParameter {
         ident: Ident,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ExplicitVariadicParameter {
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
@@ -182,7 +182,7 @@ pub enum CurrentSynSymbolVariant {
     },
     LetVariable {
         ident: Ident,
-        pattern_symbol_idx: PatternSynSymbolIdx,
+        pattern_symbol_idx: SynPatternSymbolIdx,
     },
     FrameVariable {
         ident: Ident,
@@ -221,7 +221,7 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentSynSymbolVariant {
-    fn modifier(&self, pattern_expr_region: &PatternSynExprRegion) -> SymbolModifier {
+    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
         match self {
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
