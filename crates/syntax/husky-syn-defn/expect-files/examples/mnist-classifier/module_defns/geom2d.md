@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -197,7 +197,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -387,7 +387,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -577,7 +577,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -767,7 +767,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -961,7 +961,7 @@ Ok(
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -1152,7 +1152,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -1269,7 +1269,7 @@ Ok(
                                 ident: `from_i_shift28`,
                                 item_kind: AssociatedFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -2287,7 +2287,7 @@ Ok(
                                 ident: `vector`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -2856,7 +2856,7 @@ Ok(
                                 ident: `to`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -3668,7 +3668,7 @@ Ok(
                                 ident: `norm`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -4280,7 +4280,7 @@ Ok(
                                 ident: `dist`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -4989,7 +4989,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -5106,7 +5106,7 @@ Ok(
                                 ident: `point`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -5675,7 +5675,7 @@ Ok(
                                 ident: `to`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -6487,7 +6487,7 @@ Ok(
                                 ident: `norm`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -7099,7 +7099,7 @@ Ok(
                                 ident: `dot`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -7871,7 +7871,7 @@ Ok(
                                 ident: `cross`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -8643,7 +8643,7 @@ Ok(
                                 ident: `angle`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -9833,7 +9833,7 @@ Ok(
                                 ident: `rotation_direction_to`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -10557,7 +10557,7 @@ Ok(
                                 ident: `angle_to`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -12278,7 +12278,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -12395,7 +12395,7 @@ Ok(
                                 ident: `relative_range`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -13603,7 +13603,7 @@ Ok(
                                 ident: `relative_point`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -14438,7 +14438,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -14555,7 +14555,7 @@ Ok(
                                 ident: `relative_bounding_box`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -15401,7 +15401,7 @@ Ok(
                                 ident: `relative_point`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
@@ -16247,7 +16247,7 @@ Ok(
                                 ident: `xmin`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -16761,7 +16761,7 @@ Ok(
                                 ident: `xmax`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -17275,7 +17275,7 @@ Ok(
                                 ident: `ymin`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -17789,7 +17789,7 @@ Ok(
                                 ident: `ymax`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -18288,7 +18288,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -18405,7 +18405,7 @@ Ok(
                                 ident: `xmin`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -18919,7 +18919,7 @@ Ok(
                                 ident: `xmax`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -19433,7 +19433,7 @@ Ok(
                                 ident: `ymin`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -19947,7 +19947,7 @@ Ok(
                                 ident: `ymax`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(

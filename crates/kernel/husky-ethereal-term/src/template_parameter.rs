@@ -10,10 +10,10 @@ pub struct EtherealTemplateParameters {
 impl EtherealTemplateParameters {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
-        generic_paramters: &DeclarativeTemplateParameterTemplates,
+        template_parameters: &DeclarativeTemplateParameterTemplates,
     ) -> EtherealTermResult<EtherealTemplateParameters> {
         Ok(EtherealTemplateParameters {
-            data: generic_paramters
+            data: template_parameters
                 .data()
                 .iter()
                 .map(|template_parameter| {

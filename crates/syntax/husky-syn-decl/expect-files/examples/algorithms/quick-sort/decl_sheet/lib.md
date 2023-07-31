@@ -13,7 +13,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
@@ -271,7 +271,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
@@ -693,7 +693,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,

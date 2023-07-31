@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
@@ -309,7 +309,7 @@ Ok(
                         TypeDecl::Inductive(
                             InductiveTypeSynDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,

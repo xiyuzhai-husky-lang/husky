@@ -13,7 +13,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -83,7 +83,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,

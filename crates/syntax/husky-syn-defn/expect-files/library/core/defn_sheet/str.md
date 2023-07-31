@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::str::str`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::str`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -74,7 +74,7 @@ Ok(
                         path: TypePath(`core::str::StringLiteral`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,

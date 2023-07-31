@@ -5143,7 +5143,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,
@@ -5801,7 +5801,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,
@@ -6489,7 +6489,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,

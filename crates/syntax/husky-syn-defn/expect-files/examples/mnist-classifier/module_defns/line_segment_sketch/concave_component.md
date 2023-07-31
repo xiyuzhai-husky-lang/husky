@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -233,7 +233,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -2034,7 +2034,7 @@ Ok(
                         ),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     trai_expr: TraitExpr {
                         expr: 0,
                     },
@@ -2206,7 +2206,7 @@ Ok(
                                 ident: `visualize`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -2806,7 +2806,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
@@ -8925,7 +8925,7 @@ Ok(
                                 ident: `line_segment`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -9612,7 +9612,7 @@ Ok(
                                 ident: `start`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -10173,7 +10173,7 @@ Ok(
                                 ident: `end`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -10734,7 +10734,7 @@ Ok(
                                 ident: `displacement`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -11264,7 +11264,7 @@ Ok(
                                 ident: `start_tangent`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -11813,7 +11813,7 @@ Ok(
                                 ident: `end_tangent`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(

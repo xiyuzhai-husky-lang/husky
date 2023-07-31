@@ -25,7 +25,7 @@ Ok(
                                             10,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -160,7 +160,7 @@ Ok(
                                             39,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -295,7 +295,7 @@ Ok(
                                             68,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -430,7 +430,7 @@ Ok(
                                             97,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -565,7 +565,7 @@ Ok(
                                             122,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -700,7 +700,7 @@ Ok(
                                             151,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -835,7 +835,7 @@ Ok(
                                             176,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -970,7 +970,7 @@ Ok(
                                             205,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1105,7 +1105,7 @@ Ok(
                                             230,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1240,7 +1240,7 @@ Ok(
                                             259,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1375,7 +1375,7 @@ Ok(
                                             284,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1510,7 +1510,7 @@ Ok(
                                             313,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1801,7 +1801,7 @@ Ok(
                                             386,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1936,7 +1936,7 @@ Ok(
                                             408,
                                         ),
                                     ),
-                                    generic_parameters: [
+                                    template_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -2072,7 +2072,7 @@ Ok(
                                                 437,
                                             ),
                                         ),
-                                        generic_parameters: [
+                                        template_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,

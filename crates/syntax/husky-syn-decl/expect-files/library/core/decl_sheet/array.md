@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::array::Array`, `Extern`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,

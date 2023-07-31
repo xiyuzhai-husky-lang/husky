@@ -14,7 +14,10 @@ impl ExternTypeEtherealSignatureTemplate {
         path: TypePath,
         declarative_signature_template: ExternTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = todo!();
+        let template_parameters = EtherealTemplateParameters::from_declarative(
+            db,
+            declarative_signature_template.template_parameters(db),
+        )?;
         Ok(Self::new(db, path, template_parameters))
     }
 }

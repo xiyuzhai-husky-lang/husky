@@ -13,7 +13,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::visual::Visualize`),
                             ast_idx: 1,
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -83,7 +83,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::visual::Html`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

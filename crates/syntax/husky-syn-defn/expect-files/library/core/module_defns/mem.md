@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::mem::Ref`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -164,7 +164,7 @@ Ok(
                         path: TypePath(`core::mem::RefMut`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -321,7 +321,7 @@ Ok(
                         path: TypePath(`core::mem::Leash`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -443,7 +443,7 @@ Ok(
                         ),
                         disambiguator: 0,
                     },
-                    generic_parameters: [
+                    template_parameters: [
                         GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,

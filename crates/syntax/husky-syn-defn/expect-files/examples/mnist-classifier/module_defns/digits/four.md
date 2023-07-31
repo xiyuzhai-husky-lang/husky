@@ -421,7 +421,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -4472,7 +4472,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -5127,7 +5127,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

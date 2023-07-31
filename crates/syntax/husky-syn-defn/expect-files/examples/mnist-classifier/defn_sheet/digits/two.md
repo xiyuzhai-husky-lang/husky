@@ -342,7 +342,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,
@@ -1000,7 +1000,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,
@@ -1658,7 +1658,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,

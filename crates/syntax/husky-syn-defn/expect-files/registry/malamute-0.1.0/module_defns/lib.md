@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -183,7 +183,7 @@ Ok(
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -359,7 +359,7 @@ Ok(
                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
                         decl: GnDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -1265,7 +1265,7 @@ Ok(
                         ),
                         disambiguator: 0,
                     },
-                    generic_parameters: [
+                    template_parameters: [
                         GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
@@ -1699,7 +1699,7 @@ Ok(
                                 ident: `Output`,
                                 item_kind: AssociatedType,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             ty_term_expr_idx: 0,
                             expr_region: SynExprRegion {
                                 data: ExprRegionData {

@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             fields: [
                                 PropsStructFieldDeclPattern {
                                     decorators: [],
@@ -198,7 +198,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [],
+                    template_parameters: [],
                     ty_expr: TypeExpr {
                         expr: 0,
                     },
@@ -315,7 +315,7 @@ Ok(
                                 ident: `displacement`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             regular_parameters: [],
                             return_ty: Some(
@@ -857,7 +857,7 @@ Ok(
                                 ident: `dist_to_point`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             regular_parameters: [
                                 RegularParameterDeclPattern {

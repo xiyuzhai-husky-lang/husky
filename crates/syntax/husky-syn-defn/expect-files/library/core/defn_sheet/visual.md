@@ -7,7 +7,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::visual::Visualize`),
                         ast_idx: 1,
-                        generic_parameters: [],
+                        template_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
@@ -73,7 +73,7 @@ Ok(
                         path: TypePath(`core::visual::Html`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::visual::Html`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,

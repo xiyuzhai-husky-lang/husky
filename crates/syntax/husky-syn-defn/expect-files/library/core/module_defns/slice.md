@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::slice::Slice`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -121,7 +121,7 @@ Ok(
                         path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -236,7 +236,7 @@ Ok(
                         ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         disambiguator: 0,
                     },
-                    generic_parameters: [
+                    template_parameters: [
                         GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
@@ -413,7 +413,7 @@ Ok(
                                 ident: `ilen`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -1005,7 +1005,7 @@ Ok(
                                 ident: `first`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
@@ -1597,7 +1597,7 @@ Ok(
                                 ident: `last`,
                                 item_kind: MethodFn,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_parameter: None,
                             parenic_parameters: [],
                             return_ty: Some(
