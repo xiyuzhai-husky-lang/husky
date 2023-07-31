@@ -4,24 +4,24 @@ use vec_like::VecPairMap;
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynNodeDeclSheet {
     #[return_ref]
-    pub decls: Vec<(EntitySynNodePath, SynNodeDecl)>,
+    pub decls: Vec<(ItemSynNodePath, SynNodeDecl)>,
 }
 
 pub trait HasSynNodeDeclSheet: Copy {
-    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> ItemSynTreeResult<SynNodeDeclSheet>;
+    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> EntitySynTreeResult<SynNodeDeclSheet>;
 }
 
 impl HasSynNodeDeclSheet for ModulePath {
-    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> ItemSynTreeResult<SynNodeDeclSheet> {
+    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> EntitySynTreeResult<SynNodeDeclSheet> {
         syn_node_decl_sheet(db, self)
     }
 }
 
 // useful for diagnostics and testing
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> ItemSynTreeResult<SynNodeDeclSheet> {
+pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynNodeDeclSheet> {
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
-    let mut decls: Vec<(EntitySynNodePath, SynNodeDecl)> = Default::default();
+    let mut decls: Vec<(ItemSynNodePath, SynNodeDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         decls.push((syn_node_path, syn_node_path.syn_node_decl(db)))
     }
@@ -69,7 +69,7 @@ pub struct SynDeclSheet {
 
 // only useful for testing purposes
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> ItemSynTreeResult<SynDeclSheet> {
+pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
     // get decls through item paths
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
     let mut decls: Vec<(ItemPath, Decl)> = Default::default();

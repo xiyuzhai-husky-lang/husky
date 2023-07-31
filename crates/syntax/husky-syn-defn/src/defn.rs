@@ -12,6 +12,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use husky_ast::AstIdx;
+use husky_entity_syn_tree::path::{module_item_paths, module_item_syn_node_paths};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb)]
@@ -56,26 +57,26 @@ pub trait HasSynNodeDefn: Copy {
     fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn;
 }
 
-impl HasSynNodeDefn for EntitySynNodePath {
+impl HasSynNodeDefn for ItemSynNodePath {
     type SynNodeDefn = SynNodeDefn;
 
     fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         match self {
-            EntitySynNodePath::Submodule(path) => path.syn_node_defn(db).into(),
-            EntitySynNodePath::ModuleItem(path) => path.syn_node_defn(db).into(),
-            EntitySynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
-            EntitySynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
-            EntitySynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::Submodule(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::ModuleItem(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
         }
     }
 }
 
 pub trait HasNodeDefns: Copy {
-    fn node_defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[SynNodeDefn]>;
+    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]>;
 }
 
 impl HasNodeDefns for ModulePath {
-    fn node_defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[SynNodeDefn]> {
+    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
         Ok(module_syn_node_defns(db, self).as_ref()?)
     }
 }
@@ -84,7 +85,7 @@ impl HasNodeDefns for ModulePath {
 pub(crate) fn module_syn_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> ItemSynTreeResult<Vec<SynNodeDefn>> {
+) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
     Ok(module_item_syn_node_paths(db, module_path)
         .as_ref()?
         .iter()
@@ -180,11 +181,11 @@ impl HasSynDefn for ItemPath {
 }
 
 pub trait HasDefns: Copy {
-    fn defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[Defn]>;
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]>;
 }
 
 impl HasDefns for ModulePath {
-    fn defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[Defn]> {
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]> {
         Ok(module_syn_defns(db, self).as_ref()?)
     }
 }
@@ -193,7 +194,7 @@ impl HasDefns for ModulePath {
 pub(crate) fn module_syn_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> ItemSynTreeResult<Vec<Defn>> {
+) -> EntitySynTreeResult<Vec<Defn>> {
     Ok(module_item_paths(db, module_path)
         .as_ref()?
         .iter()

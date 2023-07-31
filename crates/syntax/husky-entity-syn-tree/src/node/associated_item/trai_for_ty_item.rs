@@ -8,7 +8,7 @@ pub struct TraitForTypeItemSynNodePath {
 impl TraitForTypeItemSynNodePath {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: TraitForTypeItemPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -38,9 +38,9 @@ impl TraitForTypeItemSynNodePath {
     }
 }
 
-impl From<TraitForTypeItemSynNodePath> for EntitySynNodePath {
+impl From<TraitForTypeItemSynNodePath> for ItemSynNodePath {
     fn from(id: TraitForTypeItemSynNodePath) -> Self {
-        EntitySynNodePath::AssociatedItem(id.into())
+        ItemSynNodePath::AssociatedItem(id.into())
     }
 }
 
@@ -67,7 +67,7 @@ impl TraitForTypeItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         impl_block_syn_node_path: TraitForTypeImplBlockSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
@@ -117,7 +117,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
     let Some(items) = impl_block_syn_node.items(db) else {
         return vec![];
     };
-    let mut registry = EntityNodeRegistry::default();
+    let mut registry = ItemNodeRegistry::default();
     items
         .ast_idx_range()
         .into_iter()

@@ -28,10 +28,10 @@ where
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
-impl From<TypeImplBlockSynNodePath> for EntitySynNodePath {
+impl From<TypeImplBlockSynNodePath> for ItemSynNodePath {
     #[inline(always)]
     fn from(id: TypeImplBlockSynNodePath) -> Self {
-        EntitySynNodePath::ImplBlock(id.into())
+        ItemSynNodePath::ImplBlock(id.into())
     }
 }
 

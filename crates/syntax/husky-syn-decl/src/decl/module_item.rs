@@ -36,7 +36,7 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ItemSynNodePath {
         match self {
             ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => {

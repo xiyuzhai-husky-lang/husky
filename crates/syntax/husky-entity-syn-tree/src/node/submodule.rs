@@ -8,7 +8,7 @@ pub struct SubmoduleSynNodePath {
 impl SubmoduleSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: SubmodulePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -51,7 +51,7 @@ pub struct SubmoduleSynNode {
 impl SubmoduleSynNode {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         submodule_path: SubmodulePath,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -81,7 +81,7 @@ pub(crate) fn submodule_syn_node(
         .item_syn_tree_sheet(module_path)
         .expect("should be valid");
     match item_tree_sheet.major_item_node(syn_node_path.into()) {
-        Some(EntitySynNode::Submodule(node)) => node,
+        Some(ItemSynNode::Submodule(node)) => node,
         _ => unreachable!(),
     }
 }

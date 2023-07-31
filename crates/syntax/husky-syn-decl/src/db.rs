@@ -1,26 +1,30 @@
 use crate::*;
 use husky_coword::Ident;
-use husky_entity_syn_tree::{ImplBlockSynNode, ItemSynTreeResult};
+use husky_entity_syn_tree::{EntitySynTreeResult, ImplBlockSynNode};
 use husky_print_utils::p;
 use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 use vec_like::VecMapGetEntry;
 
 pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
-    fn syn_node_decl_sheet(&self, module_path: ModulePath) -> ItemSynTreeResult<SynNodeDeclSheet>;
+    fn syn_node_decl_sheet(&self, module_path: ModulePath)
+        -> EntitySynTreeResult<SynNodeDeclSheet>;
 
-    fn syn_decl_sheet(&self, module_path: ModulePath) -> ItemSynTreeResult<SynDeclSheet>;
+    fn syn_decl_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<SynDeclSheet>;
 }
 
 impl<Db> SynDeclDb for Db
 where
     Db: DbWithJar<SynDeclJar> + SynExprDb,
 {
-    fn syn_node_decl_sheet(&self, module_path: ModulePath) -> ItemSynTreeResult<SynNodeDeclSheet> {
+    fn syn_node_decl_sheet(
+        &self,
+        module_path: ModulePath,
+    ) -> EntitySynTreeResult<SynNodeDeclSheet> {
         syn_node_decl_sheet(self, module_path)
     }
 
-    fn syn_decl_sheet(&self, module_path: ModulePath) -> ItemSynTreeResult<SynDeclSheet> {
+    fn syn_decl_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
         syn_decl_sheet(self, module_path)
     }
 }

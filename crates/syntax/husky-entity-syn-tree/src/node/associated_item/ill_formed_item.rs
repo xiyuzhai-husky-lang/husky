@@ -3,9 +3,9 @@ use super::*;
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct IllFormedItemSynNodePath {}
 
-impl From<IllFormedItemSynNodePath> for EntitySynNodePath {
+impl From<IllFormedItemSynNodePath> for ItemSynNodePath {
     fn from(path: IllFormedItemSynNodePath) -> Self {
-        EntitySynNodePath::AssociatedItem(path.into())
+        ItemSynNodePath::AssociatedItem(path.into())
     }
 }
 

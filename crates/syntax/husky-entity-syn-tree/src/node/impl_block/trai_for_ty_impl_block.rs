@@ -66,9 +66,9 @@ impl TraitForTypeImplBlockSynNodePath {
     }
 }
 
-impl From<TraitForTypeImplBlockSynNodePath> for EntitySynNodePath {
+impl From<TraitForTypeImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: TraitForTypeImplBlockSynNodePath) -> Self {
-        EntitySynNodePath::ImplBlock(id.into())
+        ItemSynNodePath::ImplBlock(id.into())
     }
 }
 

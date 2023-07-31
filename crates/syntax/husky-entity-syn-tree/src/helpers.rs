@@ -1,3 +1,4 @@
+pub mod path;
 mod trai_available;
 mod trai_impl;
 mod trai_in_use;

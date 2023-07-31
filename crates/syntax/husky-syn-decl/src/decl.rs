@@ -48,7 +48,7 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ItemSynNodePath {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
@@ -119,16 +119,16 @@ pub trait HasNodeDecl: Copy {
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl;
 }
 
-impl HasNodeDecl for EntitySynNodePath {
+impl HasNodeDecl for ItemSynNodePath {
     type NodeDecl = SynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {
-            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
-            EntitySynNodePath::TypeVariant(_) => todo!(),
-            EntitySynNodePath::ImplBlock(_) => todo!(),
-            EntitySynNodePath::AssociatedItem(_) => todo!(),
-            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::ModuleItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::TypeVariant(_) => todo!(),
+            ItemSynNodePath::ImplBlock(_) => todo!(),
+            ItemSynNodePath::AssociatedItem(_) => todo!(),
+            ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
         }
     }
 }

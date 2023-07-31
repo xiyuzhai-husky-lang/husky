@@ -12,7 +12,7 @@ use husky_syn_expr::{
 pub enum TokenInfo {
     None,
     Entity(EntityPath),
-    EntityNode(EntitySynNodePath, EntityKind),
+    EntityNode(ItemSynNodePath, EntityKind),
     InheritedSymbol {
         inherited_symbol_idx: InheritedSynSymbolIdx,
         inherited_symbol_kind: InheritedSynSymbolKind,

@@ -11,7 +11,7 @@ pub struct TypeVariantSynNodePath {
 impl TypeVariantSynNodePath {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
     ) -> Self {
@@ -67,7 +67,7 @@ pub struct TypeVariantSynNode {
 impl TypeVariantSynNode {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
         ast_idx: AstIdx,
@@ -93,7 +93,7 @@ pub(crate) fn ty_variant_syn_nodes(
         TypeKind::Enum | TypeKind::Inductive => (),
         _ => return vec![],
     }
-    let mut registry = EntityNodeRegistry::default();
+    let mut registry = ItemNodeRegistry::default();
     let Ast::Defn {
         block: DefnBlock::Type { variants, .. },
         ..

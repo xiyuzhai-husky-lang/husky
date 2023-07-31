@@ -61,10 +61,7 @@ impl EntitySynTreePresheet {
         }
     }
 
-    pub(crate) fn major_item_node(
-        &self,
-        syn_node_path: EntitySynNodePath,
-    ) -> Option<EntitySynNode> {
+    pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
         self.major_item_node_table.node(syn_node_path)
     }
 }
@@ -135,7 +132,7 @@ struct EntityTreePresheetBuilder<'a> {
     item_node_table: MajorEntityNodeTable,
     use_expr_arena: UseExprArena,
     item_use_trackers: OnceUseRules,
-    registry: EntityNodeRegistry,
+    registry: ItemNodeRegistry,
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {

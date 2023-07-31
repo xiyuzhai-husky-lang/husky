@@ -52,19 +52,19 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &dyn EntitySynTreeDb, node: EntitySynNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &dyn EntitySynTreeDb, node: ItemSynNode) -> Option<Self> {
         match node {
-            EntitySynNode::Submodule(node) => Some(EntitySymbol::Submodule {
+            ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
                 node,
             }),
-            EntitySynNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
+            ItemSynNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
                 module_item_path: node.unambiguous_path(db)?,
                 node,
             }),
-            EntitySynNode::AssociatedItem(_)
-            | EntitySynNode::TypeVariant(_)
-            | EntitySynNode::ImplBlock(_) => {
+            ItemSynNode::AssociatedItem(_)
+            | ItemSynNode::TypeVariant(_)
+            | ItemSynNode::ImplBlock(_) => {
                 unreachable!()
             }
         }
@@ -140,7 +140,7 @@ impl<'a> ModuleSymbolContext<'a> {
 pub(crate) fn module_symbol_context<'a>(
     db: &'a dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> ItemSynTreeResult<ModuleSymbolContext<'a>> {
+) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
     let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
     Ok(ModuleSymbolContext {
         crate_prelude: CratePrelude::new(db, module_path.crate_path(db))?,
