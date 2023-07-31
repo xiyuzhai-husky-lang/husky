@@ -1,16 +1,12 @@
-mod registry;
+mod index;
 mod set;
 
 use crate::helpers::DeclarativeTermFamily;
 
-pub use self::registry::*;
+pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
-use husky_term_prelude::{
-    symbol::{TermSymbolIndex, TermSymbolRegistry},
-    template_parameter::TemplateParameterAttrs,
-};
 use thiserror::Error;
 use vec_like::VecSet;
 
@@ -21,7 +17,7 @@ pub struct DeclarativeTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub idx: TermSymbolIndex,
+    pub idx: DeclarativeTermSymbolIndex,
 }
 
 impl DeclarativeTermSymbol {
@@ -56,7 +52,7 @@ impl DeclarativeTermSymbol {
         db: &dyn DeclarativeTermDb,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
-        attrs: TemplateParameterAttrs,
+        attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
     ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
         let ty = Ok(menu.lifetime_ty());
@@ -71,7 +67,7 @@ impl DeclarativeTermSymbol {
         db: &dyn DeclarativeTermDb,
         menu: &DeclarativeTermMenu,
         registry: &mut TermSymbolRegistry,
-        attrs: TemplateParameterAttrs,
+        attrs: DeclarativeTemplateSymbolAttrs,
         variance: Option<Variance>,
     ) -> (DeclarativeTermSymbolTypeResult<DeclarativeTerm>, Self) {
         let ty = Ok(menu.ty0().into());
@@ -83,7 +79,7 @@ impl DeclarativeTermSymbol {
 
     pub fn new_const(
         db: &dyn DeclarativeTermDb,
-        attrs: TemplateParameterAttrs,
+        attrs: DeclarativeTemplateSymbolAttrs,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
         registry: &mut TermSymbolRegistry,
     ) -> Self {
@@ -124,7 +120,11 @@ impl DeclarativeTermSymbol {
         ty: DeclarativeTerm,
         disambiguator: u8,
     ) -> Self {
-        Self::new(db, Ok(ty), TermSymbolIndex::new_ad_hoc(disambiguator))
+        Self::new(
+            db,
+            Ok(ty),
+            DeclarativeTermSymbolIndex::new_ad_hoc(disambiguator),
+        )
     }
 
     pub(crate) fn show_with_db_fmt(

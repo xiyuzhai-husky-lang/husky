@@ -5,7 +5,6 @@ pub use self::registry::*;
 pub use self::set::*;
 
 use super::*;
-use husky_term_prelude::symbol::TermSymbolIndex;
 use thiserror::Error;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
@@ -14,7 +13,7 @@ pub struct EtherealTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: improve this by adding TypeFamily
-    pub idx: TermSymbolIndex,
+    pub idx: DeclarativeTermSymbolIndex,
 }
 
 #[test]
