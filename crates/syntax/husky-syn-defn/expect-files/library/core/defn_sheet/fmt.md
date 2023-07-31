@@ -7,7 +7,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::fmt::Debug`),
                         ast_idx: 0,
-                        generic_parameters: [],
+                        template_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,

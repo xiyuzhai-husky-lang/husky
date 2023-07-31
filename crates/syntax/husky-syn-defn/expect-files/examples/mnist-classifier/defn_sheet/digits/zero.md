@@ -292,7 +292,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,

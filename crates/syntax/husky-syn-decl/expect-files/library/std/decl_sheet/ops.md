@@ -13,7 +13,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`std::ops::Add`),
                             ast_idx: 3,
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,

@@ -32,7 +32,7 @@ Ok(
                                                     8,
                                                 ),
                                             ),
-                                            generic_parameters: [
+                                            template_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,

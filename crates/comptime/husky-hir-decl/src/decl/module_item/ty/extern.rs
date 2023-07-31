@@ -16,6 +16,7 @@ impl ExternTypeHirDecl {
         db: &dyn HirDeclDb,
     ) -> Self {
         let mut builder = HirEagerExprBuilder::default();
-        Self::new_inner(db, path, todo!(), builder.finish())
+        let template_parameters = todo!();
+        Self::new_inner(db, path, template_parameters, builder.finish())
     }
 }

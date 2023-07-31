@@ -26,7 +26,7 @@ Ok(
                                                 3,
                                             ),
                                         ),
-                                        generic_parameters: [
+                                        template_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
@@ -190,7 +190,7 @@ Ok(
                                         9,
                                     ),
                                 ),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,

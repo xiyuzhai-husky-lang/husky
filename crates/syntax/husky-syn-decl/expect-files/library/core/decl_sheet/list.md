@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::list::List`, `Extern`),
-                                generic_parameters: [
+                                template_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
@@ -138,7 +138,7 @@ Ok(
                                 ty_path: TypePath(`core::list::List`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [
+                            template_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -320,7 +320,7 @@ Ok(
                                     ident: `ilen`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -600,7 +600,7 @@ Ok(
                                     ident: `push`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: Some(
                                     SelfParameterDeclPattern::Mut {
                                         mut_token: MutToken {
@@ -937,7 +937,7 @@ Ok(
                                     ident: `first`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -1233,7 +1233,7 @@ Ok(
                                     ident: `last`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -1529,7 +1529,7 @@ Ok(
                                     ident: `pop`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: Some(
                                     SelfParameterDeclPattern::Mut {
                                         mut_token: MutToken {

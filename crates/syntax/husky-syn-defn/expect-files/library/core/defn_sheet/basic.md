@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::basic::bool`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -74,7 +74,7 @@ Ok(
                         path: TypePath(`core::basic::never`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -141,7 +141,7 @@ Ok(
                         path: TypePath(`core::basic::unit`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -208,7 +208,7 @@ Ok(
                         path: TypePath(`core::basic::Trait`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -275,7 +275,7 @@ Ok(
                         path: TypePath(`core::basic::Module`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,

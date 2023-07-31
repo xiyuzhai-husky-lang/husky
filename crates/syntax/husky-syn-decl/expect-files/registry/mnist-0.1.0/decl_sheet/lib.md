@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeDecl::TupleStruct(
                             TupleStructTypeSynDecl {
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 fields: [
                                     TupleFieldDeclPattern {
                                         decorators: [],
