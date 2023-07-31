@@ -14,7 +14,7 @@ pub struct PatternSynExprRegion {
 impl PatternSynExprRegion {
     pub fn alloc_one_pattern_expr(
         &mut self,
-        expr: PatternSynExpr,
+        expr: SynPatternExpr,
         env: PatternSynExprInfo,
     ) -> PatternSynExprIdx {
         // order matters
@@ -36,24 +36,24 @@ impl PatternSynExprRegion {
     ) -> IdentPairMap<PatternSynSymbolIdx> {
         let symbols: IdentPairMap<PatternSynSymbolIdx> =
             match self.pattern_expr_arena[pattern_expr_idx] {
-                PatternSynExpr::Literal(_) => Default::default(),
-                PatternSynExpr::Ident {
+                SynPatternExpr::Literal(_) => Default::default(),
+                SynPatternExpr::Ident {
                     ident_token,
                     symbol_modifier_keyword_group: contract,
                 } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
                     self.alloc_new_symbol(PatternSynSymbol::Atom(pattern_expr_idx)),
                 )),
-                PatternSynExpr::Entity(_) => todo!(),
-                PatternSynExpr::Tuple { name, fields } => todo!(),
-                PatternSynExpr::Struct { name, fields } => todo!(),
-                PatternSynExpr::OneOf { options } => todo!(),
-                PatternSynExpr::Binding {
+                SynPatternExpr::Entity(_) => todo!(),
+                SynPatternExpr::Tuple { name, fields } => todo!(),
+                SynPatternExpr::Props { name, fields } => todo!(),
+                SynPatternExpr::OneOf { options } => todo!(),
+                SynPatternExpr::Binding {
                     ident_token,
                     asperand_token,
                     src,
                 } => todo!(),
-                PatternSynExpr::Range {
+                SynPatternExpr::Range {
                     start,
                     dot_dot_token,
                     end,
@@ -71,7 +71,7 @@ impl PatternSynExprRegion {
 
     pub fn pattern_exprs<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (PatternSynExprIdx, &'a PatternSynExpr)> + 'a {
+    ) -> impl Iterator<Item = (PatternSynExprIdx, &'a SynPatternExpr)> + 'a {
         self.pattern_expr_arena.indexed_iter()
     }
 
@@ -96,7 +96,7 @@ impl PatternSynExprRegion {
 }
 
 impl std::ops::Index<PatternSynExprIdx> for PatternSynExprRegion {
-    type Output = PatternSynExpr;
+    type Output = SynPatternExpr;
 
     fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_arena[index]

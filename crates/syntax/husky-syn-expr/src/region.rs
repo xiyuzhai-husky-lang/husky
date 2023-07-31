@@ -126,7 +126,7 @@ impl std::ops::Index<PatternSynSymbolIdx> for SynExprRegionData {
     }
 }
 impl std::ops::Index<PatternSynExprIdx> for SynExprRegionData {
-    type Output = PatternSynExpr;
+    type Output = SynPatternExpr;
 
     fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_region[index]

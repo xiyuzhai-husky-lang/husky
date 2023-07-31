@@ -437,7 +437,7 @@ impl<'a> InferContext<'a> {
             } => match self.expr_region_data[pattern_symbol] {
                 PatternSynSymbol::Atom(pattern_expr_idx) => {
                     match self.expr_region_data[pattern_expr_idx] {
-                        PatternSynExpr::Ident {
+                        SynPatternExpr::Ident {
                             ident_token,
                             symbol_modifier_keyword_group: _,
                         } => self.sheet.add(

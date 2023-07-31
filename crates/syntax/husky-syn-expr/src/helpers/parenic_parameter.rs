@@ -101,7 +101,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                 }),
             );
             if let Some(eq_token) = ctx.try_parse_option::<EqToken>()? {
-                let PatternSynExpr::Ident {
+                let SynPatternExpr::Ident {
                     symbol_modifier_keyword_group,
                     ident_token,
                 } = ctx.pattern_expr_region()[pattern_expr_idx]
