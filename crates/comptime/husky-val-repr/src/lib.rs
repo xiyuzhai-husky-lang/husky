@@ -112,7 +112,7 @@ use husky_entity_syn_tree::RegionPath;
 //         uid: EntityUid,
 //     },
 //     RecordTypeCall {
-//         ty: EtherealTerm,
+//         ty: HirType,
 //         uid: EntityUid,
 //         opds: Vec<Val>,
 //     },

@@ -14,5 +14,5 @@ pub struct PropsStructTypeHirDecl {
 #[salsa::debug_with_db(db = HirDeclDb, jar= HirDeclJar)]
 pub struct RegularFieldHirDecl {
     ident: Ident,
-    ty: EtherealTerm,
+    ty: HirType,
 }

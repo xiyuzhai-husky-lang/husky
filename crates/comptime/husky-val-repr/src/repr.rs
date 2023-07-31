@@ -14,7 +14,7 @@ pub enum ValRepr {
     AdHocConstant(ConstantVal),
     // Value {
     //     value: __RegularValue,
-    //     ty: EtherealTerm,
+    //     ty: HirType,
     //     file: DiffPath,
     //     range: TextRange,
     //     feature: Val,
@@ -24,7 +24,7 @@ pub enum ValRepr {
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
         main_file: DiffPath,
-        ty: EtherealTerm,
+        ty: HirType,
         feature: Val,
     },
 }

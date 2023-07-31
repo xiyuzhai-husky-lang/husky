@@ -19,7 +19,7 @@ pub struct ValStmt {
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
     pub stmt: HirLazyStmtIdx,
-    pub return_ty: EtherealTerm,
+    pub return_ty: HirType,
 }
 
 impl std::fmt::Debug for ValStmt {
@@ -179,7 +179,7 @@ impl ValStmt {
         db: &dyn ValReprDb,
         opt_this: Option<ValRepr>,
         symbols: &mut Vec<ValSymbol>,
-        ty: EtherealTerm,
+        ty: HirType,
         mut opt_arrival_indicator: Option<ValDomain>,
         feature_interner: &FeatureInterner,
     ) -> ValStmtData {
