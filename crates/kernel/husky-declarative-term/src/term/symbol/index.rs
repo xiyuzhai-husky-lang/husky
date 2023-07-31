@@ -11,6 +11,9 @@ pub struct DeclarativeTemplateSymbolAttrs {
 }
 
 impl DeclarativeTemplateSymbolAttrs {
+    /// only use this in husky-ethereal-term
+    pub unsafe fn new(phantom: bool) -> Self { Self { phantom } }
+
     pub fn from_attrs(
         attrs: impl IntoIterator<Item = DeclarativeTemplateSymbolAttr>,
     ) -> Self {
@@ -19,6 +22,10 @@ impl DeclarativeTemplateSymbolAttrs {
             todo!()
         }
         this
+    }
+
+    pub fn phantom(&self) -> bool {
+        self.phantom
     }
 }
 
@@ -32,6 +39,11 @@ pub enum DeclarativeTemplateSymbolAttr {
 pub struct DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner);
 
 impl DeclarativeTermSymbolIndex {
+    /// only use this in husky-ethereal-term
+    pub unsafe fn new(inner: DeclarativeTermSymbolIndexInner) -> Self {
+        Self(inner)
+    }
+
     pub unsafe fn new_ad_hoc(disambiguator: u8) -> Self {
         Self(DeclarativeTermSymbolIndexInner::AdHoc { disambiguator })
     }

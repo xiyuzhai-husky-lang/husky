@@ -263,7 +263,8 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
             EtherealTerm::Symbol(s) => {
-                DeclarativeTermSymbol::new(db, Ok(s.ty(db).into_declarative(db)), s.idx(db)).into()
+                DeclarativeTermSymbol::new(db, Ok(s.ty(db).into_declarative(db)), s.idx(db).into())
+                    .into()
             }
             EtherealTerm::Variable(v) => {
                 DeclarativeTermVariable::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db))
