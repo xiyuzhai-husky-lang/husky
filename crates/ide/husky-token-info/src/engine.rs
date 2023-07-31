@@ -19,7 +19,10 @@ pub(crate) struct InferEngine<'a> {
 }
 
 impl<'a> InferEngine<'a> {
-    pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> ItemSynTreeResult<Self> {
+    pub(crate) fn new(
+        db: &'a dyn TokenInfoDb,
+        module_path: ModulePath,
+    ) -> EntitySynTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
@@ -33,13 +36,13 @@ impl<'a> InferEngine<'a> {
         })
     }
 
-    pub(crate) fn visit_all(mut self) -> ItemSynTreeResult<TokenInfoSheet> {
+    pub(crate) fn visit_all(mut self) -> EntitySynTreeResult<TokenInfoSheet> {
         self.visit_nodes()?;
         self.visit_once_use_rules();
         Ok(self.sheet)
     }
 
-    fn visit_nodes(&mut self) -> ItemSynTreeResult<()> {
+    fn visit_nodes(&mut self) -> EntitySynTreeResult<()> {
         for syn_node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
             self.visit_node(syn_node_defn)
         }

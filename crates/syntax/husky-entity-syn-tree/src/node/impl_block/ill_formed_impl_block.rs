@@ -42,9 +42,9 @@ impl IllFormedImplBlockSynNodePath {
     }
 }
 
-impl From<IllFormedImplBlockSynNodePath> for EntitySynNodePath {
+impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     fn from(id: IllFormedImplBlockSynNodePath) -> Self {
-        EntitySynNodePath::ImplBlock(id.into())
+        ItemSynNodePath::ImplBlock(id.into())
     }
 }
 

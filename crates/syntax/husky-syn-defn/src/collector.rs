@@ -1,13 +1,13 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
-use husky_entity_syn_tree::{ItemSynTreeResult, ModuleSymbolContext};
+use husky_entity_syn_tree::{EntitySynTreeResult, ModuleSymbolContext};
 use husky_token::TokenSheetData;
 use vec_like::VecPairMap;
 
 #[inline(always)]
 pub(crate) fn expr_parser<'a>(
     db: &'a dyn SynDefnDb,
-    syn_node_path: impl Into<EntitySynNodePath>,
+    syn_node_path: impl Into<ItemSynNodePath>,
     decl_expr_region: SynExprRegion,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,

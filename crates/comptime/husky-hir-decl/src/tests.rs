@@ -9,7 +9,7 @@ use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_entity_path::{EntityPathJar, ModuleItemPath, TypePath};
-use husky_entity_syn_tree::{EntitySynTreeDb, EntitySynTreeJar};
+use husky_entity_syn_tree::{path::module_item_paths, EntitySynTreeDb, EntitySynTreeJar};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr_ty::ExprTypeJar;
@@ -61,3 +61,17 @@ pub(crate) struct DB {
 }
 
 impl salsa::Database for DB {}
+
+fn module_hir_decls(db: &DB, module_path: ModulePath) -> Vec<HirDecl> {
+    module_item_paths(db, module_path)
+        .as_ref()
+        .expect("all modules should be guaranteed to be valid")
+        .iter()
+        .map(|path| path.hir_decl(db))
+        .collect()
+}
+
+#[test]
+fn module_hir_decls_works() {
+    DB::default().ast_expect_test_debug_with_db("module_hir_decls", module_hir_decls);
+}

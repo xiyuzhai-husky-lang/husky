@@ -7,16 +7,16 @@ pub struct TraitSynNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
 }
 
-impl From<TraitSynNodePath> for EntitySynNodePath {
+impl From<TraitSynNodePath> for ItemSynNodePath {
     fn from(id: TraitSynNodePath) -> Self {
-        EntitySynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::ModuleItem(id.into())
     }
 }
 
 impl TraitSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: TraitPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -59,7 +59,7 @@ fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> Modul
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        EntitySynNode::ModuleItem(node) => node,
+        ItemSynNode::ModuleItem(node) => node,
         _ => unreachable!(),
     }
 }

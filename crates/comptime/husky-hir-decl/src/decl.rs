@@ -20,6 +20,14 @@ pub trait HasHirDecl {
     fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl;
 }
 
+impl HasHirDecl for ItemPath {
+    type HirDecl = HirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]

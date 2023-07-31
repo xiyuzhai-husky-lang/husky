@@ -8,11 +8,7 @@ pub struct TypeItemSynNodePath {
 }
 
 impl TypeItemSynNodePath {
-    fn new(
-        db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
-        path: TypeItemPath,
-    ) -> Self {
+    fn new(db: &dyn EntitySynTreeDb, registry: &mut ItemNodeRegistry, path: TypeItemPath) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
@@ -40,9 +36,9 @@ impl TypeItemSynNodePath {
     }
 }
 
-impl From<TypeItemSynNodePath> for EntitySynNodePath {
+impl From<TypeItemSynNodePath> for ItemSynNodePath {
     fn from(id: TypeItemSynNodePath) -> Self {
-        EntitySynNodePath::AssociatedItem(id.into())
+        ItemSynNodePath::AssociatedItem(id.into())
     }
 }
 
@@ -69,7 +65,7 @@ impl TypeItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         impl_block_syn_node_path: TypeImplBlockSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
@@ -121,7 +117,7 @@ pub(crate) fn ty_impl_block_items(
     let module_path = syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     let items = impl_block_syn_node.items(db);
-    let mut registry = EntityNodeRegistry::default();
+    let mut registry = ItemNodeRegistry::default();
     items
         .ast_idx_range()
         .into_iter()
@@ -218,7 +214,7 @@ pub trait HasItemPathsMap: Copy {
             Ident,
             (
                 Self::ItemKind,
-                ItemSynTreeResult<SmallVec<[Self::ItemPath; 1]>>,
+                EntitySynTreeResult<SmallVec<[Self::ItemPath; 1]>>,
             ),
         )],
     >;
@@ -236,7 +232,10 @@ impl HasItemPathsMap for TypePath {
         'a,
         &'a [(
             Ident,
-            (TypeItemKind, ItemSynTreeResult<SmallVec<[TypeItemPath; 1]>>),
+            (
+                TypeItemKind,
+                EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
+            ),
         )],
     > {
         ty_item_paths_map(db, self).as_ref().map(|v| v as &[_])
@@ -248,10 +247,15 @@ pub(crate) fn ty_item_paths_map(
     db: &dyn EntitySynTreeDb,
     path: TypePath,
 ) -> EntitySynTreeBundleResult<
-    IdentPairMap<(TypeItemKind, ItemSynTreeResult<SmallVec<[TypeItemPath; 1]>>)>,
+    IdentPairMap<(
+        TypeItemKind,
+        EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
+    )>,
 > {
-    let mut paths: IdentPairMap<(TypeItemKind, ItemSynTreeResult<SmallVec<[TypeItemPath; 1]>>)> =
-        Default::default();
+    let mut paths: IdentPairMap<(
+        TypeItemKind,
+        EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
+    )> = Default::default();
     for (ident, syn_node_path) in path.item_syn_node_paths(db)?.iter().copied() {
         if let Some(path) = syn_node_path.path(db) {
             let ty_item_kind = path.item_kind(db);

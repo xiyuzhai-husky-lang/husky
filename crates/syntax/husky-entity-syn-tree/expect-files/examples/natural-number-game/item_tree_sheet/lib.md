@@ -4,7 +4,7 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntitySynNode::ModuleItem(
+                    node: ItemSynNode::ModuleItem(
                         ModuleItemSynNode {
                             syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
@@ -40,7 +40,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: ItemSynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -56,7 +56,7 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::ModuleItem(
+                    node: ItemSynNode::ModuleItem(
                         ModuleItemSynNode {
                             syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
@@ -86,7 +86,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: ItemSynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -102,7 +102,7 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::ModuleItem(
+                    node: ItemSynNode::ModuleItem(
                         ModuleItemSynNode {
                             syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
@@ -132,7 +132,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: ItemSynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {

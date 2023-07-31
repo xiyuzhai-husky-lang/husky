@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntitySynNodePath::ModuleItem(
+            ItemSynNodePath::ModuleItem(
                 ModuleItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -161,7 +161,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntitySynNodePath::ImplBlock(
+            ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
                     TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
@@ -269,7 +269,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntitySynNodePath::AssociatedItem(
+            ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -386,7 +386,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntitySynNodePath::AssociatedItem(
+            ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
                     TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {

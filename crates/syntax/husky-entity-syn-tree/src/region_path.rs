@@ -7,8 +7,8 @@ use crate::*;
 pub enum RegionPath {
     Snippet(ModulePath),
     Decr(DecrId),
-    Decl(EntitySynNodePath),
-    Defn(EntitySynNodePath),
+    Decl(ItemSynNodePath),
+    Defn(ItemSynNodePath),
 }
 
 impl RegionPath {

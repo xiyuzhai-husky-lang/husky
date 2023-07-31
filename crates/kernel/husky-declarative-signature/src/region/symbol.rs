@@ -119,16 +119,16 @@ impl SymbolDeclarativeTermRegion {
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = match region_path {
-                RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Trait(
-                    _,
-                ))) => Some(self.new_self_ty_symbol(db).into()),
-                RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Type(
+                RegionPath::Decl(ItemSynNodePath::ModuleItem(ModuleItemSynNodePath::Trait(_))) => {
+                    Some(self.new_self_ty_symbol(db).into())
+                }
+                RegionPath::Decl(ItemSynNodePath::ModuleItem(ModuleItemSynNodePath::Type(
                     ty_node_path,
                 ))) => Some(self.ty_defn_self_ty_term(
                     db,
                     ty_node_path.path(db).expect("should have valid item path"),
                 )),
-                RegionPath::Decl(EntitySynNodePath::ImplBlock(syn_node_path)) => {
+                RegionPath::Decl(ItemSynNodePath::ImplBlock(syn_node_path)) => {
                     match syn_node_path {
                         ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
                             None // reserved for later stage

@@ -20,16 +20,16 @@ pub trait EntitySynTreeDb: DbWithJar<EntitySynTreeJar> + AstDb + EntityPathDb + 
     fn item_syn_tree_sheet(
         &self,
         module_path: ModulePath,
-    ) -> ItemSynTreeResult<&EntitySynTreeSheet>;
+    ) -> EntitySynTreeResult<&EntitySynTreeSheet>;
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
-    ) -> ItemSynTreeResult<ModuleSymbolContext<'a>>;
+    ) -> EntitySynTreeResult<ModuleSymbolContext<'a>>;
     fn subitem_path(
         &self,
         parent: MajorEntityPath,
         identifier: Ident,
-    ) -> ItemSynTreeResult<SubitemPath>;
+    ) -> EntitySynTreeResult<SubitemPath>;
 }
 
 impl<T> EntitySynTreeDb for T
@@ -60,14 +60,14 @@ where
     fn item_syn_tree_sheet(
         &self,
         module_path: ModulePath,
-    ) -> ItemSynTreeResult<&EntitySynTreeSheet> {
+    ) -> EntitySynTreeResult<&EntitySynTreeSheet> {
         item_tree_sheet(self, module_path)
     }
 
     fn module_symbol_context<'a>(
         &'a self,
         module_path: ModulePath,
-    ) -> ItemSynTreeResult<ModuleSymbolContext<'a>> {
+    ) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
         module_symbol_context(self, module_path)
     }
 
@@ -75,7 +75,7 @@ where
         &self,
         parent: MajorEntityPath,
         identifier: Ident,
-    ) -> ItemSynTreeResult<SubitemPath> {
+    ) -> EntitySynTreeResult<SubitemPath> {
         subitem_path(self, parent, identifier)
     }
 }

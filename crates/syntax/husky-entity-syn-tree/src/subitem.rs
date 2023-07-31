@@ -8,7 +8,7 @@ pub(crate) fn module_subitem_path(
     _db: &dyn EntitySynTreeDb,
     _parent: ModulePath,
     _identifier: Ident,
-) -> ItemSynTreeResult<ItemPath> {
+) -> EntitySynTreeResult<ItemPath> {
     todo!()
 }
 
@@ -24,7 +24,7 @@ pub(crate) fn subitem_path(
     db: &dyn EntitySynTreeDb,
     parent: MajorEntityPath,
     ident: Ident,
-) -> ItemSynTreeResult<SubitemPath> {
+) -> EntitySynTreeResult<SubitemPath> {
     match parent {
         MajorEntityPath::Module(module_path) => {
             match db

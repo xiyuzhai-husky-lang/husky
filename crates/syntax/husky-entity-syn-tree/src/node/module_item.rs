@@ -21,7 +21,7 @@ pub enum ModuleItemSynNodePath {
 impl ModuleItemSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: ModuleItemPath,
     ) -> Self {
         match path {
@@ -92,7 +92,7 @@ pub struct ModuleItemSynNode {
 impl ModuleItemSynNode {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         module_item_path: ModuleItemPath,
         visibility: Scope,
         ast_idx: AstIdx,

@@ -4,7 +4,7 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -24,7 +24,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -38,7 +38,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -58,7 +58,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -72,7 +72,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -106,7 +106,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -126,7 +126,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -140,7 +140,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -160,7 +160,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -174,7 +174,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -194,7 +194,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -208,7 +208,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -228,7 +228,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -242,7 +242,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -262,7 +262,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -276,7 +276,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -296,7 +296,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -310,7 +310,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -330,7 +330,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -344,7 +344,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -364,7 +364,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -378,7 +378,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -398,7 +398,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -412,7 +412,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -432,7 +432,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -446,7 +446,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -466,7 +466,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -480,7 +480,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -500,7 +500,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -514,7 +514,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -534,7 +534,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -548,7 +548,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -568,7 +568,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -582,7 +582,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -602,7 +602,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -616,7 +616,7 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntitySynNode::Submodule(
+                    node: ItemSynNode::Submodule(
                         SubmoduleSynNode {
                             syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -636,7 +636,7 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: ItemSynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(

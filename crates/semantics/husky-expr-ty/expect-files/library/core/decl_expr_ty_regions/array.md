@@ -1,7 +1,7 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntitySynNodePath::ModuleItem(
+            ItemSynNodePath::ModuleItem(
                 ModuleItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {

@@ -64,7 +64,7 @@ impl UseAllModuleSymbolsRule {
         &self,
         db: &'a dyn EntitySynTreeDb,
         presheets: &'a [EntityTreePresheetMut],
-    ) -> ItemSynTreeResult<EntitySymbolTableRef<'a>> {
+    ) -> EntitySynTreeResult<EntitySymbolTableRef<'a>> {
         if self.is_same_crate {
             // avoids cyclic dependency
             Ok(presheets

@@ -59,7 +59,7 @@ impl<'a> TraitInUseItemsTable<'a> {
 fn non_core_crate_prelude_trait_items_table(
     db: &dyn EntitySynTreeDb,
     toolchain: Toolchain,
-) -> ItemSynTreeResult<TraitInUseItemsTableImpl> {
+) -> EntitySynTreeResult<TraitInUseItemsTableImpl> {
     Ok(trait_items_table_impl(
         db,
         none_core_crate_universal_prelude(db, toolchain)
@@ -72,7 +72,7 @@ fn non_core_crate_prelude_trait_items_table(
 fn module_specific_trait_items_table(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> ItemSynTreeResult<TraitInUseItemsTableImpl> {
+) -> EntitySynTreeResult<TraitInUseItemsTableImpl> {
     Ok(trait_items_table_impl(
         db,
         module_path.item_tree_sheet(db).as_ref()?.module_symbols(),

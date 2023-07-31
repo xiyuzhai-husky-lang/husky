@@ -7,9 +7,9 @@ pub struct FugitiveSynNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,
 }
 
-impl From<FugitiveSynNodePath> for EntitySynNodePath {
+impl From<FugitiveSynNodePath> for ItemSynNodePath {
     fn from(id: FugitiveSynNodePath) -> Self {
-        EntitySynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::ModuleItem(id.into())
     }
 }
 
@@ -24,7 +24,7 @@ impl HasSynNodePath for FugitivePath {
 impl FugitiveSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: FugitivePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -58,7 +58,7 @@ pub(crate) fn fugitive_syn_node(
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        EntitySynNode::ModuleItem(node) => node,
+        ItemSynNode::ModuleItem(node) => node,
         _ => unreachable!(),
     }
 }

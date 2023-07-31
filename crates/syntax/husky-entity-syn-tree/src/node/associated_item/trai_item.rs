@@ -7,11 +7,7 @@ pub struct TraitItemSynNodePath {
 }
 
 impl TraitItemSynNodePath {
-    fn new(
-        db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
-        path: TraitItemPath,
-    ) -> Self {
+    fn new(db: &dyn EntitySynTreeDb, registry: &mut ItemNodeRegistry, path: TraitItemPath) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
@@ -55,7 +51,7 @@ impl TraitItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         trai_node_path: TraitSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
@@ -101,7 +97,7 @@ pub(crate) fn trai_item_syn_nodes(
     let Some(items) = items else {
         return Default::default();
     };
-    let mut registry = EntityNodeRegistry::default();
+    let mut registry = ItemNodeRegistry::default();
     items
         .ast_idx_range()
         .into_iter()

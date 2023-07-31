@@ -20,7 +20,7 @@ impl EntitySymbolTable {
         &self.0
     }
 
-    pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> ItemSynTreeResult<()> {
+    pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntitySynTreeResult<()> {
         // todo: should there be checks?
         self.0.push(new_entry);
         Ok(())
@@ -29,7 +29,7 @@ impl EntitySymbolTable {
     pub(crate) fn extend(
         &mut self,
         iter: impl IntoIterator<Item = EntitySymbolEntry>,
-    ) -> ItemSynTreeResult<()> {
+    ) -> EntitySynTreeResult<()> {
         for new_entry in iter {
             self.insert(new_entry)?
         }
@@ -203,7 +203,7 @@ impl MajorEntityNodeTable {
     pub(crate) fn try_add_new_node(
         &mut self,
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
@@ -223,13 +223,13 @@ impl MajorEntityNodeTable {
         }
     }
 
-    pub(crate) fn node(&self, syn_node_path: EntitySynNodePath) -> Option<EntitySynNode> {
+    pub(crate) fn node(&self, syn_node_path: ItemSynNodePath) -> Option<ItemSynNode> {
         self.entries
             .iter()
             .find_map(|entry| (entry.syn_node_path == syn_node_path).then_some(entry.node))
     }
 
-    pub(crate) fn node_paths<'a>(&'a self) -> impl Iterator<Item = EntitySynNodePath> + 'a {
+    pub(crate) fn node_paths<'a>(&'a self) -> impl Iterator<Item = ItemSynNodePath> + 'a {
         self.entries.iter().map(|entry| entry.syn_node_path)
     }
 }
@@ -237,9 +237,9 @@ impl MajorEntityNodeTable {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntityNodeEntry {
-    node: EntitySynNode,
+    node: ItemSynNode,
     /// cached for performance, always equal to node.syn_node_path(db)
-    syn_node_path: EntitySynNodePath,
+    syn_node_path: ItemSynNodePath,
     /// cached for performance, always equal to node.ident(db)
     ident: Ident,
     /// cached for performance, always equal to node.visibility(db)
@@ -259,14 +259,14 @@ impl EntitySymbolEntry {
 impl EntityNodeEntry {
     fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
         item_path: ItemPath,
         block: DefnBlock,
     ) -> Option<Self> {
-        let node = EntitySynNode::try_new(
+        let node = ItemSynNode::try_new(
             db,
             registry,
             visibility,
@@ -283,7 +283,7 @@ impl EntityNodeEntry {
         })
     }
 
-    pub fn node(&self) -> EntitySynNode {
+    pub fn node(&self) -> ItemSynNode {
         self.node
     }
 }

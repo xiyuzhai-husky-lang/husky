@@ -10,7 +10,7 @@ pub struct TypeSynNodePath {
 impl TypeSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
-        registry: &mut EntityNodeRegistry,
+        registry: &mut ItemNodeRegistry,
         path: TypePath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
@@ -41,9 +41,9 @@ impl HasSynNodePath for TypePath {
     }
 }
 
-impl From<TypeSynNodePath> for EntitySynNodePath {
+impl From<TypeSynNodePath> for ItemSynNodePath {
     fn from(id: TypeSynNodePath) -> Self {
-        EntitySynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::ModuleItem(id.into())
     }
 }
 
@@ -63,7 +63,7 @@ pub(crate) fn ty_node(
         unreachable!("should be some, must be some erros in library")
     };
     match major_item_node {
-        EntitySynNode::ModuleItem(node) => node,
+        ItemSynNode::ModuleItem(node) => node,
         _ => unreachable!(),
     }
 }
