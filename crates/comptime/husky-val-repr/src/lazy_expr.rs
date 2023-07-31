@@ -141,7 +141,7 @@ pub enum FeatureLazyExprVariant {
     },
     EvalInput,
     NewRecord {
-        ty: EtherealTerm,
+        ty: HirType,
         item: Arc<EntityDefn>,
         opds: Vec<ValExpr>,
     },

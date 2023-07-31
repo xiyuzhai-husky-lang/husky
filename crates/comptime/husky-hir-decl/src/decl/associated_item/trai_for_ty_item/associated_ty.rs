@@ -5,6 +5,6 @@ pub struct TraitForTypeAssociatedTypeHirDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
-    pub ty_term: EtherealTerm,
+    pub ty: HirType,
     pub hir_expr_region: HirEagerExprRegion,
 }

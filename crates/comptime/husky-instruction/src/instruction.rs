@@ -1,4 +1,5 @@
 use crate::*;
+use husky_hir_ty::HirType;
 
 // ad hoc
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -25,13 +26,13 @@ pub enum Instruction {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
-        ty: EtherealTerm,
+        ty: HirType,
         varname: Ident,
         explicit: bool,
     },
     PushLiteralValue {
         value: __RegularValue,
-        ty: EtherealTerm,
+        ty: HirType,
         explicit: bool,
     },
     WrapInSome {
@@ -40,22 +41,22 @@ pub enum Instruction {
     CallRoutine {
         resolved_linkage: __ResolvedLinkage,
         nargs: u8,
-        return_ty: EtherealTerm,
+        return_ty: HirType,
         discard: bool,
     },
     CallInterpreted {
         // routine_uid: EntityUid,
         nargs: u8,
-        return_ty: EtherealTerm,
+        return_ty: HirType,
         discard: bool,
     },
     VirtualStructField {
         field_idx: u8,
         field_binding: Binding,
-        field_ty: EtherealTerm,
+        field_ty: HirType,
     },
     NewVirtualStruct {
-        ty: EtherealTerm,
+        ty: HirType,
         fields: Vec<Ident>,
     },
     Loop {
@@ -63,7 +64,7 @@ pub enum Instruction {
         loop_kind: VMLoopKind,
     },
     Return {
-        return_ty: EtherealTerm,
+        return_ty: HirType,
     },
     BreakIfFalse,
     Break,
@@ -77,11 +78,11 @@ pub enum Instruction {
     },
     EntityFeature {
         // feature_uid: EntityUid,
-        ty: EtherealTerm,
+        ty: HirType,
     },
     PushEntityFp {
         // opt_linkage: Option<__LinkageGroup>,
-        ty: EtherealTerm,
+        ty: HirType,
         opt_instruction_sheet: Option<Instructions>,
     },
 }

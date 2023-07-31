@@ -8,6 +8,6 @@ pub struct TraitForTypeMethodFnHirDecl {
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenic_parameters: ParenicEtherealParameters,
-    pub return_ty: EtherealTerm,
+    pub return_ty: HirType,
     pub hir_expr_region: HirEagerExprRegion,
 }

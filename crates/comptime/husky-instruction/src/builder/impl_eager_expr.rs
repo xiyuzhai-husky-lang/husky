@@ -653,7 +653,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn method_call_instruction_variant(
         &self,
         method_route: EtherealTerm,
-        return_ty: EtherealTerm,
+        return_ty: HirType,
         output_binding: Binding,
         nargs: u8,
         discard: bool,
