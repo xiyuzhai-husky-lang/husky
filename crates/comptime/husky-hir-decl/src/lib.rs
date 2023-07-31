@@ -2,6 +2,8 @@ pub mod db;
 mod decl;
 // ad hoc
 mod template_parameter;
+#[cfg(test)]
+mod tests;
 
 pub use self::decl::*;
 pub use self::template_parameter::*;

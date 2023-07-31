@@ -4,6 +4,7 @@ mod error;
 pub mod helpers;
 mod parameter;
 mod signature;
+mod tests;
 
 pub use self::db::*;
 pub use self::error::*;
