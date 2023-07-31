@@ -6,6 +6,14 @@ pub struct HirTemplateParameters {
     data: SmallVec<[HirTemplateParameter; 2]>,
 }
 
+impl std::ops::Deref for HirTemplateParameters {
+    type Target = [HirTemplateParameter];
+
+    fn deref(&self) -> &Self::Target {
+        &self.data
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirTemplateParameter {
     // annotated_variance: Option<Variance>,

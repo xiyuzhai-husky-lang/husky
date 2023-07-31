@@ -2,14 +2,14 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct EnumUnitTypeVariantDeclarativeSignatureTemplate {
-    pub parent_ty_template: EnumDeclarativeSignatureTemplate,
+    pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
     pub ty: DeclarativeTerm,
 }
 
 impl EnumUnitTypeVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-        parent_ty_template: EnumDeclarativeSignatureTemplate,
+        parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
         decl: UnitTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         // todo: GADT

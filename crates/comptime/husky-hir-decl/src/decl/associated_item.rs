@@ -28,7 +28,7 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             AssociatedItemHirDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemHirDecl::TraitItem(decl) => decl.template_parameters(db),

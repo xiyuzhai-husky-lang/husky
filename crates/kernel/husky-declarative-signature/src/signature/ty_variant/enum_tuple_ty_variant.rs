@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct EnumTupleTypeVariantDeclarativeSignatureTemplate {
-    pub parent_ty_template: EnumDeclarativeSignatureTemplate,
+    pub parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
     pub field_tys: SmallVec<[EnumTupleTypeVariantFieldDeclarativeSignatureTemplate; 4]>,
     pub return_ty: DeclarativeTerm,
     pub instance_constructor_ty: DeclarativeTermRitchie,
@@ -16,7 +16,7 @@ pub struct EnumTupleTypeVariantFieldDeclarativeSignatureTemplate {
 impl EnumTupleTypeVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
-        parent_ty_template: EnumDeclarativeSignatureTemplate,
+        parent_ty_template: EnumTypeDeclarativeSignatureTemplate,
         decl: TupleTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);

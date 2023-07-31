@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeMethodFnHirDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenic_parameters: ParenicEtherealParameters,

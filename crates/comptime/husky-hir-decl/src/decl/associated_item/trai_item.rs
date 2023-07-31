@@ -37,10 +37,7 @@ impl TraitItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(
-        self,
-        _db: &'a dyn HirDeclDb,
-    ) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             TraitItemHirDecl::AssociatedFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),

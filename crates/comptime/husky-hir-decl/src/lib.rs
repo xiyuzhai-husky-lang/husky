@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 pub mod db;
 mod decl;
 // ad hoc
@@ -15,6 +16,9 @@ use husky_ethereal_term::*;
 use husky_hir_eager_expr::*;
 use husky_hir_expr::*;
 use husky_hir_lazy_expr::*;
-use husky_hir_ty::*;
+use husky_hir_ty::{
+    template_parameter::{HirTemplateParameter, HirTemplateParameters},
+    *,
+};
 use husky_vfs::*;
 use smallvec::*;

@@ -1,4 +1,8 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct InductiveEtherealSignatureTemplate {}
+pub struct InductiveTypeEtherealSignatureTemplate {
+    pub path: TypePath,
+    #[return_ref]
+    pub template_parameters: EtherealTemplateParameters,
+}

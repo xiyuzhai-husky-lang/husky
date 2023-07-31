@@ -29,7 +29,7 @@ impl HasHirDecl for FugitivePath {
 }
 
 impl FugitiveHirDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             FugitiveHirDecl::Fn(decl) => decl.template_parameters(db),
             FugitiveHirDecl::Val(_decl) => &[],

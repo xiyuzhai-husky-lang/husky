@@ -18,7 +18,7 @@ pub enum ModuleItemHirDecl {
 }
 
 impl ModuleItemHirDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             ModuleItemHirDecl::Type(decl) => decl.template_parameters(db),
             ModuleItemHirDecl::Fugitive(decl) => decl.template_parameters(db),

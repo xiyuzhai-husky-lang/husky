@@ -4,6 +4,6 @@ use super::*;
 pub struct ValHirDecl {
     pub path: FugitivePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub hir_expr_region: HirExprRegion,
 }

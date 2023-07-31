@@ -5,7 +5,7 @@ pub struct TypeMethodFnHirDecl {
     pub path: TypeItemPath,
     pub self_ty: HirType,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     #[return_ref]
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]

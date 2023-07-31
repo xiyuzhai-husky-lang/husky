@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitHirDecl {
     pub path: TraitPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }
 
