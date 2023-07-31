@@ -8,13 +8,11 @@ pub use self::map::*;
 pub use self::ordered_map::*;
 pub use self::region::*;
 
-use husky_term_prelude::template_parameter::{TemplateParameterAttr, TemplateParameterAttrs};
+use crate::*;
+use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 use idx_arena::ordered_map::ArenaOrderedMap;
 use parsec::{StreamParser, TryParseFromStream};
 use vec_like::SmallVecSet;
-
-use crate::*;
-use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
@@ -194,13 +192,14 @@ pub enum CurrentSynSymbolVariant {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TemplateParameterSynAttrs {
-    syn_attrs: SmallVec<[TemplateParameterSynAttr; 1]>,
-    attrs: TemplateParameterAttrs,
+    syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]>,
 }
 
-impl TemplateParameterSynAttrs {
-    pub fn attrs(&self) -> TemplateParameterAttrs {
-        self.attrs
+impl std::ops::Deref for TemplateParameterSynAttrs {
+    type Target = [TemplateSymbolSynAttr];
+
+    fn deref(&self) -> &Self::Target {
+        &self.syn_attrs
     }
 }
 
@@ -208,24 +207,17 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TemplateParameterS
     type Error = ExprError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
-        let mut syn_attrs: SmallVec<[TemplateParameterSynAttr; 1]> = smallvec::smallvec![];
+        let mut syn_attrs: SmallVec<[TemplateSymbolSynAttr; 1]> = smallvec::smallvec![];
         while let Some(_) = sp.try_parse_option::<AtToken>()? {
             todo!()
         }
-        let attrs = TemplateParameterAttrs::from_syn_attrs(&syn_attrs);
-        Ok(TemplateParameterSynAttrs { syn_attrs, attrs })
+        Ok(TemplateParameterSynAttrs { syn_attrs })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TemplateParameterSynAttr {
+pub enum TemplateSymbolSynAttr {
     Phantom(AtToken, PhantomToken),
-}
-
-impl Into<TemplateParameterAttr> for &TemplateParameterSynAttr {
-    fn into(self) -> TemplateParameterAttr {
-        todo!()
-    }
 }
 
 impl CurrentSynSymbolVariant {

@@ -141,9 +141,6 @@ Ok(
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
-                                                                attrs: TemplateParameterAttrs {
-                                                                    phantom: false,
-                                                                },
                                                             },
                                                             annotated_variance_token: None,
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
@@ -166,9 +163,6 @@ Ok(
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
                                                             syn_attrs: TemplateParameterSynAttrs {
                                                                 syn_attrs: [],
-                                                                attrs: TemplateParameterAttrs {
-                                                                    phantom: false,
-                                                                },
                                                             },
                                                             annotated_variance_token: Some(
                                                                 VarianceToken::Covariant(

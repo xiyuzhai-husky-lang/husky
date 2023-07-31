@@ -97,7 +97,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                     else {
                         unreachable!()
                     };
-                    let attrs = syn_attrs.attrs();
+                    let attrs = DeclarativeTemplateSymbolAttrs::from_attrs(syn_attrs.iter().map(
+                        |syn_attr| match syn_attr {
+                            TemplateSymbolSynAttr::Phantom(_, _) => todo!(),
+                        },
+                    ));
                     let variance = annotated_variance_token.map(|vt| vt.into());
                     let (ty, term_symbol) = match template_parameter_variant {
                         CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {

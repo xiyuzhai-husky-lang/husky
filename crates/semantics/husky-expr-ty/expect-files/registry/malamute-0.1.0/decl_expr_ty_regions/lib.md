@@ -98,9 +98,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,
@@ -259,9 +259,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,
@@ -531,9 +531,9 @@
                 FluffyTerm::Symbol(
                     EtherealTermSymbol {
                         ty: EtherealTerm(`Type`),
-                        idx: TermSymbolIndex(
+                        idx: DeclarativeTermSymbolIndex(
                             Type {
-                                attrs: TemplateParameterAttrs {
+                                attrs: DeclarativeTemplateSymbolAttrs {
                                     phantom: false,
                                 },
                                 variance: None,
@@ -635,9 +635,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,
@@ -966,9 +966,9 @@
                                                     parameter_ty: FluffyTerm::Symbol(
                                                         EtherealTermSymbol {
                                                             ty: EtherealTerm(`Type`),
-                                                            idx: TermSymbolIndex(
+                                                            idx: DeclarativeTermSymbolIndex(
                                                                 Type {
-                                                                    attrs: TemplateParameterAttrs {
+                                                                    attrs: DeclarativeTemplateSymbolAttrs {
                                                                         phantom: false,
                                                                     },
                                                                     variance: None,
@@ -1355,9 +1355,9 @@
                 FluffyTerm::Symbol(
                     EtherealTermSymbol {
                         ty: EtherealTerm(`Type`),
-                        idx: TermSymbolIndex(
+                        idx: DeclarativeTermSymbolIndex(
                             Type {
-                                attrs: TemplateParameterAttrs {
+                                attrs: DeclarativeTemplateSymbolAttrs {
                                     phantom: false,
                                 },
                                 variance: None,
@@ -1431,9 +1431,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,
@@ -1898,9 +1898,9 @@
                                                     parameter_ty: FluffyTerm::Symbol(
                                                         EtherealTermSymbol {
                                                             ty: EtherealTerm(`Type`),
-                                                            idx: TermSymbolIndex(
+                                                            idx: DeclarativeTermSymbolIndex(
                                                                 Type {
-                                                                    attrs: TemplateParameterAttrs {
+                                                                    attrs: DeclarativeTemplateSymbolAttrs {
                                                                         phantom: false,
                                                                     },
                                                                     variance: None,
@@ -2101,9 +2101,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,

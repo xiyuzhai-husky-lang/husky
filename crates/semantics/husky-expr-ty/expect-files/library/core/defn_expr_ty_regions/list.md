@@ -162,9 +162,9 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: TermSymbolIndex(
+                                idx: DeclarativeTermSymbolIndex(
                                     Type {
-                                        attrs: TemplateParameterAttrs {
+                                        attrs: DeclarativeTemplateSymbolAttrs {
                                             phantom: false,
                                         },
                                         variance: None,

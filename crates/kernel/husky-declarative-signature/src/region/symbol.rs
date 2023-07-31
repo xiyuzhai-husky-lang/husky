@@ -1,6 +1,5 @@
 use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
-use husky_term_prelude::symbol::TermSymbolRegistry;
 
 use super::*;
 

@@ -14,7 +14,7 @@ mod range;
 mod region;
 mod snippet;
 mod stmt;
-mod symbol;
+pub mod symbol;
 #[cfg(test)]
 mod tests;
 
