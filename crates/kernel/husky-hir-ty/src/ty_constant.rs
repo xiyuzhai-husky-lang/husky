@@ -26,13 +26,7 @@ pub enum HirConstant {
     RSize(usize),
     // todo: should we add more types here?
     // Rust only allows for these things
-    Symbol(HirConstantSymbol),
-}
-
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
-pub struct HirConstantSymbol {
-    pub ty: HirType,
-    pub index: SymbolIndex,
+    Symbol(HirConstSymbol),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
