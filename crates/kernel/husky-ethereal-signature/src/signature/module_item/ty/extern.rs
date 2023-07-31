@@ -1,4 +1,20 @@
 use super::*;
+use husky_declarative_signature::ExternTypeDeclarativeSignatureTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct ExternEtherealSignatureTemplate {}
+pub struct ExternTypeEtherealSignatureTemplate {
+    pub path: TypePath,
+    #[return_ref]
+    pub template_parameters: EtherealTemplateParameters,
+}
+
+impl ExternTypeEtherealSignatureTemplate {
+    pub(super) fn from_declarative(
+        db: &dyn EtherealSignatureDb,
+        path: TypePath,
+        declarative_signature_template: ExternTypeDeclarativeSignatureTemplate,
+    ) -> EtherealSignatureResult<Self> {
+        let template_parameters = todo!();
+        Ok(Self::new(db, path, template_parameters))
+    }
+}

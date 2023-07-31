@@ -1,17 +1,18 @@
 use super::*;
 use husky_declarative_signature::{
-    PropsStructDeclarativeSignatureTemplate, PropsStructFieldDeclarativeSignatureTemplate,
+    PropsStructFieldDeclarativeSignatureTemplate, PropsTypeStructDeclarativeSignatureTemplate,
 };
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct PropsStructEtherealSignatureTemplate {
+pub struct PropsStructTypeEtherealSignatureTemplate {
+    pub path: TypePath,
     #[return_ref]
     pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldEtherealSignatureTemplate; 4]>,
 }
 
-impl HasRegularFieldEtherealSignature for PropsStructEtherealSignatureTemplate {
+impl HasRegularFieldEtherealSignature for PropsStructTypeEtherealSignatureTemplate {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
@@ -31,10 +32,11 @@ impl HasRegularFieldEtherealSignature for PropsStructEtherealSignatureTemplate {
     }
 }
 
-impl PropsStructEtherealSignatureTemplate {
+impl PropsStructTypeEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
+        path: TypePath,
+        declarative_signature_template: PropsTypeStructDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
@@ -51,7 +53,7 @@ impl PropsStructEtherealSignatureTemplate {
                 )
             })
             .collect::<EtherealSignatureResult<_>>()?;
-        Ok(Self::new(db, template_parameters, fields))
+        Ok(Self::new(db, path, template_parameters, fields))
     }
 }
 

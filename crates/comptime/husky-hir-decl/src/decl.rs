@@ -46,7 +46,7 @@ pub enum HirDecl {
 }
 
 impl HirDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::ModuleItem(decl) => decl.template_parameters(db),

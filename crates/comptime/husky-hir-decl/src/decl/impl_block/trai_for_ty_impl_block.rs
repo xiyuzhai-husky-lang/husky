@@ -5,7 +5,7 @@ use smallvec::SmallVec;
 pub struct TraitForTypeImplBlockHirDecl {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub trai: EtherealTerm,
     pub self_ty: EtherealSelfType,
     // todo: where clause

@@ -1,3 +1,4 @@
+pub mod builder;
 pub mod db;
 mod expr;
 mod pattern;

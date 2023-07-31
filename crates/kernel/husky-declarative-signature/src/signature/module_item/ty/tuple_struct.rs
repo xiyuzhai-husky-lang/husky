@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TupleStructDeclarativeSignatureTemplate {
+pub struct TupleTypeStructDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
@@ -14,7 +14,7 @@ pub struct TupleStructFieldDeclarativeSignatureTemplate {
     ty: DeclarativeTerm,
 }
 
-impl TupleStructDeclarativeSignatureTemplate {
+impl TupleTypeStructDeclarativeSignatureTemplate {
     pub fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         path: TypePath,

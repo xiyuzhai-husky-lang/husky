@@ -29,7 +29,7 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.template_parameters(db),
             TraitForTypeItemHirDecl::MethodFn(decl) => decl.template_parameters(db),

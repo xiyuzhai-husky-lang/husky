@@ -4,6 +4,6 @@ use super::*;
 pub struct UnitStructTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }

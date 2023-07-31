@@ -11,6 +11,10 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_hir_ty::{
+    template_parameter::{HirTemplateParameter, HirTemplateParameters},
+    *,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]
@@ -34,7 +38,7 @@ impl HirDefn {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [HirTemplateParameter] {
         self.hir_decl(db).template_parameters(db)
     }
 

@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeAssociatedValHirDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: HirTemplateParameters,
     pub ty_term: EtherealTerm,
     pub hir_expr_region: HirEagerExprRegion,
 }

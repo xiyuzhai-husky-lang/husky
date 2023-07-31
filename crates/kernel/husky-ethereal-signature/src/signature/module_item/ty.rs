@@ -29,15 +29,15 @@ use husky_print_utils::p;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TypeEtherealSignatureTemplate {
-    Enum(EnumEtherealSignatureTemplate),
-    PropsStruct(PropsStructEtherealSignatureTemplate),
-    UnitStruct(UnitStructEtherealSignatureTemplate),
-    TupleStruct(TupleStructEtherealSignatureTemplate),
-    Record(RecordEtherealSignatureTemplate),
-    Inductive(InductiveEtherealSignatureTemplate),
-    Structure(StructureEtherealSignatureTemplate),
-    Extern(ExternEtherealSignatureTemplate),
-    Union(UnionEtherealSignatureTemplate),
+    Enum(EnumTypeEtherealSignatureTemplate),
+    PropsStruct(PropsStructTypeEtherealSignatureTemplate),
+    UnitStruct(UnitTypeStructEtherealSignatureTemplate),
+    TupleStruct(TupleStructTypeEtherealSignatureTemplate),
+    Record(RecordTypeEtherealSignatureTemplate),
+    Inductive(InductiveTypeEtherealSignatureTemplate),
+    Structure(StructureTypeEtherealSignatureTemplate),
+    Extern(ExternTypeEtherealSignatureTemplate),
+    Union(UnionTypeEtherealSignatureTemplate),
 }
 
 impl HasEtherealSignatureTemplate for TypePath {
@@ -58,7 +58,7 @@ fn ty_ethereal_signature_template(
 ) -> EtherealSignatureResult<TypeEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
         TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {
-            EnumEtherealSignatureTemplate::from_declarative(
+            EnumTypeEtherealSignatureTemplate::from_declarative(
                 db,
                 path,
                 declarative_signature_template,
@@ -66,8 +66,9 @@ fn ty_ethereal_signature_template(
             .into()
         }
         TypeDeclarativeSignatureTemplate::PropsStruct(declarative_signature_template) => {
-            PropsStructEtherealSignatureTemplate::from_declarative(
+            PropsStructTypeEtherealSignatureTemplate::from_declarative(
                 db,
+                path,
                 declarative_signature_template,
             )?
             .into()
@@ -77,7 +78,14 @@ fn ty_ethereal_signature_template(
         TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Extern(declarative_signature_template) => {
+            ExternTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
         TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
     })
 }

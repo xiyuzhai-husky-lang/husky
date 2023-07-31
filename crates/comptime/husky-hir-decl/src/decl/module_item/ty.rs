@@ -42,7 +42,7 @@ impl TypeHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             TypeHirDecl::Enum(decl) => decl.template_parameters(db),
             TypeHirDecl::UnitStruct(decl) => decl.template_parameters(db),
@@ -77,22 +77,22 @@ impl HasHirDecl for TypePath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
-    todo!()
-    // Ok(match path.declarative_signature_template(db)? {
-    //     TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {
-    //         EnumHirDecl::from_declarative(db, path, declarative_signature_template)?.into()
-    //     }
-    //     TypeDeclarativeSignatureTemplate::PropsStruct(declarative_signature_template) => {
-    //         PropsStructHirDecl::from_declarative(db, declarative_signature_template)?.into()
-    //     }
-    //     TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
-    //     TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
-    // })
+    match path
+        .ethereal_signature_template(db)
+        .expect("no errors for hir stage")
+    {
+        TypeEtherealSignatureTemplate::Enum(_) => todo!(),
+        TypeEtherealSignatureTemplate::PropsStruct(_) => todo!(),
+        TypeEtherealSignatureTemplate::UnitStruct(_) => todo!(),
+        TypeEtherealSignatureTemplate::TupleStruct(_) => todo!(),
+        TypeEtherealSignatureTemplate::Record(_) => todo!(),
+        TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
+        TypeEtherealSignatureTemplate::Structure(_) => todo!(),
+        TypeEtherealSignatureTemplate::Extern(ethereal_signature_template) => {
+            Some(ExternTypeHirDecl::new(path, ethereal_signature_template, db).into())
+        }
+        TypeEtherealSignatureTemplate::Union(_) => todo!(),
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
