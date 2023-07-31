@@ -1,23 +1,23 @@
 use super::*;
 
-impl PatternSynExpr {
+impl SynPatternExpr {
     pub(super) fn contract(&self) -> Contract {
         match self {
-            PatternSynExpr::Literal(_) => todo!(),
-            PatternSynExpr::Ident {
+            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Ident {
                 symbol_modifier_keyword_group,
                 ..
             } => Contract::new(*symbol_modifier_keyword_group),
-            PatternSynExpr::Entity(_) => todo!(),
-            PatternSynExpr::Tuple { name, fields } => todo!(),
-            PatternSynExpr::Struct { name, fields } => todo!(),
-            PatternSynExpr::OneOf { options } => todo!(),
-            PatternSynExpr::Binding {
+            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::Tuple { name, fields } => todo!(),
+            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::OneOf { options } => todo!(),
+            SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternSynExpr::Range {
+            SynPatternExpr::Range {
                 start,
                 dot_dot_token,
                 end,

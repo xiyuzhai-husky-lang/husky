@@ -185,10 +185,10 @@ impl<'a> SynExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &PatternSynExpr) -> TokenIdxRange {
+    fn calc_pattern_expr_range(&self, expr: &SynPatternExpr) -> TokenIdxRange {
         match expr {
-            PatternSynExpr::Literal(_) => todo!(),
-            PatternSynExpr::Ident {
+            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Ident {
                 symbol_modifier_keyword_group,
                 ident_token,
             } => match symbol_modifier_keyword_group {
@@ -200,16 +200,16 @@ impl<'a> SynExprRangeCalculator<'a> {
                 }
                 None => TokenIdxRange::new_single(ident_token.token_idx()),
             },
-            PatternSynExpr::Entity(_) => todo!(),
-            PatternSynExpr::Tuple { name, fields } => todo!(),
-            PatternSynExpr::Struct { name, fields } => todo!(),
-            PatternSynExpr::OneOf { options } => todo!(),
-            PatternSynExpr::Binding {
+            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::Tuple { name, fields } => todo!(),
+            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::OneOf { options } => todo!(),
+            SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternSynExpr::Range {
+            SynPatternExpr::Range {
                 start,
                 dot_dot_token,
                 end,

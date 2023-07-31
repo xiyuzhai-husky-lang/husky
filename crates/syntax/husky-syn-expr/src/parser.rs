@@ -308,7 +308,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
         };
         Ok(Some(self.alloc_pattern_expr(
-            PatternSynExpr::Ident {
+            SynPatternExpr::Ident {
                 symbol_modifier_keyword_group,
                 ident_token,
             },

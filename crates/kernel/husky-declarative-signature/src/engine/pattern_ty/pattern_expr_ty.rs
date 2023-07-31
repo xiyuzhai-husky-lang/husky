@@ -34,18 +34,18 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// subpattern expressions get its type from its parent
     fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: PatternSynExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
-            PatternSynExpr::Literal(_) => todo!(),
-            PatternSynExpr::Ident { .. } => (), // there is no subpattern to infer
-            PatternSynExpr::Entity(_) => todo!(),
-            PatternSynExpr::Tuple { name, fields } => todo!(),
-            PatternSynExpr::Struct { name, fields } => todo!(),
-            PatternSynExpr::OneOf { options } => todo!(),
-            PatternSynExpr::Binding {
+            SynPatternExpr::Literal(_) => todo!(),
+            SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
+            SynPatternExpr::Entity(_) => todo!(),
+            SynPatternExpr::Tuple { name, fields } => todo!(),
+            SynPatternExpr::Props { name, fields } => todo!(),
+            SynPatternExpr::OneOf { options } => todo!(),
+            SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternSynExpr::Range {
+            SynPatternExpr::Range {
                 start,
                 dot_dot_token,
                 end,

@@ -29,7 +29,7 @@ pub enum PatternSynExprInfo {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum PatternSynExpr {
+pub enum SynPatternExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
@@ -45,8 +45,9 @@ pub enum PatternSynExpr {
         fields: PatternSynExprIdxRange,
     },
     /// example: `C { .. }`
-    Struct {
+    Props {
         name: Option<ItemPath>,
+        // todo: change to punctuated
         fields: PatternSynExprIdxRange,
     },
     /// example: `A | B | C { .. }`
@@ -66,8 +67,8 @@ pub enum PatternSynExpr {
     },
 }
 
-pub(crate) type PatternSynExprArena = Arena<PatternSynExpr>;
-pub type PatternSynExprIdx = ArenaIdx<PatternSynExpr>;
-pub type PatternSynExprIdxRange = ArenaIdxRange<PatternSynExpr>;
-pub type PatternSynExprMap<V> = ArenaMap<PatternSynExpr, V>;
-pub type PatternSynExprOrderedMap<V> = ArenaOrderedMap<PatternSynExpr, V>;
+pub(crate) type PatternSynExprArena = Arena<SynPatternExpr>;
+pub type PatternSynExprIdx = ArenaIdx<SynPatternExpr>;
+pub type PatternSynExprIdxRange = ArenaIdxRange<SynPatternExpr>;
+pub type PatternSynExprMap<V> = ArenaMap<SynPatternExpr, V>;
+pub type PatternSynExprOrderedMap<V> = ArenaOrderedMap<SynPatternExpr, V>;
