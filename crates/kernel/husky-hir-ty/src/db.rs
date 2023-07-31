@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{trai::HirTrait, *};
 
 pub trait HirTypeDb: salsa::DbWithJar<HirTypeJar> {}
 
@@ -7,5 +7,6 @@ pub struct HirTypeJar(
     HirTypePathLeading,
     HirTypeTypeAssociatedType,
     HirTypeTraitAssociatedType,
-    HirConstantSymbol,
+    HirConstSymbol,
+    HirTrait,
 );

@@ -21,9 +21,6 @@ pub struct HirTypePathLeading {
     pub template_arguments: HirTemplateArguments,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct HirTypeSymbol(u8);
-
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirTypeTypeAssociatedType {}
 
