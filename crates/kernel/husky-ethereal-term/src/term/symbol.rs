@@ -1,7 +1,7 @@
-mod registry;
+mod index;
 mod set;
 
-pub use self::registry::*;
+pub use self::index::*;
 pub use self::set::*;
 
 use super::*;
@@ -13,7 +13,7 @@ pub struct EtherealTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: improve this by adding TypeFamily
-    pub idx: DeclarativeTermSymbolIndex,
+    pub idx: EtherealTermSymbolIndex,
 }
 
 #[test]
@@ -32,7 +32,11 @@ impl EtherealTermSymbol {
     ) -> EtherealTermResult<Self> {
         let ty = declarative_term_symbol.ty(db)?;
         let ty = EtherealTerm::ty_from_declarative(db, ty)?;
-        Ok(Self::new_inner(db, ty, declarative_term_symbol.idx(db)))
+        Ok(Self::new_inner(
+            db,
+            ty,
+            EtherealTermSymbolIndex::from_declarative(declarative_term_symbol.idx(db)),
+        ))
     }
 
     pub(crate) fn show_with_db_fmt(
