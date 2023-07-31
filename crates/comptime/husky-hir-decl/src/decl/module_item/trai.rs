@@ -7,3 +7,11 @@ pub struct TraitHirDecl {
     pub template_parameters: EtherealTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }
+
+impl HasHirDecl for TraitPath {
+    type HirDecl = TraitHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        todo!()
+    }
+}

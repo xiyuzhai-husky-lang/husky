@@ -44,3 +44,11 @@ impl AssociatedItemHirDecl {
         }
     }
 }
+
+impl HasHirDecl for AssociatedItemPath {
+    type HirDecl = AssociatedItemHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        todo!()
+    }
+}

@@ -17,14 +17,20 @@ use crate::{db::*, *};
 pub trait HasHirDecl {
     type HirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl;
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl>;
 }
 
 impl HasHirDecl for ItemPath {
     type HirDecl = HirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
-        todo!()
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        Some(match self {
+            ItemPath::Submodule(path) => path.hir_decl(db)?.into(),
+            ItemPath::ModuleItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
+            ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
+        })
     }
 }
 

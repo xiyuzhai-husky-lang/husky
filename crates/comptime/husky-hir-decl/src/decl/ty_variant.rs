@@ -38,13 +38,13 @@ impl TypeVariantHirDecl {
 impl HasHirDecl for TypeVariantPath {
     type HirDecl = TypeVariantHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         ty_variant_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> TypeVariantHirDecl {
+fn ty_variant_hir_decl(db: &dyn HirDeclDb, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
     todo!()
     // Ok(match path.declarative_signature_template(db)? {
     //     TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),

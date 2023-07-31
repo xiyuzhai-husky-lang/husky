@@ -53,22 +53,24 @@ impl TypeItemHirDefn {
 impl HasHirDefn for TypeItemPath {
     type HirDefn = TypeItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         ty_item_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> TypeItemHirDefn {
-    match path.hir_decl(db) {
+pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> Option<TypeItemHirDefn> {
+    match path.hir_decl(db)? {
         TypeItemHirDecl::AssociatedFn(hir_decl) => {
-            TypeAssociatedFnHirDefn::new(db, path, hir_decl).into()
+            Some(TypeAssociatedFnHirDefn::new(db, path, hir_decl).into())
         }
-        TypeItemHirDecl::MethodFn(hir_decl) => TypeMethodFnHirDefn::new(db, path, hir_decl).into(),
+        TypeItemHirDecl::MethodFn(hir_decl) => {
+            Some(TypeMethodFnHirDefn::new(db, path, hir_decl).into())
+        }
         TypeItemHirDecl::AssociatedType(_) => todo!(),
         TypeItemHirDecl::AssociatedVal(_) => todo!(),
         TypeItemHirDecl::MemoizedField(hir_decl) => {
-            TypeMemoizedFieldHirDefn::new(db, path, hir_decl).into()
+            Some(TypeMemoizedFieldHirDefn::new(db, path, hir_decl).into())
         }
     }
 }

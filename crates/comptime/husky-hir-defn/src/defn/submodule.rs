@@ -15,9 +15,9 @@ impl SubmoduleHirDefn {
 impl HasHirDefn for ModulePath {
     type HirDefn = SubmoduleHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        SubmoduleHirDefn {
-            hir_decl: self.hir_decl(db),
-        }
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+        Some(SubmoduleHirDefn {
+            hir_decl: self.hir_decl(db)?,
+        })
     }
 }

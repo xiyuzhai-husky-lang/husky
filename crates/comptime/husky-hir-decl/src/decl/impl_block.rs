@@ -17,7 +17,7 @@ pub enum ImplBlockHirDecl {
 impl HasHirDecl for ImplBlockPath {
     type HirDecl = ImplBlockHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         todo!()
     }
 }

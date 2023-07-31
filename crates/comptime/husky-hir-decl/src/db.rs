@@ -7,6 +7,7 @@ impl<Db> HirDeclDb for Db where Db: salsa::DbWithJar<HirDeclJar> + HirEagerExprD
 
 #[salsa::jar(db = HirDeclDb)]
 pub struct HirDeclJar(
+    submodule_hir_decl,
     SubmoduleHirDecl,
     // associated_items
     // - type items

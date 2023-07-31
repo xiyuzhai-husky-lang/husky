@@ -67,7 +67,7 @@ fn module_hir_decls(db: &DB, module_path: ModulePath) -> Vec<HirDecl> {
         .as_ref()
         .expect("all modules should be guaranteed to be valid")
         .iter()
-        .map(|path| path.hir_decl(db))
+        .filter_map(|path| path.hir_decl(db))
         .collect()
 }
 
