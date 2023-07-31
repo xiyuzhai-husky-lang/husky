@@ -435,7 +435,7 @@ impl<'a> InferContext<'a> {
             | CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {
-                PatternSynSymbol::Atom(pattern_expr_idx) => {
+                SynPatternSymbol::Atom(pattern_expr_idx) => {
                     match self.expr_region_data[pattern_expr_idx] {
                         SynPatternExpr::Ident {
                             ident_token,

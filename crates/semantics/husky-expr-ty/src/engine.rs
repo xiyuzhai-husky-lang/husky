@@ -31,9 +31,9 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
-    pattern_expr_ty_infos: PatternSynExprMap<PatternExprTypeInfo>,
-    pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: PatternSynExprMap<Contract>,
+    pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_expr_contracts: SynPatternExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
@@ -127,14 +127,14 @@ impl<'a> ExprTypeEngine<'a> {
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_tys()),
                 expr_region_data.symbol_region(),
             ),
-            pattern_expr_ty_infos: PatternSynExprMap::new(pattern_expr_region.pattern_expr_arena()),
-            pattern_symbol_ty_infos: PatternSynSymbolMap::new(
+            pattern_expr_ty_infos: SynPatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+            pattern_symbol_ty_infos: SynPatternSymbolMap::new(
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             return_ty,
             unveiler: Unveiler::new(db, return_ty),
             self_ty,
-            pattern_expr_contracts: PatternSynExprMap::new(
+            pattern_expr_contracts: SynPatternExprMap::new(
                 pattern_expr_region.pattern_expr_arena(),
             ),
             trai_in_use_items_table: TraitInUseItemsTable::query(db, module_path),
@@ -214,6 +214,8 @@ impl<'a> ExprTypeEngine<'a> {
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
+            self.pattern_expr_ty_infos,
+            self.pattern_symbol_ty_infos,
             self.expr_ty_infos,
             self.extra_expr_errors,
             self.expr_terms,

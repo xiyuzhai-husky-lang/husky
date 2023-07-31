@@ -49,7 +49,7 @@ pub struct ExprParser<'a> {
     symbol_context: SymbolContextMut<'a>,
     expr_arena: SynExprArena,
     principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
-    pattern_expr_region: PatternSynExprRegion,
+    pattern_expr_region: SynPatternExprRegion,
     stmt_arena: SynStmtArena,
     expr_roots: Vec<SynExprRoot>,
 }
@@ -116,7 +116,7 @@ impl<'a> ExprParser<'a> {
         )
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &PatternSynExprRegion {
+    pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {
         &self.pattern_expr_region
     }
 
@@ -275,7 +275,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         expr_idx
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &PatternSynExprRegion {
+    pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {
         self.parser.pattern_expr_region()
     }
 
@@ -297,8 +297,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_pattern_expr(
         &mut self,
-        env: PatternSynExprInfo,
-    ) -> SynExprResult<Option<PatternSynExprIdx>> {
+        env: SynPatternExprInfo,
+    ) -> SynExprResult<Option<SynPatternExprIdx>> {
         let symbol_modifier_keyword_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_keyword_group {
             None => match self.try_parse_option::<IdentToken>()? {

@@ -21,5 +21,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-hir-ty = { path = "../../kernel/husky-hir-ty" }
+# syntax
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 
 [features]

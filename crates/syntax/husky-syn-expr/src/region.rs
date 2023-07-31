@@ -15,7 +15,7 @@ pub struct SynExprRegionData {
     expr_arena: SynExprArena,
     principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
     stmt_arena: SynStmtArena,
-    pattern_expr_region: PatternSynExprRegion,
+    pattern_expr_region: SynPatternExprRegion,
     symbol_region: SynSymbolRegion,
     roots: Vec<SynExprRoot>,
 }
@@ -27,7 +27,7 @@ impl SynExprRegionData {
         expr_arena: SynExprArena,
         item_path_expr_arena: PrincipalEntityPathSynExprArena,
         stmt_arena: SynStmtArena,
-        pattern_expr_region: PatternSynExprRegion,
+        pattern_expr_region: SynPatternExprRegion,
         symbol_region: SynSymbolRegion,
         roots: Vec<SynExprRoot>,
     ) -> Self {
@@ -63,7 +63,7 @@ impl SynExprRegionData {
         &self.principal_item_path_expr_arena
     }
 
-    pub fn pattern_expr_arena(&self) -> &PatternSynExprArena {
+    pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {
         self.pattern_expr_region.pattern_expr_arena()
     }
 
@@ -71,7 +71,7 @@ impl SynExprRegionData {
         &self.stmt_arena
     }
 
-    pub fn pattern_expr_region(&self) -> &PatternSynExprRegion {
+    pub fn pattern_expr_region(&self) -> &SynPatternExprRegion {
         &self.pattern_expr_region
     }
 
@@ -118,17 +118,17 @@ impl std::ops::Index<CurrentSynSymbolIdx> for SynExprRegionData {
         &self.symbol_region[index]
     }
 }
-impl std::ops::Index<PatternSynSymbolIdx> for SynExprRegionData {
-    type Output = PatternSynSymbol;
+impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
+    type Output = SynPatternSymbol;
 
-    fn index(&self, index: PatternSynSymbolIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternSymbolIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }
-impl std::ops::Index<PatternSynExprIdx> for SynExprRegionData {
+impl std::ops::Index<SynPatternExprIdx> for SynExprRegionData {
     type Output = SynPatternExpr;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }

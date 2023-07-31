@@ -6,6 +6,8 @@ use crate::*;
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeRegion {
     path: RegionPath,
+    pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     expr_ty_infos: SynExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
     expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
@@ -20,6 +22,8 @@ impl ExprTypeRegion {
     pub(crate) fn new(
         db: &dyn ExprTypeDb,
         path: RegionPath,
+        pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
+        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         expr_ty_infos: SynExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
         expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
@@ -31,6 +35,8 @@ impl ExprTypeRegion {
     ) -> Self {
         Self {
             path,
+            pattern_expr_ty_infos,
+            pattern_symbol_ty_infos,
             expr_ty_infos,
             extra_expr_errors,
             expr_fluffy_terms,
@@ -100,6 +106,7 @@ pub(crate) fn expr_ty_region(
     engine.finish()
 }
 
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub(crate) struct PatternExprTypeInfo {
     ty: PatternExprTypeResult<FluffyTerm>,
@@ -115,6 +122,7 @@ impl PatternExprTypeInfo {
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub(crate) struct PatternSymbolTypeInfo {
     ty: PatternSymbolTypeResult<FluffyTerm>,
 }

@@ -18,7 +18,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     pub(super) fn infer_pattern_expr_tys(
         &mut self,
-        pattern_expr: PatternSynExprIdx,
+        pattern_expr: SynPatternExprIdx,
         ty: DeclarativeTerm,
     ) {
         self.save_pattern_expr_ty(pattern_expr, ty);
@@ -26,13 +26,13 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: DeclarativeTerm) {
+    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: DeclarativeTerm) {
         self.pattern_expr_ty_infos
             .insert_new(pattern_expr_idx, PatternExprDeclarativeTypeInfo::new(ty))
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: PatternSynExprIdx) {
+    fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: SynPatternExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
             SynPatternExpr::Literal(_) => todo!(),
             SynPatternExpr::Ident { .. } => (), // there is no subpattern to infer
@@ -55,7 +55,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     pub(super) fn get_pattern_expr_ty(
         &self,
-        pattern_expr_idx: PatternSynExprIdx,
+        pattern_expr_idx: SynPatternExprIdx,
     ) -> Option<DeclarativeTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)

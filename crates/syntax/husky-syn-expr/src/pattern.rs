@@ -20,7 +20,7 @@ pub enum LiteralData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PatternSynExprInfo {
+pub enum SynPatternExprInfo {
     Parameter,
     Let,
     Match,
@@ -42,33 +42,33 @@ pub enum SynPatternExpr {
     /// example: `(a, b)`
     Tuple {
         name: Option<ItemPath>,
-        fields: PatternSynExprIdxRange,
+        fields: SynPatternExprIdxRange,
     },
     /// example: `C { .. }`
     Props {
         name: Option<ItemPath>,
         // todo: change to punctuated
-        fields: PatternSynExprIdxRange,
+        fields: SynPatternExprIdxRange,
     },
     /// example: `A | B | C { .. }`
-    OneOf { options: PatternSynExprIdxRange },
+    OneOf { options: SynPatternExprIdxRange },
     /// example: `x @ 1..9`
     Binding {
         ident_token: IdentToken,
         asperand_token: AtToken,
         /// example: `1..9`
-        src: PatternSynExprIdx,
+        src: SynPatternExprIdx,
     },
     /// example: `1..9`
     Range {
-        start: PatternSynExprIdx,
+        start: SynPatternExprIdx,
         dot_dot_token: DotDotToken,
-        end: PatternSynExprIdx,
+        end: SynPatternExprIdx,
     },
 }
 
-pub(crate) type PatternSynExprArena = Arena<SynPatternExpr>;
-pub type PatternSynExprIdx = ArenaIdx<SynPatternExpr>;
-pub type PatternSynExprIdxRange = ArenaIdxRange<SynPatternExpr>;
-pub type PatternSynExprMap<V> = ArenaMap<SynPatternExpr, V>;
-pub type PatternSynExprOrderedMap<V> = ArenaOrderedMap<SynPatternExpr, V>;
+pub type SynPatternExprArena = Arena<SynPatternExpr>;
+pub type SynPatternExprIdx = ArenaIdx<SynPatternExpr>;
+pub type SynPatternExprIdxRange = ArenaIdxRange<SynPatternExpr>;
+pub type SynPatternExprMap<V> = ArenaMap<SynPatternExpr, V>;
+pub type SynPatternExprOrderedMap<V> = ArenaOrderedMap<SynPatternExpr, V>;
