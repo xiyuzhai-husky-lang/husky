@@ -21,7 +21,7 @@ pub enum EtherealSelfType {
 impl HasHirDecl for TraitForTypeImplBlockPath {
     type HirDecl = TraitForTypeImplBlockHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         trai_for_ty_impl_block_hir_decl(db, self)
     }
 }
@@ -30,7 +30,7 @@ impl HasHirDecl for TraitForTypeImplBlockPath {
 fn trai_for_ty_impl_block_hir_decl(
     db: &dyn HirDeclDb,
     path: TraitForTypeImplBlockPath,
-) -> TraitForTypeImplBlockHirDecl {
+) -> Option<TraitForTypeImplBlockHirDecl> {
     todo!()
     // TraitForTypeImplBlockHirDecl::from_declarative(
     //     db,

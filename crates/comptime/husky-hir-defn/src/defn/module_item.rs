@@ -37,11 +37,11 @@ impl ModuleItemHirDefn {
 impl HasHirDefn for ModuleItemPath {
     type HirDefn = ModuleItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        match self {
-            ModuleItemPath::Type(path) => path.hir_defn(db).into(),
-            ModuleItemPath::Fugitive(path) => path.hir_defn(db).into(),
-            ModuleItemPath::Trait(path) => path.hir_defn(db).into(),
-        }
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+        Some(match self {
+            ModuleItemPath::Type(path) => path.hir_defn(db)?.into(),
+            ModuleItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
+            ModuleItemPath::Trait(path) => path.hir_defn(db)?.into(),
+        })
     }
 }

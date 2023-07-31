@@ -57,13 +57,13 @@ impl TypeHirDefn {
 impl HasHirDefn for TypePath {
     type HirDefn = TypeHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         ty_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> TypeHirDefn {
+pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> Option<TypeHirDefn> {
     todo!()
     // Ok(match path.hir_decl(db)? {
     //     TypeHirDecl::Enum(hir_decl) => EnumTypeHirDefn::new(db, path, hir_decl).into(),

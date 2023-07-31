@@ -70,13 +70,13 @@ impl TypeHirDecl {
 impl HasHirDecl for TypePath {
     type HirDecl = TypeHirDecl;
 
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         ty_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> TypeHirDecl {
+fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
     todo!()
     // Ok(match path.declarative_signature_template(db)? {
     //     TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {

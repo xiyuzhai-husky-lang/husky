@@ -49,7 +49,7 @@ impl TraitForTypeItemHirDefn {
 impl HasHirDefn for TraitForTypeItemPath {
     type HirDefn = TraitForTypeItemHirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         trai_for_ty_item_hir_defn(db, self)
     }
 }
@@ -58,17 +58,17 @@ impl HasHirDefn for TraitForTypeItemPath {
 pub(crate) fn trai_for_ty_item_hir_defn(
     db: &dyn HirDefnDb,
     path: TraitForTypeItemPath,
-) -> TraitForTypeItemHirDefn {
-    match path.hir_decl(db) {
+) -> Option<TraitForTypeItemHirDefn> {
+    match path.hir_decl(db)? {
         TraitForTypeItemHirDecl::AssociatedFn(_) => todo!(),
         TraitForTypeItemHirDecl::MethodFn(hir_decl) => {
-            TraitForTypeMethodFnHirDefn::new(db, path, hir_decl).into()
+            Some(TraitForTypeMethodFnHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::AssociatedType(hir_decl) => {
-            TraitForTypeAssociatedTypeHirDefn::new(db, path, hir_decl).into()
+            Some(TraitForTypeAssociatedTypeHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::AssociatedVal(hir_decl) => {
-            TraitForTypeAssociatedValHirDefn::new(db, path, hir_decl).into()
+            Some(TraitForTypeAssociatedValHirDefn::new(db, path, hir_decl).into())
         }
     }
 }

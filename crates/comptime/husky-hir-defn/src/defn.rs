@@ -66,20 +66,20 @@ impl HirDefn {
 pub trait HasHirDefn: Copy {
     type HirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn;
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn>;
 }
 
 impl HasHirDefn for ItemPath {
     type HirDefn = HirDefn;
 
-    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        match self {
-            ItemPath::Submodule(path) => path.hir_defn(db).into(),
-            ItemPath::ModuleItem(path) => path.hir_defn(db).into(),
-            ItemPath::ImplBlock(path) => path.hir_defn(db).into(),
-            ItemPath::AssociatedItem(path) => path.hir_defn(db).into(),
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
+        Some(match self {
+            ItemPath::Submodule(path) => path.hir_defn(db)?.into(),
+            ItemPath::ModuleItem(path) => path.hir_defn(db)?.into(),
+            ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_) => todo!(),
-        }
+        })
     }
 }
 

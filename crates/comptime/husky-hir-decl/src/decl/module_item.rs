@@ -42,3 +42,15 @@ impl ModuleItemHirDecl {
         }
     }
 }
+
+impl HasHirDecl for ModuleItemPath {
+    type HirDecl = ModuleItemHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        Some(match self {
+            ModuleItemPath::Type(path) => path.hir_decl(db)?.into(),
+            ModuleItemPath::Trait(path) => path.hir_decl(db)?.into(),
+            ModuleItemPath::Fugitive(path) => path.hir_decl(db)?.into(),
+        })
+    }
+}
