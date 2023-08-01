@@ -13,7 +13,7 @@ pub struct EtherealTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: improve this by adding TypeFamily
-    pub idx: EtherealTermSymbolIndex,
+    pub index: EtherealTermSymbolIndex,
 }
 
 #[test]
@@ -35,7 +35,7 @@ impl EtherealTermSymbol {
         Ok(Self::new_inner(
             db,
             ty,
-            EtherealTermSymbolIndex::from_declarative(declarative_term_symbol.idx(db)),
+            EtherealTermSymbolIndex::from_declarative(declarative_term_symbol.index(db)),
         ))
     }
 
@@ -67,7 +67,7 @@ impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermSymbo
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
         // ad hoc
-        f.write_fmt(format_args!("${:?}", self.idx(db)))
+        f.write_fmt(format_args!("${:?}", self.index(db)))
     }
 }
 

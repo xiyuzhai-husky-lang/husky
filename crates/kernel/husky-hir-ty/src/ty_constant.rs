@@ -28,15 +28,3 @@ pub enum HirConstant {
     // Rust only allows for these things
     Symbol(HirConstSymbol),
 }
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct SymbolIndex {
-    ty_family: HirTypeFamily,
-    index: u8,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTypeFamily {
-    PathLeading(TypePath),
-    Symbol,
-}

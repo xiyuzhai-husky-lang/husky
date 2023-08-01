@@ -17,7 +17,7 @@ pub struct DeclarativeTermSymbol {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: change to RefinedGenericIndex
-    pub idx: DeclarativeTermSymbolIndex,
+    pub index: DeclarativeTermSymbolIndex,
 }
 
 impl DeclarativeTermSymbol {
@@ -156,6 +156,6 @@ impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTer
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
         // ad hoc
-        f.write_fmt(format_args!("${:?}", self.idx(db)))
+        f.write_fmt(format_args!("${:?}", self.index(db)))
     }
 }

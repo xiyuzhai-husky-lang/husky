@@ -1,10 +1,15 @@
 use crate::*;
 
-#[derive(Debug, Default)]
-pub struct HirEagerExprBuilder {}
+pub struct HirEagerExprBuilder<'a> {
+    db: &'a dyn HirEagerExprDb,
+}
 
-impl HirEagerExprBuilder {
+impl<'a> HirEagerExprBuilder<'a> {
+    pub fn new(db: &'a dyn HirEagerExprDb) -> Self {
+        Self { db }
+    }
+
     pub fn finish(self) -> HirEagerExprRegion {
-        todo!()
+        HirEagerExprRegion::new(self.db)
     }
 }
