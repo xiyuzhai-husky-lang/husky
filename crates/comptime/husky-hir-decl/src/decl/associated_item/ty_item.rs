@@ -43,15 +43,15 @@ impl TypeItemHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
-        match self {
-            TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
-            TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
-            TypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
-            TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
-            TypeItemHirDecl::MemoizedField(decl) => decl.hir_expr_region(db).into(),
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    //     match self {
+    //         TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
+    //         TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
+    //         TypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
+    //         TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
+    //         TypeItemHirDecl::MemoizedField(decl) => decl.hir_expr_region(db).into(),
+    //     }
+    // }
 }
 
 impl HasHirDecl for TypeItemPath {
@@ -64,18 +64,24 @@ impl HasHirDecl for TypeItemPath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
-    todo!()
-    // Ok(match path.declarative_signature_template(db)? {
-    //     TypeItemDeclarativeSignatureTemplate::AssociatedFn(template) => {
-    //         TypeAssociatedFnHirDecl::from_declarative(db, path, template)?.into()
-    //     }
-    //     TypeItemDeclarativeSignatureTemplate::MethodFn(template) => {
-    //         TypeMethodFnHirDecl::from_declarative(db, template)?.into()
-    //     }
-    //     TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-    //     TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
-    //     TypeItemDeclarativeSignatureTemplate::MemoizedField(template) => {
-    //         TypeMemoizedFieldHirDecl::from_declarative(db, template)?.into()
-    //     }
-    // })
+    match path.ethereal_signature_template(db).expect("ok") {
+        TypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
+        TypeItemEtherealSignatureTemplate::MethodFn(template) => {
+            Some(TypeMethodFnHirDecl::from_ethereal(path, template, db).into())
+        }
+        TypeItemEtherealSignatureTemplate::MethodFunction(_) => None,
+        TypeItemEtherealSignatureTemplate::MemoizedField(_) => todo!(),
+    }
 }
+
+// TypeItemDeclarativeSignatureTemplate::AssociatedFn(template) => {
+//     TypeAssociatedFnHirDecl::from_declarative(db, path, template)?.into()
+// }
+// TypeItemDeclarativeSignatureTemplate::MethodFn(template) => {
+//     TypeMethodFnHirDecl::from_declarative(db, template)?.into()
+// }
+// TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
+// TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+// TypeItemDeclarativeSignatureTemplate::MemoizedField(template) => {
+//     TypeMemoizedFieldHirDecl::from_declarative(db, template)?.into()
+// }

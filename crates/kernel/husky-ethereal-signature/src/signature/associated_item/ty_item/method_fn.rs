@@ -5,7 +5,6 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
-    #[return_ref]
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealTermParenateParameters,
