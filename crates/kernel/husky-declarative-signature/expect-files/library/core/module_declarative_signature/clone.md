@@ -74,7 +74,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`t`),

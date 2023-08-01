@@ -4,5 +4,5 @@ use super::*;
 pub struct RecordTypeEtherealSignatureTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EtherealTermTemplateParameters,
 }

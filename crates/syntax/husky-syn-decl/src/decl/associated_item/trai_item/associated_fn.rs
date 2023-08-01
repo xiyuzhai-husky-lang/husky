@@ -8,7 +8,7 @@ pub struct TraitAssociatedFnSynNodeDecl {
     #[return_ref]
     pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    pub parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
@@ -25,7 +25,7 @@ impl TraitAssociatedFnSynNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.parenic_parameter_decl_list(db)
+                    self.parenate_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),

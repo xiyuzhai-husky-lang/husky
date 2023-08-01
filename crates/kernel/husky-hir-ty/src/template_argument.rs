@@ -1,4 +1,5 @@
 use crate::*;
+use husky_ethereal_term::EtherealTerm;
 
 pub type HirTemplateArguments = smallvec::SmallVec<[HirTemplateArgument; 2]>;
 
@@ -15,6 +16,26 @@ pub enum HirTemplateArgument {
     ///
     /// It should be noted that phantom template parameter should only accept vacant parameter.
     Vacant,
-    Type(HirTypePathLeading),
+    Type(HirType),
     TypeConstant(HirConstant),
+}
+
+impl HirTemplateArgument {
+    pub(crate) fn from_ethereal(argument: EtherealTerm, db: &dyn HirTypeDb) -> Self {
+        match argument {
+            EtherealTerm::Literal(_) => todo!(),
+            EtherealTerm::Symbol(_) => todo!(),
+            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::Category(_) => todo!(),
+            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Abstraction(_) => todo!(),
+            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
+            EtherealTerm::TraitConstraint(_) => todo!(),
+        }
+    }
 }

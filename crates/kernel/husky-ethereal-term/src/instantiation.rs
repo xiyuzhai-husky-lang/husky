@@ -102,7 +102,7 @@ impl EtherealTermPartialInstantiation {
 
     pub fn merge_with_item_template_parameters(
         &self,
-        template_parameters: &EtherealTemplateParameters,
+        template_parameters: &EtherealTermTemplateParameters,
     ) -> Self {
         let mut symbol_map = self.symbol_map.clone();
         for param in template_parameters.iter() {

@@ -3,10 +3,13 @@ use husky_term_prelude::Variance;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct HirTypeSymbol {
-    pub(super) attrs: HirSymbolAttrs,
-    pub(super) variance: Option<Variance>,
-    pub(super) disambiguator: u8,
+pub enum HirTypeSymbol {
+    Type {
+        attrs: HirSymbolAttrs,
+        variance: Option<Variance>,
+        disambiguator: u8,
+    },
+    SelfType,
 }
 
 impl HirTypeSymbol {
@@ -21,7 +24,11 @@ impl HirTypeSymbol {
                 attrs,
                 variance,
                 disambiguator,
-            } => todo!(),
+            } => HirTypeSymbol::Type {
+                attrs: HirSymbolAttrs::from_ethereal(attrs).expect("some"),
+                variance,
+                disambiguator,
+            },
             EtherealTermSymbolIndexInner::Prop { disambiguator } => {
                 todo!()
             }
@@ -41,7 +48,7 @@ impl HirTypeSymbol {
             EtherealTermSymbolIndexInner::EphemOther { disambiguator } => {
                 todo!()
             }
-            EtherealTermSymbolIndexInner::SelfType => todo!(),
+            EtherealTermSymbolIndexInner::SelfType => HirTypeSymbol::SelfType,
             EtherealTermSymbolIndexInner::SelfValue => todo!(),
         }
     }

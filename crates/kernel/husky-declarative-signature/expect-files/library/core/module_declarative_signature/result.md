@@ -177,7 +177,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::result::Result t s`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

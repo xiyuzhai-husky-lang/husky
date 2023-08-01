@@ -122,7 +122,7 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                 Some(ident_token.ident())
             }
-            CurrentSynSymbolVariant::ParenicRegularParameter { ident, .. }
+            CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. }
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSynSymbolVariant::TemplateParameter {
@@ -172,7 +172,7 @@ pub enum CurrentSynSymbolVariant {
         annotated_variance_token: Option<VarianceToken>,
         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
     },
-    ParenicRegularParameter {
+    ParenateRegularParameter {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
@@ -227,7 +227,7 @@ impl CurrentSynSymbolVariant {
                 template_parameter_variant,
                 ..
             } => SymbolModifier::Const,
-            CurrentSynSymbolVariant::ParenicRegularParameter {
+            CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
             | CurrentSynSymbolVariant::LetVariable {
@@ -290,7 +290,7 @@ impl CurrentSynSymbolVariant {
             } => CurrentSynSymbolKind::ImplicitParameter {
                 template_parameter_kind: template_parameter_variant.kind(),
             },
-            CurrentSynSymbolVariant::ParenicRegularParameter {
+            CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,

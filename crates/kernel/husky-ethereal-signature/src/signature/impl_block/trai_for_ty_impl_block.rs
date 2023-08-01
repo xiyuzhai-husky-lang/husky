@@ -7,19 +7,19 @@ use vec_like::{SmallVecPairMap, VecMapGetEntry};
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EtherealTermTemplateParameters,
     pub trai: EtherealTerm,
-    pub self_ty: EtherealSelfType,
+    pub self_ty: EtherealSelfTypeInTraitImpl,
     // todo: where clause
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EtherealSelfType {
+pub enum EtherealSelfTypeInTraitImpl {
     PathLeading(EtherealTerm),
     DeriveAny(EtherealTermSymbol),
 }
 
-impl EtherealTermInstantiate for EtherealSelfType {
+impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
     type Target = EtherealTerm;
 
     fn instantiate(
@@ -28,23 +28,28 @@ impl EtherealTermInstantiate for EtherealSelfType {
         instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         match self {
-            EtherealSelfType::PathLeading(term) => term.instantiate(db, instantiation),
-            EtherealSelfType::DeriveAny(term_symbol) => term_symbol.instantiate(db, instantiation),
+            EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
+            EtherealSelfTypeInTraitImpl::DeriveAny(term_symbol) => {
+                term_symbol.instantiate(db, instantiation)
+            }
         }
     }
 }
 
-impl EtherealSelfType {
+impl EtherealSelfTypeInTraitImpl {
     fn from_declarative(
         db: &dyn EtherealSignatureDb,
         declarative_self_ty: DeclarativeSelfType,
     ) -> EtherealTermResult<Self> {
         Ok(match declarative_self_ty {
-            DeclarativeSelfType::Path(declarative_term) => EtherealSelfType::PathLeading(
-                EtherealTerm::ty_from_declarative(db, declarative_term)?,
-            ),
+            DeclarativeSelfType::Path(declarative_term) => {
+                EtherealSelfTypeInTraitImpl::PathLeading(EtherealTerm::ty_from_declarative(
+                    db,
+                    declarative_term,
+                )?)
+            }
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
-                EtherealSelfType::DeriveAny(EtherealTermSymbol::from_declarative(
+                EtherealSelfTypeInTraitImpl::DeriveAny(EtherealTermSymbol::from_declarative(
                     db,
                     declarative_term_symbol,
                 )?)
@@ -54,8 +59,8 @@ impl EtherealSelfType {
 
     pub fn parameter_symbol(self) -> Option<EtherealTermSymbol> {
         match self {
-            EtherealSelfType::PathLeading(_) => None,
-            EtherealSelfType::DeriveAny(symbol) => Some(symbol),
+            EtherealSelfTypeInTraitImpl::PathLeading(_) => None,
+            EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => Some(symbol),
         }
     }
 }
@@ -89,13 +94,15 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         path: TraitForTypeImplBlockPath,
         declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
+        let template_parameters = EtherealTermTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;
         let trai = EtherealTerm::ty_from_declarative(db, declarative_signature_template.trai(db))?;
-        let self_ty =
-            EtherealSelfType::from_declarative(db, declarative_signature_template.self_ty(db))?;
+        let self_ty = EtherealSelfTypeInTraitImpl::from_declarative(
+            db,
+            declarative_signature_template.self_ty(db),
+        )?;
         Ok(Self::new(db, path, template_parameters, trai, self_ty))
     }
 }
@@ -122,7 +129,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     > {
         let mut instantiation = self.template_parameters(db).instantiation();
         match self.self_ty(db) {
-            EtherealSelfType::PathLeading(self_ty_term) => {
+            EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {
                     JustOk(_) => JustOk(
                         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
@@ -135,7 +142,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
                     Nothing => todo!(),
                 }
             }
-            EtherealSelfType::DeriveAny(symbol) => {
+            EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
                 unsafe {
                     instantiation.add_self_ty_parameter(symbol, ty_target);
                 }

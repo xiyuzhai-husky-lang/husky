@@ -2,13 +2,16 @@
 pub mod db;
 mod decl;
 // ad hoc
+mod parenate_parameter;
 mod template_parameter;
 #[cfg(test)]
 mod tests;
 
-pub use self::decl::*;
-pub use self::template_parameter::*;
+pub use crate::decl::*;
+pub use crate::parenate_parameter::*;
+pub use crate::template_parameter::*;
 
+use crate::db::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_ethereal_signature::*;

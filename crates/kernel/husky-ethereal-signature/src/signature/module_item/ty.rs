@@ -40,6 +40,29 @@ pub enum TypeEtherealSignatureTemplate {
     Union(UnionTypeEtherealSignatureTemplate),
 }
 
+impl TypeEtherealSignatureTemplate {
+    pub fn template_parameters(
+        self,
+        db: &dyn EtherealSignatureDb,
+    ) -> &[EtherealTermTemplateParameter] {
+        match self {
+            TypeEtherealSignatureTemplate::Enum(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::PropsStruct(template) => {
+                template.template_parameters(db)
+            }
+            TypeEtherealSignatureTemplate::UnitStruct(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::TupleStruct(template) => {
+                template.template_parameters(db)
+            }
+            TypeEtherealSignatureTemplate::Record(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::Inductive(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::Structure(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::Extern(template) => template.template_parameters(db),
+            TypeEtherealSignatureTemplate::Union(template) => template.template_parameters(db),
+        }
+    }
+}
+
 impl HasEtherealSignatureTemplate for TypePath {
     type EtherealSignatureTemplate = TypeEtherealSignatureTemplate;
 

@@ -1,4 +1,5 @@
 use super::*;
+use husky_hir_ty::trai::HirTrait;
 use smallvec::SmallVec;
 
 #[salsa::tracked(db = HirDeclDb, jar = HirDeclJar, constructor = new)]
@@ -6,16 +7,9 @@ pub struct TraitForTypeImplBlockHirDecl {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
-    pub trai: EtherealTerm,
-    pub self_ty: EtherealSelfType,
+    pub trai: HirTrait,
+    pub self_ty: HirType,
     // todo: where clause
-    pub hir_expr_region: HirEagerExprRegion,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EtherealSelfType {
-    PathLeading(EtherealTerm),
-    DeriveAny(EtherealTermSymbol),
 }
 
 impl HasHirDecl for TraitForTypeImplBlockPath {
@@ -31,10 +25,21 @@ fn trai_for_ty_impl_block_hir_decl(
     db: &dyn HirDeclDb,
     path: TraitForTypeImplBlockPath,
 ) -> Option<TraitForTypeImplBlockHirDecl> {
-    todo!()
-    // TraitForTypeImplBlockHirDecl::from_declarative(
-    //     db,
-    //     path,
-    //     path.declarative_signature_template(db)?,
-    // )
+    let ethereal_signature_template = path.ethereal_signature_template(db).expect("ok");
+    let self_ty = match ethereal_signature_template.self_ty(db) {
+        EtherealSelfTypeInTraitImpl::PathLeading(self_ty) => HirType::from_ethereal(self_ty, db),
+        EtherealSelfTypeInTraitImpl::DeriveAny(_) => return None,
+    };
+    let template_parameters = HirTemplateParameters::from_ethereal(
+        ethereal_signature_template.template_parameters(db),
+        db,
+    );
+    let trai = HirTrait::from_ethereal(ethereal_signature_template.trai(db), db);
+    Some(TraitForTypeImplBlockHirDecl::new(
+        db,
+        path,
+        template_parameters,
+        trai,
+        self_ty,
+    ))
 }

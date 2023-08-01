@@ -112,7 +112,7 @@
                                     },
                                 ],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Variadic(
                                         DeclarativeTermRitchieVariadicParameter {

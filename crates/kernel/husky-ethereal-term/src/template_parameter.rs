@@ -3,28 +3,28 @@ use crate::{instantiation::*, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTemplateParameters {
-    data: SmallVec<[EtherealTemplateParameter; 2]>,
+pub struct EtherealTermTemplateParameters {
+    data: SmallVec<[EtherealTermTemplateParameter; 2]>,
 }
 
-impl EtherealTemplateParameters {
+impl EtherealTermTemplateParameters {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
         template_parameters: &DeclarativeTemplateParameterTemplates,
-    ) -> EtherealTermResult<EtherealTemplateParameters> {
-        Ok(EtherealTemplateParameters {
+    ) -> EtherealTermResult<EtherealTermTemplateParameters> {
+        Ok(EtherealTermTemplateParameters {
             data: template_parameters
                 .data()
                 .iter()
                 .map(|template_parameter| {
-                    EtherealTemplateParameter::from_declarative(db, template_parameter)
+                    EtherealTermTemplateParameter::from_declarative(db, template_parameter)
                 })
                 .collect::<EtherealTermResult<_>>()?,
         })
     }
 
     #[inline(always)]
-    pub fn data(&self) -> &[EtherealTemplateParameter] {
+    pub fn data(&self) -> &[EtherealTermTemplateParameter] {
         &self.data
     }
 
@@ -33,8 +33,8 @@ impl EtherealTemplateParameters {
     }
 }
 
-impl std::ops::Deref for EtherealTemplateParameters {
-    type Target = [EtherealTemplateParameter];
+impl std::ops::Deref for EtherealTermTemplateParameters {
+    type Target = [EtherealTermTemplateParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -42,13 +42,13 @@ impl std::ops::Deref for EtherealTemplateParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct EtherealTemplateParameter {
+pub struct EtherealTermTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: EtherealTermSymbol,
     traits: Vec<EtherealTerm>,
 }
 
-impl EtherealTemplateParameter {
+impl EtherealTermTemplateParameter {
     fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_generic_paramter: &DeclarativeTemplateParameter,

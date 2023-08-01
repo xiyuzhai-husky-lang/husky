@@ -7,7 +7,7 @@ use husky_declarative_signature::{
 pub struct PropsStructTypeEtherealSignatureTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EtherealTermTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldEtherealSignatureTemplate; 4]>,
 }
@@ -38,7 +38,7 @@ impl PropsStructTypeEtherealSignatureTemplate {
         path: TypePath,
         declarative_signature_template: PropsTypeStructDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
+        let template_parameters = EtherealTermTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;
@@ -78,7 +78,7 @@ impl RegularFieldEtherealSignatureTemplate {
     // todo: move this to trait
     fn instantiate(
         self,
-        template_parameters: &EtherealTemplateParameters,
+        template_parameters: &EtherealTermTemplateParameters,
         arguments: &[EtherealTerm],
     ) -> PropsStructFieldEtherealSignature {
         if template_parameters.data().len() != arguments.len() {

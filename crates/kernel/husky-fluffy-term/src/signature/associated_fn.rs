@@ -3,14 +3,14 @@ use husky_coword::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct AssociatedFnFluffySignature {
-    parenic_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
 }
 
 impl AssociatedFnFluffySignature {
-    pub fn parenic_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
-        &self.parenic_parameters
+    pub fn parenate_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
+        &self.parenate_parameters
     }
 
     pub fn ty(&self) -> FluffyTerm {
@@ -42,8 +42,8 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(AssociatedFnFluffySignature {
-        parenic_parameters: template
-            .parenic_parameters(db)
+        parenate_parameters: template
+            .parenate_parameters(db)
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
             .collect(),

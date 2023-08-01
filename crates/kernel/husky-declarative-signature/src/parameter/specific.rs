@@ -3,11 +3,11 @@ use either::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
-pub struct DeclarativeParenicParameters {
+pub struct DeclarativeParenateParameters {
     data: SmallVec<[DeclarativeTermRitchieParameter; 4]>,
 }
 
-impl std::ops::Deref for DeclarativeParenicParameters {
+impl std::ops::Deref for DeclarativeParenateParameters {
     type Target = [DeclarativeTermRitchieParameter];
 
     fn deref(&self) -> &Self::Target {
@@ -15,7 +15,7 @@ impl std::ops::Deref for DeclarativeParenicParameters {
     }
 }
 
-impl DeclarativeParenicParameters {
+impl DeclarativeParenateParameters {
     pub(crate) fn from_decl(
         parameters: &[SpecificParameterDecl],
         expr_region_data: &SynExprRegionData,

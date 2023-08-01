@@ -1,4 +1,4 @@
-use husky_ethereal_term::EtherealTemplateParameter;
+use husky_ethereal_term::EtherealTermTemplateParameter;
 
 use crate::{symbol::HirTemplateSymbol, trai::HirTrait, *};
 
@@ -18,7 +18,7 @@ impl std::ops::Deref for HirTemplateParameters {
 
 impl HirTemplateParameters {
     pub fn from_ethereal(
-        template_parameters: &[EtherealTemplateParameter],
+        template_parameters: &[EtherealTermTemplateParameter],
         db: &dyn HirTypeDb,
     ) -> Self {
         Self {
@@ -38,7 +38,7 @@ pub struct HirTemplateParameter {
 }
 impl HirTemplateParameter {
     fn from_ethereal(
-        template_parameter: &EtherealTemplateParameter,
+        template_parameter: &EtherealTermTemplateParameter,
         db: &dyn HirTypeDb,
     ) -> Option<Self> {
         Some(HirTemplateParameter {

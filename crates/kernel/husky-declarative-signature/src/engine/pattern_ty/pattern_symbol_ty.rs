@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
-pub struct PatternSymbolTypeInfo {
+pub(crate) struct PatternSymbolTypeInfo {
     modifier: SymbolModifier,
     base_ty: DeclarativeTerm,
 }

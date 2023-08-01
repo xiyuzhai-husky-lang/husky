@@ -38,14 +38,14 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
-        match self {
-            TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
-            TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
-            TraitForTypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
-            TraitForTypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    //     match self {
+    //         TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
+    //         TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
+    //         TraitForTypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
+    //         TraitForTypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
+    //     }
+    // }
 }
 
 impl HasHirDecl for TraitForTypeItemPath {
@@ -61,5 +61,10 @@ fn trai_for_ty_item_hir_decl(
     db: &dyn HirDeclDb,
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
-    todo!()
+    match path.ethereal_signature_template(db).expect("ok") {
+        TraitForTypeItemEtherealSignatureTemplate::AssociatedType(_) => todo!(),
+        TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
+            Some(TraitForTypeMethodFnHirDecl::from_ethereal(path, template, db).into())
+        }
+    }
 }

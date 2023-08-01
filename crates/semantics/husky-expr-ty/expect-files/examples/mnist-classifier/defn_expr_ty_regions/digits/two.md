@@ -667,7 +667,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -1020,7 +1020,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -1373,7 +1373,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(

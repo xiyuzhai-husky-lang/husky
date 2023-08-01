@@ -231,7 +231,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -287,7 +287,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -330,7 +330,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -380,7 +380,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -423,7 +423,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -496,7 +496,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -539,7 +539,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -589,7 +589,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -632,7 +632,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -682,7 +682,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -732,7 +732,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -782,7 +782,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -832,7 +832,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -911,7 +911,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -961,7 +961,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1034,7 +1034,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1084,7 +1084,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1134,7 +1134,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1177,7 +1177,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1220,7 +1220,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1263,7 +1263,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1329,7 +1329,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1372,7 +1372,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1415,7 +1415,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1458,7 +1458,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),

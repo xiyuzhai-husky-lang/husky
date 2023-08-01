@@ -3,10 +3,10 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EtherealTermTemplateParameters,
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
-    pub parenic_parameters: ParenicEtherealParameters,
+    pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
 }
 
@@ -16,7 +16,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
         path: TraitForTypeItemPath,
         declarative_signature_template: TraitForTypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let template_parameters = EtherealTemplateParameters::from_declarative(
+        let template_parameters = EtherealTermTemplateParameters::from_declarative(
             db,
             declarative_signature_template.template_parameters(db),
         )?;
@@ -24,9 +24,9 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             db,
             declarative_signature_template.self_parameter(db),
         )?;
-        let parenic_parameters = ParenicEtherealParameters::from_declarative(
+        let parenate_parameters = EtherealTermParenateParameters::from_declarative(
             db,
-            declarative_signature_template.parenic_parameters(db),
+            declarative_signature_template.parenate_parameters(db),
         )?;
         let return_ty =
             EtherealTerm::ty_from_declarative(db, declarative_signature_template.return_ty(db))?;
@@ -34,7 +34,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             db,
             template_parameters,
             self_parameter,
-            parenic_parameters,
+            parenate_parameters,
             return_ty,
         ))
     }
@@ -89,8 +89,8 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
             .self_parameter(db)
             .instantiate(db, &instantiation)
             .into(),
-        parenic_parameters: template
-            .parenic_parameters(db)
+        parenate_parameters: template
+            .parenate_parameters(db)
             .iter()
             .map(|param| -> EtherealTermRitchieParameter {
                 param.instantiate(db, &instantiation).into()
@@ -103,13 +103,13 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
     self_parameter: EtherealTermRitchieParameter,
-    parenic_parameters: SmallVec<[EtherealTermRitchieParameter; 4]>,
+    parenate_parameters: SmallVec<[EtherealTermRitchieParameter; 4]>,
     return_ty: EtherealTerm,
 }
 
 impl TraitForTypeMethodFnEtherealSignature {
-    pub fn parenic_parameters(&self) -> &[EtherealTermRitchieParameter] {
-        &self.parenic_parameters
+    pub fn parenate_parameters(&self) -> &[EtherealTermRitchieParameter] {
+        &self.parenate_parameters
     }
 
     pub fn return_ty(&self) -> EtherealTerm {

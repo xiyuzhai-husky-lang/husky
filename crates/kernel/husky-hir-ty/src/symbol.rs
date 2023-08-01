@@ -21,7 +21,7 @@ pub struct HirSymbolAttrs;
 
 impl HirSymbolAttrs {
     fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
-        attrs.phantom().then_some(Self)
+        (!attrs.phantom()).then_some(Self)
     }
 }
 
@@ -47,7 +47,7 @@ fn hir_template_symbol_from_ethereal(
             variance,
             disambiguator,
         } => Some(
-            HirTypeSymbol {
+            HirTypeSymbol::Type {
                 attrs: HirSymbolAttrs::from_ethereal(attrs)?,
                 variance,
                 disambiguator,

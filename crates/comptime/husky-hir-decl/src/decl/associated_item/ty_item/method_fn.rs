@@ -9,7 +9,7 @@ pub struct TypeMethodFnHirDecl {
     #[return_ref]
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
-    pub parenic_parameters: ParenicEtherealParameters,
+    pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: HirType,
     pub hir_expr_region: HirEagerExprRegion,
 }

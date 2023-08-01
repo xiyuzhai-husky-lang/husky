@@ -4,11 +4,11 @@ use super::*;
 pub struct TypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
-    pub template_parameters: EtherealTemplateParameters,
+    pub template_parameters: EtherealTermTemplateParameters,
     #[return_ref]
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
-    pub parenic_parameters: ParenicEtherealParameters,
+    pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
 }
 
@@ -18,7 +18,7 @@ impl TypeMethodFnEtherealSignatureTemplate {
         declarative_signature: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let template_parameters = EtherealTemplateParameters::from_declarative(
+        let template_parameters = EtherealTermTemplateParameters::from_declarative(
             db,
             declarative_signature.template_parameters(db),
         )?;
@@ -26,9 +26,9 @@ impl TypeMethodFnEtherealSignatureTemplate {
             db,
             declarative_signature.self_parameter(db),
         )?;
-        let parenic_parameters = ParenicEtherealParameters::from_declarative(
+        let parenate_parameters = EtherealTermParenateParameters::from_declarative(
             db,
-            declarative_signature.parenic_parameters(db),
+            declarative_signature.parenate_parameters(db),
         )?;
         let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         Ok(Self::new(
@@ -36,7 +36,7 @@ impl TypeMethodFnEtherealSignatureTemplate {
             self_ty,
             template_parameters,
             self_parameter,
-            parenic_parameters,
+            parenate_parameters,
             return_ty,
         ))
     }
