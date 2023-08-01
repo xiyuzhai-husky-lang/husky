@@ -67,7 +67,6 @@ impl HasHirDecl for TypeItemPath {
 #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     use salsa::DebugWithDb;
-    p!(path.debug(db));
     match path.ethereal_signature_template(db).expect("ok") {
         TypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
         TypeItemEtherealSignatureTemplate::MethodFn(template) => {

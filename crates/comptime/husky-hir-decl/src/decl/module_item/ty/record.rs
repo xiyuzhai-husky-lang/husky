@@ -7,3 +7,13 @@ pub struct RecordTypeHirDecl {
     pub template_parameters: HirTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }
+
+impl RecordTypeHirDecl {
+    pub(super) fn from_ethereal(
+        path: TypePath,
+        ethereal_signature_template: RecordTypeEtherealSignatureTemplate,
+        db: &dyn HirDeclDb,
+    ) -> Self {
+        todo!()
+    }
+}

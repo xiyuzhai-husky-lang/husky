@@ -18,7 +18,9 @@ pub struct EtherealSignatureJar(
     // - trait items
     TraitAssociatedFnEtherealSignatureTemplate,
     TraitMethodFnEtherealSignatureTemplate,
-    // - trait for type
+    // - trait for type items
+    TraitForTypeAssociatedFnEtherealSignatureTemplate,
+    TraitForTypeAssociatedValEtherealSignatureTemplate,
     TraitForTypeAssociatedTypeEtherealSignatureTemplate,
     TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_item_ethereal_signature_template,
@@ -30,6 +32,7 @@ pub struct EtherealSignatureJar(
     TraitEtherealSignatureTemplate,
     trai_ethereal_signature_template,
     // fugitive
+    fugitive_ethereal_signature_template,
     FnFugitiveEtherealSignatureTemplate,
     GnFugitiveEtherealSignatureTemplate,
     TypeAliasFugitiveEtherealSignatureTemplate,
@@ -43,7 +46,7 @@ pub struct EtherealSignatureJar(
     StructureTypeEtherealSignatureTemplate,
     TupleStructTypeEtherealSignatureTemplate,
     UnionTypeEtherealSignatureTemplate,
-    UnitTypeStructEtherealSignatureTemplate,
+    UnitStructTypeEtherealSignatureTemplate,
     ty_ethereal_signature_template,
     // ty variant
     EnumTupleTypeVariantEtherealSignatureTemplate,

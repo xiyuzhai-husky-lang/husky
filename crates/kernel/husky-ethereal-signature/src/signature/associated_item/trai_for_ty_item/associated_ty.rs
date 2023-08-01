@@ -5,7 +5,7 @@ pub struct TraitForTypeAssociatedTypeEtherealSignatureTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
-    pub ty_term: EtherealTerm,
+    pub associated_ty: EtherealTerm,
 }
 
 impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
@@ -65,7 +65,7 @@ fn trai_for_ty_associated_ty_ethereal_signature_template_partially_instantiated_
         .try_into_instantiation()?;
     let template = template_partially_instantiated.template(db);
     Some(TraitForTypeAssociatedTypeEtherealSignature {
-        ty_term: template.ty_term(db).instantiate(db, &instantiation),
+        ty_term: template.associated_ty(db).instantiate(db, &instantiation),
     })
 }
 

@@ -105,6 +105,7 @@ pub type DeclResult<T> = Result<T, DeclError>;
 
 impl From<&NodeDeclError> for DeclError {
     fn from(value: &NodeDeclError) -> Self {
+        todo!();
         DeclError::NodeDecl
     }
 }

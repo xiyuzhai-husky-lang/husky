@@ -41,10 +41,11 @@ pub struct HirDeclJar(
     trai_hir_decl,
     TraitHirDecl,
     // fugitive
-    FnHirDecl,
-    GnHirDecl,
-    TypeAliasHirDecl,
-    ValHirDecl,
+    fugitive_hir_decl,
+    FnFugitiveHirDecl,
+    GnFugitiveHirDecl,
+    TypeAliasFugitiveHirDecl,
+    ValFugitiveHirDecl,
     // ty variant
     ty_variant_hir_decl,
     EnumTupleTypeVariantHirDecl,

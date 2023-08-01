@@ -62,9 +62,13 @@ fn trai_for_ty_item_hir_decl(
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
     match path.ethereal_signature_template(db).expect("ok") {
-        TraitForTypeItemEtherealSignatureTemplate::AssociatedType(_) => todo!(),
+        TraitForTypeItemEtherealSignatureTemplate::AssociatedType(template) => {
+            Some(TraitForTypeAssociatedTypeHirDecl::from_ethereal(path, template, db).into())
+        }
         TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
             Some(TraitForTypeMethodFnHirDecl::from_ethereal(path, template, db).into())
         }
+        TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
+        TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),
     }
 }

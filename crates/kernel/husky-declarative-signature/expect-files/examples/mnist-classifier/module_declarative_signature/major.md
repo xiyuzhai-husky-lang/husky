@@ -9,7 +9,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
@@ -27,7 +27,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
@@ -45,7 +45,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`core::num::f32`),
                         },
                     ),
@@ -63,7 +63,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
@@ -81,7 +81,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                         },
                     ),
@@ -99,7 +99,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         },
                     ),
@@ -117,7 +117,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ),

@@ -9,7 +9,7 @@ pub struct TraitMethodFnSynNodeDecl {
     #[return_ref]
     template_parameter_decl_list: Option<Generics>,
     #[return_ref]
-    parameter_decl_list: SelfParameterAndExplicitParameters<true>,
+    parameter_decl_list: RitchieParameters<true>,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub eol_colon: EolToken,

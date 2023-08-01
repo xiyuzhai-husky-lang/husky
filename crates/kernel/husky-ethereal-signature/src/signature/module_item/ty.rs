@@ -31,7 +31,7 @@ use husky_print_utils::p;
 pub enum TypeEtherealSignatureTemplate {
     Enum(EnumTypeEtherealSignatureTemplate),
     PropsStruct(PropsStructTypeEtherealSignatureTemplate),
-    UnitStruct(UnitTypeStructEtherealSignatureTemplate),
+    UnitStruct(UnitStructTypeEtherealSignatureTemplate),
     TupleStruct(TupleStructTypeEtherealSignatureTemplate),
     Record(RecordTypeEtherealSignatureTemplate),
     Inductive(InductiveTypeEtherealSignatureTemplate),

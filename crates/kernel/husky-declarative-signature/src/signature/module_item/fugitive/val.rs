@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct ValDeclarativeSignatureTemplate {
+pub struct ValFugitiveDeclarativeSignatureTemplate {
     pub initialization_ty: DeclarativeTerm,
 }
 
 impl HasDeclarativeSignatureTemplate for ValSynDecl {
-    type DeclarativeSignatureTemplate = ValDeclarativeSignatureTemplate;
+    type DeclarativeSignatureTemplate = ValFugitiveDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
@@ -16,7 +16,7 @@ impl HasDeclarativeSignatureTemplate for ValSynDecl {
     }
 }
 
-impl ValDeclarativeSignatureTemplate {
+impl ValFugitiveDeclarativeSignatureTemplate {
     #[inline(always)]
     pub fn template_parameters(
         self,
@@ -30,7 +30,7 @@ impl ValDeclarativeSignatureTemplate {
 pub fn val_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: ValSynDecl,
-) -> DeclarativeSignatureResult<ValDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<ValFugitiveDeclarativeSignatureTemplate> {
     let syn_expr_region = decl.syn_expr_region(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);
     let declarative_term_menu = db
@@ -40,5 +40,5 @@ pub fn val_declarative_signature_template(
         Some(val_ty) => declarative_term_region.expr_term(val_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(ValDeclarativeSignatureTemplate::new(db, val_ty))
+    Ok(ValFugitiveDeclarativeSignatureTemplate::new(db, val_ty))
 }

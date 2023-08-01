@@ -9,7 +9,7 @@ pub struct GnSynNodeDecl {
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,

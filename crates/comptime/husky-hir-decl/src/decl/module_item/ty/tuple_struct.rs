@@ -7,3 +7,13 @@ pub struct TupleStructTypeHirDecl {
     pub template_parameters: HirTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }
+
+impl TupleStructTypeHirDecl {
+    pub(super) fn from_ethereal(
+        path: TypePath,
+        ethereal_signature_template: TupleStructTypeEtherealSignatureTemplate,
+        db: &dyn HirDeclDb,
+    ) -> Self {
+        todo!()
+    }
+}

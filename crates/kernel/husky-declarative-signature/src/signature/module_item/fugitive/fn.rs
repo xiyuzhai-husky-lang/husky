@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct FnDeclarativeSignatureTemplate {
+pub struct FnFugitiveDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
@@ -10,7 +10,7 @@ pub struct FnDeclarativeSignatureTemplate {
 }
 
 impl HasDeclarativeSignatureTemplate for FnSynDecl {
-    type DeclarativeSignatureTemplate = FnDeclarativeSignatureTemplate;
+    type DeclarativeSignatureTemplate = FnFugitiveDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
@@ -24,7 +24,7 @@ impl HasDeclarativeSignatureTemplate for FnSynDecl {
 pub fn fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: FnSynDecl,
-) -> DeclarativeSignatureResult<FnDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<FnFugitiveDeclarativeSignatureTemplate> {
     let syn_expr_region = decl.syn_expr_region(db);
     let expr_region_data = syn_expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, syn_expr_region);
@@ -45,7 +45,7 @@ pub fn fn_declarative_signature_template(
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(FnDeclarativeSignatureTemplate::new(
+    Ok(FnFugitiveDeclarativeSignatureTemplate::new(
         db,
         template_parameters,
         parenate_parameters,
@@ -53,4 +53,4 @@ pub fn fn_declarative_signature_template(
     ))
 }
 
-impl FnDeclarativeSignatureTemplate {}
+impl FnFugitiveDeclarativeSignatureTemplate {}

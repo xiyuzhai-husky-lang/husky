@@ -26,13 +26,13 @@ impl ModuleItemHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
-        match self {
-            ModuleItemHirDecl::Type(decl) => Some(decl.hir_expr_region(db)),
-            ModuleItemHirDecl::Fugitive(decl) => Some(decl.hir_expr_region(db)),
-            ModuleItemHirDecl::Trait(decl) => None,
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
+    //     match self {
+    //         ModuleItemHirDecl::Type(decl) => Some(decl.hir_expr_region(db)),
+    //         ModuleItemHirDecl::Fugitive(decl) => Some(decl.hir_expr_region(db)),
+    //         ModuleItemHirDecl::Trait(decl) => None,
+    //     }
+    // }
 
     pub fn path(self, db: &dyn HirDeclDb) -> ModuleItemPath {
         match self {

@@ -25,14 +25,14 @@ pub fn form_path_declarative_ty(
         FugitiveDeclarativeSignatureTemplate::Val(signature) => {
             val_path_declarative_ty(db, signature, declarative_term_menu)
         }
-        FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
+        FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
     }
 }
 
 pub(crate) fn fn_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
-    signature: FnDeclarativeSignatureTemplate,
+    signature: FnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let parenate_parameters = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
@@ -53,7 +53,7 @@ pub(crate) fn fn_path_declarative_ty(
 pub(crate) fn gn_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
-    signature: GnDeclarativeSignatureTemplate,
+    signature: GnFugitiveDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     use smallvec::ToSmallVec;
     let param_declarative_tys = signature.parenate_parameters(db).data().to_smallvec();
@@ -74,7 +74,7 @@ pub(crate) fn gn_path_declarative_ty(
 
 pub(crate) fn val_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
-    signature: ValDeclarativeSignatureTemplate,
+    signature: ValFugitiveDeclarativeSignatureTemplate,
     _declarative_term_menu: &DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     Ok(signature.initialization_ty(db).leashed_ty(db))

@@ -62,5 +62,6 @@ pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> Optio
         FugitiveHirDecl::Fn(hir_decl) => Some(FnHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::Gn(hir_decl) => Some(GnHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::TypeAlias(_) => todo!(),
     }
 }

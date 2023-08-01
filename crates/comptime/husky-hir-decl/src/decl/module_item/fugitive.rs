@@ -1,11 +1,11 @@
 mod r#fn;
 mod gn;
-mod ti;
+mod ty_alias;
 mod val;
 
 pub use self::gn::*;
 pub use self::r#fn::*;
-pub use self::ti::*;
+pub use self::ty_alias::*;
 pub use self::val::*;
 
 use super::*;
@@ -14,18 +14,10 @@ use super::*;
 #[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
-    Fn(FnHirDecl),
-    Val(ValHirDecl),
-    Gn(GnHirDecl),
-    // todo: AliasType
-}
-
-impl HasHirDecl for FugitivePath {
-    type HirDecl = FugitiveHirDecl;
-
-    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
-        todo!()
-    }
+    Fn(FnFugitiveHirDecl),
+    Val(ValFugitiveHirDecl),
+    Gn(GnFugitiveHirDecl),
+    TypeAlias(TypeAliasFugitiveHirDecl),
 }
 
 impl FugitiveHirDecl {
@@ -34,22 +26,53 @@ impl FugitiveHirDecl {
             FugitiveHirDecl::Fn(decl) => decl.template_parameters(db),
             FugitiveHirDecl::Val(_decl) => &[],
             FugitiveHirDecl::Gn(decl) => decl.template_parameters(db),
+            FugitiveHirDecl::TypeAlias(_) => todo!(),
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
-        match self {
-            FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db).into(),
-            FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db).into(),
-            FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db).into(),
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    //     match self {
+    //         FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db).into(),
+    //         FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db).into(),
+    //         FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db).into(),
+    //     }
+    // }
 
     pub fn path(self, db: &dyn HirDeclDb) -> FugitivePath {
         match self {
             FugitiveHirDecl::Fn(decl) => decl.path(db),
             FugitiveHirDecl::Val(decl) => decl.path(db),
             FugitiveHirDecl::Gn(decl) => decl.path(db),
+            FugitiveHirDecl::TypeAlias(decl) => decl.path(db),
+        }
+    }
+}
+
+impl HasHirDecl for FugitivePath {
+    type HirDecl = FugitiveHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
+        fugitive_hir_decl(db, self)
+    }
+}
+
+#[salsa::tracked(jar = HirDeclJar)]
+fn fugitive_hir_decl(db: &dyn HirDeclDb, path: FugitivePath) -> Option<FugitiveHirDecl> {
+    match path
+        .ethereal_signature_template(db)
+        .expect("no errors for hir stage")
+    {
+        FugitiveEtherealSignatureTemplate::Fn(ethereal_signature_template) => {
+            Some(FnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+        }
+        FugitiveEtherealSignatureTemplate::Gn(ethereal_signature_template) => {
+            Some(GnFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
+        }
+        FugitiveEtherealSignatureTemplate::TypeAlias(ethereal_signature_template) => Some(
+            TypeAliasFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+        ),
+        FugitiveEtherealSignatureTemplate::Val(ethereal_signature_template) => {
+            Some(ValFugitiveHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
         }
     }
 }

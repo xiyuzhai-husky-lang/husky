@@ -1,11 +1,11 @@
 mod r#fn;
 mod gn;
-mod ti;
+mod ty_alias;
 mod val;
 
 pub use self::gn::*;
 pub use self::r#fn::*;
-pub use self::ti::*;
+pub use self::ty_alias::*;
 pub use self::val::*;
 
 use crate::*;
@@ -14,10 +14,10 @@ use crate::*;
 #[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum FugitiveDeclarativeSignatureTemplate {
-    Fn(FnDeclarativeSignatureTemplate),
-    Gn(GnDeclarativeSignatureTemplate),
-    AliasType(TypeAliasDeclarativeSignatureTemplate),
-    Val(ValDeclarativeSignatureTemplate),
+    Fn(FnFugitiveDeclarativeSignatureTemplate),
+    Gn(GnFugitiveDeclarativeSignatureTemplate),
+    TypeAlias(TypeAliasFugitiveDeclarativeSignatureTemplate),
+    Val(ValFugitiveDeclarativeSignatureTemplate),
 }
 
 impl FugitiveDeclarativeSignatureTemplate {
@@ -29,7 +29,7 @@ impl FugitiveDeclarativeSignatureTemplate {
             FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.template_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
+            FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
         }
     }
 }
