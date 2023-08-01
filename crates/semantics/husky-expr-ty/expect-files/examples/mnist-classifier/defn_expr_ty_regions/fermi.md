@@ -18,7 +18,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 85,
+                                value: 86,
                             },
                         ),
                     ),
@@ -34,7 +34,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 85,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -63,14 +63,50 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FluffyTermError(
-                            FluffyTermError::Todo,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [
+                                    Place(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Leash,
+                                ],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [],
+                                        return_ty: Application(
+                                            EtherealTermApplication(
+                                                Id {
+                                                    value: 87,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm::Application(
+                                EtherealTermApplication {
+                                    function: EtherealTerm(`List`),
+                                    argument: EtherealTerm(`Leash ConcaveComponent`),
+                                    shift: 0,
+                                },
+                            ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -90,7 +126,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -111,7 +147,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
             },
             ExprTypeInfo {
@@ -134,26 +170,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Ok(
-                            FluffyTerm::Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    4,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -178,6 +195,25 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
                         ExprDisambiguation::List(
                             ListExprDisambiguation::NewList,
                         ),
@@ -193,7 +229,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -210,7 +246,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
             ExprTypeInfo {
@@ -237,7 +273,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    9,
                 ),
             },
             ExprTypeInfo {
@@ -275,7 +311,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
             ExprTypeInfo {
@@ -337,7 +373,7 @@
                                                     ty: Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 84,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -367,7 +403,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -401,7 +437,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    12,
                 ),
             },
             ExprTypeInfo {
@@ -418,7 +454,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    13,
                 ),
             },
             ExprTypeInfo {
@@ -450,7 +486,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    14,
                 ),
             },
             ExprTypeInfo {
@@ -467,7 +503,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    15,
                 ),
             },
         ],
@@ -688,13 +724,33 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`List`),
+                                        argument: EtherealTerm(`Leash ConcaveComponent`),
+                                        shift: 0,
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: FinalDestination::Sort,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 4,
                                     kind: Expr,
@@ -757,7 +813,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 2,
                                     kind: Expr,
@@ -785,7 +841,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 3,
                                     kind: Expr,
@@ -819,7 +875,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
                                     kind: Expr,
@@ -843,7 +899,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
                                     kind: Expr,
@@ -880,7 +936,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 6,
+                                idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 7,
                                     kind: Expr,
@@ -906,7 +962,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 7,
+                                idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 8,
                                     kind: Expr,
@@ -924,7 +980,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 8,
+                                idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 12,
                                     kind: Expr,
@@ -942,7 +998,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 9,
+                                idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 15,
                                     kind: Expr,
@@ -967,7 +1023,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 10,
+                                idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 19,
                                     kind: Expr,
@@ -993,7 +1049,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 11,
+                                idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 20,
                                     kind: Expr,
@@ -1037,7 +1093,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 85,
+                                                                            value: 86,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1049,7 +1105,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 86,
+                                                                            value: 87,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1077,7 +1133,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 12,
+                                idx: 13,
                                 src: ExpectationSource {
                                     expr_idx: 21,
                                     kind: Expr,
@@ -1108,7 +1164,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 13,
+                                idx: 14,
                                 src: ExpectationSource {
                                     expr_idx: 23,
                                     kind: Expr,
@@ -1139,7 +1195,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 14,
+                                idx: 15,
                                 src: ExpectationSource {
                                     expr_idx: 24,
                                     kind: Expr,

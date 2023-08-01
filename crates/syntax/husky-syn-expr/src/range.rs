@@ -192,10 +192,10 @@ impl<'a> SynExprRangeCalculator<'a> {
                 symbol_modifier_keyword_group,
                 ident_token,
             } => match symbol_modifier_keyword_group {
-                Some(SymbolModifierTokenGroup::Mut(mut_token)) => {
+                Some(EphemSymbolModifierTokenGroup::Mut(mut_token)) => {
                     TokenIdxRange::new_closed(mut_token.token_idx(), ident_token.token_idx())
                 }
-                Some(SymbolModifierTokenGroup::RefMut(ref_token, ..)) => {
+                Some(EphemSymbolModifierTokenGroup::RefMut(ref_token, ..)) => {
                     TokenIdxRange::new_closed(ref_token.token_idx(), ident_token.token_idx())
                 }
                 Some(_) => todo!(),

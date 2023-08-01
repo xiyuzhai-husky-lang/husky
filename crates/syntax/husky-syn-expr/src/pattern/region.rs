@@ -8,7 +8,7 @@ pub struct SynPatternExprRegion {
     pattern_infos: Vec<SynPatternExprInfo>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
-    pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
+    pattern_symbol_modifiers: SynPatternSymbolOrderedMap<EphemSymbolModifier>,
 }
 
 impl SynPatternExprRegion {
@@ -128,7 +128,7 @@ impl SynExprRegionData {
     pub fn pattern_symbol_modifier(
         &self,
         pattern_symbol_idx: SynPatternSymbolIdx,
-    ) -> SymbolModifier {
+    ) -> EphemSymbolModifier {
         self.pattern_expr_region()
             .pattern_symbol_modifier(pattern_symbol_idx)
     }
@@ -142,7 +142,7 @@ impl SynPatternExprRegion {
     pub fn pattern_symbol_modifier(
         &self,
         pattern_symbol_idx: SynPatternSymbolIdx,
-    ) -> SymbolModifier {
+    ) -> EphemSymbolModifier {
         self.pattern_symbol_modifiers[pattern_symbol_idx]
     }
 }

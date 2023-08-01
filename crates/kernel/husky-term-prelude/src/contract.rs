@@ -4,16 +4,18 @@ use crate::*;
 pub enum Contract {
     None,
     Move,
+    Borrow,
     BorrowMut,
     Const,
+    Leash,
 }
 
 impl Contract {
-    pub fn new<TG>(token_group: Option<TG>) -> Self
+    pub fn new<TG>(ephem_symbol_modifier_token_group: Option<TG>) -> Self
     where
         TG: Into<Contract>,
     {
-        match token_group {
+        match ephem_symbol_modifier_token_group {
             Some(t) => t.into(),
             None => Contract::None,
         }
@@ -23,23 +25,25 @@ impl Contract {
         match self {
             Contract::None => "",
             Contract::Move => "move ",
+            Contract::Borrow => "borrow",
             Contract::BorrowMut => "borrow mut",
             Contract::Const => "const",
+            Contract::Leash => todo!(),
         }
     }
 }
 
-impl From<SymbolModifier> for Contract {
-    fn from(modifier: SymbolModifier) -> Self {
+impl From<EphemSymbolModifier> for Contract {
+    fn from(modifier: EphemSymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::None => Contract::None,
-            SymbolModifier::Mut => Contract::Move,
-            SymbolModifier::RefMut => Contract::BorrowMut,
-            SymbolModifier::Const => Contract::Const,
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(),
+            EphemSymbolModifier::None => Contract::None,
+            EphemSymbolModifier::Mut => Contract::Move,
+            EphemSymbolModifier::RefMut => Contract::BorrowMut,
+            EphemSymbolModifier::Const => Contract::Const,
+            EphemSymbolModifier::Ambersand(_) => todo!(),
+            EphemSymbolModifier::AmbersandMut(_) => todo!(),
+            EphemSymbolModifier::Le => todo!(),
+            EphemSymbolModifier::Tilde => todo!(),
         }
     }
 }

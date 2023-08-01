@@ -86,8 +86,8 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
         TypeEtherealSignatureTemplate::UnitStruct(_) => todo!(),
         TypeEtherealSignatureTemplate::TupleStruct(_) => todo!(),
         TypeEtherealSignatureTemplate::Record(_) => todo!(),
-        TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
-        TypeEtherealSignatureTemplate::Structure(_) => todo!(),
+        TypeEtherealSignatureTemplate::Inductive(_)
+        | TypeEtherealSignatureTemplate::Structure(_) => None,
         TypeEtherealSignatureTemplate::Extern(ethereal_signature_template) => {
             Some(ExternTypeHirDecl::new(path, ethereal_signature_template, db).into())
         }

@@ -43,7 +43,7 @@ pub enum SpecificParameterDecl {
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
         variadic_variant: VariadicVariant,
-        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
         ident_token: IdentToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonToken,
@@ -51,7 +51,7 @@ pub enum SpecificParameterDecl {
     },
     Keyed {
         pattern: SynPatternExprIdx,
-        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
         ident_token: IdentToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonToken,
@@ -140,7 +140,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             let access_start = ctx.save_state().next_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
-                ctx.try_parse_option::<SymbolModifierTokenGroup>()?;
+                ctx.try_parse_option::<EphemSymbolModifierTokenGroup>()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
             let variable = CurrentSynSymbol::new(

@@ -57,7 +57,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let template_parameter_decl_list = ctx.try_parse_option();
-        let parameter_decl_list =
+        let parenate_parameter_decl_list =
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
         let curry_token = ctx.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
@@ -73,7 +73,7 @@ impl<'a> DeclParser<'a> {
             node,
             ast_idx,
             template_parameter_decl_list,
-            parameter_decl_list,
+            parenate_parameter_decl_list,
             curry_token,
             return_ty,
             eol_colon,

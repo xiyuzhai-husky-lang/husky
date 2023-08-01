@@ -18,7 +18,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 44,
+                                value: 45,
                             },
                         ),
                     ),
@@ -33,7 +33,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 44,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -1991,7 +1991,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 71,
+                                                                            value: 72,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2003,7 +2003,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 72,
+                                                                            value: 73,
                                                                         },
                                                                     ),
                                                                 ),

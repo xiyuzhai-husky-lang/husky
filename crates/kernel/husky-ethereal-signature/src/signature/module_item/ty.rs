@@ -99,8 +99,22 @@ fn ty_ethereal_signature_template(
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Inductive(declarative_signature_template) => {
+            InductiveTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
+        TypeDeclarativeSignatureTemplate::Structure(declarative_signature_template) => {
+            StructureTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
         TypeDeclarativeSignatureTemplate::Extern(declarative_signature_template) => {
             ExternTypeEtherealSignatureTemplate::from_declarative(
                 db,

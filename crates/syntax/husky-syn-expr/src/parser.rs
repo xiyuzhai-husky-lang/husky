@@ -299,17 +299,24 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: SynPatternExprInfo,
     ) -> SynExprResult<Option<SynPatternExprIdx>> {
-        let symbol_modifier_keyword_group = self.try_parse_option()?;
-        let ident_token = match symbol_modifier_keyword_group {
+        let symbol_modifier_token_group = self.try_parse_option()?;
+        let ident_token = match symbol_modifier_token_group {
             None => match self.try_parse_option::<IdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },
-            Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
+            Some(ephem_symbol_modifier_token_group) => {
+                self.try_parse_expected(|token_stream_state| {
+                    OriginalExprError::ExpectedIdentAfterModifier(
+                        token_stream_state,
+                        ephem_symbol_modifier_token_group,
+                    )
+                })?
+            }
         };
         Ok(Some(self.alloc_pattern_expr(
             SynPatternExpr::Ident {
-                symbol_modifier_keyword_group,
+                symbol_modifier_keyword_group: symbol_modifier_token_group,
                 ident_token,
             },
             env,

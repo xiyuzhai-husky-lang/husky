@@ -35,20 +35,20 @@ impl SymbolType {
         let expr_region_data = engine.expr_region_data();
         let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
         let place = match expr_region_data[current_symbol_idx].modifier() {
-            SymbolModifier::None => Place::StackPure {
+            EphemSymbolModifier::None => Place::StackPure {
                 location: local_symbol_idx.into(),
             },
-            SymbolModifier::Mut => Place::MutableStackOwned {
+            EphemSymbolModifier::Mut => Place::MutableStackOwned {
                 location: local_symbol_idx.into(),
             },
-            SymbolModifier::RefMut => Place::RefMut {
+            EphemSymbolModifier::RefMut => Place::RefMut {
                 guard: Left(local_symbol_idx.into()),
             },
-            SymbolModifier::Const => Place::Const,
-            SymbolModifier::Ambersand(_) => todo!(),
-            SymbolModifier::AmbersandMut(_) => todo!(),
-            SymbolModifier::Le => todo!(),
-            SymbolModifier::Tilde => todo!(), // todo: handle variance
+            EphemSymbolModifier::Const => Place::Const,
+            EphemSymbolModifier::Ambersand(_) => todo!(),
+            EphemSymbolModifier::AmbersandMut(_) => todo!(),
+            EphemSymbolModifier::Le => todo!(),
+            EphemSymbolModifier::Tilde => todo!(), // todo: handle variance
         };
         Self(match ty {
             FluffyTerm::Literal(_) => todo!(),

@@ -34,7 +34,7 @@ pub enum ImplicitParameterSymbol {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
-    modifier: SymbolModifier,
+    modifier: EphemSymbolModifier,
     kind: InheritedSynSymbolKind,
 }
 
@@ -77,7 +77,7 @@ pub enum InheritedImplicitParameterSynSymbol {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct CurrentSynSymbol {
-    modifier: SymbolModifier,
+    modifier: EphemSymbolModifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
@@ -99,7 +99,7 @@ impl CurrentSynSymbol {
         }
     }
 
-    pub fn modifier(&self) -> SymbolModifier {
+    pub fn modifier(&self) -> EphemSymbolModifier {
         self.modifier
     }
 
@@ -177,7 +177,7 @@ pub enum CurrentSynSymbolVariant {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ExplicitVariadicParameter {
-        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
         ident_token: IdentToken,
     },
     LetVariable {
@@ -221,12 +221,12 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentSynSymbolVariant {
-    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
+    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> EphemSymbolModifier {
         match self {
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
-            } => SymbolModifier::Const,
+            } => EphemSymbolModifier::Const,
             CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
@@ -236,8 +236,8 @@ impl CurrentSynSymbolVariant {
             CurrentSynSymbolVariant::ExplicitVariadicParameter {
                 symbol_modifier_keyword_group,
                 ..
-            } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::None,
+            } => EphemSymbolModifier::new(*symbol_modifier_keyword_group),
+            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => EphemSymbolModifier::None,
         }
     }
 }
