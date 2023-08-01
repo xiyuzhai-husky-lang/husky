@@ -6,15 +6,15 @@ pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterDecl;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub struct Generics {
-    langle: LeftAngleBracketOrLessThanToken,
+    langle: LaOrLtToken,
     template_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
     decl_list_result: Result<(), NodeDeclError>,
-    rangle: RightAngleBracketToken,
+    rangle: RaOrGtToken,
 }
 
 impl Generics {
-    pub fn lcurl(&self) -> LeftAngleBracketOrLessThanToken {
+    pub fn lcurl(&self) -> LaOrLtToken {
         self.langle
     }
 
@@ -33,7 +33,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> NodeDeclResult<Option<Self>> {
-        let Some(langle) = ctx.try_parse_option::<LeftAngleBracketOrLessThanToken>()? else {
+        let Some(langle) = ctx.try_parse_option::<LaOrLtToken>()? else {
             return Ok(None);
         };
         let (template_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(

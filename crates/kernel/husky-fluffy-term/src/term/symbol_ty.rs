@@ -44,7 +44,11 @@ impl SymbolType {
             SymbolModifier::RefMut => Place::RefMut {
                 guard: Left(local_symbol_idx.into()),
             },
-            SymbolModifier::Const => Place::Const, // todo: handle variance
+            SymbolModifier::Const => Place::Const,
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(), // todo: handle variance
         };
         Self(match ty {
             FluffyTerm::Literal(_) => todo!(),

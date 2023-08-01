@@ -7,12 +7,12 @@ pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterDecl;
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
 pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> {
-    lpar: LeftParenthesisToken,
+    lpar: LparToken,
     self_parameter: Option<SelfParameterDeclPattern>,
     comma_after_self_parameter: Option<CommaToken>,
     parenate_parameters: ExplicitParameterDeclPatterns,
     commas: CommaTokens,
-    rpar: RightParenthesisToken,
+    rpar: RparToken,
 }
 
 impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprParseContext<'a, 'b>>
@@ -23,7 +23,7 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprPars
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, NodeDeclError> {
-        let Some(lpar) = ctx.try_parse_option::<LeftParenthesisToken>()? else {
+        let Some(lpar) = ctx.try_parse_option::<LparToken>()? else {
             return Ok(None);
         };
         let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_option()?;

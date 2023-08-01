@@ -50,7 +50,7 @@ pub(super) enum IncompleteExpr {
     Ritchie {
         ritchie_kind_token_idx: TokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: LeftParenthesisToken,
+        lpar_token: LparToken,
         argument_tys: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
         light_arrow_token: LightArrowToken,
@@ -68,7 +68,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for HtmlArgument
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_option::<LeftCurlyBraceToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<LcurlToken>()? {
             Ok(Some(HtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,

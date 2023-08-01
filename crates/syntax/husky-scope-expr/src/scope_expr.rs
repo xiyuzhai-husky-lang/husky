@@ -10,9 +10,9 @@ pub enum VisibilityExpr {
     },
     PublicUnder {
         pub_token: PubToken,
-        lpar: LeftParenthesisToken,
+        lpar: LparToken,
         visibility: ModulePathExprIdx,
-        rpar: RightParenthesisToken,
+        rpar: RparToken,
     },
 }
 
@@ -49,7 +49,7 @@ impl<'a, 'b> parsec::ParseFrom<VisibilityExprParser<'a, 'b>> for VisibilityExpr 
         let Some(pub_token) = ctx.parse::<PubToken>()? else {
             return Ok(None)
         };
-        let Some(_lpar) = ctx.parse::<LeftParenthesisToken>()? else {
+        let Some(_lpar) = ctx.parse::<LparToken>()? else {
             return Ok(Some(VisibilityExpr::Public { pub_token }))
         };
         todo!()

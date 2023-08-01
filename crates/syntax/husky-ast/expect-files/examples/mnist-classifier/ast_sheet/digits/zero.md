@@ -289,7 +289,7 @@ Ok(
                                     44,
                                 ),
                             },
-                            lpar: LeftParenthesisToken(
+                            lpar: LparToken(
                                 TokenIdx(
                                     45,
                                 ),
@@ -301,7 +301,7 @@ Ok(
                                     ),
                                 },
                             ),
-                            rpar: RightParenthesisToken(
+                            rpar: RparToken(
                                 TokenIdx(
                                     47,
                                 ),

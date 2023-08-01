@@ -9,10 +9,10 @@ pub struct DeriveDecr {
     pub decr_id: DecrId,
     pub at_token: AtToken,
     pub derive_token: IdentToken,
-    pub lpar_token: LeftParenthesisToken,
+    pub lpar_token: LparToken,
     pub trai_exprs: Vec<TraitExpr>,
     pub commas: Vec<CommaToken>,
-    pub rpar_token: RightParenthesisToken,
+    pub rpar_token: RparToken,
     pub syn_expr_region: SynExprRegion,
 }
 

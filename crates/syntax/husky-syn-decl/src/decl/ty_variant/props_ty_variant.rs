@@ -1,5 +1,5 @@
 use super::*;
-use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
+use husky_token::{CommaToken, LcurlToken, RcurlToken};
 use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
@@ -13,14 +13,14 @@ pub struct PropsTypeVariantSynNodeDecl {
     #[return_ref]
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rcurl: NodeDeclResult<PropsTypeVariantRightCurlyBraceToken>,
+    rcurl: NodeDeclResult<PropsTypeVariantRcurlToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsTypeVariantLeftCurlyBrace(LeftCurlyBraceToken);
+pub struct PropsTypeVariantLeftCurlyBrace(LcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLeftCurlyBrace {
     type Error = NodeDeclError;
@@ -34,9 +34,9 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLe
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsTypeVariantRightCurlyBraceToken(RightCurlyBraceToken);
+pub struct PropsTypeVariantRcurlToken(RcurlToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRightCurlyBraceToken {
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRcurlToken {
     type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {

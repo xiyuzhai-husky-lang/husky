@@ -5,14 +5,14 @@ pub enum HtmlArgumentExpr {
     Expanded {
         property_ident: IdentToken,
         eq: EqToken,
-        lcurl: LeftCurlyBraceToken,
+        lcurl: LcurlToken,
         expr: SynExprIdx,
-        rcurl: RightCurlyBraceToken,
+        rcurl: RcurlToken,
     },
     Shortened {
-        lcurl: LeftCurlyBraceToken,
+        lcurl: LcurlToken,
         property_ident: IdentToken,
-        rcurl: RightCurlyBraceToken,
+        rcurl: RcurlToken,
     },
 }
 

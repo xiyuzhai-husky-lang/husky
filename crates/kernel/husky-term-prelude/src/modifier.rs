@@ -4,6 +4,10 @@ pub enum SymbolModifier {
     Mut,
     RefMut,
     Const,
+    Ambersand(Option<husky_coword::Label>),
+    AmbersandMut(Option<husky_coword::Label>),
+    Le,
+    Tilde,
 }
 
 impl SymbolModifier {

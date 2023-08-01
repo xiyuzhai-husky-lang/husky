@@ -1,5 +1,4 @@
 mod item_kind;
-mod symbol_modifier;
 
 pub use self::item_kind::*;
 pub use self::symbol_modifier::*;

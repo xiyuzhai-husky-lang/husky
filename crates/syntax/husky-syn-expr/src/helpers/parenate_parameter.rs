@@ -7,8 +7,8 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 pub enum VariadicVariant {
     Default,
     Vec {
-        lbox_token: LeftBoxBracketToken,
-        rbox_token: RightBoxBracketToken,
+        lbox_token: LboxToken,
+        rbox_token: RboxToken,
     },
 }
 
@@ -16,8 +16,8 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
     type Error = ExprError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
-        if let Some(lbox_token) = sp.try_parse_option::<LeftBoxBracketToken>()? {
-            if let Some(rbox_token) = sp.try_parse_option::<RightBoxBracketToken>()? {
+        if let Some(lbox_token) = sp.try_parse_option::<LboxToken>()? {
+            if let Some(rbox_token) = sp.try_parse_option::<RboxToken>()? {
                 Ok(VariadicVariant::Vec {
                     lbox_token,
                     rbox_token,
@@ -43,7 +43,7 @@ pub enum SpecificParameterDecl {
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
         variadic_variant: VariadicVariant,
-        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
+        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
         ident_token: IdentToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonToken,
@@ -51,7 +51,7 @@ pub enum SpecificParameterDecl {
     },
     Keyed {
         pattern: SynPatternExprIdx,
-        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
+        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
         ident_token: IdentToken,
         variable: CurrentSynSymbolIdx,
         colon: ColonToken,
@@ -140,7 +140,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             let access_start = ctx.save_state().next_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
-                ctx.try_parse_option::<SymbolModifierKeywordGroup>()?;
+                ctx.try_parse_option::<SymbolModifierTokenGroup>()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
             let variable = CurrentSynSymbol::new(

@@ -34,7 +34,7 @@ impl VisibilityExpr {
     ) -> VisibilityExprResult<Self> {
         Ok(
             if let Some(pub_token) = token_stream.try_parse_option::<PubToken>()? {
-                if let Some(lpar) = token_stream.try_parse_option::<LeftParenthesisToken>()? {
+                if let Some(lpar) = token_stream.try_parse_option::<LparToken>()? {
                     let path_name_token: PathNameToken = token_stream
                         .try_parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
                     match path_name_token {
@@ -79,9 +79,9 @@ pub enum VisibilityExprVariant {
     },
     PubUnder {
         pub_token: PubToken,
-        lpar: LeftParenthesisToken,
+        lpar: LparToken,
         visibility: VisibilityScopeExpr,
-        rpar: RightParenthesisToken,
+        rpar: RparToken,
     },
 }
 

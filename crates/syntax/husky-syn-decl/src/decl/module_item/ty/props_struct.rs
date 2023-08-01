@@ -1,5 +1,5 @@
 use super::*;
-use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
+use husky_token::{CommaToken, LcurlToken, RcurlToken};
 use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -14,7 +14,7 @@ pub struct PropsStructTypeSynNodeDecl {
     #[return_ref]
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rcurl: NodeDeclResult<PropsStructRightCurlyBraceToken>,
+    rcurl: NodeDeclResult<PropsStructRcurlToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -35,7 +35,7 @@ impl PropsStructTypeSynNodeDecl {
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructLeftCurlyBrace(LeftCurlyBraceToken);
+pub struct PropsStructLeftCurlyBrace(LcurlToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCurlyBrace {
     type Error = NodeDeclError;
@@ -49,9 +49,9 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCur
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructRightCurlyBraceToken(RightCurlyBraceToken);
+pub struct PropsStructRcurlToken(RcurlToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRightCurlyBraceToken {
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRcurlToken {
     type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
