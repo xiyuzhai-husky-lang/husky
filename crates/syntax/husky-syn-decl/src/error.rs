@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_syn_tree::EntityTreeError;
+use husky_print_utils::p;
 use husky_syn_expr::OriginalExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
@@ -93,7 +94,7 @@ pub enum DerivedNodeDeclError {
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub enum DeclError {
     #[error("declaration expression error")]
-    Expr,
+    NodeDecl,
     // #[error("{0}")]
     // Original(#[from] OriginalDeclError),
     // #[error("{0}")]
@@ -104,6 +105,8 @@ pub type DeclResult<T> = Result<T, DeclError>;
 
 impl From<&NodeDeclError> for DeclError {
     fn from(value: &NodeDeclError) -> Self {
-        DeclError::Expr
+        p!(value);
+        todo!();
+        DeclError::NodeDecl
     }
 }

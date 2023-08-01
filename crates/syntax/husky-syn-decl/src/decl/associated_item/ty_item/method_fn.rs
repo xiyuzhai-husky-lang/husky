@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -106,6 +108,8 @@ impl TypeMethodFnSynDecl {
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
+        use salsa::DebugWithDb;
+        p!(path.debug(db));
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
         let self_parameter = *parenate_parameter_decl_list.self_parameter();
