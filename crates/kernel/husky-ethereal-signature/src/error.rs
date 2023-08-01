@@ -8,9 +8,11 @@ pub enum EtherealSignatureError {
     #[error("term error")]
     TermError,
     #[error("DerivedFromDeclarative")]
-    DerivedFromDeclarative,
+    DerivedFromDeclarativeSignature(DeclarativeSignatureError),
     #[error("NoSuchItem")]
     NoSuchItem,
+    #[error("EntityTreeError")]
+    EntityTreeError,
 }
 
 impl From<&EtherealSignatureError> for EtherealSignatureError {
@@ -21,7 +23,7 @@ impl From<&EtherealSignatureError> for EtherealSignatureError {
 
 impl From<DeclarativeSignatureError> for EtherealSignatureError {
     fn from(e: DeclarativeSignatureError) -> Self {
-        EtherealSignatureError::DerivedFromDeclarative
+        EtherealSignatureError::DerivedFromDeclarativeSignature(e)
     }
 }
 

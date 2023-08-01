@@ -18,7 +18,7 @@ pub enum DeclarativeSignatureError {
     ReturnTypeDeclarativeTermError,
     // derived
     #[error("todo")]
-    DeclError,
+    DeclError(DeclError),
     #[error("todo")]
     NodeDeclError,
     #[error("todo")]
@@ -34,8 +34,8 @@ impl From<&DeclarativeSignatureError> for DeclarativeSignatureError {
 }
 
 impl From<DeclError> for DeclarativeSignatureError {
-    fn from(_: DeclError) -> Self {
-        DeclarativeSignatureError::DeclError
+    fn from(e: DeclError) -> Self {
+        DeclarativeSignatureError::DeclError(e)
     }
 }
 

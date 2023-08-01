@@ -170,7 +170,7 @@ pub(crate) fn ty_item_ethereal_signature_templates_map(
                     //         todo!()
                     //     }
                     // },
-                    Err(e) => Err(EtherealSignatureError::DerivedFromDeclarative),
+                    Err(e) => Err(EtherealSignatureError::EntityTreeError),
                 };
                 (*ident, result)
             },
