@@ -13,16 +13,14 @@ pub struct TupleTypeVariantSynNodeDecl {
     field_comma_list:
         NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rpar: NodeDeclResult<TupleTypeVariantRightParenthesisToken>,
+    rpar: NodeDeclResult<TupleTypeVariantRparToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TupleTypeVariantRightParenthesisToken(RightParenthesisToken);
+pub struct TupleTypeVariantRparToken(RparToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>>
-    for TupleTypeVariantRightParenthesisToken
-{
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleTypeVariantRparToken {
     type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {

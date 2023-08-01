@@ -4,12 +4,12 @@ pub extern List<covariant E>;
 impl<E> List E:
     pub fn ilen() -> i32;
 
-    pub fn push(mut self, e: E);
+    pub fn push(&mut self, e: E);
 
     pub fn first() -> Option E;
 
     pub fn last() -> Option E;
 
-    pub fn pop(mut self) -> Option E;
+    pub fn pop(&mut self) -> Option E;
 
     pub fn collect_leashes(~self) -> []~E;

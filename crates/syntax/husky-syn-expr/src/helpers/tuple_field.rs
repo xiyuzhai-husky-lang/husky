@@ -71,7 +71,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Fiel
         let Some(pub_token) = ctx.try_parse_option::<PubToken>()? else {
             return Ok(None);
         };
-        let Some(lpar_token) = ctx.try_parse_option::<LeftParenthesisToken>()? else {
+        let Some(lpar_token) = ctx.try_parse_option::<LparToken>()? else {
             return Ok(Some(FieldVisibilityExpr::Pub));
         };
         todo!()

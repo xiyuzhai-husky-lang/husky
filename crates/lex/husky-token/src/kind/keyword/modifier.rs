@@ -3,6 +3,8 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ModifierKeyword {
     Mut,
+    Ref,
+    Le,
     Covariant,
     Contravariant,
     Invariant,
@@ -32,6 +34,8 @@ impl ModifierKeyword {
     pub const fn code(self) -> &'static str {
         match self {
             ModifierKeyword::Mut => "mut",
+            ModifierKeyword::Ref => "ref",
+            ModifierKeyword::Le => "le",
             ModifierKeyword::Covariant => "covariant",
             ModifierKeyword::Contravariant => "contravariant",
             ModifierKeyword::Invariant => "invariant",

@@ -41,10 +41,10 @@ pub enum UseExprChildren {
         child: UseExprIdx,
     },
     Multiple {
-        lcurl_token: LeftCurlyBraceToken,
+        lcurl_token: LcurlToken,
         children: UseExprIdxRange,
         comma_tokens: Vec<CommaToken>,
-        rcurl_token: UseExprResult<RightCurlyBraceToken>,
+        rcurl_token: UseExprResult<RcurlToken>,
     },
 }
 impl UseExprChildren {
@@ -263,7 +263,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
-        let Some(lcurl_token) = self.try_parse_option::<LeftCurlyBraceToken>()? else {
+        let Some(lcurl_token) = self.try_parse_option::<LcurlToken>()? else {
             let child = self
                 .try_parse_expected(OriginalUseExprError::ExpectUseExpr)
                 .into();

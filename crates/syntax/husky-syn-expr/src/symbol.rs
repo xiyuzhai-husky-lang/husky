@@ -25,7 +25,7 @@ pub enum Symbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum ImplicitParameterSymbol {
-    Lifetime { label_token: LifetimeLabelToken },
+    Lifetime { label_token: LifetimeToken },
     Type { ident_token: IdentToken },
     Const {},
 }
@@ -160,7 +160,7 @@ pub enum CurrentSynSymbolKind {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentImplicitParameterSynSymbolKind {
     Type { ident_token: IdentToken },
-    Lifetime { label_token: LifetimeLabelToken },
+    Lifetime { label_token: LifetimeToken },
     Constant { ident_token: IdentToken },
 }
 
@@ -177,7 +177,7 @@ pub enum CurrentSynSymbolVariant {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
     ExplicitVariadicParameter {
-        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
+        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
         ident_token: IdentToken,
     },
     LetVariable {
@@ -247,7 +247,7 @@ impl CurrentSynSymbolVariant {
 #[non_exhaustive]
 pub enum CurrentTemplateParameterSynSymbolVariant {
     Lifetime {
-        label_token: LifetimeLabelToken,
+        label_token: LifetimeToken,
     },
     Type {
         ident_token: IdentToken,

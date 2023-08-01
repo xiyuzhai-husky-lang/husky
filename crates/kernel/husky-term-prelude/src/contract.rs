@@ -9,13 +9,11 @@ pub enum Contract {
 }
 
 impl Contract {
-    pub fn new<SymbolModifierKeywordGroup>(
-        keyword_group: Option<SymbolModifierKeywordGroup>,
-    ) -> Self
+    pub fn new<TG>(token_group: Option<TG>) -> Self
     where
-        SymbolModifierKeywordGroup: Into<Contract>,
+        TG: Into<Contract>,
     {
-        match keyword_group {
+        match token_group {
             Some(t) => t.into(),
             None => Contract::None,
         }
@@ -38,6 +36,10 @@ impl From<SymbolModifier> for Contract {
             SymbolModifier::Mut => Contract::Move,
             SymbolModifier::RefMut => Contract::BorrowMut,
             SymbolModifier::Const => Contract::Const,
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(),
         }
     }
 }

@@ -146,7 +146,7 @@ impl ImplBlockSynNode {
         mut parser: ModuleItemPathExprParser,
         impl_token: ImplToken,
     ) -> Result<Self, ImplBlockIllForm> {
-        if let Some(_) = parser.try_parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {
+        if let Some(_) = parser.try_parse_err_as_none::<LaOrLtToken>() {
             match ignore_template_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(_e) => todo!(),

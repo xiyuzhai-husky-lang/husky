@@ -9,12 +9,12 @@ pub struct TupleStructTypeSynNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    lpar: LeftParenthesisToken,
+    lpar: LparToken,
     #[return_ref]
     field_comma_list:
         NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rpar: NodeDeclResult<TupleStructRightParenthesisToken>,
+    rpar: NodeDeclResult<TupleStructRparToken>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -30,9 +30,9 @@ impl TupleStructTypeSynNodeDecl {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TupleStructRightParenthesisToken(RightParenthesisToken);
+pub struct TupleStructRparToken(RparToken);
 
-impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRightParenthesisToken {
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRparToken {
     type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {

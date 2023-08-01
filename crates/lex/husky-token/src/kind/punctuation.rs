@@ -187,7 +187,9 @@ impl Punctuation {
     pub const LOGIC_AND: Self = Self(PunctuationMapped::Binary(BinaryOpr::ShortCircuitLogic(
         BinaryShortcuitLogicOpr::And,
     )));
+    /// `*`
     pub const STAR: Self = Self(PunctuationMapped::Star);
+    /// `/>`
     pub const EMPTY_HTML_KET: Self = Self(PunctuationMapped::EmptyHtmlKet);
 }
 

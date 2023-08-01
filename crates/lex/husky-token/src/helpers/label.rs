@@ -4,12 +4,12 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = TokenDb)]
-pub struct LifetimeLabelToken {
+pub struct LifetimeToken {
     label: Label,
     token_idx: TokenIdx,
 }
 
-impl LifetimeLabelToken {
+impl LifetimeToken {
     pub fn label(&self) -> Label {
         self.label
     }
@@ -19,7 +19,7 @@ impl LifetimeLabelToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeToken
 where
     Context: TokenStreamParser<'a>,
 {
@@ -31,7 +31,7 @@ where
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 Token::Label(label) if label.is_valid_lifetime_label() => {
-                    Ok(Some(LifetimeLabelToken { label, token_idx }))
+                    Ok(Some(LifetimeToken { label, token_idx }))
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)

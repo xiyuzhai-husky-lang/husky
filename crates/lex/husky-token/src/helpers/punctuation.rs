@@ -1,5 +1,6 @@
 use super::*;
 use husky_opr::{BinaryOpr, Bracket};
+use paste::paste;
 
 // punctuation in general
 
@@ -61,633 +62,91 @@ where
     }
 }
 
-// colon
+macro_rules! define_specific_punctuation_token {
+    ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
+        #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+        #[salsa::debug_with_db(db = TokenDb)]
+        pub struct $ty(TokenIdx);
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct ColonToken(TokenIdx);
+        impl $ty {
+            pub fn token_idx(self) -> TokenIdx {
+                self.0
+            }
+        }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ColonToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
+        impl<'a, Context> parsec::TryParseOptionFromStream<Context> for $ty
+        where
+            Context: TokenStreamParser<'a>,
+        {
+            type Error = TokenError;
 
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::COLON, ColonToken)
-    }
+            fn try_parse_option_from_stream_without_guaranteed_rollback(
+                ctx: &mut Context,
+            ) -> TokenResult<Option<Self>> {
+                parse_specific_punctuation_from(ctx, Punctuation::$punc, $ty)
+            }
+        }
+        #[test]
+        fn $test_name() {
+            fn t(db: &DB, input: &str) -> TokenResult<Option<SemiColonToken>> {
+                quick_parse(db, input)
+            }
+
+            let db = DB::default();
+            assert!(t(&db, $s).unwrap().is_some());
+        }
+    };
 }
 
-#[test]
-fn colon_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<ColonToken>> {
-        quick_parse(db, input)
-    }
+define_specific_punctuation_token!(ColonToken, COLON, colon_token_works, ":");
 
-    let db = DB::default();
-    assert!(t(&db, ":").unwrap().is_some());
-    assert!(t(&db, ",").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
+define_specific_punctuation_token!(SemiColonToken, SEMICOLON, semicolon_token_works, ";");
 
-// semicolon
+define_specific_punctuation_token!(CommaToken, COMMA, comma_token_works, ",");
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
+define_specific_punctuation_token!(EqToken, EQ, eq_token_works, "=");
 
-pub struct SemiColonToken(TokenIdx);
+define_specific_punctuation_token!(LparToken, LPAR, lpar_token_works, "(");
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SemiColonToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
+define_specific_punctuation_token!(RparToken, RPAR, rpar_token_works, ")");
 
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::SEMICOLON, SemiColonToken)
-    }
-}
+define_specific_punctuation_token!(LboxToken, LBOX, lbox_token_works, "[");
 
-#[test]
-fn semicolon_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<SemiColonToken>> {
-        quick_parse(db, input)
-    }
+define_specific_punctuation_token!(RboxToken, RBOX, rbox_token_works, "]");
 
-    let db = DB::default();
-    assert!(t(&db, ";").unwrap().is_some());
-    assert!(t(&db, ":").unwrap().is_none());
-    assert!(t(&db, ",").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
+define_specific_punctuation_token!(LcurlToken, LCURL, lcurl_token_works, "{");
 
-// comma
+define_specific_punctuation_token!(RcurlToken, RCURL, rcurl_token_works, "}");
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct CommaToken(TokenIdx);
+define_specific_punctuation_token!(LaOrLtToken, LA_OR_LT, la_or_lt_token_works, "<");
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for CommaToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
+define_specific_punctuation_token!(
+    ColonColonLaToken,
+    COLON_COLON_LA,
+    colon_colon_la_token_works,
+    "::<"
+);
 
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::COMMA, CommaToken)
-    }
-}
+define_specific_punctuation_token!(RaOrGtToken, RA_OR_GT, ra_or_gt_token_works, ">");
 
-#[test]
-fn comma_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<CommaToken>> {
-        quick_parse(db, input)
-    }
+define_specific_punctuation_token!(
+    EmptyHtmlKetToken,
+    EMPTY_HTML_KET,
+    empty_html_ket_token_works,
+    "/>"
+);
 
-    let db = DB::default();
-    assert!(t(&db, ",").unwrap().is_some());
-    assert!(t(&db, ")").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
+define_specific_punctuation_token!(VerticalToken, VERTICAL, vertical_token_works, "|");
 
-/// eq `=`
+define_specific_punctuation_token!(AtToken, AT, at_token_works, "@");
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct EqToken(TokenIdx);
+define_specific_punctuation_token!(DotDotToken, DOT_DOT, dot_dot_token_works, "..");
 
-impl EqToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.0
-    }
-}
+define_specific_punctuation_token!(DotDotDotToken, DOT_DOT_DOT, dot_dot_dot_token_works, "...");
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EqToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
+define_specific_punctuation_token!(AmbersandToken, AMBERSAND, ambersand_works, "&");
 
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::EQ, EqToken)
-    }
-}
-
-#[test]
-fn eq_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<EqToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "=").unwrap().is_some());
-    assert!(t(&db, "=:").unwrap().is_some());
-    assert!(t(&db, ")").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// left parenthesis
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct LeftParenthesisToken(TokenIdx);
-
-impl LeftParenthesisToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.0
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LeftParenthesisToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::LPAR, LeftParenthesisToken)
-    }
-}
-
-#[test]
-fn left_parenthesis_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftParenthesisToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "(").unwrap().is_some());
-    assert!(t(&db, ")").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// right parenthesis
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct RightParenthesisToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RightParenthesisToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RPAR, RightParenthesisToken)
-    }
-}
-
-#[test]
-fn right_parenthesis_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<RightParenthesisToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, ")").unwrap().is_some());
-    assert!(t(&db, "(").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// left box bracket
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct LeftBoxBracketToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LeftBoxBracketToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::LBOX, LeftBoxBracketToken)
-    }
-}
-
-#[test]
-fn left_box_bracket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftBoxBracketToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "[").unwrap().is_some());
-    assert!(t(&db, "]").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// right box bracket
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct RightBoxBracketToken(TokenIdx);
-
-impl RightBoxBracketToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.0
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RightBoxBracketToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RBOX, RightBoxBracketToken)
-    }
-}
-
-#[test]
-fn right_box_bracket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<RightBoxBracketToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "]").unwrap().is_some());
-    assert!(t(&db, "[").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// left curly brace
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct LeftCurlyBraceToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LeftCurlyBraceToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::LCURL, LeftCurlyBraceToken)
-    }
-}
-
-#[test]
-fn left_curly_brace_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftCurlyBraceToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "{").unwrap().is_some());
-    assert!(t(&db, "}").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// right curly brace
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct RightCurlyBraceToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RightCurlyBraceToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RCURL, RightCurlyBraceToken)
-    }
-}
-
-#[test]
-fn right_curly_brace_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<RightCurlyBraceToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "}").unwrap().is_some());
-    assert!(t(&db, "{").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// left angle bracket
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct LeftAngleBracketOrLessThanToken(TokenIdx);
-
-impl LeftAngleBracketOrLessThanToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.0
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LeftAngleBracketOrLessThanToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::LA_OR_LT, LeftAngleBracketOrLessThanToken)
-    }
-}
-
-#[test]
-fn left_angle_or_less_bracket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<LeftAngleBracketOrLessThanToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "<").unwrap().is_some());
-    assert!(t(&db, "::<").unwrap().is_none());
-    assert!(t(&db, ">").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// colon colon left angle bracket
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct ColonColonLeftAngleBracketToken(TokenIdx);
-
-impl ColonColonLeftAngleBracketToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.0
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ColonColonLeftAngleBracketToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(
-            ctx,
-            Punctuation::COLON_COLON_LA,
-            ColonColonLeftAngleBracketToken,
-        )
-    }
-}
-
-#[test]
-fn colon_colon_left_angle_bracket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<ColonColonLeftAngleBracketToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "::<").unwrap().is_some());
-    assert!(t(&db, "<").unwrap().is_none());
-    assert!(t(&db, ">").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// right angle bracket
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct RightAngleBracketToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RightAngleBracketToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RA_OR_GT, RightAngleBracketToken)
-    }
-}
-
-#[test]
-fn right_angle_bracket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<RightAngleBracketToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, ">").unwrap().is_some());
-    assert!(t(&db, "<").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// `/>`
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct EmptyHtmlKetToken(TokenIdx);
-
-impl EmptyHtmlKetToken {
-    pub fn token_idx(self) -> TokenIdx {
-        self.0
-    }
-}
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EmptyHtmlKetToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::EMPTY_HTML_KET, EmptyHtmlKetToken)
-    }
-}
-
-#[test]
-fn empty_html_ket_token_works() {
-    let db = DB::default();
-    fn t(db: &DB, input: &str) -> TokenResult<Option<EmptyHtmlKetToken>> {
-        quick_parse(db, input)
-    }
-
-    assert!(t(&db, "/>").unwrap().is_some());
-    assert!(t(&db, "<").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// vertical
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct VerticalToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VerticalToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::VERTICAL, VerticalToken)
-    }
-}
-
-#[test]
-fn vertical_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<VerticalToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "|").unwrap().is_some());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// at
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct AtToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for AtToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::AT, AtToken)
-    }
-}
-
-#[test]
-fn at_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<AtToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "@").unwrap().is_some());
-    assert!(t(&db, "|").unwrap().is_none());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// dotdot
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct DotDotToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DotDotToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT, DotDotToken)
-    }
-}
-
-#[test]
-fn dotdot_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "..").unwrap().is_some());
-    assert!(t(&db, "...").unwrap().is_none());
-    assert!(t(&db, "@").unwrap().is_none());
-    assert!(t(&db, ".").unwrap().is_none());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
-
-// dotdotdot `...`
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = TokenDb)]
-pub struct DotDotDotToken(TokenIdx);
-
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DotDotDotToken
-where
-    Context: TokenStreamParser<'a>,
-{
-    type Error = TokenError;
-
-    fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT_DOT, DotDotDotToken)
-    }
-}
-
-#[test]
-fn dot_dot_dot_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotDotToken>> {
-        quick_parse(db, input)
-    }
-
-    let db = DB::default();
-    assert!(t(&db, "...").unwrap().is_some());
-    assert!(t(&db, "..").unwrap().is_none());
-    assert!(t(&db, "@").unwrap().is_none());
-    assert!(t(&db, ".").unwrap().is_none());
-    assert!(t(&db, "||").unwrap().is_none());
-    assert!(t(&db, "a").unwrap().is_none());
-    assert!(t(&db, "'").is_err());
-}
+define_specific_punctuation_token!(TildeToken, TILDE, tilde_token_works, "&");
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

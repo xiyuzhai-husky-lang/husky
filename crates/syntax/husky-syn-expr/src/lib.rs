@@ -163,7 +163,7 @@ pub enum SynExpr {
     Ritchie {
         ritchie_kind_token_idx: TokenIdx,
         ritchie_kind: RitchieKind,
-        lpar_token: LeftParenthesisToken,
+        lpar_token: LparToken,
         parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
         light_arrow_token: Option<LightArrowToken>,

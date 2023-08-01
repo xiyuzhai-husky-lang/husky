@@ -48,6 +48,8 @@ pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pr
             StmtKeyword::Require,
             Keyword::Const,
             ModifierKeyword::Mut,
+            ModifierKeyword::Ref,
+            ModifierKeyword::Le,
             ModifierKeyword::Covariant,
             ModifierKeyword::Contravariant,
             ModifierKeyword::Invariant,

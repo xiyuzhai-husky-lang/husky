@@ -38,3 +38,4 @@ lto = false
 thiserror = "1.0.37"
 smallvec = "1.10.0"
 ordered-float = "3.0.0"
+paste = "1.0.6"
