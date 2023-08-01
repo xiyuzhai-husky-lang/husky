@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 pub mod db;
 pub mod symbol;
 pub mod template_argument;

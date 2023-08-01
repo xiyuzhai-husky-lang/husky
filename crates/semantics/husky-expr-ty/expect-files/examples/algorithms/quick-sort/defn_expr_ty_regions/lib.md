@@ -324,7 +324,7 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -638,7 +638,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -1336,7 +1336,7 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -1965,7 +1965,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -2216,7 +2216,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -2467,7 +2467,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -2910,7 +2910,7 @@
                             FluffyTerm::Symbol(
                                 EtherealTermSymbol {
                                     ty: EtherealTerm(`Type`),
-                                    idx: EtherealTermSymbolIndex(
+                                    index: EtherealTermSymbolIndex(
                                         Type {
                                             attrs: EtherealTemplateSymbolAttrs {
                                                 phantom: false,
@@ -3198,7 +3198,7 @@
                             FluffyTerm::Symbol(
                                 EtherealTermSymbol {
                                     ty: EtherealTerm(`Type`),
-                                    idx: EtherealTermSymbolIndex(
+                                    index: EtherealTermSymbolIndex(
                                         Type {
                                             attrs: EtherealTemplateSymbolAttrs {
                                                 phantom: false,
@@ -3579,7 +3579,7 @@
                                 FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -4030,7 +4030,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,
@@ -4321,7 +4321,7 @@
                                 expectee: FluffyTerm::Symbol(
                                     EtherealTermSymbol {
                                         ty: EtherealTerm(`Type`),
-                                        idx: EtherealTermSymbolIndex(
+                                        index: EtherealTermSymbolIndex(
                                             Type {
                                                 attrs: EtherealTemplateSymbolAttrs {
                                                     phantom: false,

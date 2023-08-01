@@ -51,6 +51,7 @@ use husky_toml_token::TomlTokenJar;
     EtherealSignatureJar,
     FluffyTermJar,
     ExprTypeJar,
+    husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::db::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
     HirDeclJar

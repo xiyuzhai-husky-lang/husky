@@ -12,6 +12,10 @@ impl EtherealTemplateSymbolAttrs {
             phantom: attrs.phantom(),
         }
     }
+
+    pub fn phantom(&self) -> bool {
+        self.phantom
+    }
 }
 
 impl Into<DeclarativeTemplateSymbolAttrs> for EtherealTemplateSymbolAttrs {

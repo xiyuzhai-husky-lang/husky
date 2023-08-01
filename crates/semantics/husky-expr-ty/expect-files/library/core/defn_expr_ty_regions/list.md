@@ -170,7 +170,7 @@
                         SolidTermData::SymbolAtPlace {
                             term: EtherealTermSymbol {
                                 ty: EtherealTerm(`Type`),
-                                idx: EtherealTermSymbolIndex(
+                                index: EtherealTermSymbolIndex(
                                     Type {
                                         attrs: EtherealTemplateSymbolAttrs {
                                             phantom: false,

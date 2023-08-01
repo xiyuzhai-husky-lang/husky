@@ -20,6 +20,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-opr = { path = "../../kernel/husky-opr" }
+husky-hir-ty = { path = "../../kernel/husky-hir-ty" }
 
 [features]
 rust-syn-gen = ["dep:syn"]

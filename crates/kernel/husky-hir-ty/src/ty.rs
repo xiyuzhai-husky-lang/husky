@@ -1,4 +1,5 @@
-use husky_ethereal_term::EtherealTerm;
+use husky_ethereal_term::{EtherealTerm, EtherealTermSymbol, EtherealTermSymbolIndexInner};
+use husky_term_prelude::TermEntityPath;
 
 use crate::*;
 
@@ -28,10 +29,18 @@ pub struct HirTypeTypeAssociatedType {}
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
-    pub fn from_ethereal_term(term: EtherealTerm) -> Self {
+    pub fn from_ethereal(term: EtherealTerm, db: &dyn HirTypeDb) -> Self {
         match term {
-            EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::Symbol(symbol) => HirTypeSymbol::from_ethereal(symbol, db).into(),
+            EtherealTerm::EntityPath(path) => match path {
+                TermEntityPath::Fugitive(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(ty_path) => {
+                    HirTypePathLeading::new(db, ty_path, smallvec![]).into()
+                }
+                TermEntityPath::TypeInstance(_) => todo!(),
+                TermEntityPath::TypeVariant(_) => todo!(),
+            },
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
             EtherealTerm::Subitem(_) => todo!(),
