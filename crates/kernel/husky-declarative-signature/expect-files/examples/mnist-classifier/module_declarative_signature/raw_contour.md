@@ -65,7 +65,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -102,7 +102,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -139,7 +139,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -176,7 +176,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -219,7 +219,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -256,7 +256,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -336,7 +336,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -367,7 +367,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -451,7 +451,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),
@@ -645,7 +645,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

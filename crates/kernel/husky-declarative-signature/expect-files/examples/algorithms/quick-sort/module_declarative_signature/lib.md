@@ -23,7 +23,7 @@
                                     },
                                 ],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -64,7 +64,7 @@
                                     },
                                 ],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -117,7 +117,7 @@
                                     },
                                 ],
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

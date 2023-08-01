@@ -75,7 +75,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

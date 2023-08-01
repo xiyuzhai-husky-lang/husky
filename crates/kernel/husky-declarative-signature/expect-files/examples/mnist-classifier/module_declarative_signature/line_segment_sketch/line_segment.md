@@ -86,7 +86,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -129,7 +129,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

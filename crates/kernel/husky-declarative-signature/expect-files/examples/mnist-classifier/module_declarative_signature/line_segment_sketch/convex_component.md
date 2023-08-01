@@ -97,7 +97,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),

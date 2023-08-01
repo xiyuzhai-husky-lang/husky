@@ -13,8 +13,8 @@ pub enum MethodFluffySignature {
 impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
         MethodFluffySignature::MethodFn(MethodFnFluffySignature {
-            parenic_parameters: sig
-                .parenic_parameters()
+            parenate_parameters: sig
+                .parenate_parameters()
                 .iter()
                 .map(|&param| param.into())
                 .collect(),
@@ -27,13 +27,13 @@ impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
-    parenic_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    parenate_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
 }
 
 impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
-        &self.parenic_parameters
+        &self.parenate_parameters
     }
 
     pub fn return_ty(&self) -> FluffyTerm {
@@ -110,8 +110,8 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(MethodFnFluffySignature {
-        parenic_parameters: template
-            .parenic_parameters(db)
+        parenate_parameters: template
+            .parenate_parameters(db)
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
             .collect(),

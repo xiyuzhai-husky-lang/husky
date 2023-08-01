@@ -34,7 +34,7 @@ pub(crate) fn fn_path_declarative_ty(
     variances: &[Variance],
     signature: FnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let parenic_parameters = signature.parenic_parameters(db).data().to_smallvec();
+    let parenate_parameters = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
         db,
@@ -44,7 +44,7 @@ pub(crate) fn fn_path_declarative_ty(
         DeclarativeTermRitchie::new(
             db,
             RitchieKind::FnType,
-            parenic_parameters,
+            parenate_parameters,
             return_declarative_ty,
         ),
     )
@@ -56,7 +56,7 @@ pub(crate) fn gn_path_declarative_ty(
     signature: GnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     use smallvec::ToSmallVec;
-    let param_declarative_tys = signature.parenic_parameters(db).data().to_smallvec();
+    let param_declarative_tys = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_template_parameters(
         db,

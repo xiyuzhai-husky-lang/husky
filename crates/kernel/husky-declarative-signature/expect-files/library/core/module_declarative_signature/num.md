@@ -335,7 +335,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i8`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i8`),
@@ -412,7 +412,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i8`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -485,7 +485,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i16`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i16`),
@@ -562,7 +562,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i16`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -635,7 +635,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -712,7 +712,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -785,7 +785,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i64`),
@@ -862,7 +862,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -935,7 +935,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i128`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i128`),
@@ -1012,7 +1012,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i128`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1085,7 +1085,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::isize`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::isize`),
@@ -1162,7 +1162,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::isize`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1235,7 +1235,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u8`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u8`),
@@ -1312,7 +1312,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u8`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1385,7 +1385,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u16`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u16`),
@@ -1462,7 +1462,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u16`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1535,7 +1535,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u32`),
@@ -1612,7 +1612,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1685,7 +1685,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u64`),
@@ -1762,7 +1762,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1835,7 +1835,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u128`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u128`),
@@ -1912,7 +1912,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u128`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -1985,7 +1985,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::usize`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::usize`),
@@ -2062,7 +2062,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::usize`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -2135,7 +2135,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -2178,7 +2178,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -2255,7 +2255,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -2328,7 +2328,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f64`),
@@ -2405,7 +2405,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f64`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {

@@ -26,6 +26,14 @@ pub struct EtherealSignatureJar(
     TraitForTypeMethodFnEtherealSignatureTemplate,
     TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_into_signature,
+    // trai
+    TraitEtherealSignatureTemplate,
+    trai_ethereal_signature_template,
+    // fugitive
+    FnFugitiveEtherealSignatureTemplate,
+    GnFugitiveEtherealSignatureTemplate,
+    TypeAliasFugitiveEtherealSignatureTemplate,
+    ValFugitiveEtherealSignatureTemplate,
     // ty
     EnumTypeEtherealSignatureTemplate,
     ExternTypeEtherealSignatureTemplate,

@@ -38,6 +38,7 @@ pub struct HirDeclJar(
     UnionTypeHirDecl,
     UnitStructTypeHirDecl,
     // trai
+    trai_hir_decl,
     TraitHirDecl,
     // fugitive
     FnHirDecl,
@@ -51,6 +52,7 @@ pub struct HirDeclJar(
     EnumUnitTypeVariantHirDecl,
     // impl block
     // - type
+    ty_impl_block_hir_decl,
     TypeImplBlockHirDecl,
     // - trait for type
     trai_for_ty_impl_block_hir_decl,

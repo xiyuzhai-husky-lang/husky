@@ -18,7 +18,10 @@ impl HasHirDecl for ImplBlockPath {
     type HirDecl = ImplBlockHirDecl;
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
-        todo!()
+        match self {
+            ImplBlockPath::TypeImplBlock(path) => path.hir_decl(db).map(Into::into),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.hir_decl(db).map(Into::into),
+        }
     }
 }
 
@@ -32,12 +35,5 @@ impl ImplBlockHirDecl {
 
     pub fn template_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         todo!()
-    }
-
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
-        match self {
-            ImplBlockHirDecl::Type(decl) => decl.hir_expr_region(db).into(),
-            ImplBlockHirDecl::TraitForType(decl) => decl.hir_expr_region(db).into(),
-        }
     }
 }

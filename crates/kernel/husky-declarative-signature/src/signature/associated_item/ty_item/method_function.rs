@@ -8,7 +8,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_parameter: DeclarativeTermRitchieRegularParameter,
     #[return_ref]
-    pub parenic_parameters: DeclarativeParenicParameters,
+    pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -39,8 +39,8 @@ pub fn ty_method_function_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
-    let parenic_parameters = DeclarativeParenicParameters::from_decl(
-        decl.parenic_parameters(db),
+    let parenate_parameters = DeclarativeParenateParameters::from_decl(
+        decl.parenate_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -52,7 +52,7 @@ pub fn ty_method_function_declarative_signature_template(
         db,
         template_parameters,
         self_parameter,
-        parenic_parameters,
+        parenate_parameters,
         return_ty,
     ))
 }

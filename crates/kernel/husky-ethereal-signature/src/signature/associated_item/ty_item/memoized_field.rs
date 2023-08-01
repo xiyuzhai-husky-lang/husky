@@ -9,11 +9,10 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
 impl TypeMemoizedFieldEtherealSignatureTemplate { 
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
+        path: TypeItemPath,
         declarative_signature: TypeMemoizedFieldDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<TypeMemoizedFieldEtherealSignatureTemplate> {
-        let impl_block = declarative_signature
-            .impl_block(db)
-            .ethereal_signature_template(db)?;
+        let impl_block = path.impl_block(db).ethereal_signature_template(db)?;
         let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         Ok(TypeMemoizedFieldEtherealSignatureTemplate::new(
             db, impl_block, return_ty,

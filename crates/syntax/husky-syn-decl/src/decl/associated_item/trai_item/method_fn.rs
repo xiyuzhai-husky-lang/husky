@@ -25,7 +25,7 @@ pub struct TraitMethodFnSynDecl {
     pub template_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub parenic_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub syn_expr_region: SynExprRegion,
 }

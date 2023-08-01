@@ -9,7 +9,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     #[return_ref]
     pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
+    pub parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
@@ -27,7 +27,7 @@ impl TraitForTypeMethodFnSynNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.parenic_parameter_decl_list(db)
+                    self.parenate_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -90,7 +90,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     pub template_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub parenic_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -107,10 +107,11 @@ impl TraitForTypeMethodFnSynDecl {
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
-        let self_parameter = *parenic_parameter_decl_list.self_parameter();
-        let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
-            .parenic_parameters()
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let self_parameter = *parenate_parameter_decl_list.self_parameter();
+        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+            .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
@@ -121,7 +122,7 @@ impl TraitForTypeMethodFnSynDecl {
             path,
             template_parameters,
             self_parameter,
-            parenic_parameters,
+            parenate_parameters,
             return_ty,
             syn_expr_region,
         ))

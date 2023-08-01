@@ -50,7 +50,7 @@ pub(crate) fn ty_item_ethereal_signature_template(
         TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
         TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
         TypeItemDeclarativeSignatureTemplate::MemoizedField(template) => {
-            TypeMemoizedFieldEtherealSignatureTemplate::from_declarative(db, template)?.into()
+            TypeMemoizedFieldEtherealSignatureTemplate::from_declarative(db, path, template)?.into()
         }
     })
 }

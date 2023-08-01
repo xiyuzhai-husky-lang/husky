@@ -56,15 +56,15 @@ impl HirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
-        match self {
-            HirDecl::Submodule(_) => None,
-            HirDecl::ModuleItem(decl) => decl.hir_expr_region(db).into(),
-            HirDecl::ImplBlock(decl) => decl.hir_expr_region(db).into(),
-            HirDecl::AssociatedItem(decl) => decl.hir_expr_region(db).into(),
-            HirDecl::TypeVariant(_decl) => todo!(),
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
+    //     match self {
+    //         HirDecl::Submodule(_) => None,
+    //         HirDecl::ModuleItem(decl) => decl.hir_expr_region(db).into(),
+    //         HirDecl::ImplBlock(decl) => None,
+    //         HirDecl::AssociatedItem(decl) => decl.hir_expr_region(db).into(),
+    //         HirDecl::TypeVariant(_decl) => todo!(),
+    //     }
+    // }
 
     pub fn path(self, db: &dyn HirDeclDb) -> ItemPath {
         match self {

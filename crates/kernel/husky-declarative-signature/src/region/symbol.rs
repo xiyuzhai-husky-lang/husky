@@ -58,7 +58,7 @@ impl SymbolDeclarativeTermRegion {
     }
 
     #[inline(always)]
-    pub(crate) fn add_new_parenic_parameter_symbol_signature(
+    pub(crate) fn add_new_parenate_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         current_symbol: CurrentSynSymbolIdx,

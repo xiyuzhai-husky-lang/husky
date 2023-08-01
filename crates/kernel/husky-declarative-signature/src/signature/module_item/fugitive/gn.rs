@@ -5,7 +5,7 @@ pub struct GnDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
-    pub parenic_parameters: DeclarativeParenicParameters,
+    pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -36,8 +36,8 @@ pub fn gn_declarative_signature(
         &declarative_term_region,
         declarative_term_menu,
     );
-    let parenic_parameters = DeclarativeParenicParameters::from_decl(
-        decl.parenic_parameters(db),
+    let parenate_parameters = DeclarativeParenateParameters::from_decl(
+        decl.parenate_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -48,7 +48,7 @@ pub fn gn_declarative_signature(
     Ok(GnDeclarativeSignatureTemplate::new(
         db,
         template_parameters,
-        parenic_parameters,
+        parenate_parameters,
         return_ty,
     ))
 }

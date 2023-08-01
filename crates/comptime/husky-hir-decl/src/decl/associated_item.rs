@@ -36,19 +36,23 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
-        match self {
-            AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
-            AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
-            AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.hir_expr_region(db),
-        }
-    }
+    // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    //     match self {
+    //         AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
+    //         AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
+    //         AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.hir_expr_region(db),
+    //     }
+    // }
 }
 
 impl HasHirDecl for AssociatedItemPath {
     type HirDecl = AssociatedItemHirDecl;
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
-        todo!()
+        match self {
+            AssociatedItemPath::TypeItem(path) => path.hir_decl(db).map(Into::into),
+            AssociatedItemPath::TraitItem(path) => path.hir_decl(db).map(Into::into),
+            AssociatedItemPath::TraitForTypeItem(path) => path.hir_decl(db).map(Into::into),
+        }
     }
 }

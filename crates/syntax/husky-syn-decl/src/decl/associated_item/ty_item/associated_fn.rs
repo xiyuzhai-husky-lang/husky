@@ -8,7 +8,7 @@ pub struct TypeAssociatedFnSynNodeDecl {
     #[return_ref]
     pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    pub parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
@@ -25,7 +25,7 @@ impl TypeAssociatedFnSynNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.parenic_parameter_decl_list(db)
+                    self.parenate_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -89,7 +89,7 @@ pub struct TypeAssociatedFnSynDecl {
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub parenic_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -106,9 +106,10 @@ impl TypeAssociatedFnSynDecl {
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
-        let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
-            .parenic_parameters()
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+            .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
@@ -118,7 +119,7 @@ impl TypeAssociatedFnSynDecl {
             db,
             path,
             template_parameters,
-            parenic_parameters,
+            parenate_parameters,
             return_ty,
             syn_expr_region,
         ))

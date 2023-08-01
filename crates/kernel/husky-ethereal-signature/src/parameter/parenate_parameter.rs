@@ -1,19 +1,19 @@
 use super::*;
-use husky_declarative_signature::DeclarativeParenicParameters;
+use husky_declarative_signature::DeclarativeParenateParameters;
 use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
-pub struct ParenicEtherealParameters {
+pub struct EtherealTermParenateParameters {
     data: SmallVec<[EtherealTermRitchieParameter; 4]>,
 }
 
-impl ParenicEtherealParameters {
+impl EtherealTermParenateParameters {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        params: &DeclarativeParenicParameters,
+        params: &DeclarativeParenateParameters,
     ) -> EtherealSignatureResult<Self> {
-        Ok(ParenicEtherealParameters {
+        Ok(EtherealTermParenateParameters {
             data: params
                 .iter()
                 .copied()
@@ -27,7 +27,7 @@ impl ParenicEtherealParameters {
     }
 }
 
-impl std::ops::Deref for ParenicEtherealParameters {
+impl std::ops::Deref for EtherealTermParenateParameters {
     type Target = [EtherealTermRitchieParameter];
 
     fn deref(&self) -> &Self::Target {

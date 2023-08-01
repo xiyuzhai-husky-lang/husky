@@ -9,7 +9,7 @@ pub struct FnSynNodeDecl {
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
@@ -27,7 +27,7 @@ impl FnSynNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.parenic_parameter_decl_list(db)
+                    self.parenate_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -85,7 +85,7 @@ pub struct FnSynDecl {
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub parenic_parameters: ExplicitParameterDeclPatterns,
+    pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub syn_expr_region: SynExprRegion,
 }
@@ -102,9 +102,10 @@ impl FnSynDecl {
             .as_ref()
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
-        let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
-            .parenic_parameters()
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
+            .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
@@ -114,7 +115,7 @@ impl FnSynDecl {
             db,
             path,
             template_parameters,
-            parenic_parameters,
+            parenate_parameters,
             return_ty,
             syn_expr_region,
         ))

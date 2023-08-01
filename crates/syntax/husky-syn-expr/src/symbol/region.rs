@@ -173,7 +173,7 @@ impl SynSymbolRegion {
         }
         for (current_symbol_idx, current_symbol) in self.current_symbol_indexed_iter() {
             let kind = match current_symbol.variant {
-                CurrentSynSymbolVariant::ParenicRegularParameter { ident, .. } => {
+                CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. } => {
                     InheritedSynSymbolKind::ExplicitParameter { ident }
                 }
                 CurrentSynSymbolVariant::LetVariable { .. } => todo!(),

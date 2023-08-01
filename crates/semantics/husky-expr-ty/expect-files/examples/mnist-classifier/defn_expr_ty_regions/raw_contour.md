@@ -6851,7 +6851,7 @@
                         ExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    parenic_parameters: [
+                                    parenate_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -6991,7 +6991,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
@@ -7407,7 +7407,7 @@
                         ExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    parenic_parameters: [
+                                    parenate_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -7950,7 +7950,7 @@
                         ExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    parenic_parameters: [
+                                    parenate_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -8269,7 +8269,7 @@
                         ExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    parenic_parameters: [
+                                    parenate_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -8409,7 +8409,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
@@ -9108,7 +9108,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
@@ -14262,7 +14262,7 @@
                         ExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    parenic_parameters: [
+                                    parenate_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,

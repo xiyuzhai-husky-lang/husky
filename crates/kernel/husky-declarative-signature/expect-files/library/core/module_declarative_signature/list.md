@@ -107,7 +107,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -160,7 +160,7 @@
                                 contract: BorrowMut,
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
@@ -220,7 +220,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),
@@ -273,7 +273,7 @@
                                 contract: None,
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),
@@ -326,7 +326,7 @@
                                 contract: BorrowMut,
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
-                            parenic_parameters: DeclarativeParenicParameters {
+                            parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),

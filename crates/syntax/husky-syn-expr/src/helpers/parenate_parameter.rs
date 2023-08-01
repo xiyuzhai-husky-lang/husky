@@ -80,7 +80,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolVariant::ParenicRegularParameter {
+                        CurrentSynSymbolVariant::ParenateRegularParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },

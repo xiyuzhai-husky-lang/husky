@@ -1,6 +1,6 @@
 mod be_variables;
 mod let_variables;
-mod parenic_parameter;
+mod parenate_parameter;
 mod props_field;
 mod return_ty_expr;
 mod self_parameter;
@@ -11,7 +11,7 @@ mod tuple_field;
 
 pub use self::be_variables::*;
 pub use self::let_variables::*;
-pub use self::parenic_parameter::*;
+pub use self::parenate_parameter::*;
 pub use self::props_field::*;
 pub use self::return_ty_expr::*;
 pub use self::self_parameter::*;

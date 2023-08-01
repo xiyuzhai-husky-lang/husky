@@ -58,7 +58,7 @@ impl<'a> ExprTypeEngine<'a> {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            CurrentSynSymbolVariant::ParenicRegularParameter {
+            CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
             CurrentSynSymbolVariant::LetVariable {
