@@ -93,6 +93,14 @@ impl RegularFieldEtherealSignatureTemplate {
         }
         todo!()
     }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
+
+    pub fn ty(&self) -> EtherealTerm {
+        self.ty
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

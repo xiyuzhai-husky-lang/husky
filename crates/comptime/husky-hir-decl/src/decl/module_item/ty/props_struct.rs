@@ -23,6 +23,26 @@ impl PropsStructTypeHirDecl {
         ethereal_signature_template: PropsStructTypeEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        todo!()
+        let mut builder = HirEagerExprBuilder::new(db);
+        let template_parameters = HirTemplateParameters::from_ethereal(
+            ethereal_signature_template.template_parameters(db),
+            db,
+        );
+        let fields = ethereal_signature_template
+            .fields(db)
+            .iter()
+            .map(|field| RegularFieldHirDecl::from_ethereal(field, db))
+            .collect();
+        let hir_expr_region = builder.finish();
+        PropsStructTypeHirDecl::new(db, path, template_parameters, fields, hir_expr_region)
+    }
+}
+
+impl RegularFieldHirDecl {
+    fn from_ethereal(field: &RegularFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
+        Self {
+            ident: field.ident(),
+            ty: HirType::from_ethereal(field.ty(), db),
+        }
     }
 }
