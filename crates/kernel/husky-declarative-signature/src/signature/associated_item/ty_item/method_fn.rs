@@ -44,12 +44,7 @@ pub fn ty_method_fn_declarative_signature_template(
         .declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
     let contract = match decl.self_parameter(db) {
-        Some(self_parameter) => match self_parameter {
-            SelfParameterDeclPattern::Pure { .. } => Contract::None,
-            SelfParameterDeclPattern::Owned { .. } => todo!(),
-            SelfParameterDeclPattern::Mut { .. } => Contract::BorrowMut,
-            SelfParameterDeclPattern::MutOwned { .. } => todo!(),
-        },
+        Some(self_parameter) => Contract::new(self_parameter.ephem_symbol_modifier_token_group()),
         None => Contract::None,
     };
     let self_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);

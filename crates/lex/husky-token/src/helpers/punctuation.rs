@@ -66,7 +66,7 @@ macro_rules! define_specific_punctuation_token {
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
         #[salsa::debug_with_db(db = TokenDb)]
-        pub struct $ty(TokenIdx);
+        pub struct $ty(pub(super) TokenIdx);
 
         impl $ty {
             pub fn token_idx(self) -> TokenIdx {

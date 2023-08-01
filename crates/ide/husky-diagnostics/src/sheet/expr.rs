@@ -125,7 +125,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedEolColon(_) => {
                 format!("Syntax Error: expect `:` at end of line")
             }
-            OriginalExprError::ExpectedIdentAfterModifier(_) => {
+            OriginalExprError::ExpectedIdentAfterModifier(_, _) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
             OriginalExprError::ExpectedConstantImplicitParameterType(_) => {

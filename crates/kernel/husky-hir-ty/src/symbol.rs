@@ -1,6 +1,8 @@
 mod r#const;
+mod lifetime;
 mod ty;
 
+pub use self::lifetime::*;
 pub use self::r#const::*;
 pub use self::ty::*;
 
@@ -14,14 +16,15 @@ use husky_ethereal_term::{
 pub enum HirTemplateSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),
+    Lifetime(HirLifetimeSymbol),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirSymbolAttrs;
+pub struct HirSymbolAttrs();
 
 impl HirSymbolAttrs {
     fn from_ethereal(attrs: EtherealTemplateSymbolAttrs) -> Option<Self> {
-        (!attrs.phantom()).then_some(Self)
+        (!attrs.phantom()).then_some(Self())
     }
 }
 
@@ -41,7 +44,14 @@ fn hir_template_symbol_from_ethereal(
             attrs,
             variance,
             disambiguator,
-        } => todo!(),
+        } => Some(
+            HirLifetimeSymbol {
+                attrs: HirSymbolAttrs::from_ethereal(attrs)?,
+                variance,
+                disambiguator,
+            }
+            .into(),
+        ),
         EtherealTermSymbolIndexInner::Type {
             attrs,
             variance,

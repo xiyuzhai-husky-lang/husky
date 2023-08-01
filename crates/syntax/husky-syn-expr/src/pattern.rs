@@ -34,7 +34,7 @@ pub enum SynPatternExpr {
     Literal(LiteralData),
     /// example: `a`
     Ident {
-        symbol_modifier_keyword_group: Option<SymbolModifierTokenGroup>,
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
         ident_token: IdentToken,
     },
     /// example: `A::B`

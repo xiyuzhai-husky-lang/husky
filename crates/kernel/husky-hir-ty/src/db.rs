@@ -12,6 +12,7 @@ pub struct HirTypeJar(
     HirTypeTraitAssociatedType,
     hir_template_symbol_from_ethereal,
     HirConstSymbol,
-    HirTrait,
     hir_ty_from_ethereal_term_application,
+    HirTrait,
+    crate::trai::hir_trai_from_ethereal_term_application,
 );

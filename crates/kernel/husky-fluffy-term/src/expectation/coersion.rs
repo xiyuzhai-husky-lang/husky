@@ -160,6 +160,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
                 FluffyTermData::Category(_) => match self.contract() {
                     Contract::None => todo!(),
                     Contract::Move => todo!(),
+                    Contract::Borrow => todo!(),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => {
                         if state.expectee() == self.ty() {
@@ -167,6 +168,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
                         }
                         todo!()
                     }
+                    Contract::Leash => todo!(),
                 },
                 FluffyTermData::Ritchie { .. } => state.set_err(
                     OriginalFluffyTermExpectationError::ExpectedCoersion {
@@ -249,8 +251,10 @@ impl ExpectCoersion {
                     match self.contract() {
                         Contract::None => state.set_ok(Coersion::Trivial, actions),
                         Contract::Move => state.set_ok(Coersion::Trivial, actions),
+                        Contract::Borrow => todo!(),
                         Contract::BorrowMut => todo!(),
                         Contract::Const => todo!(),
+                        Contract::Leash => todo!(),
                     }
                 }
                 FluffyTermData::TypeOntology {
@@ -294,8 +298,10 @@ impl ExpectCoersion {
                     match self.contract() {
                         Contract::None => state.set_ok(Coersion::Trivial, actions),
                         Contract::Move => state.set_ok(Coersion::Trivial, actions),
+                        Contract::Borrow => todo!(),
                         Contract::BorrowMut => todo!(),
                         Contract::Const => todo!(),
+                        Contract::Leash => todo!(),
                     }
                 }
                 FluffyTermData::TypeOntologyAtPlace {

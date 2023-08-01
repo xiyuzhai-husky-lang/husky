@@ -336,4 +336,57 @@
             ),
         ),
     ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `collect_leashes`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [
+                                        DeclarativeTemplateParameter {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::list::List t`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: Leash,
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`[] ~ t`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

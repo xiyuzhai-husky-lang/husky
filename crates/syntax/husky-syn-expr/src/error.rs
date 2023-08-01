@@ -68,8 +68,8 @@ pub enum OriginalExprError {
     ExpectedValueForFieldBindInitialization(TokenStreamState),
     #[error("ExpectedFunctionIdentAfterOpeningHtmlBra")]
     ExpectedFunctionIdentAfterOpeningHtmlBra(TokenStreamState),
-    #[error("expected identifier after `mut`")]
-    ExpectedIdentAfterModifier(TokenStreamState),
+    #[error("expected identifier after modifier")]
+    ExpectedIdentAfterModifier(TokenStreamState, EphemSymbolModifierTokenGroup),
     #[error("expected `:` at end of line")]
     ExpectedEolColon(TokenStreamState),
     #[error("expected constant implicit parameter type")]
@@ -150,7 +150,7 @@ impl OriginalExprError {
             | OriginalExprError::ExpectedColon(token_stream_state)
             | OriginalExprError::ExpectedRightParenthesis(token_stream_state)
             | OriginalExprError::ExpectedEolColon(token_stream_state)
-            | OriginalExprError::ExpectedIdentAfterModifier(token_stream_state)
+            | OriginalExprError::ExpectedIdentAfterModifier(token_stream_state, _)
             | OriginalExprError::ExpectedFieldType(token_stream_state)
             | OriginalExprError::ExpectedParameterType(token_stream_state)
             | OriginalExprError::HtmlTodo(token_stream_state)

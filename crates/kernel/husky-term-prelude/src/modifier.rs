@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum SymbolModifier {
+pub enum EphemSymbolModifier {
     None,
     Mut,
     RefMut,
@@ -10,14 +10,14 @@ pub enum SymbolModifier {
     Tilde,
 }
 
-impl SymbolModifier {
+impl EphemSymbolModifier {
     pub fn new<T>(t: Option<T>) -> Self
     where
         T: Into<Self>,
     {
         match t {
             Some(t) => t.into(),
-            None => SymbolModifier::None,
+            None => EphemSymbolModifier::None,
         }
     }
 }
