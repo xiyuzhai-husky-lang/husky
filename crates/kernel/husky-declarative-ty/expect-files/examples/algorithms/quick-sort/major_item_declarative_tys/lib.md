@@ -35,10 +35,8 @@
                 FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn() -> core::basic::unit`),
         ),
     ),
     (
@@ -47,10 +45,8 @@
                 FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn() -> core::basic::unit`),
         ),
     ),
 ]

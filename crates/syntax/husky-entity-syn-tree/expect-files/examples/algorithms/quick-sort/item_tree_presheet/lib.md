@@ -225,7 +225,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `quick_sort_works_for_strs`,
                                 token_idx: TokenIdx(
-                                    287,
+                                    289,
                                 ),
                             },
                             block: Fugitive {

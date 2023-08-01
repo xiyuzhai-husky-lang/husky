@@ -16,3 +16,13 @@ pub struct RegularFieldHirDecl {
     ident: Ident,
     ty: HirType,
 }
+
+impl PropsStructTypeHirDecl {
+    pub(super) fn from_ethereal(
+        path: TypePath,
+        ethereal_signature_template: PropsStructTypeEtherealSignatureTemplate,
+        db: &dyn HirDeclDb,
+    ) -> Self {
+        todo!()
+    }
+}

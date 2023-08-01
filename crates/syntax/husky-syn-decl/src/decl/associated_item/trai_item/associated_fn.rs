@@ -8,7 +8,7 @@ pub struct TraitAssociatedFnSynNodeDecl {
     #[return_ref]
     pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    pub parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,

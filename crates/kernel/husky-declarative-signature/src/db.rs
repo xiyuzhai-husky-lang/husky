@@ -40,13 +40,13 @@ pub struct DeclarativeSignatureJar(
     // fugitive
     // fugitive_signature,
     fugitive_syn_declarative_signature_template,
-    ValDeclarativeSignatureTemplate,
+    ValFugitiveDeclarativeSignatureTemplate,
     val_declarative_signature_template,
-    FnDeclarativeSignatureTemplate,
+    FnFugitiveDeclarativeSignatureTemplate,
     fn_declarative_signature_template,
-    GnDeclarativeSignatureTemplate,
+    GnFugitiveDeclarativeSignatureTemplate,
     gn_declarative_signature,
-    TypeAliasDeclarativeSignatureTemplate,
+    TypeAliasFugitiveDeclarativeSignatureTemplate,
     type_alias_declarative_signature,
     // impl block
     // impl_block_signature_from_decl,

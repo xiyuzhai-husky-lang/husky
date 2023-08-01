@@ -15,6 +15,8 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEtherealSignatureTemplate {
+    AssociatedFn(TraitForTypeAssociatedFnEtherealSignatureTemplate),
+    AssociatedVal(TraitForTypeAssociatedValEtherealSignatureTemplate),
     AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplate),
     MethodFn(TraitForTypeMethodFnEtherealSignatureTemplate),
 }
@@ -34,6 +36,8 @@ impl TraitForTypeItemEtherealSignatureTemplate {
             TraitForTypeItemEtherealSignatureTemplate::MethodFn(item_template) => item_template
                 .inherit_partial_instantiation(db, impl_block_template_partially_instantiated)
                 .into(),
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => todo!(),
         }
     }
 }

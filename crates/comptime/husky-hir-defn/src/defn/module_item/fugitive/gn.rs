@@ -3,13 +3,13 @@ use super::*;
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct GnHirDefn {
     pub path: FugitivePath,
-    pub hir_decl: GnHirDecl,
+    pub hir_decl: GnFugitiveHirDecl,
     pub body: Option<HirExprIdx>,
     pub hir_expr_region: HirLazyExprRegion,
 }
 
 impl GnHirDefn {
-    pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: GnHirDecl) -> Self {
+    pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: GnFugitiveHirDecl) -> Self {
         todo!()
         // let FugitiveHirNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
         //     unreachable!()

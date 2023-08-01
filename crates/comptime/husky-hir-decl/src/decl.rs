@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::{db::*, *};
+use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 
 pub trait HasHirDecl {
     type HirDecl;

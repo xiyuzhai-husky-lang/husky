@@ -62,7 +62,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
+                        ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                         },
                     ),

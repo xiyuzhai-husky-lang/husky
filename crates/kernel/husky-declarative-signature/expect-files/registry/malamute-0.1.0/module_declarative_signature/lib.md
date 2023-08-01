@@ -89,7 +89,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Gn(
-                        GnDeclarativeSignatureTemplate {
+                        GnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
                                     DeclarativeTemplateParameter {

@@ -11,7 +11,7 @@ pub struct TypeMethodFnSynNodeDecl {
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
+    pub ritchie_parameter_decl_list: NodeDeclResult<RitchieParameters<true>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
@@ -28,7 +28,7 @@ impl TypeMethodFnSynNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.parenate_parameter_decl_list(db)
+                    self.ritchie_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -102,6 +102,10 @@ impl TypeMethodFnSynDecl {
         path: TypeItemPath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
+        let errors = syn_node_decl.errors(db);
+        if errors.len() > 0 {
+            todo!()
+        }
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
@@ -109,7 +113,7 @@ impl TypeMethodFnSynDecl {
             .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let parenate_parameter_decl_list =
-            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+            syn_node_decl.ritchie_parameter_decl_list(db).as_ref()?;
         let self_parameter = *parenate_parameter_decl_list.self_parameter();
         let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
             .parenate_parameters()

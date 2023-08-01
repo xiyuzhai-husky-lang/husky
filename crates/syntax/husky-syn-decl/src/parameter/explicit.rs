@@ -6,7 +6,7 @@ pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterDecl;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
-pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> {
+pub struct RitchieParameters<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparToken,
     self_parameter: Option<SelfParameterDeclPattern>,
     comma_after_self_parameter: Option<CommaToken>,
@@ -16,7 +16,7 @@ pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> 
 }
 
 impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprParseContext<'a, 'b>>
-    for SelfParameterAndExplicitParameters<ALLOW_SELF_PARAMETER>
+    for RitchieParameters<ALLOW_SELF_PARAMETER>
 {
     type Error = NodeDeclError;
 

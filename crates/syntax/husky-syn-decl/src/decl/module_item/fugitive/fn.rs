@@ -1,4 +1,5 @@
 use super::*;
+use husky_print_utils::p;
 use husky_token::{CurryToken, EolToken};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -9,7 +10,7 @@ pub struct FnSynNodeDecl {
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    parenate_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
