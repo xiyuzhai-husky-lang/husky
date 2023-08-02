@@ -68,12 +68,16 @@ impl HasHirDecl for TypeItemPath {
 pub(crate) fn ty_item_hir_decl(db: &dyn HirDeclDb, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     use salsa::DebugWithDb;
     match path.ethereal_signature_template(db).expect("ok") {
-        TypeItemEtherealSignatureTemplate::AssociatedFn(_) => todo!(),
-        TypeItemEtherealSignatureTemplate::MethodFn(template) => {
-            Some(TypeMethodFnHirDecl::from_ethereal(path, template, db).into())
+        TypeItemEtherealSignatureTemplate::AssociatedFn(ethereal_signature_template) => Some(
+            TypeAssociatedFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+        ),
+        TypeItemEtherealSignatureTemplate::MethodFn(ethereal_signature_template) => {
+            Some(TypeMethodFnHirDecl::from_ethereal(path, ethereal_signature_template, db).into())
         }
         TypeItemEtherealSignatureTemplate::MethodFunction(_) => None,
-        TypeItemEtherealSignatureTemplate::MemoizedField(_) => todo!(),
+        TypeItemEtherealSignatureTemplate::MemoizedField(ethereal_signature_template) => Some(
+            TypeMemoizedFieldHirDecl::from_ethereal(path, ethereal_signature_template, db).into(),
+        ),
     }
 }
 

@@ -5,8 +5,11 @@ use husky_term_prelude::RitchieKind;
 pub struct TypeAssociatedFnEtherealSignatureTemplate {
     #[id]
     pub path: TypeItemPath,
+    // todo: is this necessary?
     pub self_ty: EtherealTerm,
+    #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
+    #[return_ref]
     pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,

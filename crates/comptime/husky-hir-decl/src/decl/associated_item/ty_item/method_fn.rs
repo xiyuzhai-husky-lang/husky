@@ -16,17 +16,23 @@ pub struct TypeMethodFnHirDecl {
 impl TypeMethodFnHirDecl {
     pub(super) fn from_ethereal(
         path: TypeItemPath,
-        template: TypeMethodFnEtherealSignatureTemplate,
+        ethereal_signature_template: TypeMethodFnEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let self_ty = HirType::from_ethereal(template.self_ty(db), db);
-        let template_parameters =
-            HirTemplateParameters::from_ethereal(template.template_parameters(db), db);
-        let self_parameter =
-            HirRitchieParameter::from_ethereal_regular(template.self_parameter(db), db);
-        let parenate_parameters =
-            HirParenateParameters::from_ethereal(template.parenate_parameters(db), db);
-        let return_ty = HirType::from_ethereal(template.return_ty(db), db);
+        let self_ty = HirType::from_ethereal(ethereal_signature_template.self_ty(db), db);
+        let template_parameters = HirTemplateParameters::from_ethereal(
+            ethereal_signature_template.template_parameters(db),
+            db,
+        );
+        let self_parameter = HirRitchieParameter::from_ethereal_regular(
+            ethereal_signature_template.self_parameter(db),
+            db,
+        );
+        let parenate_parameters = HirParenateParameters::from_ethereal(
+            ethereal_signature_template.parenate_parameters(db),
+            db,
+        );
+        let return_ty = HirType::from_ethereal(ethereal_signature_template.return_ty(db), db);
         TypeMethodFnHirDecl::new(
             db,
             path,
