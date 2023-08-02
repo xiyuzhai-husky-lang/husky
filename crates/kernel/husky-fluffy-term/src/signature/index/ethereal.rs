@@ -20,6 +20,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
         }
     }
     // fallback to search for trait implementations
+    p!(refined_ty_path.debug(db));
     todo!()
 }
 
