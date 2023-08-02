@@ -26,6 +26,7 @@ impl MemberSignature for FluffyIndexSignature {
     }
 }
 
+// to: better name
 fn list_index_signature(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
