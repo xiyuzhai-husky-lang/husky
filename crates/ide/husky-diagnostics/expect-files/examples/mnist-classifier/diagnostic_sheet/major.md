@@ -46,6 +46,16 @@ DiagnosticSheet {
                 range: [27:5, 27:46),
             },
             Diagnostic {
+                message: "Type Error: type path mismatch in coersing `LineSegmentSketch` into `Leash LineSegmentSketch` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::line_segment_sketch::LineSegmentSketch` instead",
+                severity: Error,
+                range: [30:5, 30:42),
+            },
+            Diagnostic {
+                message: "Type Error: type path mismatch in coersing `LineSegmentSketch` into `Leash LineSegmentSketch` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::line_segment_sketch::LineSegmentSketch` instead",
+                severity: Error,
+                range: [30:5, 30:42),
+            },
+            Diagnostic {
                 message: "Type Error: type path mismatch in coersing `List ConcaveComponent` into `Leash List ConcaveComponent` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
                 severity: Error,
                 range: [33:5, 33:49),

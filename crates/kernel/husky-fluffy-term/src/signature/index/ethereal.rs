@@ -37,7 +37,7 @@ fn common_ethereal_owner_ty_index_signature(
     match prelude_ty_path {
         PreludeTypePath::Basic(_) => todo!(),
         PreludeTypePath::Num(_) => todo!(),
-        PreludeTypePath::Borrow(_) => return Some(Nothing),
+        PreludeTypePath::Indirection(_) => return Some(Nothing),
         PreludeTypePath::Nat => todo!(),
         PreludeTypePath::Lifetime => todo!(),
         PreludeTypePath::Module => todo!(),

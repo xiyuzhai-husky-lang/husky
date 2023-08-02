@@ -28,7 +28,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
                                 }
                             },
-                            PreludeTypePath::Borrow(_) => todo!(),
+                            PreludeTypePath::Indirection(_) => todo!(),
                             PreludeTypePath::Nat => todo!(),
                             PreludeTypePath::Lifetime => todo!(),
                             PreludeTypePath::Module => todo!(),
