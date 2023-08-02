@@ -74,7 +74,7 @@ fn list_index_signature(
                     },
                     PreludeNumTypePath::Float(_) => todo!(),
                 },
-                PreludeTypePath::Borrow(_) => todo!(),
+                PreludeTypePath::Indirection(_) => todo!(),
                 PreludeTypePath::Nat => todo!(),
                 PreludeTypePath::Lifetime => todo!(),
                 PreludeTypePath::Module => todo!(),

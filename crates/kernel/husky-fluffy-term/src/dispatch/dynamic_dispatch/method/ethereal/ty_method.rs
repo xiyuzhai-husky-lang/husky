@@ -58,10 +58,10 @@ fn ethereal_ty_method_dispatch_aux(
     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
     match ty_path.refine(engine.db()) {
-        Left(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
-            PreludeBorrowTypePath::Ref => todo!(),
-            PreludeBorrowTypePath::RefMut => todo!(),
-            PreludeBorrowTypePath::Leash => {
+        Left(PreludeTypePath::Indirection(borrow_ty_path)) => match borrow_ty_path {
+            PreludeIndirectionTypePath::Ref => todo!(),
+            PreludeIndirectionTypePath::RefMut => todo!(),
+            PreludeIndirectionTypePath::Leash => {
                 indirections.push(FluffyDynamicDispatchIndirection::Leash);
                 if arguments.len() != 1 {
                     p!((&arguments).debug(engine.db()));

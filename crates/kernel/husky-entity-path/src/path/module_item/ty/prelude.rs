@@ -7,7 +7,7 @@ pub enum PreludeTypePath {
     Basic(PreludeBasicTypePath),
     // stack representable numbers
     Num(PreludeNumTypePath),
-    Borrow(PreludeBorrowTypePath),
+    Indirection(PreludeIndirectionTypePath),
     Nat,
     Lifetime,
     Module,
@@ -37,7 +37,7 @@ pub enum PreludeBasicTypePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum PreludeBorrowTypePath {
+pub enum PreludeIndirectionTypePath {
     Ref,
     RefMut,
     Leash,
@@ -135,9 +135,9 @@ pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<P
         path if path == menu.lifetime_ty_path() => PreludeTypePath::Lifetime.into(),
         path if path == menu.module_ty_path() => PreludeTypePath::Module.into(),
         path if path == menu.trai_ty_path() => PreludeTypePath::Trait.into(),
-        path if path == menu.ref_ty_path() => PreludeBorrowTypePath::Ref.into(),
-        path if path == menu.ref_mut_ty_path() => PreludeBorrowTypePath::RefMut.into(),
-        path if path == menu.leash_ty_path() => PreludeBorrowTypePath::Leash.into(),
+        path if path == menu.ref_ty_path() => PreludeIndirectionTypePath::Ref.into(),
+        path if path == menu.ref_mut_ty_path() => PreludeIndirectionTypePath::RefMut.into(),
+        path if path == menu.leash_ty_path() => PreludeIndirectionTypePath::Leash.into(),
         path if path == menu.list_ty_path() => PreludeTypePath::List.into(),
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),

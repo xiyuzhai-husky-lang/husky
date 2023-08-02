@@ -30,6 +30,11 @@ DiagnosticSheet {
                 severity: Error,
                 range: [196:47, 196:51),
             },
+            Diagnostic {
+                message: "Type Error: no method named `cyclic_slice` for type `List Point2d`",
+                severity: Error,
+                range: [27:37, 27:49),
+            },
         ],
     },
 }

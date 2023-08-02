@@ -37,10 +37,10 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     // indirections
     match refined_ty_path {
         Left(prelude_ty_path) => match prelude_ty_path {
-            PreludeTypePath::Borrow(prelude_borrow_ty_path) => match prelude_borrow_ty_path {
-                PreludeBorrowTypePath::Ref => todo!(),
-                PreludeBorrowTypePath::RefMut => todo!(),
-                PreludeBorrowTypePath::Leash => {
+            PreludeTypePath::Indirection(prelude_borrow_ty_path) => match prelude_borrow_ty_path {
+                PreludeIndirectionTypePath::Ref => todo!(),
+                PreludeIndirectionTypePath::RefMut => todo!(),
+                PreludeIndirectionTypePath::Leash => {
                     indirections.push(FluffyDynamicDispatchIndirection::Leash);
                     if owner_ty_arguments.len() != 1 {
                         todo!()

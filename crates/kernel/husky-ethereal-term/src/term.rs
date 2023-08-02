@@ -434,7 +434,7 @@ pub(crate) fn ethereal_term_from_declarative_term_wrapper(
     let inner_ty = EtherealTerm::ty_from_declarative(db, declarative_term_wrapper.inner_ty(db))?;
     match inner_ty.application_expansion(db).function() {
         TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
-            Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Borrow(_)) => Ok(inner_ty),
+            Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => Ok(inner_ty),
             _ => {
                 let Some(toolchain) = inner_ty.toolchain(db) else {
                     todo!()
