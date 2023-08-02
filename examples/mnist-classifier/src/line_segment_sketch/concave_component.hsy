@@ -86,7 +86,7 @@ impl ConcaveComponent:
         self.strokes.last()!.displacement()
 
 
-pub fn find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
+pub fn find_concave_components(line_segment_sketch: ~LineSegmentSketch) -> []ConcaveComponent:
     let mut concave_components: []ConcaveComponent = []
     let L = line_segment_sketch.strokes.ilen()
     let mut start = 0

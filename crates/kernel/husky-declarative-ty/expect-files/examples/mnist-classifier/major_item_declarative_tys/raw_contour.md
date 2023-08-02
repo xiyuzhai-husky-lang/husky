@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`fn(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
+            DeclarativeTerm(`fn(~ mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
 ]

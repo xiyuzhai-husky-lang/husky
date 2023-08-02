@@ -442,7 +442,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                     PrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
                         self.expr_region_data.path().toolchain(self.db),
                     ),
-                    PrefixOpr::Ref => self.declarative_term_menu.ref_ty_path(),
+                    PrefixOpr::Ref => todo!(),
+                    // self.declarative_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
