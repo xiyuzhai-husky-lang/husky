@@ -7,13 +7,15 @@ use thiserror::Error;
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub enum EtherealSignatureError {
     #[error("term error")]
-    TermError,
+    TermError(EtherealTermError),
     #[error("DerivedFromDeclarative")]
     DerivedFromDeclarativeSignature(DeclarativeSignatureError),
     #[error("NoSuchItem")]
     NoSuchItem,
     #[error("EntityTreeError")]
     EntityTreeError,
+    #[error("EntityTreeBundleError")]
+    EntityTreeBundleError,
 }
 
 impl From<&EtherealSignatureError> for EtherealSignatureError {
@@ -30,13 +32,13 @@ impl From<DeclarativeSignatureError> for EtherealSignatureError {
 
 impl From<EtherealTermError> for EtherealSignatureError {
     fn from(e: EtherealTermError) -> Self {
-        EtherealSignatureError::TermError
+        EtherealSignatureError::TermError(e)
     }
 }
 
 impl From<&EntityTreeBundleError> for EtherealSignatureError {
     fn from(e: &EntityTreeBundleError) -> Self {
-        EtherealSignatureError::TermError
+        EtherealSignatureError::EntityTreeBundleError
     }
 }
 
