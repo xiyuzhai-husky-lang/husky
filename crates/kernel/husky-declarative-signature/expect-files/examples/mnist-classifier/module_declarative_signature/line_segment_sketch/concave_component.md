@@ -49,7 +49,7 @@
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                         },
                                     ),
                                 ],

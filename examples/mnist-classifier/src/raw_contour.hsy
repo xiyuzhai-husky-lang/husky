@@ -4,7 +4,7 @@ use crate::line_segment_sketch::*
 use crate::*
 
 pub struct RawContour {
-    cc: &ConnectedComponent,
+    cc: ~ConnectedComponent,
     points: []Point2d,
 }
 
@@ -167,7 +167,7 @@ fn get_concave_middle_point(points: []Point2d) -> Point2d:
         (p0.y + p2.y) / 2.0,
     )
 
-pub fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
+pub fn find_raw_contours(cc: ~ConnectedComponent) -> []RawContour:
     let mut result: []RawContour = []
     let mut boundary_unsearched = BinaryGrid28()
     for 1 <= i <= 29:

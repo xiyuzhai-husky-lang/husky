@@ -17,7 +17,7 @@
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `cc`,
-                                    ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
+                                    ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `points`,
@@ -372,7 +372,7 @@
                                     DeclarativeTermRitchieParameter::Regular(
                                         DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                                         },
                                     ),
                                 ],

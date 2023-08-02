@@ -17,7 +17,7 @@
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `line_segment_sketch`,
-                                    ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                    ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `line_segments`,
