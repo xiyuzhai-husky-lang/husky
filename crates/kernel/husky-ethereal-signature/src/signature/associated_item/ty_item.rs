@@ -1,4 +1,5 @@
 mod associated_fn;
+mod associated_ty;
 mod associated_val;
 mod memoized_field;
 mod method_fn;
@@ -8,6 +9,7 @@ use husky_entity_syn_tree::HasItemPathsMap;
 use husky_entity_taxonomy::TypeItemKind;
 
 pub use self::associated_fn::*;
+pub use self::associated_ty::*;
 pub use self::associated_val::*;
 pub use self::memoized_field::*;
 pub use self::method_fn::*;

@@ -1,6 +1,7 @@
 use crate::*;
 
 pub trait ExprTypeDb: salsa::DbWithJar<ExprTypeJar> + FluffyTermDb + SynDefnDb {
+    // todo: move this somewhere else
     fn expr_ty_region(&self, syn_expr_region: SynExprRegion) -> &ExprTypeRegion;
 }
 

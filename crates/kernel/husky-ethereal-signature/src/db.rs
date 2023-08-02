@@ -14,6 +14,7 @@ pub struct EtherealSignatureJar(
     TypeMethodFunctionEtherealSignatureTemplate,
     TypeMemoizedFieldEtherealSignatureTemplate,
     TypeAssociatedFnEtherealSignatureTemplate,
+    TypeAssociatedTypeEtherealSignatureTemplate,
     ty_item_ethereal_signature_template,
     // - trait items
     TraitAssociatedFnEtherealSignatureTemplate,
