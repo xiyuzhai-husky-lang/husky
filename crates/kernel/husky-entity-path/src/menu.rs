@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn item_path_menu(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathMenu {
-    EntityPathMenu::new(db, toolchain)
+pub(crate) fn item_path_menu(db: &dyn EntityPathDb, toolchain: Toolchain) -> ItemPathMenu {
+    ItemPathMenu::new(db, toolchain)
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct EntityPathMenu {
+pub struct ItemPathMenu {
     // core::ops::Add	The addition operator +.
     core_ops_add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -79,7 +79,7 @@ pub struct EntityPathMenu {
     module_ty_path: TypePath,
 }
 
-impl EntityPathMenu {
+impl ItemPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> Self {
         let ident_menu = db.coword_menu();
         let path_menu = db.vfs_path_menu(toolchain);

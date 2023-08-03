@@ -20,6 +20,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
         }
     }
     // fallback to search for trait implementations
+    let vfs_menu = engine.item_path_menu();
     p!(refined_ty_path.debug(db));
     todo!()
 }

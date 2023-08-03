@@ -6,8 +6,10 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
-pub struct FluffyIndexSignature {
-    element_ty: FluffyTerm,
+pub enum FluffyIndexSignature {
+    Int { element_ty: FluffyTerm },
+    Regular { element_ty: FluffyTerm },
+    Index { element_ty: FluffyTerm },
 }
 
 impl MemberSignature for FluffyIndexSignature {
@@ -15,14 +17,20 @@ impl MemberSignature for FluffyIndexSignature {
         &self,
         indirections: &[FluffyDynamicDispatchIndirection],
     ) -> FluffyTermResult<FluffyTerm> {
-        let mut expr_ty = self.element_ty;
-        for indirection in indirections {
-            match indirection {
-                FluffyDynamicDispatchIndirection::Place(_) => todo!(),
-                FluffyDynamicDispatchIndirection::Leash => todo!(),
+        match self {
+            FluffyIndexSignature::Int { element_ty } => {
+                let mut expr_ty = *element_ty;
+                for indirection in indirections {
+                    match indirection {
+                        FluffyDynamicDispatchIndirection::Place(_) => todo!(),
+                        FluffyDynamicDispatchIndirection::Leash => todo!(),
+                    }
+                }
+                Ok(expr_ty)
             }
+            FluffyIndexSignature::Regular { element_ty } => todo!(),
+            FluffyIndexSignature::Index { element_ty } => todo!(),
         }
-        Ok(expr_ty)
     }
 }
 
@@ -51,28 +59,9 @@ fn list_index_signature(
             Left(prelude_ty_path) => match prelude_ty_path {
                 PreludeTypePath::Basic(_) => todo!(),
                 PreludeTypePath::Num(prelude_num_ty_path) => match prelude_num_ty_path {
-                    PreludeNumTypePath::Int(prelude_int_ty_path) => match prelude_int_ty_path {
-                        PreludeIntTypePath::I8 => todo!(),
-                        PreludeIntTypePath::I16 => todo!(),
-                        // should we allow this?
-                        // indexing list with i32?
-                        PreludeIntTypePath::I32 => JustOk(FluffyIndexSignature { element_ty }),
-                        PreludeIntTypePath::I64 => todo!(),
-                        PreludeIntTypePath::I128 => todo!(),
-                        PreludeIntTypePath::ISize => todo!(),
-                        PreludeIntTypePath::U8 => todo!(),
-                        PreludeIntTypePath::U16 => todo!(),
-                        PreludeIntTypePath::U32 => todo!(),
-                        PreludeIntTypePath::U64 => todo!(),
-                        PreludeIntTypePath::U128 => todo!(),
-                        PreludeIntTypePath::USize => JustOk(FluffyIndexSignature { element_ty }),
-                        PreludeIntTypePath::R8 => todo!(),
-                        PreludeIntTypePath::R16 => todo!(),
-                        PreludeIntTypePath::R32 => todo!(),
-                        PreludeIntTypePath::R64 => todo!(),
-                        PreludeIntTypePath::R128 => todo!(),
-                        PreludeIntTypePath::RSize => todo!(),
-                    },
+                    PreludeNumTypePath::Int(prelude_int_ty_path) => {
+                        JustOk(FluffyIndexSignature::Int { element_ty })
+                    }
                     PreludeNumTypePath::Float(_) => todo!(),
                 },
                 PreludeTypePath::Indirection(_) => todo!(),
@@ -111,7 +100,7 @@ fn list_index_signature(
                     index_ty,
                     expectation,
                 );
-                JustOk(FluffyIndexSignature { element_ty })
+                JustOk(FluffyIndexSignature::Int { element_ty })
             }
             HoleKind::UnspecifiedFloatType => todo!(),
             HoleKind::ImplicitType => todo!(),

@@ -1,3 +1,7 @@
+mod dex_index;
+mod num_index;
+mod regular_index;
+
 use super::*;
 
 pub(super) fn ethereal_owner_ty_index_dispatch(
