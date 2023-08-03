@@ -30,20 +30,14 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::TupleStruct(
-                        TupleTypeStructDeclarativeSignatureTemplate {
+                        TupleStructTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             fields: [
                                 TupleStructFieldDeclarativeSignatureTemplate {
-                                    ty: ExplicitApplication(
-                                        DeclarativeTermExplicitApplication(
-                                            Id {
-                                                value: 95,
-                                            },
-                                        ),
-                                    ),
+                                    ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
                                 },
                             ],
                         },

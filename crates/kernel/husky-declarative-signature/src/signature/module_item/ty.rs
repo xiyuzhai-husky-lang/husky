@@ -39,9 +39,9 @@ pub enum TypeDeclarativeSignature {
 #[enum_class::from_variants]
 pub enum TypeDeclarativeSignatureTemplate {
     Enum(EnumTypeDeclarativeSignatureTemplate),
-    PropsStruct(PropsTypeStructDeclarativeSignatureTemplate),
-    UnitStruct(UnitTypeStructDeclarativeSignatureTemplate),
-    TupleStruct(TupleTypeStructDeclarativeSignatureTemplate),
+    PropsStruct(PropsStructTypeDeclarativeSignatureTemplate),
+    UnitStruct(UnitStructTypeDeclarativeSignatureTemplate),
+    TupleStruct(TupleStructTypeDeclarativeSignatureTemplate),
     Record(RecordTypeDeclarativeSignatureTemplate),
     Inductive(InductiveTypeDeclarativeSignatureTemplate),
     Structure(StructureTypeDeclarativeSignatureTemplate),
@@ -91,13 +91,13 @@ pub(crate) fn ty_declarative_signature_template(
             EnumTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::PropsStruct(decl) => {
-            PropsTypeStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            PropsStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::UnitStruct(decl) => {
-            UnitTypeStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            UnitStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::TupleStruct(decl) => {
-            TupleTypeStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+            TupleStructTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
         TypeSynDecl::Record(decl) => {
             RecordTypeDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()

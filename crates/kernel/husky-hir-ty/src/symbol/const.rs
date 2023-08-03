@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = pub(crate) new)]
 pub struct HirConstSymbol {
     pub ty: HirType,
     pub index: HirConstSymbolIndex,

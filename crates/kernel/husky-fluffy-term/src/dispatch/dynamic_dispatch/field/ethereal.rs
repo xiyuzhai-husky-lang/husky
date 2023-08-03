@@ -1,5 +1,5 @@
 use husky_ethereal_signature::{
-    HasRegularFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature,
+    HasPropsFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature,
 };
 
 use super::*;

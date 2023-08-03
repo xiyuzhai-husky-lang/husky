@@ -8,7 +8,7 @@ pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_signature::{RegularFieldEtherealSignature, TypeMemoizedFieldEtherealSignature};
+use husky_ethereal_signature::{PropsFieldEtherealSignature, TypeMemoizedFieldEtherealSignature};
 
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]

@@ -26,9 +26,9 @@ pub struct DeclarativeSignatureJar(
     // type
     ty_declarative_signature_template,
     EnumTypeDeclarativeSignatureTemplate,
-    UnitTypeStructDeclarativeSignatureTemplate,
-    TupleTypeStructDeclarativeSignatureTemplate,
-    PropsTypeStructDeclarativeSignatureTemplate,
+    UnitStructTypeDeclarativeSignatureTemplate,
+    TupleStructTypeDeclarativeSignatureTemplate,
+    PropsStructTypeDeclarativeSignatureTemplate,
     RecordTypeDeclarativeSignatureTemplate,
     InductiveTypeDeclarativeSignatureTemplate,
     StructureTypeDeclarativeSignatureTemplate,

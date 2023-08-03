@@ -106,14 +106,14 @@ fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]
-pub enum RegularFieldEtherealSignature {
+pub enum PropsFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),
 }
 
-impl RegularFieldEtherealSignature {
+impl PropsFieldEtherealSignature {
     pub fn ty(self) -> EtherealTerm {
         match self {
-            RegularFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
+            PropsFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
         }
     }
 }

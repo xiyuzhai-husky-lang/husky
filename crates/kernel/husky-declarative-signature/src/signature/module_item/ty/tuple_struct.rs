@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TupleTypeStructDeclarativeSignatureTemplate {
+pub struct TupleStructTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
@@ -10,11 +10,12 @@ pub struct TupleTypeStructDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct TupleStructFieldDeclarativeSignatureTemplate {
     ty: DeclarativeTerm,
 }
 
-impl TupleTypeStructDeclarativeSignatureTemplate {
+impl TupleStructTypeDeclarativeSignatureTemplate {
     pub fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         path: TypePath,
@@ -55,6 +56,10 @@ impl TupleTypeStructDeclarativeSignatureTemplate {
 impl TupleStructFieldDeclarativeSignatureTemplate {
     pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
         DeclarativeTermRitchieRegularParameter::new(Contract::Move, self.ty).into()
+    }
+
+    pub fn ty(&self) -> DeclarativeTerm {
+        self.ty
     }
 }
 
