@@ -1,6 +1,8 @@
+use crate::DeclarativeSignatureDb;
 use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub enum DeclarativeTermError2 {
     Original(OriginalDeclarativeTermError2),
     Derived(DerivedDeclarativeTermError2),

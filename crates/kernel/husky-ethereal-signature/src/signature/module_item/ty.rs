@@ -28,6 +28,7 @@ use husky_print_utils::p;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
+#[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub enum TypeEtherealSignatureTemplate {
     Enum(EnumTypeEtherealSignatureTemplate),
     PropsStruct(PropsStructTypeEtherealSignatureTemplate),
