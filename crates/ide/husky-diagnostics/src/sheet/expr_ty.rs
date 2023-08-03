@@ -158,9 +158,14 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
                 format!("Type Error: expected curry but got Ritchie instead")
             }
-            OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => todo!(),
             OriginalExprTypeError::ExpectedIndices => {
                 format!("Type Error: expected indices")
+            }
+            OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => {
+                format!(
+                    "Type Error: cannot index into type `{}`",
+                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region())
+                )
             }
             OriginalExprTypeError::CannotUnveil => {
                 format!("Type Error: cannot unveil")

@@ -296,7 +296,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 46,
+                                                                            value: 48,
                                                                         },
                                                                     ),
                                                                 ),
@@ -308,7 +308,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 48,
+                                                                            value: 50,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1493,7 +1493,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -1539,11 +1539,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -1604,7 +1604,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -1650,11 +1650,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -1715,7 +1715,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -1761,11 +1761,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -2791,7 +2791,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -2837,11 +2837,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -2962,7 +2962,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -3008,11 +3008,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -3887,7 +3887,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -3933,11 +3933,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -4058,7 +4058,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -4104,11 +4104,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -4229,7 +4229,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -4275,11 +4275,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -5343,7 +5343,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -5478,7 +5478,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -5596,7 +5596,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -5731,7 +5731,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -5906,7 +5906,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6041,7 +6041,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6182,7 +6182,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6317,7 +6317,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6424,7 +6424,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6559,7 +6559,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6737,7 +6737,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6872,7 +6872,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -6979,7 +6979,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7114,7 +7114,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7221,7 +7221,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7356,7 +7356,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7542,7 +7542,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7677,7 +7677,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 448,
+                                                        value: 449,
                                                     },
                                                 ),
                                             ),
@@ -7830,7 +7830,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -8159,7 +8159,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 46,
+                                                                            value: 48,
                                                                         },
                                                                     ),
                                                                 ),
@@ -8171,7 +8171,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 48,
+                                                                            value: 50,
                                                                         },
                                                                     ),
                                                                 ),
@@ -8403,7 +8403,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -9535,7 +9535,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -10153,7 +10153,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -10665,7 +10665,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -11419,7 +11419,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -11696,7 +11696,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -12004,7 +12004,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -12834,7 +12834,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 448,
+                                                                        value: 449,
                                                                     },
                                                                 ),
                                                             ),
@@ -13565,7 +13565,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -14018,7 +14018,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -14588,7 +14588,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),

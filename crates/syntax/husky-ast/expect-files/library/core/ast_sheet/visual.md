@@ -72,7 +72,7 @@ Ok(
                     block: Trait {
                         path: TraitPath(
                             Id {
-                                value: 25,
+                                value: 26,
                             },
                         ),
                         items: Some(

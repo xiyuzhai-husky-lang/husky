@@ -70,7 +70,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -144,7 +144,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -220,7 +220,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -324,7 +324,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -451,7 +451,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -670,7 +670,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -797,7 +797,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -839,7 +839,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 77,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -1228,7 +1228,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -1304,7 +1304,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -1346,7 +1346,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 77,
+                                                value: 78,
                                             },
                                         ),
                                     ),

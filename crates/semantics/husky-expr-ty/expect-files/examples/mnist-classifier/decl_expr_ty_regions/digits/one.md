@@ -640,7 +640,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -946,7 +946,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -1252,7 +1252,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),

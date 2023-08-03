@@ -41,7 +41,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::Leash,
+                        ),
                         Ok(
                             FluffyTerm::Category(
                                 TermCategory {
@@ -153,9 +155,9 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            expectation: Expectation::CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -177,13 +179,7 @@
                                         ),
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::Subtype(
-                                            ExpectSubtypeOutcome,
-                                        ),
-                                    ),
-                                ),
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {
@@ -2895,7 +2891,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::Leash,
+                        ),
                         Ok(
                             FluffyTerm::Category(
                                 TermCategory {
@@ -2983,7 +2981,15 @@
             },
             current_symbol_map: ArenaMap {
                 data: [
-                    None,
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
                 ],
             },
         },
@@ -3000,7 +3006,33 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [],
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::mem::Leash`, `Extern`),
+                            refined_path: Left(
+                                PreludeTypePath::Indirection(
+                                    Leash,
+                                ),
+                            ),
+                            arguments: [
+                                FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    ),
+                                ),
+                            ],
+                            base_ty_term: Some(
+                                EtherealTerm(`Leash ConnectedComponent`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        0,
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -3011,9 +3043,9 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            expectation: Expectation::CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -3035,13 +3067,7 @@
                                         ),
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::Subtype(
-                                            ExpectSubtypeOutcome,
-                                        ),
-                                    ),
-                                ),
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {

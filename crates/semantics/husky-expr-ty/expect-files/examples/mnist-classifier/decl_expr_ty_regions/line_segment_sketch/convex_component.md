@@ -41,7 +41,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::Leash,
+                        ),
                         Ok(
                             FluffyTerm::Category(
                                 TermCategory {
@@ -153,9 +155,9 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: Expectation::EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            expectation: Expectation::CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -177,13 +179,7 @@
                                         ),
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::Subtype(
-                                            ExpectSubtypeOutcome,
-                                        ),
-                                    ),
-                                ),
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {

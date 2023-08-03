@@ -28,3 +28,9 @@ pub enum HirConstant {
     // Rust only allows for these things
     Symbol(HirConstSymbol),
 }
+
+impl From<HirConstSymbol> for HirConstant {
+    fn from(symbol: HirConstSymbol) -> Self {
+        HirConstant::Symbol(symbol)
+    }
+}

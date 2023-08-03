@@ -1477,7 +1477,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 39,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -1742,7 +1742,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 39,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -1788,7 +1788,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2115,27 +2115,60 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FluffyTermError(
-                            FluffyTermError::Todo,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 82,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 92,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ),
+                            ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -2187,6 +2220,104 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm::Application(
+                                        EtherealTermApplication {
+                                            function: EtherealTerm(`Leash`),
+                                            argument: EtherealTerm(`LineSegmentSketch`),
+                                            shift: 0,
+                                        },
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`LineSegmentSketch`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
+                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                expectee_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm::Application(
+                                        EtherealTermApplication {
+                                            function: EtherealTerm(`Leash`),
+                                            argument: EtherealTerm(`LineSegmentSketch`),
+                                            shift: 0,
+                                        },
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`LineSegmentSketch`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
+                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                expectee_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -2255,7 +2386,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 45,
+                                                value: 47,
                                             },
                                         ),
                                     ),

@@ -50,6 +50,9 @@ pub trait Div<Rhs>:
 pub trait DivAssign<Rhs>:
     fn div_assign(mut self, rhs: Rhs);
 
+pub trait IntIndex:
+    type Output;
+
 #[rust("std::ops::Mul")]
 pub trait Mul<Rhs>:
     type Output;

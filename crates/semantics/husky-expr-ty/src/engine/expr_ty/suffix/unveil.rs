@@ -165,7 +165,7 @@ fn unveil_impl_block_signature_templates_aux(
     let item_path_menu = db.item_path_menu(ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,
-        item_path_menu.core_ops_unveil_trai_path(),
+        item_path_menu.unveil_trai_path(),
         ty_path,
     )?;
     JustOk(
