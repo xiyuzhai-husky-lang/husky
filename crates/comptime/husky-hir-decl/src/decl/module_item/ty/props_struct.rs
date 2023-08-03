@@ -6,13 +6,13 @@ pub struct PropsStructTypeHirDecl {
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
     #[return_ref]
-    pub fields: SmallVec<[RegularFieldHirDecl; 4]>,
+    pub fields: SmallVec<[PropsFieldHirDecl; 4]>,
     pub hir_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDeclDb, jar= HirDeclJar)]
-pub struct RegularFieldHirDecl {
+pub struct PropsFieldHirDecl {
     ident: Ident,
     ty: HirType,
 }
@@ -31,15 +31,15 @@ impl PropsStructTypeHirDecl {
         let fields = ethereal_signature_template
             .fields(db)
             .iter()
-            .map(|field| RegularFieldHirDecl::from_ethereal(field, db))
+            .map(|field| PropsFieldHirDecl::from_ethereal(field, db))
             .collect();
         let hir_expr_region = builder.finish();
-        PropsStructTypeHirDecl::new(db, path, template_parameters, fields, hir_expr_region)
+        Self::new(db, path, template_parameters, fields, hir_expr_region)
     }
 }
 
-impl RegularFieldHirDecl {
-    fn from_ethereal(field: &RegularFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
+impl PropsFieldHirDecl {
+    fn from_ethereal(field: &PropsFieldEtherealSignatureTemplate, db: &dyn HirDeclDb) -> Self {
         Self {
             ident: field.ident(),
             ty: HirType::from_ethereal(field.ty(), db),

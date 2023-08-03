@@ -96,9 +96,30 @@ fn ty_ethereal_signature_template(
             )?
             .into()
         }
-        TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::UnitStruct(declarative_signature_template) => {
+            UnitStructTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
+        TypeDeclarativeSignatureTemplate::TupleStruct(declarative_signature_template) => {
+            TupleStructTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
+        TypeDeclarativeSignatureTemplate::Record(declarative_signature_template) => {
+            RecordTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
         TypeDeclarativeSignatureTemplate::Inductive(declarative_signature_template) => {
             InductiveTypeEtherealSignatureTemplate::from_declarative(
                 db,
@@ -123,45 +144,52 @@ fn ty_ethereal_signature_template(
             )?
             .into()
         }
-        TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Union(declarative_signature_template) => {
+            UnionTypeEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
     })
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EtherealSignatureDb)]
 #[enum_class::from_variants]
-pub enum RegularFieldEtherealSignature {
+pub enum PropsFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),
 }
 
-pub trait HasRegularFieldEtherealSignature: Copy {
+pub trait HasPropsFieldEtherealSignature: Copy {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature>;
+    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature>;
 }
 
-impl HasRegularFieldEtherealSignature for TypePath {
+impl HasPropsFieldEtherealSignature for TypePath {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
+    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         self.ethereal_signature_template(db)?
             .regular_field_ethereal_signature(db, arguments, ident)
     }
 }
 
-impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
+impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
     fn regular_field_ethereal_signature(
         self,
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
+    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
         match self {
             TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => Nothing,
             TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
@@ -178,10 +206,10 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
     }
 }
 
-impl RegularFieldEtherealSignature {
+impl PropsFieldEtherealSignature {
     pub fn ty(self) -> EtherealTerm {
         match self {
-            RegularFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
+            PropsFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
         }
     }
 }

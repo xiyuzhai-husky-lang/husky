@@ -23,7 +23,7 @@ impl StructureTypeEtherealSignatureTemplate {
         //     .iter()
         //     .copied()
         //     .map(|declarative_signature_template| {
-        //         RegularFieldEtherealSignatureTemplate::from_declarative(
+        //         PropsFieldEtherealSignatureTemplate::from_declarative(
         //             db,
         //             declarative_signature_template,
         //         )

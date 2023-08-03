@@ -24,8 +24,8 @@ impl MemberSignature for FluffyFieldSignature {
     }
 }
 
-impl From<RegularFieldEtherealSignature> for FluffyFieldSignature {
-    fn from(signature: RegularFieldEtherealSignature) -> Self {
+impl From<PropsFieldEtherealSignature> for FluffyFieldSignature {
+    fn from(signature: PropsFieldEtherealSignature) -> Self {
         // ad hoc
         FluffyFieldSignature {
             ty: signature.ty().into(),

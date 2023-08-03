@@ -40,7 +40,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
-    signature: PropsTypeStructDeclarativeSignatureTemplate,
+    signature: PropsStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
@@ -65,7 +65,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
-    signature: TupleTypeStructDeclarativeSignatureTemplate,
+    signature: TupleStructTypeDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
