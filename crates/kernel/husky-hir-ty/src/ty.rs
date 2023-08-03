@@ -83,8 +83,11 @@ fn hir_ty_from_ethereal_term_application(
                 EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
                     .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
                 EtherealTermSymbolIndexInner::Prop { .. } => None,
-                EtherealTermSymbolIndexInner::ConstPathLeading { .. }
-                | EtherealTermSymbolIndexInner::ConstOther { .. } => todo!(),
+                EtherealTermSymbolIndexInner::ConstPathLeading { attrs, .. }
+                | EtherealTermSymbolIndexInner::ConstOther { attrs, .. } => (!attrs.phantom())
+                    .then(|| {
+                        HirTemplateArgument::Constant(HirConstSymbol::from_ethereal(arg, db).into())
+                    }),
                 EtherealTermSymbolIndexInner::EphemPathLeading { .. }
                 | EtherealTermSymbolIndexInner::EphemOther { .. }
                 | EtherealTermSymbolIndexInner::SelfType

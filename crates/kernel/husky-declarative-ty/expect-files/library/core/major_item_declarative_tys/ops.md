@@ -102,6 +102,16 @@
     (
         ItemPath::ModuleItem(
             ModuleItemPath::Trait(
+                TraitPath(`core::ops::IntIndex`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Trait`),
+        ),
+    ),
+    (
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
             ),
         ),

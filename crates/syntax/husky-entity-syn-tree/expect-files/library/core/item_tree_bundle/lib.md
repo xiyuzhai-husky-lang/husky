@@ -4262,7 +4262,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 30,
+                                            ast_idx: 31,
                                             ident_token: IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
@@ -5706,7 +5706,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 30,
+                                            ast_idx: 31,
                                             ident_token: IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
@@ -5755,7 +5755,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
@@ -5803,7 +5803,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                     ident_token: IdentToken {
                                         ident: `AddAssign`,
                                         token_idx: TokenIdx(
@@ -5851,7 +5851,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 34,
+                                    ast_idx: 35,
                                     ident_token: IdentToken {
                                         ident: `BitAnd`,
                                         token_idx: TokenIdx(
@@ -5899,7 +5899,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 36,
+                                    ast_idx: 37,
                                     ident_token: IdentToken {
                                         ident: `BitAndAssign`,
                                         token_idx: TokenIdx(
@@ -5947,7 +5947,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 38,
+                                    ast_idx: 39,
                                     ident_token: IdentToken {
                                         ident: `BitOr`,
                                         token_idx: TokenIdx(
@@ -5995,7 +5995,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 40,
+                                    ast_idx: 41,
                                     ident_token: IdentToken {
                                         ident: `BitOrAssign`,
                                         token_idx: TokenIdx(
@@ -6043,7 +6043,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 42,
+                                    ast_idx: 43,
                                     ident_token: IdentToken {
                                         ident: `BitXor`,
                                         token_idx: TokenIdx(
@@ -6091,7 +6091,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 44,
+                                    ast_idx: 45,
                                     ident_token: IdentToken {
                                         ident: `BitXorAssign`,
                                         token_idx: TokenIdx(
@@ -6139,7 +6139,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 46,
+                                    ast_idx: 47,
                                     ident_token: IdentToken {
                                         ident: `Div`,
                                         token_idx: TokenIdx(
@@ -6187,7 +6187,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 48,
+                                    ast_idx: 49,
                                     ident_token: IdentToken {
                                         ident: `DivAssign`,
                                         token_idx: TokenIdx(
@@ -6229,7 +6229,7 @@ Ok(
                                     syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Mul`),
+                                                path: TraitPath(`core::ops::IntIndex`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -6237,9 +6237,9 @@ Ok(
                                     visibility: Scope::Pub,
                                     ast_idx: 50,
                                     ident_token: IdentToken {
-                                        ident: `Mul`,
+                                        ident: `IntIndex`,
                                         token_idx: TokenIdx(
-                                            283,
+                                            276,
                                         ),
                                     },
                                     block: Trait {
@@ -6251,7 +6251,55 @@ Ok(
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    16..18,
+                                                    16..17,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                },
+                            ),
+                            syn_node_path: ItemSynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Trait(
+                                    TraitSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::ops::IntIndex`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `IntIndex`,
+                            visibility: Scope::Pub,
+                        },
+                        EntityNodeEntry {
+                            node: ItemSynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
+                                        TraitSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::Mul`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `Mul`,
+                                        token_idx: TokenIdx(
+                                            290,
+                                        ),
+                                    },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 20,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    17..19,
                                                 ),
                                             },
                                         ),
@@ -6283,23 +6331,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 52,
+                                    ast_idx: 54,
                                     ident_token: IdentToken {
                                         ident: `MulAssign`,
                                         token_idx: TokenIdx(
-                                            312,
+                                            319,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 20,
+                                                value: 21,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    18..19,
+                                                    19..20,
                                                 ),
                                             },
                                         ),
@@ -6331,23 +6379,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 54,
+                                    ast_idx: 56,
                                     ident_token: IdentToken {
                                         ident: `Neg`,
                                         token_idx: TokenIdx(
-                                            337,
+                                            344,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 21,
+                                                value: 22,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    19..21,
+                                                    20..22,
                                                 ),
                                             },
                                         ),
@@ -6379,23 +6427,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 56,
+                                    ast_idx: 58,
                                     ident_token: IdentToken {
                                         ident: `Not`,
                                         token_idx: TokenIdx(
-                                            361,
+                                            368,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 22,
+                                                value: 23,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    21..23,
+                                                    22..24,
                                                 ),
                                             },
                                         ),
@@ -6427,23 +6475,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 58,
+                                    ast_idx: 60,
                                     ident_token: IdentToken {
                                         ident: `Sub`,
                                         token_idx: TokenIdx(
-                                            385,
+                                            392,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 23,
+                                                value: 24,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    23..25,
+                                                    24..26,
                                                 ),
                                             },
                                         ),
@@ -6475,23 +6523,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 59,
+                                    ast_idx: 61,
                                     ident_token: IdentToken {
                                         ident: `Unveil`,
                                         token_idx: TokenIdx(
-                                            407,
+                                            414,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 24,
+                                                value: 25,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    25..27,
+                                                    26..28,
                                                 ),
                                             },
                                         ),
@@ -6523,11 +6571,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 60,
+                                    ast_idx: 62,
                                     ident_token: IdentToken {
                                         ident: `ControlFlow`,
                                         token_idx: TokenIdx(
-                                            436,
+                                            443,
                                         ),
                                     },
                                     block: Type {
@@ -6539,7 +6587,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    27..29,
+                                                    28..30,
                                                 ),
                                             },
                                         ),
@@ -6580,7 +6628,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
@@ -6621,7 +6669,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 32,
+                                    ast_idx: 33,
                                     ident_token: IdentToken {
                                         ident: `AddAssign`,
                                         token_idx: TokenIdx(
@@ -6662,7 +6710,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 34,
+                                    ast_idx: 35,
                                     ident_token: IdentToken {
                                         ident: `BitAnd`,
                                         token_idx: TokenIdx(
@@ -6703,7 +6751,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 36,
+                                    ast_idx: 37,
                                     ident_token: IdentToken {
                                         ident: `BitAndAssign`,
                                         token_idx: TokenIdx(
@@ -6744,7 +6792,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 38,
+                                    ast_idx: 39,
                                     ident_token: IdentToken {
                                         ident: `BitOr`,
                                         token_idx: TokenIdx(
@@ -6785,7 +6833,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 40,
+                                    ast_idx: 41,
                                     ident_token: IdentToken {
                                         ident: `BitOrAssign`,
                                         token_idx: TokenIdx(
@@ -6826,7 +6874,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 42,
+                                    ast_idx: 43,
                                     ident_token: IdentToken {
                                         ident: `BitXor`,
                                         token_idx: TokenIdx(
@@ -6867,7 +6915,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 44,
+                                    ast_idx: 45,
                                     ident_token: IdentToken {
                                         ident: `BitXorAssign`,
                                         token_idx: TokenIdx(
@@ -6908,7 +6956,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 46,
+                                    ast_idx: 47,
                                     ident_token: IdentToken {
                                         ident: `Div`,
                                         token_idx: TokenIdx(
@@ -6949,7 +6997,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 48,
+                                    ast_idx: 49,
                                     ident_token: IdentToken {
                                         ident: `DivAssign`,
                                         token_idx: TokenIdx(
@@ -6974,6 +7022,47 @@ Ok(
                             },
                         },
                         EntitySymbolEntry {
+                            ident: `IntIndex`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Trait(
+                                    TraitPath(`core::ops::IntIndex`),
+                                ),
+                                node: ModuleItemSynNode {
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
+                                        TraitSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::ops::IntIndex`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `IntIndex`,
+                                        token_idx: TokenIdx(
+                                            276,
+                                        ),
+                                    },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    16..17,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
                             ident: `Mul`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::ModuleItem {
@@ -6990,23 +7079,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 50,
+                                    ast_idx: 52,
                                     ident_token: IdentToken {
                                         ident: `Mul`,
                                         token_idx: TokenIdx(
-                                            283,
+                                            290,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 19,
+                                                value: 20,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    16..18,
+                                                    17..19,
                                                 ),
                                             },
                                         ),
@@ -7031,23 +7120,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 52,
+                                    ast_idx: 54,
                                     ident_token: IdentToken {
                                         ident: `MulAssign`,
                                         token_idx: TokenIdx(
-                                            312,
+                                            319,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 20,
+                                                value: 21,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    18..19,
+                                                    19..20,
                                                 ),
                                             },
                                         ),
@@ -7072,23 +7161,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 54,
+                                    ast_idx: 56,
                                     ident_token: IdentToken {
                                         ident: `Neg`,
                                         token_idx: TokenIdx(
-                                            337,
+                                            344,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 21,
+                                                value: 22,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    19..21,
+                                                    20..22,
                                                 ),
                                             },
                                         ),
@@ -7113,23 +7202,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 56,
+                                    ast_idx: 58,
                                     ident_token: IdentToken {
                                         ident: `Not`,
                                         token_idx: TokenIdx(
-                                            361,
+                                            368,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 22,
+                                                value: 23,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    21..23,
+                                                    22..24,
                                                 ),
                                             },
                                         ),
@@ -7154,23 +7243,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 58,
+                                    ast_idx: 60,
                                     ident_token: IdentToken {
                                         ident: `Sub`,
                                         token_idx: TokenIdx(
-                                            385,
+                                            392,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 23,
+                                                value: 24,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    23..25,
+                                                    24..26,
                                                 ),
                                             },
                                         ),
@@ -7195,23 +7284,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 59,
+                                    ast_idx: 61,
                                     ident_token: IdentToken {
                                         ident: `Unveil`,
                                         token_idx: TokenIdx(
-                                            407,
+                                            414,
                                         ),
                                     },
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 24,
+                                                value: 25,
                                             },
                                         ),
                                         items: Some(
                                             TraitItems {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    25..27,
+                                                    26..28,
                                                 ),
                                             },
                                         ),
@@ -7236,11 +7325,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 60,
+                                    ast_idx: 62,
                                     ident_token: IdentToken {
                                         ident: `ControlFlow`,
                                         token_idx: TokenIdx(
-                                            436,
+                                            443,
                                         ),
                                     },
                                     block: Type {
@@ -7252,7 +7341,7 @@ Ok(
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    27..29,
+                                                    28..30,
                                                 ),
                                             },
                                         ),
@@ -8527,7 +8616,7 @@ Ok(
                                             block: Trait {
                                                 path: TraitPath(
                                                     Id {
-                                                        value: 25,
+                                                        value: 26,
                                                     },
                                                 ),
                                                 items: Some(
@@ -10845,7 +10934,7 @@ Ok(
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 25,
+                                                value: 26,
                                             },
                                         ),
                                         items: Some(
@@ -10944,7 +11033,7 @@ Ok(
                                     block: Trait {
                                         path: TraitPath(
                                             Id {
-                                                value: 25,
+                                                value: 26,
                                             },
                                         ),
                                         items: Some(

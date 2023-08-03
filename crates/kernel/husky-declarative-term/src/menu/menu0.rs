@@ -71,50 +71,38 @@ impl DeclarativeTermMenu0 {
             universe1,
             prop: TermCategory::new(universe0),
             ty0: TermCategory::new(universe1),
-            core_ops_add: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_add_trai_path().into(),
-            ),
+            core_ops_add: DeclarativeTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
             // DeclarativeTerm::Entity(item_path_menu.core_ops_())
             core_ops_add_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_add_assign_trai_path().into(),
+                item_path_menu.add_assign_trai_path().into(),
             ),
             core_ops_bit_and: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_and_trai_path().into(),
+                item_path_menu.bit_and_trai_path().into(),
             ),
             core_ops_bit_and_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_and_assign_trai_path().into(),
+                item_path_menu.bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_or_trai_path().into(),
-            ),
+            core_ops_bit_or: DeclarativeTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
             core_ops_bit_or_assign: DeclarativeTerm::EntityPath(
                 item_path_menu.core_ops_bit_or_assign_trai_path().into(),
             ),
             core_ops_bit_xor: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_xor_trai_path().into(),
+                item_path_menu.bit_xor_trai_path().into(),
             ),
             core_ops_bit_xor_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_xor_assign_trai_path().into(),
+                item_path_menu.bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_div_trai_path().into(),
-            ),
+            core_ops_div: DeclarativeTerm::EntityPath(item_path_menu.div_trai_path().into()),
             core_ops_div_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_div_assign_trai_path().into(),
+                item_path_menu.div_assign_trai_path().into(),
             ),
-            core_ops_mul: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_mul_trai_path().into(),
-            ),
+            core_ops_mul: DeclarativeTerm::EntityPath(item_path_menu.mul_trai_path().into()),
             core_ops_mul_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_mul_assign_trai_path().into(),
+                item_path_menu.mul_assign_trai_path().into(),
             ),
-            core_ops_neg: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_neg_trai_path().into(),
-            ),
-            core_ops_not: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_not_trai_path().into(),
-            ),
+            core_ops_neg: DeclarativeTerm::EntityPath(item_path_menu.neg_trai_path().into()),
+            core_ops_not: DeclarativeTerm::EntityPath(item_path_menu.not_trai_path().into()),
             option_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.option_ty_path()).into(),
             slice_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.slice_ty_path()).into(),
             str_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.str_ty_path()).into(),

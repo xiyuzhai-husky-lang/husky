@@ -296,7 +296,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 46,
+                                                                            value: 48,
                                                                         },
                                                                     ),
                                                                 ),
@@ -308,7 +308,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 48,
+                                                                            value: 50,
                                                                         },
                                                                     ),
                                                                 ),
@@ -825,7 +825,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -1178,7 +1178,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -1531,7 +1531,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -1689,40 +1689,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 68,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 107,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
                                 value: 70,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 64,
                             },
                         ),
                     ),
@@ -1744,7 +1711,40 @@
                     Application(
                         EtherealTermApplication(
                             Id {
+                                value: 72,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    Application(
+                        EtherealTermApplication(
+                            Id {
                                 value: 66,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    Application(
+                        EtherealTermApplication(
+                            Id {
+                                value: 109,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    Application(
+                        EtherealTermApplication(
+                            Id {
+                                value: 68,
                             },
                         ),
                     ),
@@ -1759,46 +1759,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 68,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 107,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
                                         value: 70,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 64,
                                     },
                                 ),
                             ),
@@ -1824,7 +1785,46 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
+                                        value: 72,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
                                         value: 66,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 109,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 68,
                                     },
                                 ),
                             ),
@@ -2277,7 +2277,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -2323,11 +2323,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -2388,7 +2388,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -2434,11 +2434,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -2499,7 +2499,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 86,
+                                                value: 87,
                                             },
                                         ),
                                     ),
@@ -2545,11 +2545,11 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 85,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -3817,7 +3817,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -3844,7 +3844,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -3871,7 +3871,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -3898,7 +3898,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -3925,7 +3925,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -3952,7 +3952,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),

@@ -83,7 +83,14 @@ fn hir_template_symbol_from_ethereal(
         EtherealTermSymbolIndexInner::ConstOther {
             attrs,
             disambiguator,
-        } => todo!(),
+        } => Some(
+            HirConstSymbol::new(
+                db,
+                HirType::from_ethereal(symbol.ty(db), db),
+                HirConstSymbolIndex::Other { disambiguator },
+            )
+            .into(),
+        ),
         EtherealTermSymbolIndexInner::EphemPathLeading {
             disambiguator,
             ty_path,

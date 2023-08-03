@@ -212,6 +212,16 @@
     HirDecl::ModuleItem(
         ModuleItemHirDecl::Trait(
             TraitHirDecl {
+                path: TraitPath(`core::ops::IntIndex`),
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+            },
+        ),
+    ),
+    HirDecl::ModuleItem(
+        ModuleItemHirDecl::Trait(
+            TraitHirDecl {
                 path: TraitPath(`core::ops::Mul`),
                 template_parameters: HirTemplateParameters {
                     data: [

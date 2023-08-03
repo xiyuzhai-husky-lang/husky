@@ -282,6 +282,24 @@
     (
         ItemPath::ModuleItem(
             ModuleItemPath::Trait(
+                TraitPath(`core::ops::IntIndex`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Trait(
+                    TraitDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [],
+                        },
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
             ),
         ),

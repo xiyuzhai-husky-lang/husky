@@ -30,6 +30,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     if let Some(index_signature) = ethereal_owner_ty_index_signature(
         engine,
         expr_idx,
+        owner_ty,
         refined_ty_path,
         owner_ty_arguments,
         index_ty,
@@ -76,6 +77,8 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
             PreludeTypePath::Option => todo!(),
             PreludeTypePath::Result => todo!(),
         },
-        Right(_) => todo!(),
+        // ad hoc
+        Right(_) => Nothing,
+        // todo!(),
     }
 }

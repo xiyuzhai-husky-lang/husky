@@ -27,7 +27,7 @@ Ok(
                             block: Trait {
                                 path: TraitPath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                                 items: Some(
@@ -90,7 +90,7 @@ Ok(
                             block: Trait {
                                 path: TraitPath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                                 items: Some(

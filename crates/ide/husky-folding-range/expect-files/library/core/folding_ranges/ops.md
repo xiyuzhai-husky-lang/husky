@@ -131,11 +131,24 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 53,
+            start_line: 52,
             start_character: Some(
                 0,
             ),
-            end_line: 56,
+            end_line: 53,
+            end_character: Some(
+                16,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 56,
+            start_character: Some(
+                0,
+            ),
+            end_line: 59,
             end_character: Some(
                 37,
             ),
@@ -144,11 +157,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 59,
+            start_line: 62,
             start_character: Some(
                 0,
             ),
-            end_line: 60,
+            end_line: 63,
             end_character: Some(
                 38,
             ),
@@ -157,11 +170,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 63,
+            start_line: 66,
             start_character: Some(
                 0,
             ),
-            end_line: 66,
+            end_line: 69,
             end_character: Some(
                 33,
             ),
@@ -170,11 +183,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 69,
+            start_line: 72,
             start_character: Some(
                 0,
             ),
-            end_line: 72,
+            end_line: 75,
             end_character: Some(
                 33,
             ),
@@ -183,11 +196,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 75,
+            start_line: 78,
             start_character: Some(
                 0,
             ),
-            end_line: 78,
+            end_line: 81,
             end_character: Some(
                 39,
             ),
@@ -196,11 +209,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 80,
+            start_line: 83,
             start_character: Some(
                 0,
             ),
-            end_line: 83,
+            end_line: 86,
             end_character: Some(
                 55,
             ),
@@ -209,11 +222,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 85,
+            start_line: 88,
             start_character: Some(
                 0,
             ),
-            end_line: 87,
+            end_line: 90,
             end_character: Some(
                 13,
             ),

@@ -18,7 +18,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 86,
+                                value: 87,
                             },
                         ),
                     ),
@@ -34,7 +34,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 86,
+                                        value: 87,
                                     },
                                 ),
                             ),
@@ -85,7 +85,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 87,
+                                                    value: 88,
                                                 },
                                             ),
                                         ),
@@ -373,7 +373,7 @@
                                                     ty: Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 85,
+                                                                value: 86,
                                                             },
                                                         ),
                                                     ),
@@ -614,7 +614,7 @@
                         SolidTermData::TypeOntologyAtPlace {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             refined_path: Left(
-                                PreludeTypePath::Borrow(
+                                PreludeTypePath::Indirection(
                                     Leash,
                                 ),
                             ),
@@ -1093,7 +1093,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 86,
+                                                                            value: 87,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1105,7 +1105,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 87,
+                                                                            value: 88,
                                                                         },
                                                                     ),
                                                                 ),

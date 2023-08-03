@@ -1106,7 +1106,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(
@@ -2550,7 +2550,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 30,
+                                    ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `Add`,
                                         token_idx: TokenIdx(

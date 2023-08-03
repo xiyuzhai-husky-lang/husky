@@ -2894,7 +2894,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Symbol(
                                             EtherealTermSymbol(
                                                 Id {
@@ -3182,7 +3182,7 @@
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
-                                    signature: FluffyIndexSignature {
+                                    signature: Int {
                                         element_ty: Symbol(
                                             EtherealTermSymbol(
                                                 Id {

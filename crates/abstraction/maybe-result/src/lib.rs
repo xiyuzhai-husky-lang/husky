@@ -187,6 +187,14 @@ impl<T, E> MaybeResult<T, E> {
             Nothing => Nothing,
         }
     }
+
+    pub fn map<S>(self, f: impl FnOnce(T) -> S) -> MaybeResult<S, E> {
+        match self {
+            JustOk(t) => JustOk(f(t)),
+            JustErr(e) => JustErr(e),
+            Nothing => Nothing,
+        }
+    }
 }
 
 impl<T, E> std::ops::Residual<T> for MaybeResult<Infallible, E> {

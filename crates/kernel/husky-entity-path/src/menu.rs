@@ -10,32 +10,34 @@ pub struct ItemPathMenu {
     // core::ops::Add	The addition operator +.
     core_ops_add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
-    core_ops_add_assign_trai_path: TraitPath,
+    add_assign_trai_path: TraitPath,
     // core::ops::BitAnd	The bitwise AND operator &.
-    core_ops_bit_and_trai_path: TraitPath,
+    bit_and_trai_path: TraitPath,
     // core::ops::BitAndAssign	The bitwise AND assignment operator &=.
-    core_ops_bit_and_assign_trai_path: TraitPath,
+    bit_and_assign_trai_path: TraitPath,
     // core::ops::BitOr	The bitwise OR operator |.
-    core_ops_bit_or_trai_path: TraitPath,
+    bit_or_trai_path: TraitPath,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
     core_ops_bit_or_assign_trai_path: TraitPath,
     // core::ops::BitXor	The bitwise XOR operator ^.
-    core_ops_bit_xor_trai_path: TraitPath,
+    bit_xor_trai_path: TraitPath,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
-    core_ops_bit_xor_assign_trai_path: TraitPath,
+    bit_xor_assign_trai_path: TraitPath,
     // core::ops::Div	The division operator /.
-    core_ops_div_trai_path: TraitPath,
+    div_trai_path: TraitPath,
     // core::ops::DivAssign	The division assignment operator /=.
-    core_ops_div_assign_trai_path: TraitPath,
+    div_assign_trai_path: TraitPath,
+    // core::ops::IntIndex
+    int_index_trai_path: TraitPath,
     // core::ops::Mul	The multiplication operator *.
-    core_ops_mul_trai_path: TraitPath,
+    mul_trai_path: TraitPath,
     // core::ops::MulAssign	The multiplication assignment operator *=.
-    core_ops_mul_assign_trai_path: TraitPath,
+    mul_assign_trai_path: TraitPath,
     // core::ops::Neg	The unary negation operator -.
-    core_ops_neg_trai_path: TraitPath,
+    neg_trai_path: TraitPath,
     // Not	The unary logical negation operator !.
-    core_ops_not_trai_path: TraitPath,
-    core_ops_unveil_trai_path: TraitPath,
+    not_trai_path: TraitPath,
+    unveil_trai_path: TraitPath,
     clone_trai_path: TraitPath,
     copy_trai_path: TraitPath,
     default_trai_path: TraitPath,
@@ -363,25 +365,25 @@ impl ItemPathMenu {
             db.it_ident_borrowed("Add").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_add_assign_trai_path = TraitPath::new(
+        let add_assign_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("AddAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_bit_and_trai_path = TraitPath::new(
+        let bit_and_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("BitAnd").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_bit_and_assign_trai_path = TraitPath::new(
+        let bit_and_assign_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("BitAndAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_bit_or_trai_path = TraitPath::new(
+        let bit_or_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("BitOr").unwrap(),
@@ -393,55 +395,61 @@ impl ItemPathMenu {
             db.it_ident_borrowed("BitOrAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_bit_xor_trai_path = TraitPath::new(
+        let bit_xor_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("BitXor").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_bit_xor_assign_trai_path = TraitPath::new(
+        let bit_xor_assign_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("BitXorAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_div_trai_path = TraitPath::new(
+        let div_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("Div").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_div_assign_trai_path = TraitPath::new(
+        let div_assign_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("DivAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_mul_trai_path = TraitPath::new(
+        let int_index_trai_path = TraitPath::new(
+            db,
+            core_ops,
+            db.it_ident_borrowed("IntIndex").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let mul_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("Mul").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_mul_assign_trai_path = TraitPath::new(
+        let mul_assign_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("MulAssign").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_neg_trai_path = TraitPath::new(
+        let neg_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("Neg").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_not_trai_path = TraitPath::new(
+        let not_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let core_ops_unveil_trai_path = TraitPath::new(
+        let unveil_trai_path = TraitPath::new(
             db,
             core_ops,
             db.it_ident_borrowed("Unveil").unwrap(),
@@ -503,20 +511,21 @@ impl ItemPathMenu {
             array_ty_path,
             leash_ty_path,
             core_ops_add_trai_path,
-            core_ops_add_assign_trai_path,
-            core_ops_bit_and_trai_path,
-            core_ops_bit_and_assign_trai_path,
-            core_ops_bit_or_trai_path,
+            add_assign_trai_path,
+            bit_and_trai_path,
+            bit_and_assign_trai_path,
+            bit_or_trai_path,
             core_ops_bit_or_assign_trai_path,
-            core_ops_bit_xor_trai_path,
-            core_ops_bit_xor_assign_trai_path,
-            core_ops_div_trai_path,
-            core_ops_div_assign_trai_path,
-            core_ops_mul_trai_path,
-            core_ops_mul_assign_trai_path,
-            core_ops_neg_trai_path,
-            core_ops_not_trai_path,
-            core_ops_unveil_trai_path,
+            bit_xor_trai_path,
+            bit_xor_assign_trai_path,
+            div_trai_path,
+            div_assign_trai_path,
+            int_index_trai_path,
+            mul_trai_path,
+            mul_assign_trai_path,
+            neg_trai_path,
+            not_trai_path,
+            unveil_trai_path,
             clone_trai_path,
             copy_trai_path,
             default_trai_path,
@@ -668,64 +677,68 @@ impl ItemPathMenu {
         self.leash_ty_path
     }
 
-    pub fn core_ops_add_trai_path(&self) -> TraitPath {
+    pub fn add_trai_path(&self) -> TraitPath {
         self.core_ops_add_trai_path
     }
 
-    pub fn core_ops_add_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_add_assign_trai_path
+    pub fn add_assign_trai_path(&self) -> TraitPath {
+        self.add_assign_trai_path
     }
 
-    pub fn core_ops_bit_and_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_and_trai_path
+    pub fn bit_and_trai_path(&self) -> TraitPath {
+        self.bit_and_trai_path
     }
 
-    pub fn core_ops_bit_and_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_and_assign_trai_path
+    pub fn bit_and_assign_trai_path(&self) -> TraitPath {
+        self.bit_and_assign_trai_path
     }
 
-    pub fn core_ops_bit_or_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_or_trai_path
+    pub fn bit_or_trai_path(&self) -> TraitPath {
+        self.bit_or_trai_path
     }
 
     pub fn core_ops_bit_or_assign_trai_path(&self) -> TraitPath {
         self.core_ops_bit_or_assign_trai_path
     }
 
-    pub fn core_ops_bit_xor_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_xor_trai_path
+    pub fn bit_xor_trai_path(&self) -> TraitPath {
+        self.bit_xor_trai_path
     }
 
-    pub fn core_ops_bit_xor_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_xor_assign_trai_path
+    pub fn bit_xor_assign_trai_path(&self) -> TraitPath {
+        self.bit_xor_assign_trai_path
     }
 
-    pub fn core_ops_div_trai_path(&self) -> TraitPath {
-        self.core_ops_div_trai_path
+    pub fn div_trai_path(&self) -> TraitPath {
+        self.div_trai_path
     }
 
-    pub fn core_ops_div_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_div_assign_trai_path
+    pub fn div_assign_trai_path(&self) -> TraitPath {
+        self.div_assign_trai_path
     }
 
-    pub fn core_ops_mul_trai_path(&self) -> TraitPath {
-        self.core_ops_mul_trai_path
+    pub fn int_index_trai_path(&self) -> TraitPath {
+        self.int_index_trai_path
     }
 
-    pub fn core_ops_mul_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_mul_assign_trai_path
+    pub fn mul_trai_path(&self) -> TraitPath {
+        self.mul_trai_path
     }
 
-    pub fn core_ops_neg_trai_path(&self) -> TraitPath {
-        self.core_ops_neg_trai_path
+    pub fn mul_assign_trai_path(&self) -> TraitPath {
+        self.mul_assign_trai_path
     }
 
-    pub fn core_ops_not_trai_path(&self) -> TraitPath {
-        self.core_ops_not_trai_path
+    pub fn neg_trai_path(&self) -> TraitPath {
+        self.neg_trai_path
     }
 
-    pub fn core_ops_unveil_trai_path(&self) -> TraitPath {
-        self.core_ops_unveil_trai_path
+    pub fn not_trai_path(&self) -> TraitPath {
+        self.not_trai_path
+    }
+
+    pub fn unveil_trai_path(&self) -> TraitPath {
+        self.unveil_trai_path
     }
 
     pub fn clone_trai_path(&self) -> TraitPath {
@@ -750,24 +763,21 @@ fn menu_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let item_path_menu = db.item_path_menu(toolchain);
+    assert_eq!(item_path_menu.add_trai_path().show(&db), "core::ops::Add");
     assert_eq!(
-        item_path_menu.core_ops_add_trai_path().show(&db),
-        "core::ops::Add"
-    );
-    assert_eq!(
-        item_path_menu.core_ops_add_assign_trai_path().show(&db),
+        item_path_menu.add_assign_trai_path().show(&db),
         "core::ops::AddAssign"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_and_trai_path().show(&db),
+        item_path_menu.bit_and_trai_path().show(&db),
         "core::ops::BitAnd"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_and_assign_trai_path().show(&db),
+        item_path_menu.bit_and_assign_trai_path().show(&db),
         "core::ops::BitAndAssign"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_or_trai_path().show(&db),
+        item_path_menu.bit_or_trai_path().show(&db),
         "core::ops::BitOr"
     );
     assert_eq!(
@@ -775,35 +785,23 @@ fn menu_works() {
         "core::ops::BitOrAssign"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_xor_trai_path().show(&db),
+        item_path_menu.bit_xor_trai_path().show(&db),
         "core::ops::BitXor"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_xor_assign_trai_path().show(&db),
+        item_path_menu.bit_xor_assign_trai_path().show(&db),
         "core::ops::BitXorAssign"
     );
+    assert_eq!(item_path_menu.div_trai_path().show(&db), "core::ops::Div");
     assert_eq!(
-        item_path_menu.core_ops_div_trai_path().show(&db),
-        "core::ops::Div"
-    );
-    assert_eq!(
-        item_path_menu.core_ops_div_assign_trai_path().show(&db),
+        item_path_menu.div_assign_trai_path().show(&db),
         "core::ops::DivAssign"
     );
+    assert_eq!(item_path_menu.mul_trai_path().show(&db), "core::ops::Mul");
     assert_eq!(
-        item_path_menu.core_ops_mul_trai_path().show(&db),
-        "core::ops::Mul"
-    );
-    assert_eq!(
-        item_path_menu.core_ops_mul_assign_trai_path().show(&db),
+        item_path_menu.mul_assign_trai_path().show(&db),
         "core::ops::MulAssign"
     );
-    assert_eq!(
-        item_path_menu.core_ops_neg_trai_path().show(&db),
-        "core::ops::Neg"
-    );
-    assert_eq!(
-        item_path_menu.core_ops_not_trai_path().show(&db),
-        "core::ops::Not"
-    );
+    assert_eq!(item_path_menu.neg_trai_path().show(&db), "core::ops::Neg");
+    assert_eq!(item_path_menu.not_trai_path().show(&db), "core::ops::Not");
 }
