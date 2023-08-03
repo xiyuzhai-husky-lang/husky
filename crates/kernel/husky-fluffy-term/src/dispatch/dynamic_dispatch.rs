@@ -1,6 +1,7 @@
 mod field;
 mod index;
 mod method;
+mod utils;
 
 pub use self::field::*;
 pub use self::index::*;

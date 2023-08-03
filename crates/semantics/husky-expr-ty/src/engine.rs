@@ -16,11 +16,12 @@ use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
 use husky_vfs::Toolchain;
+use husky_vfs::VfsPathMenu;
 
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     toolchain: Toolchain,
-    item_path_menu: &'a EntityPathMenu,
+    item_path_menu: &'a ItemPathMenu,
     term_menu: &'a EtherealTermMenu,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a SynExprRegionData,
@@ -54,6 +55,10 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
 
     fn expr_region_data(&self) -> &'a SynExprRegionData {
         self.expr_region_data
+    }
+
+    fn item_path_menu(&self) -> &'a ItemPathMenu {
+        self.item_path_menu
     }
 
     fn term_menu(&self) -> &'a EtherealTermMenu {
@@ -235,7 +240,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_region_data
     }
 
-    pub(crate) fn item_path_menu(&self) -> &EntityPathMenu {
+    pub(crate) fn item_path_menu(&self) -> &ItemPathMenu {
         self.item_path_menu
     }
 

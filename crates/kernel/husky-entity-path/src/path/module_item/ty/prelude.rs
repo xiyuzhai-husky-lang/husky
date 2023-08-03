@@ -103,7 +103,7 @@ impl TypePath {
 
 #[salsa::tracked(jar = EntityPathJar)]
 pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<PreludeTypePath> {
-    let menu: &EntityPathMenu = db.item_path_menu(path.toolchain(db));
+    let menu: &ItemPathMenu = db.item_path_menu(path.toolchain(db));
     let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));
     if path.crate_path(db) != vfs_path_menu.core_library() {
         return None;

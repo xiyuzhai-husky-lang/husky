@@ -1,6 +1,6 @@
-use husky_entity_syn_tree::{EntityTreeResultRef, TraitInUseItemsTable};
-
 use super::*;
+use husky_entity_syn_tree::{EntityTreeResultRef, TraitInUseItemsTable};
+use husky_vfs::VfsPathMenu;
 
 pub trait FluffyTermEngine<'a>: Sized {
     fn db(&self) -> &'a dyn FluffyTermDb;
@@ -13,6 +13,7 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn fluffy_terms_mut(&mut self) -> &mut FluffyTerms {
         self.fluffy_term_region_mut().terms_mut()
     }
+    fn item_path_menu(&self) -> &'a ItemPathMenu;
     fn term_menu(&self) -> &'a EtherealTermMenu;
     fn expr_region_data(&self) -> &'a SynExprRegionData;
 
