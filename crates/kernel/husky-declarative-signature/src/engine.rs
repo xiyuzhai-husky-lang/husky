@@ -192,6 +192,9 @@ impl<'a> DeclarativeTermEngine<'a> {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
                 let modifier = self.expr_region_data[symbol].modifier();
+                p!(self.expr_terms[ty].debug(self.db));
+                p!(self.expr_region_data.path().debug(self.db));
+                todo!();
                 self.symbol_declarative_term_region
                     .add_new_parenate_parameter_symbol_signature(
                         self.db,
@@ -541,7 +544,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ref items,
                 rbox_token_idx: _,
             } => todo!(),
-            SynExpr::Err(_) => Err(DerivedDeclarativeTermError2::ExprError.into()),
+            SynExpr::Err(ref e) => {
+                p!(e.debug(self.db));
+                Err(DerivedDeclarativeTermError2::ExprError.into())
+            }
             SynExpr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,

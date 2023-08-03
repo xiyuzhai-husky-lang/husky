@@ -2112,7 +2112,9 @@
                         DerivedExprTypeError::TypeError(
                             EtherealTermError::DeclarativeTypeError(
                                 DeclarativeTypeError::Derived(
-                                    DerivedDeclarativeTypeError::SymbolType,
+                                    DerivedDeclarativeTypeError::SymbolType(
+                                        SignatureDeclarativeTermError,
+                                    ),
                                 ),
                             ),
                         ),

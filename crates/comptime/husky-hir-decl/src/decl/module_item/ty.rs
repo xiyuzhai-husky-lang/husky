@@ -16,6 +16,8 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_path::TypePath;
+use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -77,6 +79,10 @@ impl HasHirDecl for TypePath {
 
 #[salsa::tracked(jar = HirDeclJar)]
 fn ty_hir_decl(db: &dyn HirDeclDb, path: TypePath) -> Option<TypeHirDecl> {
+    p!(
+        path.ethereal_signature_template(db).debug(db),
+        path.debug(db)
+    );
     match path
         .ethereal_signature_template(db)
         .expect("no errors for hir stage")
