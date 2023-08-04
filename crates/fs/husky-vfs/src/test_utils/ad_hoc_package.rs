@@ -16,7 +16,7 @@ impl AdHocPackage {
         non_root_modules: impl IntoIterator<Item = (&'static str, &'static str)>,
     ) -> Self {
         let package_fs_path = PathBuf::from_str("ad_hoc_314").unwrap();
-        let package_path = PackagePath::new_local_package(
+        let package_path = PackagePath::new_local_or_toolchain_package(
             db,
             db.dev_toolchain().unwrap(),
             Name::from_ref(db, "ad-hoc-314").unwrap(),

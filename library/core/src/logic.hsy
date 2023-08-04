@@ -1,3 +1,5 @@
+use crate::*
+
 pub extern Prop;
 
 pub structure LogicAnd<P: Prop, Q: Prop> {

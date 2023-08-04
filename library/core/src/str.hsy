@@ -1,2 +1,4 @@
+use crate::*
+
 pub extern str;
 pub extern StringLiteral;

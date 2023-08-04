@@ -1,3 +1,5 @@
+use crate::*
+
 pub trait Clone:
     fn clone() -> Self;
 

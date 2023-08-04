@@ -2879,12 +2879,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -2898,12 +2894,8 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                     disambiguator: 0,
                                 },
@@ -2949,12 +2941,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 91,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -3075,12 +3063,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 91,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -3102,12 +3086,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 91,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -3124,12 +3104,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `mnist_classifier::line_segment_sketch`,
                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 91,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -3197,12 +3173,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 91,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3320,12 +3292,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `mnist_classifier::line_segment_sketch`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 91,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -4382,12 +4350,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -4401,12 +4365,8 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 92,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
                                     disambiguator: 0,
                                 },
@@ -4452,12 +4412,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 92,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -4578,12 +4534,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 92,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -4605,12 +4557,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 92,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -4627,12 +4575,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `mnist_classifier::line_segment_sketch`,
                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 92,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -4710,12 +4654,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 92,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -4833,12 +4773,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `mnist_classifier::line_segment_sketch`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 92,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },

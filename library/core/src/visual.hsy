@@ -1,3 +1,5 @@
+use crate::*
+
 pub trait Visualize:
     fn visualize() -> Html;
 

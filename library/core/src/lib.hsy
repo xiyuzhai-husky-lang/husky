@@ -17,3 +17,5 @@ pub mod result
 pub mod slice
 pub mod str
 pub mod visual
+
+use self::prelude::*
