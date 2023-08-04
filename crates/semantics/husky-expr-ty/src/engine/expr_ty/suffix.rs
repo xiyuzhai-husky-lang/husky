@@ -135,6 +135,7 @@ impl<'a> ExprTypeEngine<'a> {
         opd: SynExprIdx,
         expected_final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::Unique {
                 opd_ty,
@@ -170,6 +171,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty_discarded(opd, ExpectAnyDerived);
                 Err(DerivedExprTypeError::UnveilerError)?
             }
+            Unveiler::Uninitialized => todo!(),
         }
     }
 

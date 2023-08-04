@@ -1,0 +1,12 @@
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Trait`),
+        ),
+    ),
+]

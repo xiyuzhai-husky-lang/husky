@@ -137,7 +137,7 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             return_ty,
-            unveiler: Unveiler::new(db, return_ty),
+            unveiler: Unveiler::Uninitialized,
             self_ty,
             pattern_expr_contracts: SynPatternExprMap::new(
                 pattern_expr_region.pattern_expr_arena(),

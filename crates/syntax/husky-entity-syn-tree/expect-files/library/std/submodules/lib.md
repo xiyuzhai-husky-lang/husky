@@ -1,0 +1,13 @@
+Ok(
+    [
+        SubmodulePath(
+            `std::prelude`,
+        ),
+        SubmodulePath(
+            `std::logic`,
+        ),
+        SubmodulePath(
+            `std::ops`,
+        ),
+    ],
+)

@@ -10,6 +10,7 @@ use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
+        self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::Unique {
                 opd_ty,
@@ -27,11 +28,13 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
             }
             Unveiler::ErrEtherealSignature(e) => Err(e.into()),
+            Unveiler::Uninitialized => unreachable!(),
         }
     }
 }
 
 pub(crate) enum Unveiler {
+    Uninitialized,
     Unique {
         opd_ty: EtherealTerm,
         unveil_output_ty: EtherealTerm,
@@ -43,11 +46,20 @@ pub(crate) enum Unveiler {
 }
 
 impl Unveiler {
-    pub(crate) fn new(db: &dyn ExprTypeDb, return_ty: Option<EtherealTerm>) -> Self {
+    pub(crate) fn initialize_if_not(
+        &mut self,
+        return_ty: Option<EtherealTerm>,
+        db: &dyn ExprTypeDb,
+    ) {
+        match self {
+            Unveiler::Uninitialized => (),
+            _ => return,
+        }
         let Some(return_ty) = return_ty else {
-            return Unveiler::ErrUnableToInferReturnTypeForUnveiling;
+            *self = Unveiler::ErrUnableToInferReturnTypeForUnveiling;
+            return
         };
-        match Self::new_aux(db, return_ty) {
+        *self = match Self::new_aux(db, return_ty) {
             MaybeResult::JustOk(unveiler) => unveiler,
             MaybeResult::JustErr(e) => Unveiler::ErrEtherealSignature(e),
             MaybeResult::Nothing => Unveiler::Nothing,
@@ -75,6 +87,7 @@ impl Unveiler {
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
                     })
                 } else {
+                    p!(template.debug(db));
                     todo!()
                 }
             }
