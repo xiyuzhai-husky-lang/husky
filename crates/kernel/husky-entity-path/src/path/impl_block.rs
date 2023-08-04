@@ -54,6 +54,7 @@ pub struct TraitForTypeImplBlockPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 pub enum TypeSketch {
     DeriveAny,
     // { ty_kind: Option<TypeKind> }
