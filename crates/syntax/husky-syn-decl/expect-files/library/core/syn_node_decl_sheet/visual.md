@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 19,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::visual::Visualize`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30,8 +30,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::visual::Visualize`),
@@ -50,7 +50,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -85,8 +85,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::visual::Html`, `Extern`),
@@ -95,8 +95,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -113,8 +113,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::visual::Html`, `Extern`),
@@ -133,7 +133,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },

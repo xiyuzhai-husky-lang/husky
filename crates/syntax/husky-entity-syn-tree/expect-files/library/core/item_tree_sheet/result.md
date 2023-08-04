@@ -59,7 +59,7 @@ Ok(
                     ident: `Result`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::result::Result`, `Enum`),
                         ),
                         node: MajorItemSynNode {
@@ -227,7 +227,7 @@ Ok(
                     state: OnceUseRuleState::Resolved {
                         original_symbol: Some(
                             EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`core::result::Result`, `Enum`),
                                 ),
                                 node: MajorItemSynNode {
@@ -275,7 +275,7 @@ Ok(
                     },
                     parent: Some(
                         MajorEntityPath::MajorItem(
-                            MajarItemPath::Type(
+                            MajorItemPath::Type(
                                 TypePath(`core::result::Result`, `Enum`),
                             ),
                         ),

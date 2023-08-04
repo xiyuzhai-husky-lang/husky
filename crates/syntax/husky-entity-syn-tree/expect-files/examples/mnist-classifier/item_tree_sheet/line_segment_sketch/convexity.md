@@ -59,7 +59,7 @@ Ok(
                     ident: `is_convex`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -276,7 +276,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -307,7 +307,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                             ),
@@ -327,7 +327,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -358,7 +358,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                             ),
@@ -378,7 +378,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -417,7 +417,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 ),
                             ),
@@ -437,7 +437,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -476,7 +476,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 ),
                             ),
@@ -496,7 +496,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -535,7 +535,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 ),
                             ),
@@ -555,7 +555,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -594,7 +594,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 ),
                             ),
@@ -614,7 +614,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -653,7 +653,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 ),
                             ),
@@ -675,7 +675,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -706,7 +706,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
                                     ),
@@ -716,7 +716,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
@@ -738,7 +738,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                         node: MajorItemSynNode {
@@ -775,7 +775,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                     ),
@@ -785,7 +785,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
@@ -807,7 +807,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -838,7 +838,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
@@ -848,7 +848,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
@@ -870,7 +870,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -901,7 +901,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
@@ -913,7 +913,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
@@ -935,7 +935,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -966,7 +966,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                     ),
@@ -978,7 +978,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
@@ -1000,7 +1000,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1031,7 +1031,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                     ),
@@ -1043,7 +1043,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
@@ -1065,7 +1065,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1096,7 +1096,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                         ),
                                     ),
@@ -1108,7 +1108,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                             ),
@@ -1130,7 +1130,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1161,7 +1161,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         ),
                                     ),
@@ -1173,7 +1173,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
@@ -1195,7 +1195,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1226,7 +1226,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         ),
                                     ),
@@ -1238,7 +1238,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                             ),
@@ -1260,7 +1260,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1291,7 +1291,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         ),
                                     ),
@@ -1303,7 +1303,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
@@ -1325,7 +1325,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1356,7 +1356,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         ),
                                     ),
@@ -1368,7 +1368,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),
@@ -1388,7 +1388,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1419,7 +1419,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
@@ -1439,7 +1439,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1476,7 +1476,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
@@ -1496,7 +1496,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1527,7 +1527,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
@@ -1547,7 +1547,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1578,7 +1578,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                             ),
@@ -1598,7 +1598,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1629,7 +1629,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
@@ -1649,7 +1649,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1680,7 +1680,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                             ),
@@ -1700,7 +1700,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1731,7 +1731,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
@@ -1751,7 +1751,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1782,7 +1782,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),

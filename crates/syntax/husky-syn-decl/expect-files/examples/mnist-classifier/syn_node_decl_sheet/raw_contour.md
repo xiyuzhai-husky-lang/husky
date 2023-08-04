@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 46,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -29,7 +29,7 @@ Ok(
                                 ),
                                 lcurl: Ok(
                                     PropsStructLeftCurlyBrace(
-                                        LeftCurlyBraceToken(
+                                        LcurlToken(
                                             TokenIdx(
                                                 25,
                                             ),
@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 272,
+                                                                value: 273,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 244,
+                                                                value: 245,
                                                             },
                                                         ),
                                                     ),
@@ -102,8 +102,8 @@ Ok(
                                     },
                                 ),
                                 rcurl: Ok(
-                                    PropsStructRightCurlyBraceToken(
-                                        RightCurlyBraceToken(
+                                    PropsStructRcurlToken(
+                                        RcurlToken(
                                             TokenIdx(
                                                 37,
                                             ),
@@ -114,8 +114,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -130,15 +130,15 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
-                                                    opr: Ref,
+                                                    opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         28,
                                                     ),
@@ -156,8 +156,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -180,8 +180,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
                                                     ),
@@ -195,8 +195,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -206,7 +206,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -240,7 +240,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 272,
+                                                                    value: 273,
                                                                 },
                                                             ),
                                                         ),
@@ -257,7 +257,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 244,
+                                                                    value: 245,
                                                                 },
                                                             ),
                                                         ),
@@ -277,8 +277,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -287,8 +287,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Enum(
                             EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -305,8 +305,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -325,7 +325,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -361,8 +361,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
@@ -371,8 +371,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -385,16 +385,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 412,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -427,7 +427,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 420,
                                             ),
@@ -463,8 +463,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
@@ -479,8 +479,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -489,8 +489,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -499,8 +499,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -519,8 +519,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -534,8 +534,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -549,8 +549,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -560,10 +560,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row`,
@@ -572,7 +572,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `j`,
@@ -595,10 +595,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -636,7 +636,7 @@ Ok(
                                                             414,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -647,7 +647,7 @@ Ok(
                                                             418,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `j`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -699,8 +699,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
@@ -709,8 +709,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -723,16 +723,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 437,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -765,7 +765,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 445,
                                             ),
@@ -801,8 +801,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
@@ -817,8 +817,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -827,8 +827,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -837,8 +837,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -857,8 +857,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -872,8 +872,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -887,8 +887,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -898,10 +898,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row`,
@@ -910,7 +910,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `j`,
@@ -933,10 +933,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -974,7 +974,7 @@ Ok(
                                                             439,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -985,7 +985,7 @@ Ok(
                                                             443,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `j`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1037,8 +1037,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
@@ -1047,8 +1047,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -1061,16 +1061,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 458,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -1103,7 +1103,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 466,
                                             ),
@@ -1139,8 +1139,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
@@ -1155,8 +1155,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -1165,8 +1165,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -1175,8 +1175,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -1195,8 +1195,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -1210,8 +1210,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -1225,8 +1225,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -1236,10 +1236,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row`,
@@ -1248,7 +1248,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `j`,
@@ -1271,10 +1271,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -1312,7 +1312,7 @@ Ok(
                                                             460,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1323,7 +1323,7 @@ Ok(
                                                             464,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `j`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1375,8 +1375,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
@@ -1385,8 +1385,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -1399,16 +1399,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 483,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -1463,7 +1463,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 496,
                                             ),
@@ -1499,8 +1499,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
@@ -1515,8 +1515,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -1525,8 +1525,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -1535,8 +1535,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -1545,8 +1545,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 3,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             ),
                                                         ),
@@ -1565,8 +1565,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -1580,8 +1580,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -1595,8 +1595,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -1610,8 +1610,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                         ),
                                                     ),
@@ -1621,10 +1621,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_above`,
@@ -1633,7 +1633,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_below`,
@@ -1642,7 +1642,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `j`,
@@ -1667,13 +1667,13 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         2,
                                                     ),
                                                 ],
@@ -1718,7 +1718,7 @@ Ok(
                                                             485,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row_above`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1729,7 +1729,7 @@ Ok(
                                                             489,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row_below`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1740,7 +1740,7 @@ Ok(
                                                             493,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `j`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1805,8 +1805,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
@@ -1815,8 +1815,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -1829,16 +1829,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 614,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -1871,7 +1871,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 622,
                                             ),
@@ -1907,8 +1907,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
@@ -1923,8 +1923,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             ),
                                                         ),
@@ -1933,8 +1933,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             ),
                                                         ),
@@ -1943,8 +1943,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -1963,8 +1963,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                         ),
                                                     ),
@@ -1978,8 +1978,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                         ),
                                                     ),
@@ -1993,8 +1993,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -2004,10 +2004,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `inward`,
@@ -2016,7 +2016,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `outward`,
@@ -2039,10 +2039,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -2080,7 +2080,7 @@ Ok(
                                                             616,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `inward`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2091,7 +2091,7 @@ Ok(
                                                             620,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `outward`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2143,8 +2143,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
@@ -2153,8 +2153,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -2167,16 +2167,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 675,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -2248,7 +2248,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 692,
                                             ),
@@ -2284,8 +2284,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
@@ -2300,8 +2300,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -2310,8 +2310,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                                             ),
                                                         ),
@@ -2320,8 +2320,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -2330,8 +2330,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 3,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             ),
                                                         ),
@@ -2340,8 +2340,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 4,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             ),
                                                         ),
@@ -2360,8 +2360,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -2375,8 +2375,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::raw_bits::r32`, `Extern`),
                                                         ),
                                                     ),
@@ -2390,8 +2390,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -2405,8 +2405,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                         ),
                                                     ),
@@ -2420,8 +2420,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                         ),
                                                     ),
@@ -2431,10 +2431,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_above`,
@@ -2443,7 +2443,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_below`,
@@ -2452,7 +2452,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `j`,
@@ -2461,7 +2461,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `inward_direction`,
@@ -2488,16 +2488,16 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         2,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         3,
                                                     ),
                                                 ],
@@ -2549,7 +2549,7 @@ Ok(
                                                             677,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row_above`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2560,7 +2560,7 @@ Ok(
                                                             681,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `row_below`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2571,7 +2571,7 @@ Ok(
                                                             685,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `j`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -2582,7 +2582,7 @@ Ok(
                                                             689,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `inward_direction`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -2660,8 +2660,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -2670,8 +2670,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -2686,7 +2686,7 @@ Ok(
                                 ),
                                 lcurl: Ok(
                                     PropsStructLeftCurlyBrace(
-                                        LeftCurlyBraceToken(
+                                        LcurlToken(
                                             TokenIdx(
                                                 877,
                                             ),
@@ -2703,7 +2703,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 318,
+                                                                value: 319,
                                                             },
                                                         ),
                                                     ),
@@ -2726,7 +2726,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 319,
+                                                                value: 320,
                                                             },
                                                         ),
                                                     ),
@@ -2759,8 +2759,8 @@ Ok(
                                     },
                                 ),
                                 rcurl: Ok(
-                                    PropsStructRightCurlyBraceToken(
-                                        RightCurlyBraceToken(
+                                    PropsStructRcurlToken(
+                                        RcurlToken(
                                             TokenIdx(
                                                 886,
                                             ),
@@ -2771,8 +2771,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -2787,8 +2787,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -2797,8 +2797,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -2817,8 +2817,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -2832,8 +2832,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -2843,7 +2843,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -2877,7 +2877,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 318,
+                                                                    value: 319,
                                                                 },
                                                             ),
                                                         ),
@@ -2894,7 +2894,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 319,
+                                                                    value: 320,
                                                                 },
                                                             ),
                                                         ),
@@ -2914,8 +2914,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
@@ -2924,8 +2924,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -2938,16 +2938,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 889,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -2962,7 +2962,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 895,
                                             ),
@@ -2998,8 +2998,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
@@ -3023,8 +3023,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -3037,8 +3037,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -3057,8 +3057,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -3072,8 +3072,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -3083,10 +3083,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `points`,
@@ -3107,7 +3107,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -3138,7 +3138,7 @@ Ok(
                                                             891,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `points`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3177,8 +3177,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
@@ -3187,8 +3187,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -3201,16 +3201,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 955,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -3225,7 +3225,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 960,
                                             ),
@@ -3261,8 +3261,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
@@ -3277,15 +3277,15 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
                                                 SynExpr::Prefix {
-                                                    opr: Ref,
+                                                    opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         958,
                                                     ),
@@ -3303,8 +3303,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
                                                         ),
@@ -3327,8 +3327,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
                                                     ),
@@ -3342,8 +3342,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
@@ -3353,10 +3353,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
@@ -3377,7 +3377,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -3408,7 +3408,7 @@ Ok(
                                                             957,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `cc`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3447,7 +3447,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -3517,7 +3517,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -3541,8 +3541,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::visual::Visualize`),
                                                         ),
                                                     ),
@@ -3551,8 +3551,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
@@ -3571,8 +3571,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::visual::Visualize`),
                                                     ),
                                                 ),
@@ -3586,8 +3586,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                 ),
@@ -3597,7 +3597,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -3641,7 +3641,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3725,18 +3725,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 45,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 46,
                                             ),
@@ -3775,7 +3775,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -3799,8 +3799,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::visual::Visualize`),
                                                                         ),
                                                                     ),
@@ -3809,8 +3809,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -3829,8 +3829,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::visual::Visualize`),
                                                                     ),
                                                                 ),
@@ -3844,8 +3844,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -3855,7 +3855,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -3896,7 +3896,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3927,8 +3927,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::visual::Html`, `Extern`),
                                                             ),
                                                         ),
@@ -3947,8 +3947,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::visual::Html`, `Extern`),
                                                         ),
                                                     ),
@@ -3958,7 +3958,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -3999,7 +3999,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -4066,7 +4066,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -4083,8 +4083,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
@@ -4103,8 +4103,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                 ),
@@ -4114,7 +4114,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -4154,7 +4154,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4222,7 +4222,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -4239,8 +4239,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -4259,8 +4259,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -4270,7 +4270,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -4307,7 +4307,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4331,8 +4331,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             ),
                                                         ),
@@ -4351,8 +4351,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ),
                                                     ),
@@ -4362,7 +4362,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -4403,7 +4403,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4471,7 +4471,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -4488,8 +4488,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -4508,8 +4508,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -4519,7 +4519,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -4556,7 +4556,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4580,8 +4580,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                             ),
                                                         ),
@@ -4600,8 +4600,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         ),
                                                     ),
@@ -4611,7 +4611,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -4652,7 +4652,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4720,7 +4720,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -4737,8 +4737,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -4757,8 +4757,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -4768,7 +4768,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -4805,7 +4805,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4829,8 +4829,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                             ),
                                                         ),
@@ -4849,8 +4849,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         ),
                                                     ),
@@ -4860,7 +4860,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -4901,7 +4901,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4969,7 +4969,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -4986,8 +4986,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -5006,8 +5006,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -5017,7 +5017,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -5054,7 +5054,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5078,8 +5078,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -5098,8 +5098,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -5109,7 +5109,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -5150,7 +5150,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5211,16 +5211,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 350,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -5253,7 +5253,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 358,
                                             ),
@@ -5292,7 +5292,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -5309,8 +5309,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
                                                                     ),
@@ -5329,8 +5329,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                     ),
                                                                 ),
@@ -5340,7 +5340,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -5377,7 +5377,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5401,8 +5401,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -5411,8 +5411,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -5421,8 +5421,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             ),
                                                         ),
@@ -5441,8 +5441,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -5456,8 +5456,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -5471,8 +5471,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         ),
                                                     ),
@@ -5482,10 +5482,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `start`,
@@ -5494,7 +5494,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `end`,
@@ -5517,10 +5517,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -5558,7 +5558,7 @@ Ok(
                                                             352,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `start`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5569,7 +5569,7 @@ Ok(
                                                             356,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `end`,
                                                             pattern_symbol_idx: 1,
                                                         },

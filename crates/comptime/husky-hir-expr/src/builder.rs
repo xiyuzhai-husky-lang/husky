@@ -1,5 +1,5 @@
 use crate::{db::HirExprDb, *};
-use husky_entity_path::{MajarItemPath, PrincipalEntityPath};
+use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::builder::HirEagerExprBuilder;
 use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
 use husky_syn_expr::{SynExpr, SynExprRegion};
@@ -33,7 +33,7 @@ fn expr_region_contains_gn(db: &dyn HirExprDb, syn_expr_region: SynExprRegion) -
         match expr {
             SynExpr::Literal(_, _) => (),
             SynExpr::PrincipalEntityPath {
-                opt_path: Some(PrincipalEntityPath::MajorItem(MajarItemPath::Fugitive(path))),
+                opt_path: Some(PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path))),
                 ..
             } => todo!(),
             SynExpr::ScopeResolution {

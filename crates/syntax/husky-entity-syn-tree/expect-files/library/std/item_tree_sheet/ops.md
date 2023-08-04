@@ -65,7 +65,7 @@ Ok(
                         `std::ops`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`std::ops::Add`),
                         ),
                         node: MajorItemSynNode {

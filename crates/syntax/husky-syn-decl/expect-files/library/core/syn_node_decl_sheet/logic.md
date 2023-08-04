@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 8,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -31,8 +31,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::Prop`, `Extern`),
@@ -51,7 +51,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -87,8 +87,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -97,8 +97,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Structure(
                             StructureTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -111,7 +111,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     7,
                                                 ),
@@ -172,7 +172,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     15,
                                                 ),
@@ -184,8 +184,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -200,8 +200,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
                                                             ),
                                                         ),
@@ -210,8 +210,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
                                                             ),
                                                         ),
@@ -230,8 +230,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::logic::Prop`, `Extern`),
                                                         ),
                                                     ),
@@ -245,8 +245,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::logic::Prop`, `Extern`),
                                                         ),
                                                     ),
@@ -256,7 +256,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -357,8 +357,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
@@ -367,8 +367,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Inductive(
                             InductiveTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -381,7 +381,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     29,
                                                 ),
@@ -442,7 +442,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     37,
                                                 ),
@@ -454,8 +454,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
@@ -470,8 +470,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
                                                             ),
                                                         ),
@@ -480,8 +480,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::logic::Prop`, `Extern`),
                                                             ),
                                                         ),
@@ -500,8 +500,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::logic::Prop`, `Extern`),
                                                         ),
                                                     ),
@@ -515,8 +515,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::logic::Prop`, `Extern`),
                                                         ),
                                                     ),
@@ -526,7 +526,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },

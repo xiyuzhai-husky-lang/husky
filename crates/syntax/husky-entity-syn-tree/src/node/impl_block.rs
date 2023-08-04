@@ -154,7 +154,7 @@ impl ImplBlockSynNode {
         }
         let (expr, path) = parser.parse_major_path_expr_expected()?;
         Ok(match path {
-            MajarItemPath::Type(ty) => {
+            MajorItemPath::Type(ty) => {
                 let Some(ImplBlockItems::Type(items)) = items else {
                     unreachable!("it should be guaranteed in `husky-ast` that items are not none")
                 };
@@ -170,7 +170,7 @@ impl ImplBlockSynNode {
                 )
                 .into()
             }
-            MajarItemPath::Trait(trai_path) => {
+            MajorItemPath::Trait(trai_path) => {
                 let trai_expr = expr;
                 let for_token = match ignore_util_for_is_eaten(&mut parser) {
                     Ok(for_token) => for_token,
@@ -178,7 +178,7 @@ impl ImplBlockSynNode {
                 };
                 let (ty_path_expr, ty_sketch) =
                     match parser.parse_major_path_expr().into_result_option()? {
-                        Some((expr, MajarItemPath::Type(path))) => {
+                        Some((expr, MajorItemPath::Type(path))) => {
                             (SelfTypeSketchExpr::Path(expr), TypeSketch::Path(path))
                         }
                         Some(_) => Err(ImplBlockIllForm::ExpectTypePathAfterForKeyword)?,
@@ -222,7 +222,7 @@ impl ImplBlockSynNode {
                     Err(_) => todo!(),
                 }
             }
-            MajarItemPath::Fugitive(_) => todo!(),
+            MajorItemPath::Fugitive(_) => todo!(),
         })
     }
 

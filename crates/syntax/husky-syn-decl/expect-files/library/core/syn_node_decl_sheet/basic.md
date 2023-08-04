@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 2,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::bool`, `Extern`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -31,8 +31,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::basic::bool`, `Extern`),
@@ -51,7 +51,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -87,8 +87,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::never`, `Extern`),
@@ -97,8 +97,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -115,8 +115,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::basic::never`, `Extern`),
@@ -135,7 +135,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -171,8 +171,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::unit`, `Extern`),
@@ -181,8 +181,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -199,8 +199,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::basic::unit`, `Extern`),
@@ -219,7 +219,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -255,8 +255,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::Trait`, `Extern`),
@@ -265,8 +265,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -283,8 +283,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::basic::Trait`, `Extern`),
@@ -303,7 +303,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -339,8 +339,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::Module`, `Extern`),
@@ -349,8 +349,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -367,8 +367,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::basic::Module`, `Extern`),
@@ -387,7 +387,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },

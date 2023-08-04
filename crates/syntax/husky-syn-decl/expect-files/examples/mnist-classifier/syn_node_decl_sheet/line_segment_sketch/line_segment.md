@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 43,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -29,7 +29,7 @@ Ok(
                                 ),
                                 lcurl: Ok(
                                     PropsStructLeftCurlyBrace(
-                                        LeftCurlyBraceToken(
+                                        LcurlToken(
                                             TokenIdx(
                                                 9,
                                             ),
@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 291,
+                                                                value: 292,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 292,
+                                                                value: 293,
                                                             },
                                                         ),
                                                     ),
@@ -102,8 +102,8 @@ Ok(
                                     },
                                 ),
                                 rcurl: Ok(
-                                    PropsStructRightCurlyBraceToken(
-                                        RightCurlyBraceToken(
+                                    PropsStructRcurlToken(
+                                        RcurlToken(
                                             TokenIdx(
                                                 18,
                                             ),
@@ -114,8 +114,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -130,8 +130,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -140,8 +140,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -160,8 +160,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -175,8 +175,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -186,7 +186,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -220,7 +220,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 291,
+                                                                    value: 292,
                                                                 },
                                                             ),
                                                         ),
@@ -237,7 +237,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 292,
+                                                                    value: 293,
                                                                 },
                                                             ),
                                                         ),
@@ -257,7 +257,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -324,7 +324,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -341,8 +341,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                         ),
                                                     ),
@@ -361,8 +361,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                 ),
@@ -372,7 +372,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -412,7 +412,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -475,18 +475,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 24,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 25,
                                             ),
@@ -525,7 +525,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -542,8 +542,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                                         ),
                                                                     ),
@@ -562,8 +562,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                                     ),
                                                                 ),
@@ -573,7 +573,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -610,7 +610,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -634,8 +634,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                             ),
                                                         ),
@@ -654,8 +654,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         ),
                                                     ),
@@ -665,7 +665,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -706,7 +706,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -769,16 +769,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 41,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -793,7 +793,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 45,
                                             ),
@@ -832,7 +832,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -849,8 +849,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                                         ),
                                                                     ),
@@ -869,8 +869,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                                     ),
                                                                 ),
@@ -880,7 +880,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -917,7 +917,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -941,8 +941,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                             ),
                                                         ),
@@ -951,8 +951,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -971,8 +971,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
                                                     ),
@@ -986,8 +986,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -997,10 +997,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `pt`,
@@ -1021,7 +1021,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -1052,7 +1052,7 @@ Ok(
                                                             43,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `pt`,
                                                             pattern_symbol_idx: 0,
                                                         },

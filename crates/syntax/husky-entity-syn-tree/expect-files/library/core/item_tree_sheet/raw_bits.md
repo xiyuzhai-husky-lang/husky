@@ -53,7 +53,7 @@ Ok(
                     ident: `r32`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::raw_bits::r32`, `Extern`),
                         ),
                         node: MajorItemSynNode {

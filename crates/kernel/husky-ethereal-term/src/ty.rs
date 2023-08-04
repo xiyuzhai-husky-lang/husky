@@ -34,16 +34,16 @@ impl HasTypeGivenDisambiguation for PrincipalEntityPath {
     }
 }
 
-impl HasTypeGivenDisambiguation for MajarItemPath {
+impl HasTypeGivenDisambiguation for MajorItemPath {
     fn ty(
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
-            MajarItemPath::Type(path) => path.ty(db, disambiguation),
-            MajarItemPath::Trait(path) => path.ty(db),
-            MajarItemPath::Fugitive(path) => path.ty(db),
+            MajorItemPath::Type(path) => path.ty(db, disambiguation),
+            MajorItemPath::Trait(path) => path.ty(db),
+            MajorItemPath::Fugitive(path) => path.ty(db),
         }
     }
 }

@@ -875,7 +875,7 @@ Ok(
                     ident: `Add`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
                         node: MajorItemSynNode {
@@ -916,7 +916,7 @@ Ok(
                     ident: `AddAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::AddAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -957,7 +957,7 @@ Ok(
                     ident: `BitAnd`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitAnd`),
                         ),
                         node: MajorItemSynNode {
@@ -998,7 +998,7 @@ Ok(
                     ident: `BitAndAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitAndAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -1039,7 +1039,7 @@ Ok(
                     ident: `BitOr`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitOr`),
                         ),
                         node: MajorItemSynNode {
@@ -1080,7 +1080,7 @@ Ok(
                     ident: `BitOrAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitOrAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -1121,7 +1121,7 @@ Ok(
                     ident: `BitXor`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitXor`),
                         ),
                         node: MajorItemSynNode {
@@ -1162,7 +1162,7 @@ Ok(
                     ident: `BitXorAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::BitXorAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -1203,7 +1203,7 @@ Ok(
                     ident: `Div`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Div`),
                         ),
                         node: MajorItemSynNode {
@@ -1244,7 +1244,7 @@ Ok(
                     ident: `DivAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::DivAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -1285,7 +1285,7 @@ Ok(
                     ident: `IntIndex`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::IntIndex`),
                         ),
                         node: MajorItemSynNode {
@@ -1326,7 +1326,7 @@ Ok(
                     ident: `Mul`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Mul`),
                         ),
                         node: MajorItemSynNode {
@@ -1367,7 +1367,7 @@ Ok(
                     ident: `MulAssign`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::MulAssign`),
                         ),
                         node: MajorItemSynNode {
@@ -1408,7 +1408,7 @@ Ok(
                     ident: `Neg`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Neg`),
                         ),
                         node: MajorItemSynNode {
@@ -1449,7 +1449,7 @@ Ok(
                     ident: `Not`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Not`),
                         ),
                         node: MajorItemSynNode {
@@ -1490,7 +1490,7 @@ Ok(
                     ident: `Sub`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Sub`),
                         ),
                         node: MajorItemSynNode {
@@ -1531,7 +1531,7 @@ Ok(
                     ident: `Unveil`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::ops::Unveil`),
                         ),
                         node: MajorItemSynNode {
@@ -1572,7 +1572,7 @@ Ok(
                     ident: `ControlFlow`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         node: MajorItemSynNode {

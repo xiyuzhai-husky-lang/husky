@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 10,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Ref`, `Extern`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -27,7 +27,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     3,
                                                 ),
@@ -45,7 +45,7 @@ Ok(
                                                     ),
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Lifetime {
-                                                        label_token: LifetimeLabelToken {
+                                                        label_token: LifetimeToken {
                                                             label: `'a`,
                                                             token_idx: TokenIdx(
                                                                 5,
@@ -85,7 +85,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     9,
                                                 ),
@@ -97,8 +97,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::mem::Ref`, `Extern`),
@@ -117,7 +117,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -159,7 +159,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
-                                                                label_token: LifetimeLabelToken {
+                                                                label_token: LifetimeToken {
                                                                     label: `'a`,
                                                                     token_idx: TokenIdx(
                                                                         5,
@@ -225,8 +225,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::RefMut`, `Extern`),
@@ -235,8 +235,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -249,7 +249,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     14,
                                                 ),
@@ -267,7 +267,7 @@ Ok(
                                                     ),
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Lifetime {
-                                                        label_token: LifetimeLabelToken {
+                                                        label_token: LifetimeToken {
                                                             label: `'a`,
                                                             token_idx: TokenIdx(
                                                                 16,
@@ -307,7 +307,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     20,
                                                 ),
@@ -319,8 +319,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::mem::RefMut`, `Extern`),
@@ -339,7 +339,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -381,7 +381,7 @@ Ok(
                                                                 ),
                                                             ),
                                                             template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Lifetime {
-                                                                label_token: LifetimeLabelToken {
+                                                                label_token: LifetimeToken {
                                                                     label: `'a`,
                                                                     token_idx: TokenIdx(
                                                                         16,
@@ -447,8 +447,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Leash`, `Extern`),
@@ -457,8 +457,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -471,7 +471,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     25,
                                                 ),
@@ -503,7 +503,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     28,
                                                 ),
@@ -515,8 +515,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::mem::Leash`, `Extern`),
@@ -535,7 +535,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -608,7 +608,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -652,7 +652,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 31,
                                             ),
@@ -676,7 +676,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 33,
                                             ),
@@ -710,7 +710,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -734,8 +734,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::marker::Copy`),
                                                         ),
                                                     ),
@@ -744,8 +744,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::mem::Leash`, `Extern`),
                                                         ),
                                                     ),
@@ -785,8 +785,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::marker::Copy`),
                                                     ),
                                                 ),
@@ -800,8 +800,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::mem::Leash`, `Extern`),
                                                     ),
                                                 ),
@@ -811,7 +811,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

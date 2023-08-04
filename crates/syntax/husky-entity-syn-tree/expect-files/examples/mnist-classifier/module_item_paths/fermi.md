@@ -1,12 +1,12 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
             ),
         ),

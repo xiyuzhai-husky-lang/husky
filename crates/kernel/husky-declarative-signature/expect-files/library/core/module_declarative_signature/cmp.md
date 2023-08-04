@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::cmp::PartialEq`),
             ),
         ),
@@ -19,7 +19,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::cmp::Eq`),
             ),
         ),
@@ -37,7 +37,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::cmp::PartialOrd`),
             ),
         ),
@@ -55,7 +55,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::cmp::Ord`),
             ),
         ),

@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 47,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Inductive(
                             InductiveTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -31,8 +31,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -51,7 +51,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -87,8 +87,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -97,8 +97,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Structure(
                             StructureTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -115,8 +115,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -135,7 +135,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -171,8 +171,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -181,8 +181,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Structure(
                             StructureTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -199,8 +199,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -219,7 +219,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -255,7 +255,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -322,7 +322,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -339,8 +339,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         ),
                                                     ),
@@ -359,8 +359,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                                     ),
                                                 ),
@@ -370,7 +370,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

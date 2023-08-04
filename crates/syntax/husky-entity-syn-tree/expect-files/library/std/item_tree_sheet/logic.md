@@ -12,7 +12,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::Prop`, `Extern`),
                                 ),
                                 node: MajorItemSynNode {
@@ -43,7 +43,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`core::logic::Prop`, `Extern`),
                                 ),
                             ),
@@ -59,7 +59,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::LogicAnd`, `Structure`),
                                 ),
                                 node: MajorItemSynNode {
@@ -90,7 +90,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`core::logic::LogicAnd`, `Structure`),
                                 ),
                             ),
@@ -106,7 +106,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`core::logic::LogicOr`, `Inductive`),
                                 ),
                                 node: MajorItemSynNode {
@@ -143,7 +143,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`core::logic::LogicOr`, `Inductive`),
                                 ),
                             ),

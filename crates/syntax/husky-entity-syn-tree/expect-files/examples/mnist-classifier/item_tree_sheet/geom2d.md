@@ -263,7 +263,7 @@ Ok(
                     ident: `Point2d`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -298,7 +298,7 @@ Ok(
                     ident: `RelativePoint2d`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -333,7 +333,7 @@ Ok(
                     ident: `Vector2d`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -368,7 +368,7 @@ Ok(
                     ident: `ClosedRange`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -403,7 +403,7 @@ Ok(
                     ident: `BoundingBox`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -438,7 +438,7 @@ Ok(
                     ident: `RelativeBoundingBox`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         ),
                         node: MajorItemSynNode {

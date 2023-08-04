@@ -15,7 +15,7 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum EntityPath {
     Module(ModulePath),
-    MajorItem(MajarItemPath),
+    MajorItem(MajorItemPath),
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
@@ -32,7 +32,7 @@ impl EntityPath {
         }
     }
 
-    pub fn module_item_path(self) -> Option<MajarItemPath> {
+    pub fn module_item_path(self) -> Option<MajorItemPath> {
         match self {
             EntityPath::MajorItem(module_item_path) => Some(module_item_path),
             _ => None,
@@ -106,7 +106,7 @@ impl From<TraitPath> for EntityPath {
 #[enum_class::from_variants]
 pub enum ItemPath {
     Submodule(SubmodulePath),
-    MajorItem(MajarItemPath),
+    MajorItem(MajorItemPath),
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
@@ -123,7 +123,7 @@ impl ItemPath {
         }
     }
 
-    pub fn module_item_path(self) -> Option<MajarItemPath> {
+    pub fn module_item_path(self) -> Option<MajorItemPath> {
         match self {
             ItemPath::MajorItem(module_item_path) => Some(module_item_path),
             _ => None,
@@ -216,7 +216,7 @@ impl From<TraitPath> for ItemPath {
 #[enum_class::from_variants]
 pub enum MajorEntityPath {
     Module(ModulePath),
-    MajorItem(MajarItemPath),
+    MajorItem(MajorItemPath),
 }
 
 impl From<FugitivePath> for MajorEntityPath {
@@ -251,7 +251,7 @@ impl MajorEntityPath {
 #[enum_class::from_variants]
 pub enum PrincipalEntityPath {
     Module(ModulePath),
-    MajorItem(MajarItemPath),
+    MajorItem(MajorItemPath),
     TypeVariant(TypeVariantPath),
 }
 
@@ -299,6 +299,6 @@ impl From<PrincipalEntityPath> for EntityPath {
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
     Submodule(SubmodulePath),
-    MajorItem(MajarItemPath),
+    MajorItem(MajorItemPath),
     TypeVariant(TypeVariantPath),
 }

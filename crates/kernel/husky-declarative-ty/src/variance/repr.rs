@@ -32,9 +32,9 @@ pub(crate) fn item_variance_reprs(
     match path {
         ItemPath::Submodule(_) => todo!(),
         ItemPath::MajorItem(path) => match path {
-            MajarItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
-            MajarItemPath::Trait(path) => trai_item_variance_reprs(db, path),
-            MajarItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
+            MajorItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
+            MajorItemPath::Trait(path) => trai_item_variance_reprs(db, path),
+            MajorItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
         ItemPath::AssociatedItem(path) => match path {
             AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),

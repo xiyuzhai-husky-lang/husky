@@ -40,7 +40,7 @@ pub(crate) fn subitem_path(
             let crate_path = module_item_path.crate_path(db);
             let _item_tree_crate_bundle = db.item_syn_tree_bundle(crate_path)?;
             match module_item_path {
-                MajarItemPath::Type(path) => {
+                MajorItemPath::Type(path) => {
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {
                         Ok(SubitemPath::Principal(path.into()))
                     } else if let Some((_, node)) = path.item_syn_node_paths(db)?.get_entry(ident) {
@@ -50,8 +50,8 @@ pub(crate) fn subitem_path(
                         Err(OriginalEntityTreeError::NoVisibleSubitem)?
                     }
                 }
-                MajarItemPath::Trait(_) => todo!(),
-                MajarItemPath::Fugitive(_) => todo!(),
+                MajorItemPath::Trait(_) => todo!(),
+                MajorItemPath::Fugitive(_) => todo!(),
             }
         }
     }

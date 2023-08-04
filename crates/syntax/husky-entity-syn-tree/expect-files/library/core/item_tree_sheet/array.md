@@ -53,7 +53,7 @@ Ok(
                     ident: `Array`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::array::Array`, `Extern`),
                         ),
                         node: MajorItemSynNode {

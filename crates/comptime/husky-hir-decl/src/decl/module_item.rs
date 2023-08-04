@@ -34,7 +34,7 @@ impl MajorItemHirDecl {
     //     }
     // }
 
-    pub fn path(self, db: &dyn HirDeclDb) -> MajarItemPath {
+    pub fn path(self, db: &dyn HirDeclDb) -> MajorItemPath {
         match self {
             MajorItemHirDecl::Type(decl) => decl.path(db).into(),
             MajorItemHirDecl::Fugitive(decl) => decl.path(db).into(),
@@ -43,14 +43,14 @@ impl MajorItemHirDecl {
     }
 }
 
-impl HasHirDecl for MajarItemPath {
+impl HasHirDecl for MajorItemPath {
     type HirDecl = MajorItemHirDecl;
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         Some(match self {
-            MajarItemPath::Type(path) => path.hir_decl(db)?.into(),
-            MajarItemPath::Trait(path) => path.hir_decl(db)?.into(),
-            MajarItemPath::Fugitive(path) => path.hir_decl(db)?.into(),
+            MajorItemPath::Type(path) => path.hir_decl(db)?.into(),
+            MajorItemPath::Trait(path) => path.hir_decl(db)?.into(),
+            MajorItemPath::Fugitive(path) => path.hir_decl(db)?.into(),
         })
     }
 }

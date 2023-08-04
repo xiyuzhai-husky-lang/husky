@@ -1,5 +1,6 @@
 use crate::DeclarativeSignatureDb;
 use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
+use husky_print_utils::p;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]

@@ -127,6 +127,15 @@ impl<'a> DeclarativeTermEngine<'a> {
                             ty_expr_idx,
                         } => {
                             let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
+                            if ty.is_err() {
+                                p!(
+                                    ident_token.debug(self.db),
+                                    self.expr_region_data.path().debug(self.db)
+                                );
+                                p!(self.expr_region_data[*ty_expr_idx].debug(self.db));
+                                p!(self.expr_terms[*ty_expr_idx].debug(self.db));
+                                todo!()
+                            }
                             (
                                 ty,
                                 DeclarativeTermSymbol::new_const(
@@ -197,7 +206,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                         self.db,
                         symbol,
                         modifier,
-                        Err(DeclarativeTermSymbolTypeErrorKind::SignatureDeclarativeTermError),
+                        Err(DeclarativeTermSymbolTypeErrorKind::CannotInferTypeExprTerm(
+                            self.expr_region_data.path()
+                        )),
                     )
             }
             return;
@@ -345,9 +356,9 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
-                        MajarItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
-                        MajarItemPath::Trait(path) => path.into(),
-                        MajarItemPath::Fugitive(path) => path.into(),
+                        MajorItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
+                        MajorItemPath::Trait(path) => path.into(),
+                        MajorItemPath::Fugitive(path) => path.into(),
                     },
                     PrincipalEntityPath::TypeVariant(path) => {
                         DeclarativeTermEntityPath::TypeVariant(path)

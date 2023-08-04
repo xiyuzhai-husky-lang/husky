@@ -137,7 +137,7 @@ Ok(
                     ident: `Ref`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::mem::Ref`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -172,7 +172,7 @@ Ok(
                     ident: `RefMut`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::mem::RefMut`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -207,7 +207,7 @@ Ok(
                     ident: `Leash`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::mem::Leash`, `Extern`),
                         ),
                         node: MajorItemSynNode {

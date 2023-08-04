@@ -1,7 +1,7 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::clone::Clone`),
             ),
         ),

@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 45,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -52,8 +52,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -77,8 +77,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                             ),
                                                         ),
@@ -101,8 +101,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
                                                     ),
@@ -112,7 +112,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -153,8 +153,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -163,8 +163,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -202,8 +202,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -218,8 +218,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                             ),
                                                         ),
@@ -245,8 +245,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
                                                     ),
@@ -256,7 +256,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -297,8 +297,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -307,8 +307,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -346,8 +346,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -362,8 +362,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -382,8 +382,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -393,7 +393,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -434,8 +434,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -444,8 +444,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -483,8 +483,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -515,8 +515,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
                                                         ),
@@ -539,8 +539,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
@@ -550,7 +550,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -591,8 +591,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -601,8 +601,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -640,8 +640,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -656,8 +656,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             ),
                                                         ),
@@ -683,8 +683,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
                                                     ),
@@ -694,7 +694,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -735,8 +735,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -745,8 +745,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -784,8 +784,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -800,8 +800,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             ),
                                                         ),
@@ -827,8 +827,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ),
                                                     ),
@@ -838,7 +838,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -879,8 +879,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -889,8 +889,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -928,8 +928,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -960,8 +960,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                         ),
@@ -984,8 +984,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
                                                     ),
@@ -995,7 +995,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },

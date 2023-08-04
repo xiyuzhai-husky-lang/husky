@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Add`),
             ),
         ),
@@ -29,7 +29,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::AddAssign`),
             ),
         ),
@@ -57,7 +57,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitAnd`),
             ),
         ),
@@ -85,7 +85,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitAndAssign`),
             ),
         ),
@@ -113,7 +113,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitOr`),
             ),
         ),
@@ -141,7 +141,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitOrAssign`),
             ),
         ),
@@ -169,7 +169,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitXor`),
             ),
         ),
@@ -197,7 +197,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::BitXorAssign`),
             ),
         ),
@@ -225,7 +225,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Div`),
             ),
         ),
@@ -253,7 +253,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::DivAssign`),
             ),
         ),
@@ -281,7 +281,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::IntIndex`),
             ),
         ),
@@ -299,7 +299,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
             ),
         ),
@@ -327,7 +327,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::MulAssign`),
             ),
         ),
@@ -355,7 +355,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Neg`),
             ),
         ),
@@ -373,7 +373,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Not`),
             ),
         ),
@@ -391,7 +391,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Sub`),
             ),
         ),
@@ -419,7 +419,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::ops::Unveil`),
             ),
         ),
@@ -447,7 +447,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::ops::ControlFlow`, `Enum`),
             ),
         ),

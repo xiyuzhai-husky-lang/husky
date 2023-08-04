@@ -149,7 +149,7 @@ Ok(
                     ident: `OneVsAll`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`malamute::OneVsAll`, `Enum`),
                         ),
                         node: MajorItemSynNode {
@@ -190,7 +190,7 @@ Ok(
                     ident: `OneVsAllResult`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                         ),
                         node: MajorItemSynNode {
@@ -231,7 +231,7 @@ Ok(
                     ident: `narrow_down`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`malamute::narrow_down`, `Gn`),
                         ),
                         node: MajorItemSynNode {

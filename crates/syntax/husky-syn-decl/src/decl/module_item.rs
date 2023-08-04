@@ -91,7 +91,7 @@ impl MajorItemSynDecl {
         }
     }
 
-    pub fn path(self, db: &dyn SynDeclDb) -> MajarItemPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> MajorItemPath {
         match self {
             MajorItemSynDecl::Type(decl) => decl.path(db).into(),
             MajorItemSynDecl::Fugitive(decl) => decl.path(db).into(),
@@ -100,14 +100,14 @@ impl MajorItemSynDecl {
     }
 }
 
-impl HasSynDecl for MajarItemPath {
+impl HasSynDecl for MajorItemPath {
     type Decl = MajorItemSynDecl;
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
-            MajarItemPath::Type(id) => id.syn_decl(db).map(Into::into),
-            MajarItemPath::Trait(id) => id.syn_decl(db).map(Into::into),
-            MajarItemPath::Fugitive(id) => id.syn_decl(db).map(Into::into),
+            MajorItemPath::Type(id) => id.syn_decl(db).map(Into::into),
+            MajorItemPath::Trait(id) => id.syn_decl(db).map(Into::into),
+            MajorItemPath::Fugitive(id) => id.syn_decl(db).map(Into::into),
         }
     }
 }

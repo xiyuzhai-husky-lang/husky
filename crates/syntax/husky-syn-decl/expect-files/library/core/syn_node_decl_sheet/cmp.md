@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 4,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialEq`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30,8 +30,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::cmp::PartialEq`),
@@ -50,7 +50,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -85,8 +85,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Eq`),
@@ -95,8 +95,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -112,8 +112,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::cmp::Eq`),
@@ -132,7 +132,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -167,8 +167,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialOrd`),
@@ -177,8 +177,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -194,8 +194,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::cmp::PartialOrd`),
@@ -214,7 +214,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -249,8 +249,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Ord`),
@@ -259,8 +259,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -276,8 +276,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::cmp::Ord`),
@@ -296,7 +296,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

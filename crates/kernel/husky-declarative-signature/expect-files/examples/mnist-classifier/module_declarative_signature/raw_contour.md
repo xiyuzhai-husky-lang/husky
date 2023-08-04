@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
             ),
         ),
@@ -32,7 +32,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
             ),
         ),
@@ -53,7 +53,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
             ),
         ),
@@ -90,7 +90,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
             ),
         ),
@@ -127,7 +127,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
             ),
         ),
@@ -164,7 +164,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
             ),
         ),
@@ -207,7 +207,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
             ),
         ),
@@ -244,7 +244,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
             ),
         ),
@@ -293,7 +293,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
             ),
         ),
@@ -324,7 +324,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
             ),
         ),
@@ -355,7 +355,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
             ),
         ),
