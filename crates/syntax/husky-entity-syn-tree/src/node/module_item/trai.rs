@@ -9,7 +9,7 @@ pub struct TraitSynNodePath {
 
 impl From<TraitSynNodePath> for ItemSynNodePath {
     fn from(id: TraitSynNodePath) -> Self {
-        ItemSynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::MajorItem(id.into())
     }
 }
 
@@ -26,7 +26,7 @@ impl TraitSynNodePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ModuleItemSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         trai_node(db, self)
     }
 
@@ -52,14 +52,14 @@ impl HasSynNodePath for TraitPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> ModuleItemSynNode {
+fn trai_node(db: &dyn EntitySynTreeDb, syn_node_path: TraitSynNodePath) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db).expect("valid file");
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNode::ModuleItem(node) => node,
+        ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

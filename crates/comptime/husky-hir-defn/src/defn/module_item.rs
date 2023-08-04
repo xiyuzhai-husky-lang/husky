@@ -11,37 +11,37 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
-pub enum ModuleItemHirDefn {
+pub enum MajorItemHirDefn {
     Type(TypeHirDefn),
     Trait(TraitHirDefn),
     Fugitive(FugitiveHirDefn),
 }
 
-impl ModuleItemHirDefn {
-    pub fn hir_decl(self, db: &dyn HirDefnDb) -> ModuleItemHirDecl {
+impl MajorItemHirDefn {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> MajorItemHirDecl {
         match self {
-            ModuleItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),
-            ModuleItemHirDefn::Trait(hir_defn) => hir_defn.hir_decl(db).into(),
-            ModuleItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_decl(db).into(),
+            MajorItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),
+            MajorItemHirDefn::Trait(hir_defn) => hir_defn.hir_decl(db).into(),
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            ModuleItemHirDefn::Type(_) | ModuleItemHirDefn::Trait(_) => None,
-            ModuleItemHirDefn::Fugitive(hir_defn) => Some(hir_defn.hir_expr_region(db)),
+            MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
+            MajorItemHirDefn::Fugitive(hir_defn) => Some(hir_defn.hir_expr_region(db)),
         }
     }
 }
 
-impl HasHirDefn for ModuleItemPath {
-    type HirDefn = ModuleItemHirDefn;
+impl HasHirDefn for MajarItemPath {
+    type HirDefn = MajorItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         Some(match self {
-            ModuleItemPath::Type(path) => path.hir_defn(db)?.into(),
-            ModuleItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
-            ModuleItemPath::Trait(path) => path.hir_defn(db)?.into(),
+            MajarItemPath::Type(path) => path.hir_defn(db)?.into(),
+            MajarItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
+            MajarItemPath::Trait(path) => path.hir_defn(db)?.into(),
         })
     }
 }

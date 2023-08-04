@@ -29,9 +29,9 @@ impl NormalAstChildren for FugitiveBody {
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
         };
-        Ok(EntityKind::ModuleItem {
+        Ok(EntityKind::MajorItem {
             module_item_kind,
-            connection: ModuleItemConnectionKind::Disconnected,
+            connection: MajorItemConnectionKind::Disconnected,
         })
     }
 }

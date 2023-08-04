@@ -176,7 +176,7 @@ pub trait ResolveLinkage {
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
         //     || match self.item_source(routine).unwrap() {
-        //         EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
+        //         EntitySource::StaticMajorItem(static_defn) => match static_defn.variant {
         //             EntityStaticDefnVariant::Function { linkage, .. } => Some(linkage),
         //             _ => todo!(),
         //         },

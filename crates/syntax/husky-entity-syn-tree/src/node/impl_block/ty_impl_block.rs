@@ -91,7 +91,7 @@ pub struct TypeImplBlockSynNode {
     pub syn_node_path: TypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
-    pub ty_expr: ModuleItemPathExprIdx,
+    pub ty_expr: MajorItemPathExprIdx,
     pub items: TypeItems,
 }
 
@@ -104,7 +104,7 @@ impl TypeImplBlockSynNode {
         ast_idx: AstIdx,
         items: TypeItems,
         ty_path: TypePath,
-        ty_expr: ModuleItemPathExprIdx,
+        ty_expr: MajorItemPathExprIdx,
     ) -> Self {
         Self::new_inner(
             db,

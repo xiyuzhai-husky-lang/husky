@@ -107,7 +107,7 @@ impl<'a> InferEngine<'a> {
             _ => unreachable!(),
         }
         match syn_node_defn {
-            SynNodeDefn::ModuleItem(defn) => self.visit_module_item_node(defn),
+            SynNodeDefn::MajorItem(defn) => self.visit_module_item_node(defn),
             SynNodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
             SynNodeDefn::TypeVariant(_) => todo!(),
             SynNodeDefn::ImplBlock(_) => (),
@@ -128,11 +128,11 @@ impl<'a> InferEngine<'a> {
         .visit_all()
     }
 
-    fn visit_module_item_node(&mut self, defn: ModuleItemSynNodeDefn) {
+    fn visit_module_item_node(&mut self, defn: MajorItemSynNodeDefn) {
         match defn {
-            ModuleItemSynNodeDefn::Type(defn) => self.visit_ty(defn),
-            ModuleItemSynNodeDefn::Trait(defn) => self.visit_trai(defn),
-            ModuleItemSynNodeDefn::Fugitive(defn) => self.visit_fugitive_syn_node(defn),
+            MajorItemSynNodeDefn::Type(defn) => self.visit_ty(defn),
+            MajorItemSynNodeDefn::Trait(defn) => self.visit_trai(defn),
+            MajorItemSynNodeDefn::Fugitive(defn) => self.visit_fugitive_syn_node(defn),
         }
     }
 

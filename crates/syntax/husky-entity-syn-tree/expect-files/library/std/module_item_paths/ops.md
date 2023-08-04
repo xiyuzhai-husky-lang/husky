@@ -1,0 +1,9 @@
+Ok(
+    [
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`std::ops::Add`),
+            ),
+        ),
+    ],
+)

@@ -11,7 +11,7 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl ModuleItemSynNode {
+impl MajorItemSynNode {
     pub fn ident(&self, db: &dyn EntitySynTreeDb) -> Ident {
         self.syn_node_path(db).ident(db)
     }
@@ -41,9 +41,9 @@ pub enum EntitySymbol {
         submodule_path: SubmodulePath,
         node: SubmoduleSynNode,
     },
-    ModuleItem {
-        module_item_path: ModuleItemPath,
-        node: ModuleItemSynNode,
+    MajorItem {
+        module_item_path: MajarItemPath,
+        node: MajorItemSynNode,
     },
     TypeVariant {
         ty_variant_path: TypeVariantPath,
@@ -58,7 +58,7 @@ impl EntitySymbol {
                 submodule_path: node.unambiguous_path(db)?,
                 node,
             }),
-            ItemSynNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
+            ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 module_item_path: node.unambiguous_path(db)?,
                 node,
             }),
@@ -82,7 +82,7 @@ impl EntitySymbol {
             EntitySymbol::UniversalPrelude { item_path }
             | EntitySymbol::PackageDependency { item_path } => item_path.into(),
             EntitySymbol::Submodule { submodule_path, .. } => submodule_path.inner().into(),
-            EntitySymbol::ModuleItem {
+            EntitySymbol::MajorItem {
                 module_item_path, ..
             } => module_item_path.into(),
             // symbol.path(db).into(),
@@ -91,9 +91,9 @@ impl EntitySymbol {
         }
     }
 
-    pub fn module_item_node(self) -> Option<ModuleItemSynNode> {
+    pub fn module_item_node(self) -> Option<MajorItemSynNode> {
         match self {
-            EntitySymbol::ModuleItem { node, .. } => Some(node),
+            EntitySymbol::MajorItem { node, .. } => Some(node),
             _ => None,
         }
     }

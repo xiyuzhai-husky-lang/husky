@@ -145,8 +145,8 @@ impl<'a> ExprTypeEngine<'a> {
         match path {
             Some(path) => match path {
                 PrincipalEntityPath::Module(_) => todo!(),
-                PrincipalEntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(path) => match self
+                PrincipalEntityPath::MajorItem(path) => match path {
+                    MajarItemPath::Type(path) => match self
                         .expr_ty_info_variant(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
@@ -161,8 +161,8 @@ impl<'a> ExprTypeEngine<'a> {
                         .into()),
                         _ => unreachable!(),
                     },
-                    ModuleItemPath::Trait(_) => todo!(),
-                    ModuleItemPath::Fugitive(_) => todo!(),
+                    MajarItemPath::Trait(_) => todo!(),
+                    MajarItemPath::Fugitive(_) => todo!(),
                 },
                 PrincipalEntityPath::TypeVariant(_) => todo!(),
             },

@@ -30,16 +30,16 @@ pub(crate) fn item_variance_crate_dependencies(
         .unwrap();
     match id.path {
         ItemPath::Submodule(_) => todo!(),
-        ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => {
+        ItemPath::MajorItem(path) => match path {
+            MajarItemPath::Type(path) => {
                 declarative_ty_item_variance_crate_dependencies(db, path, id.idx)
                     .as_ref()
                     .map(|t| t.as_ref())
             }
-            ModuleItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
+            MajarItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
                 .as_ref()
                 .map(|t| t.as_ref()),
-            ModuleItemPath::Fugitive(path) => {
+            MajarItemPath::Fugitive(path) => {
                 form_item_variance_crate_dependencies(db, path, id.idx)
                     .as_ref()
                     .map(|t| t.as_ref())

@@ -3,6 +3,7 @@ use vec_like::VecPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
+#[salsa::debug_with_db(db = EntityPathDb)]
 pub enum ImplBlockPath {
     TypeImplBlock(TypeImplBlockPath),
     TraitForTypeImplBlock(TraitForTypeImplBlockPath),

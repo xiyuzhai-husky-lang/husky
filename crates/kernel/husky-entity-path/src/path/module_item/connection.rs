@@ -3,15 +3,15 @@ use husky_coword::IdentPairMap;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ModuleItemConnection {
+pub enum MajorItemConnection {
     Connected,
     Disconnected(Disambiguator),
 }
-impl ModuleItemConnection {
-    pub(crate) fn kind(&self) -> ModuleItemConnectionKind {
+impl MajorItemConnection {
+    pub(crate) fn kind(&self) -> MajorItemConnectionKind {
         match self {
-            ModuleItemConnection::Connected => ModuleItemConnectionKind::Connected,
-            ModuleItemConnection::Disconnected(_) => ModuleItemConnectionKind::Disconnected,
+            MajorItemConnection::Connected => MajorItemConnectionKind::Connected,
+            MajorItemConnection::Disconnected(_) => MajorItemConnectionKind::Disconnected,
         }
     }
 }

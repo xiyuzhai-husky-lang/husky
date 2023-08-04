@@ -88,7 +88,7 @@ fn trait_items_table_impl(
     let mut table: SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16> =
         Default::default();
     for entry in item_symbol_table_ref.data().iter() {
-        let PrincipalEntityPath::ModuleItem(ModuleItemPath::Trait(trai_path)) =
+        let PrincipalEntityPath::MajorItem(MajarItemPath::Trait(trai_path)) =
             entry.symbol().path(db)
         else {
             continue;

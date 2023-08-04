@@ -75,22 +75,22 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTokenForTraitForTypeImplItem(_) => {
                 format!("Syntax Error: unexpected token for trait implementation item")
             }
-            OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(
+            OriginalAstError::UnexpectedPunctuationForConnectedMajorItem(
                 _,
                 unexpected_punctuation,
             ) => {
                 format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for connected module item")
             }
-            OriginalAstError::UnexpectedTokenForConnectedModuleItem(_) => {
+            OriginalAstError::UnexpectedTokenForConnectedMajorItem(_) => {
                 format!("Syntax Error: unexpected token for connected module item")
             }
-            OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(
+            OriginalAstError::UnexpectedPunctuationForDisconnectedMajorItem(
                 _,
                 unexpected_punctuation,
             ) => {
                 format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for disconnected module item")
             }
-            OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(_) => {
+            OriginalAstError::UnexpectedTokenForDisconnectedMajorItem(_) => {
                 format!("Syntax Error: unexpected token for disconnected module item")
             }
             OriginalAstError::InvalidAstForDefinitionOrUse => {
@@ -238,10 +238,10 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedPunctuationForTypeImplItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForTraitForTypeImplItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTraitForTypeImplItem(token_idx, _)
-            | OriginalAstError::UnexpectedTokenForConnectedModuleItem(token_idx)
-            | OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(token_idx, _)
-            | OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(token_idx)
-            | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForConnectedMajorItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForConnectedMajorItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForDisconnectedMajorItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForDisconnectedMajorItem(token_idx, _)
             | OriginalAstError::VisibilityExprError(OriginalVisibilityExprError::NoSuperForRoot(
                 token_idx,
             )) => ctx.token_idx_text_range(*token_idx),

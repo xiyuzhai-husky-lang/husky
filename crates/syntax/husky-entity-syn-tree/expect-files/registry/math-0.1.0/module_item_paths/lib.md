@@ -1,0 +1,29 @@
+Ok(
+    [
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebra`,
+            ),
+        ),
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebraic_geometry`,
+            ),
+        ),
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebraic_topology`,
+            ),
+        ),
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::category_theory`,
+            ),
+        ),
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::probability`,
+            ),
+        ),
+    ],
+)

@@ -21,7 +21,7 @@ use husky_hir_ty::{
 #[enum_class::from_variants]
 pub enum HirDefn {
     Submodule(SubmoduleHirDefn),
-    ModuleItem(ModuleItemHirDefn),
+    MajorItem(MajorItemHirDefn),
     TypeVariant(TypeVariantHirDefn),
     ImplBlock(ImplBlockHirDecl),
     AssociatedItem(AssociatedItemHirDefn),
@@ -31,7 +31,7 @@ impl HirDefn {
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> HirDecl {
         match self {
             HirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
-            HirDefn::ModuleItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            HirDefn::MajorItem(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::ImplBlock(hir_decl) => hir_decl.into(),
             HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -45,7 +45,7 @@ impl HirDefn {
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
             HirDefn::Submodule(_) => None,
-            HirDefn::ModuleItem(hir_defn) => hir_defn.hir_expr_region(db),
+            HirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_region(db),
             HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
             HirDefn::TypeVariant(_defn) => None,
             HirDefn::ImplBlock(_) => None,
@@ -79,7 +79,7 @@ impl HasHirDefn for ItemPath {
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         Some(match self {
             ItemPath::Submodule(path) => path.hir_defn(db)?.into(),
-            ItemPath::ModuleItem(path) => path.hir_defn(db)?.into(),
+            ItemPath::MajorItem(path) => path.hir_defn(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_) => todo!(),

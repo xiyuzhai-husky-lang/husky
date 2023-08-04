@@ -19,7 +19,7 @@ use vec_like::VecPairMap;
 #[enum_class::from_variants]
 pub enum ItemSynNodePath {
     Submodule(SubmoduleSynNodePath),
-    ModuleItem(ModuleItemSynNodePath),
+    MajorItem(MajorItemSynNodePath),
     TypeVariant(TypeVariantSynNodePath),
     ImplBlock(ImplBlockSynNodePath),
     AssociatedItem(AssociatedItemSynNodePath),
@@ -29,7 +29,7 @@ impl ItemSynNodePath {
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ItemPath> {
         match self {
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::ModuleItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
@@ -41,7 +41,7 @@ impl ItemSynNodePath {
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         match self {
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
-            ItemSynNodePath::ModuleItem(syn_node_path) => syn_node_path.module_path(db),
+            ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.module_path(db),
             ItemSynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
             ItemSynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
@@ -65,7 +65,7 @@ impl HasSynNodePath for ItemPath {
     fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         match self {
             ItemPath::Submodule(path) => todo!(),
-            ItemPath::ModuleItem(_) => todo!(),
+            ItemPath::MajorItem(_) => todo!(),
             ItemPath::AssociatedItem(_) => todo!(),
             ItemPath::TypeVariant(_) => todo!(),
             ItemPath::ImplBlock(_) => todo!(),
@@ -125,7 +125,7 @@ impl<P> MaybeAmbiguousPath<P> {
 #[enum_class::from_variants]
 pub enum ItemSynNode {
     Submodule(SubmoduleSynNode),
-    ModuleItem(ModuleItemSynNode),
+    MajorItem(MajorItemSynNode),
     AssociatedItem(AssociatedItemSynNode),
     TypeVariant(TypeVariantSynNode),
     ImplBlock(ImplBlockSynNode),
@@ -153,8 +153,8 @@ impl ItemSynNode {
                 )
                 .into(),
             ),
-            ItemPath::ModuleItem(module_item_path) => Some(
-                ModuleItemSynNode::new(
+            ItemPath::MajorItem(module_item_path) => Some(
+                MajorItemSynNode::new(
                     db,
                     registry,
                     module_item_path,
@@ -173,7 +173,7 @@ impl ItemSynNode {
     pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> ItemSynNodePath {
         match self {
             ItemSynNode::Submodule(node) => node.syn_node_path(db).into(),
-            ItemSynNode::ModuleItem(node) => node.syn_node_path(db).into(),
+            ItemSynNode::MajorItem(node) => node.syn_node_path(db).into(),
             ItemSynNode::AssociatedItem(node) => node.syn_node_path(db).into(),
             ItemSynNode::TypeVariant(node) => node.syn_node_path(db).into(),
             ItemSynNode::ImplBlock(node) => node.syn_node_path(db).into(),
@@ -183,7 +183,7 @@ impl ItemSynNode {
     pub fn ast_idx(self, db: &dyn EntitySynTreeDb) -> AstIdx {
         match self {
             ItemSynNode::Submodule(node) => node.ast_idx(db),
-            ItemSynNode::ModuleItem(node) => node.ast_idx(db),
+            ItemSynNode::MajorItem(node) => node.ast_idx(db),
             ItemSynNode::AssociatedItem(_) => todo!(),
             ItemSynNode::TypeVariant(_) => todo!(),
             ItemSynNode::ImplBlock(_) => todo!(),
@@ -193,7 +193,7 @@ impl ItemSynNode {
     pub fn ident_token(self, db: &dyn EntitySynTreeDb) -> IdentToken {
         match self {
             ItemSynNode::Submodule(symbol) => symbol.ident_token(db),
-            ItemSynNode::ModuleItem(symbol) => symbol.ident_token(db),
+            ItemSynNode::MajorItem(symbol) => symbol.ident_token(db),
             ItemSynNode::AssociatedItem(_) => todo!(),
             ItemSynNode::TypeVariant(_) => todo!(),
             ItemSynNode::ImplBlock(_) => todo!(),
@@ -205,7 +205,7 @@ impl ItemSynNodePath {
     pub fn node(self, db: &dyn EntitySynTreeDb) -> ItemSynNode {
         match self {
             ItemSynNodePath::Submodule(path) => path.node(db).into(),
-            ItemSynNodePath::ModuleItem(path) => path.node(db).into(),
+            ItemSynNodePath::MajorItem(path) => path.node(db).into(),
             ItemSynNodePath::AssociatedItem(path) => path.node(db).into(),
             ItemSynNodePath::TypeVariant(path) => path.syn_node(db).into(),
             ItemSynNodePath::ImplBlock(path) => path.node(db).into(),

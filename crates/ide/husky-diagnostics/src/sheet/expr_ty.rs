@@ -22,7 +22,7 @@ pub(crate) fn expr_ty_diagnostic_sheet(
     {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defns {
-            let decl = defn.decl(db);
+            let decl = defn.syn_decl(db);
             if let Some(syn_expr_region) = decl.syn_expr_region(db) {
                 collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
             }

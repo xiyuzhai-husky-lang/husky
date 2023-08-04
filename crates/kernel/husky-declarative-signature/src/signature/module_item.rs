@@ -11,14 +11,14 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
-pub enum ModuleItemDeclarativeSignatureTemplate {
+pub enum MajorItemDeclarativeSignatureTemplate {
     Type(TypeDeclarativeSignatureTemplate),
     Fugitive(FugitiveDeclarativeSignatureTemplate),
     Trait(TraitDeclarativeSignatureTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for ModuleItemPath {
-    type DeclarativeSignatureTemplate = ModuleItemDeclarativeSignatureTemplate;
+impl HasDeclarativeSignatureTemplate for MajarItemPath {
+    type DeclarativeSignatureTemplate = MajorItemDeclarativeSignatureTemplate;
 
     #[inline(always)]
     fn declarative_signature_template(
@@ -26,11 +26,11 @@ impl HasDeclarativeSignatureTemplate for ModuleItemPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
-            ModuleItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
-            ModuleItemPath::Fugitive(path) => {
+            MajarItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
+            MajarItemPath::Fugitive(path) => {
                 path.declarative_signature_template(db).map(Into::into)
             }
-            ModuleItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
+            MajarItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
         }
     }
 }

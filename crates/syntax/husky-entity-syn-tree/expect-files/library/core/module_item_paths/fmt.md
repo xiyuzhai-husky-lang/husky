@@ -1,0 +1,9 @@
+Ok(
+    [
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+    ],
+)

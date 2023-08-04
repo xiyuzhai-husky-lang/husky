@@ -53,13 +53,13 @@ pub enum OriginalAstError {
     #[error("unexpected token for type as trait implementation item")]
     UnexpectedTokenForTraitForTypeImplItem(TokenIdx),
     #[error("unexpected punctuation `{1}` for connected module item")]
-    UnexpectedPunctuationForConnectedModuleItem(TokenIdx, Punctuation),
+    UnexpectedPunctuationForConnectedMajorItem(TokenIdx, Punctuation),
     #[error("unexpected token for connected module item")]
-    UnexpectedTokenForConnectedModuleItem(TokenIdx),
+    UnexpectedTokenForConnectedMajorItem(TokenIdx),
     #[error("unexpected punctuation `{1}` for disconnected module item")]
-    UnexpectedPunctuationForDisconnectedModuleItem(TokenIdx, Punctuation),
+    UnexpectedPunctuationForDisconnectedMajorItem(TokenIdx, Punctuation),
     #[error("unexpected token for module item")]
-    UnexpectedTokenForDisconnectedModuleItem(TokenIdx),
+    UnexpectedTokenForDisconnectedMajorItem(TokenIdx),
     #[error("invalid ast for definition or use")]
     InvalidAstForDefinitionOrUse,
     #[error("todo")]

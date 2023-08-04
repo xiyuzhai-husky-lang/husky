@@ -51,12 +51,12 @@ pub(crate) fn item_variances(
 ) -> VarianceResultRef<&[Variance]> {
     match path {
         ItemPath::Submodule(_) => Ok(&[]),
-        ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_template_parameter_variances(db, path)
+        ItemPath::MajorItem(path) => match path {
+            MajarItemPath::Type(path) => ty_template_parameter_variances(db, path)
                 .as_ref()
                 .map(Vec::as_ref),
-            ModuleItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
-            ModuleItemPath::Fugitive(path) => {
+            MajarItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
+            MajarItemPath::Fugitive(path) => {
                 form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }
         },

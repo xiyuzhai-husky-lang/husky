@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
+use husky_entity_taxonomy::{EntityKind, FugitiveKind, MajorItemKind};
 use husky_print_utils::p;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;
@@ -105,19 +105,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             BaseEntityPath::Some(item_path) => {
                                 match item_path.item_kind(self.db()) {
                                     EntityKind::Module => todo!(),
-                                    EntityKind::ModuleItem {
+                                    EntityKind::MajorItem {
                                         module_item_kind,
                                         connection,
                                     } => match module_item_kind {
-                                        ModuleItemKind::Fugitive(FugitiveKind::Val) => {
+                                        MajorItemKind::Fugitive(FugitiveKind::Val) => {
                                             DisambiguatedToken::BinaryOpr(
                                                 token_idx,
                                                 BinaryComparisonOpr::Less.into(),
                                             )
                                         }
-                                        ModuleItemKind::Type(_)
-                                        | ModuleItemKind::Fugitive(_)
-                                        | ModuleItemKind::Trait => DisambiguatedToken::Bra(
+                                        MajorItemKind::Type(_)
+                                        | MajorItemKind::Fugitive(_)
+                                        | MajorItemKind::Trait => DisambiguatedToken::Bra(
                                             token_idx,
                                             Bracket::TemplateAngle,
                                         ),

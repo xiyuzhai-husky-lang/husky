@@ -37,8 +37,8 @@ pub fn item_path_declarative_ty(
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
         ItemPath::Submodule(_) => Ok(declarative_term_menu.module()),
-        ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => match disambiguation {
+        ItemPath::MajorItem(path) => match path {
+            MajarItemPath::Type(path) => match disambiguation {
                 TypePathDisambiguation::OntologyConstructor => {
                     ty_ontology_path_declarative_ty(db, path)
                 }
@@ -46,8 +46,8 @@ pub fn item_path_declarative_ty(
                     ty_instance_constructor_path_declarative_ty(db, path)
                 }
             },
-            ModuleItemPath::Trait(path) => trai_path_declarative_ty(db, path),
-            ModuleItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
+            MajarItemPath::Trait(path) => trai_path_declarative_ty(db, path),
+            MajarItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
         },
         ItemPath::AssociatedItem(_) => todo!(),
         ItemPath::TypeVariant(_) => todo!(),

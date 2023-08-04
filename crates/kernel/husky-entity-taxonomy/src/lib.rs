@@ -21,9 +21,9 @@ pub enum FugitiveKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Module,
-    ModuleItem {
-        module_item_kind: ModuleItemKind,
-        connection: ModuleItemConnectionKind,
+    MajorItem {
+        module_item_kind: MajorItemKind,
+        connection: MajorItemConnectionKind,
     },
     AssociatedItem {
         associated_item_kind: AssociatedItemKind,
@@ -35,7 +35,7 @@ pub enum EntityKind {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-pub enum ModuleItemKind {
+pub enum MajorItemKind {
     Type(TypeKind),
     Fugitive(FugitiveKind),
     Trait,
@@ -64,7 +64,7 @@ pub enum TraitItemKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ModuleItemConnectionKind {
+pub enum MajorItemConnectionKind {
     Connected,
     Disconnected,
 }

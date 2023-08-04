@@ -28,22 +28,22 @@ impl HasTypeGivenDisambiguation for PrincipalEntityPath {
             PrincipalEntityPath::Module(path) => Ok(db
                 .ethereal_term_menu(path.toolchain(db))
                 .module_ty_ontology()),
-            PrincipalEntityPath::ModuleItem(path) => path.ty(db, disambiguation),
+            PrincipalEntityPath::MajorItem(path) => path.ty(db, disambiguation),
             PrincipalEntityPath::TypeVariant(path) => path.ty(db),
         }
     }
 }
 
-impl HasTypeGivenDisambiguation for ModuleItemPath {
+impl HasTypeGivenDisambiguation for MajarItemPath {
     fn ty(
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
     ) -> EtherealTermResult<EtherealTerm> {
         match self {
-            ModuleItemPath::Type(path) => path.ty(db, disambiguation),
-            ModuleItemPath::Trait(path) => path.ty(db),
-            ModuleItemPath::Fugitive(path) => path.ty(db),
+            MajarItemPath::Type(path) => path.ty(db, disambiguation),
+            MajarItemPath::Trait(path) => path.ty(db),
+            MajarItemPath::Fugitive(path) => path.ty(db),
         }
     }
 }

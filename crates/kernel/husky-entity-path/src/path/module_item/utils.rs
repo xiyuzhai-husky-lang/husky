@@ -1,8 +1,8 @@
 use crate::*;
 
-pub(super) fn show_connection(connection: ModuleItemConnection) -> &'static str {
+pub(super) fn show_connection(connection: MajorItemConnection) -> &'static str {
     match connection {
-        ModuleItemConnection::Connected => "::",
-        ModuleItemConnection::Disconnected(_) => ":/:",
+        MajorItemConnection::Connected => "::",
+        MajorItemConnection::Disconnected(_) => ":/:",
     }
 }
