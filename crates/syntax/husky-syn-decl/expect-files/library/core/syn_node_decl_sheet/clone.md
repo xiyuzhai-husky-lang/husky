@@ -22,7 +22,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 2,
+                            ast_idx: 3,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -91,7 +91,7 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::clone`,
                                 trai_path: TraitPath(`core::clone::Clone`),
-                                ty_sketch: DeriveAny,
+                                ty_sketch: TypeSketch::DeriveAny,
                                 disambiguator: 0,
                             },
                         },
@@ -104,14 +104,14 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::clone`,
                                     trai_path: TraitPath(`core::clone::Clone`),
-                                    ty_sketch: DeriveAny,
+                                    ty_sketch: TypeSketch::DeriveAny,
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 3,
+                            ast_idx: 4,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    11,
+                                    15,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -122,23 +122,23 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    13,
+                                    17,
                                 ),
                             },
                             self_ty_decl: DeriveAny {
                                 at_token: AtToken(
                                     TokenIdx(
-                                        14,
+                                        18,
                                     ),
                                 ),
                                 derive_token: DeriveToken {
                                     token_idx: TokenIdx(
-                                        15,
+                                        19,
                                     ),
                                 },
                                 underscore_token: UnderscoreToken {
                                     token_idx: TokenIdx(
-                                        16,
+                                        20,
                                     ),
                                 },
                             },
@@ -146,7 +146,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            17,
+                                            21,
                                         ),
                                     },
                                 ),
@@ -161,7 +161,7 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::clone`,
                                                         trai_path: TraitPath(`core::clone::Clone`),
-                                                        ty_sketch: DeriveAny,
+                                                        ty_sketch: TypeSketch::DeriveAny,
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -189,7 +189,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Clone`,
                                                         token_idx: TokenIdx(
-                                                            12,
+                                                            16,
                                                         ),
                                                     },
                                                 ),
@@ -252,7 +252,7 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::clone`,
                                         trai_path: TraitPath(`core::clone::Clone`),
-                                        ty_sketch: DeriveAny,
+                                        ty_sketch: TypeSketch::DeriveAny,
                                         disambiguator: 0,
                                     },
                                     ident: `clone`,
@@ -273,7 +273,7 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::clone`,
                                                 trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: DeriveAny,
+                                                ty_sketch: TypeSketch::DeriveAny,
                                                 disambiguator: 0,
                                             },
                                             ident: `clone`,
@@ -289,7 +289,7 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::clone`,
                                                     trai_path: TraitPath(`core::clone::Clone`),
-                                                    ty_sketch: DeriveAny,
+                                                    ty_sketch: TypeSketch::DeriveAny,
                                                     disambiguator: 0,
                                                 },
                                                 ident: `clone`,
@@ -314,7 +314,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                20,
+                                                24,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -323,7 +323,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                21,
+                                                25,
                                             ),
                                         ),
                                     },
@@ -332,7 +332,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                22,
+                                                26,
                                             ),
                                         ),
                                     ),
@@ -348,7 +348,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                24,
+                                                28,
                                             ),
                                         },
                                     ),
@@ -366,7 +366,7 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::clone`,
                                                                         trai_path: TraitPath(`core::clone::Clone`),
-                                                                        ty_sketch: DeriveAny,
+                                                                        ty_sketch: TypeSketch::DeriveAny,
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -394,7 +394,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Clone`,
                                                                         token_idx: TokenIdx(
-                                                                            12,
+                                                                            16,
                                                                         ),
                                                                     },
                                                                 ),
@@ -454,7 +454,7 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::clone`,
                                                                     trai_path: TraitPath(`core::clone::Clone`),
-                                                                    ty_sketch: DeriveAny,
+                                                                    ty_sketch: TypeSketch::DeriveAny,
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `clone`,
@@ -470,7 +470,7 @@ Ok(
                                             data: [
                                                 SynExpr::SelfType(
                                                     TokenIdx(
-                                                        23,
+                                                        27,
                                                     ),
                                                 ),
                                             ],

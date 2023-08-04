@@ -1,3 +1,5 @@
+use crate::*
+
 pub trait PartialEq;
 pub trait Eq;
 pub trait PartialOrd;

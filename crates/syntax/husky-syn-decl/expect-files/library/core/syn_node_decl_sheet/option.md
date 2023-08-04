@@ -23,13 +23,13 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 3,
+                                ast_idx: 4,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
                                             langle: LaOrLtToken(
                                                 TokenIdx(
-                                                    8,
+                                                    12,
                                                 ),
                                             ),
                                             template_parameters: [
@@ -40,7 +40,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `T`,
                                                             token_idx: TokenIdx(
-                                                                9,
+                                                                13,
                                                             ),
                                                         },
                                                         traits: None,
@@ -53,7 +53,7 @@ Ok(
                                             ),
                                             rangle: RaOrGtToken(
                                                 TokenIdx(
-                                                    10,
+                                                    14,
                                                 ),
                                             ),
                                         },
@@ -108,7 +108,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            10,
+                                                            14,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -120,7 +120,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
-                                                                        9,
+                                                                        13,
                                                                     ),
                                                                 },
                                                             },

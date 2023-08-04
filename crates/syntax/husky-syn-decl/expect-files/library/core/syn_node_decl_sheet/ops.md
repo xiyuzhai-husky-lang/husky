@@ -22,13 +22,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 31,
+                            ast_idx: 32,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                10,
+                                                14,
                                             ),
                                         ),
                                         template_parameters: [
@@ -39,7 +39,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            11,
+                                                            15,
                                                         ),
                                                     },
                                                     traits: None,
@@ -52,7 +52,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                12,
+                                                16,
                                             ),
                                         ),
                                     },
@@ -107,7 +107,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        12,
+                                                        16,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -119,7 +119,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    11,
+                                                                    15,
                                                                 ),
                                                             },
                                                         },
@@ -165,13 +165,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 33,
+                            ast_idx: 34,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                39,
+                                                43,
                                             ),
                                         ),
                                         template_parameters: [
@@ -182,7 +182,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            40,
+                                                            44,
                                                         ),
                                                     },
                                                     traits: None,
@@ -195,7 +195,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                41,
+                                                45,
                                             ),
                                         ),
                                     },
@@ -250,7 +250,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        41,
+                                                        45,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -262,7 +262,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    40,
+                                                                    44,
                                                                 ),
                                                             },
                                                         },
@@ -308,13 +308,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 35,
+                            ast_idx: 36,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                68,
+                                                72,
                                             ),
                                         ),
                                         template_parameters: [
@@ -325,7 +325,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            69,
+                                                            73,
                                                         ),
                                                     },
                                                     traits: None,
@@ -338,7 +338,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                70,
+                                                74,
                                             ),
                                         ),
                                     },
@@ -393,7 +393,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        70,
+                                                        74,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -405,7 +405,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    69,
+                                                                    73,
                                                                 ),
                                                             },
                                                         },
@@ -451,13 +451,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 37,
+                            ast_idx: 38,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                97,
+                                                101,
                                             ),
                                         ),
                                         template_parameters: [
@@ -468,7 +468,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            98,
+                                                            102,
                                                         ),
                                                     },
                                                     traits: None,
@@ -481,7 +481,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                99,
+                                                103,
                                             ),
                                         ),
                                     },
@@ -536,7 +536,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        99,
+                                                        103,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -548,7 +548,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    98,
+                                                                    102,
                                                                 ),
                                                             },
                                                         },
@@ -594,13 +594,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 39,
+                            ast_idx: 40,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                122,
+                                                126,
                                             ),
                                         ),
                                         template_parameters: [
@@ -611,7 +611,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            123,
+                                                            127,
                                                         ),
                                                     },
                                                     traits: None,
@@ -624,7 +624,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                124,
+                                                128,
                                             ),
                                         ),
                                     },
@@ -679,7 +679,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        124,
+                                                        128,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -691,7 +691,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    123,
+                                                                    127,
                                                                 ),
                                                             },
                                                         },
@@ -737,13 +737,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 41,
+                            ast_idx: 42,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                151,
+                                                155,
                                             ),
                                         ),
                                         template_parameters: [
@@ -754,7 +754,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            152,
+                                                            156,
                                                         ),
                                                     },
                                                     traits: None,
@@ -767,7 +767,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                153,
+                                                157,
                                             ),
                                         ),
                                     },
@@ -822,7 +822,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        153,
+                                                        157,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -834,7 +834,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    152,
+                                                                    156,
                                                                 ),
                                                             },
                                                         },
@@ -880,13 +880,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 43,
+                            ast_idx: 44,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                176,
+                                                180,
                                             ),
                                         ),
                                         template_parameters: [
@@ -897,7 +897,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            177,
+                                                            181,
                                                         ),
                                                     },
                                                     traits: None,
@@ -910,7 +910,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                178,
+                                                182,
                                             ),
                                         ),
                                     },
@@ -965,7 +965,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        178,
+                                                        182,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -977,7 +977,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    177,
+                                                                    181,
                                                                 ),
                                                             },
                                                         },
@@ -1023,13 +1023,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 45,
+                            ast_idx: 46,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                205,
+                                                209,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1040,7 +1040,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            206,
+                                                            210,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1053,7 +1053,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                207,
+                                                211,
                                             ),
                                         ),
                                     },
@@ -1108,7 +1108,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        207,
+                                                        211,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1120,7 +1120,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    206,
+                                                                    210,
                                                                 ),
                                                             },
                                                         },
@@ -1166,13 +1166,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 47,
+                            ast_idx: 48,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                230,
+                                                234,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1183,7 +1183,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            231,
+                                                            235,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1196,7 +1196,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                232,
+                                                236,
                                             ),
                                         ),
                                     },
@@ -1251,7 +1251,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        232,
+                                                        236,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1263,7 +1263,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    231,
+                                                                    235,
                                                                 ),
                                                             },
                                                         },
@@ -1309,13 +1309,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 49,
+                            ast_idx: 50,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                259,
+                                                263,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1326,7 +1326,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            260,
+                                                            264,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1339,7 +1339,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                261,
+                                                265,
                                             ),
                                         ),
                                     },
@@ -1394,7 +1394,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        261,
+                                                        265,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1406,7 +1406,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    260,
+                                                                    264,
                                                                 ),
                                                             },
                                                         },
@@ -1452,7 +1452,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 50,
+                            ast_idx: 51,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1534,13 +1534,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 52,
+                            ast_idx: 53,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                291,
+                                                295,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1551,7 +1551,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            292,
+                                                            296,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1564,7 +1564,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                293,
+                                                297,
                                             ),
                                         ),
                                     },
@@ -1619,7 +1619,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        293,
+                                                        297,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1631,7 +1631,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    292,
+                                                                    296,
                                                                 ),
                                                             },
                                                         },
@@ -1677,13 +1677,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 54,
+                            ast_idx: 55,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                320,
+                                                324,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1694,7 +1694,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            321,
+                                                            325,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1707,7 +1707,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                322,
+                                                326,
                                             ),
                                         ),
                                     },
@@ -1762,7 +1762,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        322,
+                                                        326,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1774,7 +1774,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    321,
+                                                                    325,
                                                                 ),
                                                             },
                                                         },
@@ -1820,7 +1820,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 56,
+                            ast_idx: 57,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1902,7 +1902,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 58,
+                            ast_idx: 59,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1984,13 +1984,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 60,
+                            ast_idx: 61,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                393,
+                                                397,
                                             ),
                                         ),
                                         template_parameters: [
@@ -2001,7 +2001,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            394,
+                                                            398,
                                                         ),
                                                     },
                                                     traits: None,
@@ -2014,7 +2014,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                395,
+                                                399,
                                             ),
                                         ),
                                     },
@@ -2069,7 +2069,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        395,
+                                                        399,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2081,7 +2081,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    394,
+                                                                    398,
                                                                 ),
                                                             },
                                                         },
@@ -2127,13 +2127,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 61,
+                            ast_idx: 62,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
                                         langle: LaOrLtToken(
                                             TokenIdx(
-                                                415,
+                                                419,
                                             ),
                                         ),
                                         template_parameters: [
@@ -2144,7 +2144,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
-                                                            416,
+                                                            420,
                                                         ),
                                                     },
                                                     traits: None,
@@ -2157,7 +2157,7 @@ Ok(
                                         ),
                                         rangle: RaOrGtToken(
                                             TokenIdx(
-                                                417,
+                                                421,
                                             ),
                                         ),
                                     },
@@ -2212,7 +2212,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        417,
+                                                        421,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2224,7 +2224,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
-                                                                    416,
+                                                                    420,
                                                                 ),
                                                             },
                                                         },
@@ -2271,13 +2271,13 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 62,
+                                ast_idx: 63,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
                                             langle: LaOrLtToken(
                                                 TokenIdx(
-                                                    444,
+                                                    448,
                                                 ),
                                             ),
                                             template_parameters: [
@@ -2288,7 +2288,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `R`,
                                                             token_idx: TokenIdx(
-                                                                445,
+                                                                449,
                                                             ),
                                                         },
                                                         traits: None,
@@ -2301,7 +2301,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `C`,
                                                             token_idx: TokenIdx(
-                                                                447,
+                                                                451,
                                                             ),
                                                         },
                                                         traits: None,
@@ -2311,7 +2311,7 @@ Ok(
                                             commas: [
                                                 CommaToken(
                                                     TokenIdx(
-                                                        446,
+                                                        450,
                                                     ),
                                                 ),
                                             ],
@@ -2320,7 +2320,7 @@ Ok(
                                             ),
                                             rangle: RaOrGtToken(
                                                 TokenIdx(
-                                                    448,
+                                                    452,
                                                 ),
                                             ),
                                         },
@@ -2375,7 +2375,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            446,
+                                                            450,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2387,7 +2387,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `R`,
                                                                     token_idx: TokenIdx(
-                                                                        445,
+                                                                        449,
                                                                     ),
                                                                 },
                                                             },
@@ -2396,7 +2396,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            448,
+                                                            452,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2408,7 +2408,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `C`,
                                                                     token_idx: TokenIdx(
-                                                                        447,
+                                                                        451,
                                                                     ),
                                                                 },
                                                             },

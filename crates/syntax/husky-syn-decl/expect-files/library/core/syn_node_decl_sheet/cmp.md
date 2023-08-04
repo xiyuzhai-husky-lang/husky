@@ -22,7 +22,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 0,
+                            ast_idx: 1,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -104,7 +104,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 1,
+                            ast_idx: 2,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -186,7 +186,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 2,
+                            ast_idx: 3,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -268,7 +268,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 3,
+                            ast_idx: 4,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),

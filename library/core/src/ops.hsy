@@ -1,3 +1,5 @@
+use crate::*
+
 #[rust("std::ops::Add")]
 pub trait Add<Rhs>:
     type Output;

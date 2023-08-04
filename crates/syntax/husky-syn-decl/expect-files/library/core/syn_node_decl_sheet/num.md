@@ -23,7 +23,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 32,
+                                ast_idx: 33,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -107,7 +107,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 37,
+                                ast_idx: 38,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -191,7 +191,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 42,
+                                ast_idx: 43,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -275,7 +275,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 47,
+                                ast_idx: 48,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -359,7 +359,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 52,
+                                ast_idx: 53,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -443,7 +443,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 57,
+                                ast_idx: 58,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -527,7 +527,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 62,
+                                ast_idx: 63,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -611,7 +611,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 67,
+                                ast_idx: 68,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -695,7 +695,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 72,
+                                ast_idx: 73,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -779,7 +779,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 77,
+                                ast_idx: 78,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -863,7 +863,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 82,
+                                ast_idx: 83,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -947,7 +947,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 87,
+                                ast_idx: 88,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -1031,7 +1031,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 92,
+                                ast_idx: 93,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -1115,7 +1115,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 97,
+                                ast_idx: 98,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -1200,7 +1200,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 33,
+                            ast_idx: 34,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -1209,10 +1209,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 33,
+                                ast_idx: 34,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        30,
+                                        34,
                                     ),
                                 },
                                 ty_expr: 4,
@@ -1224,7 +1224,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    30,
+                                    34,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -1237,7 +1237,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            32,
+                                            36,
                                         ),
                                     },
                                 ),
@@ -1279,7 +1279,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            31,
+                                                            35,
                                                         ),
                                                     },
                                                 ),
@@ -1399,7 +1399,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                36,
+                                                40,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1408,7 +1408,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                37,
+                                                41,
                                             ),
                                         ),
                                     },
@@ -1417,7 +1417,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                38,
+                                                42,
                                             ),
                                         ),
                                     ),
@@ -1433,7 +1433,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                40,
+                                                44,
                                             ),
                                         },
                                     ),
@@ -1478,7 +1478,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i8`,
                                                                         token_idx: TokenIdx(
-                                                                            31,
+                                                                            35,
                                                                         ),
                                                                     },
                                                                 ),
@@ -1570,7 +1570,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i8`,
                                                             token_idx: TokenIdx(
-                                                                39,
+                                                                43,
                                                             ),
                                                         },
                                                     ),
@@ -1632,12 +1632,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i8`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -1651,20 +1647,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::i8`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 34,
+                            ast_idx: 35,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    41,
+                                    45,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -1675,7 +1667,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    48,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -1687,7 +1679,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            46,
+                                            50,
                                         ),
                                     },
                                 ),
@@ -1702,12 +1694,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 14,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -1760,7 +1748,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            42,
+                                                            46,
                                                         ),
                                                     },
                                                 ),
@@ -1775,7 +1763,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            43,
+                                                            47,
                                                         ),
                                                     },
                                                 ),
@@ -1790,7 +1778,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            45,
+                                                            49,
                                                         ),
                                                     },
                                                 ),
@@ -1857,12 +1845,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i8`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -1884,12 +1868,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 14,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i8`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -1906,12 +1886,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i8`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -1935,7 +1911,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                50,
+                                                54,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1948,7 +1924,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        52,
+                                                        56,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -1957,7 +1933,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                54,
+                                                58,
                                             ),
                                         ),
                                     },
@@ -1966,7 +1942,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                55,
+                                                59,
                                             ),
                                         ),
                                     ),
@@ -1982,7 +1958,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                57,
+                                                61,
                                             ),
                                         },
                                     ),
@@ -2000,12 +1976,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 14,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i8`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2058,7 +2030,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            42,
+                                                                            46,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2073,7 +2045,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i8`,
                                                                         token_idx: TokenIdx(
-                                                                            43,
+                                                                            47,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2088,7 +2060,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i8`,
                                                                         token_idx: TokenIdx(
-                                                                            45,
+                                                                            49,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2152,12 +2124,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 14,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i8`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -2201,7 +2169,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i8`,
                                                             token_idx: TokenIdx(
-                                                                53,
+                                                                57,
                                                             ),
                                                         },
                                                     ),
@@ -2216,7 +2184,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i8`,
                                                             token_idx: TokenIdx(
-                                                                56,
+                                                                60,
                                                             ),
                                                         },
                                                     ),
@@ -2239,7 +2207,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                51,
+                                                                55,
                                                             ),
                                                         },
                                                     },
@@ -2283,7 +2251,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            52,
+                                                            56,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2346,7 +2314,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 38,
+                            ast_idx: 39,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -2355,10 +2323,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 38,
+                                ast_idx: 39,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        82,
+                                        86,
                                     ),
                                 },
                                 ty_expr: 7,
@@ -2370,7 +2338,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    82,
+                                    86,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -2383,7 +2351,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            84,
+                                            88,
                                         ),
                                     },
                                 ),
@@ -2425,7 +2393,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            83,
+                                                            87,
                                                         ),
                                                     },
                                                 ),
@@ -2545,7 +2513,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                88,
+                                                92,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -2554,7 +2522,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                89,
+                                                93,
                                             ),
                                         ),
                                     },
@@ -2563,7 +2531,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                90,
+                                                94,
                                             ),
                                         ),
                                     ),
@@ -2579,7 +2547,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                92,
+                                                96,
                                             ),
                                         },
                                     ),
@@ -2624,7 +2592,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i16`,
                                                                         token_idx: TokenIdx(
-                                                                            83,
+                                                                            87,
                                                                         ),
                                                                     },
                                                                 ),
@@ -2716,7 +2684,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i16`,
                                                             token_idx: TokenIdx(
-                                                                91,
+                                                                95,
                                                             ),
                                                         },
                                                     ),
@@ -2778,12 +2746,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i16`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -2797,20 +2761,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::i16`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 39,
+                            ast_idx: 40,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    93,
+                                    97,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -2821,7 +2781,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    96,
+                                    100,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -2833,7 +2793,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            98,
+                                            102,
                                         ),
                                     },
                                 ),
@@ -2848,12 +2808,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 15,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -2906,7 +2862,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            98,
                                                         ),
                                                     },
                                                 ),
@@ -2921,7 +2877,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            95,
+                                                            99,
                                                         ),
                                                     },
                                                 ),
@@ -2936,7 +2892,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            97,
+                                                            101,
                                                         ),
                                                     },
                                                 ),
@@ -3003,12 +2959,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i16`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -3030,12 +2982,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 15,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i16`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -3052,12 +3000,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i16`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -3081,7 +3025,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                102,
+                                                106,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -3094,7 +3038,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        104,
+                                                        108,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -3103,7 +3047,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                106,
+                                                110,
                                             ),
                                         ),
                                     },
@@ -3112,7 +3056,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                107,
+                                                111,
                                             ),
                                         ),
                                     ),
@@ -3128,7 +3072,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                109,
+                                                113,
                                             ),
                                         },
                                     ),
@@ -3146,12 +3090,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 15,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i16`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3204,7 +3144,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            94,
+                                                                            98,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3219,7 +3159,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i32`,
                                                                         token_idx: TokenIdx(
-                                                                            95,
+                                                                            99,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3234,7 +3174,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i16`,
                                                                         token_idx: TokenIdx(
-                                                                            97,
+                                                                            101,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3298,12 +3238,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 15,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i16`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -3347,7 +3283,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                105,
+                                                                109,
                                                             ),
                                                         },
                                                     ),
@@ -3362,7 +3298,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i16`,
                                                             token_idx: TokenIdx(
-                                                                108,
+                                                                112,
                                                             ),
                                                         },
                                                     ),
@@ -3385,7 +3321,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                103,
+                                                                107,
                                                             ),
                                                         },
                                                     },
@@ -3429,7 +3365,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            104,
+                                                            108,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -3492,7 +3428,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 43,
+                            ast_idx: 44,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -3501,10 +3437,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 43,
+                                ast_idx: 44,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        134,
+                                        138,
                                     ),
                                 },
                                 ty_expr: 10,
@@ -3516,7 +3452,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    134,
+                                    138,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -3529,7 +3465,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            136,
+                                            140,
                                         ),
                                     },
                                 ),
@@ -3571,7 +3507,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            135,
+                                                            139,
                                                         ),
                                                     },
                                                 ),
@@ -3691,7 +3627,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                140,
+                                                144,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -3700,7 +3636,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                141,
+                                                145,
                                             ),
                                         ),
                                     },
@@ -3709,7 +3645,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                142,
+                                                146,
                                             ),
                                         ),
                                     ),
@@ -3725,7 +3661,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                144,
+                                                148,
                                             ),
                                         },
                                     ),
@@ -3770,7 +3706,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i32`,
                                                                         token_idx: TokenIdx(
-                                                                            135,
+                                                                            139,
                                                                         ),
                                                                     },
                                                                 ),
@@ -3862,7 +3798,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                143,
+                                                                147,
                                                             ),
                                                         },
                                                     ),
@@ -3924,12 +3860,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -3943,20 +3875,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 44,
+                            ast_idx: 45,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    145,
+                                    149,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -3967,7 +3895,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    148,
+                                    152,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -3979,7 +3907,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            150,
+                                            154,
                                         ),
                                     },
                                 ),
@@ -3994,12 +3922,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 16,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -4052,7 +3976,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            150,
                                                         ),
                                                     },
                                                 ),
@@ -4067,7 +3991,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            147,
+                                                            151,
                                                         ),
                                                     },
                                                 ),
@@ -4082,7 +4006,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            153,
                                                         ),
                                                     },
                                                 ),
@@ -4149,12 +4073,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -4176,12 +4096,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 16,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -4198,12 +4114,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 16,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i32`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -4229,7 +4141,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                153,
+                                                157,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -4242,7 +4154,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        155,
+                                                        159,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -4251,7 +4163,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                157,
+                                                161,
                                             ),
                                         ),
                                     },
@@ -4260,7 +4172,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                158,
+                                                162,
                                             ),
                                         ),
                                     ),
@@ -4276,7 +4188,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                160,
+                                                164,
                                             ),
                                         },
                                     ),
@@ -4294,12 +4206,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 16,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -4352,7 +4260,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            146,
+                                                                            150,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4367,7 +4275,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i32`,
                                                                         token_idx: TokenIdx(
-                                                                            147,
+                                                                            151,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4382,7 +4290,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i32`,
                                                                         token_idx: TokenIdx(
-                                                                            149,
+                                                                            153,
                                                                         ),
                                                                     },
                                                                 ),
@@ -4446,12 +4354,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 16,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -4495,7 +4399,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                156,
+                                                                160,
                                                             ),
                                                         },
                                                     ),
@@ -4510,7 +4414,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                159,
+                                                                163,
                                                             ),
                                                         },
                                                     ),
@@ -4533,7 +4437,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                154,
+                                                                158,
                                                             ),
                                                         },
                                                     },
@@ -4577,7 +4481,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            155,
+                                                            159,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -4640,7 +4544,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 48,
+                            ast_idx: 49,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -4649,10 +4553,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 48,
+                                ast_idx: 49,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        185,
+                                        189,
                                     ),
                                 },
                                 ty_expr: 13,
@@ -4664,7 +4568,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    185,
+                                    189,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -4677,7 +4581,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            187,
+                                            191,
                                         ),
                                     },
                                 ),
@@ -4719,7 +4623,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            186,
+                                                            190,
                                                         ),
                                                     },
                                                 ),
@@ -4839,7 +4743,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                191,
+                                                195,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -4848,7 +4752,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                192,
+                                                196,
                                             ),
                                         ),
                                     },
@@ -4857,7 +4761,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                193,
+                                                197,
                                             ),
                                         ),
                                     ),
@@ -4873,7 +4777,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                195,
+                                                199,
                                             ),
                                         },
                                     ),
@@ -4918,7 +4822,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i64`,
                                                                         token_idx: TokenIdx(
-                                                                            186,
+                                                                            190,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5010,7 +4914,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i64`,
                                                             token_idx: TokenIdx(
-                                                                194,
+                                                                198,
                                                             ),
                                                         },
                                                     ),
@@ -5072,12 +4976,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -5091,20 +4991,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::i64`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 49,
+                            ast_idx: 50,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    196,
+                                    200,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -5115,7 +5011,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    199,
+                                    203,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -5127,7 +5023,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            201,
+                                            205,
                                         ),
                                     },
                                 ),
@@ -5142,12 +5038,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 17,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -5200,7 +5092,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            197,
+                                                            201,
                                                         ),
                                                     },
                                                 ),
@@ -5215,7 +5107,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            198,
+                                                            202,
                                                         ),
                                                     },
                                                 ),
@@ -5230,7 +5122,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            200,
+                                                            204,
                                                         ),
                                                     },
                                                 ),
@@ -5297,12 +5189,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i64`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -5324,12 +5212,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 17,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i64`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -5346,12 +5230,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 17,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i64`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -5375,7 +5255,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                205,
+                                                209,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -5388,7 +5268,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        207,
+                                                        211,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -5397,7 +5277,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                209,
+                                                213,
                                             ),
                                         ),
                                     },
@@ -5406,7 +5286,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                210,
+                                                214,
                                             ),
                                         ),
                                     ),
@@ -5422,7 +5302,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                212,
+                                                216,
                                             ),
                                         },
                                     ),
@@ -5440,12 +5320,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 17,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -5498,7 +5374,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            197,
+                                                                            201,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5513,7 +5389,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i64`,
                                                                         token_idx: TokenIdx(
-                                                                            198,
+                                                                            202,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5528,7 +5404,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i64`,
                                                                         token_idx: TokenIdx(
-                                                                            200,
+                                                                            204,
                                                                         ),
                                                                     },
                                                                 ),
@@ -5592,12 +5468,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 17,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -5641,7 +5513,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i64`,
                                                             token_idx: TokenIdx(
-                                                                208,
+                                                                212,
                                                             ),
                                                         },
                                                     ),
@@ -5656,7 +5528,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i64`,
                                                             token_idx: TokenIdx(
-                                                                211,
+                                                                215,
                                                             ),
                                                         },
                                                     ),
@@ -5679,7 +5551,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                206,
+                                                                210,
                                                             ),
                                                         },
                                                     },
@@ -5723,7 +5595,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            207,
+                                                            211,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -5786,7 +5658,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 53,
+                            ast_idx: 54,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -5795,10 +5667,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 53,
+                                ast_idx: 54,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        237,
+                                        241,
                                     ),
                                 },
                                 ty_expr: 16,
@@ -5810,7 +5682,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    237,
+                                    241,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -5823,7 +5695,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            239,
+                                            243,
                                         ),
                                     },
                                 ),
@@ -5865,7 +5737,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            238,
+                                                            242,
                                                         ),
                                                     },
                                                 ),
@@ -5985,7 +5857,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                243,
+                                                247,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -5994,7 +5866,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                244,
+                                                248,
                                             ),
                                         ),
                                     },
@@ -6003,7 +5875,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                245,
+                                                249,
                                             ),
                                         ),
                                     ),
@@ -6019,7 +5891,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                247,
+                                                251,
                                             ),
                                         },
                                     ),
@@ -6064,7 +5936,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i128`,
                                                                         token_idx: TokenIdx(
-                                                                            238,
+                                                                            242,
                                                                         ),
                                                                     },
                                                                 ),
@@ -6156,7 +6028,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i128`,
                                                             token_idx: TokenIdx(
-                                                                246,
+                                                                250,
                                                             ),
                                                         },
                                                     ),
@@ -6218,12 +6090,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -6237,20 +6105,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::i128`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 54,
+                            ast_idx: 55,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    248,
+                                    252,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -6261,7 +6125,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    251,
+                                    255,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -6273,7 +6137,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            253,
+                                            257,
                                         ),
                                     },
                                 ),
@@ -6288,12 +6152,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 18,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -6346,7 +6206,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            249,
+                                                            253,
                                                         ),
                                                     },
                                                 ),
@@ -6361,7 +6221,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            250,
+                                                            254,
                                                         ),
                                                     },
                                                 ),
@@ -6376,7 +6236,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            252,
+                                                            256,
                                                         ),
                                                     },
                                                 ),
@@ -6443,12 +6303,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i128`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -6470,12 +6326,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 18,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i128`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -6492,12 +6344,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 18,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i128`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -6521,7 +6369,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                257,
+                                                261,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -6534,7 +6382,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        259,
+                                                        263,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -6543,7 +6391,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                261,
+                                                265,
                                             ),
                                         ),
                                     },
@@ -6552,7 +6400,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                262,
+                                                266,
                                             ),
                                         ),
                                     ),
@@ -6568,7 +6416,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                264,
+                                                268,
                                             ),
                                         },
                                     ),
@@ -6586,12 +6434,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 18,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i128`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -6644,7 +6488,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            249,
+                                                                            253,
                                                                         ),
                                                                     },
                                                                 ),
@@ -6659,7 +6503,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i128`,
                                                                         token_idx: TokenIdx(
-                                                                            250,
+                                                                            254,
                                                                         ),
                                                                     },
                                                                 ),
@@ -6674,7 +6518,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `i128`,
                                                                         token_idx: TokenIdx(
-                                                                            252,
+                                                                            256,
                                                                         ),
                                                                     },
                                                                 ),
@@ -6738,12 +6582,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 18,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i128`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -6787,7 +6627,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i128`,
                                                             token_idx: TokenIdx(
-                                                                260,
+                                                                264,
                                                             ),
                                                         },
                                                     ),
@@ -6802,7 +6642,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i128`,
                                                             token_idx: TokenIdx(
-                                                                263,
+                                                                267,
                                                             ),
                                                         },
                                                     ),
@@ -6825,7 +6665,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                258,
+                                                                262,
                                                             ),
                                                         },
                                                     },
@@ -6869,7 +6709,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            259,
+                                                            263,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -6932,7 +6772,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 58,
+                            ast_idx: 59,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -6941,10 +6781,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 58,
+                                ast_idx: 59,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        289,
+                                        293,
                                     ),
                                 },
                                 ty_expr: 19,
@@ -6956,7 +6796,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    289,
+                                    293,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -6969,7 +6809,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            291,
+                                            295,
                                         ),
                                     },
                                 ),
@@ -7011,7 +6851,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            290,
+                                                            294,
                                                         ),
                                                     },
                                                 ),
@@ -7131,7 +6971,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                295,
+                                                299,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -7140,7 +6980,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                296,
+                                                300,
                                             ),
                                         ),
                                     },
@@ -7149,7 +6989,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                297,
+                                                301,
                                             ),
                                         ),
                                     ),
@@ -7165,7 +7005,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                299,
+                                                303,
                                             ),
                                         },
                                     ),
@@ -7210,7 +7050,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `isize`,
                                                                         token_idx: TokenIdx(
-                                                                            290,
+                                                                            294,
                                                                         ),
                                                                     },
                                                                 ),
@@ -7302,7 +7142,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `isize`,
                                                             token_idx: TokenIdx(
-                                                                298,
+                                                                302,
                                                             ),
                                                         },
                                                     ),
@@ -7364,12 +7204,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -7383,20 +7219,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::isize`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 59,
+                            ast_idx: 60,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    300,
+                                    304,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -7407,7 +7239,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    303,
+                                    307,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -7419,7 +7251,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            305,
+                                            309,
                                         ),
                                     },
                                 ),
@@ -7434,12 +7266,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 19,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -7492,7 +7320,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            301,
+                                                            305,
                                                         ),
                                                     },
                                                 ),
@@ -7507,7 +7335,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            302,
+                                                            306,
                                                         ),
                                                     },
                                                 ),
@@ -7522,7 +7350,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            304,
+                                                            308,
                                                         ),
                                                     },
                                                 ),
@@ -7589,12 +7417,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::isize`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -7616,12 +7440,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -7638,12 +7458,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::isize`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -7667,7 +7483,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                309,
+                                                313,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -7680,7 +7496,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        311,
+                                                        315,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -7689,7 +7505,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                313,
+                                                317,
                                             ),
                                         ),
                                     },
@@ -7698,7 +7514,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                314,
+                                                318,
                                             ),
                                         ),
                                     ),
@@ -7714,7 +7530,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                316,
+                                                320,
                                             ),
                                         },
                                     ),
@@ -7732,12 +7548,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 19,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::isize`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -7790,7 +7602,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            301,
+                                                                            305,
                                                                         ),
                                                                     },
                                                                 ),
@@ -7805,7 +7617,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `isize`,
                                                                         token_idx: TokenIdx(
-                                                                            302,
+                                                                            306,
                                                                         ),
                                                                     },
                                                                 ),
@@ -7820,7 +7632,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `isize`,
                                                                         token_idx: TokenIdx(
-                                                                            304,
+                                                                            308,
                                                                         ),
                                                                     },
                                                                 ),
@@ -7884,12 +7696,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 19,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::isize`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -7933,7 +7741,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `isize`,
                                                             token_idx: TokenIdx(
-                                                                312,
+                                                                316,
                                                             ),
                                                         },
                                                     ),
@@ -7948,7 +7756,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `isize`,
                                                             token_idx: TokenIdx(
-                                                                315,
+                                                                319,
                                                             ),
                                                         },
                                                     ),
@@ -7971,7 +7779,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                310,
+                                                                314,
                                                             ),
                                                         },
                                                     },
@@ -8015,7 +7823,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            311,
+                                                            315,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -8078,7 +7886,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 63,
+                            ast_idx: 64,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -8087,10 +7895,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 63,
+                                ast_idx: 64,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        341,
+                                        345,
                                     ),
                                 },
                                 ty_expr: 22,
@@ -8102,7 +7910,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    341,
+                                    345,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -8115,7 +7923,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            343,
+                                            347,
                                         ),
                                     },
                                 ),
@@ -8157,7 +7965,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            342,
+                                                            346,
                                                         ),
                                                     },
                                                 ),
@@ -8277,7 +8085,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                347,
+                                                351,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -8286,7 +8094,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                348,
+                                                352,
                                             ),
                                         ),
                                     },
@@ -8295,7 +8103,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                349,
+                                                353,
                                             ),
                                         ),
                                     ),
@@ -8311,7 +8119,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                351,
+                                                355,
                                             ),
                                         },
                                     ),
@@ -8356,7 +8164,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u8`,
                                                                         token_idx: TokenIdx(
-                                                                            342,
+                                                                            346,
                                                                         ),
                                                                     },
                                                                 ),
@@ -8448,7 +8256,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u8`,
                                                             token_idx: TokenIdx(
-                                                                350,
+                                                                354,
                                                             ),
                                                         },
                                                     ),
@@ -8510,12 +8318,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -8529,20 +8333,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::u8`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 64,
+                            ast_idx: 65,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    352,
+                                    356,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -8553,7 +8353,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    355,
+                                    359,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -8565,7 +8365,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            357,
+                                            361,
                                         ),
                                     },
                                 ),
@@ -8580,12 +8380,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 20,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -8638,7 +8434,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            353,
+                                                            357,
                                                         ),
                                                     },
                                                 ),
@@ -8653,7 +8449,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            354,
+                                                            358,
                                                         ),
                                                     },
                                                 ),
@@ -8668,7 +8464,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            356,
+                                                            360,
                                                         ),
                                                     },
                                                 ),
@@ -8735,12 +8531,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u8`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -8762,12 +8554,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 20,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u8`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -8784,12 +8572,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u8`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -8813,7 +8597,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                361,
+                                                365,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -8826,7 +8610,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        363,
+                                                        367,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -8835,7 +8619,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                365,
+                                                369,
                                             ),
                                         ),
                                     },
@@ -8844,7 +8628,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                366,
+                                                370,
                                             ),
                                         ),
                                     ),
@@ -8860,7 +8644,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                368,
+                                                372,
                                             ),
                                         },
                                     ),
@@ -8878,12 +8662,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 20,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -8936,7 +8716,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            353,
+                                                                            357,
                                                                         ),
                                                                     },
                                                                 ),
@@ -8951,7 +8731,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u8`,
                                                                         token_idx: TokenIdx(
-                                                                            354,
+                                                                            358,
                                                                         ),
                                                                     },
                                                                 ),
@@ -8966,7 +8746,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u8`,
                                                                         token_idx: TokenIdx(
-                                                                            356,
+                                                                            360,
                                                                         ),
                                                                     },
                                                                 ),
@@ -9030,12 +8810,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 20,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -9079,7 +8855,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u8`,
                                                             token_idx: TokenIdx(
-                                                                364,
+                                                                368,
                                                             ),
                                                         },
                                                     ),
@@ -9094,7 +8870,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u8`,
                                                             token_idx: TokenIdx(
-                                                                367,
+                                                                371,
                                                             ),
                                                         },
                                                     ),
@@ -9117,7 +8893,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                362,
+                                                                366,
                                                             ),
                                                         },
                                                     },
@@ -9161,7 +8937,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            363,
+                                                            367,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -9224,7 +9000,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 68,
+                            ast_idx: 69,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -9233,10 +9009,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 68,
+                                ast_idx: 69,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        393,
+                                        397,
                                     ),
                                 },
                                 ty_expr: 25,
@@ -9248,7 +9024,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    393,
+                                    397,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -9261,7 +9037,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            395,
+                                            399,
                                         ),
                                     },
                                 ),
@@ -9303,7 +9079,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            394,
+                                                            398,
                                                         ),
                                                     },
                                                 ),
@@ -9423,7 +9199,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                399,
+                                                403,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -9432,7 +9208,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                400,
+                                                404,
                                             ),
                                         ),
                                     },
@@ -9441,7 +9217,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                401,
+                                                405,
                                             ),
                                         ),
                                     ),
@@ -9457,7 +9233,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                403,
+                                                407,
                                             ),
                                         },
                                     ),
@@ -9502,7 +9278,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u16`,
                                                                         token_idx: TokenIdx(
-                                                                            394,
+                                                                            398,
                                                                         ),
                                                                     },
                                                                 ),
@@ -9594,7 +9370,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u16`,
                                                             token_idx: TokenIdx(
-                                                                402,
+                                                                406,
                                                             ),
                                                         },
                                                     ),
@@ -9656,12 +9432,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -9675,20 +9447,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::u16`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 69,
+                            ast_idx: 70,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    404,
+                                    408,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -9699,7 +9467,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    407,
+                                    411,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -9711,7 +9479,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            409,
+                                            413,
                                         ),
                                     },
                                 ),
@@ -9726,12 +9494,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 21,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -9784,7 +9548,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            405,
+                                                            409,
                                                         ),
                                                     },
                                                 ),
@@ -9799,7 +9563,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            406,
+                                                            410,
                                                         ),
                                                     },
                                                 ),
@@ -9814,7 +9578,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            408,
+                                                            412,
                                                         ),
                                                     },
                                                 ),
@@ -9881,12 +9645,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u16`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -9908,12 +9668,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u16`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9930,12 +9686,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u16`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -9959,7 +9711,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                413,
+                                                417,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -9972,7 +9724,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        415,
+                                                        419,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -9981,7 +9733,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                417,
+                                                421,
                                             ),
                                         ),
                                     },
@@ -9990,7 +9742,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                418,
+                                                422,
                                             ),
                                         ),
                                     ),
@@ -10006,7 +9758,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                420,
+                                                424,
                                             ),
                                         },
                                     ),
@@ -10024,12 +9776,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 21,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -10082,7 +9830,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            405,
+                                                                            409,
                                                                         ),
                                                                     },
                                                                 ),
@@ -10097,7 +9845,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u16`,
                                                                         token_idx: TokenIdx(
-                                                                            406,
+                                                                            410,
                                                                         ),
                                                                     },
                                                                 ),
@@ -10112,7 +9860,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u16`,
                                                                         token_idx: TokenIdx(
-                                                                            408,
+                                                                            412,
                                                                         ),
                                                                     },
                                                                 ),
@@ -10176,12 +9924,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 21,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -10225,7 +9969,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u16`,
                                                             token_idx: TokenIdx(
-                                                                416,
+                                                                420,
                                                             ),
                                                         },
                                                     ),
@@ -10240,7 +9984,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u16`,
                                                             token_idx: TokenIdx(
-                                                                419,
+                                                                423,
                                                             ),
                                                         },
                                                     ),
@@ -10263,7 +10007,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                414,
+                                                                418,
                                                             ),
                                                         },
                                                     },
@@ -10307,7 +10051,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            415,
+                                                            419,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -10370,7 +10114,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 73,
+                            ast_idx: 74,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -10379,10 +10123,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 73,
+                                ast_idx: 74,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        445,
+                                        449,
                                     ),
                                 },
                                 ty_expr: 28,
@@ -10394,7 +10138,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    445,
+                                    449,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -10407,7 +10151,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            447,
+                                            451,
                                         ),
                                     },
                                 ),
@@ -10449,7 +10193,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            446,
+                                                            450,
                                                         ),
                                                     },
                                                 ),
@@ -10569,7 +10313,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                451,
+                                                455,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -10578,7 +10322,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                452,
+                                                456,
                                             ),
                                         ),
                                     },
@@ -10587,7 +10331,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                453,
+                                                457,
                                             ),
                                         ),
                                     ),
@@ -10603,7 +10347,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                455,
+                                                459,
                                             ),
                                         },
                                     ),
@@ -10648,7 +10392,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u32`,
                                                                         token_idx: TokenIdx(
-                                                                            446,
+                                                                            450,
                                                                         ),
                                                                     },
                                                                 ),
@@ -10740,7 +10484,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u32`,
                                                             token_idx: TokenIdx(
-                                                                454,
+                                                                458,
                                                             ),
                                                         },
                                                     ),
@@ -10802,12 +10546,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -10821,20 +10561,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::u32`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 74,
+                            ast_idx: 75,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    456,
+                                    460,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -10845,7 +10581,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    459,
+                                    463,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -10857,7 +10593,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            461,
+                                            465,
                                         ),
                                     },
                                 ),
@@ -10872,12 +10608,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -10930,7 +10662,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            457,
+                                                            461,
                                                         ),
                                                     },
                                                 ),
@@ -10945,7 +10677,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            458,
+                                                            462,
                                                         ),
                                                     },
                                                 ),
@@ -10960,7 +10692,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            460,
+                                                            464,
                                                         ),
                                                     },
                                                 ),
@@ -11027,12 +10759,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u32`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -11054,12 +10782,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 22,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u32`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -11076,12 +10800,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u32`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -11105,7 +10825,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                465,
+                                                469,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -11118,7 +10838,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        467,
+                                                        471,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -11127,7 +10847,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                469,
+                                                473,
                                             ),
                                         ),
                                     },
@@ -11136,7 +10856,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                470,
+                                                474,
                                             ),
                                         ),
                                     ),
@@ -11152,7 +10872,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                472,
+                                                476,
                                             ),
                                         },
                                     ),
@@ -11170,12 +10890,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 22,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -11228,7 +10944,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            457,
+                                                                            461,
                                                                         ),
                                                                     },
                                                                 ),
@@ -11243,7 +10959,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u32`,
                                                                         token_idx: TokenIdx(
-                                                                            458,
+                                                                            462,
                                                                         ),
                                                                     },
                                                                 ),
@@ -11258,7 +10974,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u32`,
                                                                         token_idx: TokenIdx(
-                                                                            460,
+                                                                            464,
                                                                         ),
                                                                     },
                                                                 ),
@@ -11322,12 +11038,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 22,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -11371,7 +11083,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u32`,
                                                             token_idx: TokenIdx(
-                                                                468,
+                                                                472,
                                                             ),
                                                         },
                                                     ),
@@ -11386,7 +11098,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u32`,
                                                             token_idx: TokenIdx(
-                                                                471,
+                                                                475,
                                                             ),
                                                         },
                                                     ),
@@ -11409,7 +11121,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                466,
+                                                                470,
                                                             ),
                                                         },
                                                     },
@@ -11453,7 +11165,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            467,
+                                                            471,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -11516,7 +11228,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 78,
+                            ast_idx: 79,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -11525,10 +11237,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 78,
+                                ast_idx: 79,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        497,
+                                        501,
                                     ),
                                 },
                                 ty_expr: 31,
@@ -11540,7 +11252,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    497,
+                                    501,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -11553,7 +11265,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            499,
+                                            503,
                                         ),
                                     },
                                 ),
@@ -11595,7 +11307,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            498,
+                                                            502,
                                                         ),
                                                     },
                                                 ),
@@ -11715,7 +11427,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                503,
+                                                507,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -11724,7 +11436,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                504,
+                                                508,
                                             ),
                                         ),
                                     },
@@ -11733,7 +11445,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                505,
+                                                509,
                                             ),
                                         ),
                                     ),
@@ -11749,7 +11461,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                507,
+                                                511,
                                             ),
                                         },
                                     ),
@@ -11794,7 +11506,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u64`,
                                                                         token_idx: TokenIdx(
-                                                                            498,
+                                                                            502,
                                                                         ),
                                                                     },
                                                                 ),
@@ -11886,7 +11598,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u64`,
                                                             token_idx: TokenIdx(
-                                                                506,
+                                                                510,
                                                             ),
                                                         },
                                                     ),
@@ -11948,12 +11660,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -11967,20 +11675,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::u64`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 79,
+                            ast_idx: 80,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    508,
+                                    512,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -11991,7 +11695,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    511,
+                                    515,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -12003,7 +11707,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            513,
+                                            517,
                                         ),
                                     },
                                 ),
@@ -12018,12 +11722,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 23,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -12076,7 +11776,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            509,
+                                                            513,
                                                         ),
                                                     },
                                                 ),
@@ -12091,7 +11791,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            510,
+                                                            514,
                                                         ),
                                                     },
                                                 ),
@@ -12106,7 +11806,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            512,
+                                                            516,
                                                         ),
                                                     },
                                                 ),
@@ -12173,12 +11873,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u64`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -12200,12 +11896,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 23,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u64`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -12222,12 +11914,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 23,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u64`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -12251,7 +11939,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                517,
+                                                521,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -12264,7 +11952,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        519,
+                                                        523,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -12273,7 +11961,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                521,
+                                                525,
                                             ),
                                         ),
                                     },
@@ -12282,7 +11970,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                522,
+                                                526,
                                             ),
                                         ),
                                     ),
@@ -12298,7 +11986,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                524,
+                                                528,
                                             ),
                                         },
                                     ),
@@ -12316,12 +12004,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 23,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -12374,7 +12058,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            509,
+                                                                            513,
                                                                         ),
                                                                     },
                                                                 ),
@@ -12389,7 +12073,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u64`,
                                                                         token_idx: TokenIdx(
-                                                                            510,
+                                                                            514,
                                                                         ),
                                                                     },
                                                                 ),
@@ -12404,7 +12088,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u64`,
                                                                         token_idx: TokenIdx(
-                                                                            512,
+                                                                            516,
                                                                         ),
                                                                     },
                                                                 ),
@@ -12468,12 +12152,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 23,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -12517,7 +12197,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u64`,
                                                             token_idx: TokenIdx(
-                                                                520,
+                                                                524,
                                                             ),
                                                         },
                                                     ),
@@ -12532,7 +12212,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u64`,
                                                             token_idx: TokenIdx(
-                                                                523,
+                                                                527,
                                                             ),
                                                         },
                                                     ),
@@ -12555,7 +12235,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                518,
+                                                                522,
                                                             ),
                                                         },
                                                     },
@@ -12599,7 +12279,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            519,
+                                                            523,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -12662,7 +12342,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 83,
+                            ast_idx: 84,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -12671,10 +12351,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 83,
+                                ast_idx: 84,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        549,
+                                        553,
                                     ),
                                 },
                                 ty_expr: 34,
@@ -12686,7 +12366,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    549,
+                                    553,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -12699,7 +12379,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            551,
+                                            555,
                                         ),
                                     },
                                 ),
@@ -12741,7 +12421,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            550,
+                                                            554,
                                                         ),
                                                     },
                                                 ),
@@ -12861,7 +12541,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                555,
+                                                559,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -12870,7 +12550,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                556,
+                                                560,
                                             ),
                                         ),
                                     },
@@ -12879,7 +12559,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                557,
+                                                561,
                                             ),
                                         ),
                                     ),
@@ -12895,7 +12575,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                559,
+                                                563,
                                             ),
                                         },
                                     ),
@@ -12940,7 +12620,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u128`,
                                                                         token_idx: TokenIdx(
-                                                                            550,
+                                                                            554,
                                                                         ),
                                                                     },
                                                                 ),
@@ -13032,7 +12712,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u128`,
                                                             token_idx: TokenIdx(
-                                                                558,
+                                                                562,
                                                             ),
                                                         },
                                                     ),
@@ -13094,12 +12774,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -13113,20 +12789,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::u128`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 84,
+                            ast_idx: 85,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    560,
+                                    564,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -13137,7 +12809,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    563,
+                                    567,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -13149,7 +12821,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            565,
+                                            569,
                                         ),
                                     },
                                 ),
@@ -13164,12 +12836,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 24,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -13222,7 +12890,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            561,
+                                                            565,
                                                         ),
                                                     },
                                                 ),
@@ -13237,7 +12905,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            562,
+                                                            566,
                                                         ),
                                                     },
                                                 ),
@@ -13252,7 +12920,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            564,
+                                                            568,
                                                         ),
                                                     },
                                                 ),
@@ -13319,12 +12987,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u128`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -13346,12 +13010,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 24,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u128`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -13368,12 +13028,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 24,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u128`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -13397,7 +13053,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                569,
+                                                573,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -13410,7 +13066,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        571,
+                                                        575,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -13419,7 +13075,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                573,
+                                                577,
                                             ),
                                         ),
                                     },
@@ -13428,7 +13084,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                574,
+                                                578,
                                             ),
                                         ),
                                     ),
@@ -13444,7 +13100,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                576,
+                                                580,
                                             ),
                                         },
                                     ),
@@ -13462,12 +13118,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 24,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -13520,7 +13172,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            561,
+                                                                            565,
                                                                         ),
                                                                     },
                                                                 ),
@@ -13535,7 +13187,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u128`,
                                                                         token_idx: TokenIdx(
-                                                                            562,
+                                                                            566,
                                                                         ),
                                                                     },
                                                                 ),
@@ -13550,7 +13202,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `u128`,
                                                                         token_idx: TokenIdx(
-                                                                            564,
+                                                                            568,
                                                                         ),
                                                                     },
                                                                 ),
@@ -13614,12 +13266,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 24,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -13663,7 +13311,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u128`,
                                                             token_idx: TokenIdx(
-                                                                572,
+                                                                576,
                                                             ),
                                                         },
                                                     ),
@@ -13678,7 +13326,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `u128`,
                                                             token_idx: TokenIdx(
-                                                                575,
+                                                                579,
                                                             ),
                                                         },
                                                     ),
@@ -13701,7 +13349,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                570,
+                                                                574,
                                                             ),
                                                         },
                                                     },
@@ -13745,7 +13393,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            571,
+                                                            575,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -13808,7 +13456,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 88,
+                            ast_idx: 89,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -13817,10 +13465,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 88,
+                                ast_idx: 89,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        601,
+                                        605,
                                     ),
                                 },
                                 ty_expr: 37,
@@ -13832,7 +13480,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    601,
+                                    605,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -13845,7 +13493,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            603,
+                                            607,
                                         ),
                                     },
                                 ),
@@ -13887,7 +13535,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            602,
+                                                            606,
                                                         ),
                                                     },
                                                 ),
@@ -14007,7 +13655,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                607,
+                                                611,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -14016,7 +13664,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                608,
+                                                612,
                                             ),
                                         ),
                                     },
@@ -14025,7 +13673,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                609,
+                                                613,
                                             ),
                                         ),
                                     ),
@@ -14041,7 +13689,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                611,
+                                                615,
                                             ),
                                         },
                                     ),
@@ -14086,7 +13734,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `usize`,
                                                                         token_idx: TokenIdx(
-                                                                            602,
+                                                                            606,
                                                                         ),
                                                                     },
                                                                 ),
@@ -14178,7 +13826,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `usize`,
                                                             token_idx: TokenIdx(
-                                                                610,
+                                                                614,
                                                             ),
                                                         },
                                                     ),
@@ -14240,12 +13888,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::usize`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -14259,20 +13903,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::usize`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 89,
+                            ast_idx: 90,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    612,
+                                    616,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -14283,7 +13923,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    615,
+                                    619,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -14295,7 +13935,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            617,
+                                            621,
                                         ),
                                     },
                                 ),
@@ -14310,12 +13950,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 25,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -14368,7 +14004,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            613,
+                                                            617,
                                                         ),
                                                     },
                                                 ),
@@ -14383,7 +14019,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            614,
+                                                            618,
                                                         ),
                                                     },
                                                 ),
@@ -14398,7 +14034,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            616,
+                                                            620,
                                                         ),
                                                     },
                                                 ),
@@ -14465,12 +14101,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::usize`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -14492,12 +14124,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 25,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -14514,12 +14142,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::usize`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -14543,7 +14167,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                621,
+                                                625,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -14556,7 +14180,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        623,
+                                                        627,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -14565,7 +14189,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                625,
+                                                629,
                                             ),
                                         ),
                                     },
@@ -14574,7 +14198,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                626,
+                                                630,
                                             ),
                                         ),
                                     ),
@@ -14590,7 +14214,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                628,
+                                                632,
                                             ),
                                         },
                                     ),
@@ -14608,12 +14232,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 25,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::usize`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -14666,7 +14286,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            613,
+                                                                            617,
                                                                         ),
                                                                     },
                                                                 ),
@@ -14681,7 +14301,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `usize`,
                                                                         token_idx: TokenIdx(
-                                                                            614,
+                                                                            618,
                                                                         ),
                                                                     },
                                                                 ),
@@ -14696,7 +14316,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `usize`,
                                                                         token_idx: TokenIdx(
-                                                                            616,
+                                                                            620,
                                                                         ),
                                                                     },
                                                                 ),
@@ -14760,12 +14380,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 25,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::usize`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -14809,7 +14425,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `usize`,
                                                             token_idx: TokenIdx(
-                                                                624,
+                                                                628,
                                                             ),
                                                         },
                                                     ),
@@ -14824,7 +14440,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `usize`,
                                                             token_idx: TokenIdx(
-                                                                627,
+                                                                631,
                                                             ),
                                                         },
                                                     ),
@@ -14847,7 +14463,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                622,
+                                                                626,
                                                             ),
                                                         },
                                                     },
@@ -14891,7 +14507,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            623,
+                                                            627,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -14954,7 +14570,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 93,
+                            ast_idx: 94,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -14963,10 +14579,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 93,
+                                ast_idx: 94,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        653,
+                                        657,
                                     ),
                                 },
                                 ty_expr: 40,
@@ -14978,7 +14594,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    653,
+                                    657,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -14991,7 +14607,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            655,
+                                            659,
                                         ),
                                     },
                                 ),
@@ -15033,7 +14649,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            654,
+                                                            658,
                                                         ),
                                                     },
                                                 ),
@@ -15153,7 +14769,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                659,
+                                                663,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -15162,7 +14778,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                660,
+                                                664,
                                             ),
                                         ),
                                     },
@@ -15171,7 +14787,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                661,
+                                                665,
                                             ),
                                         ),
                                     ),
@@ -15187,7 +14803,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                663,
+                                                667,
                                             ),
                                         },
                                     ),
@@ -15232,7 +14848,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f32`,
                                                                         token_idx: TokenIdx(
-                                                                            654,
+                                                                            658,
                                                                         ),
                                                                     },
                                                                 ),
@@ -15324,7 +14940,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                662,
+                                                                666,
                                                             ),
                                                         },
                                                     ),
@@ -15445,7 +15061,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                667,
+                                                671,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -15454,7 +15070,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                668,
+                                                672,
                                             ),
                                         ),
                                     },
@@ -15463,7 +15079,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                669,
+                                                673,
                                             ),
                                         ),
                                     ),
@@ -15479,7 +15095,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                671,
+                                                675,
                                             ),
                                         },
                                     ),
@@ -15524,7 +15140,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f32`,
                                                                         token_idx: TokenIdx(
-                                                                            654,
+                                                                            658,
                                                                         ),
                                                                     },
                                                                 ),
@@ -15616,7 +15232,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                670,
+                                                                674,
                                                             ),
                                                         },
                                                     ),
@@ -15678,12 +15294,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -15697,20 +15309,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::f32`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 94,
+                            ast_idx: 95,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    672,
+                                    676,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -15721,7 +15329,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    675,
+                                    679,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -15733,7 +15341,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            677,
+                                            681,
                                         ),
                                     },
                                 ),
@@ -15748,12 +15356,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 26,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -15806,7 +15410,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            673,
+                                                            677,
                                                         ),
                                                     },
                                                 ),
@@ -15821,7 +15425,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            674,
+                                                            678,
                                                         ),
                                                     },
                                                 ),
@@ -15836,7 +15440,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            676,
+                                                            680,
                                                         ),
                                                     },
                                                 ),
@@ -15903,12 +15507,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -15930,12 +15530,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 26,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f32`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -15952,12 +15548,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 26,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::f32`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -15983,7 +15575,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                680,
+                                                684,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -15996,7 +15588,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        682,
+                                                        686,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -16005,7 +15597,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                684,
+                                                688,
                                             ),
                                         ),
                                     },
@@ -16014,7 +15606,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                685,
+                                                689,
                                             ),
                                         ),
                                     ),
@@ -16030,7 +15622,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                687,
+                                                691,
                                             ),
                                         },
                                     ),
@@ -16048,12 +15640,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 26,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -16106,7 +15694,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            673,
+                                                                            677,
                                                                         ),
                                                                     },
                                                                 ),
@@ -16121,7 +15709,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f32`,
                                                                         token_idx: TokenIdx(
-                                                                            674,
+                                                                            678,
                                                                         ),
                                                                     },
                                                                 ),
@@ -16136,7 +15724,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f32`,
                                                                         token_idx: TokenIdx(
-                                                                            676,
+                                                                            680,
                                                                         ),
                                                                     },
                                                                 ),
@@ -16200,12 +15788,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 26,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -16249,7 +15833,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                683,
+                                                                687,
                                                             ),
                                                         },
                                                     ),
@@ -16264,7 +15848,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                686,
+                                                                690,
                                                             ),
                                                         },
                                                     ),
@@ -16287,7 +15871,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                681,
+                                                                685,
                                                             ),
                                                         },
                                                     },
@@ -16331,7 +15915,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            682,
+                                                            686,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -16394,7 +15978,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 98,
+                            ast_idx: 99,
                             impl_block: TypeImplBlockSynNode {
                                 syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
@@ -16403,10 +15987,10 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 98,
+                                ast_idx: 99,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        712,
+                                        716,
                                     ),
                                 },
                                 ty_expr: 43,
@@ -16418,7 +16002,7 @@ Ok(
                             },
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    712,
+                                    716,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -16431,7 +16015,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            714,
+                                            718,
                                         ),
                                     },
                                 ),
@@ -16473,7 +16057,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            713,
+                                                            717,
                                                         ),
                                                     },
                                                 ),
@@ -16593,7 +16177,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                718,
+                                                722,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -16602,7 +16186,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                719,
+                                                723,
                                             ),
                                         ),
                                     },
@@ -16611,7 +16195,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                720,
+                                                724,
                                             ),
                                         ),
                                     ),
@@ -16627,7 +16211,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                722,
+                                                726,
                                             ),
                                         },
                                     ),
@@ -16672,7 +16256,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f64`,
                                                                         token_idx: TokenIdx(
-                                                                            713,
+                                                                            717,
                                                                         ),
                                                                     },
                                                                 ),
@@ -16764,7 +16348,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f64`,
                                                             token_idx: TokenIdx(
-                                                                721,
+                                                                725,
                                                             ),
                                                         },
                                                     ),
@@ -16826,12 +16410,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::f64`, `Extern`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -16845,20 +16425,16 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
                                     trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`core::num::f64`, `Extern`),
                                     ),
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 99,
+                            ast_idx: 100,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    723,
+                                    727,
                                 ),
                             },
                             template_parameter_decl_list: Ok(
@@ -16869,7 +16445,7 @@ Ok(
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
-                                    726,
+                                    730,
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
@@ -16881,7 +16457,7 @@ Ok(
                                 EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            728,
+                                            732,
                                         ),
                                     },
                                 ),
@@ -16896,12 +16472,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 27,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -16954,7 +16526,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Add`,
                                                         token_idx: TokenIdx(
-                                                            724,
+                                                            728,
                                                         ),
                                                     },
                                                 ),
@@ -16969,7 +16541,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            725,
+                                                            729,
                                                         ),
                                                     },
                                                 ),
@@ -16984,7 +16556,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            727,
+                                                            731,
                                                         ),
                                                     },
                                                 ),
@@ -17051,12 +16623,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f64`, `Extern`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -17078,12 +16646,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::num`,
                                                 trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 27,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f64`, `Extern`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -17100,12 +16664,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `core::num`,
                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::f64`, `Extern`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -17129,7 +16689,7 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                732,
+                                                736,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -17142,7 +16702,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        734,
+                                                        738,
                                                     ),
                                                 ),
                                                 ty: 0,
@@ -17151,7 +16711,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                736,
+                                                740,
                                             ),
                                         ),
                                     },
@@ -17160,7 +16720,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                737,
+                                                741,
                                             ),
                                         ),
                                     ),
@@ -17176,7 +16736,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                739,
+                                                743,
                                             ),
                                         },
                                     ),
@@ -17194,12 +16754,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 27,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::f64`, `Extern`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -17252,7 +16808,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Add`,
                                                                         token_idx: TokenIdx(
-                                                                            724,
+                                                                            728,
                                                                         ),
                                                                     },
                                                                 ),
@@ -17267,7 +16823,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f64`,
                                                                         token_idx: TokenIdx(
-                                                                            725,
+                                                                            729,
                                                                         ),
                                                                     },
                                                                 ),
@@ -17282,7 +16838,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `f64`,
                                                                         token_idx: TokenIdx(
-                                                                            727,
+                                                                            731,
                                                                         ),
                                                                     },
                                                                 ),
@@ -17346,12 +16902,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 27,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::f64`, `Extern`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
@@ -17395,7 +16947,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f64`,
                                                             token_idx: TokenIdx(
-                                                                735,
+                                                                739,
                                                             ),
                                                         },
                                                     ),
@@ -17410,7 +16962,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f64`,
                                                             token_idx: TokenIdx(
-                                                                738,
+                                                                742,
                                                             ),
                                                         },
                                                     ),
@@ -17433,7 +16985,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `other`,
                                                             token_idx: TokenIdx(
-                                                                733,
+                                                                737,
                                                             ),
                                                         },
                                                     },
@@ -17477,7 +17029,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            734,
+                                                            738,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {

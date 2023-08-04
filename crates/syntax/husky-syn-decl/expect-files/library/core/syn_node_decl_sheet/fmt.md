@@ -22,7 +22,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 0,
+                            ast_idx: 1,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),

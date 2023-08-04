@@ -174,7 +174,8 @@ where
         collect_husky_package_dirs(self, dir)
             .into_iter()
             .map(|(path, name)| {
-                PackagePath::new_local_package(self, toolchain, name, &path).map_err(|e| e.into())
+                PackagePath::new_local_or_toolchain_package(self, toolchain, name, &path)
+                    .map_err(|e| e.into())
             })
             .collect()
     }

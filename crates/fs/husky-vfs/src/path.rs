@@ -75,7 +75,7 @@ pub(crate) fn resolve_module_path(
                     db,
                     CratePath::new(
                         db,
-                        PackagePath::new_local_package(
+                        PackagePath::new_local_or_toolchain_package(
                             db,
                             toolchain,
                             package_name,
@@ -88,7 +88,7 @@ pub(crate) fn resolve_module_path(
                     db,
                     CratePath::new(
                         db,
-                        PackagePath::new_local_package(
+                        PackagePath::new_local_or_toolchain_package(
                             db,
                             toolchain,
                             package_name,

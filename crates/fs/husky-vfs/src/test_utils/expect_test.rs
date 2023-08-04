@@ -14,7 +14,7 @@ where
         .into_iter()
         {
             let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-            let package_path = PackagePath::new_local_package(
+            let package_path = PackagePath::new_local_or_toolchain_package(
                 vfs_db,
                 toolchain,
                 package_name,
@@ -33,12 +33,12 @@ where
                 match std::env::var("CARGO_MANIFEST_DIR") {
                     Ok(_) => ::expect_test::expect_file![expect_file_path].assert_eq(&output),
                     Err(_) => unsafe {
-                        static mut once_flag: bool = false;
-                        if !once_flag {
+                        static mut ONCE_FLAG: bool = false;
+                        if !ONCE_FLAG {
                             println!(
                                 "CARGO_MANIFEST_DIR not set, skip comparing with expect files"
                             );
-                            once_flag = true
+                            ONCE_FLAG = true
                         }
                     },
                 }

@@ -2,7 +2,7 @@ use super::*;
 
 use husky_coword::Ident;
 use salsa::DebugWithDb;
-use std::path::Path;
+use std::{borrow::BorrowMut, path::Path};
 use url::Url;
 
 /// deprecated
@@ -41,20 +41,30 @@ pub struct PackagePath {
 }
 
 impl PackagePath {
-    pub fn new_local_package(
+    /// if name is `core` or `std` make sure that the package is the toolchain one
+    pub fn new_local_or_toolchain_package(
         db: &dyn VfsDb,
         toolchain: Toolchain,
         name: Name,
         path: &Path,
     ) -> VfsResult<Self> {
-        Ok(PackagePath::new_inner(
-            db,
-            toolchain,
-            name,
-            PackagePathSource::Local {
-                path: DiffPath::try_new(db, path)?,
-            },
-        ))
+        match name.data(db) {
+            "core" | "std" => {
+                debug_assert_eq!(
+                    std::fs::canonicalize(path.parent().unwrap()).unwrap(),
+                    std::fs::canonicalize(toolchain.library_path(db)).unwrap()
+                );
+                Ok(Self::new_toolchain_package(db, toolchain, name))
+            }
+            _ => Ok(PackagePath::new_inner(
+                db,
+                toolchain,
+                name,
+                PackagePathSource::Local {
+                    path: DiffPath::try_new(db, path)?,
+                },
+            )),
+        }
     }
 
     pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Name) -> Self {

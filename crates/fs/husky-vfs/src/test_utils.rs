@@ -48,7 +48,7 @@ pub trait VfsTestUtils: VfsDb {
             .into_iter()
             {
                 let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
-                let package_path = PackagePath::new_local_package(
+                let package_path = PackagePath::new_local_or_toolchain_package(
                     vfs_db,
                     toolchain,
                     name,

@@ -1014,12 +1014,8 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `malamute`,
                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: Path(
-                                    TypePath(
-                                        Id {
-                                            value: 104,
-                                        },
-                                    ),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`malamute::OneVsAll`, `Enum`),
                                 ),
                                 disambiguator: 0,
                             },
@@ -1033,12 +1029,8 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                    ty_sketch: Path(
-                                        TypePath(
-                                            Id {
-                                                value: 104,
-                                            },
-                                        ),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`malamute::OneVsAll`, `Enum`),
                                     ),
                                     disambiguator: 0,
                                 },
@@ -1145,12 +1137,8 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `malamute`,
                                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: Path(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 104,
-                                                                },
-                                                            ),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -1504,12 +1492,8 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `malamute`,
                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: Path(
-                                            TypePath(
-                                                Id {
-                                                    value: 104,
-                                                },
-                                            ),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -1531,12 +1515,8 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `malamute`,
                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: Path(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 104,
-                                                        },
-                                                    ),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -1553,12 +1533,8 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `malamute`,
                                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: Path(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 104,
-                                                            },
-                                                        ),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -1601,12 +1577,8 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `malamute`,
                                                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: Path(
-                                                                            TypePath(
-                                                                                Id {
-                                                                                    value: 104,
-                                                                                },
-                                                                            ),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1957,12 +1929,8 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `malamute`,
                                                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: Path(
-                                                                        TypePath(
-                                                                            Id {
-                                                                                value: 104,
-                                                                            },
-                                                                        ),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
                                                                     ),
                                                                     disambiguator: 0,
                                                                 },
