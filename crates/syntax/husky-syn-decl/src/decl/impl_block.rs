@@ -56,7 +56,7 @@ impl ImplBlockSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for ImplBlockSynNodePath {
+impl HasSynNodeDecl for ImplBlockSynNodePath {
     type NodeDecl = ImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

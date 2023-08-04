@@ -13,7 +13,7 @@ impl SubmoduleSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for SubmoduleSynNodePath {
+impl HasSynNodeDecl for SubmoduleSynNodePath {
     type NodeDecl = SubmoduleSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

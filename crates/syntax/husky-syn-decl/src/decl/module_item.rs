@@ -53,7 +53,7 @@ impl MajorItemSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for MajorItemSynNodePath {
+impl HasSynNodeDecl for MajorItemSynNodePath {
     type NodeDecl = MajorItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

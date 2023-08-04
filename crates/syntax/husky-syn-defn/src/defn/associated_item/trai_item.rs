@@ -25,7 +25,20 @@ impl HasSynNodeDefn for TraitItemSynNodePath {
     type SynNodeDefn = TraitItemSynNodeDefn;
 
     fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
-        todo!()
+        trai_item_syn_node_defn(db, self)
+    }
+}
+
+#[salsa::tracked(jar = SynDefnJar)]
+fn trai_item_syn_node_defn(
+    db: &dyn SynDefnDb,
+    syn_node_path: TraitItemSynNodePath,
+) -> TraitItemSynNodeDefn {
+    match syn_node_path.syn_node_decl(db) {
+        TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
+        TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+        TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+        TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
     }
 }
 

@@ -69,11 +69,81 @@ impl TraitItemSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitItemSynNodePath {
+impl HasSynNodeDecl for TraitItemSynNodePath {
     type NodeDecl = TraitItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
-        todo!()
+        trai_item_syn_node_decl(db, self)
+    }
+}
+
+#[salsa::tracked(jar = SynDeclJar)]
+fn trai_item_syn_node_decl(
+    db: &dyn SynDeclDb,
+    syn_node_path: TraitItemSynNodePath,
+) -> TraitItemSynNodeDecl {
+    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    parser.parse_trai_item_syn_node_decl(syn_node_path)
+}
+
+impl<'a> DeclParser<'a> {
+    fn parse_trai_item_syn_node_decl(
+        &self,
+        syn_node_path: TraitForTypeItemSynNodePath,
+    ) -> TraitForTypeItemSynNodeDecl {
+        let db = self.db();
+        let node = syn_node_path.node(db);
+        let ast_idx = node.ast_idx(db);
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                item_kind:
+                    EntityKind::AssociatedItem {
+                        associated_item_kind: AssociatedItemKind::TraitForTypeItem(item_kind),
+                    },
+                saved_stream_state,
+                ..
+            } => self.parse_trai_for_ty_item_syn_node_decl_aux(
+                syn_node_path,
+                node,
+                ast_idx,
+                token_group_idx,
+                item_kind,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
+        }
+    }
+
+    pub(super) fn parse_trai_item_syn_node_decl_aux(
+        &self,
+        syn_node_path: TraitForTypeItemSynNodePath,
+        node: TraitForTypeItemSynNode,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        trai_item_kind: TraitItemKind,
+        saved_stream_state: TokenStreamState,
+    ) -> TraitForTypeItemSynNodeDecl {
+        match trai_item_kind {
+            TraitItemKind::MethodFn => self
+                .parse_trai_method_fn_node_decl(
+                    syn_node_path,
+                    node,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
+                .into(),
+            TraitItemKind::AssociatedType => self
+                .parse_trai_associated_ty_node_decl(
+                    syn_node_path,
+                    node,
+                    ast_idx,
+                    token_group_idx,
+                    saved_stream_state,
+                )
+                .into(),
+        }
     }
 }
 

@@ -28,7 +28,7 @@ impl TypeImplBlockSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeImplBlockSynNode {
+impl HasSynNodeDecl for TypeImplBlockSynNode {
     type NodeDecl = TypeImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
@@ -97,7 +97,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-impl HasNodeDecl for TypeImplBlockSynNodePath {
+impl HasSynNodeDecl for TypeImplBlockSynNodePath {
     type NodeDecl = TypeImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

@@ -41,6 +41,16 @@ impl TraitSynNodePath {
     ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
         trai_item_syn_nodes(db, self)
     }
+
+    pub fn item_node_paths<'a>(
+        self,
+        db: &'a dyn EntitySynTreeDb,
+    ) -> impl Iterator<Item = TraitItemSynNodePath> + 'a {
+        self.item_nodes(db)
+            .iter()
+            .copied()
+            .map(|(_, syn_node_path, _)| syn_node_path)
+    }
 }
 
 impl HasSynNodePath for TraitPath {

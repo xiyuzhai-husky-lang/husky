@@ -110,8 +110,9 @@ impl TermLiteral {
     pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn TermPreludeDb,
+        db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
+        use std::fmt::Display;
         match self {
             TermLiteral::Unit => f.write_str("unit"),
             TermLiteral::I32(_) => todo!(),
@@ -131,7 +132,7 @@ impl TermLiteral {
             TermLiteral::U32(_) => todo!(),
             TermLiteral::U64(_) => todo!(),
             TermLiteral::U128(_) => todo!(),
-            TermLiteral::USize(_) => todo!(),
+            TermLiteral::USize(lit) => lit.value(db).fmt(f),
             TermLiteral::R8(_) => todo!(),
             TermLiteral::R16(_) => todo!(),
             TermLiteral::R32(_) => todo!(),

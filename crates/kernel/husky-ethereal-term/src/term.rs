@@ -145,11 +145,41 @@ impl EtherealTerm {
                                                         Ok::<u8, _>(i) => TermLiteral::U8(i).into(),
                                                         Err(_) => todo!(),
                                                     },
-                                                    PreludeIntTypePath::U16 => todo!(),
-                                                    PreludeIntTypePath::U32 => todo!(),
-                                                    PreludeIntTypePath::U64 => todo!(),
-                                                    PreludeIntTypePath::U128 => todo!(),
-                                                    PreludeIntTypePath::USize => todo!(),
+                                                    PreludeIntTypePath::U16 => match i.try_into() {
+                                                        Ok::<u16, _>(i) => {
+                                                            TermLiteral::U16(i).into()
+                                                        }
+                                                        Err(_) => todo!(), // Or handle the error as appropriate
+                                                    },
+                                                    PreludeIntTypePath::U32 => match i.try_into() {
+                                                        Ok::<u32, _>(i) => {
+                                                            TermLiteral::U32(i).into()
+                                                        }
+                                                        Err(_) => todo!(), // Or handle the error as appropriate
+                                                    },
+                                                    PreludeIntTypePath::U64 => match i.try_into() {
+                                                        Ok::<u64, _>(i) => {
+                                                            TermLiteral::U64(todo!()).into()
+                                                        }
+                                                        Err(_) => todo!(), // Or handle the error as appropriate
+                                                    },
+                                                    PreludeIntTypePath::U128 => {
+                                                        match i.try_into() {
+                                                            Ok::<u128, _>(i) => {
+                                                                TermLiteral::U128(todo!()).into()
+                                                            }
+                                                            Err(_) => todo!(), // Or handle the error as appropriate
+                                                        }
+                                                    }
+                                                    PreludeIntTypePath::USize => match i.try_into()
+                                                    {
+                                                        // use u64 for the sake of cross compilation
+                                                        Ok::<u64, _>(i) => TermLiteral::USize(
+                                                            TermUSizeLiteral::new(db, i),
+                                                        )
+                                                        .into(),
+                                                        Err(_) => todo!(), // Or handle the error as appropriate
+                                                    },
                                                     PreludeIntTypePath::R8 => todo!(),
                                                     PreludeIntTypePath::R16 => todo!(),
                                                     PreludeIntTypePath::R32 => todo!(),
@@ -389,11 +419,23 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
 ) -> EtherealTermResult<EtherealTerm> {
     match term_ty_expectation {
         TermTypeExpectation::FinalDestinationEqsSort => {
-            let term_menu = db.ethereal_term_menu(declarative_term_list.toolchain(db));
+            let toolchain = declarative_term_list.toolchain(db);
+            let term_menu = db.ethereal_term_menu(toolchain);
             let items = declarative_term_list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
-                1 => Ok(term_menu.array_ty_ontology()),
+                1 => Ok(EtherealTermApplication::new_reduced(
+                    db,
+                    term_menu.array_ty_ontology(),
+                    EtherealTerm::from_declarative(
+                        db,
+                        items[0],
+                        TermTypeExpectation::FinalDestinationEqsNonSortTypePath(
+                            db.item_path_menu(toolchain).usize_ty_path(),
+                        ),
+                    )?,
+                    0,
+                )),
                 _ => todo!(),
             }
         }

@@ -4599,7 +4599,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 20,
+                                value: 22,
                             },
                         ),
                     ),
@@ -4625,7 +4625,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -7077,7 +7077,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -7286,7 +7286,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 41,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -7785,7 +7785,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -7877,7 +7877,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 41,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -8374,7 +8374,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -8466,7 +8466,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 41,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -8796,7 +8796,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 41,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -9519,7 +9519,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -15356,7 +15356,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 15,
+                                                value: 16,
                                             },
                                         ),
                                     ),

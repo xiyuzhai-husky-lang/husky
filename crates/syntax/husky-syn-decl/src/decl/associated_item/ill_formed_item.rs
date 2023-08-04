@@ -13,7 +13,7 @@ impl From<IllFormedItemSynNodeDecl> for SynNodeDecl {
     }
 }
 
-impl HasNodeDecl for IllFormedItemSynNodePath {
+impl HasSynNodeDecl for IllFormedItemSynNodePath {
     type NodeDecl = IllFormedItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

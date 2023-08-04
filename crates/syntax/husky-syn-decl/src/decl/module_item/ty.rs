@@ -95,7 +95,7 @@ impl TypeSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeSynNodePath {
+impl HasSynNodeDecl for TypeSynNodePath {
     type NodeDecl = TypeSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

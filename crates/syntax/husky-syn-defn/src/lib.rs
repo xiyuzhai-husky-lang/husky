@@ -81,6 +81,7 @@ pub struct SynDefnJar(
     TypeMemoizedFieldSynNodeDefn,
     TypeMemoizedFieldSynDefn,
     // trait item
+    trai_item_syn_node_defn,
     trai_item_syn_defn,
     TraitAssociatedFnSynNodeDefn,
     TraitAssociatedFnSynDefn,
