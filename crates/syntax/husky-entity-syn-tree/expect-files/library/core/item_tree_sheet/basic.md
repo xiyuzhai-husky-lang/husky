@@ -221,7 +221,7 @@ Ok(
                     ident: `bool`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::basic::bool`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -256,7 +256,7 @@ Ok(
                     ident: `never`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::basic::never`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -291,7 +291,7 @@ Ok(
                     ident: `unit`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::basic::unit`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -326,7 +326,7 @@ Ok(
                     ident: `Trait`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::basic::Trait`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -361,7 +361,7 @@ Ok(
                     ident: `Module`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::basic::Module`, `Extern`),
                         ),
                         node: MajorItemSynNode {

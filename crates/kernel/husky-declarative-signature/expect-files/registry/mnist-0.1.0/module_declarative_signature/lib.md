@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist::MnistLabel`, `Enum`),
             ),
         ),
@@ -22,7 +22,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist::BinaryImage28`, `Struct`),
             ),
         ),
@@ -48,7 +48,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist::input`, `Val`),
             ),
         ),

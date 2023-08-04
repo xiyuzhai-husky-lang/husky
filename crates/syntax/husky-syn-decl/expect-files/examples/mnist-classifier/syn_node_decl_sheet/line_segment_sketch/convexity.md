@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 42,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -27,16 +27,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 21,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -69,7 +69,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 29,
                                             ),
@@ -105,8 +105,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
@@ -121,8 +121,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             ),
                                                         ),
@@ -131,8 +131,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -141,8 +141,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::basic::bool`, `Extern`),
                                                             ),
                                                         ),
@@ -161,8 +161,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ),
                                                     ),
@@ -176,8 +176,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -191,8 +191,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::basic::bool`, `Extern`),
                                                         ),
                                                     ),
@@ -202,10 +202,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
@@ -214,7 +214,7 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `index`,
@@ -237,10 +237,10 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         1,
                                                     ),
                                                 ],
@@ -278,7 +278,7 @@ Ok(
                                                             23,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -289,7 +289,7 @@ Ok(
                                                             27,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `index`,
                                                             pattern_symbol_idx: 1,
                                                         },

@@ -101,7 +101,7 @@ Ok(
                     ident: `Visualize`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::visual::Visualize`),
                         ),
                         node: MajorItemSynNode {
@@ -142,7 +142,7 @@ Ok(
                     ident: `Html`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::visual::Html`, `Extern`),
                         ),
                         node: MajorItemSynNode {

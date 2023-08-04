@@ -34,14 +34,14 @@ impl MajorItemHirDefn {
     }
 }
 
-impl HasHirDefn for MajarItemPath {
+impl HasHirDefn for MajorItemPath {
     type HirDefn = MajorItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Option<Self::HirDefn> {
         Some(match self {
-            MajarItemPath::Type(path) => path.hir_defn(db)?.into(),
-            MajarItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
-            MajarItemPath::Trait(path) => path.hir_defn(db)?.into(),
+            MajorItemPath::Type(path) => path.hir_defn(db)?.into(),
+            MajorItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
+            MajorItemPath::Trait(path) => path.hir_defn(db)?.into(),
         })
     }
 }

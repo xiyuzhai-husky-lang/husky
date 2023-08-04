@@ -289,7 +289,7 @@ Ok(
                     ident: `ConnectedComponentDistribution`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -324,7 +324,7 @@ Ok(
                     ident: `EffHoles`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -361,7 +361,7 @@ Ok(
                         `mnist_classifier::connected_component`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -404,7 +404,7 @@ Ok(
                     ident: `ConnectedComponent`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -441,7 +441,7 @@ Ok(
                         `mnist_classifier::connected_component`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -484,7 +484,7 @@ Ok(
                     ident: `find_connected_components`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -832,7 +832,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                         node: MajorItemSynNode {
@@ -869,7 +869,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -881,7 +881,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                 ),
                             ),
@@ -903,7 +903,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                         node: MajorItemSynNode {
@@ -940,7 +940,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -952,7 +952,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 ),
                             ),
@@ -974,7 +974,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`malamute::narrow_down`, `Gn`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1005,7 +1005,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`malamute::narrow_down`, `Gn`),
                                         ),
                                     ),
@@ -1017,7 +1017,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                 ),
                             ),
@@ -1039,7 +1039,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1076,7 +1076,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),
                                     ),
@@ -1088,7 +1088,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
                             ),
@@ -1110,7 +1110,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1141,7 +1141,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist::BinaryImage28`, `Struct`),
                                         ),
                                     ),
@@ -1153,7 +1153,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist::BinaryImage28`, `Struct`),
                                 ),
                             ),
@@ -1175,7 +1175,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist::input`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1206,7 +1206,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist::input`, `Val`),
                                         ),
                                     ),
@@ -1218,7 +1218,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist::input`, `Val`),
                                 ),
                             ),
@@ -1238,7 +1238,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Type(
+                                module_item_path: MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1269,7 +1269,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
@@ -1289,7 +1289,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Fugitive(
+                                module_item_path: MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1326,7 +1326,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
@@ -1348,7 +1348,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1385,7 +1385,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
@@ -1397,7 +1397,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 ),
                             ),
@@ -1419,7 +1419,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1456,7 +1456,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
@@ -1468,7 +1468,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 ),
                             ),
@@ -1490,7 +1490,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1527,7 +1527,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                     ),
@@ -1539,7 +1539,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 ),
                             ),
@@ -1561,7 +1561,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1598,7 +1598,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         ),
                                     ),
@@ -1610,7 +1610,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 ),
                             ),
@@ -1632,7 +1632,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1669,7 +1669,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                     ),
@@ -1681,7 +1681,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 ),
                             ),
@@ -1703,7 +1703,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1740,7 +1740,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
@@ -1752,7 +1752,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 ),
                             ),
@@ -1774,7 +1774,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1811,7 +1811,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
@@ -1823,7 +1823,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 ),
                             ),
@@ -1847,7 +1847,7 @@ Ok(
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
-                                                module_item_path: MajarItemPath::Fugitive(
+                                                module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                 ),
                                                 node: MajorItemSynNode {
@@ -1884,7 +1884,7 @@ Ok(
                                                 },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
-                                                MajarItemPath::Fugitive(
+                                                MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                 ),
                                             ),
@@ -1894,7 +1894,7 @@ Ok(
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                     ),
@@ -1906,7 +1906,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                             ),
@@ -1928,7 +1928,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -1959,7 +1959,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
                                     ),
@@ -1971,7 +1971,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
                             ),
@@ -1993,7 +1993,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2030,7 +2030,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
                                     ),
@@ -2042,7 +2042,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 ),
                             ),
@@ -2064,7 +2064,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2095,7 +2095,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                     ),
@@ -2107,7 +2107,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
@@ -2129,7 +2129,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2166,7 +2166,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                     ),
@@ -2178,7 +2178,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
@@ -2200,7 +2200,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2231,7 +2231,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
                                     ),
@@ -2243,7 +2243,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                             ),
@@ -2265,7 +2265,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2296,7 +2296,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
                                     ),
@@ -2308,7 +2308,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                             ),
@@ -2332,7 +2332,7 @@ Ok(
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
-                                                module_item_path: MajarItemPath::Type(
+                                                module_item_path: MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                                 node: MajorItemSynNode {
@@ -2363,7 +2363,7 @@ Ok(
                                                 },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
-                                                MajarItemPath::Type(
+                                                MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             ),
@@ -2373,7 +2373,7 @@ Ok(
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
                                     ),
@@ -2385,7 +2385,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
@@ -2409,7 +2409,7 @@ Ok(
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
-                                                module_item_path: MajarItemPath::Fugitive(
+                                                module_item_path: MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
                                                 node: MajorItemSynNode {
@@ -2446,7 +2446,7 @@ Ok(
                                                 },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
-                                                MajarItemPath::Fugitive(
+                                                MajorItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
                                             ),
@@ -2456,7 +2456,7 @@ Ok(
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                     ),
@@ -2468,7 +2468,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
@@ -2492,7 +2492,7 @@ Ok(
                                     original_symbol: EntitySymbol::Use(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
-                                                module_item_path: MajarItemPath::Type(
+                                                module_item_path: MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 ),
                                                 node: MajorItemSynNode {
@@ -2523,7 +2523,7 @@ Ok(
                                                 },
                                             },
                                             path: PrincipalEntityPath::MajorItem(
-                                                MajarItemPath::Type(
+                                                MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 ),
                                             ),
@@ -2533,7 +2533,7 @@ Ok(
                                         },
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
@@ -2545,7 +2545,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
@@ -2567,7 +2567,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2598,7 +2598,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
@@ -2610,7 +2610,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
@@ -2632,7 +2632,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2663,7 +2663,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
                                     ),
@@ -2675,7 +2675,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
@@ -2697,7 +2697,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Type(
+                                        module_item_path: MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2728,7 +2728,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Type(
+                                        MajorItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                     ),
@@ -2740,7 +2740,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Type(
+                                MajorItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
@@ -2762,7 +2762,7 @@ Ok(
                             original_symbol: EntitySymbol::Use(
                                 UseSymbol {
                                     original_symbol: EntitySymbol::MajorItem {
-                                        module_item_path: MajarItemPath::Fugitive(
+                                        module_item_path: MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
                                         node: MajorItemSynNode {
@@ -2799,7 +2799,7 @@ Ok(
                                         },
                                     },
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajarItemPath::Fugitive(
+                                        MajorItemPath::Fugitive(
                                             FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
                                     ),
@@ -2811,7 +2811,7 @@ Ok(
                                 },
                             ),
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Fugitive(
+                                MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ),
                             ),

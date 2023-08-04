@@ -143,7 +143,7 @@ Ok(
                     ident: `Prop`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::logic::Prop`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -178,7 +178,7 @@ Ok(
                     ident: `LogicAnd`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::logic::LogicAnd`, `Structure`),
                         ),
                         node: MajorItemSynNode {
@@ -213,7 +213,7 @@ Ok(
                     ident: `LogicOr`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::logic::LogicOr`, `Inductive`),
                         ),
                         node: MajorItemSynNode {

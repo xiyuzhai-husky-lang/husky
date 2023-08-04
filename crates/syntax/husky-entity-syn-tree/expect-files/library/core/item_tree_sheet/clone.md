@@ -59,7 +59,7 @@ Ok(
                     ident: `Clone`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::clone::Clone`),
                         ),
                         node: MajorItemSynNode {

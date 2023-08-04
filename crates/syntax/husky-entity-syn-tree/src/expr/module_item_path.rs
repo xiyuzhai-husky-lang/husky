@@ -101,7 +101,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
     // todo: rollback
     pub(crate) fn parse_major_path_expr(
         &mut self,
-    ) -> MajorItemPathExprMaybeResult<(MajorItemPathExprIdx, MajarItemPath)> {
+    ) -> MajorItemPathExprMaybeResult<(MajorItemPathExprIdx, MajorItemPath)> {
         let name_token: PathNameToken = self.try_parse_option()??;
         let path = match name_token {
             PathNameToken::Ident(ident_token) => self
@@ -118,7 +118,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
 
     pub(crate) fn parse_major_path_expr_expected(
         &mut self,
-    ) -> MajorItemPathExprResult<(MajorItemPathExprIdx, MajarItemPath)> {
+    ) -> MajorItemPathExprResult<(MajorItemPathExprIdx, MajorItemPath)> {
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let path = match name_token {
@@ -144,7 +144,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
     fn parse_major_path_subexpr(
         &mut self,
         parent: ModulePath,
-    ) -> MajorItemPathExprResult<(MajorItemPathExprIdx, MajarItemPath)> {
+    ) -> MajorItemPathExprResult<(MajorItemPathExprIdx, MajorItemPath)> {
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let major_path = match name_token {
@@ -169,7 +169,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
         &mut self,
         major_path: MajorEntityPath,
         name_token: PathNameToken,
-    ) -> MajorItemPathExprResult<(ArenaIdx<MajorItemPathExpr>, MajarItemPath)> {
+    ) -> MajorItemPathExprResult<(ArenaIdx<MajorItemPathExpr>, MajorItemPath)> {
         let (expr, module_item_path) = if let Some(scope_resolution_token) =
             self.try_parse_err_as_none::<ScopeResolutionToken>()
         {

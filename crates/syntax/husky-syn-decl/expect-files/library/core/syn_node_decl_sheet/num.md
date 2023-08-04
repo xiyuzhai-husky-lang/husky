@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 11,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i8`, `Extern`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -31,8 +31,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i8`, `Extern`),
@@ -51,7 +51,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -87,8 +87,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i16`, `Extern`),
@@ -97,8 +97,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -115,8 +115,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i16`, `Extern`),
@@ -135,7 +135,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -171,8 +171,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i32`, `Extern`),
@@ -181,8 +181,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -199,8 +199,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i32`, `Extern`),
@@ -219,7 +219,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -255,8 +255,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i64`, `Extern`),
@@ -265,8 +265,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -283,8 +283,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i64`, `Extern`),
@@ -303,7 +303,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -339,8 +339,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i128`, `Extern`),
@@ -349,8 +349,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -367,8 +367,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i128`, `Extern`),
@@ -387,7 +387,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -423,8 +423,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::isize`, `Extern`),
@@ -433,8 +433,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -451,8 +451,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::isize`, `Extern`),
@@ -471,7 +471,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -507,8 +507,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u8`, `Extern`),
@@ -517,8 +517,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -535,8 +535,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u8`, `Extern`),
@@ -555,7 +555,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -591,8 +591,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u16`, `Extern`),
@@ -601,8 +601,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -619,8 +619,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u16`, `Extern`),
@@ -639,7 +639,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -675,8 +675,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u32`, `Extern`),
@@ -685,8 +685,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -703,8 +703,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u32`, `Extern`),
@@ -723,7 +723,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -759,8 +759,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u64`, `Extern`),
@@ -769,8 +769,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -787,8 +787,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u64`, `Extern`),
@@ -807,7 +807,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -843,8 +843,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u128`, `Extern`),
@@ -853,8 +853,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -871,8 +871,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u128`, `Extern`),
@@ -891,7 +891,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -927,8 +927,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::usize`, `Extern`),
@@ -937,8 +937,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -955,8 +955,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::usize`, `Extern`),
@@ -975,7 +975,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -1011,8 +1011,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::f32`, `Extern`),
@@ -1021,8 +1021,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -1039,8 +1039,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::f32`, `Extern`),
@@ -1059,7 +1059,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -1095,8 +1095,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::f64`, `Extern`),
@@ -1105,8 +1105,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -1123,8 +1123,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::f64`, `Extern`),
@@ -1143,7 +1143,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -1179,7 +1179,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -1246,7 +1246,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -1263,8 +1263,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -1283,8 +1283,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i8`, `Extern`),
                                                     ),
                                                 ),
@@ -1294,7 +1294,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1334,7 +1334,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1395,18 +1395,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 36,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 37,
                                             ),
@@ -1445,7 +1445,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -1462,8 +1462,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -1482,8 +1482,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -1493,7 +1493,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -1530,7 +1530,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1554,8 +1554,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i8`, `Extern`),
                                                             ),
                                                         ),
@@ -1574,8 +1574,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -1585,7 +1585,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -1626,7 +1626,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -1696,7 +1696,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -1720,8 +1720,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -1730,8 +1730,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -1744,8 +1744,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -1764,8 +1764,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -1779,8 +1779,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i8`, `Extern`),
                                                     ),
                                                 ),
@@ -1794,8 +1794,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i8`, `Extern`),
                                                     ),
                                                 ),
@@ -1805,7 +1805,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1849,7 +1849,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1931,16 +1931,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 50,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -1955,7 +1955,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 54,
                                             ),
@@ -1994,7 +1994,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -2018,8 +2018,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -2028,8 +2028,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -2042,8 +2042,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -2062,8 +2062,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -2077,8 +2077,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -2092,8 +2092,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -2103,7 +2103,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -2144,7 +2144,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2175,8 +2175,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i8`, `Extern`),
                                                             ),
                                                         ),
@@ -2185,8 +2185,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i8`, `Extern`),
                                                             ),
                                                         ),
@@ -2205,8 +2205,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -2220,8 +2220,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i8`, `Extern`),
                                                         ),
                                                     ),
@@ -2231,10 +2231,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -2255,7 +2255,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -2286,7 +2286,7 @@ Ok(
                                                             52,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2325,7 +2325,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -2392,7 +2392,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -2409,8 +2409,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
@@ -2429,8 +2429,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i16`, `Extern`),
                                                     ),
                                                 ),
@@ -2440,7 +2440,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2480,7 +2480,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2541,18 +2541,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 88,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 89,
                                             ),
@@ -2591,7 +2591,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -2608,8 +2608,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i16`, `Extern`),
                                                                         ),
                                                                     ),
@@ -2628,8 +2628,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i16`, `Extern`),
                                                                     ),
                                                                 ),
@@ -2639,7 +2639,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -2676,7 +2676,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2700,8 +2700,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i16`, `Extern`),
                                                             ),
                                                         ),
@@ -2720,8 +2720,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
@@ -2731,7 +2731,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -2772,7 +2772,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -2842,7 +2842,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -2866,8 +2866,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -2876,8 +2876,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -2890,8 +2890,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
@@ -2910,8 +2910,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -2925,8 +2925,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i32`, `Extern`),
                                                     ),
                                                 ),
@@ -2940,8 +2940,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i16`, `Extern`),
                                                     ),
                                                 ),
@@ -2951,7 +2951,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2995,7 +2995,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3077,16 +3077,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 102,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -3101,7 +3101,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 106,
                                             ),
@@ -3140,7 +3140,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -3164,8 +3164,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -3174,8 +3174,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -3188,8 +3188,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i16`, `Extern`),
                                                                         ),
                                                                     ),
@@ -3208,8 +3208,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -3223,8 +3223,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -3238,8 +3238,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i16`, `Extern`),
                                                                     ),
                                                                 ),
@@ -3249,7 +3249,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -3290,7 +3290,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3321,8 +3321,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -3331,8 +3331,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i16`, `Extern`),
                                                             ),
                                                         ),
@@ -3351,8 +3351,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -3366,8 +3366,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i16`, `Extern`),
                                                         ),
                                                     ),
@@ -3377,10 +3377,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -3401,7 +3401,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -3432,7 +3432,7 @@ Ok(
                                                             104,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3471,7 +3471,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -3538,7 +3538,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -3555,8 +3555,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -3575,8 +3575,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i32`, `Extern`),
                                                     ),
                                                 ),
@@ -3586,7 +3586,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -3626,7 +3626,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3687,18 +3687,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 140,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 141,
                                             ),
@@ -3737,7 +3737,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -3754,8 +3754,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -3774,8 +3774,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -3785,7 +3785,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -3822,7 +3822,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3846,8 +3846,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -3866,8 +3866,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -3877,7 +3877,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -3918,7 +3918,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -3988,7 +3988,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -4012,8 +4012,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -4022,8 +4022,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -4036,8 +4036,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -4056,8 +4056,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -4071,8 +4071,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i32`, `Extern`),
                                                     ),
                                                 ),
@@ -4086,8 +4086,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i32`, `Extern`),
                                                     ),
                                                 ),
@@ -4097,7 +4097,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -4141,7 +4141,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4225,16 +4225,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 153,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -4249,7 +4249,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 157,
                                             ),
@@ -4288,7 +4288,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -4312,8 +4312,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -4322,8 +4322,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -4336,8 +4336,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -4356,8 +4356,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -4371,8 +4371,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -4386,8 +4386,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -4397,7 +4397,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -4438,7 +4438,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4469,8 +4469,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -4479,8 +4479,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -4499,8 +4499,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -4514,8 +4514,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -4525,10 +4525,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -4549,7 +4549,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -4580,7 +4580,7 @@ Ok(
                                                             155,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -4619,7 +4619,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -4686,7 +4686,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -4703,8 +4703,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -4723,8 +4723,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i64`, `Extern`),
                                                     ),
                                                 ),
@@ -4734,7 +4734,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -4774,7 +4774,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4835,18 +4835,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 191,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 192,
                                             ),
@@ -4885,7 +4885,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -4902,8 +4902,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -4922,8 +4922,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -4933,7 +4933,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -4970,7 +4970,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4994,8 +4994,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i64`, `Extern`),
                                                             ),
                                                         ),
@@ -5014,8 +5014,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -5025,7 +5025,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -5066,7 +5066,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -5136,7 +5136,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -5160,8 +5160,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -5170,8 +5170,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -5184,8 +5184,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -5204,8 +5204,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -5219,8 +5219,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i64`, `Extern`),
                                                     ),
                                                 ),
@@ -5234,8 +5234,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i64`, `Extern`),
                                                     ),
                                                 ),
@@ -5245,7 +5245,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -5289,7 +5289,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5371,16 +5371,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 205,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -5395,7 +5395,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 209,
                                             ),
@@ -5434,7 +5434,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -5458,8 +5458,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -5468,8 +5468,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -5482,8 +5482,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -5502,8 +5502,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -5517,8 +5517,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -5532,8 +5532,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -5543,7 +5543,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -5584,7 +5584,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5615,8 +5615,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i64`, `Extern`),
                                                             ),
                                                         ),
@@ -5625,8 +5625,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i64`, `Extern`),
                                                             ),
                                                         ),
@@ -5645,8 +5645,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -5660,8 +5660,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i64`, `Extern`),
                                                         ),
                                                     ),
@@ -5671,10 +5671,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -5695,7 +5695,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -5726,7 +5726,7 @@ Ok(
                                                             207,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5765,7 +5765,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -5832,7 +5832,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -5849,8 +5849,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -5869,8 +5869,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i128`, `Extern`),
                                                     ),
                                                 ),
@@ -5880,7 +5880,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -5920,7 +5920,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5981,18 +5981,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 243,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 244,
                                             ),
@@ -6031,7 +6031,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -6048,8 +6048,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -6068,8 +6068,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -6079,7 +6079,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -6116,7 +6116,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -6140,8 +6140,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i128`, `Extern`),
                                                             ),
                                                         ),
@@ -6160,8 +6160,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -6171,7 +6171,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -6212,7 +6212,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -6282,7 +6282,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -6306,8 +6306,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -6316,8 +6316,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -6330,8 +6330,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -6350,8 +6350,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -6365,8 +6365,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i128`, `Extern`),
                                                     ),
                                                 ),
@@ -6380,8 +6380,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::i128`, `Extern`),
                                                     ),
                                                 ),
@@ -6391,7 +6391,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -6435,7 +6435,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -6517,16 +6517,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 257,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -6541,7 +6541,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 261,
                                             ),
@@ -6580,7 +6580,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -6604,8 +6604,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -6614,8 +6614,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -6628,8 +6628,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::i128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -6648,8 +6648,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -6663,8 +6663,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -6678,8 +6678,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::i128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -6689,7 +6689,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -6730,7 +6730,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -6761,8 +6761,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i128`, `Extern`),
                                                             ),
                                                         ),
@@ -6771,8 +6771,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i128`, `Extern`),
                                                             ),
                                                         ),
@@ -6791,8 +6791,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -6806,8 +6806,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i128`, `Extern`),
                                                         ),
                                                     ),
@@ -6817,10 +6817,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -6841,7 +6841,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -6872,7 +6872,7 @@ Ok(
                                                             259,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -6911,7 +6911,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -6978,7 +6978,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -6995,8 +6995,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7015,8 +7015,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::isize`, `Extern`),
                                                     ),
                                                 ),
@@ -7026,7 +7026,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -7066,7 +7066,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7127,18 +7127,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 295,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 296,
                                             ),
@@ -7177,7 +7177,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -7194,8 +7194,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::isize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -7214,8 +7214,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::isize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -7225,7 +7225,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -7262,7 +7262,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7286,8 +7286,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::isize`, `Extern`),
                                                             ),
                                                         ),
@@ -7306,8 +7306,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7317,7 +7317,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -7358,7 +7358,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -7428,7 +7428,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -7452,8 +7452,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -7462,8 +7462,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7476,8 +7476,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7496,8 +7496,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -7511,8 +7511,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::isize`, `Extern`),
                                                     ),
                                                 ),
@@ -7526,8 +7526,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::isize`, `Extern`),
                                                     ),
                                                 ),
@@ -7537,7 +7537,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -7581,7 +7581,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7663,16 +7663,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 309,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -7687,7 +7687,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 313,
                                             ),
@@ -7726,7 +7726,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -7750,8 +7750,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -7760,8 +7760,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::isize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -7774,8 +7774,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::isize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -7794,8 +7794,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -7809,8 +7809,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::isize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -7824,8 +7824,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::isize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -7835,7 +7835,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -7876,7 +7876,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7907,8 +7907,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::isize`, `Extern`),
                                                             ),
                                                         ),
@@ -7917,8 +7917,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::isize`, `Extern`),
                                                             ),
                                                         ),
@@ -7937,8 +7937,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7952,8 +7952,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::isize`, `Extern`),
                                                         ),
                                                     ),
@@ -7963,10 +7963,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -7987,7 +7987,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -8018,7 +8018,7 @@ Ok(
                                                             311,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -8057,7 +8057,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -8124,7 +8124,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -8141,8 +8141,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -8161,8 +8161,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u8`, `Extern`),
                                                     ),
                                                 ),
@@ -8172,7 +8172,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -8212,7 +8212,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8273,18 +8273,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 347,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 348,
                                             ),
@@ -8323,7 +8323,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -8340,8 +8340,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -8360,8 +8360,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -8371,7 +8371,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -8408,7 +8408,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8432,8 +8432,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u8`, `Extern`),
                                                             ),
                                                         ),
@@ -8452,8 +8452,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -8463,7 +8463,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -8504,7 +8504,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -8574,7 +8574,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -8598,8 +8598,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -8608,8 +8608,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -8622,8 +8622,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -8642,8 +8642,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -8657,8 +8657,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u8`, `Extern`),
                                                     ),
                                                 ),
@@ -8672,8 +8672,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u8`, `Extern`),
                                                     ),
                                                 ),
@@ -8683,7 +8683,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -8727,7 +8727,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8809,16 +8809,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 361,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -8833,7 +8833,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 365,
                                             ),
@@ -8872,7 +8872,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -8896,8 +8896,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -8906,8 +8906,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -8920,8 +8920,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u8`, `Extern`),
                                                                         ),
                                                                     ),
@@ -8940,8 +8940,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -8955,8 +8955,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -8970,8 +8970,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u8`, `Extern`),
                                                                     ),
                                                                 ),
@@ -8981,7 +8981,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -9022,7 +9022,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9053,8 +9053,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u8`, `Extern`),
                                                             ),
                                                         ),
@@ -9063,8 +9063,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u8`, `Extern`),
                                                             ),
                                                         ),
@@ -9083,8 +9083,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -9098,8 +9098,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u8`, `Extern`),
                                                         ),
                                                     ),
@@ -9109,10 +9109,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -9133,7 +9133,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -9164,7 +9164,7 @@ Ok(
                                                             363,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -9203,7 +9203,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -9270,7 +9270,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -9287,8 +9287,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -9307,8 +9307,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u16`, `Extern`),
                                                     ),
                                                 ),
@@ -9318,7 +9318,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -9358,7 +9358,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9419,18 +9419,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 399,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 400,
                                             ),
@@ -9469,7 +9469,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -9486,8 +9486,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                     ),
@@ -9506,8 +9506,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                 ),
@@ -9517,7 +9517,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -9554,7 +9554,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9578,8 +9578,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u16`, `Extern`),
                                                             ),
                                                         ),
@@ -9598,8 +9598,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -9609,7 +9609,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -9650,7 +9650,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -9720,7 +9720,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -9744,8 +9744,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -9754,8 +9754,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -9768,8 +9768,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -9788,8 +9788,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -9803,8 +9803,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u16`, `Extern`),
                                                     ),
                                                 ),
@@ -9818,8 +9818,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u16`, `Extern`),
                                                     ),
                                                 ),
@@ -9829,7 +9829,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -9873,7 +9873,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9955,16 +9955,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 413,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -9979,7 +9979,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 417,
                                             ),
@@ -10018,7 +10018,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -10042,8 +10042,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -10052,8 +10052,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                     ),
@@ -10066,8 +10066,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u16`, `Extern`),
                                                                         ),
                                                                     ),
@@ -10086,8 +10086,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -10101,8 +10101,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                 ),
@@ -10116,8 +10116,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u16`, `Extern`),
                                                                     ),
                                                                 ),
@@ -10127,7 +10127,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -10168,7 +10168,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -10199,8 +10199,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u16`, `Extern`),
                                                             ),
                                                         ),
@@ -10209,8 +10209,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u16`, `Extern`),
                                                             ),
                                                         ),
@@ -10229,8 +10229,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -10244,8 +10244,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u16`, `Extern`),
                                                         ),
                                                     ),
@@ -10255,10 +10255,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -10279,7 +10279,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -10310,7 +10310,7 @@ Ok(
                                                             415,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -10349,7 +10349,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -10416,7 +10416,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -10433,8 +10433,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -10453,8 +10453,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u32`, `Extern`),
                                                     ),
                                                 ),
@@ -10464,7 +10464,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -10504,7 +10504,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -10565,18 +10565,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 451,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 452,
                                             ),
@@ -10615,7 +10615,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -10632,8 +10632,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -10652,8 +10652,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -10663,7 +10663,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -10700,7 +10700,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -10724,8 +10724,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u32`, `Extern`),
                                                             ),
                                                         ),
@@ -10744,8 +10744,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -10755,7 +10755,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -10796,7 +10796,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -10866,7 +10866,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -10890,8 +10890,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -10900,8 +10900,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -10914,8 +10914,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -10934,8 +10934,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -10949,8 +10949,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u32`, `Extern`),
                                                     ),
                                                 ),
@@ -10964,8 +10964,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u32`, `Extern`),
                                                     ),
                                                 ),
@@ -10975,7 +10975,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -11019,7 +11019,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11101,16 +11101,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 465,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -11125,7 +11125,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 469,
                                             ),
@@ -11164,7 +11164,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -11188,8 +11188,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -11198,8 +11198,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -11212,8 +11212,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -11232,8 +11232,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -11247,8 +11247,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -11262,8 +11262,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -11273,7 +11273,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -11314,7 +11314,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11345,8 +11345,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u32`, `Extern`),
                                                             ),
                                                         ),
@@ -11355,8 +11355,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u32`, `Extern`),
                                                             ),
                                                         ),
@@ -11375,8 +11375,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -11390,8 +11390,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u32`, `Extern`),
                                                         ),
                                                     ),
@@ -11401,10 +11401,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -11425,7 +11425,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -11456,7 +11456,7 @@ Ok(
                                                             467,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -11495,7 +11495,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -11562,7 +11562,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -11579,8 +11579,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -11599,8 +11599,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u64`, `Extern`),
                                                     ),
                                                 ),
@@ -11610,7 +11610,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -11650,7 +11650,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11711,18 +11711,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 503,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 504,
                                             ),
@@ -11761,7 +11761,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -11778,8 +11778,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -11798,8 +11798,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -11809,7 +11809,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -11846,7 +11846,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11870,8 +11870,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u64`, `Extern`),
                                                             ),
                                                         ),
@@ -11890,8 +11890,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -11901,7 +11901,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -11942,7 +11942,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -12012,7 +12012,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -12036,8 +12036,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -12046,8 +12046,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -12060,8 +12060,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -12080,8 +12080,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -12095,8 +12095,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u64`, `Extern`),
                                                     ),
                                                 ),
@@ -12110,8 +12110,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u64`, `Extern`),
                                                     ),
                                                 ),
@@ -12121,7 +12121,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -12165,7 +12165,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12247,16 +12247,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 517,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -12271,7 +12271,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 521,
                                             ),
@@ -12310,7 +12310,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -12334,8 +12334,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -12344,8 +12344,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -12358,8 +12358,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -12378,8 +12378,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -12393,8 +12393,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -12408,8 +12408,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -12419,7 +12419,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -12460,7 +12460,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12491,8 +12491,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u64`, `Extern`),
                                                             ),
                                                         ),
@@ -12501,8 +12501,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u64`, `Extern`),
                                                             ),
                                                         ),
@@ -12521,8 +12521,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -12536,8 +12536,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u64`, `Extern`),
                                                         ),
                                                     ),
@@ -12547,10 +12547,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -12571,7 +12571,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -12602,7 +12602,7 @@ Ok(
                                                             519,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -12641,7 +12641,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -12708,7 +12708,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -12725,8 +12725,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -12745,8 +12745,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u128`, `Extern`),
                                                     ),
                                                 ),
@@ -12756,7 +12756,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -12796,7 +12796,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12857,18 +12857,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 555,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 556,
                                             ),
@@ -12907,7 +12907,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -12924,8 +12924,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -12944,8 +12944,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -12955,7 +12955,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -12992,7 +12992,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13016,8 +13016,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u128`, `Extern`),
                                                             ),
                                                         ),
@@ -13036,8 +13036,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -13047,7 +13047,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -13088,7 +13088,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -13158,7 +13158,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -13182,8 +13182,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -13192,8 +13192,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -13206,8 +13206,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -13226,8 +13226,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -13241,8 +13241,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u128`, `Extern`),
                                                     ),
                                                 ),
@@ -13256,8 +13256,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::u128`, `Extern`),
                                                     ),
                                                 ),
@@ -13267,7 +13267,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -13311,7 +13311,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13393,16 +13393,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 569,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -13417,7 +13417,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 573,
                                             ),
@@ -13456,7 +13456,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -13480,8 +13480,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -13490,8 +13490,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -13504,8 +13504,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::u128`, `Extern`),
                                                                         ),
                                                                     ),
@@ -13524,8 +13524,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -13539,8 +13539,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -13554,8 +13554,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::u128`, `Extern`),
                                                                     ),
                                                                 ),
@@ -13565,7 +13565,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -13606,7 +13606,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13637,8 +13637,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u128`, `Extern`),
                                                             ),
                                                         ),
@@ -13647,8 +13647,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::u128`, `Extern`),
                                                             ),
                                                         ),
@@ -13667,8 +13667,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -13682,8 +13682,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::u128`, `Extern`),
                                                         ),
                                                     ),
@@ -13693,10 +13693,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -13717,7 +13717,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -13748,7 +13748,7 @@ Ok(
                                                             571,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -13787,7 +13787,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -13854,7 +13854,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -13871,8 +13871,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -13891,8 +13891,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::usize`, `Extern`),
                                                     ),
                                                 ),
@@ -13902,7 +13902,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -13942,7 +13942,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14003,18 +14003,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 607,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 608,
                                             ),
@@ -14053,7 +14053,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -14070,8 +14070,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::usize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -14090,8 +14090,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::usize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -14101,7 +14101,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -14138,7 +14138,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14162,8 +14162,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
@@ -14182,8 +14182,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -14193,7 +14193,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -14234,7 +14234,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -14304,7 +14304,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -14328,8 +14328,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -14338,8 +14338,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -14352,8 +14352,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -14372,8 +14372,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -14387,8 +14387,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::usize`, `Extern`),
                                                     ),
                                                 ),
@@ -14402,8 +14402,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::usize`, `Extern`),
                                                     ),
                                                 ),
@@ -14413,7 +14413,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -14457,7 +14457,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14539,16 +14539,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 621,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -14563,7 +14563,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 625,
                                             ),
@@ -14602,7 +14602,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -14626,8 +14626,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -14636,8 +14636,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::usize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -14650,8 +14650,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::usize`, `Extern`),
                                                                         ),
                                                                     ),
@@ -14670,8 +14670,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -14685,8 +14685,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::usize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -14700,8 +14700,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::usize`, `Extern`),
                                                                     ),
                                                                 ),
@@ -14711,7 +14711,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -14752,7 +14752,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14783,8 +14783,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
@@ -14793,8 +14793,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::usize`, `Extern`),
                                                             ),
                                                         ),
@@ -14813,8 +14813,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -14828,8 +14828,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::usize`, `Extern`),
                                                         ),
                                                     ),
@@ -14839,10 +14839,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -14863,7 +14863,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -14894,7 +14894,7 @@ Ok(
                                                             623,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -14933,7 +14933,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -15000,7 +15000,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -15017,8 +15017,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -15037,8 +15037,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
                                                 ),
@@ -15048,7 +15048,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -15088,7 +15088,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15149,18 +15149,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 659,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 660,
                                             ),
@@ -15199,7 +15199,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -15216,8 +15216,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -15236,8 +15236,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -15247,7 +15247,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -15284,7 +15284,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15308,8 +15308,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -15328,8 +15328,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -15339,7 +15339,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -15380,7 +15380,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15441,18 +15441,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 667,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 668,
                                             ),
@@ -15491,7 +15491,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -15508,8 +15508,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -15528,8 +15528,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -15539,7 +15539,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -15576,7 +15576,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15600,8 +15600,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -15620,8 +15620,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -15631,7 +15631,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -15672,7 +15672,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -15742,7 +15742,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -15766,8 +15766,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -15776,8 +15776,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -15790,8 +15790,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -15810,8 +15810,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -15825,8 +15825,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
                                                 ),
@@ -15840,8 +15840,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f32`, `Extern`),
                                                     ),
                                                 ),
@@ -15851,7 +15851,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -15895,7 +15895,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15979,16 +15979,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 680,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -16003,7 +16003,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 684,
                                             ),
@@ -16042,7 +16042,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -16066,8 +16066,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -16076,8 +16076,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -16090,8 +16090,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),
                                                                         ),
                                                                     ),
@@ -16110,8 +16110,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -16125,8 +16125,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -16140,8 +16140,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f32`, `Extern`),
                                                                     ),
                                                                 ),
@@ -16151,7 +16151,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -16192,7 +16192,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -16223,8 +16223,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -16233,8 +16233,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -16253,8 +16253,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -16268,8 +16268,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -16279,10 +16279,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -16303,7 +16303,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -16334,7 +16334,7 @@ Ok(
                                                             682,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -16373,7 +16373,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
@@ -16440,7 +16440,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TypeImplBlock(
                                                 TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
@@ -16457,8 +16457,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -16477,8 +16477,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f64`, `Extern`),
                                                     ),
                                                 ),
@@ -16488,7 +16488,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -16528,7 +16528,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TypeItem(
                         TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -16589,18 +16589,18 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                ritchie_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 718,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [],
+                                        parenate_parameters: [],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 719,
                                             ),
@@ -16639,7 +16639,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TypeImplBlock(
                                                                 TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
@@ -16656,8 +16656,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -16676,8 +16676,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -16687,7 +16687,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -16724,7 +16724,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
                                                     TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -16748,8 +16748,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f64`, `Extern`),
                                                             ),
                                                         ),
@@ -16768,8 +16768,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -16779,7 +16779,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -16820,7 +16820,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -16890,7 +16890,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -16914,8 +16914,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 0,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Add`),
                                                         ),
                                                     ),
@@ -16924,8 +16924,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 1,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -16938,8 +16938,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -16958,8 +16958,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Trait(
                                                         TraitPath(`core::ops::Add`),
                                                     ),
                                                 ),
@@ -16973,8 +16973,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f64`, `Extern`),
                                                     ),
                                                 ),
@@ -16988,8 +16988,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`core::num::f64`, `Extern`),
                                                     ),
                                                 ),
@@ -16999,7 +16999,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -17043,7 +17043,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -17125,16 +17125,16 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 732,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
@@ -17149,7 +17149,7 @@ Ok(
                                             },
                                         ],
                                         commas: [],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 736,
                                             ),
@@ -17188,7 +17188,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -17212,8 +17212,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 0,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Add`),
                                                                         ),
                                                                     ),
@@ -17222,8 +17222,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 1,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -17236,8 +17236,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`core::num::f64`, `Extern`),
                                                                         ),
                                                                     ),
@@ -17256,8 +17256,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Trait(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
                                                                         TraitPath(`core::ops::Add`),
                                                                     ),
                                                                 ),
@@ -17271,8 +17271,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -17286,8 +17286,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`core::num::f64`, `Extern`),
                                                                     ),
                                                                 ),
@@ -17297,7 +17297,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -17338,7 +17338,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -17369,8 +17369,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f64`, `Extern`),
                                                             ),
                                                         ),
@@ -17379,8 +17379,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f64`, `Extern`),
                                                             ),
                                                         ),
@@ -17399,8 +17399,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -17414,8 +17414,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f64`, `Extern`),
                                                         ),
                                                     ),
@@ -17425,10 +17425,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `other`,
@@ -17449,7 +17449,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -17480,7 +17480,7 @@ Ok(
                                                             734,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },

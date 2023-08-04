@@ -53,7 +53,7 @@ Ok(
                     ident: `List`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::list::List`, `Extern`),
                         ),
                         node: MajorItemSynNode {

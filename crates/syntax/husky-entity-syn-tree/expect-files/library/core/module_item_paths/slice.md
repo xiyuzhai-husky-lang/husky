@@ -1,12 +1,12 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::slice::Slice`, `Extern`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
             ),
         ),

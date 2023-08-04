@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::str::str`, `Extern`),
             ),
         ),
@@ -11,7 +11,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::str::StringLiteral`, `Extern`),
             ),
         ),

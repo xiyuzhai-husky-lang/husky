@@ -95,7 +95,7 @@ Ok(
                     ident: `Slice`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::slice::Slice`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -130,7 +130,7 @@ Ok(
                     ident: `CyclicSliceLeashed`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         ),
                         node: MajorItemSynNode {

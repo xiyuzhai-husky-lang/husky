@@ -1,17 +1,17 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`malamute::OneVsAll`, `Enum`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`malamute::narrow_down`, `Gn`),
             ),
         ),

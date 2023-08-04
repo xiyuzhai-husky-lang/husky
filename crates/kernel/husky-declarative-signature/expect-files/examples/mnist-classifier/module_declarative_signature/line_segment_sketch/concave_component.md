@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             ),
         ),
@@ -32,7 +32,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
             ),
         ),

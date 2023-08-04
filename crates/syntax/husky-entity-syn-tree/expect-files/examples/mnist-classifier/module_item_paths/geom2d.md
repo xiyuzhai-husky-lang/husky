@@ -1,32 +1,32 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             ),
         ),

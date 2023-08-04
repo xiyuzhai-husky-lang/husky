@@ -157,7 +157,7 @@ Ok(
                         `natural_number_game`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::Nat`, `Inductive`),
                         ),
                         node: MajorItemSynNode {
@@ -202,7 +202,7 @@ Ok(
                         `natural_number_game`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::OddNat`, `Structure`),
                         ),
                         node: MajorItemSynNode {
@@ -241,7 +241,7 @@ Ok(
                         `natural_number_game`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`natural_number_game::EvenNat`, `Structure`),
                         ),
                         node: MajorItemSynNode {

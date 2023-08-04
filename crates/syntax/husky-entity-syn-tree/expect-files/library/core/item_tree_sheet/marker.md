@@ -95,7 +95,7 @@ Ok(
                     ident: `Copy`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::marker::Copy`),
                         ),
                         node: MajorItemSynNode {
@@ -130,7 +130,7 @@ Ok(
                     ident: `Sized`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::marker::Sized`),
                         ),
                         node: MajorItemSynNode {

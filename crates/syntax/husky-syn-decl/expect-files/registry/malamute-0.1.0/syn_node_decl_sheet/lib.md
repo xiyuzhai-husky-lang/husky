@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 48,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Enum(
                             EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -27,7 +27,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     3,
                                                 ),
@@ -80,7 +80,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     10,
                                                 ),
@@ -92,8 +92,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -130,7 +130,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -228,8 +228,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -238,8 +238,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Enum(
                             EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -252,7 +252,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     18,
                                                 ),
@@ -305,7 +305,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     25,
                                                 ),
@@ -317,8 +317,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -355,7 +355,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -453,8 +453,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Fugitive(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -463,8 +463,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Fugitive(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Gn(
                             GnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
@@ -478,8 +478,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Fugitive(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Fugitive(
                                                     FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -511,8 +511,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 0,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
                                                             ),
                                                         ),
@@ -521,8 +521,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 1,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
                                                             ),
                                                         ),
@@ -541,8 +541,8 @@ Ok(
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
                                                     opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
                                                                 TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                             ),
                                                         ),
@@ -603,8 +603,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
                                                     ),
@@ -618,8 +618,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`core::num::i32`, `Extern`),
                                                         ),
                                                     ),
@@ -633,8 +633,8 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                         ),
                                                     ),
@@ -644,10 +644,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternSynExpr::Ident {
+                                                    SynPatternExpr::Ident {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `skip`,
@@ -668,7 +668,7 @@ Ok(
                                             ],
                                             pattern_symbol_arena: Arena {
                                                 data: [
-                                                    PatternSynSymbol::Atom(
+                                                    SynPatternSymbol::Atom(
                                                         0,
                                                     ),
                                                 ],
@@ -758,7 +758,7 @@ Ok(
                                                             79,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSynSymbolVariant::ParenicRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                             ident: `skip`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -828,7 +828,7 @@ Ok(
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
                                                     62,
                                                 ),
@@ -881,7 +881,7 @@ Ok(
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
                                                     69,
                                                 ),
@@ -889,16 +889,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                parenic_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
+                                parenate_parameter_decl_list: Ok(
+                                    RitchieParameters {
+                                        lpar: LparToken(
                                             TokenIdx(
                                                 70,
                                             ),
                                         ),
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
-                                        parenic_parameters: [
+                                        parenate_parameters: [
                                             SpecificParameterDecl::Variadic {
                                                 dot_dot_dot_token: DotDotDotToken(
                                                     TokenIdx(
@@ -906,12 +906,12 @@ Ok(
                                                     ),
                                                 ),
                                                 variadic_variant: VariadicVariant::Vec {
-                                                    lbox_token: LeftBoxBracketToken(
+                                                    lbox_token: LboxToken(
                                                         TokenIdx(
                                                             72,
                                                         ),
                                                     ),
-                                                    rbox_token: RightBoxBracketToken(
+                                                    rbox_token: RboxToken(
                                                         TokenIdx(
                                                             73,
                                                         ),
@@ -970,7 +970,7 @@ Ok(
                                                 ),
                                             ),
                                         ],
-                                        rpar: RightParenthesisToken(
+                                        rpar: RparToken(
                                             TokenIdx(
                                                 84,
                                             ),
@@ -1008,7 +1008,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ImplBlock(
+                ItemSynNodePath::ImplBlock(
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
@@ -1052,7 +1052,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 33,
                                             ),
@@ -1105,7 +1105,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 40,
                                             ),
@@ -1139,7 +1139,7 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ImplBlock(
+                                        ItemSynNodePath::ImplBlock(
                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                 TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
@@ -1180,8 +1180,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 2,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Unveil`),
                                                         ),
                                                     ),
@@ -1190,8 +1190,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 3,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                         ),
                                                     ),
@@ -1246,8 +1246,8 @@ Ok(
                                             SynExpr::PrincipalEntityPath {
                                                 item_path_expr: 4,
                                                 opt_path: Some(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
                                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                                         ),
                                                     ),
@@ -1349,8 +1349,8 @@ Ok(
                                                     },
                                                 ),
                                                 path: Ok(
-                                                    PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Trait(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
                                                             TraitPath(`core::ops::Unveil`),
                                                         ),
                                                     ),
@@ -1365,8 +1365,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                     ),
                                                 ),
@@ -1380,8 +1380,8 @@ Ok(
                                                         ),
                                                     },
                                                 ),
-                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
                                                         TypePath(`malamute::OneVsAll`, `Enum`),
                                                     ),
                                                 ),
@@ -1391,7 +1391,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1496,7 +1496,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::AssociatedItem(
+                ItemSynNodePath::AssociatedItem(
                     AssociatedItemSynNodePath::TraitForTypeItem(
                         TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1595,7 +1595,7 @@ Ok(
                                                 data: SynExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntitySynNodePath::ImplBlock(
+                                                        ItemSynNodePath::ImplBlock(
                                                             ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                                 TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
@@ -1636,8 +1636,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 2,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Unveil`),
                                                                         ),
                                                                     ),
@@ -1646,8 +1646,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 3,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                                         ),
                                                                     ),
@@ -1702,8 +1702,8 @@ Ok(
                                                             SynExpr::PrincipalEntityPath {
                                                                 item_path_expr: 4,
                                                                 opt_path: Some(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
                                                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                                                         ),
                                                                     ),
@@ -1805,8 +1805,8 @@ Ok(
                                                                     },
                                                                 ),
                                                                 path: Ok(
-                                                                    PrincipalEntityPath::ModuleItem(
-                                                                        ModuleItemPath::Trait(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
                                                                             TraitPath(`core::ops::Unveil`),
                                                                         ),
                                                                     ),
@@ -1821,8 +1821,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                                     ),
                                                                 ),
@@ -1836,8 +1836,8 @@ Ok(
                                                                         ),
                                                                     },
                                                                 ),
-                                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
                                                                         TypePath(`malamute::OneVsAll`, `Enum`),
                                                                     ),
                                                                 ),
@@ -1847,7 +1847,7 @@ Ok(
                                                     stmt_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_region: PatternSynExprRegion {
+                                                    pattern_expr_region: SynPatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [],
                                                         },
@@ -1949,7 +1949,7 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::AssociatedItem(
+                                            ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1993,7 +1993,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },

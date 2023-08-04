@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 22,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`std::ops::Add`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -26,7 +26,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 8,
                                             ),
@@ -50,7 +50,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 10,
                                             ),
@@ -62,8 +62,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`std::ops::Add`),
@@ -82,7 +82,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

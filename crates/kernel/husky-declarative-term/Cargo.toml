@@ -22,6 +22,8 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
+# syntax
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

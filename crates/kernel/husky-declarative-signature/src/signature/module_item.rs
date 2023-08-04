@@ -17,7 +17,7 @@ pub enum MajorItemDeclarativeSignatureTemplate {
     Trait(TraitDeclarativeSignatureTemplate),
 }
 
-impl HasDeclarativeSignatureTemplate for MajarItemPath {
+impl HasDeclarativeSignatureTemplate for MajorItemPath {
     type DeclarativeSignatureTemplate = MajorItemDeclarativeSignatureTemplate;
 
     #[inline(always)]
@@ -26,11 +26,11 @@ impl HasDeclarativeSignatureTemplate for MajarItemPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
-            MajarItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
-            MajarItemPath::Fugitive(path) => {
+            MajorItemPath::Type(path) => path.declarative_signature_template(db).map(Into::into),
+            MajorItemPath::Fugitive(path) => {
                 path.declarative_signature_template(db).map(Into::into)
             }
-            MajarItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
+            MajorItemPath::Trait(decl) => decl.declarative_signature_template(db).map(Into::into),
         }
     }
 }

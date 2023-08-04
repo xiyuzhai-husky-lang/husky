@@ -1,17 +1,17 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`natural_number_game::Nat`, `Inductive`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`natural_number_game::OddNat`, `Structure`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`natural_number_game::EvenNat`, `Structure`),
             ),
         ),

@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 0,
         decls: [
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -28,7 +28,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -53,7 +53,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -78,7 +78,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -103,7 +103,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -128,7 +128,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -153,7 +153,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -178,7 +178,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -203,7 +203,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -228,7 +228,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -253,7 +253,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -278,7 +278,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -303,7 +303,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -328,7 +328,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -353,7 +353,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -378,7 +378,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -403,7 +403,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -428,7 +428,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
@@ -453,7 +453,7 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::Submodule(
+                ItemSynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(

@@ -179,7 +179,7 @@ Ok(
                     ident: `PartialEq`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::cmp::PartialEq`),
                         ),
                         node: MajorItemSynNode {
@@ -214,7 +214,7 @@ Ok(
                     ident: `Eq`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::cmp::Eq`),
                         ),
                         node: MajorItemSynNode {
@@ -249,7 +249,7 @@ Ok(
                     ident: `PartialOrd`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::cmp::PartialOrd`),
                         ),
                         node: MajorItemSynNode {
@@ -284,7 +284,7 @@ Ok(
                     ident: `Ord`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Trait(
+                        module_item_path: MajorItemPath::Trait(
                             TraitPath(`core::cmp::Ord`),
                         ),
                         node: MajorItemSynNode {

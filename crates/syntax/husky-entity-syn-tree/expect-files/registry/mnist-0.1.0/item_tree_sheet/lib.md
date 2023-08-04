@@ -143,7 +143,7 @@ Ok(
                     ident: `MnistLabel`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist::MnistLabel`, `Enum`),
                         ),
                         node: MajorItemSynNode {
@@ -184,7 +184,7 @@ Ok(
                     ident: `BinaryImage28`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`mnist::BinaryImage28`, `Struct`),
                         ),
                         node: MajorItemSynNode {
@@ -219,7 +219,7 @@ Ok(
                     ident: `input`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`mnist::input`, `Val`),
                         ),
                         node: MajorItemSynNode {

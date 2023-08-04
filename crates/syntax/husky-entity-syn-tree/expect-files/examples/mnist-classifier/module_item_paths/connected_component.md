@@ -1,32 +1,32 @@
 Ok(
     [
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
             ),
         ),
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
             ),
         ),

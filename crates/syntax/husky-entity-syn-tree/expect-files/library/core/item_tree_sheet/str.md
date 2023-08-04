@@ -95,7 +95,7 @@ Ok(
                     ident: `str`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::str::str`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -130,7 +130,7 @@ Ok(
                     ident: `StringLiteral`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::str::StringLiteral`, `Extern`),
                         ),
                         node: MajorItemSynNode {

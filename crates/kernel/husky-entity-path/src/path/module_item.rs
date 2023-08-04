@@ -15,25 +15,25 @@ use utils::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
-pub enum MajarItemPath {
+pub enum MajorItemPath {
     Type(TypePath),
     Trait(TraitPath),
     Fugitive(FugitivePath),
 }
 
-impl MajarItemPath {
+impl MajorItemPath {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
-            MajarItemPath::Type(path) => path.module_path(db),
-            MajarItemPath::Trait(path) => path.module_path(db),
-            MajarItemPath::Fugitive(path) => path.module_path(db),
+            MajorItemPath::Type(path) => path.module_path(db),
+            MajorItemPath::Trait(path) => path.module_path(db),
+            MajorItemPath::Fugitive(path) => path.module_path(db),
         }
     }
     pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
-            MajarItemPath::Type(path) => path.ident(db),
-            MajarItemPath::Trait(path) => path.ident(db),
-            MajarItemPath::Fugitive(path) => path.ident(db),
+            MajorItemPath::Type(path) => path.ident(db),
+            MajorItemPath::Trait(path) => path.ident(db),
+            MajorItemPath::Fugitive(path) => path.ident(db),
         }
     }
 
@@ -43,22 +43,22 @@ impl MajarItemPath {
 
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
-            MajarItemPath::Type(path) => Some(path),
-            MajarItemPath::Trait(_) | MajarItemPath::Fugitive(_) => None,
+            MajorItemPath::Type(path) => Some(path),
+            MajorItemPath::Trait(_) | MajorItemPath::Fugitive(_) => None,
         }
     }
 
     pub(crate) fn item_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
-            MajarItemPath::Type(path) => EntityKind::MajorItem {
+            MajorItemPath::Type(path) => EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Type(path.ty_kind(db)),
                 connection: path.connection(db).kind(),
             },
-            MajarItemPath::Trait(path) => EntityKind::MajorItem {
+            MajorItemPath::Trait(path) => EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Trait,
                 connection: path.connection(db).kind(),
             },
-            MajarItemPath::Fugitive(path) => EntityKind::MajorItem {
+            MajorItemPath::Fugitive(path) => EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Fugitive(path.fugitive_kind(db)),
                 connection: path.connection(db).kind(),
             },
@@ -66,7 +66,7 @@ impl MajarItemPath {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for MajarItemPath
+impl<Db> salsa::DisplayWithDb<Db> for MajorItemPath
 where
     Db: EntityPathDb + ?Sized,
 {
@@ -79,9 +79,9 @@ where
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         if level.is_root() {
             match self {
-                MajarItemPath::Fugitive(path) => path.display_with_db_fmt(f, db, level.next()),
-                MajarItemPath::Type(path) => path.display_with_db_fmt(f, db, level.next()),
-                MajarItemPath::Trait(path) => path.display_with_db_fmt(f, db, level.next()),
+                MajorItemPath::Fugitive(path) => path.display_with_db_fmt(f, db, level.next()),
+                MajorItemPath::Type(path) => path.display_with_db_fmt(f, db, level.next()),
+                MajorItemPath::Trait(path) => path.display_with_db_fmt(f, db, level.next()),
             }
         } else {
             f.write_str(self.ident(db).data(db))

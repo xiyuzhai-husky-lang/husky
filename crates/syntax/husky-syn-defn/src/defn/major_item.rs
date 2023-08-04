@@ -66,7 +66,7 @@ impl MajorItemSynDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> MajarItemPath {
+    pub fn path(self, db: &dyn SynDefnDb) -> MajorItemPath {
         match self {
             MajorItemSynDefn::Type(syn_defn) => syn_defn.path(db).into(),
             MajorItemSynDefn::Trait(syn_defn) => syn_defn.path(db).into(),
@@ -82,14 +82,14 @@ impl MajorItemSynDefn {
     }
 }
 
-impl HasSynDefn for MajarItemPath {
+impl HasSynDefn for MajorItemPath {
     type SynDefn = MajorItemSynDefn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            MajarItemPath::Type(path) => path.syn_defn(db)?.into(),
-            MajarItemPath::Fugitive(path) => path.syn_defn(db)?.into(),
-            MajarItemPath::Trait(path) => path.syn_defn(db)?.into(),
+            MajorItemPath::Type(path) => path.syn_defn(db)?.into(),
+            MajorItemPath::Fugitive(path) => path.syn_defn(db)?.into(),
+            MajorItemPath::Trait(path) => path.syn_defn(db)?.into(),
         })
     }
 }

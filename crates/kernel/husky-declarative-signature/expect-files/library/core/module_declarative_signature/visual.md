@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::visual::Visualize`),
             ),
         ),
@@ -19,7 +19,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`core::visual::Html`, `Extern`),
             ),
         ),

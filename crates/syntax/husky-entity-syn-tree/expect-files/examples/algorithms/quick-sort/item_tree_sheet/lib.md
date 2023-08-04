@@ -267,7 +267,7 @@ Ok(
                     ident: `quick_sort`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -310,7 +310,7 @@ Ok(
                         `quick_sort`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -355,7 +355,7 @@ Ok(
                         `quick_sort`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::partition`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -400,7 +400,7 @@ Ok(
                         `quick_sort`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                         ),
                         node: MajorItemSynNode {
@@ -445,7 +445,7 @@ Ok(
                         `quick_sort`,
                     ),
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Fugitive(
+                        module_item_path: MajorItemPath::Fugitive(
                             FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                         ),
                         node: MajorItemSynNode {

@@ -1,7 +1,7 @@
 [
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::marker::Copy`),
             ),
         ),
@@ -11,7 +11,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Trait(
+            MajorItemPath::Trait(
                 TraitPath(`core::marker::Sized`),
             ),
         ),

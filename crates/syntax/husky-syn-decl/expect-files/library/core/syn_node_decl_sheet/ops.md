@@ -3,8 +3,8 @@ Ok(
         [salsa id]: 12,
         decls: [
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Add`),
@@ -13,8 +13,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -22,11 +22,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 30,
+                            ast_idx: 31,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 10,
                                             ),
@@ -50,7 +50,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 12,
                                             ),
@@ -62,8 +62,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Add`),
@@ -82,7 +82,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -146,8 +146,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::AddAssign`),
@@ -156,8 +156,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -165,11 +165,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 32,
+                            ast_idx: 33,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 39,
                                             ),
@@ -193,7 +193,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 41,
                                             ),
@@ -205,8 +205,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::AddAssign`),
@@ -225,7 +225,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -289,8 +289,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAnd`),
@@ -299,8 +299,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -308,11 +308,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 34,
+                            ast_idx: 35,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 68,
                                             ),
@@ -336,7 +336,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 70,
                                             ),
@@ -348,8 +348,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitAnd`),
@@ -368,7 +368,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -432,8 +432,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAndAssign`),
@@ -442,8 +442,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -451,11 +451,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 36,
+                            ast_idx: 37,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 97,
                                             ),
@@ -479,7 +479,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 99,
                                             ),
@@ -491,8 +491,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitAndAssign`),
@@ -511,7 +511,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -575,8 +575,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOr`),
@@ -585,8 +585,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -594,11 +594,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 38,
+                            ast_idx: 39,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 122,
                                             ),
@@ -622,7 +622,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 124,
                                             ),
@@ -634,8 +634,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitOr`),
@@ -654,7 +654,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -718,8 +718,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOrAssign`),
@@ -728,8 +728,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -737,11 +737,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 40,
+                            ast_idx: 41,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 151,
                                             ),
@@ -765,7 +765,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 153,
                                             ),
@@ -777,8 +777,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitOrAssign`),
@@ -797,7 +797,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -861,8 +861,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXor`),
@@ -871,8 +871,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -880,11 +880,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 42,
+                            ast_idx: 43,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 176,
                                             ),
@@ -908,7 +908,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 178,
                                             ),
@@ -920,8 +920,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitXor`),
@@ -940,7 +940,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1004,8 +1004,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXorAssign`),
@@ -1014,8 +1014,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1023,11 +1023,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 44,
+                            ast_idx: 45,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 205,
                                             ),
@@ -1051,7 +1051,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 207,
                                             ),
@@ -1063,8 +1063,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::BitXorAssign`),
@@ -1083,7 +1083,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1147,8 +1147,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Div`),
@@ -1157,8 +1157,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1166,11 +1166,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 46,
+                            ast_idx: 47,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 230,
                                             ),
@@ -1194,7 +1194,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 232,
                                             ),
@@ -1206,8 +1206,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Div`),
@@ -1226,7 +1226,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1290,8 +1290,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::DivAssign`),
@@ -1300,8 +1300,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1309,11 +1309,11 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 48,
+                            ast_idx: 49,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
                                                 259,
                                             ),
@@ -1337,7 +1337,7 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
                                                 261,
                                             ),
@@ -1349,8 +1349,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::DivAssign`),
@@ -1369,7 +1369,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1433,8 +1433,90 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
+                        TraitSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitPath(`core::ops::IntIndex`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
+                        TraitSynNodeDecl {
+                            syn_node_path: TraitSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TraitPath(`core::ops::IntIndex`),
+                                    disambiguator: 0,
+                                },
+                            },
+                            ast_idx: 50,
+                            template_parameter_decl_list: Ok(
+                                None,
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
+                                                TraitSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::IntIndex`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [],
+                                },
+                            },
+                        },
+                    ),
+                ),
+            ),
+            (
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Mul`),
@@ -1443,8 +1525,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1452,13 +1534,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 50,
+                            ast_idx: 52,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
-                                                284,
+                                                291,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1469,7 +1551,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            285,
+                                                            292,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1480,9 +1562,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
-                                                286,
+                                                293,
                                             ),
                                         ),
                                     },
@@ -1492,8 +1574,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Mul`),
@@ -1512,7 +1594,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1537,7 +1619,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        286,
+                                                        293,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1549,7 +1631,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    285,
+                                                                    292,
                                                                 ),
                                                             },
                                                         },
@@ -1576,8 +1658,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::MulAssign`),
@@ -1586,8 +1668,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1595,13 +1677,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 52,
+                            ast_idx: 54,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
-                                                313,
+                                                320,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1612,7 +1694,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            314,
+                                                            321,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1623,9 +1705,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
-                                                315,
+                                                322,
                                             ),
                                         ),
                                     },
@@ -1635,8 +1717,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::MulAssign`),
@@ -1655,7 +1737,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1680,7 +1762,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        315,
+                                                        322,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1692,7 +1774,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    314,
+                                                                    321,
                                                                 ),
                                                             },
                                                         },
@@ -1719,8 +1801,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Neg`),
@@ -1729,8 +1811,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1738,7 +1820,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 54,
+                            ast_idx: 56,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1746,8 +1828,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Neg`),
@@ -1766,7 +1848,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1801,8 +1883,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Not`),
@@ -1811,8 +1893,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1820,7 +1902,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 56,
+                            ast_idx: 58,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1828,8 +1910,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Not`),
@@ -1848,7 +1930,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1883,8 +1965,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Sub`),
@@ -1893,8 +1975,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1902,13 +1984,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 58,
+                            ast_idx: 60,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
-                                                386,
+                                                393,
                                             ),
                                         ),
                                         template_parameters: [
@@ -1919,7 +2001,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
                                                         token_idx: TokenIdx(
-                                                            387,
+                                                            394,
                                                         ),
                                                     },
                                                     traits: None,
@@ -1930,9 +2012,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
-                                                388,
+                                                395,
                                             ),
                                         ),
                                     },
@@ -1942,8 +2024,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Sub`),
@@ -1962,7 +2044,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1987,7 +2069,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        388,
+                                                        395,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -1999,7 +2081,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
-                                                                    387,
+                                                                    394,
                                                                 ),
                                                             },
                                                         },
@@ -2026,8 +2108,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Trait(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
                         TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Unveil`),
@@ -2036,8 +2118,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Trait(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Trait(
                         TraitSynNodeDecl {
                             syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2045,13 +2127,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 59,
+                            ast_idx: 61,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
-                                        langle: LeftAngleBracketOrLessThanToken(
+                                        langle: LaOrLtToken(
                                             TokenIdx(
-                                                408,
+                                                415,
                                             ),
                                         ),
                                         template_parameters: [
@@ -2062,7 +2144,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
-                                                            409,
+                                                            416,
                                                         ),
                                                     },
                                                     traits: None,
@@ -2073,9 +2155,9 @@ Ok(
                                         decl_list_result: Ok(
                                             (),
                                         ),
-                                        rangle: RightAngleBracketToken(
+                                        rangle: RaOrGtToken(
                                             TokenIdx(
-                                                410,
+                                                417,
                                             ),
                                         ),
                                     },
@@ -2085,8 +2167,8 @@ Ok(
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntitySynNodePath::ModuleItem(
-                                            ModuleItemSynNodePath::Trait(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Trait(
                                                 TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`core::ops::Unveil`),
@@ -2105,7 +2187,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternSynExprRegion {
+                                    pattern_expr_region: SynPatternExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2130,7 +2212,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
-                                                        410,
+                                                        417,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2142,7 +2224,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
-                                                                    409,
+                                                                    416,
                                                                 ),
                                                             },
                                                         },
@@ -2169,8 +2251,8 @@ Ok(
                 ),
             ),
             (
-                EntitySynNodePath::ModuleItem(
-                    ModuleItemSynNodePath::Type(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
                         TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -2179,8 +2261,8 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ModuleItem(
-                    ModuleItemSynNodeDecl::Type(
+                SynNodeDecl::MajorItem(
+                    MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Enum(
                             EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
@@ -2189,13 +2271,13 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 60,
+                                ast_idx: 62,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
-                                            langle: LeftAngleBracketOrLessThanToken(
+                                            langle: LaOrLtToken(
                                                 TokenIdx(
-                                                    437,
+                                                    444,
                                                 ),
                                             ),
                                             template_parameters: [
@@ -2206,7 +2288,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `R`,
                                                             token_idx: TokenIdx(
-                                                                438,
+                                                                445,
                                                             ),
                                                         },
                                                         traits: None,
@@ -2219,7 +2301,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `C`,
                                                             token_idx: TokenIdx(
-                                                                440,
+                                                                447,
                                                             ),
                                                         },
                                                         traits: None,
@@ -2229,16 +2311,16 @@ Ok(
                                             commas: [
                                                 CommaToken(
                                                     TokenIdx(
-                                                        439,
+                                                        446,
                                                     ),
                                                 ),
                                             ],
                                             decl_list_result: Ok(
                                                 (),
                                             ),
-                                            rangle: RightAngleBracketToken(
+                                            rangle: RaOrGtToken(
                                                 TokenIdx(
-                                                    441,
+                                                    448,
                                                 ),
                                             ),
                                         },
@@ -2248,8 +2330,8 @@ Ok(
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntitySynNodePath::ModuleItem(
-                                                ModuleItemSynNodePath::Type(
+                                            ItemSynNodePath::MajorItem(
+                                                MajorItemSynNodePath::Type(
                                                     TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -2268,7 +2350,7 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_region: PatternSynExprRegion {
+                                        pattern_expr_region: SynPatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
@@ -2293,7 +2375,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            439,
+                                                            446,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2305,7 +2387,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `R`,
                                                                     token_idx: TokenIdx(
-                                                                        438,
+                                                                        445,
                                                                     ),
                                                                 },
                                                             },
@@ -2314,7 +2396,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            441,
+                                                            448,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::TemplateParameter {
@@ -2326,7 +2408,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `C`,
                                                                     token_idx: TokenIdx(
-                                                                        440,
+                                                                        447,
                                                                     ),
                                                                 },
                                                             },

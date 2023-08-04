@@ -41,7 +41,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             ),
         ),
@@ -76,7 +76,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Type(
+            MajorItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             ),
         ),
@@ -107,7 +107,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
             ),
         ),
@@ -144,7 +144,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
             ),
         ),
@@ -181,7 +181,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
             ),
         ),
@@ -224,7 +224,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
             ),
         ),
@@ -273,7 +273,7 @@
     ),
     (
         ItemPath::MajorItem(
-            MajarItemPath::Fugitive(
+            MajorItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
             ),
         ),

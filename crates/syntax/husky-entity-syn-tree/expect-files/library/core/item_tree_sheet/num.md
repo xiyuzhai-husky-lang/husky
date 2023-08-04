@@ -599,7 +599,7 @@ Ok(
                     ident: `i8`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i8`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -634,7 +634,7 @@ Ok(
                     ident: `i16`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i16`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -669,7 +669,7 @@ Ok(
                     ident: `i32`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i32`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -704,7 +704,7 @@ Ok(
                     ident: `i64`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i64`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -739,7 +739,7 @@ Ok(
                     ident: `i128`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::i128`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -774,7 +774,7 @@ Ok(
                     ident: `isize`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::isize`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -809,7 +809,7 @@ Ok(
                     ident: `u8`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u8`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -844,7 +844,7 @@ Ok(
                     ident: `u16`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u16`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -879,7 +879,7 @@ Ok(
                     ident: `u32`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u32`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -914,7 +914,7 @@ Ok(
                     ident: `u64`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u64`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -949,7 +949,7 @@ Ok(
                     ident: `u128`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::u128`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -984,7 +984,7 @@ Ok(
                     ident: `usize`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::usize`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -1019,7 +1019,7 @@ Ok(
                     ident: `f32`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::f32`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -1054,7 +1054,7 @@ Ok(
                     ident: `f64`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::MajorItem {
-                        module_item_path: MajarItemPath::Type(
+                        module_item_path: MajorItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
                         ),
                         node: MajorItemSynNode {
@@ -1093,7 +1093,7 @@ Ok(
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Trait(
+                                module_item_path: MajorItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
                                 node: MajorItemSynNode {
@@ -1130,7 +1130,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::MajorItem(
-                                MajarItemPath::Trait(
+                                MajorItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
                             ),
@@ -2537,7 +2537,7 @@ Ok(
                     state: OnceUseRuleState::Resolved {
                         original_symbol: Some(
                             EntitySymbol::MajorItem {
-                                module_item_path: MajarItemPath::Trait(
+                                module_item_path: MajorItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
                                 node: MajorItemSynNode {

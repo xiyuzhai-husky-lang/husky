@@ -42,7 +42,7 @@ pub enum EntitySymbol {
         node: SubmoduleSynNode,
     },
     MajorItem {
-        module_item_path: MajarItemPath,
+        module_item_path: MajorItemPath,
         node: MajorItemSynNode,
     },
     TypeVariant {

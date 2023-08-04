@@ -38,7 +38,7 @@ pub fn item_path_declarative_ty(
     match path {
         ItemPath::Submodule(_) => Ok(declarative_term_menu.module()),
         ItemPath::MajorItem(path) => match path {
-            MajarItemPath::Type(path) => match disambiguation {
+            MajorItemPath::Type(path) => match disambiguation {
                 TypePathDisambiguation::OntologyConstructor => {
                     ty_ontology_path_declarative_ty(db, path)
                 }
@@ -46,8 +46,8 @@ pub fn item_path_declarative_ty(
                     ty_instance_constructor_path_declarative_ty(db, path)
                 }
             },
-            MajarItemPath::Trait(path) => trai_path_declarative_ty(db, path),
-            MajarItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
+            MajorItemPath::Trait(path) => trai_path_declarative_ty(db, path),
+            MajorItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
         },
         ItemPath::AssociatedItem(_) => todo!(),
         ItemPath::TypeVariant(_) => todo!(),
