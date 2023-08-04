@@ -6,6 +6,12 @@ pub struct TraitItemSynNodePath {
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitItemPath>,
 }
 
+impl From<TraitItemSynNodePath> for ItemSynNodePath {
+    fn from(path: TraitItemSynNodePath) -> Self {
+        ItemSynNodePath::AssociatedItem(path.into())
+    }
+}
+
 impl TraitItemSynNodePath {
     fn new(db: &dyn EntitySynTreeDb, registry: &mut ItemNodeRegistry, path: TraitItemPath) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))

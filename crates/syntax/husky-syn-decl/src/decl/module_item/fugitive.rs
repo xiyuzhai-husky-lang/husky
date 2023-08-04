@@ -54,7 +54,7 @@ impl FugitiveSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for FugitiveSynNodePath {
+impl HasSynNodeDecl for FugitiveSynNodePath {
     type NodeDecl = FugitiveSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

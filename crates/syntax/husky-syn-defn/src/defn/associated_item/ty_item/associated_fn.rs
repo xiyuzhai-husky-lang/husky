@@ -30,13 +30,7 @@ impl TypeAssociatedFnSynNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        TypeAssociatedFnSynNodeDefn::new_inner(
-            db,
-            syn_node_path,
-            syn_node_decl,
-            body,
-            parser.finish(),
-        )
+        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
     }
 }
 

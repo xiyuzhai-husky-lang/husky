@@ -11,7 +11,11 @@ pub fn module_item_syn_node_paths(
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         node_paths.push(syn_node_path);
         match syn_node_path {
-            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(_)) => todo!(),
+            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
+                for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
+                    node_paths.push(trai_item_syn_node_path.into())
+                }
+            }
             _ => (),
         }
     }

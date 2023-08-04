@@ -296,7 +296,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 26,
+                                                                            value: 28,
                                                                         },
                                                                     ),
                                                                 ),
@@ -308,7 +308,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 28,
+                                                                            value: 30,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1689,28 +1689,6 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 36,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 71,
-                            },
-                        ),
-                    ),
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
                                 value: 38,
                             },
                         ),
@@ -1722,7 +1700,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 32,
+                                value: 73,
                             },
                         ),
                     ),
@@ -1733,7 +1711,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 72,
+                                value: 40,
                             },
                         ),
                     ),
@@ -1750,35 +1728,31 @@
                     ),
                 ),
             },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    Application(
+                        EtherealTermApplication(
+                            Id {
+                                value: 74,
+                            },
+                        ),
+                    ),
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    Application(
+                        EtherealTermApplication(
+                            Id {
+                                value: 36,
+                            },
+                        ),
+                    ),
+                ),
+            },
         ],
         pattern_symbol_ty_infos: ArenaMap {
             data: [
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
@@ -1798,7 +1772,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 32,
+                                        value: 73,
                                     },
                                 ),
                             ),
@@ -1811,7 +1785,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 72,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -1825,6 +1799,32 @@
                                 EtherealTermApplication(
                                     Id {
                                         value: 34,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 74,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -2304,7 +2304,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 50,
                                             },
                                         ),
                                     ),
@@ -2354,7 +2354,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 47,
+                                                    value: 49,
                                                 },
                                             ),
                                         ),
@@ -2415,7 +2415,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 50,
                                             },
                                         ),
                                     ),
@@ -2465,7 +2465,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 47,
+                                                    value: 49,
                                                 },
                                             ),
                                         ),
@@ -2526,7 +2526,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 50,
                                             },
                                         ),
                                     ),
@@ -2576,7 +2576,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 47,
+                                                    value: 49,
                                                 },
                                             ),
                                         ),

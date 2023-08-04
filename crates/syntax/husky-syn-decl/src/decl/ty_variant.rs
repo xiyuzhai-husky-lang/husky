@@ -43,7 +43,7 @@ impl TypeVariantSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeVariantSynNodePath {
+impl HasSynNodeDecl for TypeVariantSynNodePath {
     type NodeDecl = TypeVariantSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

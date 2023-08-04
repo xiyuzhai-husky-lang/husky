@@ -85,7 +85,7 @@ impl TypeItemSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeItemSynNodePath {
+impl HasSynNodeDecl for TypeItemSynNodePath {
     type NodeDecl = TypeItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
@@ -93,7 +93,7 @@ impl HasNodeDecl for TypeItemSynNodePath {
     }
 }
 
-impl HasNodeDecl for TypeItemSynNode {
+impl HasSynNodeDecl for TypeItemSynNode {
     type NodeDecl = TypeItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

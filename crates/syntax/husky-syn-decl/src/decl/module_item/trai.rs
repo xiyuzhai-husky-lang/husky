@@ -21,7 +21,7 @@ impl TraitSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitSynNodePath {
+impl HasSynNodeDecl for TraitSynNodePath {
     type NodeDecl = TraitSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

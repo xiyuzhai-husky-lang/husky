@@ -109,6 +109,7 @@ pub struct SynDeclJar(
     TypeMemoizedFieldSynNodeDecl,
     TypeMemoizedFieldSynDecl,
     // -- trait item
+    trai_item_syn_node_decl,
     TraitAssociatedFnSynNodeDecl,
     TraitAssociatedFnSynDecl,
     TraitMethodFnSynNodeDecl,

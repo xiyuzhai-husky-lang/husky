@@ -18,7 +18,7 @@ impl IllFormedImplBlockSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for IllFormedImplBlockSynNodePath {
+impl HasSynNodeDecl for IllFormedImplBlockSynNodePath {
     type NodeDecl = IllFormedImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

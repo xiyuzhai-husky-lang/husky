@@ -40,7 +40,7 @@ impl TraitForTypeImplBlockSynNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitForTypeImplBlockSynNodePath {
+impl HasSynNodeDecl for TraitForTypeImplBlockSynNodePath {
     type NodeDecl = TraitForTypeImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {

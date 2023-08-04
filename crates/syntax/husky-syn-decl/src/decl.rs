@@ -113,13 +113,13 @@ impl Decl {
     }
 }
 
-pub trait HasNodeDecl: Copy {
+pub trait HasSynNodeDecl: Copy {
     type NodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl;
 }
 
-impl HasNodeDecl for ItemSynNodePath {
+impl HasSynNodeDecl for ItemSynNodePath {
     type NodeDecl = SynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
