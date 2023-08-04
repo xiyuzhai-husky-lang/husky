@@ -88,7 +88,7 @@ macro_rules! define_specific_punctuation_token {
         }
         #[test]
         fn $test_name() {
-            fn t(db: &DB, input: &str) -> TokenResult<Option<SemiColonToken>> {
+            fn t(db: &DB, input: &str) -> TokenResult<Option<$ty>> {
                 quick_parse(db, input)
             }
 
@@ -146,7 +146,7 @@ define_specific_punctuation_token!(DotDotDotToken, DOT_DOT_DOT, dot_dot_dot_toke
 
 define_specific_punctuation_token!(AmbersandToken, AMBERSAND, ambersand_works, "&");
 
-define_specific_punctuation_token!(TildeToken, TILDE, tilde_token_works, "&");
+define_specific_punctuation_token!(TildeToken, TILDE, tilde_token_works, "~");
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

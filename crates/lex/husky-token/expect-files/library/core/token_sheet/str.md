@@ -1,0 +1,68 @@
+Ok(
+    TokenSheetData {
+        tokens: [
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            Token::Ident(
+                `str`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            Token::Ident(
+                `StringLiteral`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+        ],
+        group_starts: [
+            0,
+            4,
+            8,
+        ],
+        indents: [
+            0,
+            0,
+            0,
+        ],
+    },
+)

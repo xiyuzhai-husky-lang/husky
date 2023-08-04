@@ -6,7 +6,7 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub node: TraitForTypeItemSynNode,
+    pub syn_node: TraitForTypeItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
     pub generics: NodeDeclResult<Option<Generics>>,
@@ -19,8 +19,13 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
 
 impl TraitForTypeAssociatedTypeSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
-        // ad hoc
-        Default::default()
+        SmallVec::from_iter(
+            self.generics(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.eq_token(db).as_ref().err().into_iter()),
+        )
     }
 }
 

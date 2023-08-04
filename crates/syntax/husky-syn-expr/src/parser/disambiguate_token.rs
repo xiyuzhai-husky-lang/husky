@@ -460,6 +460,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ))
                     }
                     BaseEntityPath::Err => todo!(),
+                    BaseEntityPath::SelfType => todo!(),
+                    // DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Scop),
                 },
                 _ => (),
             }

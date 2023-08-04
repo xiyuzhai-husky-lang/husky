@@ -19,6 +19,12 @@ pub struct TraitMethodFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
+impl From<TraitMethodFnSynNodeDecl> for SynNodeDecl {
+    fn from(syn_node_decl: TraitMethodFnSynNodeDecl) -> Self {
+        todo!()
+    }
+}
+
 impl TraitMethodFnSynNodeDecl {
     pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
@@ -48,10 +54,12 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TraitMethodFnSynNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
+        let parent_trai_syn_node_decl = syn_node_path
+            .parent_trai_syn_node_path(db)
+            .syn_node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
-            Some(impl_block_syn_node_decl.syn_expr_region(db)),
+            Some(parent_trai_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

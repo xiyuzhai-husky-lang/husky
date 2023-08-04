@@ -31,7 +31,9 @@ impl AssociatedItemSynNodeDefn {
             AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
             }
-            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
             AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
             }
@@ -41,7 +43,9 @@ impl AssociatedItemSynNodeDefn {
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => syn_node_defn.syn_expr_region(db),
-            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
+                Some(syn_node_defn.syn_expr_region(db))
+            }
             AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
                 Some(syn_node_defn.syn_expr_region(db))
             }

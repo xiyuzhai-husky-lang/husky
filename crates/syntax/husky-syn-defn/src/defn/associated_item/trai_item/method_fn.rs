@@ -1,12 +1,37 @@
 use super::*;
 
-#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub syn_node_decl: TraitMethodFnSynNodeDecl,
     pub body: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
+}
+
+impl TraitMethodFnSynNodeDefn {
+    pub(super) fn new(
+        db: &dyn SynDefnDb,
+        syn_node_path: TraitItemSynNodePath,
+        syn_node_decl: TraitMethodFnSynNodeDecl,
+    ) -> Self {
+        let mut parser = expr_parser(
+            db,
+            syn_node_path,
+            syn_node_decl.syn_expr_region(db),
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
+        let ast_idx = syn_node_decl.ast_idx(db);
+        let body = match parser.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                block: DefnBlock::AssociatedItem { body },
+                ..
+            } => body.map(|body| parser.parse_block_expr(body)),
+            _ => unreachable!(),
+        };
+        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
+    }
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
