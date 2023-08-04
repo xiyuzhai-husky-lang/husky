@@ -201,7 +201,7 @@ impl HasPropsFieldEtherealSignature for TypeEtherealSignatureTemplate {
             TypeEtherealSignatureTemplate::Record(_) => todo!(),
             TypeEtherealSignatureTemplate::Inductive(_) => todo!(),
             TypeEtherealSignatureTemplate::Structure(_) => todo!(),
-            TypeEtherealSignatureTemplate::Extern(_) => todo!(),
+            TypeEtherealSignatureTemplate::Extern(_) => Nothing,
             TypeEtherealSignatureTemplate::Union(_) => todo!(),
         }
     }

@@ -1,0 +1,30 @@
+Ok(
+    [
+        FoldingRange {
+            start_line: 2,
+            start_character: Some(
+                0,
+            ),
+            end_line: 3,
+            end_character: Some(
+                23,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 35,
+            start_character: Some(
+                0,
+            ),
+            end_line: 36,
+            end_character: Some(
+                23,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+    ],
+)

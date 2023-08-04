@@ -1,0 +1,24 @@
+Ok(
+    [
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialEq`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Eq`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialOrd`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Ord`),
+            ),
+        ),
+    ],
+)

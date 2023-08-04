@@ -9,7 +9,7 @@ use std::{
     rc::Rc,
     sync::Arc,
 };
-use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap, VecSet};
+use vec_like::{AsVecMapEntry, InsertEntryRepeatError, SmallVecMap, SmallVecSet, VecMap, VecSet};
 
 pub trait DebugWithDb<Db: ?Sized> {
     fn debug<'me, 'db>(&'me self, db: &'me Db) -> DebugWith<'me, Db>
@@ -351,10 +351,39 @@ where
     }
 }
 
+impl<Db: ?Sized, K, const N: usize> DebugWithDb<Db> for SmallVecSet<K, N>
+where
+    K: PartialEq + Eq + DebugWithDb<Db>,
+    [K; N]: Array<Item = K>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self
+            .data()
+            .iter()
+            .map(|v| v.debug_with(db, level.parallel()));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
 impl<Db: ?Sized, K, V> DebugWithDb<Db> for VecMap<V>
 where
     K: PartialEq + Eq,
     V: AsVecMapEntry<K = K> + DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self
+            .data()
+            .iter()
+            .map(|v| v.debug_with(db, level.parallel()));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
+impl<Db: ?Sized, K, V, const N: usize> DebugWithDb<Db> for SmallVecMap<V, N>
+where
+    K: PartialEq + Eq,
+    V: AsVecMapEntry<K = K> + DebugWithDb<Db>,
+    [V; N]: Array<Item = V>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         let elements = self

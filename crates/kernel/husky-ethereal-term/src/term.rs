@@ -188,8 +188,6 @@ impl EtherealTerm {
                         if path_expected == path {
                             TermEntityPath::TypeInstance(path).into()
                         } else {
-                            p!(path_expected.debug(db), path.debug(db));
-                            todo!();
                             return Err(
                                 EtherealTermError::ExpectFinalDestinationEqsNonSortTypePath {
                                     path_expected,
