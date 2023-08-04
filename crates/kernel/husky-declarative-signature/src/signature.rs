@@ -17,7 +17,7 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum SignatureTemplate {
     Module,
-    ModuleItem(ModuleItemDeclarativeSignatureTemplate),
+    MajorItem(MajorItemDeclarativeSignatureTemplate),
     ImplBlock(ImplBlockDeclarativeSignatureTemplate),
     AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
     Variant(TypeVariantDeclarativeSignatureTemplate),
@@ -42,7 +42,7 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
             ItemPath::Submodule(_) => SignatureTemplate::Module,
-            ItemPath::ModuleItem(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),

@@ -55,7 +55,7 @@ pub struct EntitySynTreeJar(
     SubmoduleSynNodePath,
     SubmoduleSynNode,
     submodule_syn_node,
-    ModuleItemSynNode,
+    MajorItemSynNode,
     UseSymbol,
     // module items
     TraitSynNodePath,
@@ -103,8 +103,8 @@ pub struct EntitySynTreeJar(
     // other
     item_tree_presheet,
     item_tree_crate_bundle,
-    crate::helpers::path::module_item_paths,
-    crate::helpers::path::module_item_syn_node_paths,
+    crate::helpers::paths::module_item_paths,
+    crate::helpers::paths::module_item_syn_node_paths,
     submodules,
     module_subitem_path,
     all_modules_within_crate,

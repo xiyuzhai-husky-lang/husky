@@ -5,7 +5,7 @@ use std::fmt::Debug;
 pub struct FugitivePath {
     pub module_path: ModulePath,
     pub ident: Ident,
-    pub connection: ModuleItemConnection,
+    pub connection: MajorItemConnection,
     pub fugitive_kind: FugitiveKind,
 }
 

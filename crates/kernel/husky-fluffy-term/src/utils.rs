@@ -124,10 +124,10 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
             TermEntityPath::TypeVariant(_) => todo!(),
         },
         // EntityPath::Module(_) => todo!(),
-        // EntityPath::ModuleItem(path) => match path {
-        //     ModuleItemPath::Type(path) => resolved_term,
-        //     ModuleItemPath::Trait(_) => todo!(),
-        //     ModuleItemPath::Form(_) => todo!(),
+        // EntityPath::MajorItem(path) => match path {
+        //     MajorItemPath::Type(path) => resolved_term,
+        //     MajorItemPath::Trait(_) => todo!(),
+        //     MajorItemPath::Form(_) => todo!(),
         // },
         // EntityPath::AssociatedItem(_) => todo!(),
         // EntityPath::Variant(_) => todo!(),

@@ -21,7 +21,7 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[enum_class::from_variants]
 pub enum SynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
-    ModuleItem(ModuleItemSynNodeDecl),
+    MajorItem(MajorItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
     AssociatedItem(AssociatedItemSynNodeDecl),
     TypeVariant(TypeVariantSynNodeDecl),
@@ -31,7 +31,7 @@ impl SynNodeDecl {
     pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
-            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.ast_idx(db),
             SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.ast_idx(db),
             SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.ast_idx(db),
             SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.ast_idx(db),
@@ -41,7 +41,7 @@ impl SynNodeDecl {
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             SynNodeDecl::Submodule(_) => None,
-            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
             SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
             SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
             SynNodeDecl::TypeVariant(_node_decl) => todo!(),
@@ -51,17 +51,17 @@ impl SynNodeDecl {
     pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ItemSynNodePath {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn node_decl_errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
-            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.errors(db),
+            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.errors(db),
             SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.errors(db),
             SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.errors(db),
             SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.errors(db),
@@ -75,7 +75,7 @@ impl SynNodeDecl {
 #[enum_class::from_variants]
 pub enum Decl {
     Submodule(SubmoduleSynDecl),
-    ModuleItem(ModuleItemSynDecl),
+    MajorItem(MajorItemSynDecl),
     ImplBlock(ImplBlockSynDecl),
     AssociatedItem(AssociatedItemSynDecl),
     TypeVariant(TypeVariantSynDecl),
@@ -85,7 +85,7 @@ impl Decl {
     pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
             Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.template_parameters(db),
+            Decl::MajorItem(decl) => decl.template_parameters(db),
             Decl::ImplBlock(decl) => decl.template_parameters(db),
             Decl::AssociatedItem(decl) => decl.template_parameters(db),
             Decl::TypeVariant(_decl) => &[],
@@ -95,7 +95,7 @@ impl Decl {
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             Decl::Submodule(_) => None,
-            Decl::ModuleItem(decl) => decl.syn_expr_region(db).into(),
+            Decl::MajorItem(decl) => decl.syn_expr_region(db).into(),
             Decl::ImplBlock(decl) => decl.syn_expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
             Decl::TypeVariant(_decl) => todo!(),
@@ -105,7 +105,7 @@ impl Decl {
     pub fn path(self, db: &dyn SynDeclDb) -> ItemPath {
         match self {
             Decl::Submodule(_) => todo!(),
-            Decl::ModuleItem(decl) => decl.path(db).into(),
+            Decl::MajorItem(decl) => decl.path(db).into(),
             Decl::ImplBlock(decl) => decl.path(db).into(),
             Decl::AssociatedItem(decl) => decl.path(db).into(),
             Decl::TypeVariant(decl) => decl.path(db).into(),
@@ -124,7 +124,7 @@ impl HasNodeDecl for ItemSynNodePath {
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {
-            ItemSynNodePath::ModuleItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ItemSynNodePath::TypeVariant(_) => todo!(),
             ItemSynNodePath::ImplBlock(_) => todo!(),
             ItemSynNodePath::AssociatedItem(_) => todo!(),
@@ -145,7 +145,7 @@ impl HasSynDecl for ItemPath {
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
             ItemPath::Submodule(path) => path.syn_decl(db).map(Into::into),
-            ItemPath::ModuleItem(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::MajorItem(path) => path.syn_decl(db).map(Into::into),
             ItemPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
             ItemPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
             ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),

@@ -9,7 +9,7 @@ pub struct FugitiveSynNodePath {
 
 impl From<FugitiveSynNodePath> for ItemSynNodePath {
     fn from(id: FugitiveSynNodePath) -> Self {
-        ItemSynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::MajorItem(id.into())
     }
 }
 
@@ -42,7 +42,7 @@ impl FugitiveSynNodePath {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ModuleItemSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         fugitive_syn_node(db, self)
     }
 }
@@ -51,14 +51,14 @@ impl FugitiveSynNodePath {
 pub(crate) fn fugitive_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: FugitiveSynNodePath,
-) -> ModuleItemSynNode {
+) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db).expect("valid file");
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNode::ModuleItem(node) => node,
+        ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

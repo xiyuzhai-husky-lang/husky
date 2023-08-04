@@ -6,7 +6,7 @@ use super::*;
 pub struct TraitPath {
     pub module_path: ModulePath,
     pub ident: Ident,
-    pub connection: ModuleItemConnection,
+    pub connection: MajorItemConnection,
 }
 
 impl TraitPath {

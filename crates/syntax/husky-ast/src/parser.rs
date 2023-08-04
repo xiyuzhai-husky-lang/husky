@@ -57,7 +57,7 @@ impl<'a> AstParser<'a> {
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
-        let top_level_asts = self.parse_normal_ast_children::<ModuleItems>();
+        let top_level_asts = self.parse_normal_ast_children::<MajorItems>();
         AstSheet::new(self.ast_arena, top_level_asts, self.siblings)
     }
 

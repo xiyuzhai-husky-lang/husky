@@ -86,7 +86,7 @@ pub struct TraitForTypeImplBlockSynNode {
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
-    pub trai_expr: ModuleItemPathExprIdx,
+    pub trai_expr: MajorItemPathExprIdx,
     pub for_token: TokenIdx,
     pub ty_sketch_expr: SelfTypeSketchExpr,
     pub items: Option<ImplBlockItems>,
@@ -94,7 +94,7 @@ pub struct TraitForTypeImplBlockSynNode {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SelfTypeSketchExpr {
-    Path(ModuleItemPathExprIdx),
+    Path(MajorItemPathExprIdx),
     DeriveAny {
         at_token: AtToken,
         derive_token: DeriveToken,
@@ -109,7 +109,7 @@ impl TraitForTypeImplBlockSynNode {
         module_path: ModulePath,
         ast_idx: AstIdx,
         impl_token: ImplToken,
-        trai_expr: ModuleItemPathExprIdx,
+        trai_expr: MajorItemPathExprIdx,
         trai_path: TraitPath,
         for_token: TokenIdx,
         ty_sketch_expr: SelfTypeSketchExpr,

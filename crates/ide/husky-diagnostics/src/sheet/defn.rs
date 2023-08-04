@@ -30,11 +30,11 @@ pub(crate) fn defn_diagnostic_sheet(
 }
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
-    fn visit_defn(&mut self, defn: Defn) {
+    fn visit_defn(&mut self, defn: SynDefn) {
         // todo
         match defn {
-            Defn::Submodule(_) => (),
-            Defn::ModuleItem(_) => (),
+            SynDefn::Submodule(_) => (),
+            SynDefn::MajorItem(_) => (),
             // Defn::Type(Defn) => match Defn {
             //     TypeDefn::Enum(_Defn) => (),
             //     TypeDefn::PropsStruct(_Defn) => (),
@@ -48,9 +48,9 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
             // },
             // Defn::Fugitive(_Defn) => (),
             // Defn::Trait(_Defn) => (),
-            Defn::ImplBlock(_Defn) => (),
-            Defn::AssociatedItem(_Defn) => (),
-            Defn::TypeVariant(_Defn) => (),
+            SynDefn::ImplBlock(_Defn) => (),
+            SynDefn::AssociatedItem(_Defn) => (),
+            SynDefn::TypeVariant(_Defn) => (),
         }
     }
 }

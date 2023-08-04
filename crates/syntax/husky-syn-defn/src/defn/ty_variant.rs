@@ -34,13 +34,13 @@ impl HasSynNodeDefn for TypeVariantSynNodePath {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum TypeVariantDefn {
+pub enum TypeVariantSynDefn {
     Unit(UnitVariantSynDefn),
     Tuple(TupleVariantSynDefn),
     Props(PropsVariantSynDefn),
 }
 
-impl TypeVariantDefn {
+impl TypeVariantSynDefn {
     pub fn decl(self, _db: &dyn SynDefnDb) -> Decl {
         todo!()
     }

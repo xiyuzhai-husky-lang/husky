@@ -28,7 +28,7 @@ impl HasHirDecl for ItemPath {
     fn hir_decl(self, db: &dyn HirDeclDb) -> Option<Self::HirDecl> {
         Some(match self {
             ItemPath::Submodule(path) => path.hir_decl(db)?.into(),
-            ItemPath::ModuleItem(path) => path.hir_decl(db)?.into(),
+            ItemPath::MajorItem(path) => path.hir_decl(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
             ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
@@ -41,7 +41,7 @@ impl HasHirDecl for ItemPath {
 #[enum_class::from_variants]
 pub enum HirDecl {
     Submodule(SubmoduleHirDecl),
-    ModuleItem(ModuleItemHirDecl),
+    MajorItem(MajorItemHirDecl),
     ImplBlock(ImplBlockHirDecl),
     AssociatedItem(AssociatedItemHirDecl),
     TypeVariant(TypeVariantHirDecl),
@@ -51,7 +51,7 @@ impl HirDecl {
     pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [HirTemplateParameter] {
         match self {
             HirDecl::Submodule(_) => todo!(),
-            HirDecl::ModuleItem(decl) => decl.template_parameters(db),
+            HirDecl::MajorItem(decl) => decl.template_parameters(db),
             HirDecl::ImplBlock(decl) => decl.template_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
             HirDecl::TypeVariant(decl) => &[],
@@ -61,7 +61,7 @@ impl HirDecl {
     // pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
     //     match self {
     //         HirDecl::Submodule(_) => None,
-    //         HirDecl::ModuleItem(decl) => decl.hir_expr_region(db).into(),
+    //         HirDecl::MajorItem(decl) => decl.hir_expr_region(db).into(),
     //         HirDecl::ImplBlock(decl) => None,
     //         HirDecl::AssociatedItem(decl) => decl.hir_expr_region(db).into(),
     //         HirDecl::TypeVariant(_decl) => todo!(),
@@ -71,7 +71,7 @@ impl HirDecl {
     pub fn path(self, db: &dyn HirDeclDb) -> ItemPath {
         match self {
             HirDecl::Submodule(_) => todo!(),
-            HirDecl::ModuleItem(decl) => decl.path(db).into(),
+            HirDecl::MajorItem(decl) => decl.path(db).into(),
             HirDecl::ImplBlock(decl) => decl.path(db).into(),
             HirDecl::AssociatedItem(decl) => decl.path(db).into(),
             HirDecl::TypeVariant(decl) => decl.path(db).into(),

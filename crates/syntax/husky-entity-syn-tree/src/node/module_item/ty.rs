@@ -28,7 +28,7 @@ impl TypeSynNodePath {
         self.maybe_ambiguous_path(db).path.ty_kind(db)
     }
 
-    pub fn node<'a>(self, db: &'a dyn EntitySynTreeDb) -> ModuleItemSynNode {
+    pub fn node<'a>(self, db: &'a dyn EntitySynTreeDb) -> MajorItemSynNode {
         ty_node(db, self)
     }
 }
@@ -43,7 +43,7 @@ impl HasSynNodePath for TypePath {
 
 impl From<TypeSynNodePath> for ItemSynNodePath {
     fn from(id: TypeSynNodePath) -> Self {
-        ItemSynNodePath::ModuleItem(id.into())
+        ItemSynNodePath::MajorItem(id.into())
     }
 }
 
@@ -51,7 +51,7 @@ impl From<TypeSynNodePath> for ItemSynNodePath {
 pub(crate) fn ty_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TypeSynNodePath,
-) -> ModuleItemSynNode {
+) -> MajorItemSynNode {
     let module_path = syn_node_path.module_path(db);
     // it's important to use presheet instead of sheet
     // otherwise cyclic when use all type variant paths
@@ -63,7 +63,7 @@ pub(crate) fn ty_node(
         unreachable!("should be some, must be some erros in library")
     };
     match major_item_node {
-        ItemSynNode::ModuleItem(node) => node,
+        ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

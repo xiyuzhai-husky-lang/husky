@@ -31,10 +31,10 @@ pub(crate) fn item_variance_reprs(
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
         ItemPath::Submodule(_) => todo!(),
-        ItemPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
-            ModuleItemPath::Trait(path) => trai_item_variance_reprs(db, path),
-            ModuleItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
+        ItemPath::MajorItem(path) => match path {
+            MajarItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
+            MajarItemPath::Trait(path) => trai_item_variance_reprs(db, path),
+            MajarItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
         ItemPath::AssociatedItem(path) => match path {
             AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),

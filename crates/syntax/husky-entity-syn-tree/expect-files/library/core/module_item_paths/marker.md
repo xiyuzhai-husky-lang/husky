@@ -1,0 +1,14 @@
+Ok(
+    [
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::marker::Copy`),
+            ),
+        ),
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::marker::Sized`),
+            ),
+        ),
+    ],
+)

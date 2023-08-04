@@ -1,5 +1,5 @@
 use husky_entity_syn_tree::OnceUseRuleState;
-use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, MajorItemConnectionKind, MajorItemKind, TypeKind};
 use husky_syn_expr::{CurrentSynSymbolKind, InheritedSynSymbolKind};
 
 use crate::*;
@@ -62,9 +62,9 @@ fn token_to_semantic_token(
         TokenInfo::Field => SemanticToken::Field,
         TokenInfo::Method => SemanticToken::Method,
         TokenInfo::BoxColon | TokenInfo::BoxPrefix => {
-            SemanticToken::Entity(EntityKind::ModuleItem {
-                module_item_kind: ModuleItemKind::Type(TypeKind::Extern),
-                connection: ModuleItemConnectionKind::Connected,
+            SemanticToken::Entity(EntityKind::MajorItem {
+                module_item_kind: MajorItemKind::Type(TypeKind::Extern),
+                connection: MajorItemConnectionKind::Connected,
             })
         }
         TokenInfo::UseExpr { state, .. } => match state {
@@ -78,9 +78,9 @@ fn token_to_semantic_token(
         TokenInfo::HtmlPropertyIdent => SemanticToken::HtmlPropertyIdent,
         TokenInfo::SubmoduleIdent => SemanticToken::SubmoduleIdent,
         TokenInfo::UnitLeftParenthesis | TokenInfo::UnitRightParenthesis => {
-            SemanticToken::Entity(EntityKind::ModuleItem {
-                module_item_kind: ModuleItemKind::Type(TypeKind::Extern),
-                connection: ModuleItemConnectionKind::Connected,
+            SemanticToken::Entity(EntityKind::MajorItem {
+                module_item_kind: MajorItemKind::Type(TypeKind::Extern),
+                connection: MajorItemConnectionKind::Connected,
             })
         }
     };

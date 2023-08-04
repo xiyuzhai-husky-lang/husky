@@ -190,9 +190,9 @@ impl<'a> EntityTreePresheetMut<'a> {
                                     child_use_expr_idx,
                                     rule.visibility(),
                                 )),
-                            PrincipalEntityPath::ModuleItem(parent_module_item_path) => {
+                            PrincipalEntityPath::MajorItem(parent_module_item_path) => {
                                 match parent_module_item_path {
-                                    ModuleItemPath::Type(parent_ty_path) => {
+                                    MajarItemPath::Type(parent_ty_path) => {
                                         match parent_ty_path.ty_kind(db) {
                                             TypeKind::Enum | TypeKind::Inductive => {
                                                 self.once_use_rules.push(rule.new_nonroot(
@@ -206,8 +206,8 @@ impl<'a> EntityTreePresheetMut<'a> {
                                             _ => todo!(),
                                         }
                                     }
-                                    ModuleItemPath::Trait(_) => todo!(),
-                                    ModuleItemPath::Fugitive(_) => todo!(),
+                                    MajarItemPath::Trait(_) => todo!(),
+                                    MajarItemPath::Fugitive(_) => todo!(),
                                 }
                             }
                             PrincipalEntityPath::TypeVariant(_) => todo!(),

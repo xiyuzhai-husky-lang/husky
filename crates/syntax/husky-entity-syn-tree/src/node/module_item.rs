@@ -7,41 +7,41 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use super::*;
-use husky_entity_path::ModuleItemPath;
+use husky_entity_path::MajarItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
-pub enum ModuleItemSynNodePath {
+pub enum MajorItemSynNodePath {
     Trait(TraitSynNodePath),
     Type(TypeSynNodePath),
     Fugitive(FugitiveSynNodePath),
 }
 
-impl ModuleItemSynNodePath {
+impl MajorItemSynNodePath {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
         registry: &mut ItemNodeRegistry,
-        path: ModuleItemPath,
+        path: MajarItemPath,
     ) -> Self {
         match path {
-            ModuleItemPath::Type(path) => TypeSynNodePath::new(db, registry, path).into(),
-            ModuleItemPath::Trait(path) => TraitSynNodePath::new(db, registry, path).into(),
-            ModuleItemPath::Fugitive(path) => FugitiveSynNodePath::new(db, registry, path).into(),
+            MajarItemPath::Type(path) => TypeSynNodePath::new(db, registry, path).into(),
+            MajarItemPath::Trait(path) => TraitSynNodePath::new(db, registry, path).into(),
+            MajarItemPath::Fugitive(path) => FugitiveSynNodePath::new(db, registry, path).into(),
         }
     }
 
-    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ModuleItemPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<MajarItemPath> {
         match self {
-            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path
+            MajorItemSynNodePath::Trait(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path
+            MajorItemSynNodePath::Type(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
+            MajorItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
@@ -55,53 +55,53 @@ impl ModuleItemSynNodePath {
 
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         match self {
-            ModuleItemSynNodePath::Trait(node) => node.module_path(db),
-            ModuleItemSynNodePath::Type(node) => node.module_path(db),
-            ModuleItemSynNodePath::Fugitive(node) => node.module_path(db),
+            MajorItemSynNodePath::Trait(node) => node.module_path(db),
+            MajorItemSynNodePath::Type(node) => node.module_path(db),
+            MajorItemSynNodePath::Fugitive(node) => node.module_path(db),
         }
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> ModuleItemSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> MajorItemSynNode {
         todo!()
     }
 }
 
-impl HasSynNodePath for ModuleItemPath {
-    type SynNodePath = ModuleItemSynNodePath;
+impl HasSynNodePath for MajarItemPath {
+    type SynNodePath = MajorItemSynNodePath;
 
     fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         match self {
-            ModuleItemPath::Type(path) => path.syn_node_path(db).into(),
-            ModuleItemPath::Trait(path) => path.syn_node_path(db).into(),
-            ModuleItemPath::Fugitive(path) => path.syn_node_path(db).into(),
+            MajarItemPath::Type(path) => path.syn_node_path(db).into(),
+            MajarItemPath::Trait(path) => path.syn_node_path(db).into(),
+            MajarItemPath::Fugitive(path) => path.syn_node_path(db).into(),
         }
     }
 }
 
 // todo: change this to enum and create FugitiveNode etc.
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct ModuleItemSynNode {
+pub struct MajorItemSynNode {
     #[id]
-    pub syn_node_path: ModuleItemSynNodePath,
+    pub syn_node_path: MajorItemSynNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
     pub block: DefnBlock,
 }
 
-impl ModuleItemSynNode {
+impl MajorItemSynNode {
     pub(super) fn new(
         db: &dyn EntitySynTreeDb,
         registry: &mut ItemNodeRegistry,
-        module_item_path: ModuleItemPath,
+        module_item_path: MajarItemPath,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
         block: DefnBlock,
     ) -> Self {
-        ModuleItemSynNode::new_inner(
+        MajorItemSynNode::new_inner(
             db,
-            ModuleItemSynNodePath::new(db, registry, module_item_path),
+            MajorItemSynNodePath::new(db, registry, module_item_path),
             visibility,
             ast_idx,
             ident_token,
@@ -110,7 +110,7 @@ impl ModuleItemSynNode {
     }
 
     /// only gives a path when valid
-    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<ModuleItemPath> {
+    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<MajarItemPath> {
         self.syn_node_path(db).path(db)
     }
 }

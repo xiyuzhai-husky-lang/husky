@@ -1,4 +1,5 @@
 use crate::*;
+use husky_print_utils::p;
 use husky_syn_expr::SynExprRegion;
 
 pub(crate) struct ModuleDiagnosticsCollector<'a> {
@@ -18,7 +19,7 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         &mut self,
         atom: &impl Diagnose<Context<'a> = SheetDiagnosticsContext<'a>>,
     ) {
-        self.diagnostics.push(atom.to_diagnostic(&self.context))
+        self.diagnostics.push(atom.to_diagnostic(&self.context));
     }
     pub(crate) fn finish(self) -> Vec<Diagnostic> {
         self.diagnostics

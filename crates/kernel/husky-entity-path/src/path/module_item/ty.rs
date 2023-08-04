@@ -11,7 +11,7 @@ use std::fmt::Debug;
 pub struct TypePath {
     pub module_path: ModulePath,
     pub ident: Ident,
-    pub connection: ModuleItemConnection,
+    pub connection: MajorItemConnection,
     pub ty_kind: TypeKind,
 }
 

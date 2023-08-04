@@ -347,10 +347,10 @@ impl<'a> DeclarativeTermEngine<'a> {
             } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
-                    PrincipalEntityPath::ModuleItem(path) => match path {
-                        ModuleItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
-                        ModuleItemPath::Trait(path) => path.into(),
-                        ModuleItemPath::Fugitive(path) => path.into(),
+                    PrincipalEntityPath::MajorItem(path) => match path {
+                        MajarItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
+                        MajarItemPath::Trait(path) => path.into(),
+                        MajarItemPath::Fugitive(path) => path.into(),
                     },
                     PrincipalEntityPath::TypeVariant(path) => {
                         DeclarativeTermEntityPath::TypeVariant(path)

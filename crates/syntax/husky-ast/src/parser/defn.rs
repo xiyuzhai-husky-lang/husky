@@ -1,6 +1,6 @@
 use husky_entity_path::*;
 use husky_entity_taxonomy::{
-    AssociatedItemKind, FugitiveKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
+    AssociatedItemKind, FugitiveKind, MajorItemConnectionKind, MajorItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
 use husky_opr::{BinaryOpr, Bracket};
@@ -44,13 +44,13 @@ impl<'a> AstParser<'a> {
             EntityKind::Module => DefnBlock::Submodule {
                 path: ModulePath::new_child(self.db, self.module_path, ident),
             },
-            EntityKind::ModuleItem {
+            EntityKind::MajorItem {
                 module_item_kind,
                 connection,
             } => {
                 let connection = self.new_connection(ident, connection);
                 match module_item_kind {
-                    ModuleItemKind::Type(ty_kind) => {
+                    MajorItemKind::Type(ty_kind) => {
                         let path =
                             TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
                                 .into();
@@ -67,7 +67,7 @@ impl<'a> AstParser<'a> {
                             },
                         }
                     }
-                    ModuleItemKind::Fugitive(form_kind) => DefnBlock::Fugitive {
+                    MajorItemKind::Fugitive(form_kind) => DefnBlock::Fugitive {
                         path: FugitivePath::new(
                             self.db,
                             self.module_path,
@@ -78,7 +78,7 @@ impl<'a> AstParser<'a> {
                         .into(),
                         body: self.try_parse_option()?, // todo: check that this is coherent with decl
                     },
-                    ModuleItemKind::Trait => DefnBlock::Trait {
+                    MajorItemKind::Trait => DefnBlock::Trait {
                         path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
                         items: self.try_parse_option()?,
                     },
@@ -106,12 +106,12 @@ impl<'a> AstParser<'a> {
     fn new_connection(
         &mut self,
         ident: Ident,
-        kind: ModuleItemConnectionKind,
-    ) -> ModuleItemConnection {
+        kind: MajorItemConnectionKind,
+    ) -> MajorItemConnection {
         match kind {
-            ModuleItemConnectionKind::Connected => ModuleItemConnection::Connected,
-            ModuleItemConnectionKind::Disconnected => {
-                ModuleItemConnection::Disconnected(self.disambiguator_registry.issue_new(ident))
+            MajorItemConnectionKind::Connected => MajorItemConnection::Connected,
+            MajorItemConnectionKind::Disconnected => {
+                MajorItemConnection::Disconnected(self.disambiguator_registry.issue_new(ident))
             }
         }
     }

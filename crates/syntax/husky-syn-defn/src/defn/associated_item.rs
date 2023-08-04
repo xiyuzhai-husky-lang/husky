@@ -94,7 +94,7 @@ impl AssociatedItemSynDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn SynDefnDb) -> Option<AssociatedItemPath> {
+    pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {
         match self {
             AssociatedItemSynDefn::TypeItem(_) => todo!(),
             AssociatedItemSynDefn::TraitItem(_) => todo!(),

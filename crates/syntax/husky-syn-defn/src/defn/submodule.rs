@@ -24,21 +24,25 @@ impl HasSynNodeDefn for SubmoduleSynNodePath {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
-pub struct SubmoduleDefn {
+pub struct SubmoduleSynDefn {
     decl: SubmoduleSynDecl,
 }
 
-impl SubmoduleDefn {
+impl SubmoduleSynDefn {
     pub fn decl(self) -> SubmoduleSynDecl {
         self.decl
+    }
+
+    pub fn path(self, db: &dyn SynDefnDb) -> SubmodulePath {
+        self.decl.path(db)
     }
 }
 
 impl HasSynDefn for SubmodulePath {
-    type SynDefn = SubmoduleDefn;
+    type SynDefn = SubmoduleSynDefn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
-        Ok(SubmoduleDefn {
+        Ok(SubmoduleSynDefn {
             decl: self.syn_decl(db)?,
         })
     }

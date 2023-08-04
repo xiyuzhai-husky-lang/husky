@@ -76,7 +76,7 @@ where
                         ident,
                     )
                 }
-                MajorEntityPath::ModuleItem(_) => todo!(),
+                MajorEntityPath::MajorItem(_) => todo!(),
             }
         } else {
             match self.db.subitem_path(parent, ident).ok()? {

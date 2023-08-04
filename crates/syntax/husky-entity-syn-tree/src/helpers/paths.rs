@@ -9,7 +9,11 @@ pub fn module_item_syn_node_paths(
     let mut node_paths: Vec<ItemSynNodePath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        node_paths.push(syn_node_path)
+        node_paths.push(syn_node_path);
+        match syn_node_path {
+            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(_)) => todo!(),
+            _ => (),
+        }
     }
     // todo: trait item
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
@@ -76,4 +80,12 @@ pub fn module_item_paths(
         }
     }
     Ok(paths)
+}
+
+#[test]
+fn module_item_paths_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug_with_db("module_item_paths", |db, module_path| {
+        module_item_paths(db, module_path)
+    })
 }

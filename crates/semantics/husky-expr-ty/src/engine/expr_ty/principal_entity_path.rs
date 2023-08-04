@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         let path = path.ok_or(DerivedExprTypeError::EntityPathError)?;
         let ty_result = match path {
-            PrincipalEntityPath::Module(_) | PrincipalEntityPath::ModuleItem(_) => {
+            PrincipalEntityPath::Module(_) | PrincipalEntityPath::MajorItem(_) => {
                 Ok(path.ty(self.db, disambiguation)?.into())
             }
             PrincipalEntityPath::TypeVariant(path) => {

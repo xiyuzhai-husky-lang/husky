@@ -61,17 +61,17 @@ impl SemanticToken {
             SemanticToken::FrameVariable => ext::SemanticTokenType::VARIABLE,
             SemanticToken::Entity(item_kind) => match item_kind {
                 EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
-                EntityKind::ModuleItem {
+                EntityKind::MajorItem {
                     module_item_kind,
                     connection: _,
                 } => match module_item_kind {
-                    ModuleItemKind::Type(_) => ext::SemanticTokenType::TYPE,
-                    ModuleItemKind::Fugitive(form_kind) => match form_kind {
+                    MajorItemKind::Type(_) => ext::SemanticTokenType::TYPE,
+                    MajorItemKind::Fugitive(form_kind) => match form_kind {
                         FugitiveKind::Val => ext::SemanticTokenType::VARIABLE,
                         FugitiveKind::Fn | FugitiveKind::Gn => ext::SemanticTokenType::FUNCTION,
                         FugitiveKind::AliasType => todo!(),
                     },
-                    ModuleItemKind::Trait => ext::SemanticTokenType::TYPE,
+                    MajorItemKind::Trait => ext::SemanticTokenType::TYPE,
                 },
                 EntityKind::AssociatedItem {
                     associated_item_kind,

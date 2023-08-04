@@ -19,7 +19,7 @@ pub(crate) fn decl_diagnostic_sheet(
         db.syn_node_decl_sheet(module_path),
     ) {
         for (_, syn_node_decl) in syn_node_decl_sheet.decls(db).iter().copied() {
-            for error in syn_node_decl.errors(db) {
+            for error in syn_node_decl.node_decl_errors(db) {
                 if let NodeDeclError::Original(error) = error {
                     collector.visit_atom(error)
                 }
