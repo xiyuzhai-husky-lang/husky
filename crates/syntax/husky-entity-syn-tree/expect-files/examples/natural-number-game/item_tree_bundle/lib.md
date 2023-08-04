@@ -6,9 +6,9 @@ Ok(
                 major_item_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
-                            node: ItemSynNode::ModuleItem(
-                                ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                            node: ItemSynNode::MajorItem(
+                                MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -42,8 +42,8 @@ Ok(
                                     },
                                 },
                             ),
-                            syn_node_path: ItemSynNodePath::ModuleItem(
-                                ModuleItemSynNodePath::Type(
+                            syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -58,9 +58,9 @@ Ok(
                             ),
                         },
                         EntityNodeEntry {
-                            node: ItemSynNode::ModuleItem(
-                                ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                            node: ItemSynNode::MajorItem(
+                                MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -88,8 +88,8 @@ Ok(
                                     },
                                 },
                             ),
-                            syn_node_path: ItemSynNodePath::ModuleItem(
-                                ModuleItemSynNodePath::Type(
+                            syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -104,9 +104,9 @@ Ok(
                             ),
                         },
                         EntityNodeEntry {
-                            node: ItemSynNode::ModuleItem(
-                                ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                            node: ItemSynNode::MajorItem(
+                                MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -134,8 +134,8 @@ Ok(
                                     },
                                 },
                             ),
-                            syn_node_path: ItemSynNodePath::ModuleItem(
-                                ModuleItemSynNodePath::Type(
+                            syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -158,12 +158,12 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`natural_number_game::Nat`, `Inductive`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -203,12 +203,12 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`natural_number_game::OddNat`, `Structure`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -242,12 +242,12 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -325,7 +325,7 @@ Ok(
         ],
         principal_item_path_expr_arena: Arena {
             data: [
-                ModuleItemPathExpr::Root {
+                MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `Nat`,
@@ -334,8 +334,8 @@ Ok(
                             ),
                         },
                     ),
-                    major_path: MajorEntityPath::ModuleItem(
-                        ModuleItemPath::Type(
+                    major_path: MajorEntityPath::MajorItem(
+                        MajarItemPath::Type(
                             TypePath(`natural_number_game::Nat`, `Inductive`),
                         ),
                     ),

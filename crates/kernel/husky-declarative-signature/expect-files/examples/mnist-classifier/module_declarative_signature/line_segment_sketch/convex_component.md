@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -32,12 +32,19 @@
     ),
     (
         ItemPath::ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    Id {
-                        value: 40,
-                    },
-                ),
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: Path(
+                        TypePath(
+                            Id {
+                                value: 94,
+                            },
+                        ),
+                    ),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

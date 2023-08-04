@@ -1696,7 +1696,7 @@ Ok(
                             },
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -1766,7 +1766,7 @@ Ok(
                             },
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -1836,7 +1836,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -1884,7 +1884,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -1932,7 +1932,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -1980,7 +1980,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -2028,7 +2028,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),

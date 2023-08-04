@@ -118,8 +118,13 @@ impl TraitForTypeItemSynDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn SynDefnDb) -> TraitForTypeItemPath {
-        todo!()
+    pub fn path(self, db: &dyn SynDefnDb) -> TraitForTypeItemPath {
+        match self {
+            TraitForTypeItemSynDefn::AssociatedFn(defn) => defn.path(db),
+            TraitForTypeItemSynDefn::MethodFn(defn) => defn.path(db),
+            TraitForTypeItemSynDefn::AssociatedType(defn) => defn.path(db),
+            TraitForTypeItemSynDefn::AssociatedVal(defn) => defn.path(db),
+        }
     }
 
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {

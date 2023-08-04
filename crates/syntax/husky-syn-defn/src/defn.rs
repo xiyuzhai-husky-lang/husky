@@ -119,7 +119,7 @@ impl SynDefn {
     pub fn syn_decl(self, db: &dyn SynDefnDb) -> Decl {
         match self {
             SynDefn::Submodule(defn) => Decl::Submodule(defn.decl()),
-            SynDefn::MajorItem(defn) => defn.decl(db).into(),
+            SynDefn::MajorItem(defn) => defn.syn_decl(db).into(),
             SynDefn::TypeVariant(defn) => defn.decl(db).into(),
             SynDefn::ImplBlock(decl) => decl.into(),
             SynDefn::AssociatedItem(defn) => defn.decl(db).into(),

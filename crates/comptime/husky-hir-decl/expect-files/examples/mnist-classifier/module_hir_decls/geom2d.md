@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -10,8 +10,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -21,8 +21,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -32,8 +32,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -43,8 +43,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -54,8 +54,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {

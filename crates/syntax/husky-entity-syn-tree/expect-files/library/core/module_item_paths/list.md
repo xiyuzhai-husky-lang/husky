@@ -1,7 +1,7 @@
 Ok(
     [
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::list::List`, `Extern`),
             ),
         ),

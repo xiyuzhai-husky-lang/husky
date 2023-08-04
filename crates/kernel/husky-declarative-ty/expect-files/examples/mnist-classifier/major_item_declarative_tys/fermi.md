@@ -1,7 +1,7 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             ),
         ),
@@ -10,8 +10,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
             ),
         ),

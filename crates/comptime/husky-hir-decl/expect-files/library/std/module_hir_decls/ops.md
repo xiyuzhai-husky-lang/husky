@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Trait(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Trait(
             TraitHirDecl {
                 path: TraitPath(`std::ops::Add`),
                 template_parameters: HirTemplateParameters {

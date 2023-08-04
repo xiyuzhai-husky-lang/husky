@@ -93,7 +93,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },

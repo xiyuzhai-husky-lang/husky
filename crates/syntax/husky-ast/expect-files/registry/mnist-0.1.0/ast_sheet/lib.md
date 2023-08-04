@@ -276,7 +276,7 @@ Ok(
                             },
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Type(
                             Enum,
                         ),
@@ -330,7 +330,7 @@ Ok(
                             },
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -372,7 +372,7 @@ Ok(
                             },
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),
