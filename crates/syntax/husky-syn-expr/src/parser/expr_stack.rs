@@ -66,7 +66,7 @@ impl SynExpr {
             } => todo!(),
             SynExpr::InheritedSymbol { .. } | SynExpr::CurrentSymbol { .. } => BaseEntityPath::None,
             SynExpr::SelfValue(_) => todo!(),
-            SynExpr::SelfType(_) => todo!(),
+            SynExpr::SelfType(_) => BaseEntityPath::SelfType,
             SynExpr::Binary {
                 lopd,
                 opr,

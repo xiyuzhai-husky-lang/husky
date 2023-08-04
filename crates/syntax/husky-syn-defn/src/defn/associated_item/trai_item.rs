@@ -21,11 +21,41 @@ pub enum TraitItemSynNodeDefn {
     AssociatedVal(TraitAssociatedValSynNodeDefn),
 }
 
+impl TraitItemSynNodeDefn {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+        match self {
+            TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => syn_node_defn.syn_expr_region(db),
+            TraitItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.syn_expr_region(db),
+            TraitItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.syn_expr_region(db)
+            }
+            TraitItemSynNodeDefn::AssociatedVal(syn_node_defn) => syn_node_defn.syn_expr_region(db),
+        }
+    }
+}
+
 impl HasSynNodeDefn for TraitItemSynNodePath {
     type SynNodeDefn = TraitItemSynNodeDefn;
 
     fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         trai_item_syn_node_defn(db, self)
+    }
+}
+
+impl TraitItemSynNodeDefn {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TraitItemSynNodeDecl {
+        match self {
+            TraitItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
+            TraitItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TraitItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
+            TraitItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
+        }
     }
 }
 
@@ -36,8 +66,12 @@ fn trai_item_syn_node_defn(
 ) -> TraitItemSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
         TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
-        TraitItemSynNodeDecl::MethodFn(_) => todo!(),
-        TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+        TraitItemSynNodeDecl::MethodFn(syn_node_decl) => {
+            TraitMethodFnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
+        }
+        TraitItemSynNodeDecl::AssociatedType(syn_node_decl) => {
+            TraitAssociatedTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
+        }
         TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
     }
 }

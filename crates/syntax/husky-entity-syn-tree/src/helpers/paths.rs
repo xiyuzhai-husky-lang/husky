@@ -10,14 +10,15 @@ pub fn module_item_syn_node_paths(
     let item_tree_sheet = db.item_syn_tree_sheet(module_path)?;
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         node_paths.push(syn_node_path);
-        match syn_node_path {
-            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
-                for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
-                    node_paths.push(trai_item_syn_node_path.into())
-                }
-            }
-            _ => (),
-        }
+        // ignore this for now
+        // match syn_node_path {
+        //     ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
+        //         for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
+        //             node_paths.push(trai_item_syn_node_path.into())
+        //         }
+        //     }
+        //     _ => (),
+        // }
     }
     // todo: trait item
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {

@@ -55,6 +55,7 @@ pub enum BaseEntityPath {
     Uncertain {
         inclination: BaseEntityPathInclination,
     },
+    SelfType,
     Err,
 }
 

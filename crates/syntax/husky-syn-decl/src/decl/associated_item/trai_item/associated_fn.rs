@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitAssociatedFnSynNodeDecl {
     #[id]
-    pub path: TraitItemPath,
+    pub syn_node_path: TraitItemSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     pub template_parameter_decl_list: NodeDeclResult<Option<Generics>>,

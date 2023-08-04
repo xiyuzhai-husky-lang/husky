@@ -72,6 +72,7 @@ pub struct EntitySynTreeJar(
     TypeItemSynNode,
     ty_item_syn_node,
     trai_item_syn_nodes,
+    trai_item_syn_node,
     TraitItemSynNodePath,
     TraitItemSynNode,
     TraitForTypeItemSynNodePath,

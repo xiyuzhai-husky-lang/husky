@@ -23,12 +23,12 @@ pub enum TraitItemSynNodeDecl {
 }
 
 impl TraitItemSynNodeDecl {
-    pub fn syn_node_path(self, _db: &dyn SynDeclDb) -> TraitItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> TraitItemSynNodePath {
         match self {
-            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::AssociatedType(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::AssociatedVal(decl) => decl.syn_node_path(db),
         }
     }
 
@@ -50,12 +50,14 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn syn_expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TraitItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TraitItemSynNodeDecl::AssociatedType(syn_node_decl) => {
+                syn_node_decl.syn_expr_region(db)
+            }
+            TraitItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
@@ -89,21 +91,21 @@ fn trai_item_syn_node_decl(
 impl<'a> DeclParser<'a> {
     fn parse_trai_item_syn_node_decl(
         &self,
-        syn_node_path: TraitForTypeItemSynNodePath,
-    ) -> TraitForTypeItemSynNodeDecl {
+        syn_node_path: TraitItemSynNodePath,
+    ) -> TraitItemSynNodeDecl {
         let db = self.db();
-        let node = syn_node_path.node(db);
+        let node = syn_node_path.syn_node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
                 item_kind:
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitForTypeItem(item_kind),
+                        associated_item_kind: AssociatedItemKind::TraitItem(item_kind),
                     },
                 saved_stream_state,
                 ..
-            } => self.parse_trai_for_ty_item_syn_node_decl_aux(
+            } => self.parse_trai_item_syn_node_decl_aux(
                 syn_node_path,
                 node,
                 ast_idx,
@@ -117,13 +119,13 @@ impl<'a> DeclParser<'a> {
 
     pub(super) fn parse_trai_item_syn_node_decl_aux(
         &self,
-        syn_node_path: TraitForTypeItemSynNodePath,
-        node: TraitForTypeItemSynNode,
+        syn_node_path: TraitItemSynNodePath,
+        node: TraitItemSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         trai_item_kind: TraitItemKind,
         saved_stream_state: TokenStreamState,
-    ) -> TraitForTypeItemSynNodeDecl {
+    ) -> TraitItemSynNodeDecl {
         match trai_item_kind {
             TraitItemKind::MethodFn => self
                 .parse_trai_method_fn_node_decl(
