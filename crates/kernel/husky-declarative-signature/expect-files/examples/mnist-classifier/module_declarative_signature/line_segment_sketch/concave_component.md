@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -31,14 +31,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -63,12 +63,19 @@
     ),
     (
         ItemPath::ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    Id {
-                        value: 39,
-                    },
-                ),
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: Path(
+                        TypePath(
+                            Id {
+                                value: 93,
+                            },
+                        ),
+                    ),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(
@@ -140,12 +147,12 @@
     ),
     (
         ItemPath::ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
-                    Id {
-                        value: 44,
-                    },
-                ),
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
@@ -22,8 +22,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
@@ -45,8 +45,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::partition`, `Fn`),
@@ -68,8 +68,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
@@ -80,8 +80,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),

@@ -4,9 +4,9 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i8`, `Extern`),
@@ -32,8 +32,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i8`, `Extern`),
@@ -46,9 +46,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i16`, `Extern`),
@@ -74,8 +74,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i16`, `Extern`),
@@ -88,9 +88,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i32`, `Extern`),
@@ -116,8 +116,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i32`, `Extern`),
@@ -130,9 +130,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i64`, `Extern`),
@@ -158,8 +158,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i64`, `Extern`),
@@ -172,9 +172,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i128`, `Extern`),
@@ -200,8 +200,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i128`, `Extern`),
@@ -214,9 +214,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::isize`, `Extern`),
@@ -242,8 +242,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::isize`, `Extern`),
@@ -256,9 +256,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u8`, `Extern`),
@@ -284,8 +284,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u8`, `Extern`),
@@ -298,9 +298,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u16`, `Extern`),
@@ -326,8 +326,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u16`, `Extern`),
@@ -340,9 +340,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u32`, `Extern`),
@@ -368,8 +368,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u32`, `Extern`),
@@ -382,9 +382,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u64`, `Extern`),
@@ -410,8 +410,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u64`, `Extern`),
@@ -424,9 +424,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u128`, `Extern`),
@@ -452,8 +452,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u128`, `Extern`),
@@ -466,9 +466,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::usize`, `Extern`),
@@ -494,8 +494,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::usize`, `Extern`),
@@ -508,9 +508,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::f32`, `Extern`),
@@ -536,8 +536,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::f32`, `Extern`),
@@ -550,9 +550,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::f64`, `Extern`),
@@ -578,8 +578,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::f64`, `Extern`),
@@ -598,12 +598,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `i8`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::i8`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i8`, `Extern`),
@@ -633,12 +633,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `i16`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::i16`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i16`, `Extern`),
@@ -668,12 +668,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `i32`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::i32`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i32`, `Extern`),
@@ -703,12 +703,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `i64`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::i64`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i64`, `Extern`),
@@ -738,12 +738,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `i128`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::i128`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::i128`, `Extern`),
@@ -773,12 +773,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `isize`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::isize`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::isize`, `Extern`),
@@ -808,12 +808,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `u8`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::u8`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u8`, `Extern`),
@@ -843,12 +843,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `u16`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::u16`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u16`, `Extern`),
@@ -878,12 +878,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `u32`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::u32`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u32`, `Extern`),
@@ -913,12 +913,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `u64`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::u64`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u64`, `Extern`),
@@ -948,12 +948,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `u128`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::u128`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::u128`, `Extern`),
@@ -983,12 +983,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `usize`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::usize`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::usize`, `Extern`),
@@ -1018,12 +1018,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `f32`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::f32`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::f32`, `Extern`),
@@ -1053,12 +1053,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `f64`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::num::f64`, `Extern`),
@@ -1092,12 +1092,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Trait(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Trait(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::ops::Add`),
@@ -1129,8 +1129,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Trait(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
                             ),
@@ -2536,12 +2536,12 @@ Ok(
                     ),
                     state: OnceUseRuleState::Resolved {
                         original_symbol: Some(
-                            EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Trait(
+                            EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Trait(
                                     TraitPath(`core::ops::Add`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Trait(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::ops::Add`),

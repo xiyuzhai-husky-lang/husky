@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
@@ -18,14 +18,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -49,14 +49,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Zero`),

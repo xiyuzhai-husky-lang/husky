@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),

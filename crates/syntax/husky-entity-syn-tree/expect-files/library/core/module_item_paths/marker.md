@@ -1,12 +1,12 @@
 Ok(
     [
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::marker::Copy`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::marker::Sized`),
             ),
         ),

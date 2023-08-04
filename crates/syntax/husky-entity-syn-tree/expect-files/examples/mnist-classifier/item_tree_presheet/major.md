@@ -4,9 +4,9 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -38,8 +38,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -52,9 +52,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -86,8 +86,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -100,9 +100,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -134,8 +134,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -148,9 +148,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -182,8 +182,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -196,9 +196,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -230,8 +230,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -244,9 +244,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -278,8 +278,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -292,9 +292,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Fugitive(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -326,8 +326,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Fugitive(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),

@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -32,12 +32,12 @@
     ),
     (
         ItemPath::ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
-                    Id {
-                        value: 45,
-                    },
-                ),
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

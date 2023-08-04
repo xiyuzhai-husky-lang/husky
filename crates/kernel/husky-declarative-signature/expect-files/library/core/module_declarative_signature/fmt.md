@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::fmt::Debug`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Trait(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],

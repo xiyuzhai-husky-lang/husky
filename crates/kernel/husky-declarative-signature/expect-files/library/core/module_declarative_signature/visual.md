@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::visual::Visualize`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Trait(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
@@ -18,14 +18,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::visual::Html`, `Extern`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {

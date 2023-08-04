@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -10,8 +10,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Enum(
                 EnumTypeHirDecl(
                     Id {
@@ -21,8 +21,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
@@ -33,8 +33,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
@@ -45,8 +45,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
@@ -57,8 +57,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
@@ -69,8 +69,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
@@ -81,8 +81,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
@@ -93,8 +93,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -104,8 +104,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
@@ -116,8 +116,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),

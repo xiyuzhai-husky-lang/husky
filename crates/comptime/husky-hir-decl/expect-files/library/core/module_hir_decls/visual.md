@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Trait(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Trait(
             TraitHirDecl {
                 path: TraitPath(`core::visual::Visualize`),
                 template_parameters: HirTemplateParameters {
@@ -9,8 +9,8 @@
             },
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Extern(
                 ExternTypeHirDecl(
                     Id {

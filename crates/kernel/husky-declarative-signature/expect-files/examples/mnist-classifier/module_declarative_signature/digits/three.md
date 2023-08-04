@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
@@ -18,14 +18,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValFugitiveDeclarativeSignatureTemplate {
                             initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Three`),
@@ -36,14 +36,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -67,14 +67,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -98,14 +98,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {

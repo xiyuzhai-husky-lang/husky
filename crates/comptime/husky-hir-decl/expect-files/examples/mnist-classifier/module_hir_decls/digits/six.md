@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -15,8 +15,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
@@ -31,8 +31,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -47,8 +47,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
@@ -59,8 +59,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),

@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Extern(
                 ExternTypeHirDecl(
                     Id {
@@ -10,8 +10,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Extern(
                 ExternTypeHirDecl(
                     Id {
@@ -21,8 +21,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Extern(
                 ExternTypeHirDecl(
                     Id {

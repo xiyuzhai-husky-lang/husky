@@ -19,8 +19,8 @@
             path: `mnist_classifier::line_segment_sketch::line_segment`,
         },
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -30,8 +30,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             PropsStruct(
                 PropsStructTypeHirDecl(
                     Id {
@@ -41,8 +41,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -53,8 +53,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -65,8 +65,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -77,8 +77,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -89,8 +89,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),

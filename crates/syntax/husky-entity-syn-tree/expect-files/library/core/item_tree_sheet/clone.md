@@ -4,9 +4,9 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Trait(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
@@ -38,8 +38,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Trait(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::clone::Clone`),
@@ -58,12 +58,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `Clone`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Trait(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Trait(
                             TraitPath(`core::clone::Clone`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Trait(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),

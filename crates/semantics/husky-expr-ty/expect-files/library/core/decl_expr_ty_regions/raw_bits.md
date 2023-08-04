@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Type(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`core::raw_bits::r32`, `Extern`),

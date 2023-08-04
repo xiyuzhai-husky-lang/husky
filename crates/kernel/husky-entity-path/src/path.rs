@@ -113,13 +113,13 @@ pub enum ItemPath {
 }
 
 impl ItemPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
         match self {
-            ItemPath::Submodule(path) => path.ident(db),
-            ItemPath::MajorItem(path) => path.ident(db),
-            ItemPath::AssociatedItem(path) => path.ident(db),
-            ItemPath::TypeVariant(path) => path.ident(db),
-            ItemPath::ImplBlock(_) => todo!(),
+            ItemPath::Submodule(path) => Some(path.ident(db)),
+            ItemPath::MajorItem(path) => Some(path.ident(db)),
+            ItemPath::AssociatedItem(path) => Some(path.ident(db)),
+            ItemPath::TypeVariant(path) => Some(path.ident(db)),
+            ItemPath::ImplBlock(_) => None,
         }
     }
 

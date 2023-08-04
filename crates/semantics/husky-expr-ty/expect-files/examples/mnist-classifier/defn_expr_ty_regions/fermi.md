@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),

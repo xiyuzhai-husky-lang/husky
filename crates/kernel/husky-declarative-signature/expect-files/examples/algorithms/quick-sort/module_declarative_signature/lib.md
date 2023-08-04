@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -41,14 +41,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -94,14 +94,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`quick_sort::partition`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -147,14 +147,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -171,14 +171,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnFugitiveDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {

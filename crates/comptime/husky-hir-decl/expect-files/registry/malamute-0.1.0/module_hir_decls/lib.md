@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Enum(
                 EnumTypeHirDecl(
                     Id {
@@ -10,8 +10,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Type(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
             Enum(
                 EnumTypeHirDecl(
                     Id {
@@ -21,8 +21,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Gn(
                 GnFugitiveHirDecl {
                     path: FugitivePath(`malamute::narrow_down`, `Gn`),

@@ -94,11 +94,11 @@ impl AssociatedItemSynDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {
+    pub fn path(self, db: &dyn SynDefnDb) -> AssociatedItemPath {
         match self {
-            AssociatedItemSynDefn::TypeItem(_) => todo!(),
-            AssociatedItemSynDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynDefn::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynDefn::TypeItem(syn_defn) => syn_defn.path(db).into(),
+            AssociatedItemSynDefn::TraitItem(syn_defn) => syn_defn.path(db).into(),
+            AssociatedItemSynDefn::TraitForTypeItem(syn_defn) => syn_defn.path(db).into(),
         }
     }
 }

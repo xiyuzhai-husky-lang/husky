@@ -1,7 +1,7 @@
 Ok(
     [
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             ),
         ),

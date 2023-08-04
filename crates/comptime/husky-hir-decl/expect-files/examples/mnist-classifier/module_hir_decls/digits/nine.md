@@ -1,6 +1,6 @@
 [
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
@@ -15,8 +15,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
@@ -31,8 +31,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Val(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
@@ -47,8 +47,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
@@ -59,8 +59,8 @@
             ),
         ),
     ),
-    HirDecl::ModuleItem(
-        ModuleItemHirDecl::Fugitive(
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Fugitive(
             FugitiveHirDecl::Fn(
                 FnFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),

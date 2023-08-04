@@ -86,7 +86,7 @@ impl ImplBlockSynDecl {
     pub fn path(self, db: &dyn SynDeclDb) -> ImplBlockPath {
         match self {
             ImplBlockSynDecl::Type(decl) => decl.path(db).into(),
-            ImplBlockSynDecl::TraitForType(_) => todo!(),
+            ImplBlockSynDecl::TraitForType(decl) => decl.path(db).into(),
         }
     }
 

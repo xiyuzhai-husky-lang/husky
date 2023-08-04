@@ -1,17 +1,17 @@
 Ok(
     [
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::mem::Ref`, `Extern`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::mem::RefMut`, `Extern`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::mem::Leash`, `Extern`),
             ),
         ),

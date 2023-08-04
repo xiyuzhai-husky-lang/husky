@@ -4,9 +4,9 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::option::Option`, `Enum`),
@@ -38,8 +38,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::option::Option`, `Enum`),
@@ -58,12 +58,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `Option`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`core::option::Option`, `Enum`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::option::Option`, `Enum`),
@@ -167,12 +167,12 @@ Ok(
                     parent: None,
                     state: OnceUseRuleState::Resolved {
                         original_symbol: Some(
-                            EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`core::option::Option`, `Enum`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::option::Option`, `Enum`),
@@ -215,8 +215,8 @@ Ok(
                         parent_ty_path: TypePath(`core::option::Option`, `Enum`),
                     },
                     parent: Some(
-                        MajorEntityPath::ModuleItem(
-                            ModuleItemPath::Type(
+                        MajorEntityPath::MajorItem(
+                            MajarItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
                         ),

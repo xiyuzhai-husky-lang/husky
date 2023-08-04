@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::clone::Clone`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Trait(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
@@ -19,12 +19,13 @@
     ),
     (
         ItemPath::ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    Id {
-                        value: 17,
-                    },
-                ),
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `core::clone`,
+                    trai_path: TraitPath(`core::clone::Clone`),
+                    ty_sketch: DeriveAny,
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

@@ -20,38 +20,38 @@ Ok(
                 `mnist_classifier::line_segment_sketch::line_segment`,
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
             ),
         ),
-        ItemPath::ModuleItem(
-            ModuleItemPath::Fugitive(
+        ItemPath::MajorItem(
+            MajarItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
             ),
         ),

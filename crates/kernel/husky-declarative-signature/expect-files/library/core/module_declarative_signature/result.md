@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::result::Result`, `Enum`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -41,12 +41,19 @@
     ),
     (
         ItemPath::ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    Id {
-                        value: 33,
-                    },
-                ),
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `core::result`,
+                    trai_path: TraitPath(`core::ops::Unveil`),
+                    ty_sketch: Path(
+                        TypePath(
+                            Id {
+                                value: 31,
+                            },
+                        ),
+                    ),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

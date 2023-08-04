@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::slice::Slice`, `Extern`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -32,14 +32,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -65,12 +65,12 @@
     ),
     (
         ItemPath::ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
-                    Id {
-                        value: 34,
-                    },
-                ),
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `core::slice`,
+                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

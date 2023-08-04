@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -2023,8 +2023,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -4045,8 +4045,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -8003,8 +8003,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -12329,8 +12329,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),

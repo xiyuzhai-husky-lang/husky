@@ -1,7 +1,7 @@
 Ok(
     [
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`std::ops::Add`),
             ),
         ),

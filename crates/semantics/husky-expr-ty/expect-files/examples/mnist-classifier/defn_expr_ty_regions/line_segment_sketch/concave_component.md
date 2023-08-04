@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),

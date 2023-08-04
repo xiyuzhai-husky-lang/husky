@@ -4,9 +4,9 @@ Ok(
         major_item_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: ItemSynNode::ModuleItem(
-                        ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -32,8 +32,8 @@ Ok(
                             },
                         },
                     ),
-                    syn_node_path: ItemSynNodePath::ModuleItem(
-                        ModuleItemSynNodePath::Type(
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -52,12 +52,12 @@ Ok(
                 EntitySymbolEntry {
                     ident: `LineSegment`,
                     visibility: Scope::Pub,
-                    symbol: EntitySymbol::ModuleItem {
-                        module_item_path: ModuleItemPath::Type(
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajarItemPath::Type(
                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
-                        node: ModuleItemSynNode {
-                            syn_node_path: ModuleItemSynNodePath::Type(
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -91,12 +91,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -122,8 +122,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
@@ -142,12 +142,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -173,8 +173,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                             ),
@@ -193,12 +193,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -224,8 +224,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
@@ -244,12 +244,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -275,8 +275,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                             ),
@@ -295,12 +295,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -326,8 +326,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
@@ -346,12 +346,12 @@ Ok(
                     ),
                     symbol: EntitySymbol::Use(
                         UseSymbol {
-                            original_symbol: EntitySymbol::ModuleItem {
-                                module_item_path: ModuleItemPath::Type(
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
-                                node: ModuleItemSynNode {
-                                    syn_node_path: ModuleItemSynNodePath::Type(
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -377,8 +377,8 @@ Ok(
                                     },
                                 },
                             },
-                            path: PrincipalEntityPath::ModuleItem(
-                                ModuleItemPath::Type(
+                            path: PrincipalEntityPath::MajorItem(
+                                MajarItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),

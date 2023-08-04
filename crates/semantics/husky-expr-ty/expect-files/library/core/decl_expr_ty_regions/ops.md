@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Add`),
@@ -79,8 +79,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::AddAssign`),
@@ -157,8 +157,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitAnd`),
@@ -235,8 +235,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitAndAssign`),
@@ -313,8 +313,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitOr`),
@@ -391,8 +391,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitOrAssign`),
@@ -469,8 +469,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitXor`),
@@ -547,8 +547,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitXorAssign`),
@@ -625,8 +625,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Div`),
@@ -703,8 +703,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::DivAssign`),
@@ -781,8 +781,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::IntIndex`),
@@ -837,8 +837,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Mul`),
@@ -915,8 +915,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::MulAssign`),
@@ -993,8 +993,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Neg`),
@@ -1049,8 +1049,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Not`),
@@ -1105,8 +1105,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Sub`),
@@ -1183,8 +1183,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Unveil`),
@@ -1261,8 +1261,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Type(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),

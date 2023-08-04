@@ -281,7 +281,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),
@@ -329,7 +329,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -377,7 +377,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),
@@ -425,7 +425,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -473,7 +473,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -544,7 +544,7 @@ Ok(
                             ),
                         },
                     },
-                    item_kind: ModuleItem {
+                    item_kind: MajorItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),

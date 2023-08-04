@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -239,8 +239,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -399,8 +399,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -510,8 +510,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -801,8 +801,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -961,8 +961,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -1121,8 +1121,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),

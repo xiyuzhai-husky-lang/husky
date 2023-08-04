@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
@@ -399,8 +399,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
@@ -1794,8 +1794,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),

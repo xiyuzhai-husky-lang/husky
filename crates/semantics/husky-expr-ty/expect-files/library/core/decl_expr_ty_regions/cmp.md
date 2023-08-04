@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::cmp::PartialEq`),
@@ -57,8 +57,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::cmp::Eq`),
@@ -113,8 +113,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::cmp::PartialOrd`),
@@ -169,8 +169,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Trait(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Trait(
                     TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::cmp::Ord`),

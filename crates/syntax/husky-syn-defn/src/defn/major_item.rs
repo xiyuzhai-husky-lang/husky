@@ -58,7 +58,7 @@ pub enum MajorItemSynDefn {
 }
 
 impl MajorItemSynDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> MajorItemSynDecl {
+    pub fn syn_decl(self, db: &dyn SynDefnDb) -> MajorItemSynDecl {
         match self {
             MajorItemSynDefn::Type(defn) => defn.decl(db).into(),
             MajorItemSynDefn::Trait(defn) => defn.decl(db).into(),
@@ -67,7 +67,11 @@ impl MajorItemSynDefn {
     }
 
     pub fn path(self, db: &dyn SynDefnDb) -> MajarItemPath {
-        todo!()
+        match self {
+            MajorItemSynDefn::Type(syn_defn) => syn_defn.path(db).into(),
+            MajorItemSynDefn::Trait(syn_defn) => syn_defn.path(db).into(),
+            MajorItemSynDefn::Fugitive(syn_defn) => syn_defn.path(db).into(),
+        }
     }
 
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {

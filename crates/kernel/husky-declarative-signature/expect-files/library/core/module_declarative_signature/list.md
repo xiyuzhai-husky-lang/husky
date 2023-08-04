@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::list::List`, `Extern`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Type(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternTypeDeclarativeSignatureTemplate {
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -33,12 +33,12 @@
     ),
     (
         ItemPath::ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
-                    Id {
-                        value: 18,
-                    },
-                ),
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `core::list`,
+                    ty_path: TypePath(`core::list::List`, `Extern`),
+                    disambiguator: 0,
+                },
             ),
         ),
         Ok(

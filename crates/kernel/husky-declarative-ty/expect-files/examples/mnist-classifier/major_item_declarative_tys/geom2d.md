@@ -1,7 +1,7 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
             ),
         ),
@@ -10,8 +10,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             ),
         ),
@@ -20,8 +20,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
             ),
         ),
@@ -30,8 +30,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             ),
         ),
@@ -40,8 +40,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             ),
         ),
@@ -50,8 +50,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             ),
         ),

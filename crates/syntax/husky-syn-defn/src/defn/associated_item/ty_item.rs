@@ -114,8 +114,14 @@ pub enum TypeItemSynDefn {
 }
 
 impl TypeItemSynDefn {
-    pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {
-        todo!()
+    pub fn path(self, db: &dyn SynDefnDb) -> TypeItemPath {
+        match self {
+            TypeItemSynDefn::AssociatedFn(defn) => defn.path(db),
+            TypeItemSynDefn::MethodFn(defn) => defn.path(db),
+            TypeItemSynDefn::AssociatedType(defn) => defn.path(db),
+            TypeItemSynDefn::AssociatedVal(defn) => defn.path(db),
+            TypeItemSynDefn::MemoizedField(defn) => defn.path(db),
+        }
     }
 
     pub fn decl(self, db: &dyn SynDefnDb) -> TypeItemSynDecl {

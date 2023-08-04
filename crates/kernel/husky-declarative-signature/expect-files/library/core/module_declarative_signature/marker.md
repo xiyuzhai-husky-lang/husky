@@ -1,13 +1,13 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::marker::Copy`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Trait(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
@@ -18,14 +18,14 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::marker::Sized`),
             ),
         ),
         Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Trait(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
                         template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],

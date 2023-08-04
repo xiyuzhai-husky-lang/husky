@@ -1,8 +1,8 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Type(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -570,8 +570,8 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            ItemSynNodePath::ModuleItem(
-                ModuleItemSynNodePath::Fugitive(
+            ItemSynNodePath::MajorItem(
+                MajorItemSynNodePath::Fugitive(
                     FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),

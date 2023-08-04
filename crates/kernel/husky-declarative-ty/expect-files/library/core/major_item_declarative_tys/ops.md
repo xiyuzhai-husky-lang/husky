@@ -1,7 +1,7 @@
 [
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Add`),
             ),
         ),
@@ -10,8 +10,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::AddAssign`),
             ),
         ),
@@ -20,8 +20,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitAnd`),
             ),
         ),
@@ -30,8 +30,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitAndAssign`),
             ),
         ),
@@ -40,8 +40,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitOr`),
             ),
         ),
@@ -50,8 +50,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitOrAssign`),
             ),
         ),
@@ -60,8 +60,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitXor`),
             ),
         ),
@@ -70,8 +70,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::BitXorAssign`),
             ),
         ),
@@ -80,8 +80,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Div`),
             ),
         ),
@@ -90,8 +90,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::DivAssign`),
             ),
         ),
@@ -100,8 +100,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::IntIndex`),
             ),
         ),
@@ -110,8 +110,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
             ),
         ),
@@ -120,8 +120,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::MulAssign`),
             ),
         ),
@@ -130,8 +130,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Neg`),
             ),
         ),
@@ -140,8 +140,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Not`),
             ),
         ),
@@ -150,8 +150,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Sub`),
             ),
         ),
@@ -160,8 +160,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Trait(
+        ItemPath::MajorItem(
+            MajarItemPath::Trait(
                 TraitPath(`core::ops::Unveil`),
             ),
         ),
@@ -170,8 +170,8 @@
         ),
     ),
     (
-        ItemPath::ModuleItem(
-            ModuleItemPath::Type(
+        ItemPath::MajorItem(
+            MajarItemPath::Type(
                 TypePath(`core::ops::ControlFlow`, `Enum`),
             ),
         ),
