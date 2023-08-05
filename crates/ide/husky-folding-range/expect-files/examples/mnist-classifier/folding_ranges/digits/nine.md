@@ -12,6 +12,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 2,
@@ -25,6 +26,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 5,
@@ -38,6 +40,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 8,
@@ -51,6 +54,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 51,
@@ -64,6 +68,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 56,
@@ -77,6 +82,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
     ],
 )

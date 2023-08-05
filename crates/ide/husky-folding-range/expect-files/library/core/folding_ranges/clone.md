@@ -12,6 +12,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 35,
@@ -25,6 +26,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
     ],
 )

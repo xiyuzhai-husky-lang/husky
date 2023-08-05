@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 either = "1.8.1"
 ordered-float.workspace = true
 thiserror.workspace = true

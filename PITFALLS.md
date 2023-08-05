@@ -22,3 +22,9 @@ Restart vscode
 ## Unresolved import everywhere
 
 Mismatched edition key in Cargo.toml
+
+## Vscode Extension not working
+
+making sure there is no type error in typescript code.
+
+Last resort is to compare with rust-analyzer.

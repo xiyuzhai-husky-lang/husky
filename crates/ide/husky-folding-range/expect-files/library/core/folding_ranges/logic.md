@@ -12,6 +12,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
     ],
 )

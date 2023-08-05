@@ -1,6 +1,7 @@
 //! See [RequestDispatcher].
 use std::{fmt, panic, thread};
 
+use lsp_server::ExtractError;
 use serde::{de::DeserializeOwned, Serialize};
 
 use salsa::ParallelDatabase;
@@ -230,10 +231,15 @@ impl<'a> NotificationDispatcher<'a> {
         };
         let params = match notif.extract::<N::Params>(N::METHOD) {
             Ok(it) => it,
-            Err(notif) => {
-                self.notif = Some(notif);
-                return Ok(self);
-            }
+            Err(notif) => match notif {
+                ExtractError::MethodMismatch(notif) => {
+                    self.notif = Some(notif);
+                    return Ok(self);
+                }
+                ExtractError::JsonError { method, error } => {
+                    panic!("Invalid request\nMethod: {method}\n error: {error}",)
+                }
+            },
         };
         self.task.then(f(self.server, params)?);
         Ok(self)

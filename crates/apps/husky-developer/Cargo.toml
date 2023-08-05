@@ -21,7 +21,7 @@ warp = "0.3.2"
 salsa = { path = "../../abstraction/salsa" }
 text-diff = "0.4.0"
 indexmap = "1.8.1"
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 colored = "2.0.0"
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 relative-path = "1.7.2"

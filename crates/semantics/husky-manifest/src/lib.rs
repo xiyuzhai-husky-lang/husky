@@ -50,12 +50,6 @@ pub(crate) fn package_manifest_aux(
     db: &dyn ManifestDb,
     package_path: PackagePath,
 ) -> ManifestResult<PackageManifest> {
-    match package_path.manifest_ast_sheet(db) {
-        Ok(_) => (),
-        Err(e) => {
-            p!(e.debug(db))
-        }
-    }
     Ok(PackageManifest::from_ast(
         db,
         package_path.toolchain(db),

@@ -12,6 +12,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 24,
@@ -25,6 +26,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 28,
@@ -38,6 +40,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 37,
@@ -51,6 +54,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 50,
@@ -64,6 +68,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 41,
@@ -77,6 +82,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 44,
@@ -90,6 +96,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 61,
@@ -103,6 +110,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 88,
@@ -116,6 +124,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 97,
@@ -129,6 +138,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 99,
@@ -142,6 +152,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 104,
@@ -155,6 +166,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 106,
@@ -168,6 +180,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 101,
@@ -181,6 +194,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 85,
@@ -194,6 +208,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 93,
@@ -207,6 +222,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 120,
@@ -220,6 +236,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 128,
@@ -233,6 +250,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 130,
@@ -246,6 +264,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 135,
@@ -259,6 +278,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 137,
@@ -272,6 +292,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 132,
@@ -285,6 +306,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 140,
@@ -298,6 +320,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 139,
@@ -311,6 +334,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 147,
@@ -324,6 +348,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 150,
@@ -337,6 +362,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 152,
@@ -350,6 +376,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 117,
@@ -363,6 +390,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 125,
@@ -376,6 +404,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 167,
@@ -389,6 +418,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 164,
@@ -402,6 +432,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 180,
@@ -415,6 +446,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 175,
@@ -428,6 +460,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 186,
@@ -441,6 +474,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 172,
@@ -454,6 +488,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 194,
@@ -467,6 +502,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 160,
@@ -480,6 +516,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 19,
@@ -493,6 +530,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 23,
@@ -506,6 +544,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 36,
@@ -519,6 +558,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 40,
@@ -532,6 +572,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 64,
@@ -545,6 +586,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 72,
@@ -558,6 +600,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 80,
@@ -571,6 +614,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 113,
@@ -584,6 +628,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
         FoldingRange {
             start_line: 155,
@@ -597,6 +642,7 @@ Ok(
             kind: Some(
                 Region,
             ),
+            collapsed_text: None,
         },
     ],
 )

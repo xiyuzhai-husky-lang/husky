@@ -7,7 +7,7 @@ edition = "2021"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = { path = "../../abstraction/salsa" }
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 # abstraction
 reserve = { path = "../../abstraction/reserve" }
 # fs

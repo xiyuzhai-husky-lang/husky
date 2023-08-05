@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 itertools = "0.10.5"
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 # fs
