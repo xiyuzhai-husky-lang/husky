@@ -73,7 +73,7 @@ impl FluffyTerm {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => term.display(db).to_string(),
             NestedFluffyTerm::Solid(term) => term.show(db, region.terms.solid_terms()),
-            NestedFluffyTerm::Hollow(_) => todo!(),
+            NestedFluffyTerm::Hollow(term) => "HollowTermTodo".to_string(),
         }
     }
 }

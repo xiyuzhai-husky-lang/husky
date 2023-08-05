@@ -38,8 +38,8 @@ impl ExpectFluffyTerm for ExpectFinalDestination {
         _db: &dyn FluffyTermDb,
         _terms: &mut FluffyTerms,
         _state: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         // ad hoc
-        None
+        AltNone
     }
 }

@@ -44,7 +44,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         if state.expectee() == self.expected {
             return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }

@@ -1,7 +1,9 @@
 #![feature(try_trait_v2)]
+pub use AltOption::*;
+
 pub enum AltOption<T> {
-    Some(T),
-    None,
+    AltSome(T),
+    AltNone,
 }
 
 pub struct AltOptionR<T>(T);
@@ -12,19 +14,19 @@ impl<T> std::ops::Try for AltOption<T> {
     type Residual = AltOptionR<T>;
 
     fn from_output(output: Self::Output) -> Self {
-        AltOption::None
+        AltOption::AltNone
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            AltOption::Some(t) => std::ops::ControlFlow::Break(AltOptionR(t)),
-            AltOption::None => std::ops::ControlFlow::Continue(()),
+            AltOption::AltSome(t) => std::ops::ControlFlow::Break(AltOptionR(t)),
+            AltOption::AltNone => std::ops::ControlFlow::Continue(()),
         }
     }
 }
 
 impl<T> std::ops::FromResidual<AltOptionR<T>> for AltOption<T> {
     fn from_residual(residual: AltOptionR<T>) -> Self {
-        AltOption::Some(residual.0)
+        AltOption::AltSome(residual.0)
     }
 }
