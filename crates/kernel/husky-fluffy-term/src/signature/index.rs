@@ -53,7 +53,7 @@ fn list_index_signature(
         | FluffyTermData::TypeOntologyAtPlace {
             ty_path,
             refined_ty_path,
-            arguments,
+            ty_arguments: arguments,
             ..
         } => match refined_ty_path {
             Left(prelude_ty_path) => match prelude_ty_path {

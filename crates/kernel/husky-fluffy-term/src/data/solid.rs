@@ -79,7 +79,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 place: *place,
                 ty_path: *path,
                 refined_ty_path: *refined_path,
-                arguments: argument_tys,
+                ty_arguments: argument_tys,
                 base_ty_ethereal_term: *base_ty_term,
             },
             SolidTermData::SymbolAtPlace { term, place } => FluffyTermData::SymbolAtPlace {
