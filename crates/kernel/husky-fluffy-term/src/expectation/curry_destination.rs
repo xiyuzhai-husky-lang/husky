@@ -39,7 +39,7 @@ impl ExpectFluffyTerm for ExpectCurryDestination {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
-        None
+    ) -> AltOption<ExpectationEffect> {
+        AltNone
     }
 }

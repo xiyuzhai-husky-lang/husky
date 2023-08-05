@@ -55,7 +55,7 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         match state.expectee() {
             FluffyTerm::Hollow(_) => todo!(),
             FluffyTerm::Solid(_) => todo!(),

@@ -39,6 +39,7 @@ pub(crate) use self::tests::*;
 
 use self::instantiation::*;
 use self::nested::*;
+use alt_option::*;
 use either::*;
 use husky_declarative_signature::*;
 use husky_entity_path::*;

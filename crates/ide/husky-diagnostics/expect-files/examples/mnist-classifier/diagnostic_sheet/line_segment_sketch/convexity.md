@@ -19,6 +19,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: type path mismatch in coersing `never` into `bool` of contract `move `, expected `core::basic::bool`, but got `core::basic::never` instead",
+                severity: Error,
+                range: [6:5, 25:55),
+            },
+        ],
     },
 }

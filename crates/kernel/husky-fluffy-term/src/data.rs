@@ -2,6 +2,7 @@ mod ethereal;
 mod hollow;
 mod solid;
 
+pub(crate) use self::ethereal::*;
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
@@ -61,6 +62,41 @@ pub enum FluffyTermData<'a> {
     },
 }
 
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
+pub enum FluffyBaseTypeData<'a> {
+    TypeOntology {
+        ty_path: TypePath,
+        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        ty_arguments: &'a [FluffyTerm],
+        ty_ethereal_term: Option<EtherealTerm>,
+    },
+    Curry {
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_variable: Option<FluffyTerm>,
+        parameter_ty: FluffyTerm,
+        return_ty: FluffyTerm,
+        ty_ethereal_term: Option<EtherealTermCurry>,
+    },
+    Hole(HoleKind, Hole),
+    Category(TermCategory),
+    Ritchie {
+        ritchie_kind: RitchieKind,
+        parameter_contracted_tys: &'a [FluffyTermRitchieParameter],
+        return_ty: FluffyTerm,
+    },
+    Symbol {
+        term: EtherealTermSymbol,
+    },
+    Variable {
+        ty: FluffyTerm,
+    },
+    TypeVariant {
+        path: TypeVariantPath,
+    },
+}
+
 impl FluffyTerm {
     pub fn data<'a, 'b>(self, engine: &'a impl FluffyTermEngine<'b>) -> FluffyTermData<'a>
     where
@@ -72,102 +108,34 @@ impl FluffyTerm {
     pub fn data_inner<'a>(
         self,
         db: &'a dyn FluffyTermDb,
-        fluffy_terms: &'a FluffyTerms,
+        terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => ethereal_term_data(db, term),
-            NestedFluffyTerm::Solid(term) => term.data2(fluffy_terms.solid_terms()).into(),
-            NestedFluffyTerm::Hollow(term) => term.fluffy_data(db, fluffy_terms),
+            NestedFluffyTerm::Solid(term) => term.data2(terms.solid_terms()).into(),
+            NestedFluffyTerm::Hollow(term) => term.fluffy_data(db, terms),
         }
     }
-}
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TermRitchieFluffyData {
-    ritchie_kind: RitchieKind,
-    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
-    variadics: (),
-    keyed_parameter_contracted_tys: (),
-    return_ty: EtherealTerm,
-}
-
-impl TermRitchieFluffyData {
-    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
-        FluffyTermData::Ritchie {
-            ritchie_kind: self.ritchie_kind,
-            parameter_contracted_tys: &self.parameter_contracted_tys,
-            return_ty: self.return_ty.into(),
-        }
+    pub fn data2<'a, 'b>(
+        self,
+        engine: &'a impl FluffyTermEngine<'b>,
+    ) -> (Option<Place>, FluffyBaseTypeData<'a>)
+    where
+        'b: 'a,
+    {
+        self.ty_data_inner(engine.db(), engine.fluffy_terms())
     }
-}
 
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
-pub(crate) fn term_ritchie_fluffy_data(
-    db: &dyn FluffyTermDb,
-    term: EtherealTermRitchie,
-) -> TermRitchieFluffyData {
-    TermRitchieFluffyData {
-        ritchie_kind: term.ritchie_kind(db),
-        parameter_contracted_tys: term
-            .parameter_contracted_tys(db)
-            .iter()
-            .copied()
-            .map(Into::into)
-            .collect(),
-        variadics: (),
-        keyed_parameter_contracted_tys: (),
-        return_ty: term.return_ty(db),
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) enum TermApplicationFluffyData {
-    TypeOntology {
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
-        ty_ethereal_term: EtherealTerm,
-    },
-}
-
-/// can't directly return FluffyTermData<'_> because of lifetime
-#[salsa::tracked(jar = FluffyTermJar, return_ref)]
-pub(crate) fn term_application_fluffy_data(
-    db: &dyn FluffyTermDb,
-    term: EtherealTermApplication,
-) -> TermApplicationFluffyData {
-    let expansion = term.application_expansion(db);
-    match expansion.function() {
-        TermFunctionReduced::TypeOntology(path) => TermApplicationFluffyData::TypeOntology {
-            path,
-            refined_path: path.refine(db),
-            arguments: expansion
-                .arguments(db)
-                .iter()
-                .copied()
-                .map(Into::into)
-                .collect(),
-            ty_ethereal_term: term.into(),
-        },
-        TermFunctionReduced::Trait(_) => todo!(),
-        TermFunctionReduced::Other(_) => todo!(),
-    }
-}
-
-impl TermApplicationFluffyData {
-    fn as_ref<'a>(&'a self) -> FluffyTermData<'a> {
-        match self {
-            TermApplicationFluffyData::TypeOntology {
-                path,
-                refined_path,
-                arguments,
-                ty_ethereal_term,
-            } => FluffyTermData::TypeOntology {
-                ty_path: *path,
-                refined_ty_path: *refined_path,
-                arguments,
-                ty_ethereal_term: Some(*ty_ethereal_term),
-            },
+    pub fn ty_data_inner<'a>(
+        self,
+        db: &'a dyn FluffyTermDb,
+        terms: &'a FluffyTerms,
+    ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
+        match self.nested() {
+            NestedFluffyTerm::Ethereal(term) => ethereal_term_data2(db, term),
+            NestedFluffyTerm::Solid(term) => term.data2(terms.solid_terms()).into(),
+            NestedFluffyTerm::Hollow(term) => term.fluffy_data2(db, terms),
         }
     }
 }

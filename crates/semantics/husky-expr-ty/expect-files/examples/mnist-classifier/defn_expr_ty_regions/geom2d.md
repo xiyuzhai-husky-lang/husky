@@ -611,7 +611,25 @@
                                         1,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Solid(
+                                                    SolidTerm(
+                                                        1,
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::Hollow(
+                                                    HollowTerm(
+                                                        0,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -687,7 +705,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -765,7 +785,25 @@
                                         0,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Solid(
+                                                    SolidTerm(
+                                                        0,
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::Hollow(
+                                                    HollowTerm(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -841,7 +879,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -872,7 +912,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -903,7 +945,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1195,7 +1239,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1226,7 +1272,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1748,7 +1796,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1815,7 +1865,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1846,7 +1898,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1877,7 +1931,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2570,7 +2626,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2601,7 +2659,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3123,7 +3183,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3190,7 +3252,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3221,7 +3285,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3252,7 +3318,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4969,7 +5037,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5000,7 +5070,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5031,7 +5103,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5077,7 +5151,25 @@
                                         3,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Hollow(
+                                                    HollowTerm(
+                                                        3,
+                                                    ),
+                                                ),
+                                                contract: Move,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -5191,7 +5283,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5240,7 +5334,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5271,7 +5367,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5302,7 +5400,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6461,7 +6561,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6546,7 +6648,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6649,7 +6753,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6680,7 +6786,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6711,7 +6819,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6757,7 +6867,25 @@
                                         5,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Hollow(
+                                                    HollowTerm(
+                                                        5,
+                                                    ),
+                                                ),
+                                                contract: Move,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6925,7 +7053,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7576,7 +7706,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7868,7 +8000,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7899,7 +8033,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8266,7 +8402,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8297,7 +8435,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8837,7 +8977,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8868,7 +9010,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9408,7 +9552,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9439,7 +9585,9 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial,
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),

@@ -19,6 +19,27 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Term Error: expected coersion from `i32 at StackPure { location: StackLocationIdx(LocalSymbolIdx(1)) }` to `HollowTermTodo` under contract ``",
+                severity: Error,
+                range: [8:23, 8:28),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `i32 at StackPure { location: StackLocationIdx(LocalSymbolIdx(0)) }` to `HollowTermTodo` under contract ``",
+                severity: Error,
+                range: [8:44, 8:45),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `HollowTermTodo` to `f32` under contract `move `",
+                severity: Error,
+                range: [54:17, 54:23),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `HollowTermTodo` to `f32` under contract `move `",
+                severity: Error,
+                range: [75:17, 75:23),
+            },
+        ],
     },
 }

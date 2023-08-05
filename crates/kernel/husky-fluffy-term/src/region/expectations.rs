@@ -92,7 +92,7 @@ impl ExpectationEntry {
         &mut self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         self.expectation.resolve(db, terms, &mut self.meta)
     }
 
@@ -142,14 +142,14 @@ impl ExpectationState {
         &mut self,
         hole: Hole,
         gen_hole_constraint: impl FnOnce(&mut Self) -> HoleConstraint,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         match self.resolve_progress {
-            ExpectationProgress::Holed => return None,
+            ExpectationProgress::Holed => return AltNone,
             ExpectationProgress::Resolved(_) => unreachable!(),
             ExpectationProgress::Intact => (),
         }
         self.resolve_progress = ExpectationProgress::Holed;
-        Some(ExpectationEffect {
+        AltSome(ExpectationEffect {
             subsequent_actions: smallvec![FluffyTermResolveAction::AddHoleConstraint {
                 hole,
                 hole_constraint: gen_hole_constraint(self)
@@ -162,28 +162,28 @@ impl ExpectationState {
         &mut self,
         outcome: impl Into<FluffyTermExpectationOutcome>,
         subsequent_actions: FluffyTermResolveActions,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         #[cfg(test)]
         match self.resolve_progress {
             ExpectationProgress::Resolved(_) => unreachable!(),
             _ => (),
         }
         self.resolve_progress = ExpectationProgress::Resolved(Ok(outcome.into()));
-        Some(ExpectationEffect { subsequent_actions })
+        AltSome(ExpectationEffect { subsequent_actions })
     }
 
     pub(crate) fn set_err(
         &mut self,
         e: impl Into<FluffyTermExpectationError>,
         subsequent_actions: FluffyTermResolveActions,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         #[cfg(test)]
         match self.resolve_progress {
             ExpectationProgress::Resolved(_) => unreachable!(),
             _ => (),
         }
         self.resolve_progress = ExpectationProgress::Resolved(Err(e.into()));
-        Some(ExpectationEffect { subsequent_actions })
+        AltSome(ExpectationEffect { subsequent_actions })
     }
 }
 

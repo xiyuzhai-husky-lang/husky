@@ -57,7 +57,7 @@ impl Expectation {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         match self {
             Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
             Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
@@ -141,8 +141,8 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationState,
-    ) -> Option<ExpectationEffect>;
+        state: &mut ExpectationState,
+    ) -> AltOption<ExpectationEffect>;
 }
 
 pub type ExpectationIdx = ArenaIdx<ExpectationEntry>;
@@ -233,6 +233,7 @@ pub enum OriginalFluffyTermExpectationError {
     #[error("ExpectedCoersion")]
     ExpectedCoersion {
         expectee: FluffyTerm,
+        contract: Contract,
         expected: FluffyTerm,
     },
     #[error("todo")]

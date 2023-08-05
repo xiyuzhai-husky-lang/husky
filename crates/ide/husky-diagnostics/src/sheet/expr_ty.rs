@@ -247,11 +247,12 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
             OriginalFluffyTermExpectationError::ExpectedSubtype { expectee } => {
                 format!("Term Error: expected subtype",)
             }
-            OriginalFluffyTermExpectationError::ExpectedCoersion { expected, expectee } => {
+            OriginalFluffyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
                 format!(
-                    "Term Error: expected coersion from `{}` to `{}`",
-                    expected.show(ctx.db(), ctx.fluffy_term_region()),
+                    "Term Error: expected coersion from `{}` to `{}` under contract `{}`",
                     expectee.show(ctx.db(), ctx.fluffy_term_region()),
+                    expected.show(ctx.db(), ctx.fluffy_term_region()),
+                    contract.as_str(),
                 )
             }
             OriginalFluffyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(

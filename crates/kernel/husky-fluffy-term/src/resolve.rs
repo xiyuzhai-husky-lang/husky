@@ -13,13 +13,11 @@ impl FluffyTermRegion {
         &mut self,
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
-    ) -> Option<ExpectationEffect> {
+    ) -> AltOption<ExpectationEffect> {
         for expectation in self.expectations.unresolved_expectation_iter_mut() {
-            if let Some(effect) = expectation.resolve(db, &mut self.terms) {
-                return Some(effect);
-            }
+            expectation.resolve(db, &mut self.terms)?
         }
-        None
+        AltOption::AltNone
     }
 
     pub fn resolve_as_much_as_possible(
@@ -27,7 +25,7 @@ impl FluffyTermRegion {
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
     ) {
-        while let Some(effect) = self.next_expectation_effect(db, level) {
+        while let AltOption::AltSome(effect) = self.next_expectation_effect(db, level) {
             for action in effect.take_subsequent_actions() {
                 match action {
                     FluffyTermResolveAction::AddExpectation {

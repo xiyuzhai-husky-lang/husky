@@ -30,7 +30,7 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> Option<ExpectationEffect> {
-        None
+    ) -> AltOption<ExpectationEffect> {
+        AltNone
     }
 }

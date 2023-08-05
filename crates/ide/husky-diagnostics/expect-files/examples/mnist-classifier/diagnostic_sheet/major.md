@@ -26,6 +26,16 @@ DiagnosticSheet {
                 range: [4:31, 4:36),
             },
             Diagnostic {
+                message: "Type Error: type path mismatch in coersing `never` into `Leash ConnectedComponent` of contract `move `, expected `core::mem::Leash`, but got `core::basic::never` instead",
+                severity: Error,
+                range: [7:5, 14:36),
+            },
+            Diagnostic {
+                message: "Type Error: type path mismatch in coersing `never` into `f32` of contract `move `, expected `core::num::f32`, but got `core::basic::never` instead",
+                severity: Error,
+                range: [17:5, 20:56),
+            },
+            Diagnostic {
                 message: "Type Error: type path mismatch in coersing `List RawContour` into `Leash List RawContour` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
                 severity: Error,
                 range: [23:5, 23:43),
@@ -34,6 +44,11 @@ DiagnosticSheet {
                 message: "Type Error: type path mismatch in coersing `List RawContour` into `Leash List RawContour` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
                 severity: Error,
                 range: [23:5, 23:43),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `HollowTermTodo` to `usize` under contract ``",
+                severity: Error,
+                range: [27:5, 27:46),
             },
             Diagnostic {
                 message: "Type Error: type path mismatch in coersing `RawContour` into `Leash RawContour` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::raw_contour::RawContour` instead",
