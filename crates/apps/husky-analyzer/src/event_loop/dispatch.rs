@@ -33,9 +33,6 @@ fn dispatch_lsp_request(
         req.id.clone(),
         (req.method.clone(), instant_when_received_request),
     );
-    server
-        .client_comm
-        .show_message(lsp_types::MessageType::ERROR, "my dog is sekiro".into());
     let mut dispatcher = RequestDispatcher {
         req: Some(req),
         server,
