@@ -36,7 +36,7 @@ opt-level = 0
 lto = false
 
 [workspace.dependencies]
-lsp-types = { version = "0.94", features = ["proposed"] }
+lsp-types = { version = "=0.94", features = ["proposed"] }
 thiserror = "1.0.37"
 smallvec = "1.10.0"
 ordered-float = "3.0.0"

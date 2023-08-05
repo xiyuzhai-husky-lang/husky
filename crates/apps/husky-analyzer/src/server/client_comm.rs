@@ -8,7 +8,7 @@ use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
 use salsa::DebugWithDb;
 
-use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB};
+use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB, utils::log};
 
 use super::Server;
 
@@ -42,18 +42,34 @@ impl ClientCommunicator {
     }
 
     pub(crate) fn send_diagnostics(&self, db: &AnalyzerDB, module_path: ModulePath) {
-        const DEBUG_SEND_DIAGNOSTICS: bool = false;
-        if DEBUG_SEND_DIAGNOSTICS {
-            eprintln!("send_diagnostics(module_path: {:?})", module_path.debug(db));
-        }
-        let diagnostic_sheet = db.diagnostic_sheet(module_path);
-        let diagnostics: Vec<lsp_types::Diagnostic> = diagnostic_sheet
-            .diagnostic_iter(db)
-            .map(|diagnostic| diagnostic.into())
-            .collect();
-        if DEBUG_SEND_DIAGNOSTICS {
-            eprintln!("before send_flag is set");
-        }
+        log!("send_diagnostics(module_path: {:?})", module_path.debug(db));
+
+        let diagnostics: Vec<lsp_types::Diagnostic> = match std::panic::catch_unwind(|| {
+            log!("before calc diagnostic_sheet");
+            let diagnostic_sheet = db.diagnostic_sheet(module_path);
+            log!("after calc diagnostic_sheet");
+            diagnostic_sheet
+                .diagnostic_iter(db)
+                .map(|diagnostic| diagnostic.into())
+                .collect()
+        }) {
+            Ok(diagnostics) => {
+                log!("diagnostics collected");
+                diagnostics
+            }
+            Err(e) => {
+                if let Some(s) = e.downcast_ref::<&str>() {
+                    log!("error message: {s}")
+                } else if let Some(s) = e.downcast_ref::<String>() {
+                    log!("error message: {s}")
+                } else {
+                    log!("error message: unknown")
+                }
+                log!("error, panicked");
+                todo!()
+            }
+        };
+        log!("before send_flag is set");
         let send_flag = match self.diagnostics_sent.entry(module_path) {
             Entry::Occupied(mut entry) => {
                 let is_same = entry.get() == &diagnostics;
@@ -70,12 +86,14 @@ impl ClientCommunicator {
                 true
             }
         };
-        if DEBUG_SEND_DIAGNOSTICS {
-            eprintln!("after send_flag is set");
-        }
+        log!("after send_flag is set");
         if send_flag {
-            let Ok(module_diff_path) = module_path.diff_path(db) else { todo!() };
-            let Ok(path) = &module_diff_path.abs_path(db) else { todo!() };
+            let Ok(module_diff_path) = module_path.diff_path(db) else {
+                todo!()
+            };
+            let Ok(path) = &module_diff_path.abs_path(db) else {
+                todo!()
+            };
             match url_from_diff_path(path) {
                 Ok(url) => self.send_diagnostics_aux(url, diagnostics, None),
                 Err(_) => eprintln!("error in translating path {:?}", path),

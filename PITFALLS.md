@@ -28,3 +28,7 @@ Mismatched edition key in Cargo.toml
 making sure there is no type error in typescript code.
 
 Last resort is to compare with rust-analyzer.
+
+## Couldn't find Vscode Publisher
+
+https://marketplace.visualstudio.com/manage/publishers/husky-lang
