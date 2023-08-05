@@ -26,36 +26,6 @@ DiagnosticSheet {
                 range: [4:31, 4:36),
             },
             Diagnostic {
-                message: "Term Error: expected coersion from `List ConnectedComponent` to `List ConnectedComponent` under contract `move `",
-                severity: Error,
-                range: [4:5, 4:37),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List ConnectedComponent` to `List ConnectedComponent` under contract `move `",
-                severity: Error,
-                range: [4:5, 4:37),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `bool` to `bool` under contract ``",
-                severity: Error,
-                range: [11:12, 11:43),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
-                severity: Error,
-                range: [12:13, 12:44),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
-                severity: Error,
-                range: [13:13, 13:19),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
-                severity: Error,
-                range: [19:9, 19:52),
-            },
-            Diagnostic {
                 message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
                 severity: Error,
                 range: [23:5, 23:43),
@@ -64,11 +34,6 @@ DiagnosticSheet {
                 message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
                 severity: Error,
                 range: [23:5, 23:43),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `_i` to `usize` under contract ``",
-                severity: Error,
-                range: [27:5, 27:46),
             },
             Diagnostic {
                 message: "Term Error: expected coersion from `RawContour` to `Leash RawContour` under contract `move `",

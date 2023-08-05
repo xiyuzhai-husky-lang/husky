@@ -116,25 +116,11 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                                        argument: EtherealTerm(`Five`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                                        argument: EtherealTerm(`Five`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -167,25 +153,11 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                                        argument: EtherealTerm(`Five`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                                        argument: EtherealTerm(`Five`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Place(
+                                                Todo,
+                                            ),
                                         ),
                                     ),
                                 ),

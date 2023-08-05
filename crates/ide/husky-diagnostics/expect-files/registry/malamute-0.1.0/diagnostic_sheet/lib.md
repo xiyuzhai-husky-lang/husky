@@ -21,11 +21,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Term Error: expected coersion from `i32` to `i32` under contract `move `",
-                severity: Error,
-                range: [15:17, 15:18),
-            },
-            Diagnostic {
                 message: "Term Error: expected category",
                 severity: Error,
                 range: [11:19, 11:21),
