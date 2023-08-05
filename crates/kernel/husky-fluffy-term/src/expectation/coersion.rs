@@ -39,7 +39,7 @@ impl ExpectCoersion {
         let ty = match ty.data(engine) {
             FluffyTermData::TypeOntologyAtPlace {
                 ty_path: path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => match arguments.len() {
                 0 => TermEntityPath::TypeOntology(path).into(),
@@ -181,7 +181,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
                     place,
                     ty_path: path,
                     refined_ty_path: refined_path,
-                    arguments,
+                    ty_arguments: arguments,
                     ..
                 } => self.resolve_convertible_to_place_ty_ontology(
                     db,
@@ -220,11 +220,20 @@ impl ExpectCoersion {
         if let Left(PreludeTypePath::Option) = dst_refined_ty_path && dst_ty_arguments[0] == state.expectee() {
             debug_assert_eq!(dst_ty_arguments.len() ,1);
             state.set_ok(Coersion::WrapInSome, smallvec![])
+        } else if let Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::Leash)) = dst_refined_ty_path && dst_ty_arguments[0] == state.expectee(){
+            state.set_ok(Coersion::WrapInSome, smallvec![])
+        } else if let Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::Ref)) = dst_refined_ty_path && dst_ty_arguments[1] == state.expectee(){
+            todo!()
+        } else if let Left(PreludeTypePath::Indirection(PreludeIndirectionTypePath::RefMut)) = dst_refined_ty_path && dst_ty_arguments[1] == state.expectee(){
+            todo!()
         } else {
             self.resolve_convertible_to_ty_ontology_aux(db, state, terms, state.expectee().data_inner(db, terms), dst_path, dst_refined_ty_path, dst_ty_arguments)
         }
     }
 
+    // todo: keep track of coersion
+    // there should a base coersion
+    // at this stage, we should already rule out the case dst_ty_path is prelude indirection
     fn resolve_convertible_to_ty_ontology_aux(
         &self,
         db: &dyn FluffyTermDb,
@@ -292,7 +301,7 @@ impl ExpectCoersion {
             FluffyTermData::TypeOntologyAtPlace {
                 place,
                 refined_ty_path: src_refined_ty_path,
-                arguments: src_argument_tys,
+                ty_arguments: src_argument_tys,
                 ..
             } if dst_refined_ty_path == src_refined_ty_path => {
                 if dst_ty_arguments.len() != src_argument_tys.len() {
@@ -322,16 +331,16 @@ impl ExpectCoersion {
                 }
             }
             FluffyTermData::TypeOntologyAtPlace {
-                ty_path: src_path,
+                ty_path: src_ty_path,
                 refined_ty_path: Left(PreludeTypePath::Indirection(src_indirection_ty_path)),
-                arguments: src_arguments,
+                ty_arguments: src_ty_arguments,
                 ..
             } => match src_indirection_ty_path {
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
-                    debug_assert_eq!(src_arguments.len(), 1);
-                    match src_arguments[0].data_inner(db, fluffy_terms) {
+                    debug_assert_eq!(src_ty_arguments.len(), 1);
+                    match src_ty_arguments[0].data_inner(db, fluffy_terms) {
                         FluffyTermData::Literal(_) => todo!(),
                         FluffyTermData::TypeOntology {
                             ty_path,
@@ -345,7 +354,7 @@ impl ExpectCoersion {
                             FluffyTermData::TypeOntologyAtPlace {
                                 ty_path,
                                 refined_ty_path,
-                                arguments,
+                                ty_arguments: arguments,
                                 base_ty_ethereal_term: ty_ethereal_term,
                                 place: Place::Leashed,
                             },
@@ -356,7 +365,7 @@ impl ExpectCoersion {
                         FluffyTermData::TypeOntologyAtPlace {
                             ty_path,
                             refined_ty_path,
-                            arguments,
+                            ty_arguments: arguments,
                             base_ty_ethereal_term,
                             place,
                         } => todo!(),
@@ -389,10 +398,11 @@ impl ExpectCoersion {
             },
             FluffyTermData::TypeOntologyAtPlace {
                 ty_path: src_path,
-                refined_ty_path: src_refined_path,
-                arguments: src_arguments,
+                refined_ty_path: src_refined_ty_path,
+                ty_arguments: src_ty_arguments,
                 ..
             } => {
+                // at this stage, we should already rule out the case dst_ty_path is prelude indirection
                 // todo: consider `Deref` and `DerefMut`
                 state.set_err(
                     OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {

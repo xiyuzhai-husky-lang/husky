@@ -47,7 +47,7 @@ impl FluffyTerms {
                     place,
                     ty_path,
                     refined_ty_path,
-                    arguments,
+                    ty_arguments: arguments,
                     base_ty_ethereal_term,
                 } => todo!(),
                 FluffyTermData::Curry {

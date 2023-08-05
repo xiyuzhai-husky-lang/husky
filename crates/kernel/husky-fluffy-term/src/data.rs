@@ -21,7 +21,7 @@ pub enum FluffyTermData<'a> {
     TypeOntologyAtPlace {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: &'a [FluffyTerm],
+        ty_arguments: &'a [FluffyTerm],
         base_ty_ethereal_term: Option<EtherealTerm>,
         place: Place,
     },

@@ -134,7 +134,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 FluffyTermData::TypeOntologyAtPlace {
                     ty_path,
                     refined_ty_path,
-                    arguments,
+                    ty_arguments: arguments,
                     base_ty_ethereal_term,
                     place,
                 } => todo!(),
