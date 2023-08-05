@@ -23,11 +23,13 @@ Restart vscode
 
 Mismatched edition key in Cargo.toml
 
-## Vscode Extension not working
+## Vscode Extension not working, without error message
 
 making sure there is no type error in typescript code.
 
 Last resort is to compare with rust-analyzer.
+
+Looking out for infinite loops.
 
 ## Couldn't find Vscode Publisher
 

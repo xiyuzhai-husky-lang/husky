@@ -95,12 +95,11 @@ impl FugitiveSynDefn {
     }
 
     pub fn path(self, db: &dyn SynDefnDb) -> FugitivePath {
-        todo!()
-        // match self {
-        //     FugitiveDefn::Fn(defn) => defn.path(db),
-        //     FugitiveDefn::Val(defn) => defn.path(db),
-        //     FugitiveDefn::Gn(defn) => defn.path(db),
-        // }
+        match self {
+            FugitiveSynDefn::Fn(defn) => defn.path(db),
+            FugitiveSynDefn::Val(defn) => defn.path(db),
+            FugitiveSynDefn::Gn(defn) => defn.path(db),
+        }
     }
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
