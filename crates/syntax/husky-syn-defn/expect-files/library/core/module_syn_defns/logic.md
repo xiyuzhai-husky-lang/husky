@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::logic::Prop`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -69,7 +69,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Structure(
+                TypeSynDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                         decl: StructureTypeSynDecl {
@@ -298,7 +298,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Inductive(
+                TypeSynDefn::Inductive(
                     InductiveTypeSynDefn {
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         decl: InductiveTypeSynDecl {

@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::PropsStruct(
+                TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         decl: PropsStructTypeSynDecl {
@@ -218,7 +218,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 430,
+                                                                value: 429,
                                                             },
                                                         ),
                                                     ),

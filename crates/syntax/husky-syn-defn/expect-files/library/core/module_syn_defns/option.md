@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Enum(
+                TypeSynDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`core::option::Option`, `Enum`),
                         decl: EnumTypeSynDecl {

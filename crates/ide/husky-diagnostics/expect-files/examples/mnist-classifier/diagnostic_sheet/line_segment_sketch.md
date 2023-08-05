@@ -26,19 +26,9 @@ DiagnosticSheet {
                 range: [171:68, 171:102),
             },
             Diagnostic {
-                message: "Type Error: no method named `popx` for type `List LineSegmentStroke at MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(2)) }`",
-                severity: Error,
-                range: [185:49, 185:53),
-            },
-            Diagnostic {
                 message: "Type Error: no field named end in CyclicSliceLeashed Point2d",
                 severity: Error,
                 range: [193:41, 193:74),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `popx` for type `List LineSegmentStroke at MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(2)) }`",
-                severity: Error,
-                range: [196:47, 196:51),
             },
             Diagnostic {
                 message: "Type Error: no field named end in CyclicSliceLeashed Point2d",
