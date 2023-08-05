@@ -14,7 +14,7 @@ macro_rules! test_print {
 #[macro_export]
 macro_rules! p {
     ($($v:expr),*) => {{
-        // #[cfg(not(debug_assertions))]
+        #[cfg(not(debug_assertions))]
         panic!("shouldn't print in release!");
         eprintln!(
                 r#"{}

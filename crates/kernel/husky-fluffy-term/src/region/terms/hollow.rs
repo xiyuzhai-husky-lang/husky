@@ -12,7 +12,7 @@ pub struct HollowTerms {
 #[derive(Debug, PartialEq, Eq)]
 pub enum HoleConstraint {
     CoercibleFrom { target: FluffyTerm },
-    CoercibleTo { target: FluffyTerm },
+    CoercibleInto { target: FluffyTerm },
 }
 
 impl HollowTerms {

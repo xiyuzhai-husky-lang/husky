@@ -21,9 +21,39 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `never` into `bool` of contract `move `, expected `core::basic::bool`, but got `core::basic::never` instead",
+                message: "Term Error: expected coersion from `i32` to `i32` under contract ``",
                 severity: Error,
-                range: [6:5, 25:55),
+                range: [8:68, 8:69),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `bool` to `bool` under contract ``",
+                severity: Error,
+                range: [11:8, 11:48),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `i32` to `i32` under contract ``",
+                severity: Error,
+                range: [13:68, 13:69),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
+                severity: Error,
+                range: [16:13, 16:98),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
+                severity: Error,
+                range: [22:13, 22:96),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `bool` to `bool` under contract `move `",
+                severity: Error,
+                range: [23:16, 23:54),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `bool` to `bool` under contract `move `",
+                severity: Error,
+                range: [25:16, 25:55),
             },
         ],
     },

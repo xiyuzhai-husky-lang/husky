@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 pub use AltOption::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum AltOption<T> {
     AltSome(T),
     AltNone,

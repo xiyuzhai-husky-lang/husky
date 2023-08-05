@@ -12,64 +12,53 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
-        if self.ty_expected == state.expectee() {
+        let (expectee_place, expectee_base_ty_data) = state.expectee().ty_data_inner(db, terms);
+        let (expected_place, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms);
+        if expectee_base_ty_data == expected_base_ty_data {
             // ad hoc
             // todo: contract
-            state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![])
-        } else {
-            match self.ty().data_inner(db, terms) {
-                FluffyTermData::Literal(_) => todo!(),
-                FluffyTermData::TypeOntology {
-                    ty_path: path,
-                    refined_ty_path,
-                    arguments,
-                    ..
-                } => self.resolve_trivial_dst_ty_ontology(
-                    db,
-                    state,
-                    terms,
-                    path,
-                    refined_ty_path,
-                    arguments,
-                ),
-                FluffyTermData::Curry { .. } => todo!(),
-                FluffyTermData::Hole(_, hole) => {
-                    state.set_holed(hole, |meta| HoleConstraint::CoercibleFrom {
-                        target: meta.expectee(),
-                    })
-                }
-                FluffyTermData::Category(_) => match self.contract() {
-                    Contract::None => todo!(),
-                    Contract::Move => todo!(),
-                    Contract::Borrow => todo!(),
-                    Contract::BorrowMut => todo!(),
-                    Contract::Const => {
-                        if state.expectee() == self.ty() {
-                            return state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![]);
-                        }
-                        todo!()
-                    }
-                    Contract::Leash => todo!(),
-                },
-                FluffyTermData::Ritchie { .. } => AltNone,
-                FluffyTermData::TypeOntologyAtPlace {
-                    place,
-                    ty_path: path,
-                    refined_ty_path: refined_path,
-                    ty_arguments: arguments,
-                    ..
-                } => todo!(),
-                FluffyTermData::HoleAtPlace {
-                    place,
-                    hole_kind,
-                    hole,
-                } => AltNone, // adhoc
-                // todo!(),
-                FluffyTermData::Symbol { .. } => todo!(),
-                FluffyTermData::SymbolAtPlace { .. } => todo!(),
-                FluffyTermData::Variable { ty } => todo!(),
-                FluffyTermData::TypeVariant { path } => todo!(),
+            return state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![]);
+        }
+        if let FluffyBaseTypeData::Hole(_, hole) = expectee_base_ty_data {
+            return state.set_holed(hole, |meta| HoleConstraint::CoercibleInto {
+                target: self.ty_expected(),
+            });
+        }
+        match expected_base_ty_data {
+            FluffyBaseTypeData::TypeOntology {
+                ty_path: path,
+                refined_ty_path,
+                ty_arguments,
+                ..
+            } => self.resolve_trivial_dst_ty_ontology(
+                db,
+                state,
+                terms,
+                path,
+                refined_ty_path,
+                ty_arguments,
+            ),
+            FluffyBaseTypeData::Curry { .. } => todo!(),
+            FluffyBaseTypeData::Hole(_, hole) => {
+                state.set_holed(hole, |meta| HoleConstraint::CoercibleFrom {
+                    target: meta.expectee(),
+                })
             }
+            FluffyBaseTypeData::Category(_) => match self.contract() {
+                Contract::None => todo!(),
+                Contract::Move => todo!(),
+                Contract::Borrow => todo!(),
+                Contract::BorrowMut => todo!(),
+                Contract::Const => {
+                    if state.expectee() == self.ty_expected() {
+                        return state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![]);
+                    }
+                    todo!()
+                }
+                Contract::Leash => todo!(),
+            },
+            FluffyBaseTypeData::Ritchie { .. } => AltNone,
+            FluffyBaseTypeData::Symbol { .. } => todo!(),
         }
     }
 
@@ -91,7 +80,7 @@ impl ExpectCoersion {
                 ..
             } if dst_refined_ty_path == src_path => {
                 if dst_ty_arguments.len() != src_argument_tys.len() {
-                    p!(state.expectee().debug(db), self.ty().debug(db));
+                    p!(state.expectee().debug(db), self.ty_expected().debug(db));
                     todo!()
                 }
                 let mut actions = smallvec![];
@@ -116,21 +105,6 @@ impl ExpectCoersion {
                     Contract::Leash => todo!(),
                 }
             }
-            FluffyTermData::TypeOntology {
-                ty_path: src_path,
-                refined_ty_path: src_refined_path,
-                arguments: src_arguments,
-                ..
-            } => state.set_err(
-                OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                    contract: self.contract,
-                    ty_expected: self.ty_expected,
-                    expectee: state.expectee(),
-                    expected_path: dst_path,
-                    expectee_path: src_path,
-                },
-                smallvec![],
-            ),
             FluffyTermData::TypeOntologyAtPlace {
                 place,
                 refined_ty_path: src_refined_ty_path,
@@ -138,7 +112,7 @@ impl ExpectCoersion {
                 ..
             } if dst_refined_ty_path == src_refined_ty_path => {
                 if dst_ty_arguments.len() != src_argument_tys.len() {
-                    p!(state.expectee().debug(db), self.ty().debug(db));
+                    p!(state.expectee().debug(db), self.ty_expected().debug(db));
                     todo!()
                 }
                 let mut actions = smallvec![];
@@ -164,7 +138,7 @@ impl ExpectCoersion {
                 }
             }
             FluffyTermData::Hole(_, hole) => {
-                state.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
+                state.set_holed(hole, |meta| HoleConstraint::CoercibleInto {
                     target: meta.expectee(),
                 })
             }

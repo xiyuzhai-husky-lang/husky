@@ -62,6 +62,76 @@ pub enum FluffyTermData<'a> {
     },
 }
 
+impl<'a> FluffyTermData<'a> {
+    pub fn show(&self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
+        use salsa::DisplayWithDb;
+        match self {
+            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::TypeOntology {
+                ty_path,
+                refined_ty_path,
+                arguments,
+                ty_ethereal_term,
+            } => match ty_ethereal_term {
+                Some(base_ty_term) => format!("{}", base_ty_term.display(db)),
+                None => {
+                    use std::fmt::Write;
+                    let mut s = String::default();
+                    write!(s, "{}", ty_path.ident(db).data(db));
+                    for argument in arguments.iter() {
+                        write!(s, " {}", argument.show(db, terms));
+                    }
+                    s
+                }
+            },
+            FluffyTermData::TypeOntologyAtPlace {
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
+                base_ty_ethereal_term,
+                place,
+            } => match base_ty_ethereal_term {
+                Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
+                None => todo!(),
+            },
+            FluffyTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType => "_i".to_string(),
+                HoleKind::UnspecifiedFloatType => "_f".to_string(),
+                HoleKind::ImplicitType => "_t".to_string(),
+                HoleKind::Any => "_a".to_string(),
+            },
+            FluffyTermData::HoleAtPlace {
+                hole_kind,
+                hole,
+                place,
+            } => match hole_kind {
+                HoleKind::UnspecifiedIntegerType => format!("@{:?} _i", place),
+                HoleKind::UnspecifiedFloatType => format!("@{:?} _f", place),
+                HoleKind::ImplicitType => format!("@{:?} _t", place),
+                HoleKind::Any => format!("@{:?} _a", place),
+            },
+            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+            FluffyTermData::Symbol { term, ty } => todo!(),
+            FluffyTermData::SymbolAtPlace { term, place } => todo!(),
+            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub enum FluffyBaseTypeData<'a> {
@@ -88,12 +158,6 @@ pub enum FluffyBaseTypeData<'a> {
     },
     Symbol {
         term: EtherealTermSymbol,
-    },
-    Variable {
-        ty: FluffyTerm,
-    },
-    TypeVariant {
-        path: TypeVariantPath,
     },
 }
 

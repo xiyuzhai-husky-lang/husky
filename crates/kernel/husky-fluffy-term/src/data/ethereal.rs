@@ -165,12 +165,7 @@ pub(super) fn ethereal_term_data2<'a>(
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(term) => (None, FluffyBaseTypeData::Symbol { term }),
-        EtherealTerm::Variable(term) => (
-            None,
-            FluffyBaseTypeData::Variable {
-                ty: term.ty(db).into(),
-            },
-        ),
+        EtherealTerm::Variable(term) => unreachable!(),
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),
@@ -184,7 +179,7 @@ pub(super) fn ethereal_term_data2<'a>(
                 },
             ),
             TermEntityPath::TypeInstance(_) => todo!(),
-            TermEntityPath::TypeVariant(path) => (None, FluffyBaseTypeData::TypeVariant { path }),
+            TermEntityPath::TypeVariant(path) => unreachable!(),
         },
         EtherealTerm::Category(term) => (None, FluffyBaseTypeData::Category(term)),
         EtherealTerm::Universe(_) => todo!(),

@@ -331,7 +331,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 FluffyTermData::Variable { ty } => todo!(),
                                 FluffyTermData::TypeVariant { path } => todo!(),
                             },
-                            None => self.new_hole(expr_idx, HoleKind::ImplicitType).into(),
+                            None => self.new_hole(expr_idx, HoleKind::Any).into(),
                         };
                         for item in items {
                             self.infer_new_expr_ty_discarded(
