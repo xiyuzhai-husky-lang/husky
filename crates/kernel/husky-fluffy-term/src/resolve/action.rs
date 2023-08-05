@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug)]
 pub enum FluffyTermResolveAction {
     AddExpectation {
         src: ExpectationSource,

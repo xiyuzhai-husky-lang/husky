@@ -21,62 +21,82 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `Leash BinaryImage28` into `BinaryImage28` of contract ``, expected `mnist::BinaryImage28`, but got `core::mem::Leash` instead",
+                message: "Term Error: expected coersion from `Leash BinaryImage28` to `BinaryImage28` under contract ``",
                 severity: Error,
                 range: [4:31, 4:36),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `never` into `Leash ConnectedComponent` of contract `move `, expected `core::mem::Leash`, but got `core::basic::never` instead",
+                message: "Term Error: expected coersion from `List ConnectedComponent` to `List ConnectedComponent` under contract `move `",
                 severity: Error,
-                range: [7:5, 14:36),
+                range: [4:5, 4:37),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `never` into `f32` of contract `move `, expected `core::num::f32`, but got `core::basic::never` instead",
+                message: "Term Error: expected coersion from `List ConnectedComponent` to `List ConnectedComponent` under contract `move `",
                 severity: Error,
-                range: [17:5, 20:56),
+                range: [4:5, 4:37),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `List RawContour` into `Leash List RawContour` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
+                message: "Term Error: expected coersion from `bool` to `bool` under contract ``",
+                severity: Error,
+                range: [11:12, 11:43),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
+                severity: Error,
+                range: [12:13, 12:44),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
+                severity: Error,
+                range: [13:13, 13:19),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `unit` to `unit` under contract ``",
+                severity: Error,
+                range: [19:9, 19:52),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
                 severity: Error,
                 range: [23:5, 23:43),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `List RawContour` into `Leash List RawContour` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
+                message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
                 severity: Error,
                 range: [23:5, 23:43),
             },
             Diagnostic {
-                message: "Term Error: expected coersion from `HollowTermTodo` to `usize` under contract ``",
+                message: "Term Error: expected coersion from `_i` to `usize` under contract ``",
                 severity: Error,
                 range: [27:5, 27:46),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `RawContour` into `Leash RawContour` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::raw_contour::RawContour` instead",
+                message: "Term Error: expected coersion from `RawContour` to `Leash RawContour` under contract `move `",
                 severity: Error,
                 range: [27:5, 27:46),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `RawContour` into `Leash RawContour` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::raw_contour::RawContour` instead",
+                message: "Term Error: expected coersion from `RawContour` to `Leash RawContour` under contract `move `",
                 severity: Error,
                 range: [27:5, 27:46),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `LineSegmentSketch` into `Leash LineSegmentSketch` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::line_segment_sketch::LineSegmentSketch` instead",
+                message: "Term Error: expected coersion from `LineSegmentSketch` to `Leash LineSegmentSketch` under contract `move `",
                 severity: Error,
                 range: [30:5, 30:42),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `LineSegmentSketch` into `Leash LineSegmentSketch` of contract `move `, expected `core::mem::Leash`, but got `mnist_classifier::line_segment_sketch::LineSegmentSketch` instead",
+                message: "Term Error: expected coersion from `LineSegmentSketch` to `Leash LineSegmentSketch` under contract `move `",
                 severity: Error,
                 range: [30:5, 30:42),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `List ConcaveComponent` into `Leash List ConcaveComponent` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
+                message: "Term Error: expected coersion from `List ConcaveComponent` to `Leash List ConcaveComponent` under contract `move `",
                 severity: Error,
                 range: [33:5, 33:49),
             },
             Diagnostic {
-                message: "Type Error: type path mismatch in coersing `List ConcaveComponent` into `Leash List ConcaveComponent` of contract `move `, expected `core::mem::Leash`, but got `core::list::List` instead",
+                message: "Term Error: expected coersion from `List ConcaveComponent` to `Leash List ConcaveComponent` under contract `move `",
                 severity: Error,
                 range: [33:5, 33:49),
             },

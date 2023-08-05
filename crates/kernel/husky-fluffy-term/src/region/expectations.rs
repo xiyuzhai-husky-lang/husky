@@ -144,8 +144,8 @@ impl ExpectationState {
         gen_hole_constraint: impl FnOnce(&mut Self) -> HoleConstraint,
     ) -> AltOption<ExpectationEffect> {
         match self.resolve_progress {
-            ExpectationProgress::Holed => return AltNone,
             ExpectationProgress::Resolved(_) => unreachable!(),
+            ExpectationProgress::Holed => return AltNone,
             ExpectationProgress::Intact => (),
         }
         self.resolve_progress = ExpectationProgress::Holed;
@@ -187,7 +187,7 @@ impl ExpectationState {
     }
 }
 
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub struct ExpectationEffect {
     subsequent_actions: FluffyTermResolveActions,
 }

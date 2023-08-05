@@ -19,6 +19,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Term Error: expected coersion from `OneVsAll MnistLabel Five` to `OneVsAll MnistLabel Five` under contract `move `",
+                severity: Error,
+                range: [4:5, 4:18),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion from `OneVsAll MnistLabel Five` to `OneVsAll MnistLabel Five` under contract `move `",
+                severity: Error,
+                range: [4:5, 4:18),
+            },
+        ],
     },
 }

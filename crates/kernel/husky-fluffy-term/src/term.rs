@@ -69,11 +69,11 @@ fn term_to_fluffy_term_works() {
 }
 
 impl FluffyTerm {
-    pub fn show(self, db: &dyn FluffyTermDb, region: &FluffyTermRegion) -> String {
+    pub fn show(self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => term.display(db).to_string(),
-            NestedFluffyTerm::Solid(term) => term.show(db, region.terms.solid_terms()),
-            NestedFluffyTerm::Hollow(term) => "HollowTermTodo".to_string(),
+            NestedFluffyTerm::Solid(term) => term.show(db, terms.solid_terms()),
+            NestedFluffyTerm::Hollow(term) => self.data_inner(db, terms).show(db, terms),
         }
     }
 }

@@ -142,7 +142,7 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
                 format!(
                     "Type Error: no field named {} in {}",
                     ident_token.ident().data(ctx.db()),
-                    owner_ty.show(ctx.db(), ctx.expr_ty_region().fluffy_term_region())
+                    owner_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
                 )
             }
             OriginalExprTypeError::NoMethodForType {
@@ -152,7 +152,7 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
                 format!(
                     "Type Error: no method named `{}` for type `{}`",
                     ident_token.ident().data(ctx.db()),
-                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region()) // ad hoc
+                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms()) // ad hoc
                 )
             }
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
@@ -164,7 +164,7 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::CannotIndexIntoType { self_expr_ty } => {
                 format!(
                     "Type Error: cannot index into type `{}`",
-                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region())
+                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region().terms())
                 )
             }
             OriginalExprTypeError::CannotUnveil => {
@@ -233,8 +233,8 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                 expectee_path,
             } => format!(
                 "Type Error: type path mismatch in seeing `{}` as a subtype of `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fluffy_term_region()),
-                expected.show(ctx.db(), ctx.fluffy_term_region()),
+                expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
@@ -250,15 +250,15 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
             OriginalFluffyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
                 format!(
                     "Term Error: expected coersion from `{}` to `{}` under contract `{}`",
-                    expectee.show(ctx.db(), ctx.fluffy_term_region()),
-                    expected.show(ctx.db(), ctx.fluffy_term_region()),
+                    expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                    expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
                     contract.as_str(),
                 )
             }
             OriginalFluffyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
                 "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fluffy_term_region()),
-                ty_expected.show(ctx.db(), ctx.fluffy_term_region()),
+                expectee.show(ctx.db(), ctx.fluffy_term_region().terms()),
+                ty_expected.show(ctx.db(), ctx.fluffy_term_region().terms()),
                 contract.as_str(),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())

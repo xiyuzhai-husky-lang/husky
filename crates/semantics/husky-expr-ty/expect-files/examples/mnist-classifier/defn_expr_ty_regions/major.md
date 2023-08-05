@@ -228,13 +228,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: None,
-                                                ty_expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                    ),
-                                                ),
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
                                                 expectee: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`Leash`),
@@ -242,8 +236,12 @@
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expected_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                expectee_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                contract: None,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    ),
+                                                ),
                                             },
                                         ),
                                     ),
@@ -277,11 +275,25 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`List`),
+                                                        argument: EtherealTerm(`ConnectedComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`List`),
+                                                        argument: EtherealTerm(`ConnectedComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -314,11 +326,25 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`List`),
+                                                        argument: EtherealTerm(`ConnectedComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`List`),
+                                                        argument: EtherealTerm(`ConnectedComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1015,11 +1041,21 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::bool`, `Extern`),
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::bool`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1048,11 +1084,21 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1099,11 +1145,21 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1154,25 +1210,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`ConnectedComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`core::basic::never`, `Extern`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`core::basic::never`, `Extern`),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Never,
                                         ),
                                     ),
                                 ),
@@ -1758,11 +1798,21 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
-                                                Todo,
-                                            ),
+                                    Err(
+                                        FluffyTermExpectationError::Original(
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                                contract: None,
+                                                expected: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`core::basic::unit`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1829,23 +1879,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`core::num::f32`, `Extern`),
-                                                    ),
-                                                ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`core::basic::never`, `Extern`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::num::f32`, `Extern`),
-                                                expectee_path: TypePath(`core::basic::never`, `Extern`),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Never,
                                         ),
                                     ),
                                 ),
@@ -2039,15 +2075,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
                                                 expectee: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`List`),
@@ -2055,8 +2083,14 @@
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`core::list::List`, `Extern`),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`List RawContour`),
+                                                        shift: 0,
+                                                    },
+                                                ),
                                             },
                                         ),
                                     ),
@@ -2092,15 +2126,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
                                                 expectee: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`List`),
@@ -2108,8 +2134,14 @@
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`core::list::List`, `Extern`),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`List RawContour`),
+                                                        shift: 0,
+                                                    },
+                                                ),
                                             },
                                         ),
                                     ),
@@ -2305,15 +2337,7 @@
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleTo {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                0,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -2452,22 +2476,20 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                                 contract: Move,
-                                                ty_expected: FluffyTerm::Application(
+                                                expected: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`Leash`),
                                                         argument: EtherealTerm(`RawContour`),
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
                                         ),
                                     ),
@@ -2501,22 +2523,20 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
                                                 contract: Move,
-                                                ty_expected: FluffyTerm::Application(
+                                                expected: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`Leash`),
                                                         argument: EtherealTerm(`RawContour`),
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             },
                                         ),
                                     ),
@@ -2707,22 +2727,20 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                                 contract: Move,
-                                                ty_expected: FluffyTerm::Application(
+                                                expected: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`Leash`),
                                                         argument: EtherealTerm(`LineSegmentSketch`),
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             },
                                         ),
                                     ),
@@ -2756,22 +2774,20 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
+                                                expectee: FluffyTerm::EntityPath(
+                                                    TermEntityPath::TypeOntology(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                ),
                                                 contract: Move,
-                                                ty_expected: FluffyTerm::Application(
+                                                expected: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`Leash`),
                                                         argument: EtherealTerm(`LineSegmentSketch`),
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             },
                                         ),
                                     ),
@@ -2966,15 +2982,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
                                                 expectee: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`List`),
@@ -2982,8 +2990,14 @@
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`core::list::List`, `Extern`),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`List ConcaveComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
                                             },
                                         ),
                                     ),
@@ -3019,15 +3033,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Err(
                                         FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
-                                                contract: Move,
-                                                ty_expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
+                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
                                                 expectee: FluffyTerm::Application(
                                                     EtherealTermApplication {
                                                         function: EtherealTerm(`List`),
@@ -3035,8 +3041,14 @@
                                                         shift: 0,
                                                     },
                                                 ),
-                                                expected_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                expectee_path: TypePath(`core::list::List`, `Extern`),
+                                                contract: Move,
+                                                expected: FluffyTerm::Application(
+                                                    EtherealTermApplication {
+                                                        function: EtherealTerm(`Leash`),
+                                                        argument: EtherealTerm(`List ConcaveComponent`),
+                                                        shift: 0,
+                                                    },
+                                                ),
                                             },
                                         ),
                                     ),

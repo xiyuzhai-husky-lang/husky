@@ -7,7 +7,7 @@ impl ExpectCoersion {
     pub(super) fn resolve_place_to_prelude_indirection(
         &self,
         db: &dyn FluffyTermDb,
-        terms: &mut FluffyTerms,
+        terms: &FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
         // todo: check contract
@@ -19,22 +19,36 @@ impl ExpectCoersion {
         //     Contract::Const => todo!(),
         //     Contract::Leash => todo!(),
         // }
-        let (Some(src_place), src_base_ty_data) = state.expectee().ty_data_inner(db, terms) else {
+        let (Some(expectee_place), expectee_base_ty_data) =
+            state.expectee().ty_data_inner(db, terms)
+        else {
             return AltNone;
         };
-        let (None, dst_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
+        let (None, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
             unreachable!("place should be merged with contract already")
         };
-        match dst_base_ty_data {
+        match expected_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)),
-                ty_arguments,
+                ty_arguments: expected_ty_arguments,
                 ty_ethereal_term,
             } => match prelude_indirection_ty_path {
                 PreludeIndirectionTypePath::Ref => todo!(),
                 PreludeIndirectionTypePath::RefMut => todo!(),
-                PreludeIndirectionTypePath::Leash => todo!(),
+                PreludeIndirectionTypePath::Leash => {
+                    debug_assert_eq!(expected_ty_arguments.len(), 1);
+                    let (dst_place, dst) = expected_ty_arguments[0].ty_data_inner(db, terms);
+                    // todo: check place
+                    resolve_aux(
+                        expectee_base_ty_data,
+                        dst,
+                        Coersion::PlaceToLeash,
+                        db,
+                        terms,
+                        state,
+                    )
+                }
             },
             _ => AltNone,
         }

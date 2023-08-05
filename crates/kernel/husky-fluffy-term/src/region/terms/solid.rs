@@ -60,7 +60,7 @@ impl SolidTerm {
                 base_ty_term,
                 place,
             } => match base_ty_term {
-                Some(base_ty_term) => format!("{} at {:?}", base_ty_term.display(db), place),
+                Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
                 None => todo!(),
             },
             SolidTermData::SymbolAtPlace { term, place } => todo!(),

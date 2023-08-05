@@ -75,7 +75,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     }
                 }
                 FluffyTermData::Hole(_, hole) => {
-                    state.set_holed(hole, |state| HoleConstraint::CoercibleTo { target: state.expectee() } )
+                    state.set_holed(hole, |state| HoleConstraint::CoercibleInto { target: state.expectee() } )
                 },
                 _ => todo!()
                 // Some(FluffyTermExpectationEffect {
