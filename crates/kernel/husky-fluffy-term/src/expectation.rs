@@ -58,6 +58,10 @@ impl Expectation {
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
+        match meta.resolve_progress() {
+            ExpectationProgress::Intact | ExpectationProgress::Holed => (),
+            ExpectationProgress::Resolved(_) => return AltNone,
+        }
         match self {
             Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
             Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, meta),

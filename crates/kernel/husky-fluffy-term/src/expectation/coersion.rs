@@ -142,23 +142,23 @@ impl ExpectFluffyTerm for ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
-        match state.resolve_progress() {
-            ExpectationProgress::Intact => (),
-            ExpectationProgress::Holed | ExpectationProgress::Resolved(_) => return AltNone,
-        }
         self.resolve_trivial(db, terms, state)?;
         self.resolve_never(db, terms, state)?;
         self.resolve_wrap_in_some(db, terms, state)?;
         self.resolve_deref(db, terms, state)?;
         self.resolve_place_to_prelude_indirection(db, terms, state)?;
-        state.set_err(
-            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                expectee: state.expectee(),
-                contract: self.contract,
-                expected: self.ty_expected,
-            },
-            smallvec![],
-        )
+        match state.resolve_progress() {
+            ExpectationProgress::Intact => state.set_err(
+                OriginalFluffyTermExpectationError::ExpectedCoersion {
+                    expectee: state.expectee(),
+                    contract: self.contract,
+                    expected: self.ty_expected,
+                },
+                smallvec![],
+            ),
+            ExpectationProgress::Holed => AltNone,
+            ExpectationProgress::Resolved(_) => unreachable!(),
+        }
     }
 }
 
