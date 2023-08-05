@@ -50,19 +50,18 @@ impl TypeSynNodeDefn {
         }
     }
 
-    pub fn path(self, db: &dyn SynDefnDb) -> TypePath {
-        todo!()
-        // match self {
-        //     TypeDefn::Enum(defn) => defn.path(db),
-        //     TypeDefn::Inductive(defn) => defn.path(db),
-        //     TypeDefn::Record(defn) => defn.path(db),
-        //     TypeDefn::UnitStruct(defn) => defn.path(db),
-        //     TypeDefn::TupleStruct(defn) => defn.path(db),
-        //     TypeDefn::PropsStruct(defn) => defn.path(db),
-        //     TypeDefn::Structure(defn) => defn.path(db),
-        //     TypeDefn::Extern(defn) => defn.path(db),
-        //     TypeDefn::Union(defn) => defn.path(db),
-        // }
+    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> TypeSynNodePath {
+        match self {
+            TypeSynNodeDefn::Enum(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::Inductive(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::Record(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::UnitStruct(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::TupleStruct(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::PropsStruct(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::Structure(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::Extern(defn) => defn.syn_node_path(db),
+            TypeSynNodeDefn::Union(defn) => defn.syn_node_path(db),
+        }
     }
 }
 
@@ -113,7 +112,7 @@ pub(crate) fn ty_syn_node_defn(
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum TypeDefn {
+pub enum TypeSynDefn {
     Enum(EnumTypeSynDefn),
     Inductive(InductiveTypeSynDefn),
     Record(RecordTypeSynDefn),
@@ -125,38 +124,38 @@ pub enum TypeDefn {
     Union(UnionTypeSynDefn),
 }
 
-impl TypeDefn {
+impl TypeSynDefn {
     pub fn decl(self, db: &dyn SynDefnDb) -> TypeSynDecl {
         match self {
-            TypeDefn::Enum(defn) => defn.decl(db).into(),
-            TypeDefn::Inductive(defn) => defn.decl(db).into(),
-            TypeDefn::Record(defn) => defn.decl(db).into(),
-            TypeDefn::UnitStruct(defn) => defn.decl(db).into(),
-            TypeDefn::TupleStruct(defn) => defn.decl(db).into(),
-            TypeDefn::PropsStruct(defn) => defn.decl(db).into(),
-            TypeDefn::Structure(defn) => defn.decl(db).into(),
-            TypeDefn::Extern(defn) => defn.decl(db).into(),
-            TypeDefn::Union(defn) => defn.decl(db).into(),
+            TypeSynDefn::Enum(defn) => defn.decl(db).into(),
+            TypeSynDefn::Inductive(defn) => defn.decl(db).into(),
+            TypeSynDefn::Record(defn) => defn.decl(db).into(),
+            TypeSynDefn::UnitStruct(defn) => defn.decl(db).into(),
+            TypeSynDefn::TupleStruct(defn) => defn.decl(db).into(),
+            TypeSynDefn::PropsStruct(defn) => defn.decl(db).into(),
+            TypeSynDefn::Structure(defn) => defn.decl(db).into(),
+            TypeSynDefn::Extern(defn) => defn.decl(db).into(),
+            TypeSynDefn::Union(defn) => defn.decl(db).into(),
         }
     }
 
     pub fn path(self, db: &dyn SynDefnDb) -> TypePath {
         match self {
-            TypeDefn::Enum(defn) => defn.path(db),
-            TypeDefn::Inductive(defn) => defn.path(db),
-            TypeDefn::Record(defn) => defn.path(db),
-            TypeDefn::UnitStruct(defn) => defn.path(db),
-            TypeDefn::TupleStruct(defn) => defn.path(db),
-            TypeDefn::PropsStruct(defn) => defn.path(db),
-            TypeDefn::Structure(defn) => defn.path(db),
-            TypeDefn::Extern(defn) => defn.path(db),
-            TypeDefn::Union(defn) => defn.path(db),
+            TypeSynDefn::Enum(defn) => defn.path(db),
+            TypeSynDefn::Inductive(defn) => defn.path(db),
+            TypeSynDefn::Record(defn) => defn.path(db),
+            TypeSynDefn::UnitStruct(defn) => defn.path(db),
+            TypeSynDefn::TupleStruct(defn) => defn.path(db),
+            TypeSynDefn::PropsStruct(defn) => defn.path(db),
+            TypeSynDefn::Structure(defn) => defn.path(db),
+            TypeSynDefn::Extern(defn) => defn.path(db),
+            TypeSynDefn::Union(defn) => defn.path(db),
         }
     }
 }
 
 impl HasSynDefn for TypePath {
-    type SynDefn = TypeDefn;
+    type SynDefn = TypeSynDefn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         ty_syn_defn(db, self)
@@ -164,7 +163,7 @@ impl HasSynDefn for TypePath {
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_syn_defn(db: &dyn SynDefnDb, path: TypePath) -> SynDefnResult<TypeDefn> {
+pub(crate) fn ty_syn_defn(db: &dyn SynDefnDb, path: TypePath) -> SynDefnResult<TypeSynDefn> {
     Ok(match path.syn_decl(db)? {
         TypeSynDecl::Enum(decl) => EnumTypeSynDefn::new(db, path, decl).into(),
         TypeSynDecl::PropsStruct(decl) => PropsStructTypeSynDefn::new(db, path, decl).into(),

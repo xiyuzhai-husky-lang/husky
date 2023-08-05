@@ -148,7 +148,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(crate) fn infer_all(&mut self) {
         self.infer_current_parameter_symbols();
-        self.infer_all_exprs();
+        self.infer_all_exprs()
     }
 
     fn infer_all_exprs(&mut self) {
@@ -200,6 +200,7 @@ impl<'a> ExprTypeEngine<'a> {
                 // todo!(),
                 ExprRootKind::ValExpr => todo!(),
             };
+            eprintln!("root expr done")
         }
     }
 

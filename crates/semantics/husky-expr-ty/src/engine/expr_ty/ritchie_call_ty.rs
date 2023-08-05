@@ -35,15 +35,12 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
             }
-            Err(_) => {
-                println!("Err(_)");
-                ritchie_arguments.for_each(|ritchie_argument| {
-                    self.infer_new_expr_ty_discarded(
-                        ritchie_argument.argument_expr_idx(),
-                        ExpectAnyDerived,
-                    )
-                })
-            }
+            Err(_) => ritchie_arguments.for_each(|ritchie_argument| {
+                self.infer_new_expr_ty_discarded(
+                    ritchie_argument.argument_expr_idx(),
+                    ExpectAnyDerived,
+                )
+            }),
         }
     }
 }

@@ -52,7 +52,7 @@ impl HasSynNodeDefn for MajorItemSynNodePath {
 #[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum MajorItemSynDefn {
-    Type(TypeDefn),
+    Type(TypeSynDefn),
     Trait(TraitSynDefn),
     Fugitive(FugitiveSynDefn),
 }

@@ -81,13 +81,15 @@ impl<'a> RegionDiagnosticsContext<'a> {
         let module_path = expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        let expr_ty_region = db.expr_ty_region(syn_expr_region);
+        let expr_range_region = db.expr_range_region(syn_expr_region);
         Self {
             db,
             token_sheet_data,
             ranged_token_sheet,
             expr_region_data,
-            expr_ty_region: db.expr_ty_region(syn_expr_region),
-            expr_range_region: db.expr_range_region(syn_expr_region),
+            expr_ty_region,
+            expr_range_region,
         }
     }
 
