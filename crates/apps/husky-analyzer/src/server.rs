@@ -27,6 +27,7 @@ impl Server {
     }
 }
 
+#[derive(Debug)]
 pub enum TaskSet {
     Nothing,
     Shutdown,
