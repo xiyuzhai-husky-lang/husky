@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::PropsStruct(
+                TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         decl: PropsStructTypeSynDecl {

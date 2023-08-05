@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::raw_bits::r32`, `Extern`),
                         decl: ExternTypeSynDecl {

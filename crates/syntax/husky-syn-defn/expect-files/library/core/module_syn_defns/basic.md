@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::bool`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -69,7 +69,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::never`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -136,7 +136,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::unit`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -203,7 +203,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::Trait`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -270,7 +270,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::Module`, `Extern`),
                         decl: ExternTypeSynDecl {

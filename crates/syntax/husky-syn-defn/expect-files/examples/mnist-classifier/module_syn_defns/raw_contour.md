@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::PropsStruct(
+                TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         decl: PropsStructTypeSynDecl {
@@ -212,7 +212,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Enum(
+                TypeSynDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         decl: EnumTypeSynDecl {
@@ -5490,7 +5490,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::PropsStruct(
+                TypeSynDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                         decl: PropsStructTypeSynDecl {

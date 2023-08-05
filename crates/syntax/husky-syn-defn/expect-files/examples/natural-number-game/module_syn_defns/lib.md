@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Inductive(
+                TypeSynDefn::Inductive(
                     InductiveTypeSynDefn {
                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         decl: InductiveTypeSynDecl {
@@ -69,7 +69,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Structure(
+                TypeSynDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
                         decl: StructureTypeSynDecl {
@@ -136,7 +136,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Structure(
+                TypeSynDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                         decl: StructureTypeSynDecl {

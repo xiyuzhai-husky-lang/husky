@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::Ref`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -183,7 +183,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::RefMut`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -364,7 +364,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::Leash`, `Extern`),
                         decl: ExternTypeSynDecl {

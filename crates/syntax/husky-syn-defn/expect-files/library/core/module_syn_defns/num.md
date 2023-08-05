@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i8`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -69,7 +69,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i16`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -136,7 +136,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i32`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -203,7 +203,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i64`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -270,7 +270,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i128`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -337,7 +337,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::isize`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -404,7 +404,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u8`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -471,7 +471,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u16`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -538,7 +538,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u32`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -605,7 +605,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u64`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -672,7 +672,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u128`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -739,7 +739,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::usize`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -806,7 +806,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::f32`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -873,7 +873,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::f64`, `Extern`),
                         decl: ExternTypeSynDecl {

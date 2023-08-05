@@ -4218,6 +4218,7 @@ Ok(
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
                 current_symbol_kind: CurrentSynSymbolKind::LetVariable {
@@ -4464,6 +4465,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {

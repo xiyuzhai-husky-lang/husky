@@ -1726,7 +1726,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Enum(
+                TypeSynDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         decl: EnumTypeSynDecl {

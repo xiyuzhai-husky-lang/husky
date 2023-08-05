@@ -6393,7 +6393,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `popx`,
+                `pop`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6407,6 +6407,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Ident(
@@ -6847,7 +6852,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `popx`,
+                `pop`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -6861,6 +6866,11 @@ Ok(
                     PunctuationMapped::Ket(
                         Par,
                     ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
                 ),
             ),
             Token::Ident(
@@ -7184,19 +7194,19 @@ Ok(
             1298,
             1311,
             1356,
-            1364,
-            1384,
-            1386,
-            1397,
-            1403,
-            1406,
-            1411,
-            1421,
-            1434,
-            1443,
-            1454,
-            1462,
-            1496,
+            1365,
+            1385,
+            1387,
+            1398,
+            1404,
+            1407,
+            1412,
+            1422,
+            1435,
+            1444,
+            1455,
+            1464,
+            1498,
         ],
         indents: [
             0,

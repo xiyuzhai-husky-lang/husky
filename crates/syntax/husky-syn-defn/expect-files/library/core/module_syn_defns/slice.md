@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::slice::Slice`, `Extern`),
                         decl: ExternTypeSynDecl {
@@ -128,7 +128,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Extern(
+                TypeSynDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         decl: ExternTypeSynDecl {

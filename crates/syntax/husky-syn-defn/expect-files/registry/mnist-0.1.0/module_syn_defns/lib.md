@@ -2,7 +2,7 @@ Ok(
     [
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::Enum(
+                TypeSynDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
                         decl: EnumTypeSynDecl {
@@ -69,7 +69,7 @@ Ok(
         ),
         SynDefn::MajorItem(
             MajorItemSynDefn::Type(
-                TypeDefn::TupleStruct(
+                TypeSynDefn::TupleStruct(
                     TupleStructTypeSynDefn {
                         path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         decl: TupleStructTypeSynDecl {

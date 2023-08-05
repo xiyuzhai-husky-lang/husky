@@ -199,8 +199,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 // todo!(),
                 ExprRootKind::ValExpr => todo!(),
-            };
-            eprintln!("root expr done")
+            }
         }
     }
 
