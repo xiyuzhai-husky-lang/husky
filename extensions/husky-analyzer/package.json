@@ -463,16 +463,16 @@
                         "constant.other.caps.husky"
                     ],
                     "enum": [
-                        "item.name.type.enum.husky"
+                        "entity.name.type.enum.husky"
                     ],
                     "formatSpecifier": [
                         "punctuation.section.embedded.husky"
                     ],
                     "function": [
-                        "item.name.function.husky"
+                        "entity.name.function.husky"
                     ],
                     "interface": [
-                        "item.name.type.trait.husky"
+                        "entity.name.type.trait.husky"
                     ],
                     "keyword": [
                         "keyword.other.husky"
@@ -484,19 +484,19 @@
                         "storage.modifier.lifetime.husky"
                     ],
                     "macroBang": [
-                        "item.name.function.macro.husky"
+                        "entity.name.function.macro.husky"
                     ],
                     "method": [
-                        "item.name.function.husky"
+                        "entity.name.function.husky"
                     ],
                     "struct": [
-                        "item.name.type.struct.husky"
+                        "entity.name.type.struct.husky"
                     ],
                     "typeAlias": [
-                        "item.name.type.declaration.husky"
+                        "entity.name.type.declaration.husky"
                     ],
                     "union": [
-                        "item.name.type.union.husky"
+                        "entity.name.type.union.husky"
                     ],
                     "variable": [
                         "variable.other.husky"

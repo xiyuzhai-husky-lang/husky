@@ -20,7 +20,7 @@
             "match": "^\\s*([A-Z_][A-Z_0-9]*?)@",
             "captures": {
                 "1": {
-                    "name": "item.name.class"
+                    "name": "entity.name.class"
                 }
             }
         },

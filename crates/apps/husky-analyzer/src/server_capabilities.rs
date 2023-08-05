@@ -129,5 +129,6 @@ pub fn get_server_capabilities() -> ServerCapabilities {
         })),
         inlay_hint_provider: None,
         position_encoding: None,
+        inline_value_provider: None,
     }
 }

@@ -10,7 +10,7 @@ path = "src/bin/main.rs"
 [dependencies]
 clap = { version = "3.2.16", features = ["derive"] }
 salsa = { path = "../../abstraction/salsa" }
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 relative-path = "1.7.2"
 # abstraction
 reserve = { path = "../../abstraction/reserve" }

@@ -13,7 +13,7 @@ paste.workspace = true
 expect-test = "1.4.0"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
-lsp-types = { version = "0.93", features = ["proposed"], optional = true }
+lsp-types = { version = "0.94", features = ["proposed"], optional = true }
 # abstraction
 parsec = { path = "../../abstraction/parsec" }
 salsa = { path = "../../abstraction/salsa" }

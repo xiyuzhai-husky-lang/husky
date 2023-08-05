@@ -65,6 +65,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             end_line: text_range.end.i(),
             end_character: Some(text_range.end.j()),
             kind: Some(kind),
+            collapsed_text: None,
         })
     }
 }

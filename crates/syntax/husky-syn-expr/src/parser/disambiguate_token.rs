@@ -305,7 +305,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ..
                 } => match lopd.base_item_path(self.db(), &self.parser.expr_arena) {
                     BaseEntityPath::None => {
-                        p!(token_idx, self.parser.path.debug(self.db()));
                         match lopd {
                             SynExpr::Literal(_, _) => todo!(),
                             SynExpr::PrincipalEntityPath {

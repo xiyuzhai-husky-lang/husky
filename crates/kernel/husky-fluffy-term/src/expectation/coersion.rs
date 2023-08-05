@@ -393,7 +393,6 @@ impl ExpectCoersion {
                 arguments: src_arguments,
                 ..
             } => {
-                p!(src_path.debug(db), dst_path.debug(db));
                 // todo: consider `Deref` and `DerefMut`
                 state.set_err(
                     OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {

@@ -22,7 +22,7 @@ serde = { version = "1.0.106", features = ["derive"], optional = true }
 serde_json = { version = "1.0.48", features = [
     "preserve_order"
 ], optional = true }
-lsp-types = { version = "0.93", features = ["proposed"], optional = true }
+lsp-types = { version = "0.94", features = ["proposed"], optional = true }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
 salsa = { path = "../../abstraction/salsa" }

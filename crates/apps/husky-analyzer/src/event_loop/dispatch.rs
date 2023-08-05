@@ -153,11 +153,13 @@ fn handle_lsp_notification(
 }
 
 fn handle_lsp_response(server: &mut Server, response: lsp_server::Response) -> Result<TaskSet> {
-    let handler = server
+    if let Some(handler) = server
         .client_comm
         .req_queue
         .outgoing
-        .complete(response.id.clone());
-    handler(server, response);
+        .complete(response.id.clone())
+    {
+        handler(server, response);
+    }
     Ok(TaskSet::Nothing)
 }

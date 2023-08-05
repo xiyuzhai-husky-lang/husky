@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }

@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
 salsa = { path = "../../abstraction/salsa" }
-lsp-types = { version = "0.93", features = ["proposed"] }
+lsp-types.workspace = true
 indexmap = "1.8.1"
 libloading = "0.7.3"
 convert_case = "0.6.0"
