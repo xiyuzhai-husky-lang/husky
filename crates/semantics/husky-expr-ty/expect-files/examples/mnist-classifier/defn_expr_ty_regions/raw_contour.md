@@ -14997,15 +14997,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::unit`, `Extern`),
-                                        ),
-                                    ),
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 159,
@@ -15020,27 +15013,7 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Option`),
-                                                        argument: EtherealTerm(`Point2d`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: None,
-                                                expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`core::basic::unit`, `Extern`),
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                resolve_progress: ExpectationProgress::Intact,
                             },
                         },
                         ExpectationEntry {

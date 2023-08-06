@@ -790,6 +790,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 4,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -1864,12 +1867,21 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 12,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 23,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 30,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {

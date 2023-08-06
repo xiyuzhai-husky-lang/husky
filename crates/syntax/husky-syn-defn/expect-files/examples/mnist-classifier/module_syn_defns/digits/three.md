@@ -401,6 +401,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 6,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -1921,6 +1924,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 59,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -2997,6 +3003,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 11,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -3723,6 +3732,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 11,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -4449,6 +4461,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 11,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },

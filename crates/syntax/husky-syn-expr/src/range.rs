@@ -404,7 +404,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 TokenIdxRange::new(start, end)
             }
             SynStmt::Break { break_token } => TokenIdxRange::new_single(break_token.token_idx()),
-            SynStmt::Eval { expr_idx } => self[expr_idx],
+            SynStmt::Eval { expr_idx, .. } => self[expr_idx],
             SynStmt::ForBetween {
                 for_token,
                 ref particulars,

@@ -467,6 +467,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 0,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },

@@ -364,6 +364,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 4,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -1440,6 +1443,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 27,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -2550,6 +2556,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 20,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },

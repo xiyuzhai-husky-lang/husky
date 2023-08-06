@@ -364,6 +364,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 4,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -999,6 +1002,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 11,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -3029,6 +3035,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 45,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Require {
                                             require_token: RequireToken {
@@ -3199,6 +3208,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 89,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },

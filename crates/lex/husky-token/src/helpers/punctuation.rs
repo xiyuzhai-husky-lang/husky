@@ -211,6 +211,36 @@ where
     }
 }
 
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EolSemicolonToken
+where
+    Context: TokenStreamParser<'a>,
+{
+    type Error = TokenError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolSemicolonToken { token_idx })),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
 #[test]
 fn eol_colon_token_works() {
     fn t(db: &DB, input: &str) -> TokenResult<Option<EolToken>> {
