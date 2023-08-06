@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Term Error: expected coersion from `Leash BinaryImage28` to `BinaryImage28` under contract ``",
-                severity: Error,
-                range: [4:31, 4:36),
-            },
-        ],
+        diagnostics: [],
     },
 }

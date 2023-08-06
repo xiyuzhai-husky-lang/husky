@@ -226,23 +226,11 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`BinaryImage28`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: None,
-                                                expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                    ),
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Deref(
+                                                Leash,
+                                            ),
                                         ),
                                     ),
                                 ),

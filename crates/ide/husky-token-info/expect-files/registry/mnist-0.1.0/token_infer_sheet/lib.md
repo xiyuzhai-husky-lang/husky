@@ -109,6 +109,72 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::Module(
+                    `core`,
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::Module(
+                    `core::ops`,
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::ops::IntIndex`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `Output`,
+                                    item_kind: AssociatedType,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        AssociatedType,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::raw_bits::r32`, `Extern`),
+                    ),
+                ),
+            ),
         ],
     },
 )

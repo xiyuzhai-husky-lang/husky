@@ -264,6 +264,42 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        15,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TraitForTypeItem(
+                            AssociatedType,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            55,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            56,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -400,17 +436,37 @@ Ok(
                         body: None,
                     },
                 },
+                Ast::ImplBlock {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    10..11,
+                                ),
+                            },
+                        ),
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            10..14,
+            11..16,
         ),
         siblings: [
             ArenaIdxRange(
                 10..10,
             ),
             ArenaIdxRange(
-                10..14,
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..11,
+            ),
+            ArenaIdxRange(
+                11..16,
             ),
         ],
     },

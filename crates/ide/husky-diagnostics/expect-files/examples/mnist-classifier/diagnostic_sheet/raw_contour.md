@@ -27,16 +27,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: cannot index into type `BinaryImage28`",
-                severity: Error,
-                range: [174:20, 174:32),
-            },
-            Diagnostic {
-                message: "Type Error: cannot index into type `BinaryImage28`",
-                severity: Error,
-                range: [175:20, 175:30),
-            },
-            Diagnostic {
                 message: "Term Error: expected coersion from `Option Point2d` to `unit` under contract ``",
                 severity: Error,
                 range: [264:17, 264:30),

@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -65,7 +65,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
@@ -158,7 +158,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -199,7 +199,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -234,7 +234,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
@@ -254,7 +254,58 @@ Ok(
                         },
                     ],
                 ),
-                impl_block_syn_node_table: [],
+                impl_block_syn_node_table: [
+                    (
+                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                        ImplBlockSynNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNode {
+                                syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 15,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        45,
+                                    ),
+                                },
+                                trai_expr: 2,
+                                for_token: TokenIdx(
+                                    51,
+                                ),
+                                ty_sketch_expr: Path(
+                                    3,
+                                ),
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                10..11,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ],
                 once_use_rules: OnceUseRules(
                     [],
                 ),
@@ -265,7 +316,70 @@ Ok(
             },
         ],
         principal_item_path_expr_arena: Arena {
-            data: [],
+            data: [
+                MajorItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `IntIndex`,
+                            token_idx: TokenIdx(
+                                50,
+                            ),
+                        },
+                    ),
+                    major_path: MajorEntityPath::MajorItem(
+                        MajorItemPath::Trait(
+                            TraitPath(`core::ops::IntIndex`),
+                        ),
+                    ),
+                },
+                MajorItemPathExpr::Subitem {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ops`,
+                            token_idx: TokenIdx(
+                                48,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            49,
+                        ),
+                    ),
+                    subexpr: 0,
+                },
+                MajorItemPathExpr::Subitem {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `core`,
+                            token_idx: TokenIdx(
+                                46,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            47,
+                        ),
+                    ),
+                    subexpr: 1,
+                },
+                MajorItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `BinaryImage28`,
+                            token_idx: TokenIdx(
+                                52,
+                            ),
+                        },
+                    ),
+                    major_path: MajorEntityPath::MajorItem(
+                        MajorItemPath::Type(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                    ),
+                },
+            ],
         },
     },
 )

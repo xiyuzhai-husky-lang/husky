@@ -23,7 +23,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
         Right(custom_ty_path) => {
             // fallback to search for trait implementations
             let vfs_menu = engine.item_path_menu();
-            if let Some(_) = ethereal_owner_ty_int_index_signature(
+            if let Some(signature) = ethereal_owner_ty_int_index_signature(
                 engine,
                 syn_expr_idx,
                 owner_ty,
@@ -33,9 +33,10 @@ pub(crate) fn ethereal_owner_ty_index_signature(
             )
             .into_result_option()?
             {
-                todo!()
+                JustOk(signature)
+            } else {
+                Nothing
             }
-            Nothing
         }
     }
 }
