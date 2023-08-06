@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 11,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 70,
+                                        value: 71,
                                     },
                                 ),
                                 variants: Some(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -73,7 +73,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 71,
+                                        value: 72,
                                     },
                                 ),
                                 variants: None,
@@ -96,6 +96,48 @@ Ok(
                 EntityNodeEntry {
                     node: ItemSynNode::MajorItem(
                         MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 17,
+                            ident_token: IdentToken {
+                                ident: `BinaryGrid28`,
+                                token_idx: TokenIdx(
+                                    54,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 73,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
+                            TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BinaryGrid28`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -105,11 +147,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    87,
                                 ),
                             },
                             block: Fugitive {
@@ -156,7 +198,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 11,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -166,7 +208,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 70,
+                                        value: 71,
                                     },
                                 ),
                                 variants: Some(
@@ -197,7 +239,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -207,7 +249,42 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 71,
+                                        value: 72,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
+                    ident: `BinaryGrid28`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::MajorItem {
+                        module_item_path: MajorItemPath::Type(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        node: MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 17,
+                            ident_token: IdentToken {
+                                ident: `BinaryGrid28`,
+                                token_idx: TokenIdx(
+                                    54,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 73,
                                     },
                                 ),
                                 variants: None,
@@ -232,11 +309,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    87,
                                 ),
                             },
                             block: Fugitive {
@@ -278,15 +355,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 15,
+                        ast_idx: 16,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                45,
+                                39,
                             ),
                         },
                         trai_expr: 2,
                         for_token: TokenIdx(
-                            51,
+                            45,
                         ),
                         ty_sketch_expr: Path(
                             3,
@@ -296,6 +373,90 @@ Ok(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         10..11,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            (
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist`,
+                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TypeImplBlock(
+                    TypeImplBlockSynNode {
+                        syn_node_path: TypeImplBlockSynNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist`,
+                                ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 18,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                61,
+                            ),
+                        },
+                        ty_expr: 4,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                11..12,
+                            ),
+                        },
+                    },
+                ),
+            ),
+            (
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::ops::IntIndex`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNode {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 19,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                72,
+                            ),
+                        },
+                        trai_expr: 7,
+                        for_token: TokenIdx(
+                            78,
+                        ),
+                        ty_sketch_expr: Path(
+                            8,
+                        ),
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        12..13,
                                     ),
                                 },
                             ),

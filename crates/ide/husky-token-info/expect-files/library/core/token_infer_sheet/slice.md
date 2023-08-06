@@ -183,6 +183,82 @@ Ok(
                                         ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ident: `start`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `end`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                        disambiguator: 0,
+                                    },
                                     ident: `first`,
                                     item_kind: MethodFn,
                                 },

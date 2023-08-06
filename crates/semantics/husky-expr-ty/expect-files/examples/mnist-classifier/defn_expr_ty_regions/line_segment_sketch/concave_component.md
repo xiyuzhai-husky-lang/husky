@@ -960,26 +960,94 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm::Application(
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 16,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 16,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                        return_ty: Application(
+                                            EtherealTermApplication(
+                                                Id {
+                                                    value: 42,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm::Application(
                                 EtherealTermApplication {
-                                    function: EtherealTerm(`List`),
+                                    function: EtherealTerm(`CyclicSliceLeashed`),
                                     argument: EtherealTerm(`LineSegmentStroke`),
                                     shift: 0,
                                 },
                             ),
-                            ident_token: IdentToken {
-                                ident: `cyclic_slice`,
-                                token_idx: TokenIdx(
-                                    643,
-                                ),
-                            },
-                        },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    29,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -997,7 +1065,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    30,
                 ),
             },
             ExprTypeInfo {
@@ -1057,7 +1125,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -1100,7 +1168,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -1130,7 +1198,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    33,
                 ),
             },
             ExprTypeInfo {
@@ -1173,7 +1241,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -1190,7 +1258,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -1207,7 +1275,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    36,
                 ),
             },
         ],
@@ -2385,6 +2453,43 @@
                         ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm::Application(
+                                        EtherealTermApplication {
+                                            function: EtherealTerm(`CyclicSliceLeashed`),
+                                            argument: EtherealTerm(`LineSegmentStroke`),
+                                            shift: 0,
+                                        },
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 29,
+                                src: ExpectationSource {
+                                    expr_idx: 52,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Application(
+                                    EtherealTermApplication {
+                                        function: EtherealTerm(`CyclicSliceLeashed`),
+                                        argument: EtherealTerm(`LineSegmentStroke`),
+                                        shift: 0,
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
                                     contract: None,
                                     ty_expected: FluffyTerm::EntityPath(
                                         TermEntityPath::TypeOntology(
@@ -2394,7 +2499,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 29,
+                                idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 53,
                                     kind: Expr,
@@ -2427,7 +2532,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 30,
+                                idx: 31,
                                 src: ExpectationSource {
                                     expr_idx: 54,
                                     kind: Expr,
@@ -2460,7 +2565,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 31,
+                                idx: 32,
                                 src: ExpectationSource {
                                     expr_idx: 57,
                                     kind: Expr,
@@ -2486,7 +2591,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 32,
+                                idx: 33,
                                 src: ExpectationSource {
                                     expr_idx: 59,
                                     kind: Expr,
@@ -2511,7 +2616,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 33,
+                                idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 62,
                                     kind: Expr,
@@ -2546,7 +2651,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 34,
+                                idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 63,
                                     kind: Expr,
@@ -2581,7 +2686,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 35,
+                                idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 64,
                                     kind: Expr,

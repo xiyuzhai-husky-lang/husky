@@ -17,7 +17,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: ExpectEqTokenForVariable",
                 severity: Error,
-                range: [16:29, 16:30),
+                range: [27:29, 27:30),
             },
         ],
     },

@@ -42,34 +42,11 @@ impl ClientCommunicator {
     }
 
     pub(crate) fn send_diagnostics(&self, db: &AnalyzerDB, module_path: ModulePath) {
-        log!("send_diagnostics(module_path: {:?})", module_path.debug(db));
-
-        let diagnostics: Vec<lsp_types::Diagnostic> = match std::panic::catch_unwind(|| {
-            log!("before calc diagnostic_sheet");
-            let diagnostic_sheet = db.diagnostic_sheet(module_path);
-            log!("after calc diagnostic_sheet");
-            diagnostic_sheet
-                .diagnostic_iter(db)
-                .map(|diagnostic| diagnostic.into())
-                .collect()
-        }) {
-            Ok(diagnostics) => {
-                log!("diagnostics collected");
-                diagnostics
-            }
-            Err(e) => {
-                if let Some(s) = e.downcast_ref::<&str>() {
-                    log!("error message: {s}")
-                } else if let Some(s) = e.downcast_ref::<String>() {
-                    log!("error message: {s}")
-                } else {
-                    log!("error message: unknown")
-                }
-                log!("error, panicked");
-                todo!()
-            }
-        };
-        log!("before send_flag is set");
+        let diagnostics: Vec<lsp_types::Diagnostic> = db
+            .diagnostic_sheet(module_path)
+            .diagnostic_iter(db)
+            .map(|diagnostic| diagnostic.into())
+            .collect();
         let send_flag = match self.diagnostics_sent.entry(module_path) {
             Entry::Occupied(mut entry) => {
                 let is_same = entry.get() == &diagnostics;
@@ -86,7 +63,6 @@ impl ClientCommunicator {
                 true
             }
         };
-        log!("after send_flag is set");
         if send_flag {
             let Ok(module_diff_path) = module_path.diff_path(db) else {
                 todo!()

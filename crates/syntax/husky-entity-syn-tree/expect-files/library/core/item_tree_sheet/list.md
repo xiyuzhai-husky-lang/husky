@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `List`,
                                 token_idx: TokenIdx(
@@ -66,7 +66,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `List`,
                                 token_idx: TokenIdx(
@@ -120,7 +120,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -161,7 +161,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -202,7 +202,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -243,7 +243,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -284,7 +284,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -325,7 +325,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -366,7 +366,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -407,7 +407,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -448,7 +448,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -489,7 +489,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -530,7 +530,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -571,7 +571,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -612,7 +612,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -653,7 +653,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -694,7 +694,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -735,7 +735,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -776,7 +776,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -817,7 +817,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -858,7 +858,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -935,7 +935,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1012,7 +1012,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1089,7 +1089,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1166,7 +1166,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1243,7 +1243,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1320,7 +1320,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1397,7 +1397,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1474,7 +1474,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1551,7 +1551,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1628,7 +1628,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1705,7 +1705,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1782,7 +1782,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1859,7 +1859,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1936,7 +1936,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2013,7 +2013,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2090,7 +2090,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2167,7 +2167,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2244,7 +2244,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2321,7 +2321,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2398,7 +2398,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2475,7 +2475,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2558,7 +2558,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2635,7 +2635,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2712,7 +2712,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2789,7 +2789,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2872,7 +2872,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2955,7 +2955,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3023,7 +3023,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3091,7 +3091,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3168,7 +3168,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3245,7 +3245,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3322,7 +3322,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3399,7 +3399,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3429,7 +3429,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 6,
                                                     ident_token: IdentToken {
                                                         ident: `Slice`,
                                                         token_idx: TokenIdx(
@@ -3476,7 +3476,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3506,7 +3506,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 5,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `CyclicSliceLeashed`,
                                                         token_idx: TokenIdx(
@@ -3553,7 +3553,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::list`,
                             ),
-                            ast_idx: 6,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3580,7 +3580,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 8,
+                        ast_idx: 9,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 12,
@@ -3589,7 +3589,7 @@ Ok(
                         ty_expr: 1,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                0..6,
+                                0..7,
                             ),
                         },
                     },
@@ -3599,7 +3599,7 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 6,
+                    ast_idx: 7,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::list`,
@@ -3632,7 +3632,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `core`,
                     is_same_crate: true,
-                    ast_idx: 6,
+                    ast_idx: 7,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::list`,

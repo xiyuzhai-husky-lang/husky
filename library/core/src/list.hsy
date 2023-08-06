@@ -15,3 +15,5 @@ impl<E> List E:
     pub fn pop(&mut self) -> Option E;
 
     pub fn collect_leashes(~self) -> []~E;
+
+    pub fn cyclic_slice_leashed(~self, start: i32, end: i32) -> CyclicSliceLeashed E;

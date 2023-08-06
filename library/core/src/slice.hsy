@@ -6,6 +6,10 @@ pub extern CyclicSliceLeashed<covariant E>;
 
 impl<E> CyclicSliceLeashed E:
     pub fn ilen() -> i32;
+
+    pub fn start() -> i32;
+    
+    pub fn end() -> i32;
     
     pub fn first() -> ?~E;
 

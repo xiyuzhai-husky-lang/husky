@@ -48,6 +48,32 @@
     ),
     (
         ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist::BinaryGrid28`, `Struct`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::TupleStruct(
+                        TupleStructTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            fields: [
+                                TupleStructFieldDeclarativeSignatureTemplate {
+                                    ty: DeclarativeTerm(`[DeclarativeTermLiteralTodo, ] core::raw_bits::r32`),
+                                },
+                            ],
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
             MajorItemPath::Fugitive(
                 FugitivePath(`mnist::input`, `Val`),
             ),
@@ -90,7 +116,7 @@
                                 Type(
                                     TypePath(
                                         Id {
-                                            value: 71,
+                                            value: 72,
                                         },
                                     ),
                                 ),
@@ -110,6 +136,141 @@
                         trai_path: TraitPath(`core::ops::IntIndex`),
                         ty_sketch: TypeSketch::Path(
                             TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            ty_term: DeclarativeTerm(`core::raw_bits::r32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `mnist`,
+                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
+                    TypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [],
+                        },
+                        ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist`,
+                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `new`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [],
+                        },
+                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 73,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
                         ),
                         disambiguator: 0,
                     },

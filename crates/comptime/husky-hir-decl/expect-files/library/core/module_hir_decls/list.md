@@ -108,4 +108,15 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 7,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]
