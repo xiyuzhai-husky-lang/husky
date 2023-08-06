@@ -7,6 +7,7 @@ mod place_to_prelude_indirection;
 mod trival;
 mod wrap_in_some;
 
+use self::deref::DerefCoersion;
 use self::trival::PlaceCoersion;
 
 use super::*;
@@ -18,6 +19,7 @@ pub enum Coersion {
     Other,
     WrapInSome,
     PlaceToLeash,
+    Deref(DerefCoersion),
 }
 
 /// expect a type that is implicitly convertible to type under contract
