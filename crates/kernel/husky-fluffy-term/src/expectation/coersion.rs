@@ -1,6 +1,7 @@
 //! coersion rules are
 //!
 mod deref;
+mod holed;
 mod never;
 mod place_to_prelude_indirection;
 mod trival;
@@ -12,7 +13,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Coersion {
-    Place(PlaceCoersion),
+    Trivial(PlaceCoersion),
     Never,
     Other,
     WrapInSome,
@@ -143,6 +144,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
         state: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
         self.resolve_trivial(db, terms, state)?;
+        self.resolve_holed(db, terms, state)?;
         self.resolve_never(db, terms, state)?;
         self.resolve_wrap_in_some(db, terms, state)?;
         self.resolve_deref(db, terms, state)?;
@@ -219,7 +221,7 @@ fn resolve_aux(
             return_ty,
             ty_ethereal_term,
         } => todo!(),
-        FluffyBaseTypeData::Hole(_, _) => todo!(),
+        FluffyBaseTypeData::Hole(_, _) => AltNone,
         FluffyBaseTypeData::Category(_) => todo!(),
         FluffyBaseTypeData::Ritchie {
             ritchie_kind,
