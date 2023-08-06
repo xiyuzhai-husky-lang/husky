@@ -319,6 +319,503 @@ Ok(
                     ),
                 ),
             ),
+            (
+                ItemPath::ImplBlock(
+                    ImplBlockPath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockPath {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::ops::IntIndex`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    ),
+                ),
+                Decl::ImplBlock(
+                    ImplBlockSynDecl::TraitForType(
+                        TraitForTypeImplBlockSynDecl {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                            template_parameters: [],
+                            trai_expr: TraitExpr {
+                                expr: 0,
+                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
+                                                    path: TraitForTypeImplBlockPath {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 2,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
+                                                            TraitPath(`core::ops::IntIndex`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 3,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `core`,
+                                                        token_idx: TokenIdx(
+                                                            46,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::Module(
+                                                    `core`,
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Subitem {
+                                                parent: 0,
+                                                scope_resolution_token: ScopeResolutionToken(
+                                                    TokenIdx(
+                                                        47,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentToken {
+                                                        ident: `ops`,
+                                                        token_idx: TokenIdx(
+                                                            48,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::Module(
+                                                        `core::ops`,
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Subitem {
+                                                parent: 1,
+                                                scope_resolution_token: ScopeResolutionToken(
+                                                    TokenIdx(
+                                                        49,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentToken {
+                                                        ident: `IntIndex`,
+                                                        token_idx: TokenIdx(
+                                                            50,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Trait(
+                                                            TraitPath(`core::ops::IntIndex`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `BinaryImage28`,
+                                                        token_idx: TokenIdx(
+                                                            52,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: Trait,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: SelfType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                    ),
+                ),
+            ),
+            (
+                ItemPath::AssociatedItem(
+                    AssociatedItemPath::TraitForTypeItem(
+                        TraitForTypeItemPath {
+                            impl_block: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                            ident: `Output`,
+                            item_kind: AssociatedType,
+                        },
+                    ),
+                ),
+                Decl::AssociatedItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
+                        TraitForTypeItemSynDecl::AssociatedType(
+                            TraitForTypeAssociatedTypeSynDecl {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `Output`,
+                                    item_kind: AssociatedType,
+                                },
+                                template_parameters: [],
+                                ty_term_expr_idx: 0,
+                                syn_expr_region: SynExprRegion {
+                                    data: SynExprRegionData {
+                                        parent: Some(
+                                            SynExprRegion {
+                                                data: SynExprRegionData {
+                                                    parent: None,
+                                                    path: RegionPath::Decl(
+                                                        ItemSynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
+                                                                    path: TraitForTypeImplBlockPath {
+                                                                        module_path: `mnist`,
+                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    expr_arena: Arena {
+                                                        data: [
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 2,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
+                                                                            TraitPath(`core::ops::IntIndex`),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            SynExpr::PrincipalEntityPath {
+                                                                item_path_expr: 3,
+                                                                opt_path: Some(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    principal_item_path_expr_arena: Arena {
+                                                        data: [
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameToken::Ident(
+                                                                    IdentToken {
+                                                                        ident: `core`,
+                                                                        token_idx: TokenIdx(
+                                                                            46,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::Module(
+                                                                    `core`,
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Subitem {
+                                                                parent: 0,
+                                                                scope_resolution_token: ScopeResolutionToken(
+                                                                    TokenIdx(
+                                                                        47,
+                                                                    ),
+                                                                ),
+                                                                ident_token: Ok(
+                                                                    IdentToken {
+                                                                        ident: `ops`,
+                                                                        token_idx: TokenIdx(
+                                                                            48,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                path: Ok(
+                                                                    PrincipalEntityPath::Module(
+                                                                        `core::ops`,
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Subitem {
+                                                                parent: 1,
+                                                                scope_resolution_token: ScopeResolutionToken(
+                                                                    TokenIdx(
+                                                                        49,
+                                                                    ),
+                                                                ),
+                                                                ident_token: Ok(
+                                                                    IdentToken {
+                                                                        ident: `IntIndex`,
+                                                                        token_idx: TokenIdx(
+                                                                            50,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                path: Ok(
+                                                                    PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
+                                                                            TraitPath(`core::ops::IntIndex`),
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                            PrincipalEntityPathExpr::Root {
+                                                                path_name_token: PathNameToken::Ident(
+                                                                    IdentToken {
+                                                                        ident: `BinaryImage28`,
+                                                                        token_idx: TokenIdx(
+                                                                            52,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ],
+                                                    },
+                                                    stmt_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_region: SynPatternExprRegion {
+                                                        pattern_expr_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                        pattern_infos: [],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_symbol_maps: [],
+                                                        pattern_symbol_modifiers: ArenaMap {
+                                                            data: [],
+                                                        },
+                                                    },
+                                                    symbol_region: SynSymbolRegion {
+                                                        inherited_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        current_symbol_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        allow_self_type: True,
+                                                        allow_self_value: False,
+                                                        pattern_ty_constraints: [],
+                                                    },
+                                                    roots: [
+                                                        SynExprRoot {
+                                                            kind: Trait,
+                                                            expr_idx: 0,
+                                                        },
+                                                        SynExprRoot {
+                                                            kind: SelfType,
+                                                            expr_idx: 1,
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ),
+                                        path: RegionPath::Decl(
+                                            ItemSynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitForTypeItemPath {
+                                                                impl_block: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                                ident: `Output`,
+                                                                item_kind: AssociatedType,
+                                                            },
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                SynExpr::PrincipalEntityPath {
+                                                    item_path_expr: 0,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        principal_item_path_expr_arena: Arena {
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `r32`,
+                                                            token_idx: TokenIdx(
+                                                                57,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: SynPatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SynSymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            SynExprRoot {
+                                                kind: AssociatedTypeTerm,
+                                                expr_idx: 0,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

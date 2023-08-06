@@ -198,6 +198,61 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `core`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `ops`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `IntIndex`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Type,
+                ),
+            ),
+            Token::Ident(
+                `Output`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Ident(
+                `r32`,
+            ),
         ],
         group_starts: [
             0,
@@ -214,6 +269,8 @@ Ok(
             23,
             30,
             39,
+            45,
+            54,
         ],
         indents: [
             0,
@@ -230,6 +287,8 @@ Ok(
             0,
             0,
             0,
+            0,
+            4,
         ],
     },
 )

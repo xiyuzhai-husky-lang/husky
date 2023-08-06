@@ -14,3 +14,6 @@ pub enum MnistLabel
 pub struct BinaryImage28([30]r32)
 
 pub val input: BinaryImage28;
+
+impl core::ops::IntIndex for BinaryImage28:
+    type Output = r32

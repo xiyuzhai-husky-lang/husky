@@ -1775,21 +1775,11 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Solid(
-                                                    SolidTerm(
-                                                        0,
-                                                    ),
-                                                ),
-                                                contract: None,
-                                                expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Deref(
+                                                Leash,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2064,21 +2054,11 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Solid(
-                                                    SolidTerm(
-                                                        0,
-                                                    ),
-                                                ),
-                                                contract: None,
-                                                expected: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Deref(
+                                                Leash,
+                                            ),
                                         ),
                                     ),
                                 ),

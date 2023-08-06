@@ -37,4 +37,43 @@
             ),
         ),
     ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    template_arguments: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            AssociatedType(
+                TraitForTypeAssociatedTypeHirDecl(
+                    Id {
+                        value: 3,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]

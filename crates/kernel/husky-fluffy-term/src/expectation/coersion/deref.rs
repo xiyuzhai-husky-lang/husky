@@ -2,7 +2,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DerefCoersion {
-    Leashed,
+    Leash,
+    Ref,
 }
 
 impl ExpectCoersion {
@@ -21,7 +22,18 @@ impl ExpectCoersion {
                 ..
             } => {
                 match prelude_indirection_ty_path {
-                    PreludeIndirectionTypePath::Ref => todo!(),
+                    PreludeIndirectionTypePath::Ref => {
+                        debug_assert_eq!(expectee_ty_arguments.len(), 2);
+                        // todo: check expected_ty_argument_place
+                        resolve_aux(
+                            self.ty_expected,
+                            expectee_ty_arguments[1],
+                            |_, _| Some(Coersion::Deref(DerefCoersion::Ref)),
+                            db,
+                            terms,
+                            state,
+                        )
+                    }
                     PreludeIndirectionTypePath::RefMut => todo!(),
                     PreludeIndirectionTypePath::Leash => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 1);
@@ -29,7 +41,7 @@ impl ExpectCoersion {
                         resolve_aux(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            |_, _| Some(Coersion::Deref(DerefCoersion::Leashed)),
+                            |_, _| Some(Coersion::Deref(DerefCoersion::Leash)),
                             db,
                             terms,
                             state,

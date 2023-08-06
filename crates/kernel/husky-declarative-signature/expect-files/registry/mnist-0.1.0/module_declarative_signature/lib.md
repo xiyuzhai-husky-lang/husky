@@ -64,4 +64,73 @@
             ),
         ),
     ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [],
+                        },
+                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 71,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            ty_term: DeclarativeTerm(`core::raw_bits::r32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

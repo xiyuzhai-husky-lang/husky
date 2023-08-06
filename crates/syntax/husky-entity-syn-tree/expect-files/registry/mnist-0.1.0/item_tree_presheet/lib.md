@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -105,7 +105,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(

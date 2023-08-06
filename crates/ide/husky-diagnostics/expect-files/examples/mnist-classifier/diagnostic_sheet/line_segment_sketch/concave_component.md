@@ -25,16 +25,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [103:45, 103:57),
             },
-            Diagnostic {
-                message: "Term Error: expected coersion from `@StackPure { location: StackLocationIdx(LocalSymbolIdx(0)) } Leash LineSegmentSketch` to `LineSegmentSketch` under contract ``",
-                severity: Error,
-                range: [94:37, 94:56),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `@StackPure { location: StackLocationIdx(LocalSymbolIdx(0)) } Leash LineSegmentSketch` to `LineSegmentSketch` under contract ``",
-                severity: Error,
-                range: [98:45, 98:64),
-            },
         ],
     },
 }
