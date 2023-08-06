@@ -703,6 +703,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 11,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -1978,9 +1981,15 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 14,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 21,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::IfElse {
                                             if_branch: IfBranch {
@@ -3785,9 +3794,15 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 22,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 41,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Break {
                                             break_token: BreakToken {
@@ -3798,9 +3813,15 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 52,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 10,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::While {
                                             while_token: WhileToken {
@@ -3828,6 +3849,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 25,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::While {
                                             while_token: WhileToken {
@@ -4010,9 +4034,15 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 60,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 61,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -4910,6 +4940,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 14,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Assert {
                                             assert_token: AssertToken {
@@ -5506,6 +5539,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 9,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Assert {
                                             assert_token: AssertToken {

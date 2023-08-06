@@ -25,12 +25,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Term Error: expected coersion from `Option Point2d` to `unit` under contract ``",
-                severity: Error,
-                range: [264:17, 264:30),
-            },
-        ],
+        diagnostics: [],
     },
 }

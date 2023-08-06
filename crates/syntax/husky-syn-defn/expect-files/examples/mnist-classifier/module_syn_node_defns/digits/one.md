@@ -430,6 +430,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 6,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -4504,6 +4507,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 20,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::IfElse {
                                             if_branch: IfBranch {
@@ -4535,6 +4541,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 29,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Require {
                                             require_token: RequireToken {
@@ -4546,6 +4555,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 61,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Require {
                                             require_token: RequireToken {
@@ -4635,12 +4647,21 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 148,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 159,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 184,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Require {
                                             require_token: RequireToken {
@@ -4804,9 +4825,15 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 95,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 112,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::IfElse {
                                             if_branch: IfBranch {
@@ -4982,6 +5009,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 213,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Require {
                                             require_token: RequireToken {
@@ -5117,9 +5147,15 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 234,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 6,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {
@@ -6682,6 +6718,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 7,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -7414,6 +7453,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 9,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },
@@ -8206,6 +8248,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 15,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                     ],
                                 },

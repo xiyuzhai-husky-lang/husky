@@ -1477,6 +1477,9 @@ Ok(
                                         },
                                         SynStmt::Eval {
                                             expr_idx: 19,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {
@@ -2636,6 +2639,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 14,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {
@@ -3494,6 +3500,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 14,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {
@@ -4372,6 +4381,9 @@ Ok(
                                     data: [
                                         SynStmt::Eval {
                                             expr_idx: 15,
+                                            eol_semicolon: Ok(
+                                                None,
+                                            ),
                                         },
                                         SynStmt::Let {
                                             let_token: LetToken {

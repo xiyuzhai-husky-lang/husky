@@ -62,7 +62,14 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::Break { .. } => Some(self.term_menu.never().into()),
-            SynStmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
+            SynStmt::Eval {
+                expr_idx,
+                eol_semicolon,
+            } => match eol_semicolon {
+                Ok(None) => self.infer_new_expr_ty(expr_idx, expr_expectation),
+                Ok(Some(_)) => self.infer_new_expr_ty(expr_idx, ExpectAnyOriginal),
+                Err(_) => self.infer_new_expr_ty(expr_idx, ExpectAnyDerived),
+            },
             SynStmt::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,

@@ -39,6 +39,8 @@ pub enum SynStmt {
     },
     Eval {
         expr_idx: SynExprIdx,
+        // todo: change this to EolOrEolSemicolonToken
+        eol_semicolon: TokenResult<Option<EolSemicolonToken>>,
     },
     ForBetween {
         for_token: StmtForToken,

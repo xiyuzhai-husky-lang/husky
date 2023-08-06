@@ -240,9 +240,13 @@ impl<'a> BlockExprParser<'a> {
                     Err(_) => todo!(),
                 },
             }),
-            Ok(None) => ctx
-                .parse_expr_root(None, ExprRootKind::EvalExpr)
-                .map(|expr_idx| SynStmt::Eval { expr_idx }),
+            Ok(None) => match ctx.parse_expr_root(None, ExprRootKind::EvalExpr) {
+                Some(expr_idx) => Some(SynStmt::Eval {
+                    expr_idx,
+                    eol_semicolon: ctx.try_parse_option(),
+                }),
+                None => None,
+            },
             Err(_) => todo!(),
         }
     }
