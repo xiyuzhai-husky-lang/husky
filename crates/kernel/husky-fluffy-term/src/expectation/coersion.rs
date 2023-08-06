@@ -164,22 +164,25 @@ impl ExpectFluffyTerm for ExpectCoersion {
 
 // common auxiliary
 fn resolve_aux(
-    src: FluffyBaseTypeData,
-    dst: FluffyBaseTypeData,
-    coersion: Coersion,
+    src: FluffyTerm,
+    dst: FluffyTerm,
+    coersion: impl Fn(Option<Place>, Option<Place>) -> Option<Coersion>,
     db: &dyn FluffyTermDb,
     terms: &FluffyTerms,
     state: &mut ExpectationState,
 ) -> AltOption<ExpectationEffect> {
-    if src == dst {
+    let (src_place, src_base_ty_data) = src.ty_data_inner(db, terms);
+    let (dst_place, dst_base_ty_data) = dst.ty_data_inner(db, terms);
+    let coersion = coersion(src_place, dst_place)?;
+    if src_base_ty_data == dst_base_ty_data {
         return state.set_ok(coersion, smallvec![]);
     }
-    match src {
+    match src_base_ty_data {
         FluffyBaseTypeData::TypeOntology {
             ty_path: src_ty_path,
             ty_arguments: src_ty_arguments,
             ..
-        } => match dst {
+        } => match dst_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
                 ty_path: dst_ty_path,
                 refined_ty_path,
@@ -196,6 +199,7 @@ fn resolve_aux(
                     dst_ty_arguments.iter().copied(),
                 ) {
                     if src_argument_ty != dst_argument_ty {
+                        // todo: check variance
                         actions.push(FluffyTermResolveAction::AddExpectation {
                             src: state.child_src(),
                             expectee: src_argument_ty,
