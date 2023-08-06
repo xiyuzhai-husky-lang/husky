@@ -25,46 +25,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [4:31, 4:36),
             },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
-                severity: Error,
-                range: [23:5, 23:43),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List RawContour` to `Leash List RawContour` under contract `move `",
-                severity: Error,
-                range: [23:5, 23:43),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `RawContour` to `Leash RawContour` under contract `move `",
-                severity: Error,
-                range: [27:5, 27:46),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `RawContour` to `Leash RawContour` under contract `move `",
-                severity: Error,
-                range: [27:5, 27:46),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `LineSegmentSketch` to `Leash LineSegmentSketch` under contract `move `",
-                severity: Error,
-                range: [30:5, 30:42),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `LineSegmentSketch` to `Leash LineSegmentSketch` under contract `move `",
-                severity: Error,
-                range: [30:5, 30:42),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List ConcaveComponent` to `Leash List ConcaveComponent` under contract `move `",
-                severity: Error,
-                range: [33:5, 33:49),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List ConcaveComponent` to `Leash List ConcaveComponent` under contract `move `",
-                severity: Error,
-                range: [33:5, 33:49),
-            },
         ],
     },
 }

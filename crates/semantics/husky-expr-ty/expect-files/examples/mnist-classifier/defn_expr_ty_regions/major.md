@@ -2005,25 +2005,9 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`List`),
-                                                        argument: EtherealTerm(`RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2056,25 +2040,9 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`List`),
-                                                        argument: EtherealTerm(`RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2400,23 +2368,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2447,23 +2401,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`RawContour`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2651,23 +2591,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`LineSegmentSketch`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2698,23 +2624,9 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`LineSegmentSketch`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2906,25 +2818,9 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`List`),
-                                                        argument: EtherealTerm(`ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),
@@ -2957,25 +2853,9 @@
                                     },
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
-                                    Err(
-                                        FluffyTermExpectationError::Original(
-                                            OriginalFluffyTermExpectationError::ExpectedCoersion {
-                                                expectee: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`List`),
-                                                        argument: EtherealTerm(`ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                                contract: Move,
-                                                expected: FluffyTerm::Application(
-                                                    EtherealTermApplication {
-                                                        function: EtherealTerm(`Leash`),
-                                                        argument: EtherealTerm(`List ConcaveComponent`),
-                                                        shift: 0,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            PlaceToLeash,
                                         ),
                                     ),
                                 ),

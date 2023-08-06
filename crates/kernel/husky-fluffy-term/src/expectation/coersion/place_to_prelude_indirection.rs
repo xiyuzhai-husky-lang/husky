@@ -19,13 +19,14 @@ impl ExpectCoersion {
         //     Contract::Const => todo!(),
         //     Contract::Leash => todo!(),
         // }
-        let (Some(expectee_place), expectee_base_ty_data) =
-            state.expectee().ty_data_inner(db, terms)
+        // todo: assert that is None
+        // let (None, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
+        let (expected_place, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms)
         else {
-            return AltNone;
-        };
-        let (None, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
-            unreachable!("place should be merged with contract already")
+            unreachable!(
+                "place should be merged with contract already, self.ty_expected = {}",
+                self.ty_expected.show(db, terms)
+            )
         };
         match expected_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
@@ -41,9 +42,9 @@ impl ExpectCoersion {
                     let (dst_place, dst) = expected_ty_arguments[0].ty_data_inner(db, terms);
                     // todo: check place
                     resolve_aux(
-                        expectee_base_ty_data,
-                        dst,
-                        Coersion::PlaceToLeash,
+                        state.expectee(),
+                        expected_ty_arguments[0],
+                        |_,_|/* ad hoc */ Some(Coersion::PlaceToLeash),
                         db,
                         terms,
                         state,
