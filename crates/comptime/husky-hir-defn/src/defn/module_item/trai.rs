@@ -16,7 +16,6 @@ impl HasHirDefn for TraitPath {
 
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn trai_hir_defn(db: &dyn HirDefnDb, path: TraitPath) -> Option<TraitHirDefn> {
-    todo!()
-    // let hir_decl = path.hir_decl(db)?;
-    // (TraitHirDefn::new(db, path, hir_decl))
+    let hir_decl = path.hir_decl(db)?;
+    Some(TraitHirDefn::new(db, path, hir_decl))
 }

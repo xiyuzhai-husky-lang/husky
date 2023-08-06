@@ -11,6 +11,9 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_hir_eager_expr::builder::HirEagerExprBuilder;
+use husky_hir_expr::builder::HirExprBuilder;
+use husky_hir_lazy_expr::builder::HirLazyExprBuilder;
 use husky_hir_ty::{
     template_parameter::{HirTemplateParameter, HirTemplateParameters},
     *,
@@ -85,25 +88,4 @@ impl HasHirDefn for ItemPath {
             ItemPath::TypeVariant(_) => todo!(),
         })
     }
-}
-
-#[salsa::tracked(jar = HirDefnJar, return_ref)]
-pub(crate) fn module_hir_defns(db: &dyn HirDefnDb, module_path: ModulePath) -> Vec<HirDefn> {
-    todo!()
-    // module_item_paths(db, module_path)
-    //     .as_ref()?
-    //     .iter()
-    //     .copied()
-    //     .filter_map(|path| path.hir_defn(db).ok())
-    //     .collect()
-}
-
-#[test]
-fn module_defns_works() {
-    // use tests::*;
-
-    // DB::default()
-    //     .ast_expect_test_debug_with_db("module_hir_defns", |db, module_path: ModulePath| {
-    //         module_path.defns(db)
-    //     });
 }

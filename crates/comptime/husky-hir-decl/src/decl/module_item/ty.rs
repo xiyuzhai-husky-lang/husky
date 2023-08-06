@@ -17,6 +17,7 @@ pub use self::unit_struct::*;
 use super::*;
 use husky_entity_path::TypePath;
 use husky_print_utils::p;
+use husky_syn_decl::TypeSynDecl;
 use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

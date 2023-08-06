@@ -1,3 +1,5 @@
+use husky_syn_decl::{HasSynDecl, TypeItemSynDecl, TypeSynDecl};
+
 use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
@@ -17,7 +19,10 @@ impl TypeAssociatedFnHirDecl {
         ethereal_signature_template: TypeAssociatedFnEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let mut builder = HirEagerExprBuilder::new(db);
+        let TypeItemSynDecl::AssociatedFn(syn_decl) = path.syn_decl(db).expect("ok") else {
+            unreachable!()
+        };
+        let mut builder = HirEagerExprBuilder::new(db, syn_decl.syn_expr_region(db));
         let template_parameters = HirTemplateParameters::from_ethereal(
             ethereal_signature_template.template_parameters(db),
             db,

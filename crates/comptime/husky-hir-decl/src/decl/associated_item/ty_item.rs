@@ -13,6 +13,7 @@ pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
 use super::*;
+use husky_syn_decl::TypeItemSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]

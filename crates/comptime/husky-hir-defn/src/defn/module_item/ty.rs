@@ -64,16 +64,18 @@ impl HasHirDefn for TypePath {
 
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> Option<TypeHirDefn> {
-    todo!()
-    // Ok(match path.hir_decl(db)? {
-    //     TypeHirDecl::Enum(hir_decl) => EnumTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::PropsStruct(hir_decl) => PropsStructTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::TupleStruct(hir_decl) => TupleStructTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::UnitStruct(hir_decl) => UnitStructTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::Record(hir_decl) => RecordTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::Inductive(hir_decl) => InductiveTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::Structure(hir_decl) => StructureTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::Extern(hir_decl) => ExternTypeHirDefn::new(db, path, hir_decl).into(),
-    //     TypeHirDecl::Union(hir_decl) => UnionTypeHirDefn::new(db, path, hir_decl).into(),
-    // })
+    Some(match path.hir_decl(db)? {
+        TypeHirDecl::Enum(hir_decl) => EnumTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::PropsStruct(hir_decl) => {
+            PropsStructTypeHirDefn::new(db, path, hir_decl).into()
+        }
+        TypeHirDecl::TupleStruct(hir_decl) => {
+            TupleStructTypeHirDefn::new(db, path, hir_decl).into()
+        }
+        TypeHirDecl::UnitStruct(hir_decl) => UnitStructTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Record(hir_decl) => todo!(),
+        // RecordTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Extern(hir_decl) => ExternTypeHirDefn::new(db, path, hir_decl).into(),
+        TypeHirDecl::Union(hir_decl) => UnionTypeHirDefn::new(db, path, hir_decl).into(),
+    })
 }

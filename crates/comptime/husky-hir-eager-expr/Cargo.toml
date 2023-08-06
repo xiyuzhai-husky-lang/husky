@@ -13,14 +13,16 @@ salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
-# semantics
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-hir-ty = { path = "../../kernel/husky-hir-ty" }
+# semantics
+husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+# syntax
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 
 [features]
 rust-syn-gen = ["dep:syn"]

@@ -13,7 +13,7 @@ impl<'a> HirExprBuilder<'a> {
     pub fn new(db: &'a dyn HirExprDb, expr_region: SynExprRegion) -> Self {
         match expr_region_contains_gn(db, expr_region) {
             true => todo!(),
-            false => HirExprBuilder::Eager(HirEagerExprBuilder::new(db)),
+            false => HirExprBuilder::Eager(HirEagerExprBuilder::new(db, expr_region)),
         }
     }
 

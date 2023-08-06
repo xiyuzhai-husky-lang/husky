@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeMemoizedFieldHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMemoizedFieldHirDecl,
-    pub body: Option<HirExprIdx>,
+    pub body: Option<HirEagerExprIdx>,
     pub hir_expr_region: HirEagerExprRegion,
 }
 

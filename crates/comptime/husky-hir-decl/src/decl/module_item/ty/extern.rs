@@ -15,7 +15,10 @@ impl ExternTypeHirDecl {
         ethereal_signature_template: ExternTypeEtherealSignatureTemplate,
         db: &dyn HirDeclDb,
     ) -> Self {
-        let mut builder = HirEagerExprBuilder::new(db);
+        let TypeSynDecl::Extern(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
+            unreachable!()
+        };
+        let mut builder = HirEagerExprBuilder::new(db, syn_decl.syn_expr_region(db));
         let template_parameters = HirTemplateParameters::from_ethereal(
             ethereal_signature_template.template_parameters(db),
             db,
