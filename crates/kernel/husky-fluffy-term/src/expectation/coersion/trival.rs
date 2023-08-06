@@ -12,12 +12,28 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<ExpectationEffect> {
+        resolve_aux(
+            state.expectee(),
+            self.ty_expected,
+            |_, _| Some(Coersion::Trivial(PlaceCoersion::Todo)),
+            db,
+            terms,
+            state,
+        )
+    }
+
+    fn resolve_trivial_old(
+        &self,
+        db: &dyn FluffyTermDb,
+        terms: &mut FluffyTerms,
+        state: &mut ExpectationState,
+    ) -> AltOption<ExpectationEffect> {
         let (expectee_place, expectee_base_ty_data) = state.expectee().ty_data_inner(db, terms);
         let (expected_place, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms);
         if expectee_base_ty_data == expected_base_ty_data {
             // ad hoc
             // todo: contract
-            return state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![]);
+            return state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), smallvec![]);
         }
         if let FluffyBaseTypeData::Hole(_, hole) = expectee_base_ty_data {
             return state.set_holed(hole, |meta| HoleConstraint::CoercibleInto {
@@ -51,7 +67,7 @@ impl ExpectCoersion {
                 Contract::BorrowMut => todo!(),
                 Contract::Const => {
                     if state.expectee() == self.ty_expected() {
-                        return state.set_ok(Coersion::Place(PlaceCoersion::Todo), smallvec![]);
+                        return state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), smallvec![]);
                     }
                     todo!()
                 }
@@ -97,8 +113,8 @@ impl ExpectCoersion {
                     }
                 }
                 match self.contract() {
-                    Contract::None => state.set_ok(Coersion::Place(PlaceCoersion::Todo), actions),
-                    Contract::Move => state.set_ok(Coersion::Place(PlaceCoersion::Todo), actions),
+                    Contract::None => state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), actions),
+                    Contract::Move => state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), actions),
                     Contract::Borrow => todo!(),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
@@ -129,8 +145,8 @@ impl ExpectCoersion {
                     }
                 }
                 match self.contract() {
-                    Contract::None => state.set_ok(Coersion::Place(PlaceCoersion::Todo), actions),
-                    Contract::Move => state.set_ok(Coersion::Place(PlaceCoersion::Todo), actions),
+                    Contract::None => state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), actions),
+                    Contract::Move => state.set_ok(Coersion::Trivial(PlaceCoersion::Todo), actions),
                     Contract::Borrow => todo!(),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),

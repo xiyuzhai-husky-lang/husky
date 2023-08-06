@@ -118,7 +118,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
+                                            Trivial(
                                                 Todo,
                                             ),
                                         ),
@@ -155,7 +155,7 @@
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Place(
+                                            Trivial(
                                                 Todo,
                                             ),
                                         ),
