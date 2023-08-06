@@ -58,7 +58,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `first`,
+                        ident: `start`,
                         token_idx: TokenIdx(
                             37,
                         ),
@@ -83,7 +83,79 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    45,
+                                    43,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `end`,
+                        token_idx: TokenIdx(
+                            45,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            46,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `first`,
+                        token_idx: TokenIdx(
+                            53,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            54,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    61,
                                 ),
                             },
                         },
@@ -96,13 +168,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `last`,
                         token_idx: TokenIdx(
-                            47,
+                            63,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            48,
+                            64,
                         ),
                         drained: false,
                     },
@@ -218,7 +290,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..3,
+                                    0..5,
                                 ),
                             },
                         ),
@@ -227,7 +299,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            3..7,
+            5..9,
         ),
         siblings: [
             ArenaIdxRange(
@@ -240,10 +312,16 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..3,
+                0..0,
             ),
             ArenaIdxRange(
-                3..7,
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..5,
+            ),
+            ArenaIdxRange(
+                5..9,
             ),
         ],
     },

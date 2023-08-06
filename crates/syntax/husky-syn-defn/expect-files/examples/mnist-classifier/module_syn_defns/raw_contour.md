@@ -174,7 +174,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 273,
+                                                                value: 276,
                                                             },
                                                         ),
                                                     ),
@@ -191,7 +191,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 245,
+                                                                value: 248,
                                                             },
                                                         ),
                                                     ),
@@ -5651,7 +5651,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 319,
+                                                                value: 320,
                                                             },
                                                         ),
                                                     ),
@@ -5668,7 +5668,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 320,
+                                                                value: 321,
                                                             },
                                                         ),
                                                     ),
@@ -7182,16 +7182,16 @@ Ok(
                                                 975,
                                             ),
                                         },
-                                        SynExpr::Err(
-                                            ExprError::Original(
-                                                OriginalExprError::UnrecognizedIdent {
-                                                    token_idx: TokenIdx(
-                                                        980,
+                                        SynExpr::PrincipalEntityPath {
+                                            item_path_expr: 1,
+                                            opt_path: Some(
+                                                PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
                                                     ),
-                                                    ident: `BinaryGrid28`,
-                                                },
+                                                ),
                                             ),
-                                        ),
+                                        },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 4,
                                             generic_arguments: None,
@@ -7749,7 +7749,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 1,
+                                            item_path_expr: 2,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -7951,7 +7951,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 2,
+                                            item_path_expr: 3,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -8260,7 +8260,7 @@ Ok(
                                             opd: 105,
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 3,
+                                            item_path_expr: 4,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -8350,7 +8350,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 4,
+                                            item_path_expr: 5,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -8798,7 +8798,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 5,
+                                            item_path_expr: 6,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Fugitive(
@@ -8859,7 +8859,7 @@ Ok(
                                             },
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 6,
+                                            item_path_expr: 7,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -9169,7 +9169,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 7,
+                                            item_path_expr: 8,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -9495,7 +9495,7 @@ Ok(
                                             ),
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 8,
+                                            item_path_expr: 9,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -9658,7 +9658,7 @@ Ok(
                                             },
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 9,
+                                            item_path_expr: 10,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -10130,7 +10130,7 @@ Ok(
                                             },
                                         },
                                         SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 10,
+                                            item_path_expr: 11,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -10239,6 +10239,21 @@ Ok(
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                        },
+                                        PrincipalEntityPathExpr::Root {
+                                            path_name_token: PathNameToken::Ident(
+                                                IdentToken {
+                                                    ident: `BinaryGrid28`,
+                                                    token_idx: TokenIdx(
+                                                        980,
+                                                    ),
+                                                },
+                                            ),
+                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
                                                 ),
                                             ),
                                         },
@@ -13494,7 +13509,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 245,
+                                                                    value: 248,
                                                                 },
                                                             ),
                                                         ),

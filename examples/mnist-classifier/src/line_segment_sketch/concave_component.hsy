@@ -100,7 +100,7 @@ pub fn find_concave_components(line_segment_sketch: ~LineSegmentSketch) -> []Con
         if end > start + 1:
             concave_components.push(ConcaveComponent(
                 line_segment_sketch,
-                line_segment_sketch.strokes.cyclic_slice(start, end))
+                line_segment_sketch.strokes.cyclic_slice_leashed(start, end))
             )
         start = end
         end = start + 1

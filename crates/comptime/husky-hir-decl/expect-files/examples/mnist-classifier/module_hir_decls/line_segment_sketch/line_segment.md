@@ -36,7 +36,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 58,
+                        value: 61,
                     },
                 ),
             ),
@@ -47,7 +47,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 59,
+                        value: 62,
                     },
                 ),
             ),

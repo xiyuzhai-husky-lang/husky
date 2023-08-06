@@ -92,5 +92,18 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `cyclic_slice_leashed`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
     ],
 )

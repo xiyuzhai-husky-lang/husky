@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `cyclic_slice` for type `List LineSegmentStroke`",
-                severity: Error,
-                range: [103:45, 103:57),
-            },
-        ],
+        diagnostics: [],
     },
 }

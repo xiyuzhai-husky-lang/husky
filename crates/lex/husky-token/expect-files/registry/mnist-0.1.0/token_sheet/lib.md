@@ -175,30 +175,6 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Fugitive(
-                    Val,
-                ),
-            ),
-            Token::Ident(
-                `input`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Colon,
-                ),
-            ),
-            Token::Ident(
-                `BinaryImage28`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Semicolon,
-                ),
-            ),
-            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -253,6 +229,187 @@ Ok(
             Token::Ident(
                 `r32`,
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Struct,
+                ),
+            ),
+            Token::Ident(
+                `BinaryGrid28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    UnspecifiedRegular(
+                        31,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `r32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `BinaryGrid28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `new`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfType,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `core`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `ops`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `IntIndex`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `BinaryGrid28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Type,
+                ),
+            ),
+            Token::Ident(
+                `Output`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Ident(
+                `r32`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Val,
+                ),
+            ),
+            Token::Ident(
+                `input`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -269,8 +426,13 @@ Ok(
             23,
             30,
             39,
-            45,
-            54,
+            48,
+            52,
+            61,
+            64,
+            72,
+            81,
+            85,
         ],
         indents: [
             0,
@@ -287,8 +449,13 @@ Ok(
             0,
             0,
             0,
+            4,
+            0,
             0,
             4,
+            0,
+            4,
+            0,
         ],
     },
 )

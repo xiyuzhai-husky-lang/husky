@@ -167,7 +167,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 8,
+                            value: 9,
                         },
                     ),
                 ),
@@ -179,7 +179,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 7,
+                        value: 8,
                     },
                 ),
             ),
@@ -206,7 +206,7 @@
                             PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 9,
                                     },
                                 ),
                             ),
@@ -216,7 +216,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 8,
+                            value: 9,
                         },
                     ),
                 ),
@@ -248,7 +248,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 9,
+                            value: 10,
                         },
                     ),
                 ),
@@ -260,7 +260,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 8,
+                        value: 9,
                     },
                 ),
             ),
@@ -297,7 +297,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 9,
+                            value: 10,
                         },
                     ),
                 ),
@@ -341,7 +341,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 9,
+                        value: 10,
                     },
                 ),
             ),
@@ -410,87 +410,6 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 10,
-                        },
-                    ),
-                ),
-            },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::ImplBlock(
-        ImplBlockHirDecl::TraitForType(
-            TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i64`, `Extern`),
-                    ),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                trai: HirTrait {
-                    trai_path: TraitPath(`core::ops::Add`),
-                    template_arguments: [
-                        Type(
-                            PathLeading(
-                                HirTypePathLeading(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
-            },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TraitForTypeItem(
-            MethodFn(
-                TraitForTypeMethodFnHirDecl(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
                             value: 11,
                         },
                     ),
@@ -516,7 +435,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i128`, `Extern`),
+                        TypePath(`core::num::i64`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -552,7 +471,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 6,
+                        value: 5,
                     },
                 ),
             ),
@@ -563,7 +482,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                    ty_path: TypePath(`core::num::i128`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -597,7 +516,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::isize`, `Extern`),
+                        TypePath(`core::num::i128`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -633,7 +552,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 7,
+                        value: 6,
                     },
                 ),
             ),
@@ -644,7 +563,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                    ty_path: TypePath(`core::num::isize`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -678,7 +597,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u8`, `Extern`),
+                        TypePath(`core::num::isize`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -714,7 +633,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 8,
+                        value: 7,
                     },
                 ),
             ),
@@ -725,7 +644,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                    ty_path: TypePath(`core::num::u8`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -759,7 +678,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u16`, `Extern`),
+                        TypePath(`core::num::u8`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -795,7 +714,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 9,
+                        value: 8,
                     },
                 ),
             ),
@@ -806,7 +725,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                    ty_path: TypePath(`core::num::u16`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -840,7 +759,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u32`, `Extern`),
+                        TypePath(`core::num::u16`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -876,7 +795,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 10,
+                        value: 9,
                     },
                 ),
             ),
@@ -887,7 +806,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                    ty_path: TypePath(`core::num::u32`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -921,7 +840,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u64`, `Extern`),
+                        TypePath(`core::num::u32`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -957,7 +876,7 @@
             MethodFn(
                 TraitForTypeMethodFnHirDecl(
                     Id {
-                        value: 11,
+                        value: 10,
                     },
                 ),
             ),
@@ -968,7 +887,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                    ty_path: TypePath(`core::num::u64`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -1002,7 +921,7 @@
                     module_path: `core::num`,
                     trai_path: TraitPath(`core::ops::Add`),
                     ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u128`, `Extern`),
+                        TypePath(`core::num::u64`, `Extern`),
                     ),
                     disambiguator: 0,
                 },
@@ -1027,6 +946,87 @@
                     HirTypePathLeading(
                         Id {
                             value: 17,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            MethodFn(
+                TraitForTypeMethodFnHirDecl(
+                    Id {
+                        value: 11,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::Type(
+            TypeImplBlockHirDecl {
+                path: TypeImplBlockPath {
+                    module_path: `core::num`,
+                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 18,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 18,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `core::num`,
+                    trai_path: TraitPath(`core::ops::Add`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`core::num::u128`, `Extern`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::ops::Add`),
+                    template_arguments: [
+                        Type(
+                            PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 18,
                         },
                     ),
                 ),
@@ -1070,7 +1070,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 18,
+                        value: 19,
                     },
                 ),
             ),
@@ -1139,7 +1139,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 18,
+                            value: 19,
                         },
                     ),
                 ),
@@ -1151,7 +1151,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 19,
+                        value: 20,
                     },
                 ),
             ),
@@ -1162,7 +1162,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 20,
+                        value: 21,
                     },
                 ),
             ),
@@ -1189,7 +1189,7 @@
                             PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 18,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -1199,7 +1199,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 18,
+                            value: 19,
                         },
                     ),
                 ),
@@ -1231,7 +1231,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 19,
+                            value: 20,
                         },
                     ),
                 ),
@@ -1243,7 +1243,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 21,
+                        value: 22,
                     },
                 ),
             ),
@@ -1270,7 +1270,7 @@
                             PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 19,
+                                        value: 20,
                                     },
                                 ),
                             ),
@@ -1280,7 +1280,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 19,
+                            value: 20,
                         },
                     ),
                 ),

@@ -3061,7 +3061,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `cyclic_slice`,
+                `cyclic_slice_leashed`,
             ),
             Token::Punctuation(
                 Punctuation(

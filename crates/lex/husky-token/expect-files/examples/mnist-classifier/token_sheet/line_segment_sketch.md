@@ -649,7 +649,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `cyclic_slice`,
+                `cyclic_slice_leashed`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -5778,6 +5778,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Comma,
                 ),
             ),
@@ -6734,6 +6748,20 @@ Ok(
             Token::Ident(
                 `end`,
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
             Token::Keyword(
                 Keyword::Stmt(
                     Let,
@@ -7020,6 +7048,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Binary(
                         Closed(
                             Sub,
@@ -7183,30 +7225,30 @@ Ok(
             1173,
             1196,
             1206,
-            1232,
-            1235,
-            1238,
-            1250,
-            1264,
-            1273,
-            1282,
-            1290,
-            1298,
-            1311,
-            1356,
-            1365,
-            1385,
+            1234,
+            1237,
+            1240,
+            1252,
+            1266,
+            1275,
+            1284,
+            1292,
+            1300,
+            1313,
+            1358,
+            1367,
             1387,
-            1398,
-            1404,
-            1407,
-            1412,
-            1422,
-            1435,
-            1444,
-            1455,
-            1464,
-            1498,
+            1389,
+            1400,
+            1406,
+            1409,
+            1414,
+            1424,
+            1439,
+            1448,
+            1459,
+            1468,
+            1504,
         ],
         indents: [
             0,

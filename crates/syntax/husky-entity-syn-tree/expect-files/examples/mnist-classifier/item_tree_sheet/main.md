@@ -676,7 +676,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 11,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -733,7 +733,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 15,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -753,6 +753,57 @@ Ok(
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 25,
+                            use_expr_idx: 20,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `BinaryGrid28`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajorItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
+                                        TypeSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 17,
+                                    ident_token: IdentToken {
+                                        ident: `BinaryGrid28`,
+                                        token_idx: TokenIdx(
+                                            54,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 65,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
                                 ),
                             ),
                             visibility: Scope::PubUnder(
@@ -784,11 +835,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
+                                    ast_idx: 20,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            87,
                                         ),
                                     },
                                     block: Fugitive {
@@ -2581,7 +2632,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        3,
+                        4,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2593,7 +2644,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        41,
+                        42,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2605,7 +2656,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        53,
+                        54,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2617,7 +2668,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        36,
+                        37,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2629,7 +2680,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        60,
+                        61,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2653,7 +2704,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        42,
+                        43,
                     ),
                 },
             ],

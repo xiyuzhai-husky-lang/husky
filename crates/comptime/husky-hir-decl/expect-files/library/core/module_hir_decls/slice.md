@@ -46,22 +46,11 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 23,
+                            value: 8,
                         },
                     ),
                 ),
             },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 23,
-                    },
-                ),
-            ),
         ),
     ),
     HirDecl::AssociatedItem(
@@ -81,6 +70,39 @@
                 TypeMethodFnHirDecl(
                     Id {
                         value: 25,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 26,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 27,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 28,
                     },
                 ),
             ),

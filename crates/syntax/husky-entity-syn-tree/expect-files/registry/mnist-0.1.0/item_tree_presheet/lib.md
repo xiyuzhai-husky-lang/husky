@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 11,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 13,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -96,6 +96,48 @@ Ok(
                 EntityNodeEntry {
                     node: ItemSynNode::MajorItem(
                         MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Type(
+                                TypeSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 17,
+                            ident_token: IdentToken {
+                                ident: `BinaryGrid28`,
+                                token_idx: TokenIdx(
+                                    54,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
+                                variants: None,
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Type(
+                            TypeSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `BinaryGrid28`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
                             syn_node_path: MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -105,11 +147,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    41,
+                                    87,
                                 ),
                             },
                             block: Fugitive {

@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `List`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 6,
+                    ast_idx: 7,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::list`,

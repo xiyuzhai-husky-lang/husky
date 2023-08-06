@@ -19,27 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no field named start in CyclicSliceLeashed Point2d",
-                severity: Error,
-                range: [171:68, 171:102),
-            },
-            Diagnostic {
-                message: "Type Error: no field named end in CyclicSliceLeashed Point2d",
-                severity: Error,
-                range: [193:41, 193:74),
-            },
-            Diagnostic {
-                message: "Type Error: no field named end in CyclicSliceLeashed Point2d",
-                severity: Error,
-                range: [200:13, 200:46),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `cyclic_slice` for type `List Point2d`",
-                severity: Error,
-                range: [27:37, 27:49),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -3518,7 +3518,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 6,
                                                     ident_token: IdentToken {
                                                         ident: `Slice`,
                                                         token_idx: TokenIdx(
@@ -3595,7 +3595,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 5,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `CyclicSliceLeashed`,
                                                         token_idx: TokenIdx(

@@ -21,6 +21,16 @@
     ),
     (
         ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist::BinaryGrid28`, `Struct`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
             MajorItemPath::Fugitive(
                 FugitivePath(`mnist::input`, `Val`),
             ),

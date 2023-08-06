@@ -40,6 +40,32 @@ Ok(
                         ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         disambiguator: 0,
                     },
+                    ident: `start`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `end`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        disambiguator: 0,
+                    },
                     ident: `first`,
                     item_kind: MethodFn,
                 },
