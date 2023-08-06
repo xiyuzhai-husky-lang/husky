@@ -1,87 +1,90 @@
 use crate::*;
 
-pub type HirExprIdx = ();
+pub type HirEagerExprArena = Arena<HirEagerExpr>;
+pub type HirEagerExprIdx = ArenaIdx<HirEagerExpr>;
+pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExpr>;
+pub type HirEagerExprMap<V> = ArenaMap<HirEagerExpr, V>;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum HirExpr {
+pub enum HirEagerExpr {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
     InheritedSymbol {
         ident: Ident,
         inherited_symbol_idx: InheritedHirSymbolIdx,
-        inherited_symbol_kind: InheritedHirSymbolKind,
+        inherited_symbol_kind: InheritedHirEagerSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
-        current_symbol_idx: CurrentHirSymbolIdx,
+        current_symbol_idx: CurrentHirEagerSymbolIdx,
         current_symbol_kind: CurrentHirSymbolKind,
     },
     FrameVarDecl {
         ident: Ident,
-        frame_var_symbol_idx: CurrentHirSymbolIdx,
+        frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
         current_symbol_kind: CurrentHirSymbolKind,
     },
     SelfType,
     SelfValue,
     Binary {
-        lopd: HirExprIdx,
+        lopd: HirEagerExprIdx,
         opr: BinaryOpr,
-        ropd: HirExprIdx,
+        ropd: HirEagerExprIdx,
     },
     Be {
-        src: HirExprIdx,
-        target: BeVariablesPattern,
+        src: HirEagerExprIdx,
+        target: HirEagerBeVariablesPattern,
     },
     Prefix {
         opr: PrefixOpr,
-        opd: HirExprIdx,
+        opd: HirEagerExprIdx,
     },
     Suffix {
-        opd: HirExprIdx,
+        opd: HirEagerExprIdx,
         opr: SuffixOpr,
     },
     FunctionCall {
-        function: HirExprIdx,
+        function: HirEagerExprIdx,
         generic_arguments: Option<HirGenericArgumentList>,
         item_groups: SmallVec<[HirCallListItemGroup; 4]>,
     },
     Field {
-        owner: HirExprIdx,
+        owner: HirEagerExprIdx,
         ident: Ident,
     },
     MethodCall {
-        self_argument: HirExprIdx,
+        self_argument: HirEagerExprIdx,
         ident: Ident,
         generic_arguments: Option<HirGenericArgumentList>,
-        items: SmallVec<[HirExprIdx; 4]>,
+        items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     // todo: implicit arguments
     ExplicitApplication {
-        function_expr_idx: HirExprIdx,
-        argument_expr_idx: HirExprIdx,
+        function_expr_idx: HirEagerExprIdx,
+        argument_expr_idx: HirEagerExprIdx,
     },
     NewTuple {
         /// guaranteed that items.len() > 0
-        items: SmallVec<[HirExprIdx; 4]>,
+        items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     /// there are two cases
     /// - index `$owner[$items]` where `$owner` can be indexed
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
     IndexOrCompositionWithList {
-        owner: HirExprIdx,
-        items: SmallVec<[HirExprIdx; 4]>,
+        owner: HirEagerExprIdx,
+        items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     List {
-        items: SmallVec<[HirExprIdx; 4]>,
+        items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Block {
-        stmts: HirStmtIdxRange,
+        stmts: HirEagerStmtIdxRange,
     },
     // todo: handle container
     EmptyHtmlTag {
         function_ident: Ident,
-        arguments: IdentMap<HtmlArgumentHirExpr>,
+        arguments: IdentMap<HtmlArgumentHirEagerExpr>,
     },
 }
 
@@ -94,17 +97,17 @@ pub enum HirCallListItemGroup {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum HtmlArgumentHirExpr {
+pub enum HtmlArgumentHirEagerExpr {
     Expanded {
         property_ident: Ident,
-        expr: HirExprIdx,
+        expr: HirEagerExprIdx,
     },
     Shortened {
         property_ident: Ident,
     },
 }
 
-impl vec_like::AsVecMapEntry for HtmlArgumentHirExpr {
+impl vec_like::AsVecMapEntry for HtmlArgumentHirEagerExpr {
     type K = Ident;
 
     fn key(&self) -> Self::K
@@ -112,15 +115,15 @@ impl vec_like::AsVecMapEntry for HtmlArgumentHirExpr {
         Self::K: Copy,
     {
         match self {
-            HtmlArgumentHirExpr::Expanded { property_ident, .. }
-            | HtmlArgumentHirExpr::Shortened { property_ident, .. } => *property_ident,
+            HtmlArgumentHirEagerExpr::Expanded { property_ident, .. }
+            | HtmlArgumentHirEagerExpr::Shortened { property_ident, .. } => *property_ident,
         }
     }
 
     fn key_ref(&self) -> &Self::K {
         match self {
-            HtmlArgumentHirExpr::Expanded { property_ident, .. }
-            | HtmlArgumentHirExpr::Shortened { property_ident, .. } => property_ident,
+            HtmlArgumentHirEagerExpr::Expanded { property_ident, .. }
+            | HtmlArgumentHirEagerExpr::Shortened { property_ident, .. } => property_ident,
         }
     }
 }

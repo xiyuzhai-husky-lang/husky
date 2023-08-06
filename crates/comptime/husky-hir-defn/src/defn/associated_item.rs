@@ -30,7 +30,7 @@ impl AssociatedItemHirDefn {
         match self {
             AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_expr_region(db),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
-            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => Some(hir_defn.hir_expr_region(db)),
+            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 

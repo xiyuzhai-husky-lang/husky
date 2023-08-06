@@ -49,6 +49,4 @@ pub struct HirDefnJar(
     TraitForTypeMethodFnHirDefn,
     TraitForTypeAssociatedTypeHirDefn,
     TraitForTypeAssociatedValHirDefn,
-    // sheet
-    module_hir_defns,
 );

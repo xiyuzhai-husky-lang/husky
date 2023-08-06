@@ -4,7 +4,7 @@ use super::*;
 pub struct FnHirDefn {
     pub path: FugitivePath,
     pub hir_decl: FnFugitiveHirDecl,
-    pub body: Option<HirExprIdx>,
+    pub body: Option<HirEagerExprIdx>,
     pub hir_expr_region: HirEagerExprRegion,
 }
 
