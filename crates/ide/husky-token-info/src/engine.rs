@@ -398,8 +398,8 @@ impl<'a> InferContext<'a> {
             }
             SynExpr::FunctionCall { .. } => (),
             SynExpr::Ritchie { .. } => (),
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => todo!(),
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => todo!(),
         }
     }
 

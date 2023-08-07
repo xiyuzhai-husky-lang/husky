@@ -133,8 +133,8 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => todo!(),
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => todo!(),
             SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }

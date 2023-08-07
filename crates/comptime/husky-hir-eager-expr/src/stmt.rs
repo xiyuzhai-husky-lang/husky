@@ -89,10 +89,15 @@ impl<'a> HirEagerExprBuilder<'a> {
         Some(match self.syn_expr_region_data()[syn_stmt_idx] {
             SynStmt::Let {
                 let_token,
-                ref let_variable_pattern,
-                ref assign_token,
+                ref let_variables_pattern,
                 initial_value,
-            } => todo!(),
+                ..
+            } => HirEagerStmt::Let {
+                pattern: self.new_let_variables_pattern(
+                    let_variables_pattern.as_ref().expect("hir stage no error"),
+                ),
+                initial_value: self.new_expr(initial_value),
+            },
             SynStmt::Return {
                 return_token,
                 result,

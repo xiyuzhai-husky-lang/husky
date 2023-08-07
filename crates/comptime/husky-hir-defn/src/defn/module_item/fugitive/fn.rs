@@ -10,16 +10,12 @@ pub struct FnHirDefn {
 
 impl FnHirDefn {
     pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, hir_decl: FnFugitiveHirDecl) -> Self {
-        todo!()
-        // let FugitiveHirNodeDefn::Fn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-        //     unreachable!()
-        // };
-        // FnHirDefn::new_inner(
-        //     db,
-        //     path,
-        //     hir_decl,
-        //     syn_node_defn.body(db),
-        //     syn_node_defn.hir_expr_region(db),
-        // )
+        let FugitiveSynDefn::Fn(syn_defn) = path.syn_defn(db).expect("hir stage no error") else {
+            unreachable!()
+        };
+        let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
+        let body = syn_defn.body(db).map(|body| builder.new_expr(body));
+        let hir_expr_region = builder.finish();
+        FnHirDefn::new_inner(db, path, hir_decl, body, hir_expr_region)
     }
 }

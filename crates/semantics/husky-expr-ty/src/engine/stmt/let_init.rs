@@ -47,10 +47,10 @@ impl<'a> ExprTypeEngine<'a> {
             Some(ty) if ty == self.term_menu.never().into() => Some(self.term_menu.never().into()),
             Some(ty) => {
                 match let_variable_decls {
-                    Ok(let_variable_pattern) => self.infer_pattern_and_symbols_ty(
-                        let_variable_pattern.pattern_expr_idx(),
+                    Ok(let_variables_pattern) => self.infer_pattern_and_symbols_ty(
+                        let_variables_pattern.pattern_expr_idx(),
                         ty,
-                        let_variable_pattern.variables(),
+                        let_variables_pattern.variables(),
                     ),
                     Err(_) => todo!(),
                 };

@@ -591,8 +591,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .into(),
                 )
             }
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => todo!(),
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => todo!(),
         }
     }
 

@@ -384,8 +384,8 @@ impl<'a> ExprTypeEngine<'a> {
                 });
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => Ok((
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => Ok((
                 ExprDisambiguation::Trivial,
                 Ok(self.term_menu.never().into()),
             )),

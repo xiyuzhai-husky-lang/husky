@@ -345,8 +345,8 @@ impl<'a> SynExprRangeCalculator<'a> {
                 }
                 None => TokenIdxRange::new_closed(*ritchie_kind_token_idx, *rpar_token_idx),
             },
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => todo!(),
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => TokenIdxRange::new_single(*token_idx),
             SynExpr::Err(error) => match error {
                 ExprError::Original(error) => error.token_idx_range(),
                 ExprError::Derived(_) => todo!(),
@@ -372,7 +372,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         match self.expr_region_data[stmt_idx] {
             SynStmt::Let {
                 let_token,
-                ref let_variable_pattern,
+                ref let_variables_pattern,
                 ref assign_token,
                 ref initial_value, /* todo: other types of let initialization */
                 ..

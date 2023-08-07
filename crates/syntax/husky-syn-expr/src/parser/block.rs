@@ -145,7 +145,7 @@ impl<'a> BlockExprParser<'a> {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
                 BasicStmtKeywordToken::Let(let_token) => SynStmt::Let {
                     let_token,
-                    let_variable_pattern: ctx.parse_let_variables_pattern_expected(block_end),
+                    let_variables_pattern: ctx.parse_let_variables_pattern_expected(block_end),
                     assign_token: ctx.try_parse_expected(OriginalExprError::ExpectedAssign),
                     initial_value: ctx.parse_expr_expected2(
                         None,
