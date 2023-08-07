@@ -252,9 +252,13 @@ pub enum SynExpr {
         empty_html_ket: EmptyHtmlKetToken,
     },
     /// sorry is for comptime (say proof) terms
-    Sorry,
+    Sorry {
+        token_idx: TokenIdx,
+    },
     /// todo is for runtime terms
-    Todo,
+    Todo {
+        token_idx: TokenIdx,
+    },
     Err(ExprError),
 }
 

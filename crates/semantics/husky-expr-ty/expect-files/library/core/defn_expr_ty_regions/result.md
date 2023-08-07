@@ -178,25 +178,38 @@
         },
         expr_ty_infos: [
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::ExprError,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -368,7 +381,74 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm::Application(
+                                        EtherealTermApplication {
+                                            function: EtherealTerm(`Result t`),
+                                            argument: EtherealTerm(`t`),
+                                            shift: 0,
+                                        },
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::never`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Never,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm::Application(
+                                        EtherealTermApplication {
+                                            function: EtherealTerm(`Result t`),
+                                            argument: EtherealTerm(`t`),
+                                            shift: 0,
+                                        },
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::never`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Never,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

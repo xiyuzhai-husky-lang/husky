@@ -1392,7 +1392,7 @@ Ok(
                                                     46,
                                                 ),
                                             },
-                                            let_variable_pattern: Ok(
+                                            let_variables_pattern: Ok(
                                                 LetVariableDecls {
                                                     pattern_expr_idx: 4,
                                                     variables: ArenaIdxRange(

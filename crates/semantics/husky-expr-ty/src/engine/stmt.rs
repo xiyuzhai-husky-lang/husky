@@ -35,10 +35,10 @@ impl<'a> ExprTypeEngine<'a> {
         match self.expr_region_data[stmt_idx] {
             SynStmt::Let {
                 let_token,
-                ref let_variable_pattern,
+                ref let_variables_pattern,
                 initial_value,
                 ..
-            } => self.calc_let_stmt(let_variable_pattern, initial_value),
+            } => self.calc_let_stmt(let_variables_pattern, initial_value),
             SynStmt::Return { result, .. } => {
                 match self.return_ty {
                     Some(return_ty) => {

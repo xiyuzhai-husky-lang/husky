@@ -896,7 +896,7 @@ Ok(
                                                     42,
                                                 ),
                                             },
-                                            let_variable_pattern: Ok(
+                                            let_variables_pattern: Ok(
                                                 LetVariableDecls {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
@@ -951,7 +951,7 @@ Ok(
                                                     23,
                                                 ),
                                             },
-                                            let_variable_pattern: Ok(
+                                            let_variables_pattern: Ok(
                                                 LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
@@ -978,7 +978,7 @@ Ok(
                                                     28,
                                                 ),
                                             },
-                                            let_variable_pattern: Ok(
+                                            let_variables_pattern: Ok(
                                                 LetVariableDecls {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
@@ -1721,7 +1721,7 @@ Ok(
                                                     73,
                                                 ),
                                             },
-                                            let_variable_pattern: Ok(
+                                            let_variables_pattern: Ok(
                                                 LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(

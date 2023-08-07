@@ -1,9 +1,10 @@
 //! Advertises the capabilities of the LSP Server.
 use lsp_types::{
     CallHierarchyServerCapability, CodeLensOptions, CompletionOptions, DeclarationCapability,
-    DocumentOnTypeFormattingOptions, FileOperationFilter, FileOperationPattern,
-    FileOperationPatternKind, FileOperationRegistrationOptions, FoldingRangeProviderCapability,
-    HoverProviderCapability, ImplementationProviderCapability, OneOf, RenameOptions, SaveOptions,
+    DiagnosticOptions, DiagnosticServerCapabilities, DocumentOnTypeFormattingOptions,
+    FileOperationFilter, FileOperationPattern, FileOperationPatternKind,
+    FileOperationRegistrationOptions, FoldingRangeProviderCapability, HoverProviderCapability,
+    ImplementationProviderCapability, OneOf, RenameOptions, SaveOptions,
     SelectionRangeProviderCapability, SemanticTokensFullOptions, SemanticTokensLegend,
     SemanticTokensOptions, ServerCapabilities, SignatureHelpOptions, TextDocumentSyncCapability,
     TextDocumentSyncKind, TextDocumentSyncOptions, TypeDefinitionProviderCapability,
@@ -130,5 +131,13 @@ pub fn get_server_capabilities() -> ServerCapabilities {
         inlay_hint_provider: None,
         position_encoding: None,
         inline_value_provider: None,
+        diagnostic_provider: Some(DiagnosticServerCapabilities::Options(DiagnosticOptions {
+            identifier: Some("husky-analyzer".to_string()),
+            inter_file_dependencies: true,
+            workspace_diagnostics: true,
+            work_done_progress_options: WorkDoneProgressOptions {
+                work_done_progress: None,
+            },
+        })),
     }
 }

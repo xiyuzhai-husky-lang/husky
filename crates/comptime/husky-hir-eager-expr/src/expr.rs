@@ -88,6 +88,7 @@ pub enum HirEagerExpr {
         function_ident: Ident,
         arguments: IdentMap<HtmlArgumentHirEagerExpr>,
     },
+    Todo,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -289,8 +290,8 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::Sorry => todo!(),
-            SynExpr::Todo => todo!(),
+            SynExpr::Sorry { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => HirEagerExpr::Todo,
             SynExpr::Err(ref e) => {
                 unreachable!("e = {:?}, path = {:?}", e.debug(self.db()), self.path())
             }
