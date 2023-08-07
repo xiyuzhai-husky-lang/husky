@@ -207,7 +207,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         symbol,
                         modifier,
                         Err(DeclarativeTermSymbolTypeErrorKind::CannotInferTypeExprTerm(
-                            self.expr_region_data.path()
+                            self.expr_region_data.path(),
                         )),
                     )
             }
@@ -591,6 +591,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .into(),
                 )
             }
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => todo!(),
         }
     }
 

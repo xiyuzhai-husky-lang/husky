@@ -251,6 +251,10 @@ pub enum SynExpr {
         arguments: IdentMap<HtmlArgumentExpr>,
         empty_html_ket: EmptyHtmlKetToken,
     },
+    /// sorry is for comptime (say proof) terms
+    Sorry,
+    /// todo is for runtime terms
+    Todo,
     Err(ExprError),
 }
 

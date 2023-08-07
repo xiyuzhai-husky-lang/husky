@@ -46,6 +46,8 @@ pub enum Keyword {
     Const,
     Static,
     Async,
+    Sorry,
+    Todo,
 }
 
 impl std::fmt::Display for Keyword {
@@ -74,6 +76,8 @@ impl Keyword {
             Keyword::Const => "const",
             Keyword::Static => "static",
             Keyword::Async => "async",
+            Keyword::Sorry => "sorry",
+            Keyword::Todo => "todo",
         }
     }
 }

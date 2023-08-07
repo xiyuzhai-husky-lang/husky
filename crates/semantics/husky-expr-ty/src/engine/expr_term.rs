@@ -128,12 +128,14 @@ impl<'a> ExprTypeEngine<'a> {
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
             SynExpr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
             } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => todo!(),
+            SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
         }
     }
 
