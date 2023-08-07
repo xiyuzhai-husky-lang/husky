@@ -208,6 +208,8 @@ impl SynExpr {
                         arguments,
                         empty_html_ket,
                     } => todo!(),
+                    SynExpr::Sorry => todo!(),
+                    SynExpr::Todo => todo!(),
                     SynExpr::Err(e) => {
                         p!(e.debug(db));
                         todo!()
@@ -275,6 +277,8 @@ impl SynExpr {
             SynExpr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExpr::FunctionCall { .. } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => todo!(),
         }
     }
 }

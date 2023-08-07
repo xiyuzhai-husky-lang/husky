@@ -5,7 +5,9 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::*;
-use husky_syn_expr::{ForBetweenParticulars, LetVariableDecls, LoopBoundaryKind, LoopStep};
+use husky_syn_expr::{
+    ForBetweenParticulars, LetVariableDecls, LoopBoundaryKind, LoopStep, SynStmt, SynStmtIdx,
+};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -80,4 +82,81 @@ pub struct HirForBetweenRange {
 pub struct HirLoopBoundary {
     pub bound_expr: Option<HirEagerExprIdx>,
     pub kind: LoopBoundaryKind,
+}
+
+impl<'a> HirEagerExprBuilder<'a> {
+    pub(crate) fn new_stmt(&mut self, syn_stmt_idx: SynStmtIdx) -> Option<HirEagerStmt> {
+        Some(match self.syn_expr_region_data()[syn_stmt_idx] {
+            SynStmt::Let {
+                let_token,
+                ref let_variable_pattern,
+                ref assign_token,
+                initial_value,
+            } => todo!(),
+            SynStmt::Return {
+                return_token,
+                result,
+            } => HirEagerStmt::Return {
+                result: self.new_expr(result),
+            },
+            SynStmt::Require {
+                require_token,
+                condition,
+            } => HirEagerStmt::Require {
+                condition: self.new_expr(condition),
+            },
+            SynStmt::Assert {
+                assert_token,
+                condition,
+            } => HirEagerStmt::Assert {
+                condition: self.new_expr(condition),
+            },
+            SynStmt::Break { break_token } => HirEagerStmt::Break,
+            SynStmt::Eval {
+                expr_idx,
+                eol_semicolon,
+            } => HirEagerStmt::Eval {
+                expr_idx: self.new_expr(expr_idx),
+            },
+            SynStmt::ForBetween {
+                for_token,
+                ref particulars,
+                frame_var_symbol_idx,
+                ref eol_colon,
+                ref block,
+            } => todo!(),
+            SynStmt::ForIn {
+                for_token,
+                ref condition,
+                ref eol_colon,
+                ref block,
+            } => todo!(),
+            SynStmt::ForExt {
+                forext_token,
+                expr,
+                ref eol_colon,
+                ref block,
+            } => todo!(),
+            SynStmt::While {
+                while_token,
+                ref condition,
+                ref eol_colon,
+                ref block,
+            } => todo!(),
+            SynStmt::DoWhile {
+                do_token,
+                while_token,
+                ref condition,
+                ref eol_colon,
+                ref block,
+            } => todo!(),
+            SynStmt::IfElse {
+                ref if_branch,
+                ref elif_branches,
+                ref else_branch,
+            } => todo!(),
+            SynStmt::Match { match_token } => todo!(),
+            SynStmt::Err(_) => todo!(),
+        })
+    }
 }

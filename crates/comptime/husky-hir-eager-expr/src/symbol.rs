@@ -9,20 +9,20 @@ pub struct InheritedHirEagerSymbolKind {}
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct CurrentHirEagerSymbol {
     modifier: EphemSymbolModifier,
-    variant: CurrentHirSymbolVariant,
+    variant: CurrentHirEagerSymbolVariant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CurrentHirSymbolKind {}
+pub enum CurrentHirEagerSymbolKind {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum CurrentHirSymbolVariant {}
+pub enum CurrentHirEagerSymbolVariant {}
 
-pub type InheritedHirSymbolArena = Arena<InheritedHirEagerSymbol>;
-pub type InheritedHirSymbolIdx = ArenaIdx<InheritedHirEagerSymbol>;
-pub type InheritedHirSymbolIdxRange = ArenaIdxRange<InheritedHirEagerSymbol>;
-pub(crate) type InheritedHirSymbolMap<V> = ArenaMap<InheritedHirEagerSymbol, V>;
-pub(crate) type InheritedHirSymbolOrderedMap<V> = ArenaOrderedMap<InheritedHirEagerSymbol, V>;
+pub type InheritedHirEagerSymbolArena = Arena<InheritedHirEagerSymbol>;
+pub type InheritedHirEagerSymbolIdx = ArenaIdx<InheritedHirEagerSymbol>;
+pub type InheritedHirEagerSymbolIdxRange = ArenaIdxRange<InheritedHirEagerSymbol>;
+pub(crate) type InheritedHirEagerSymbolMap<V> = ArenaMap<InheritedHirEagerSymbol, V>;
+pub(crate) type InheritedHirEagerSymbolOrderedMap<V> = ArenaOrderedMap<InheritedHirEagerSymbol, V>;
 
 pub type CurrentHirEagerSymbolArena = Arena<CurrentHirEagerSymbol>;
 pub type CurrentHirEagerSymbolIdx = ArenaIdx<CurrentHirEagerSymbol>;

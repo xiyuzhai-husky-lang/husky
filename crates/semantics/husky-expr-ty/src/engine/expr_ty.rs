@@ -384,6 +384,11 @@ impl<'a> ExprTypeEngine<'a> {
                 });
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => Ok((
+                ExprDisambiguation::Trivial,
+                Ok(self.term_menu.never().into()),
+            )),
             SynExpr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
     }

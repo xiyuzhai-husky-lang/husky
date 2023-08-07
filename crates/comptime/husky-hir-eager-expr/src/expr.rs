@@ -1,3 +1,5 @@
+use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
+
 use crate::*;
 
 pub type HirEagerExprArena = Arena<HirEagerExpr>;
@@ -11,18 +13,18 @@ pub enum HirEagerExpr {
     PrincipalEntityPath(PrincipalEntityPath),
     InheritedSymbol {
         ident: Ident,
-        inherited_symbol_idx: InheritedHirSymbolIdx,
-        inherited_symbol_kind: InheritedHirEagerSymbolKind,
+        // inherited_symbol_idx: InheritedHirEagerSymbolIdx,
+        // inherited_symbol_kind: InheritedHirEagerSymbolKind,
     },
     CurrentSymbol {
         ident: Ident,
-        current_symbol_idx: CurrentHirEagerSymbolIdx,
-        current_symbol_kind: CurrentHirSymbolKind,
+        // current_symbol_idx: CurrentHirEagerSymbolIdx,
+        // current_symbol_kind: CurrentHirEagerSymbolKind,
     },
     FrameVarDecl {
         ident: Ident,
-        frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
-        current_symbol_kind: CurrentHirSymbolKind,
+        // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
+        // current_symbol_kind: CurrentHirEagerSymbolKind,
     },
     SelfType,
     SelfValue,
@@ -133,3 +135,166 @@ pub struct HirGenericArgumentList {/*todo */}
 
 #[cfg(feature = "rust-syn-gen")]
 impl Expr {}
+
+impl<'a> HirEagerExprBuilder<'a> {
+    pub fn new_expr(&mut self, syn_expr_idx: SynExprIdx) -> HirEagerExprIdx {
+        let hir_eager_expr = match self.syn_expr_region_data()[syn_expr_idx] {
+            SynExpr::Literal(_, _) => todo!(),
+            SynExpr::PrincipalEntityPath {
+                item_path_expr,
+                opt_path,
+            } => todo!(),
+            SynExpr::ScopeResolution {
+                parent_expr_idx,
+                scope_resolution_token,
+                ident_token,
+            } => todo!(),
+            SynExpr::InheritedSymbol {
+                ident,
+                token_idx,
+                inherited_symbol_idx,
+                inherited_symbol_kind,
+            } => HirEagerExpr::InheritedSymbol { ident },
+            SynExpr::CurrentSymbol {
+                ident,
+                token_idx,
+                current_symbol_idx,
+                current_symbol_kind,
+            } => todo!(),
+            SynExpr::FrameVarDecl {
+                token_idx,
+                ident,
+                frame_var_symbol_idx,
+                current_symbol_kind,
+            } => todo!(),
+            SynExpr::SelfType(_) => todo!(),
+            SynExpr::SelfValue(_) => todo!(),
+            SynExpr::Binary {
+                lopd,
+                opr,
+                opr_token_idx,
+                ropd,
+            } => todo!(),
+            SynExpr::Be {
+                src,
+                be_token_idx,
+                ref target,
+            } => todo!(),
+            SynExpr::Prefix {
+                opr,
+                opr_token_idx,
+                opd,
+            } => todo!(),
+            SynExpr::Suffix {
+                opd,
+                opr,
+                opr_token_idx,
+            } => todo!(),
+            SynExpr::FunctionApplicationOrCall {
+                function,
+                ref generic_arguments,
+                lpar_token_idx,
+                ref items,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::Ritchie {
+                ritchie_kind_token_idx,
+                ritchie_kind,
+                lpar_token,
+                ref parameter_ty_items,
+                rpar_token_idx,
+                light_arrow_token,
+                return_ty_expr,
+            } => todo!(),
+            SynExpr::FunctionCall {
+                function,
+                ref generic_arguments,
+                lpar_token_idx,
+                ref items,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::Field {
+                owner,
+                dot_token_idx,
+                ident_token,
+            } => todo!(),
+            SynExpr::MethodApplicationOrCall {
+                self_argument,
+                dot_token_idx,
+                ident_token,
+                ref generic_arguments,
+                lpar_token_idx,
+                ref items,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::TemplateInstantiation {
+                template,
+                ref generic_arguments,
+            } => todo!(),
+            SynExpr::ExplicitApplication {
+                function_expr_idx,
+                argument_expr_idx,
+            } => todo!(),
+            SynExpr::Unit {
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::Bracketed {
+                lpar_token_idx,
+                item,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::NewTuple {
+                lpar_token_idx,
+                ref items,
+                rpar_token_idx,
+            } => todo!(),
+            SynExpr::IndexOrCompositionWithList {
+                owner,
+                lbox_token_idx,
+                ref items,
+                rbox_token_idx,
+            } => todo!(),
+            SynExpr::List {
+                lbox_token_idx,
+                ref items,
+                rbox_token_idx,
+            } => todo!(),
+            SynExpr::BoxColonList {
+                lbox_token_idx,
+                colon_token_idx,
+                ref items,
+                rbox_token_idx,
+            } => todo!(),
+            SynExpr::Block { stmts } => {
+                let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
+                let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
+                for syn_stmt_idx in stmts {
+                    match self.new_stmt(syn_stmt_idx) {
+                        Some(hir_eager_stmt) => {
+                            syn_stmt_indices.push(syn_stmt_idx);
+                            hir_eager_stmts.push(hir_eager_stmt)
+                        }
+                        None => todo!(),
+                    }
+                }
+                // todo: record syn_stmt_indices in source map
+                HirEagerExpr::Block {
+                    stmts: self.alloc_stmts(syn_stmt_indices, hir_eager_stmts),
+                }
+            }
+            SynExpr::EmptyHtmlTag {
+                empty_html_bra_idx,
+                function_ident,
+                ref arguments,
+                empty_html_ket,
+            } => todo!(),
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => todo!(),
+            SynExpr::Err(ref e) => {
+                unreachable!("e = {:?}, path = {:?}", e.debug(self.db()), self.path())
+            }
+        };
+        self.alloc_expr(syn_expr_idx, hir_eager_expr)
+    }
+}

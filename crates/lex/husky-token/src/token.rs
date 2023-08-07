@@ -1,8 +1,10 @@
 mod keyword;
+mod literal;
 mod punctuation;
 mod wordopr;
 
 pub use self::keyword::*;
+pub use self::literal::*;
 pub use self::punctuation::*;
 pub use self::wordopr::*;
 

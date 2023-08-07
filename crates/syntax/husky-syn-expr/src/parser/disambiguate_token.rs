@@ -54,6 +54,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
                     DisambiguatedToken::Ritchie(token_idx, RitchieKind::FnType)
                 }
+                Keyword::Sorry => DisambiguatedToken::AtomicExpr(SynExpr::Sorry),
+                Keyword::Todo => DisambiguatedToken::AtomicExpr(SynExpr::Todo),
                 _ => DisambiguatedToken::AtomicExpr(SynExpr::Err(
                     OriginalExprError::UnexpectedKeyword(token_idx).into(),
                 )),
@@ -440,6 +442,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 arguments,
                                 empty_html_ket,
                             } => todo!(),
+                            SynExpr::Sorry => todo!(),
+                            SynExpr::Todo => todo!(),
                             SynExpr::Err(_) => todo!(),
                         }
                         todo!()

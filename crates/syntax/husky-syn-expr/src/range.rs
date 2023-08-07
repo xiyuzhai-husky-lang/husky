@@ -345,6 +345,8 @@ impl<'a> SynExprRangeCalculator<'a> {
                 }
                 None => TokenIdxRange::new_closed(*ritchie_kind_token_idx, *rpar_token_idx),
             },
+            SynExpr::Sorry => todo!(),
+            SynExpr::Todo => todo!(),
             SynExpr::Err(error) => match error {
                 ExprError::Original(error) => error.token_idx_range(),
                 ExprError::Derived(_) => todo!(),
