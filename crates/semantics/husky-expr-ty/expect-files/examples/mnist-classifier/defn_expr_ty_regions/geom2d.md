@@ -353,11 +353,21 @@
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
             Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
                         TypePath(`core::num::f32`, `Extern`),
                     ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
             Ok(
@@ -5011,10 +5021,57 @@
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            180.0,
+                        ),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
             Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
                         TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            180.0,
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            3.1415925,
+                        ),
                     ),
                 ),
             ),
@@ -6478,11 +6535,60 @@
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            180.0,
+                        ),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
             Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
                         TypePath(`core::num::f32`, `Extern`),
                     ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
         ],

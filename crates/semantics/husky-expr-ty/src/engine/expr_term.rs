@@ -2,40 +2,40 @@ mod explicit_application;
 mod list;
 mod prefix;
 
+use husky_token::{BoolLiteral, FloatLiteral};
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    // helpful for hir stage
-    pub(super) fn infer_expr_term_if_necessary(&mut self, expr_idx: SynExprIdx) {
-        #[cfg(test)]
-        if self.expr_ty_infos.get(expr_idx).is_none() {
-            print_debug_expr!(self, expr_idx);
-            panic!("expect to infer type before infer term")
+    /// perform this during finish stage
+    pub(super) fn infer_expr_term(&mut self, syn_expr_idx: SynExprIdx) -> Option<FluffyTerm> {
+        if let Some(term) = self.expr_terms.get(syn_expr_idx) {
+            return term.as_ref().ok().copied();
         }
-        debug_assert!(self.expr_terms.get(expr_idx).is_none());
-        match self.expr_region_data[expr_idx] {
+        let term_result = self.calc_expr_term(syn_expr_idx);
+        let term = term_result.as_ref().ok().copied();
+        self.save_new_expr_term(syn_expr_idx, term_result);
+        term
+    }
+
+    pub(super) fn infer_extra_expr_terms_in_preparation_for_hir(&mut self) {
+        for syn_expr_idx in self.expr_region_data.expr_arena().index_iter() {
+            self.infer_extra_expr_term_in_preparation_for_hir(syn_expr_idx)
+        }
+    }
+
+    // helpful for hir stage
+    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, syn_expr_idx: SynExprIdx) {
+        if let Some(term) = self.expr_terms.get(syn_expr_idx) {
+            return;
+        }
+        match self.expr_region_data[syn_expr_idx] {
             SynExpr::Literal(_, _) => (),
             _ => return,
         }
-        let term_result = self.calc_expr_term(expr_idx);
+        let term_result = self.calc_expr_term(syn_expr_idx);
         let term = term_result.as_ref().ok().copied();
-        self.save_new_expr_term(expr_idx, term_result)
-    }
-
-    pub(super) fn infer_expr_term(&mut self, expr_idx: SynExprIdx) -> Option<FluffyTerm> {
-        #[cfg(test)]
-        if self.expr_ty_infos.get(expr_idx).is_none() {
-            print_debug_expr!(self, expr_idx);
-            panic!("expect to infer type before infer term")
-        }
-        p!(self.expr_ty_infos.get(expr_idx).is_none());
-        if let Some(term) = self.expr_terms.get(expr_idx) {
-            return term.as_ref().ok().copied();
-        }
-        let term_result = self.calc_expr_term(expr_idx);
-        let term = term_result.as_ref().ok().copied();
-        self.save_new_expr_term(expr_idx, term_result);
-        term
+        self.save_new_expr_term(syn_expr_idx, term_result)
     }
 
     fn save_new_expr_term(
@@ -51,10 +51,14 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::Literal(_, lit) => Ok(FluffyTerm::Literal(match lit {
                 Literal::Unit => TermLiteral::Unit,
                 Literal::Char(_) => todo!(),
-                Literal::String(_) => todo!(),
+                Literal::String(val) => TermLiteral::String(val),
                 Literal::Integer(ilit) => match ilit {
                     IntegerLikeLiteral::UnspecifiedRegular(val) => {
-                        let ty = self.expr_ty_infos[expr_idx].ty()?;
+                        let ty = self
+                            .expr_ty_infos
+                            .get(expr_idx)
+                            .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
+                            .ty()?;
                         match ty {
                             FluffyTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
                                 match ty_path.prelude_ty_path(self.db) {
@@ -64,7 +68,9 @@ impl<'a> ExprTypeEngine<'a> {
                                                 match int_ty_path {
                                                     PreludeIntTypePath::I8 => todo!(),
                                                     PreludeIntTypePath::I16 => todo!(),
-                                                    PreludeIntTypePath::I32 => todo!(),
+                                                    PreludeIntTypePath::I32 => TermLiteral::I32(
+                                                        val.try_into().expect("todo"),
+                                                    ),
                                                     PreludeIntTypePath::I64 => todo!(),
                                                     PreludeIntTypePath::I128 => todo!(),
                                                     PreludeIntTypePath::ISize => {
@@ -94,10 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     None => todo!(),
                                 }
                             }
-                            _ => {
-                                p!(ty.show(self.db, self.fluffy_term_region.terms()));
-                                todo!()
-                            }
+                            _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
                         }
                     }
                     IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
@@ -126,9 +129,46 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::U128(val) => TermLiteral::U128(todo!()),
                     IntegerLikeLiteral::USize(val) => TermLiteral::USize(todo!()),
                 },
-                Literal::Float(_) => todo!(),
+                Literal::Float(lit) => match lit {
+                    FloatLiteral::Unspecified(lit) => {
+                        let ty = self
+                            .expr_ty_infos
+                            .get(expr_idx)
+                            .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
+                            .ty()?;
+                        match ty {
+                            FluffyTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                                match ty_path.prelude_ty_path(self.db) {
+                                    Some(prelude_ty_path) => match prelude_ty_path {
+                                        PreludeTypePath::Num(num_ty_path) => match num_ty_path {
+                                            PreludeNumTypePath::Int(_) => todo!(),
+                                            PreludeNumTypePath::Float(float_ty_path) => {
+                                                match float_ty_path {
+                                                    PreludeFloatTypePath::F32 => TermLiteral::F32(
+                                                        lit.data(self.db).parse().expect("todo"),
+                                                    ),
+                                                    PreludeFloatTypePath::F64 => TermLiteral::F64(
+                                                        todo!(), // lit.data(self.db).parse().expect("todo"),
+                                                    ),
+                                                }
+                                            }
+                                        },
+                                        _ => todo!(),
+                                    },
+                                    None => todo!(),
+                                }
+                            }
+                            _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
+                        }
+                    }
+                    FloatLiteral::F32(val) => TermLiteral::F32(val),
+                    FloatLiteral::F64(_) => todo!(),
+                },
                 Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => todo!(),
+                Literal::Bool(val) => match val {
+                    BoolLiteral::True => TermLiteral::Bool(true),
+                    BoolLiteral::False => TermLiteral::Bool(false),
+                },
             })),
             SynExpr::PrincipalEntityPath {
                 item_path_expr,

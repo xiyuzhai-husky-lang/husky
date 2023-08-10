@@ -3504,7 +3504,134 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        5,
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            1.8,
+                        ),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            30.0,
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        15,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        6,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        15,
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        5,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            1.8,
+                        ),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            1.8,
+                        ),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -7868,7 +7995,13 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -8857,7 +8990,32 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            0.6,
+                        ),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [

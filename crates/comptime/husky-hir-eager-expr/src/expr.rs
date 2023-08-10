@@ -163,7 +163,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => todo!(),
+            } => HirEagerExpr::CurrentSymbol { ident },
             SynExpr::FrameVarDecl {
                 token_idx,
                 ident,
@@ -177,7 +177,11 @@ impl<'a> HirEagerExprBuilder<'a> {
                 opr,
                 opr_token_idx,
                 ropd,
-            } => todo!(),
+            } => HirEagerExpr::Binary {
+                lopd: self.new_expr(lopd),
+                opr,
+                ropd: self.new_expr(ropd),
+            },
             SynExpr::Be {
                 src,
                 be_token_idx,
@@ -291,7 +295,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
-            } => todo!(),
+            } => return self.new_expr(item),
             SynExpr::NewTuple {
                 lpar_token_idx,
                 ref items,

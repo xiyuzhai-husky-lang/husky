@@ -35,26 +35,30 @@ pub enum DerivedExprTermError {
     ExprError,
     #[error("todo")]
     Todo,
-    #[error("AmbiguousTypePath")]
+    #[error("ambiguous type path")]
     AmbiguousTypePath,
-    #[error("PrefixOprTermNotInferred")]
+    #[error("prefix opr term not inferred")]
     PrefixOprTermNotInferred,
-    #[error("AmbiguousTilde")]
+    #[error("ambiguous tilde")]
     AmbiguousTilde,
-    #[error("TildeApplicationTermError")]
+    #[error("tilde application term error")]
     TildeApplicationTerm(EtherealTermError),
-    #[error("TypePathTypeError")]
+    #[error("type path type error")]
     TypePathTypeError,
-    #[error("OptionApplicationTermError")]
+    #[error("option application term error")]
     OptionApplicationTerm(EtherealTermError),
-    #[error("ExplicitApplicationTerm")]
+    #[error("explicit application term")]
     ExplicitApplicationTerm(EtherealTermError),
-    #[error("ExplicitApplicationFunctionTermNotInferred")]
+    #[error("explicit application function term not inferred")]
     ExplicitApplicationFunctionTermNotInferred,
-    #[error("ExplicitApplicationArgumentTermNotInferred")]
+    #[error("explicit application argument term not inferred")]
     ExplicitApplicationArgumentTermNotInferred,
     #[error("expr type error")]
     ExprTypeError,
+    #[error("literal type not resolved")]
+    LiteralTypeNotResolved,
+    #[error("TypeInfoNotInferred")]
+    TypeInfoNotInferred,
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;

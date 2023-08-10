@@ -216,6 +216,7 @@ impl<'a> ExprTypeEngine<'a> {
         // }
         self.fluffy_term_region
             .finalize_unresolved_term_table(self.db);
+        self.infer_extra_expr_terms_in_preparation_for_hir();
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
