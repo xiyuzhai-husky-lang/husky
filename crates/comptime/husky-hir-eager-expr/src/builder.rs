@@ -1,5 +1,7 @@
 use crate::*;
-use husky_expr_ty::ExprTypeRegion;
+use husky_ethereal_term::EtherealTerm;
+use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
+use husky_fluffy_term::{nested::NestedFluffyTerm, FluffyTerm};
 use husky_syn_expr::{SynExpr, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmt, SynStmtIdx};
 use salsa::DebugWithDb;
 
@@ -9,6 +11,7 @@ pub struct HirEagerExprBuilder<'a> {
     expr_ty_region: &'a ExprTypeRegion,
     expr_arena: HirEagerExprArena,
     stmt_arena: HirEagerStmtArena,
+    pattern_expr_arena: HirEagerPatternExprArena,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
@@ -18,6 +21,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             syn_expr_region_data: syn_expr_region.data(db),
             expr_ty_region: db.expr_ty_region(syn_expr_region),
             expr_arena: Default::default(),
+            pattern_expr_arena: Default::default(),
             stmt_arena: Default::default(),
         }
     }
@@ -49,11 +53,48 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.expr_arena.alloc_one(hir_eager_expr)
     }
 
+    pub(crate) fn alloc_pattern_expr(
+        &mut self,
+        pattern_expr: HirEagerPatternExpr,
+    ) -> HirEagerPatternExprIdx {
+        // todo: record in source map
+        self.pattern_expr_arena.alloc_one(pattern_expr)
+    }
+
     pub(crate) fn path(&self) -> String {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
     pub fn db(&self) -> &'a dyn HirEagerExprDb {
         self.db
+    }
+
+    // pub fn expr_ty_region(&self) -> &'a ExprTypeRegion {
+    //     self.expr_ty_region
+    // }
+
+    pub(crate) fn expr_disambiguation(&self, syn_expr_idx: SynExprIdx) -> &'a ExprDisambiguation {
+        let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
+            unreachable!(
+                "syn_expr = {:?}, path = {:?}",
+                self.syn_expr_region_data[syn_expr_idx].debug(self.db),
+                self.path()
+            )
+        };
+        disambiguation
+    }
+
+    pub(crate) fn expr_term(&self, syn_expr_idx: SynExprIdx) -> EtherealTerm {
+        match self
+            .expr_ty_region
+            .expr_fluffy_term(syn_expr_idx)
+            .expect("hir stage some")
+            .expect("hir stage ok")
+            .nested()
+        {
+            NestedFluffyTerm::Ethereal(term) => term,
+            NestedFluffyTerm::Solid(_) => todo!(),
+            NestedFluffyTerm::Hollow(_) => todo!(),
+        }
     }
 }

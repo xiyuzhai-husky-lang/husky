@@ -10,11 +10,11 @@ mod region;
 mod tests;
 
 pub use self::db::*;
+pub use self::engine::*;
 pub use self::error::*;
 pub use self::info::*;
 pub use self::region::*;
 
-use self::engine::*;
 use either::*;
 use husky_declarative_signature::*;
 use husky_entity_path::*;

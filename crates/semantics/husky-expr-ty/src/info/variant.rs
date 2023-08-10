@@ -51,12 +51,16 @@ pub enum UnwrapOrComposeWithNotExprDisambiguation {
     ComposeWithNot,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum ApplicationOrFunctionCallExprDisambiguation {
     Application,
-    RitchieCall,
-    GnCall,
+    FnCall {
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+    },
+    GnCall {
+        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

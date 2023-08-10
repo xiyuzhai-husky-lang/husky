@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                     );
-                    self.infer_new_expr_term(ty)
+                    self.infer_expr_term(ty)
                 }
                 None => None,
             },

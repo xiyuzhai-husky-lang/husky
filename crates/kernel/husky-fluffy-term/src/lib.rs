@@ -9,7 +9,7 @@ mod engine;
 mod error;
 mod expectation;
 mod instantiation;
-mod nested;
+pub mod nested;
 mod progress;
 mod region;
 mod resolve;

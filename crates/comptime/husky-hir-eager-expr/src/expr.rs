@@ -1,3 +1,7 @@
+use husky_ethereal_term::EtherealTerm;
+use husky_expr_ty::{
+    ApplicationOrFunctionCallExprDisambiguation, ExprDisambiguation, RitchieParameterArgumentMatch,
+};
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
 
 use crate::*;
@@ -48,7 +52,7 @@ pub enum HirEagerExpr {
     FunctionCall {
         function: HirEagerExprIdx,
         generic_arguments: Option<HirGenericArgumentList>,
-        item_groups: SmallVec<[HirCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     Field {
         owner: HirEagerExprIdx,
@@ -60,20 +64,11 @@ pub enum HirEagerExpr {
         generic_arguments: Option<HirGenericArgumentList>,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
-    // todo: implicit arguments
-    ExplicitApplication {
-        function_expr_idx: HirEagerExprIdx,
-        argument_expr_idx: HirEagerExprIdx,
-    },
     NewTuple {
         /// guaranteed that items.len() > 0
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
-    /// there are two cases
-    /// - index `$owner[$items]` where `$owner` can be indexed
-    /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
-    /// the cases are determined by whether `$owner` is of curry type
-    IndexOrCompositionWithList {
+    Index {
         owner: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
@@ -93,8 +88,8 @@ pub enum HirEagerExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum HirCallListItemGroup {
-    Regular,
+pub enum HirEagerCallListItemGroup {
+    Regular(HirEagerExprIdx),
     Variadic,
     Keyed,
 }
@@ -140,11 +135,18 @@ impl Expr {}
 impl<'a> HirEagerExprBuilder<'a> {
     pub fn new_expr(&mut self, syn_expr_idx: SynExprIdx) -> HirEagerExprIdx {
         let hir_eager_expr = match self.syn_expr_region_data()[syn_expr_idx] {
-            SynExpr::Literal(_, _) => todo!(),
+            SynExpr::Literal(_, _) => HirEagerExpr::Literal(match self.expr_term(syn_expr_idx) {
+                EtherealTerm::Literal(lit) => lit,
+                _ => unreachable!(),
+            }),
             SynExpr::PrincipalEntityPath {
                 item_path_expr,
                 opt_path,
-            } => todo!(),
+            } => {
+                let path = opt_path.expect("whatever");
+                // ad hoc
+                HirEagerExpr::PrincipalEntityPath(path)
+            }
             SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
@@ -197,7 +199,39 @@ impl<'a> HirEagerExprBuilder<'a> {
                 lpar_token_idx,
                 ref items,
                 rpar_token_idx,
-            } => todo!(),
+            } => {
+                let ExprDisambiguation::ExplicitApplicationOrFunctionCall(disambiguation) =
+                    self.expr_disambiguation(syn_expr_idx)
+                else {
+                    unreachable!()
+                };
+                match disambiguation {
+                    ApplicationOrFunctionCallExprDisambiguation::Application => {
+                        todo!()
+                    }
+                    ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                        ritchie_parameter_argument_matches,
+                    } => HirEagerExpr::FunctionCall {
+                        function: self.new_expr(function),
+                        generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
+                        item_groups: ritchie_parameter_argument_matches
+                            .iter()
+                            .map(|pam| match pam {
+                                RitchieParameterArgumentMatch::Regular(_, item) => {
+                                    HirEagerCallListItemGroup::Regular(
+                                        self.new_expr(item.argument_expr_idx()),
+                                    )
+                                }
+                                RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
+                                RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
+                            })
+                            .collect(),
+                    },
+                    ApplicationOrFunctionCallExprDisambiguation::GnCall {
+                        ritchie_parameter_argument_matches,
+                    } => unreachable!(),
+                }
+            }
             SynExpr::Ritchie {
                 ritchie_kind_token_idx,
                 ritchie_kind,
@@ -227,7 +261,20 @@ impl<'a> HirEagerExprBuilder<'a> {
                 lpar_token_idx,
                 ref items,
                 rpar_token_idx,
-            } => todo!(),
+            } => {
+                // todo: method application should be ignored
+                let ExprDisambiguation::MethodDispatch(disambiguation) =
+                    self.expr_disambiguation(syn_expr_idx)
+                else {
+                    unreachable!()
+                };
+                HirEagerExpr::MethodCall {
+                    self_argument: self.new_expr(self_argument),
+                    ident: ident_token.ident(),
+                    generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
+                    items: items.iter().map(|item| todo!()).collect(),
+                }
+            }
             SynExpr::TemplateInstantiation {
                 template,
                 ref generic_arguments,

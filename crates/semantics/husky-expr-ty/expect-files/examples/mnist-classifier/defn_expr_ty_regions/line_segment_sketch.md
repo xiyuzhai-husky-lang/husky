@@ -1082,7 +1082,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 46,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    459,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 50,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -3122,7 +3165,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 46,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    556,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 50,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -4883,7 +4969,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 37,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    662,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 38,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -4966,7 +5095,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 41,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    672,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 42,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -5506,7 +5678,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 77,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    738,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 78,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -5589,7 +5804,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 81,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    747,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 82,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -8950,7 +9208,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 38,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    900,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 39,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -9033,7 +9334,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 42,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    910,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 43,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -9555,7 +9899,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 72,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    971,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 73,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -9638,7 +10025,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 76,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    980,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 77,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -13007,7 +13437,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 13,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1120,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 14,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1122,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 15,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -13208,7 +13701,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 21,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1133,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 22,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1135,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 23,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -14124,7 +14680,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 55,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1218,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 60,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1231,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 61,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -14339,7 +14958,92 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 70,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1245,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 71,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1247,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 72,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1249,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 73,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -14540,7 +15244,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 79,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1261,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 80,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1263,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 81,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -15458,7 +16225,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 129,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1374,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 132,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1380,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 135,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -16818,7 +17648,70 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 182,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1480,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 187,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    1488,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 16,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 194,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -21376,40 +22269,25 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
-                        ),
-                        Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ),
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::MissingArgument,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    11,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ),
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    12,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -21901,72 +22779,6 @@
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
-                        ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        ),
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 11,
-                                src: ExpectationSource {
-                                    expr_idx: 11,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                    ),
-                                ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        ),
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 12,
-                                src: ExpectationSource {
-                                    expr_idx: 12,
-                                    kind: Expr,
-                                },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                    ),
-                                ),
-                                resolve_progress: ExpectationProgress::Resolved(
-                                    Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
                     ],
                 },
                 first_unresolved_expectation: 0,
@@ -22290,7 +23102,26 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 41,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 1,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::Application(
@@ -23139,7 +23970,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 49,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    330,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 50,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -23218,7 +24092,50 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 53,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    337,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 54,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -23237,7 +24154,54 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 52,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 51,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    333,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 52,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 55,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    340,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -24011,7 +24975,48 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 3,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    365,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 4,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::Application(
@@ -24032,7 +25037,46 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 1,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    361,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 5,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(

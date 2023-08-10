@@ -4,6 +4,42 @@ Ok(
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `len`,
+                        token_idx: TokenIdx(
+                            21,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            22,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         4,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -22,7 +58,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `ilen`,
+                        ident: `swap`,
                         token_idx: TokenIdx(
                             29,
                         ),
@@ -40,78 +76,6 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        5,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    35,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `start`,
-                        token_idx: TokenIdx(
-                            37,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            38,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        6,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    43,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `end`,
-                        token_idx: TokenIdx(
-                            45,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            46,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
                         7,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -119,7 +83,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    51,
+                                    59,
                                 ),
                             },
                         },
@@ -130,15 +94,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `first`,
+                        ident: `ilen`,
                         token_idx: TokenIdx(
-                            53,
+                            61,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            54,
+                            62,
                         ),
                         drained: false,
                     },
@@ -155,7 +119,115 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    61,
+                                    67,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `start`,
+                        token_idx: TokenIdx(
+                            69,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            70,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    75,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `end`,
+                        token_idx: TokenIdx(
+                            77,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            78,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    83,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `first`,
+                        token_idx: TokenIdx(
+                            85,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            86,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    93,
                                 ),
                             },
                         },
@@ -168,13 +240,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `last`,
                         token_idx: TokenIdx(
-                            63,
+                            95,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            64,
+                            96,
                         ),
                         drained: false,
                     },
@@ -240,16 +312,30 @@ Ok(
                         variants: None,
                     },
                 },
-                Ast::Defn {
+                Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
                         2,
+                    ),
+                    items: Some(
+                        Type(
+                            TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..2,
+                                ),
+                            },
+                        ),
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        5,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    12,
+                                    44,
                                 ),
                             },
                         },
@@ -263,13 +349,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `CyclicSliceLeashed`,
                         token_idx: TokenIdx(
-                            14,
+                            46,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            15,
+                            47,
                         ),
                         drained: false,
                     },
@@ -284,13 +370,13 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        6,
                     ),
                     items: Some(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..5,
+                                    2..7,
                                 ),
                             },
                         ),
@@ -299,7 +385,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..9,
+            7..12,
         ),
         siblings: [
             ArenaIdxRange(
@@ -309,19 +395,28 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..0,
+                0..2,
             ),
             ArenaIdxRange(
-                0..0,
+                2..2,
             ),
             ArenaIdxRange(
-                0..0,
+                2..2,
             ),
             ArenaIdxRange(
-                0..5,
+                2..2,
             ),
             ArenaIdxRange(
-                5..9,
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..7,
+            ),
+            ArenaIdxRange(
+                7..12,
             ),
         ],
     },

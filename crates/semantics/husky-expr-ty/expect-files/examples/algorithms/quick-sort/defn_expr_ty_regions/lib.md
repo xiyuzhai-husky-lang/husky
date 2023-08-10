@@ -37,24 +37,49 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: `len`,
-                                token_idx: TokenIdx(
-                                    23,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [
+                                    Place(
+                                        MutableStackOwned {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 25,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
                                 ),
                             },
-                        },
+                        ),
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -81,7 +106,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    2,
                 ),
             },
             ExprTypeInfo {
@@ -98,7 +123,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -115,7 +140,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    5,
                 ),
             },
             ExprTypeInfo {
@@ -145,7 +170,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -192,7 +217,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    6,
                 ),
             },
             ExprTypeInfo {
@@ -209,14 +234,75 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 3,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    29,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 4,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    31,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 10,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -228,7 +314,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    9,
                 ),
             },
             ExprTypeInfo {
@@ -245,7 +331,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
         ],
@@ -354,7 +440,7 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    1,
+                                    2,
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: Some(
@@ -488,13 +574,31 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: FinalDestination::AnyDerived,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
                                     kind: Expr,
@@ -598,7 +702,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
                                     kind: Expr,
@@ -630,11 +734,11 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 3,
                                     kind: Expectation(
-                                        2,
+                                        3,
                                     ),
                                 },
                                 expectee: FluffyTerm::Symbol(
@@ -672,7 +776,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 4,
                                     kind: Expr,
@@ -702,7 +806,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 9,
                                     kind: Expr,
@@ -730,7 +834,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 6,
+                                idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 6,
                                     kind: Expr,
@@ -755,7 +859,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 7,
+                                idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 10,
                                     kind: Expr,
@@ -781,7 +885,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 8,
+                                idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 11,
                                     kind: Expr,
@@ -799,7 +903,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 9,
+                                idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 12,
                                     kind: Expr,
@@ -974,7 +1078,68 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 4,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    76,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 5,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    78,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 6,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -1098,7 +1263,68 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    4,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 9,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    84,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 10,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    86,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 13,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -1222,7 +1448,68 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    8,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 16,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    94,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 19,
+                                            separator: Comma(
+                                                TokenIdx(
+                                                    98,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 20,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -3409,24 +3696,180 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
-                                ),
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
-                            ident_token: IdentToken {
-                                ident: `swap`,
-                                token_idx: TokenIdx(
-                                    201,
-                                ),
-                            },
-                        },
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm::Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    33,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    34,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm::Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    35,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    36,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [
+                                    Place(
+                                        MutableStackOwned {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    37,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -3442,28 +3885,184 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    38,
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
-                                ),
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
-                            ident_token: IdentToken {
-                                ident: `swap`,
-                                token_idx: TokenIdx(
-                                    213,
-                                ),
-                            },
-                        },
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm::Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    39,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    40,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            FluffyTerm::Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    41,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    42,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [
+                                    Place(
+                                        MutableStackOwned {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    1,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    43,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -3494,6 +4093,34 @@
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
             Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
@@ -4562,11 +5189,174 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        0,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 33,
+                                src: ExpectationSource {
+                                    expr_idx: 47,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 34,
+                                src: ExpectationSource {
+                                    expr_idx: 48,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        0,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 35,
+                                src: ExpectationSource {
+                                    expr_idx: 50,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 36,
+                                src: ExpectationSource {
+                                    expr_idx: 51,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::unit`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 37,
+                                src: ExpectationSource {
+                                    expr_idx: 52,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::unit`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 33,
+                                idx: 38,
                                 src: ExpectationSource {
                                     expr_idx: 53,
                                     kind: Expr,
@@ -4577,6 +5367,169 @@
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        0,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 39,
+                                src: ExpectationSource {
+                                    expr_idx: 55,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 40,
+                                src: ExpectationSource {
+                                    expr_idx: 56,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        0,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 41,
+                                src: ExpectationSource {
+                                    expr_idx: 58,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 42,
+                                src: ExpectationSource {
+                                    expr_idx: 59,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::usize`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::basic::unit`, `Extern`),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 43,
+                                src: ExpectationSource {
+                                    expr_idx: 60,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::basic::unit`, `Extern`),
+                                    ),
+                                ),
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -4860,7 +5813,24 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    13,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 13,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(
@@ -6598,7 +7568,24 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                            ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                                ritchie_parameter_argument_matches: [
+                                    Regular(
+                                        FluffyTermRitchieRegularParameter {
+                                            contract: Move,
+                                            ty: Hollow(
+                                                HollowTerm(
+                                                    3,
+                                                ),
+                                            ),
+                                        },
+                                        RegularOrVariadicCallListItem {
+                                            argument_expr_idx: 8,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            },
                         ),
                         Ok(
                             FluffyTerm::EntityPath(

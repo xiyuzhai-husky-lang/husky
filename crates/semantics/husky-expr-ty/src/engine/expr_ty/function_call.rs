@@ -26,14 +26,16 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
             } => {
-                self.calc_ritchie_arguments_expr_ty(
+                let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
                     expr_idx,
                     parameter_contracted_tys,
                     items.iter().copied().map(Into::into),
-                );
+                )?;
                 Ok((
                     ExprDisambiguation::ExplicitApplicationOrFunctionCall(
-                        ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
+                        ApplicationOrFunctionCallExprDisambiguation::FnCall {
+                            ritchie_parameter_argument_matches,
+                        },
                     ),
                     Ok(outcome.return_ty()),
                 ))
@@ -72,16 +74,15 @@ impl<'a> ExprTypeEngine<'a> {
         generic_arguments: Option<&SynGenericArgumentList>,
         items: &[CallListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let Some(outcome) = self.infer_new_expr_ty_for_outcome(
-            function,
-            ExpectEqsRitchieType::new(final_destination),
-        ) else {
+        let Some(outcome) = self
+            .infer_new_expr_ty_for_outcome(function, ExpectEqsRitchieType::new(final_destination))
+        else {
             for item in items {
                 self.infer_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
-        self.calc_ritchie_arguments_expr_ty(
+        self.calc_ritchie_arguments_ty(
             expr_idx,
             outcome.parameter_contracted_tys(),
             items.iter().copied(),

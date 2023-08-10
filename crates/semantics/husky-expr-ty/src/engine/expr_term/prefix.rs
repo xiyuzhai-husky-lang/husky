@@ -7,8 +7,8 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: SynExprIdx,
     ) -> ExprTermResult<FluffyTerm> {
-        let Some(opd_term) = self.infer_new_expr_term(opd) else {
-           return Err(DerivedExprTermError::PrefixOprTermNotInferred.into())
+        let Some(opd_term) = self.infer_expr_term(opd) else {
+            return Err(DerivedExprTermError::PrefixOprTermNotInferred.into());
         };
         match opr {
             PrefixOpr::Minus => todo!(),

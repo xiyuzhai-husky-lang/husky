@@ -1,18 +1,19 @@
-use self::matcher::*;
+pub use self::matcher::*;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_ritchie_arguments_expr_ty(
+    pub(super) fn calc_ritchie_arguments_ty(
         &mut self,
         expr_idx: SynExprIdx,
         ritchie_parameters: &[FluffyTermRitchieParameter],
         ritchie_arguments: impl Iterator<Item = CallListItem> + Clone,
-    ) {
+    ) -> ExprTypeResult<RitchieParameterArgumentMatches> {
         match RitchieParameterArgumentMatcher::new(ritchie_parameters, ritchie_arguments.clone())
             .match_all()
         {
             Ok(ritchie_matches) => {
-                for ritchie_match in ritchie_matches {
+                for ritchie_match in &ritchie_matches {
                     match ritchie_match {
                         RitchieParameterArgumentMatch::Regular(param, item) => self
                             .infer_new_expr_ty_discarded(
@@ -34,13 +35,17 @@ impl<'a> ExprTypeEngine<'a> {
                             ),
                     }
                 }
+                Ok(ritchie_matches)
             }
-            Err(_) => ritchie_arguments.for_each(|ritchie_argument| {
-                self.infer_new_expr_ty_discarded(
-                    ritchie_argument.argument_expr_idx(),
-                    ExpectAnyDerived,
-                )
-            }),
+            Err(e) => {
+                ritchie_arguments.for_each(|ritchie_argument| {
+                    self.infer_new_expr_ty_discarded(
+                        ritchie_argument.argument_expr_idx(),
+                        ExpectAnyDerived,
+                    )
+                });
+                Err(e)
+            }
         }
     }
 }
@@ -48,6 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
 mod matcher {
     use super::*;
 
+    #[derive(Debug, PartialEq, Eq)]
     pub enum RitchieParameterArgumentMatch {
         Regular(
             FluffyTermRitchieRegularParameter,
@@ -61,12 +67,12 @@ mod matcher {
         Keyed(FluffyTermRitchieKeyedParameter, KeyedCallListItem),
     }
 
-    pub type RitchieParameterArgumentMatchs = SmallVec<[RitchieParameterArgumentMatch; 4]>;
+    pub type RitchieParameterArgumentMatches = SmallVec<[RitchieParameterArgumentMatch; 4]>;
 
     pub(super) struct RitchieParameterArgumentMatcher<'a, Arguments: Iterator<Item = CallListItem>> {
         ritchie_parameters: &'a [FluffyTermRitchieParameter],
         ritchie_call_items: std::iter::Peekable<Arguments>,
-        ritchie_matches: RitchieParameterArgumentMatchs,
+        ritchie_matches: RitchieParameterArgumentMatches,
     }
 
     impl<'a, Arguments: Iterator<Item = CallListItem>> RitchieParameterArgumentMatcher<'a, Arguments> {
@@ -81,7 +87,7 @@ mod matcher {
             }
         }
 
-        pub(super) fn match_all(mut self) -> ExprTypeResult<RitchieParameterArgumentMatchs> {
+        pub(super) fn match_all(mut self) -> ExprTypeResult<RitchieParameterArgumentMatches> {
             for ritchie_parameter in self.ritchie_parameters {
                 self.match_step(*ritchie_parameter)?
             }

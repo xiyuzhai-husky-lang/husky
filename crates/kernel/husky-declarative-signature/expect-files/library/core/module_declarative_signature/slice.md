@@ -68,6 +68,158 @@
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,
+                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TypeImpl(
+                    TypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                            ],
+                        },
+                        ty: DeclarativeTerm(`core::slice::Slice t`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `len`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [
+                                        DeclarativeTemplateParameter {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::slice::Slice t`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::usize`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `swap`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [
+                                        DeclarativeTemplateParameter {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::slice::Slice t`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: BorrowMut,
+                                ty: DeclarativeTerm(`core::slice::Slice t`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::usize`),
+                                        },
+                                    ),
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::usize`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `core::slice`,
                     ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                     disambiguator: 0,
                 },

@@ -355,7 +355,7 @@ impl<'a> InferContext<'a> {
             } => {
                 // ad hoc
                 // this should always be some
-                match self.expr_ty_region.expr_ty_info_variant(expr_idx) {
+                match self.expr_ty_region.expr_disambiguation(expr_idx) {
                     Some(Ok(disambiguation)) => match disambiguation {
                         ExprDisambiguation::IndexOrComposeWithList(disambiguation) => {
                             match disambiguation {

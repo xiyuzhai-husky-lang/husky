@@ -11,10 +11,10 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTermResult<FluffyTerm> {
         // todo: implicit arguments
         let function = self
-            .infer_new_expr_term(function)
+            .infer_expr_term(function)
             .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
         let argument = self
-            .infer_new_expr_term(argument)
+            .infer_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
         FluffyTerm::new_application(self, expr_idx, function, argument)
             .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())

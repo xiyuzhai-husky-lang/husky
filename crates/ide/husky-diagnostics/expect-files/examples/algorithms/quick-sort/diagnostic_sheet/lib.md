@@ -19,22 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `len` for type `@MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) } Slice t`",
-                severity: Error,
-                range: [2:19, 2:22),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `swap` for type `@MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) } Slice t`",
-                severity: Error,
-                range: [26:17, 26:21),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `swap` for type `@MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) } Slice t`",
-                severity: Error,
-                range: [27:9, 27:13),
-            },
-        ],
+        diagnostics: [],
     },
 }

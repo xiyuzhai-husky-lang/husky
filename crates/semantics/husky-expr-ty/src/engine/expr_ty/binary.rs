@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
-        let Some(ropd_term) = self.infer_new_expr_term(ropd) else {
+        let Some(ropd_term) = self.infer_expr_term(ropd) else {
             return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into());
         };
         self.infer_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));

@@ -7,7 +7,7 @@ mod symbol;
 mod utils;
 mod pattern_ty;
 
-pub(crate) use self::expr_ty::*;
+pub use self::expr_ty::*;
 pub(crate) use self::utils::*;
 
 use self::symbol::*;
@@ -177,7 +177,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 ExprRootKind::FieldBindInitialValue { ty_expr_idx }
                 | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
-                    match self.infer_new_expr_term(ty_expr_idx) {
+                    match self.infer_expr_term(ty_expr_idx) {
                         Some(ty) => self.infer_new_expr_ty_discarded(
                             root.expr_idx(),
                             ExpectCoersion::new_move(ty),

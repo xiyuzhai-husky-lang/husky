@@ -20,7 +20,7 @@ vscode: install-toolchain
 
 vscode-server: install-toolchain
 	# scripts/vscode_prepublish.sh
-	rsync -a extensions/husky-analyzer/language-configuration.json ~/.vscode-server/extensions/husky-lang.husky-analyzer-0.1.0/language-configuration.json
+	# rsync -a extensions/husky-analyzer/language-configuration.json ~/.vscode-server/extensions/husky-lang.husky-analyzer-0.1.0/language-configuration.json
 	cargo install --path crates/apps/husky-analyzer --bin husky-analyzer-server
 	# spd-say "vscode is done"
 

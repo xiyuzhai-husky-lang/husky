@@ -64,6 +64,13 @@ impl ExprTypeRegion {
         &self.expr_fluffy_terms
     }
 
+    pub fn expr_fluffy_term(
+        &self,
+        syn_expr_idx: SynExprIdx,
+    ) -> Option<ExprTermResultRef<FluffyTerm>> {
+        Some(self.expr_fluffy_terms.get(syn_expr_idx)?.as_ref().copied())
+    }
+
     pub fn symbol_terms(&self) -> &SymbolMap<FluffyTerm> {
         &self.symbol_terms
     }
@@ -84,14 +91,14 @@ impl ExprTypeRegion {
         self.self_ty
     }
 
-    pub fn expr_ty_info_variant(
+    pub fn expr_disambiguation(
         &self,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
     ) -> Option<ExprTypeResultRef<&ExprDisambiguation>> {
         // ad hoc
         // todo: change this to always some
         self.expr_ty_infos
-            .get(expr_idx)
+            .get(syn_expr_idx)
             .map(|ty_info| ty_info.disambiguation())
     }
 }
