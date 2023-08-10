@@ -14,6 +14,41 @@ Ok(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,
+                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `len`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::slice`,
+                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `swap`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `core::slice`,
                     ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                     disambiguator: 0,
                 },

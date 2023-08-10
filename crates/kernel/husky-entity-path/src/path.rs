@@ -112,6 +112,13 @@ pub enum ItemPath {
     ImplBlock(ImplBlockPath),
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db(db = EntityPathDb)]
+pub enum PatternPath {
+    Type(TypePath),
+    TypeVariant(TypeVariantPath),
+}
+
 impl ItemPath {
     pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
         match self {

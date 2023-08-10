@@ -3266,7 +3266,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 6,
+                                            ast_idx: 8,
                                             ident_token: IdentToken {
                                                 ident: `Slice`,
                                                 token_idx: TokenIdx(
@@ -3329,11 +3329,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 7,
+                                            ast_idx: 10,
                                             ident_token: IdentToken {
                                                 ident: `CyclicSliceLeashed`,
                                                 token_idx: TokenIdx(
-                                                    14,
+                                                    46,
                                                 ),
                                             },
                                             block: Type {

@@ -149,7 +149,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 25,
+                            value: 26,
                         },
                     ),
                 ),
@@ -181,7 +181,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 25,
+                            value: 26,
                         },
                     ),
                 ),
@@ -237,7 +237,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 64,
+                        value: 66,
                     },
                 ),
             ),

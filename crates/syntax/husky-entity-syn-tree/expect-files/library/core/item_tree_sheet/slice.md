@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 6,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `Slice`,
                                 token_idx: TokenIdx(
@@ -57,11 +57,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `CyclicSliceLeashed`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    46,
                                 ),
                             },
                             block: Type {
@@ -108,7 +108,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 6,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `Slice`,
                                 token_idx: TokenIdx(
@@ -143,11 +143,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 7,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `CyclicSliceLeashed`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    46,
                                 ),
                             },
                             block: Type {
@@ -197,7 +197,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -238,7 +238,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -279,7 +279,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -320,7 +320,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -361,7 +361,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -402,7 +402,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -443,7 +443,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -484,7 +484,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -525,7 +525,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -566,7 +566,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -607,7 +607,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -648,7 +648,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -689,7 +689,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -730,7 +730,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -771,7 +771,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -812,7 +812,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -853,7 +853,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -894,7 +894,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -935,7 +935,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1012,7 +1012,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1089,7 +1089,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1166,7 +1166,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1243,7 +1243,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1320,7 +1320,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1397,7 +1397,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1474,7 +1474,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1551,7 +1551,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1628,7 +1628,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1705,7 +1705,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1782,7 +1782,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1859,7 +1859,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1936,7 +1936,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2013,7 +2013,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2090,7 +2090,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2167,7 +2167,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2244,7 +2244,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2321,7 +2321,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2398,7 +2398,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2475,7 +2475,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2552,7 +2552,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2635,7 +2635,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2712,7 +2712,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2789,7 +2789,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2866,7 +2866,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2949,7 +2949,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3032,7 +3032,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3100,7 +3100,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3168,7 +3168,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3245,7 +3245,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3322,7 +3322,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3399,7 +3399,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3476,7 +3476,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3506,7 +3506,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 6,
+                                                    ast_idx: 8,
                                                     ident_token: IdentToken {
                                                         ident: `Slice`,
                                                         token_idx: TokenIdx(
@@ -3553,7 +3553,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3583,11 +3583,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 7,
+                                                    ast_idx: 10,
                                                     ident_token: IdentToken {
                                                         ident: `CyclicSliceLeashed`,
                                                         token_idx: TokenIdx(
-                                                            14,
+                                                            46,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3630,7 +3630,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::slice`,
                             ),
-                            ast_idx: 5,
+                            ast_idx: 7,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3638,6 +3638,40 @@ Ok(
             ],
         ),
         impl_block_syn_node_table: [
+            (
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `core::slice`,
+                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TypeImplBlock(
+                    TypeImplBlockSynNode {
+                        syn_node_path: TypeImplBlockSynNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `core::slice`,
+                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 9,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                12,
+                            ),
+                        },
+                        ty_expr: 51,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                0..2,
+                            ),
+                        },
+                    },
+                ),
+            ),
             (
                 ImplBlockSynNodePath::TypeImplBlock(
                     TypeImplBlockSynNodePath {
@@ -3657,16 +3691,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 8,
+                        ast_idx: 11,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                20,
+                                52,
                             ),
                         },
-                        ty_expr: 51,
+                        ty_expr: 52,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                0..5,
+                                2..7,
                             ),
                         },
                     },
@@ -3676,7 +3710,7 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 5,
+                    ast_idx: 7,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::slice`,
@@ -3709,7 +3743,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `core`,
                     is_same_crate: true,
-                    ast_idx: 5,
+                    ast_idx: 7,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::slice`,

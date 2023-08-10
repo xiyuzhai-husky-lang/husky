@@ -15,6 +15,12 @@ impl From<EtherealTermError> for ExprTermError {
     }
 }
 
+impl From<&ExprTypeError> for ExprTermError {
+    fn from(value: &ExprTypeError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum OriginalExprTermError {
@@ -52,3 +58,4 @@ pub enum DerivedExprTermError {
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;
+pub type ExprTermResultRef<'a, T> = Result<T, &'a ExprTermError>;

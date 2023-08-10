@@ -2,6 +2,11 @@ use crate::*
 
 pub extern Slice<covariant E>;
 
+impl<E> Slice E:
+    pub fn len() -> usize;
+
+    pub fn swap(&mut self, a: usize, b: usize);
+
 pub extern CyclicSliceLeashed<covariant E>;
 
 impl<E> CyclicSliceLeashed E:

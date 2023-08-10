@@ -12,8 +12,8 @@ impl<'a> ExprTypeEngine<'a> {
             function_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
         ) else {
-            self.infer_new_expr_ty_discarded(argument_expr_idx, ExpectAnyDerived,  );
-            return Err(DerivedExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into())
+            self.infer_new_expr_ty_discarded(argument_expr_idx, ExpectAnyDerived);
+            return Err(DerivedExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into());
         };
         match function_ty_outcome.variant() {
             ExpectEqsFunctionTypeOutcomeVariant::Curry {
@@ -45,10 +45,9 @@ impl<'a> ExprTypeEngine<'a> {
         return_ty: FluffyTerm,
         argument_expr_idx: SynExprIdx,
     ) -> ExprTypeResult<FluffyTerm> {
-        let Some(argument_ty) = self.infer_new_expr_ty (
-            argument_expr_idx,
-            ExpectCurryDestination::new(parameter_ty),
-        ) else {
+        let Some(argument_ty) =
+            self.infer_new_expr_ty(argument_expr_idx, ExpectCurryDestination::new(parameter_ty))
+        else {
             Err(DerivedExprTypeError::UnableToInferFunctionApplicationArgumentType)?
         };
         let shift =
@@ -58,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
             0 => Ok(match parameter_variable {
                 Some(parameter_variable) => {
                     let argument_term = self
-                        .infer_new_expr_term(argument_expr_idx)
+                        .infer_expr_term(argument_expr_idx)
                         .ok_or(DerivedExprTypeError::UnableToInferArgumentTermForDependentType)?;
                     return_ty.substitute_variable(
                         self,

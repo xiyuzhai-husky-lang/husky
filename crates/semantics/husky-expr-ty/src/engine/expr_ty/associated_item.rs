@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         self.infer_new_expr_ty_discarded(parent_expr_idx, ExpectEqsCategory::new_any_sort());
         let parent_term = self
-            .infer_new_expr_term(parent_expr_idx)
+            .infer_expr_term(parent_expr_idx)
             .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
         match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
             JustOk(disambiguation) => match disambiguation {

@@ -19,6 +19,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: missing argument",
+                severity: Error,
+                range: [172:35, 172:49),
+            },
+        ],
     },
 }

@@ -10,10 +10,11 @@ mod literal;
 mod method;
 mod prefix;
 mod principal_entity_path;
-mod ritchie_call_ty;
+mod ritchie_call_arguments_ty;
 mod suffix;
 mod utils;
 
+pub use self::ritchie_call_arguments_ty::*;
 pub(crate) use self::suffix::*;
 
 use super::*;
@@ -82,6 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
+        self.infer_expr_term_if_necessary(expr_idx);
         self.fluffy_term_region
             .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         expectation_idx

@@ -164,7 +164,7 @@ pub struct TermI256Literal {
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermISizeLiteral {
-    pub value: i64,
+    pub value: isize,
 }
 
 /// allowing representing very large number
