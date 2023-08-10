@@ -338,6 +338,20 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [
             Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::ISize(
+                        TermISizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
                         TypePath(`core::num::isize`, `Extern`),
@@ -1543,7 +1557,18 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -4101,10 +4126,24 @@
                 ),
             ),
             Ok(
-                FluffyTerm::EntityPath(
-                    TermEntityPath::TypeOntology(
-                        TypePath(`core::num::usize`, `Extern`),
+                FluffyTerm::Literal(
+                    TermLiteral::ISize(
+                        TermISizeLiteral {
+                            value: 1,
+                        },
                     ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::Bool(
+                        true,
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
             Ok(
@@ -4112,6 +4151,33 @@
                     TermEntityPath::TypeOntology(
                         TypePath(`core::num::usize`, `Extern`),
                     ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
             Ok(
@@ -6100,7 +6166,108 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -7782,7 +7949,116 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "beach",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "hotel",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "airplane",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "car",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "house",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "art",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "airplane",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "art",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "beach",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "car",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "hotel",
+                        },
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::String(
+                        StringLiteral {
+                            data: "house",
+                        },
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],

@@ -1,11 +1,18 @@
+use super::*;
 use ordered_float::NotNan;
 use std::ops::Neg;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FloatLiteral {
-    Unspecified,
+    Unspecified(UnspecifiedFloatLiteral),
     F32(NotNan<f32>),
     F64(NotNan<f64>),
+}
+
+#[salsa::tracked(db = TokenDb, jar = TokenJar)]
+pub struct UnspecifiedFloatLiteral {
+    #[return_ref]
+    pub data: String,
 }
 
 impl Neg for FloatLiteral {

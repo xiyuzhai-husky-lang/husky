@@ -277,9 +277,12 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             // parse float type
             self.eat_chars_with(|c| c.is_digit(radix));
             let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
-            self.buffer.clear();
-            match float_suffix {
-                "" => FloatLiteral::Unspecified.into(),
+            let token: Pretoken = match float_suffix {
+                "" => FloatLiteral::Unspecified(UnspecifiedFloatLiteral::new(
+                    self.db,
+                    std::mem::take(&mut self.buffer),
+                ))
+                .into(),
                 "f8" => todo!(),
                 "f16" => todo!(),
                 "f32" => todo!(),
@@ -287,7 +290,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "f128" => todo!(),
                 "f256" => todo!(),
                 _ => Pretoken::Err(TokenError::InvalidFloatSuffix),
-            }
+            };
+            self.buffer.clear();
+            token
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match integer_suffix {
@@ -340,7 +345,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
     }
 
-    fn take_buffer<T>(&mut self) -> T
+    fn take_buffer_parsed<T>(&mut self) -> T
     where
         T: FromStr,
         <T as FromStr>::Err: std::fmt::Debug,

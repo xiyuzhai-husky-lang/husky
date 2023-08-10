@@ -541,7 +541,18 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [

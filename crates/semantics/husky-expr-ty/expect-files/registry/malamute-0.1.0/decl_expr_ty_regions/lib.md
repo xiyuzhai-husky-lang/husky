@@ -542,6 +542,13 @@
                 ),
             ),
             Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        5,
+                    ),
+                ),
+            ),
+            Ok(
                 FluffyTerm::Symbol(
                     EtherealTermSymbol {
                         ty: EtherealTerm(`Type`),

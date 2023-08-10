@@ -78,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::USize(_) => Ok(self.term_menu.usize_ty_ontology().into()),
                 },
                 Literal::Float(float_literal) => match float_literal {
-                    FloatLiteral::Unspecified => {
+                    FloatLiteral::Unspecified(_) => {
                         match expectation
                             .destination()
                             .map(|destination| destination.data(self))

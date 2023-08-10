@@ -37,6 +37,7 @@ use tokenize::*;
 pub struct TokenJar(
     TokenSheet,
     Snippet,
+    UnspecifiedFloatLiteral,
     ranged_token_sheet,
     token_sheet,
     reserved_cowords,

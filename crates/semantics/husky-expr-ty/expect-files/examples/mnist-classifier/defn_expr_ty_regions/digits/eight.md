@@ -1366,7 +1366,32 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::Bool(
+                        false,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::Bool(
+                        false,
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -3127,7 +3152,17 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            0.5,
+                        ),
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [

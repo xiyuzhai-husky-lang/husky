@@ -189,7 +189,22 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        1,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::R32(
+                        3,
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -673,7 +688,15 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::R32(
+                        1,
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -1139,7 +1162,22 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        1,
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::R32(
+                        1,
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -2606,6 +2644,13 @@
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
                         TypePath(`core::raw_bits::r32`, `Extern`),
+                    ),
+                ),
+            ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::I32(
+                        2,
                     ),
                 ),
             ),
@@ -4427,7 +4472,28 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [
@@ -10518,6 +10584,41 @@
                     },
                 ),
             ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::TypeInfoNotInferred,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
             Ok(
                 FluffyTerm::EntityPath(
                     TermEntityPath::TypeOntology(
@@ -10541,11 +10642,71 @@
                     },
                 ),
             ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
             Ok(
-                FluffyTerm::EntityPath(
-                    TermEntityPath::TypeOntology(
-                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                FluffyTerm::Literal(
+                    TermLiteral::R32(
+                        1,
                     ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
             Ok(
@@ -10555,11 +10716,29 @@
                     ),
                 ),
             ),
-            Ok(
-                FluffyTerm::EntityPath(
-                    TermEntityPath::TypeOntology(
-                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                    ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
             Ok(
@@ -10567,6 +10746,75 @@
                     TermEntityPath::TypeOntology(
                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                    ),
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
         ],
@@ -16464,6 +16712,15 @@
                     ),
                 ),
             ),
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            1.4,
+                        ),
+                    ),
+                ),
+            ),
         ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
@@ -17599,7 +17856,13 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -18322,7 +18585,13 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -19157,7 +19426,33 @@
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::LiteralTypeNotResolved,
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],

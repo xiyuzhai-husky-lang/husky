@@ -1,5 +1,5 @@
 use crate::*;
-use ordered_float::OrderedFloat;
+use ordered_float::{NotNan, OrderedFloat};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
@@ -47,7 +47,7 @@ pub enum TermLiteral {
     /// natural number literal
     Nat(TermNatLiteral),
     /// 32-bit float literal
-    F32(OrderedFloat<f32>),
+    F32(NotNan<f32>),
     /// 64-bit float literal
     F64(TermF64Literal),
     /// string literal
