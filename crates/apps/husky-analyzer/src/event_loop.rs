@@ -19,7 +19,9 @@ pub fn event_loop(connection: lsp_server::Connection) -> Result<(), Box<dyn Erro
     } {
         let loop_start = std::time::Instant::now();
         let task = match event {
-            Event::Lsp(msg) => dispatch::dispatch_lsp_msg(&mut server, msg, loop_start)?,
+            Event::Lsp(msg) => {
+                dispatch::dispatch_lsp_msg(&mut server, msg, loop_start).expect("todo")
+            }
             Event::Task(task) => task,
         };
         match task {

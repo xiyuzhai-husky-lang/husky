@@ -84,7 +84,12 @@ impl<'a> ExprTypeEngine<'a> {
                                                     PreludeIntTypePath::U32 => todo!(),
                                                     PreludeIntTypePath::U64 => todo!(),
                                                     PreludeIntTypePath::U128 => todo!(),
-                                                    PreludeIntTypePath::USize => todo!(),
+                                                    PreludeIntTypePath::USize => {
+                                                        TermLiteral::USize(TermUSizeLiteral::new(
+                                                            self.db,
+                                                            val.try_into().expect("ok"),
+                                                        ))
+                                                    }
                                                     PreludeIntTypePath::R8 => todo!(),
                                                     PreludeIntTypePath::R16 => todo!(),
                                                     PreludeIntTypePath::R32 => todo!(),
@@ -101,7 +106,11 @@ impl<'a> ExprTypeEngine<'a> {
                                 }
                             }
                             _ => {
-                                p!(token_idx, self.path());
+                                p!(
+                                    ty.show(self.db, self.fluffy_term_region.terms()),
+                                    token_idx,
+                                    self.path()
+                                );
                                 todo!();
                                 Err(DerivedExprTermError::LiteralTypeNotResolved)?
                             }

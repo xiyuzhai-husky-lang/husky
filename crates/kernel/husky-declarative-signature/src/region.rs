@@ -27,7 +27,7 @@ pub struct DeclarativeTermRegion {
     term_symbol_region: SymbolDeclarativeTermRegion,
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
 impl DeclarativeTermRegion {
@@ -36,7 +36,7 @@ impl DeclarativeTermRegion {
         term_symbol_region: SymbolDeclarativeTermRegion,
         expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
         pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
-        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
     ) -> Self {
         Self {
             path,

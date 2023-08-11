@@ -16,15 +16,15 @@ impl<'a> ExprTypeEngine<'a> {
         match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path: path,
+                ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
             | FluffyTermData::TypeOntologyAtPlace {
-                ty_path: path,
+                ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
-            } => Ok(TermEntityPath::TypeOntology(path).into()),
+            } => Ok(TermEntityPath::TypeOntology(ty_path).into()),
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,

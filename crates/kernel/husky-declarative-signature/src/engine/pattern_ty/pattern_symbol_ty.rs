@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
-pub(crate) struct PatternSymbolTypeInfo {
+pub(crate) struct PatternSymbolDeclarativeTypeInfo {
     modifier: EphemSymbolModifier,
     base_ty: DeclarativeTerm,
 }
 
-impl PatternSymbolTypeInfo {
+impl PatternSymbolDeclarativeTypeInfo {
     fn new(modifier: EphemSymbolModifier, base_ty: DeclarativeTerm) -> Self {
         Self { modifier, base_ty }
     }
@@ -39,7 +39,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_symbol_idx);
         self.pattern_symbol_ty_infos.insert_new(
             pattern_symbol_idx,
-            PatternSymbolTypeInfo::new(modifier, base_ty),
+            PatternSymbolDeclarativeTypeInfo::new(modifier, base_ty),
         )
     }
 
