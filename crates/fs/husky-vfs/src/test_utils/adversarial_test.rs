@@ -45,7 +45,7 @@ pub(super) fn vfs_adversarial_test<Db, U, R>(
     Db: VfsDb + ?Sized,
     U: VfsTestUnit,
 {
-    let Some(  adversarial_path ) = unit.determine_adversarial_path(
+    let Some(adversarial_path) = unit.determine_adversarial_path(
         <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db),
         AdversarialKind::Vfs,
         task_name,

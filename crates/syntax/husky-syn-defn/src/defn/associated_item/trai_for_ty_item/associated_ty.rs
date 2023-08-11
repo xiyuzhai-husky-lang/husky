@@ -55,7 +55,9 @@ impl TraitForTypeAssociatedTypeSynDefn {
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedTypeSynDecl,
     ) -> Self {
-        let TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        let TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) =
+            path.syn_node_path(db).syn_node_defn(db)
+        else {
             unreachable!()
         };
         TraitForTypeAssociatedTypeSynDefn::new_inner(

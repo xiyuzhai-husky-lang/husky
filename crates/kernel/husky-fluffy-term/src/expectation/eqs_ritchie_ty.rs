@@ -44,7 +44,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         // todo: move these to aux
         match meta.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -131,7 +131,7 @@ impl ExpectEqsRitchieType {
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         self.resolve_curry_aux(
             db,
             terms,
@@ -152,7 +152,7 @@ impl ExpectEqsRitchieType {
         state: &mut ExpectationState,
         expectee: FluffyTerm,
         mut template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -218,7 +218,7 @@ impl ExpectEqsRitchieType {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
         mut template_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match curry_kind {
             CurryKind::Explicit => todo!(),
             // comes from implicit parameters, or generics in other languages

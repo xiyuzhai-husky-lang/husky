@@ -42,7 +42,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         // todo: move these to aux
         match state.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -151,7 +151,7 @@ impl ExpectEqsFunctionType {
         parameter_symbol: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match curry_kind {
             CurryKind::Explicit => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
@@ -199,7 +199,7 @@ impl ExpectEqsFunctionType {
         terms: &mut FluffyTerms,
         expectee: FluffyTerm,
         mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

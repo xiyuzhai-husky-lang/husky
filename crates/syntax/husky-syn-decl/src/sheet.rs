@@ -19,7 +19,10 @@ impl HasSynNodeDeclSheet for ModulePath {
 
 // useful for diagnostics and testing
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynNodeDeclSheet> {
+pub fn syn_node_decl_sheet(
+    db: &dyn SynDeclDb,
+    path: ModulePath,
+) -> EntitySynTreeResult<SynNodeDeclSheet> {
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
     let mut decls: Vec<(ItemSynNodePath, SynNodeDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
@@ -27,21 +30,32 @@ pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTre
     }
     // todo: handle trait items
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        decls.push((impl_block_syn_node_path.into(), impl_block_syn_node_path.syn_node_decl(db).into()));
+        decls.push((
+            impl_block_syn_node_path.into(),
+            impl_block_syn_node_path.syn_node_decl(db).into(),
+        ));
         match impl_block_syn_node_path {
             ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
                 for item_syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    decls.push((item_syn_node_path.into(), item_syn_node_path.syn_node_decl(db).into()))
+                    decls.push((
+                        item_syn_node_path.into(),
+                        item_syn_node_path.syn_node_decl(db).into(),
+                    ))
                 }
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
                 for item_syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    decls.push((item_syn_node_path.into(), item_syn_node_path.syn_node_decl(db).into()))
+                    decls.push((
+                        item_syn_node_path.into(),
+                        item_syn_node_path.syn_node_decl(db).into(),
+                    ))
                 }
             }
-            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => { 
-                for item_syn_node_path in
-                    impl_block_syn_node_path.item_syn_node_paths(db).iter().copied()
+            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
+                for item_syn_node_path in impl_block_syn_node_path
+                    .item_syn_node_paths(db)
+                    .iter()
+                    .copied()
                 {
                     decls.push((
                         item_syn_node_path.into(),
@@ -58,7 +72,8 @@ pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTre
 fn syn_node_decl_sheet_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("syn_node_decl_sheet", SynDeclDb::syn_node_decl_sheet);
+    DB::default()
+        .ast_expect_test_debug_with_db("syn_node_decl_sheet", SynDeclDb::syn_node_decl_sheet);
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
@@ -91,7 +106,7 @@ pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResu
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
-                    for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) { 
+                    for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) {
                         if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
                             decls.push((path.into(), decl.into()))
                         }

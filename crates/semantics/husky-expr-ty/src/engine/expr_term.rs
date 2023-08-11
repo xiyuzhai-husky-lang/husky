@@ -100,7 +100,11 @@ impl<'a> ExprTypeEngine<'a> {
                                     None => todo!(),
                                 }
                             }
-                            _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
+                            _ => {
+                                // p!(self.path());
+                                // todo!();
+                                Err(DerivedExprTermError::LiteralTypeNotResolved)?
+                            }
                         }
                     }
                     IntegerLikeLiteral::UnspecifiedLarge() => todo!(),

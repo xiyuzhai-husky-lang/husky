@@ -34,7 +34,7 @@ impl ExpectFluffyTerm for ExpectNumType {
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match state.expectee().data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

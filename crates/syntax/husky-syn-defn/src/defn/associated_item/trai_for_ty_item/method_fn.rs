@@ -55,7 +55,9 @@ impl TraitForTypeMethodFnSynDefn {
         path: TraitForTypeItemPath,
         decl: TraitForTypeMethodFnSynDecl,
     ) -> TraitForTypeMethodFnSynDefn {
-        let TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        let TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) =
+            path.syn_node_path(db).syn_node_defn(db)
+        else {
             unreachable!()
         };
         TraitForTypeMethodFnSynDefn::new_inner(

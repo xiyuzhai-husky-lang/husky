@@ -12,7 +12,7 @@ impl ExpectCoersion {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         let (expectee_place, expectee_base_ty_data) = state.expectee().ty_data_inner(db, terms);
         // todo: check contract
         match expectee_base_ty_data {

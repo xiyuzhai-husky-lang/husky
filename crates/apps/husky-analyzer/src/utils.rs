@@ -8,29 +8,29 @@ pub fn from_json<T: DeserializeOwned>(what: &'static str, json: serde_json::Valu
     Ok(res)
 }
 
-const LOG_FILE_PATH: &str = "/home/xiyuzhai/temp/husky-analyzer-server.log";
+// const LOG_FILE_PATH: &str = "/home/xiyuzhai/temp/husky-analyzer-server.log";
 
-pub(crate) fn init_log_file() {
-    let mut file = std::fs::File::create("/home/xiyuzhai/temp/husky-analyzer-server.log").unwrap();
-    file.write_all(b"Hello, world!\n\n").unwrap();
-}
+// pub(crate) fn init_log_file() {
+//     let mut file = std::fs::File::create("/home/xiyuzhai/temp/husky-analyzer-server.log").unwrap();
+//     file.write_all(b"Hello, world!\n\n").unwrap();
+// }
 
-pub(crate) fn log_aux(msg: impl AsRef<str>) {
-    let mut file = OpenOptions::new()
-        .append(true)
-        .open(LOG_FILE_PATH)
-        .expect("ok");
-    file.write_all(b"\n").expect("ok");
-    file.write_all(msg.as_ref().as_bytes()).expect("ok");
-    file.write_all(b"\n").expect("ok")
-}
+// pub(crate) fn log_aux(msg: impl AsRef<str>) {
+//     let mut file = OpenOptions::new()
+//         .append(true)
+//         .open(LOG_FILE_PATH)
+//         .expect("ok");
+//     file.write_all(b"\n").expect("ok");
+//     file.write_all(msg.as_ref().as_bytes()).expect("ok");
+//     file.write_all(b"\n").expect("ok")
+// }
 
-macro_rules! log {
-    ($($arg: expr),*) => {
-        crate::utils::log_aux(&format!($($arg),*))
-    };
-}
-pub(crate) use log;
+// macro_rules! log {
+//     ($($arg: expr),*) => {
+//         crate::utils::log_aux(&format!($($arg),*))
+//     };
+// }
+// pub(crate) use log;
 
 #[test]
 fn t() {

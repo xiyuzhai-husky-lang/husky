@@ -49,7 +49,9 @@ impl TypeAssociatedFnSynDefn {
         path: TypeItemPath,
         decl: TypeAssociatedFnSynDecl,
     ) -> DeclResult<TypeAssociatedFnSynDefn> {
-        let TypeItemSynNodeDefn::AssociatedFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        let TypeItemSynNodeDefn::AssociatedFn(syn_node_defn) =
+            path.syn_node_path(db).syn_node_defn(db)
+        else {
             unreachable!()
         };
         Ok(TypeAssociatedFnSynDefn::new_inner(

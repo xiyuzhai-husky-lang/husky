@@ -81,9 +81,11 @@ fn ethereal_term_trai_method_dispatch_aux(
                 1 => {
                     let impl_block_template_partially_instantiated = matches[0];
                     // todo: check scope
-                    let TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated::Method(method_template_partially_instantiated) =
-                        impl_block_template_partially_instantiated
-                            .associated_item_ethereal_signature_template(db, ident_token.ident())? else {
+                    let TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated::Method(
+                        method_template_partially_instantiated,
+                    ) = impl_block_template_partially_instantiated
+                        .associated_item_ethereal_signature_template(db, ident_token.ident())?
+                    else {
                         todo!()
                     };
                     match method_template_partially_instantiated.try_into_signature(db) {

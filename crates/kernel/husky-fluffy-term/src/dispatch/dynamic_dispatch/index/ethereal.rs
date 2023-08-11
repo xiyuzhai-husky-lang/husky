@@ -22,7 +22,8 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
 ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
-    let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function() else {
+    let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function()
+    else {
         todo!()
     };
     let refined_ty_path = ty_path.refine(db);

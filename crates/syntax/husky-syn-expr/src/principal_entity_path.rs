@@ -37,7 +37,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             path_name_token,
             principal_entity_path: principal_item_path,
         });
-        if let Some(major_path) = principal_item_path.major() 
+        if let Some(major_path) = principal_item_path.major()
            && let Some(scope_resolution_token)= self.try_parse_err_as_none::<ScopeResolutionToken>() {
             self.parse_subitem_path_expr(root, major_path, scope_resolution_token)
         } else{
@@ -98,7 +98,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             SynExpr::PrincipalEntityPath {
                 item_path_expr: expr,
                 opt_path,
-            } 
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ pub enum HollowTermData {
 
 /// refinement of HollowTerm
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct Hole(HollowTerm);
+pub struct Hole(pub(crate) HollowTerm);
 
 impl Hole {
     pub fn term(self) -> HollowTerm {
@@ -76,7 +76,9 @@ impl HollowTerm {
         match self.resolve_progress(fluffy_terms) {
             TermResolveProgress::UnresolvedHollow => self.fluffy_data_aux(db, fluffy_terms),
             TermResolveProgress::ResolvedEthereal(term) => ethereal_term_data(db, term),
-            TermResolveProgress::ResolvedSolid(_) => todo!(),
+            TermResolveProgress::ResolvedSolid(term) => {
+                term.data_inner(fluffy_terms.solid_terms()).into()
+            }
             TermResolveProgress::Err => todo!(),
         }
     }
@@ -153,7 +155,9 @@ impl HollowTerm {
         match self.resolve_progress(fluffy_terms) {
             TermResolveProgress::UnresolvedHollow => self.fluffy_data_aux2(db, fluffy_terms),
             TermResolveProgress::ResolvedEthereal(term) => ethereal_term_data2(db, term),
-            TermResolveProgress::ResolvedSolid(_) => todo!(),
+            TermResolveProgress::ResolvedSolid(term) => {
+                term.data_inner(fluffy_terms.solid_terms()).into()
+            }
             TermResolveProgress::Err => todo!(),
         }
     }

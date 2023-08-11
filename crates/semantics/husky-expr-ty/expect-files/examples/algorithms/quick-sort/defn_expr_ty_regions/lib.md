@@ -6312,7 +6312,13 @@
                                     0,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6331,7 +6337,13 @@
                                     1,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6350,7 +6362,13 @@
                                     2,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6369,7 +6387,13 @@
                                     3,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6388,7 +6412,13 @@
                                     5,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6407,7 +6437,13 @@
                                     6,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6426,7 +6462,13 @@
                                     7,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6445,7 +6487,13 @@
                                     8,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6464,7 +6512,13 @@
                                     9,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6483,7 +6537,13 @@
                                     10,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6591,7 +6651,13 @@
                                     15,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6610,7 +6676,13 @@
                                     17,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6629,7 +6701,13 @@
                                     18,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6648,7 +6726,13 @@
                                     19,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6667,7 +6751,13 @@
                                     20,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6686,7 +6776,13 @@
                                     21,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6705,7 +6801,13 @@
                                     22,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6724,7 +6826,13 @@
                                     23,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6743,7 +6851,13 @@
                                     24,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6762,7 +6876,13 @@
                                     25,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Hollow(
+                                        HollowTerm(
+                                            15,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: Hollow(
@@ -6824,7 +6944,15 @@
                                         1,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6849,7 +6977,15 @@
                                         2,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6874,7 +7010,15 @@
                                         3,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6917,7 +7061,15 @@
                                         4,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6942,7 +7094,15 @@
                                         5,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6967,7 +7127,15 @@
                                         6,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6992,7 +7160,15 @@
                                         7,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7017,7 +7193,15 @@
                                         8,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7042,7 +7226,15 @@
                                         9,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7067,7 +7259,15 @@
                                         10,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7232,7 +7432,15 @@
                                         16,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7257,7 +7465,15 @@
                                         17,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7282,7 +7498,15 @@
                                         18,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7307,7 +7531,15 @@
                                         19,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7332,7 +7564,15 @@
                                         20,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7357,7 +7597,15 @@
                                         21,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7382,7 +7630,15 @@
                                         22,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7407,7 +7663,15 @@
                                         23,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7432,7 +7696,15 @@
                                         24,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -7457,7 +7729,15 @@
                                         25,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8092,53 +8372,16 @@
                                     6,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
                                     CoercibleFrom {
                                         target: Application(
                                             EtherealTermApplication(
@@ -8150,7 +8393,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`Ref 'static str`),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -8170,7 +8415,9 @@
                                     ),
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`List Ref 'static str`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -8236,53 +8483,16 @@
                                     17,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    CoercibleFrom {
-                                        target: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
-                                    },
                                     CoercibleFrom {
                                         target: Application(
                                             EtherealTermApplication(
@@ -8294,7 +8504,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`Ref 'static str`),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -8317,7 +8529,7 @@
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
                     ],
-                    first_unresolved_term_idx: 0,
+                    first_unresolved_term_idx: 1,
                 },
             },
             expectations: Expectations {
@@ -8347,7 +8559,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8374,7 +8594,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8401,7 +8629,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8428,7 +8664,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8455,7 +8699,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8482,7 +8734,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8631,7 +8891,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8658,7 +8926,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8685,7 +8961,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8712,7 +8996,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8739,7 +9031,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8766,7 +9066,15 @@
                                         shift: 0,
                                     },
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {

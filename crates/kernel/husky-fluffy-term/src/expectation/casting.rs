@@ -60,7 +60,7 @@ impl ExpectFluffyTerm for ExpectCasting {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         // todo
         AltOption::AltNone
     }

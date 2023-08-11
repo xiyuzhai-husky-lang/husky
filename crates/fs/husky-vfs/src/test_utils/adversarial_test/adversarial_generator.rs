@@ -10,7 +10,7 @@ pub(super) struct VfsAdversarialGenerator {
 impl VfsAdversarialGenerator {
     pub(super) fn from_env() -> Option<Self> {
         let Ok(round) = std::env::var("ADVERSARIAL_ROUND") else {
-            return None
+            return None;
         };
         let round: u32 = round.parse().expect("valid u32");
         Some(Self {
@@ -48,10 +48,9 @@ impl VfsAdversarialGenerator {
         Db: VfsDb + ?Sized,
     {
         let text = module_path.text(db).unwrap();
-        let Some(adversarial) =
-            self.generate_adversarial(text) else {
-                return Ok(())
-            };
+        let Some(adversarial) = self.generate_adversarial(text) else {
+            return Ok(());
+        };
         match adversarial.test(db, module_path, f) {
             Ok(_) => Ok(()),
             Err(_) => Err(adversarial),
