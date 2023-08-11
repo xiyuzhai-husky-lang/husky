@@ -48,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            SynExpr::Literal(_, lit) => Ok(FluffyTerm::Literal(match lit {
+            SynExpr::Literal(token_idx, lit) => Ok(FluffyTerm::Literal(match lit {
                 Literal::Unit => TermLiteral::Unit,
                 Literal::Char(_) => todo!(),
                 Literal::String(val) => TermLiteral::String(val),
@@ -101,8 +101,8 @@ impl<'a> ExprTypeEngine<'a> {
                                 }
                             }
                             _ => {
-                                // p!(self.path());
-                                // todo!();
+                                p!(token_idx, self.path());
+                                todo!();
                                 Err(DerivedExprTermError::LiteralTypeNotResolved)?
                             }
                         }
