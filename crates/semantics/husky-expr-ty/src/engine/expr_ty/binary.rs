@@ -122,25 +122,6 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit_ty_ontology().into())
     }
 
-    fn calc_binary_assign_closed_expr_ty(
-        &mut self,
-        expr_idx: SynExprIdx,
-        lopd: SynExprIdx,
-        opr: BinaryClosedOpr,
-        ropd: SynExprIdx,
-    ) -> Result<FluffyTerm, ExprTypeError> {
-        // let expr_eval_lifetime = self
-        //     .fluffy_term_region
-        //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
-            Some(_) => todo!(),
-            None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            }
-        };
-        Ok(self.term_menu.unit_ty_ontology().into())
-    }
-
     fn calc_binary_assign_shift_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,

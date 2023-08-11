@@ -27,7 +27,7 @@ impl FluffyTerm {
                     FluffyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
-                        arguments,
+                        ty_arguments: arguments,
                         ..
                     } => {
                         let mut arguments = arguments.to_smallvec();

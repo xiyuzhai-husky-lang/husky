@@ -52,12 +52,13 @@ impl ExpectCoersion {
     pub fn new_pure(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
         let ty = match ty.data(engine) {
             FluffyTermData::TypeOntologyAtPlace {
-                ty_path: path,
-                ty_arguments: arguments,
+                ty_path,
+                ty_arguments,
                 ..
-            } => match arguments.len() {
-                0 => TermEntityPath::TypeOntology(path).into(),
-                _ => todo!(),
+            } => match ty_arguments.len() {
+                0 => TermEntityPath::TypeOntology(ty_path).into(),
+                // ad hoc
+                _ => ty,
             },
             _ => ty,
         };

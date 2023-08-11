@@ -64,8 +64,8 @@ impl SymbolType {
                 TermEntityPath::TypeOntology(path) => {
                     let data = SolidTermData::TypeOntologyAtPlace {
                         place,
-                        path,
-                        refined_path: path.refine(engine.db()),
+                        ty_path: path,
+                        refined_ty_path: path.refine(engine.db()),
                         arguments: smallvec![],
                         base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
                     };
@@ -95,8 +95,8 @@ impl SymbolType {
                     TermFunctionReduced::TypeOntology(path) => {
                         let data = SolidTermData::TypeOntologyAtPlace {
                             place,
-                            path,
-                            refined_path: path.refine(engine.db()),
+                            ty_path: path,
+                            refined_ty_path: path.refine(engine.db()),
                             arguments: expansion
                                 .arguments(engine.db())
                                 .iter()
@@ -114,16 +114,59 @@ impl SymbolType {
             FluffyTerm::Subitem(_) => todo!(),
             FluffyTerm::AsTraitSubitem(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(_) => todo!(),
+            FluffyTerm::Solid(_) => {
+                let (inner_place, base_ty) = ty.ty_data(engine);
+                let place = match inner_place {
+                    // ad hoc
+                    Some(inner_place) => place,
+                    None => place,
+                };
+                let data = match base_ty {
+                    FluffyBaseTypeData::TypeOntology {
+                        ty_path,
+                        refined_ty_path,
+                        ty_arguments,
+                        ty_ethereal_term,
+                    } => SolidTermData::TypeOntologyAtPlace {
+                        ty_path,
+                        refined_ty_path,
+                        arguments: ty_arguments.to_smallvec(),
+                        base_ty_term: ty_ethereal_term,
+                        place,
+                    },
+                    FluffyBaseTypeData::Curry {
+                        curry_kind,
+                        variance,
+                        parameter_variable,
+                        parameter_ty,
+                        return_ty,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FluffyBaseTypeData::Hole(_, _) => todo!(),
+                    FluffyBaseTypeData::Category(_) => todo!(),
+                    FluffyBaseTypeData::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys,
+                        return_ty,
+                    } => todo!(),
+                    FluffyBaseTypeData::Symbol { term } => todo!(),
+                };
+                SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
+            }
             FluffyTerm::Hollow(_) => {
                 let data = match ty.data(engine) {
                     FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
-                        arguments,
+                        ty_arguments: arguments,
                         ..
-                    } => todo!(),
+                    } => HollowTermData::TypeOntologyAtPlace {
+                        place,
+                        ty_path: path,
+                        refined_ty_path: refined_path,
+                        ty_arguments: arguments.to_smallvec(),
+                    },
                     FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,

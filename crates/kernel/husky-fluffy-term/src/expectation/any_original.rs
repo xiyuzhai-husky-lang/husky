@@ -4,11 +4,11 @@ use super::*;
 pub struct ExpectAnyOriginal;
 
 impl ExpectFluffyTerm for ExpectAnyOriginal {
-    type Outcome = FluffyTerm;
+    type Outcome = ();
 
     #[inline(always)]
     fn retrieve_outcome(_outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
-        todo!()
+        &()
     }
 
     #[inline(always)]

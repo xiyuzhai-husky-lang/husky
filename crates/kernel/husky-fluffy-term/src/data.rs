@@ -16,7 +16,7 @@ pub enum FluffyTermData<'a> {
     TypeOntology {
         ty_path: TypePath,
         refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: &'a [FluffyTerm],
+        ty_arguments: &'a [FluffyTerm],
         ty_ethereal_term: Option<EtherealTerm>,
     },
     TypeOntologyAtPlace {
@@ -70,7 +70,7 @@ impl<'a> FluffyTermData<'a> {
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => match ty_ethereal_term {
                 Some(base_ty_term) => format!("{}", base_ty_term.display(db)),
@@ -181,7 +181,7 @@ impl FluffyTerm {
         }
     }
 
-    pub fn data2<'a, 'b>(
+    pub fn ty_data<'a, 'b>(
         self,
         engine: &'a impl FluffyTermEngine<'b>,
     ) -> (Option<Place>, FluffyBaseTypeData<'a>)

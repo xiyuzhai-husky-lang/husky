@@ -19,7 +19,7 @@ pub(super) fn ethereal_term_data<'a>(
             TermEntityPath::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),
-                arguments: &[],
+                ty_arguments: &[],
                 ty_ethereal_term: Some(path.into()),
             },
             TermEntityPath::TypeInstance(_) => todo!(),
@@ -135,7 +135,7 @@ impl TermApplicationFluffyData {
             } => FluffyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term: Some(*ty_ethereal_term),
             },
         }

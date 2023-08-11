@@ -11,8 +11,8 @@ pub enum SolidTermData {
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
     TypeOntologyAtPlace {
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        ty_path: TypePath,
+        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         // use fluffy term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FluffyTerm; 2]>,
         base_ty_term: Option<EtherealTerm>,
@@ -47,7 +47,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
             } => FluffyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
-                arguments: argument_tys,
+                ty_arguments: argument_tys,
                 ty_ethereal_term: None,
             },
             SolidTermData::Curry {
@@ -70,8 +70,8 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 return_ty,
             } => todo!(),
             SolidTermData::TypeOntologyAtPlace {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments: argument_tys,
                 base_ty_term,
                 place,
@@ -129,8 +129,8 @@ impl<'a> Into<(Option<Place>, FluffyBaseTypeData<'a>)> for &'a SolidTermData {
                 return_ty,
             } => todo!(),
             SolidTermData::TypeOntologyAtPlace {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments: argument_tys,
                 base_ty_term,
                 place,

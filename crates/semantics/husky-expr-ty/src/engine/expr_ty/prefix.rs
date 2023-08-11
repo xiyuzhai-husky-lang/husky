@@ -18,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermData::TypeOntology {
                         ty_path,
                         refined_ty_path,
-                        arguments,
+                        ty_arguments: arguments,
                         ty_ethereal_term,
                     } => match refined_ty_path {
                         Left(prelude_ty_path) => match prelude_ty_path {
@@ -141,7 +141,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => todo!(),
             FluffyTermData::Curry {

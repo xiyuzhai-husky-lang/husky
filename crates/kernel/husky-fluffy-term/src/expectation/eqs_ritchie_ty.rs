@@ -51,7 +51,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => meta.set_err(OriginalFluffyTermExpectationError::Todo, smallvec![]),
             FluffyTermData::Curry {
@@ -158,7 +158,7 @@ impl ExpectEqsRitchieType {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => todo!(),
             FluffyTermData::Curry {

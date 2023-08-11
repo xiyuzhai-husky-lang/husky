@@ -40,7 +40,7 @@ impl ExpectFluffyTerm for ExpectNumType {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => todo!(),
             FluffyTermData::TypeOntologyAtPlace {
