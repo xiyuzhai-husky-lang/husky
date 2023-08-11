@@ -79,6 +79,26 @@ impl HollowTerms {
         self.update_entries(db)
     }
 
+    pub(crate) fn empty_holes_with_non_empty_constraints<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = (Hole, HoleKind, &'a [HoleConstraint])> + 'a {
+        self.entries
+            .iter()
+            .enumerate()
+            .filter_map(|(i, entry)| match entry.data {
+                HollowTermData::Hole {
+                    hole_source,
+                    hole_kind,
+                    fill: None,
+                    ref constraints,
+                } => (constraints.len() > 0).then_some((
+                    Hole(HollowTerm(i as u32)),
+                    hole_kind,
+                    constraints as &[_],
+                )),
+                _ => None,
+            })
+    }
     fn update_entries(&mut self, db: &dyn FluffyTermDb) {
         let first_unresolved_idx = self.get_first_unresolved_term_idx();
         for idx in first_unresolved_idx..self.entries.len() {

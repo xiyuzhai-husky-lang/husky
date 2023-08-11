@@ -3,7 +3,6 @@ use crate::helpers::DeclarativeTermFamily;
 use super::*;
 use husky_entity_path::TypePath;
 
-
 // todo: use bitmap?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
 pub struct DeclarativeTemplateSymbolAttrs {
@@ -12,11 +11,11 @@ pub struct DeclarativeTemplateSymbolAttrs {
 
 impl DeclarativeTemplateSymbolAttrs {
     /// only use this in husky-ethereal-term
-    pub unsafe fn new(phantom: bool) -> Self { Self { phantom } }
+    pub unsafe fn new(phantom: bool) -> Self {
+        Self { phantom }
+    }
 
-    pub fn from_attrs(
-        attrs: impl IntoIterator<Item = DeclarativeTemplateSymbolAttr>,
-    ) -> Self {
+    pub fn from_attrs(attrs: impl IntoIterator<Item = DeclarativeTemplateSymbolAttr>) -> Self {
         let mut this: Self = Default::default();
         for attr in attrs {
             todo!()
@@ -32,7 +31,6 @@ impl DeclarativeTemplateSymbolAttrs {
 pub enum DeclarativeTemplateSymbolAttr {
     Phantom,
 }
-
 
 /// wrapper so such the construction is private
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -232,18 +230,22 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => todo!(),
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstPathLeading {
-                    attrs,
-                    disambiguator: 0,
-                    ty_path,
-                });
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstPathLeading {
+                        attrs,
+                        disambiguator: 0,
+                        ty_path,
+                    });
                 self.cache.push(index);
                 index
             }
         }
     }
 
-    pub fn issue_const_other_index(&mut self, attrs: DeclarativeTemplateSymbolAttrs) -> DeclarativeTermSymbolIndex {
+    pub fn issue_const_other_index(
+        &mut self,
+        attrs: DeclarativeTemplateSymbolAttrs,
+    ) -> DeclarativeTermSymbolIndex {
         match self
             .cache
             .iter_mut()
@@ -258,17 +260,21 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => todo!(),
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstOther {
-                    attrs,
-                    disambiguator: 0,
-                });
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::ConstOther {
+                        attrs,
+                        disambiguator: 0,
+                    });
                 self.cache.push(index);
                 index
             }
         }
     }
 
-    pub fn issue_const_err_index(&mut self, attrs: DeclarativeTemplateSymbolAttrs) -> DeclarativeTermSymbolIndex {
+    pub fn issue_const_err_index(
+        &mut self,
+        attrs: DeclarativeTemplateSymbolAttrs,
+    ) -> DeclarativeTermSymbolIndex {
         match self
             .cache
             .iter_mut()
@@ -306,27 +312,28 @@ impl TermSymbolRegistry {
                     // attrs: attrs1,
                     disambiguator,
                     ty_path: ty_path1,
-                } if 
+                } if ty_path1 == ty_path => Some(disambiguator),
                 // attrs1 == attrs &&
-                 ty_path1 == ty_path => Some(disambiguator),
                 _ => None,
             })
             .next()
         {
             Some(latest_disambiguator) => todo!(),
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemPathLeading {
-                    // attrs,
-                    disambiguator: 0,
-                    ty_path,
-                });
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemPathLeading {
+                        // attrs,
+                        disambiguator: 0,
+                        ty_path,
+                    });
                 self.cache.push(index);
                 index
             }
         }
     }
 
-    pub fn issue_ephem_other_index(&mut self, 
+    pub fn issue_ephem_other_index(
+        &mut self,
         // attrs: TemplateParameterAttrs
     ) -> DeclarativeTermSymbolIndex {
         match self
@@ -336,7 +343,7 @@ impl TermSymbolRegistry {
                 DeclarativeTermSymbolIndexInner::EphemOther {
                     // attrs: attrs1,
                     disambiguator,
-                } 
+                }
                 // if attrs1 == attrs 
                 => Some(disambiguator),
                 _ => None,
@@ -345,10 +352,11 @@ impl TermSymbolRegistry {
         {
             Some(latest_disambiguator) => todo!(),
             None => {
-                let index = DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemOther {
-                    // attrs,
-                    disambiguator: 0,
-                });
+                let index =
+                    DeclarativeTermSymbolIndex(DeclarativeTermSymbolIndexInner::EphemOther {
+                        // attrs,
+                        disambiguator: 0,
+                    });
                 self.cache.push(index);
                 index
             }

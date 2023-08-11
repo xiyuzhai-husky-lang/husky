@@ -7,10 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         owner: SynExprIdx,
         indices: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let Some(owner_ty) = self.infer_new_expr_ty(
-            owner,
-            ExpectAnyOriginal,
-        ) else {
+        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             for index in indices {
                 self.infer_new_expr_ty(index.expr_idx(), ExpectAnyDerived);
             }

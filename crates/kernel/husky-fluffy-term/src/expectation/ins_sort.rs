@@ -37,7 +37,7 @@ impl ExpectFluffyTerm for ExpectInsSort {
         _db: &dyn FluffyTermDb,
         _terms: &mut FluffyTerms,
         _state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         todo!()
         // match expectee {
         //     FluffyTerm::EtherealTerm(resolved_expectee) => {

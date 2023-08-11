@@ -8,10 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let Some(lopd_ty) = self.infer_new_expr_ty(
-            lopd,
-            ExpectAnyOriginal,
-        ) else {
+        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
             self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };

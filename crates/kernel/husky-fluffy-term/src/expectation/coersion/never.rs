@@ -6,7 +6,7 @@ impl ExpectCoersion {
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match state.expectee().ty_data_inner(db, fluffy_terms) {
             // never can be coersed to any type
             (

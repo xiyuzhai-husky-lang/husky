@@ -98,9 +98,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    0,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -115,9 +115,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    0,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -204,9 +204,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    1,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -221,9 +221,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    1,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -472,7 +472,13 @@
                                     1,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Solid(
+                                        SolidTerm(
+                                            1,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleFrom {
                                         target: Solid(
@@ -483,7 +489,11 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedSolid(
+                                SolidTerm(
+                                    1,
+                                ),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -491,7 +501,13 @@
                                     7,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    Solid(
+                                        SolidTerm(
+                                            0,
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleFrom {
                                         target: Solid(
@@ -502,10 +518,14 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedSolid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
                         },
                     ],
-                    first_unresolved_term_idx: 0,
+                    first_unresolved_term_idx: 2,
                 },
             },
             expectations: Expectations {
@@ -664,7 +684,15 @@
                                         1,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -683,9 +711,9 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        0,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -707,9 +735,9 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        0,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -820,7 +848,15 @@
                                         0,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -839,9 +875,9 @@
                                     expr_idx: 9,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        1,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -863,9 +899,9 @@
                                     expr_idx: 10,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        1,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::i32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -5174,7 +5210,17 @@
                                     15,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -5189,7 +5235,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`f32`),
+                            ),
                         },
                     ],
                     first_unresolved_term_idx: 0,
@@ -5391,7 +5439,15 @@
                                         3,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -6747,7 +6803,17 @@
                                     28,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6762,7 +6828,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`f32`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -7142,7 +7210,15 @@
                                         5,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {

@@ -55,7 +55,9 @@ impl TypeMemoizedFieldSynDefn {
         path: TypeItemPath,
         decl: TypeMemoizedFieldSynDecl,
     ) -> DeclResult<TypeMemoizedFieldSynDefn> {
-        let TypeItemSynNodeDefn::MemoizedField(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        let TypeItemSynNodeDefn::MemoizedField(syn_node_defn) =
+            path.syn_node_path(db).syn_node_defn(db)
+        else {
             unreachable!()
         };
         Ok(TypeMemoizedFieldSynDefn::new_inner(

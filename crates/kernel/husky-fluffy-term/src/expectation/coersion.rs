@@ -144,7 +144,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         self.resolve_trivial(db, terms, state)?;
         self.resolve_holed(db, terms, state)?;
         self.resolve_never(db, terms, state)?;
@@ -174,7 +174,7 @@ fn resolve_aux(
     db: &dyn FluffyTermDb,
     terms: &FluffyTerms,
     state: &mut ExpectationState,
-) -> AltOption<ExpectationEffect> {
+) -> AltOption<FluffyTermEffect> {
     let (src_place, src_base_ty_data) = src.ty_data_inner(db, terms);
     let (dst_place, dst_base_ty_data) = dst.ty_data_inner(db, terms);
     let coersion = coersion(src_place, dst_place)?;

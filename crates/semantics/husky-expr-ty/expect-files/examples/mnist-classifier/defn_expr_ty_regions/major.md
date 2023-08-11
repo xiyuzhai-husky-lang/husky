@@ -1911,7 +1911,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 22,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -2140,7 +2140,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 22,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -2268,7 +2268,17 @@
                                     2,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -2283,10 +2293,12 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                     ],
-                    first_unresolved_term_idx: 0,
+                    first_unresolved_term_idx: 1,
                 },
             },
             expectations: Expectations {
@@ -2372,7 +2384,15 @@
                                         0,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -2730,7 +2750,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 27,
+                                                value: 28,
                                             },
                                         ),
                                     ),

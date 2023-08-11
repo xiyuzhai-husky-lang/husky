@@ -189,7 +189,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 28,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -209,7 +209,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 30,
+                                                        value: 31,
                                                     },
                                                 ),
                                             ),
@@ -335,7 +335,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 28,
+                                                                            value: 29,
                                                                         },
                                                                     ),
                                                                 ),
@@ -347,7 +347,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 30,
+                                                                            value: 31,
                                                                         },
                                                                     ),
                                                                 ),
@@ -949,7 +949,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 28,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -969,7 +969,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 30,
+                                                        value: 31,
                                                     },
                                                 ),
                                             ),
@@ -1585,7 +1585,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -1635,7 +1635,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -1696,7 +1696,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -1746,7 +1746,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -1807,7 +1807,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -1857,7 +1857,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -2178,9 +2178,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    26,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2234,9 +2234,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    26,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2251,9 +2251,9 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    26,
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2883,7 +2883,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -2933,7 +2933,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -3054,7 +3054,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -3104,7 +3104,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -3979,7 +3979,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -4029,7 +4029,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -4150,7 +4150,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -4200,7 +4200,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -4321,7 +4321,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -4371,7 +4371,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -5386,9 +5386,13 @@
                     DerivedExprTermError::LiteralTypeNotResolved,
                 ),
             ),
-            Err(
-                ExprTermError::Derived(
-                    DerivedExprTermError::LiteralTypeNotResolved,
+            Ok(
+                FluffyTerm::Literal(
+                    TermLiteral::F32(
+                        NotNan(
+                            52.0,
+                        ),
+                    ),
                 ),
             ),
             Ok(
@@ -5583,15 +5587,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                0,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -5836,15 +5832,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                8,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -6077,7 +6065,17 @@
                                     39,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6092,7 +6090,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6100,7 +6100,17 @@
                                     43,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6115,7 +6125,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6123,7 +6135,17 @@
                                     47,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6138,7 +6160,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6158,15 +6182,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                19,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -6399,19 +6415,18 @@
                                     63,
                                 ),
                                 hole_kind: UnspecifiedFloatType,
-                                fill: None,
-                                constraints: [
-                                    CoercibleFrom {
-                                        target: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 26,
-                                                    },
-                                                ),
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 26,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
+                                ),
+                                constraints: [
                                     CoercibleFrom {
                                         target: EntityPath(
                                             TypeOntology(
@@ -6425,7 +6440,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`f32`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6434,15 +6451,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                27,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -6676,15 +6685,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                34,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -6917,7 +6918,17 @@
                                     99,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6932,7 +6943,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6940,7 +6953,17 @@
                                     105,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -6955,7 +6978,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -6997,15 +7022,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                46,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -7239,15 +7256,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                53,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -7481,15 +7490,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                60,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -7722,7 +7723,17 @@
                                     165,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -7737,7 +7748,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -7745,7 +7758,17 @@
                                     171,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -7760,7 +7783,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -7768,7 +7793,17 @@
                                     177,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -7783,7 +7818,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -7814,15 +7851,7 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleInto {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                72,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: HollowTermResolveProgressBuf::Unresolved,
                         },
@@ -8386,7 +8415,13 @@
                                         0,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -8509,7 +8544,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 28,
+                                                                            value: 29,
                                                                         },
                                                                     ),
                                                                 ),
@@ -8521,7 +8556,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 30,
+                                                                            value: 31,
                                                                         },
                                                                     ),
                                                                 ),
@@ -8942,7 +8977,13 @@
                                         8,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -9527,7 +9568,15 @@
                                         15,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -9630,7 +9679,15 @@
                                         16,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -9733,7 +9790,15 @@
                                         17,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -10051,7 +10116,13 @@
                                         19,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -10183,7 +10254,15 @@
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -10196,9 +10275,9 @@
                                     expr_idx: 66,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        26,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::f32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -10228,9 +10307,9 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::Hollow(
-                                        HollowTerm(
-                                            26,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -10246,7 +10325,15 @@
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -10259,9 +10346,9 @@
                                     expr_idx: 68,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        26,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::f32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Intact,
@@ -10271,9 +10358,9 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::Hollow(
-                                        HollowTerm(
-                                            26,
+                                    ty_expected: FluffyTerm::EntityPath(
+                                        TermEntityPath::TypeOntology(
+                                            TypePath(`core::num::f32`, `Extern`),
                                         ),
                                     ),
                                 },
@@ -10284,9 +10371,9 @@
                                     expr_idx: 69,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        26,
+                                expectee: FluffyTerm::EntityPath(
+                                    TermEntityPath::TypeOntology(
+                                        TypePath(`core::num::f32`, `Extern`),
                                     ),
                                 ),
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -10930,7 +11017,13 @@
                                         27,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -11198,7 +11291,15 @@
                                         41,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -11356,7 +11457,15 @@
                                         42,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -11547,7 +11656,13 @@
                                         34,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -11983,7 +12098,13 @@
                                         46,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -12266,7 +12387,13 @@
                                         53,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -12567,7 +12694,15 @@
                                         67,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -12725,7 +12860,15 @@
                                         68,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -12883,7 +13026,15 @@
                                         69,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -13074,7 +13225,13 @@
                                         60,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -13426,7 +13583,13 @@
                                         72,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {

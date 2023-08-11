@@ -39,12 +39,13 @@ impl ExpectFluffyTerm for ExpectSubtype {
         Some(self.expected)
     }
 
+    // todo: use ty_data instead
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         if state.expectee() == self.expected {
             return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }
@@ -75,7 +76,11 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     }
                 }
                 FluffyTermData::Hole(_, hole) => {
-                    state.set_holed(hole, |state| HoleConstraint::CoercibleInto { target: state.expectee() } )
+                    if Into::<FluffyTerm>::into(hole) != state.expectee() {
+                        state.set_holed(hole, |state| HoleConstraint::CoercibleInto { target: state.expectee() })
+                    } else {
+                       state.set_ok(ExpectSubtypeOutcome{}, smallvec![])
+                    }
                 },
                 _ => todo!()
                 // Some(FluffyTermExpectationEffect {

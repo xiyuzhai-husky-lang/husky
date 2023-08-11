@@ -133,7 +133,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 28,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -153,7 +153,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 30,
+                                                        value: 31,
                                                     },
                                                 ),
                                             ),
@@ -279,7 +279,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 28,
+                                                                            value: 29,
                                                                         },
                                                                     ),
                                                                 ),
@@ -291,7 +291,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 30,
+                                                                            value: 31,
                                                                         },
                                                                     ),
                                                                 ),
@@ -640,7 +640,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 28,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -660,7 +660,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 30,
+                                                        value: 31,
                                                     },
                                                 ),
                                             ),
@@ -786,7 +786,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 28,
+                                                                            value: 29,
                                                                         },
                                                                     ),
                                                                 ),
@@ -798,7 +798,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 30,
+                                                                            value: 31,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1032,7 +1032,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     ),
@@ -1043,7 +1043,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 36,
+                                value: 37,
                             },
                         ),
                     ),
@@ -1058,7 +1058,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 38,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -1071,7 +1071,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 36,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -1331,7 +1331,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -1381,7 +1381,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -1840,7 +1840,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -1890,7 +1890,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -2212,7 +2212,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -2262,7 +2262,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 49,
+                                                    value: 50,
                                                 },
                                             ),
                                         ),
@@ -3018,7 +3018,17 @@
                                     13,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -3033,7 +3043,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -3063,7 +3075,17 @@
                                     39,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -3078,7 +3100,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -3086,7 +3110,17 @@
                                     54,
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [
                                     CoercibleInto {
                                         target: EntityPath(
@@ -3101,7 +3135,9 @@
                                     },
                                 ],
                             },
-                            resolve_progress: HollowTermResolveProgressBuf::Unresolved,
+                            resolve_progress: HollowTermResolveProgressBuf::ResolvedEthereal(
+                                EtherealTerm(`usize`),
+                            ),
                         },
                         HollowTermEntry {
                             data: Hole {
@@ -3429,7 +3465,15 @@
                                         1,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -3880,7 +3924,15 @@
                                         4,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -4229,7 +4281,15 @@
                                         5,
                                     ),
                                 ),
-                                resolve_progress: ExpectationProgress::Holed,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {

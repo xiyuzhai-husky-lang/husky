@@ -9,10 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         menu: &EtherealTermMenu,
     ) -> ExprTypeResult<FluffyTerm> {
         // todo: don't use resolved
-        let Some(lopd_ty) = self.infer_new_expr_ty(
-            lopd,
-            ExpectAnyOriginal,
-        ) else {
+        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectAnyOriginal) else {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
         match lopd_ty.data(self) {

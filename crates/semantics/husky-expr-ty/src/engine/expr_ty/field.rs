@@ -7,8 +7,8 @@ impl<'a> ExprTypeEngine<'a> {
         owner: SynExprIdx,
         ident_token: IdentToken,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal,  )else {
-            return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
+        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
+            return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into());
         };
         let field_dispatch = owner_ty
             .field_dispatch(self, ident_token.ident(), /* ad hoc: traits */ &[])

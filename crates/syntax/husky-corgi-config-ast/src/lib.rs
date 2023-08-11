@@ -40,13 +40,10 @@ pub(crate) fn corgi_config_ast_sheet(
     path: DiffPath,
 ) -> VfsResult<Option<CorgiConfigAstSheet>> {
     let mut errors = vec![];
-    let Some(transformer) = CorgiConfigAstTransformer::new_root(
-        db,
-        path,
-        corgi_config_ast_menu(db),
-        &mut errors,
-    )? else {
-        return Ok(None)
+    let Some(transformer) =
+        CorgiConfigAstTransformer::new_root(db, path, corgi_config_ast_menu(db), &mut errors)?
+    else {
+        return Ok(None);
     };
     Ok(Some(transform_corgi_config_ast_sheet(transformer)))
 }

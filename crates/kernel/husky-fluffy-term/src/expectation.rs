@@ -57,7 +57,7 @@ impl Expectation {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         meta: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         match meta.resolve_progress() {
             ExpectationProgress::Intact | ExpectationProgress::Holed => (),
             ExpectationProgress::Resolved(_) => return AltNone,
@@ -146,7 +146,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect>;
+    ) -> AltOption<FluffyTermEffect>;
 }
 
 pub type ExpectationIdx = ArenaIdx<ExpectationEntry>;

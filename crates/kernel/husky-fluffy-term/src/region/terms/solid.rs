@@ -39,15 +39,15 @@ impl SolidTerm {
     }
 
     pub(crate) fn data(self, engine: &impl FluffyTermEngine) -> &SolidTermData {
-        self.data2(&engine.fluffy_terms().solid_terms())
+        self.data_inner(&engine.fluffy_terms().solid_terms())
     }
 
-    pub(crate) fn data2(self, solid_terms: &SolidTerms) -> &SolidTermData {
+    pub(crate) fn data_inner(self, solid_terms: &SolidTerms) -> &SolidTermData {
         &solid_terms.entries.data()[self.0 as usize]
     }
 
     pub fn show(self, db: &dyn FluffyTermDb, solid_terms: &SolidTerms) -> String {
-        match self.data2(solid_terms) {
+        match self.data_inner(solid_terms) {
             SolidTermData::TypeOntology {
                 path,
                 refined_path,

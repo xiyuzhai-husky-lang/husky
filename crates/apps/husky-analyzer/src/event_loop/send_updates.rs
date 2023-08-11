@@ -1,5 +1,5 @@
+use crate::server::client_comm::ClientCommunicator;
 use crate::*;
-use crate::{server::client_comm::ClientCommunicator, utils::log};
 use husky_vfs::VfsDb;
 use salsa::DebugWithDb;
 

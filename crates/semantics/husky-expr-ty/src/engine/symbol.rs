@@ -10,8 +10,9 @@ impl<'a> ExprTypeEngine<'a> {
             let Some(signature) = self
                 .declarative_term_region
                 .term_symbol_region()
-                .current_symbol_signature(current_symbol_idx) else {
-                return
+                .current_symbol_signature(current_symbol_idx)
+            else {
+                return;
             };
             if let Some(symbol) = signature.term_symbol() {
                 if let Ok(symbol) = EtherealTermSymbol::from_declarative(self.db, symbol) {

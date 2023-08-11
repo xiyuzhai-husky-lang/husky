@@ -8,7 +8,7 @@ use husky_vfs::{ModulePath, VfsDb};
 use lsp_types::notification::Notification;
 use salsa::DebugWithDb;
 
-use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB, utils::log};
+use crate::{convert::to_lsp_types::url_from_diff_path, db::AnalyzerDB};
 
 use super::Server;
 
@@ -109,7 +109,7 @@ impl ClientCommunicator {
     pub(crate) fn respond(&mut self, response: lsp_server::Response) {
         if let Some((method, start)) = self.req_queue.incoming.complete(response.id.clone()) {
             if let Some(err) = &response.error {
-                todo!();
+                todo!("err = {:?}", err);
                 if err.message.starts_with("server panicked") {
                     self.poke_husky_developer(format!("{}, check the log", err.message))
                 }

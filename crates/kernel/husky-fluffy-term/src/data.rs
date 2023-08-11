@@ -176,7 +176,7 @@ impl FluffyTerm {
     ) -> FluffyTermData<'a> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => ethereal_term_data(db, term),
-            NestedFluffyTerm::Solid(term) => term.data2(terms.solid_terms()).into(),
+            NestedFluffyTerm::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             NestedFluffyTerm::Hollow(term) => term.fluffy_data(db, terms),
         }
     }
@@ -198,7 +198,7 @@ impl FluffyTerm {
     ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => ethereal_term_data2(db, term),
-            NestedFluffyTerm::Solid(term) => term.data2(terms.solid_terms()).into(),
+            NestedFluffyTerm::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             NestedFluffyTerm::Hollow(term) => term.fluffy_data2(db, terms),
         }
     }

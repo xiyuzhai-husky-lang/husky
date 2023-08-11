@@ -18,7 +18,7 @@
                     Application(
                         EtherealTermApplication(
                             Id {
-                                value: 27,
+                                value: 28,
                             },
                         ),
                     ),
@@ -33,7 +33,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 27,
+                                        value: 28,
                                     },
                                 ),
                             ),
@@ -174,7 +174,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 69,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -1023,7 +1023,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 69,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -1112,7 +1112,7 @@
                                         return_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 42,
+                                                    value: 43,
                                                 },
                                             ),
                                         ),
@@ -1147,7 +1147,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 41,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -1167,7 +1167,7 @@
                                             ty: Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -2496,7 +2496,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 41,
+                                                                            value: 42,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2508,7 +2508,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 42,
+                                                                            value: 43,
                                                                         },
                                                                     ),
                                                                 ),

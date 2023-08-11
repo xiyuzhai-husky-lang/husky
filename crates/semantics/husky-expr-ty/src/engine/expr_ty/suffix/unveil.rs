@@ -57,7 +57,7 @@ impl Unveiler {
         }
         let Some(return_ty) = return_ty else {
             *self = Unveiler::ErrUnableToInferReturnTypeForUnveiling;
-            return
+            return;
         };
         *self = match Self::new_aux(db, return_ty) {
             MaybeResult::JustOk(unveiler) => unveiler,

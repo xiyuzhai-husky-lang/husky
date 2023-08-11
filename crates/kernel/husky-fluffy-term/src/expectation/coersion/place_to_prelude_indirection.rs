@@ -9,7 +9,7 @@ impl ExpectCoersion {
         db: &dyn FluffyTermDb,
         terms: &FluffyTerms,
         state: &mut ExpectationState,
-    ) -> AltOption<ExpectationEffect> {
+    ) -> AltOption<FluffyTermEffect> {
         // todo: check contract
         // match self.contract {
         //     Contract::None => todo!(),

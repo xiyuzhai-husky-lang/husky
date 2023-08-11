@@ -46,7 +46,8 @@ pub struct GnSynDefn {
 
 impl GnSynDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: GnSynDecl) -> Self {
-        let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db)
+        else {
             unreachable!()
         };
         GnSynDefn::new_inner(

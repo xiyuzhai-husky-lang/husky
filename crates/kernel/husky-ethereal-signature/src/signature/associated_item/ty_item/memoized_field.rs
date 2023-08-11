@@ -6,7 +6,7 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
     pub return_ty: EtherealTerm,
 }
 
-impl TypeMemoizedFieldEtherealSignatureTemplate { 
+impl TypeMemoizedFieldEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
         path: TypeItemPath,
@@ -18,7 +18,6 @@ impl TypeMemoizedFieldEtherealSignatureTemplate {
             db, impl_block, return_ty,
         ))
     }
-    
 
     fn try_instantiate(
         self,
@@ -36,8 +35,7 @@ impl TypeMemoizedFieldEtherealSignatureTemplate {
         todo!()
     }
 }
- 
- 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypeMemoizedFieldEtherealSignature {
     return_ty: EtherealTerm,
@@ -136,9 +134,10 @@ impl HasTypeMemoizedFieldEtherealSignature for TypePath {
         arguments: &[EtherealTerm],
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
-        let TypeItemEtherealSignatureTemplates::MemoizedField(templates) = 
-            self.ty_item_ethereal_signature_templates(db, ident)? else {
-            return Nothing
+        let TypeItemEtherealSignatureTemplates::MemoizedField(templates) =
+            self.ty_item_ethereal_signature_templates(db, ident)?
+        else {
+            return Nothing;
         };
         for template in templates {
             if let template = template {
