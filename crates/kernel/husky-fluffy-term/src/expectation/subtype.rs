@@ -53,12 +53,12 @@ impl ExpectFluffyTerm for ExpectSubtype {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: expected_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::TypeOntology {
                     ty_path: expectee_path,
-                    arguments,
+                    ty_arguments: arguments,
                     ..
                 } => {
                     if expected_path == expectee_path {
@@ -133,7 +133,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 FluffyTermData::TypeOntology {
                     ty_path,
                     refined_ty_path,
-                    arguments,
+                    ty_arguments: arguments,
                     ty_ethereal_term,
                 } => todo!(),
                 FluffyTermData::TypeOntologyAtPlace {

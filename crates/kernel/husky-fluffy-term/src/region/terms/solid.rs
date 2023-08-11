@@ -54,8 +54,8 @@ impl SolidTerm {
                 arguments,
             } => todo!(),
             SolidTermData::TypeOntologyAtPlace {
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 base_ty_term,
                 place,

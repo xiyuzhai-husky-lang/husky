@@ -166,6 +166,12 @@ impl HollowTerms {
                     }
                 }
             }
+            HollowTermData::TypeOntologyAtPlace {
+                place,
+                ty_path: path,
+                refined_ty_path: refined_path,
+                ty_arguments: ref arguments,
+            } => todo!(),
             HollowTermData::Curry {
                 curry_kind,
                 variance,
@@ -244,12 +250,6 @@ impl HollowTerms {
                         }
                 }
             }
-            HollowTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                ref arguments,
-            } => todo!(),
             HollowTermData::PlaceHole {
                 place,
                 hole_kind,

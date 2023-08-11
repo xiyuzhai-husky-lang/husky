@@ -43,7 +43,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::TypeOntologyAtPlace {
@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::TypeOntologyAtPlace {
@@ -233,7 +233,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::TypeOntologyAtPlace {

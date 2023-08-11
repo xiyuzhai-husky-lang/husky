@@ -30,7 +30,7 @@ impl FluffyTerm {
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => match ty_path.ty_item_ethereal_signature_templates(db, ident) {
                 JustOk(templates) => match templates {

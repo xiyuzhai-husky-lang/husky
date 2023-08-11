@@ -27,8 +27,8 @@ impl SolidTerm {
             } => todo!(),
             SolidTermData::TypeOntologyAtPlace {
                 place,
-                path,
-                refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 arguments,
                 base_ty_term,
             } => match base_ty_term.as_ref() {

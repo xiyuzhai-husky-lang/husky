@@ -80,7 +80,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ty,
                 expr_ty_expectation,
             ),
-            _ => Default::default(),
+            _ => {
+                p!(expr_idx, ty_result.debug(self.db));
+                Default::default()
+            }
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
         self.fluffy_term_region
@@ -293,14 +296,26 @@ impl<'a> ExprTypeEngine<'a> {
                             Some(ty_pattern) => match ty_pattern {
                                 FluffyTermData::Literal(_) => todo!(),
                                 FluffyTermData::TypeOntology {
-                                    ty_path: path,
-                                    refined_ty_path: refined_path,
-                                    arguments,
+                                    refined_ty_path,
+                                    ty_arguments,
                                     ..
-                                } => match refined_path {
+                                } => match refined_ty_path {
                                     Left(PreludeTypePath::List) => {
-                                        assert_eq!(arguments.len(), 1);
-                                        arguments[0]
+                                        assert_eq!(ty_arguments.len(), 1);
+                                        ty_arguments[0]
+                                    }
+                                    Left(PreludeTypePath::Array) => todo!(),
+                                    _ => todo!(),
+                                },
+                                // ad hoc
+                                FluffyTermData::TypeOntologyAtPlace {
+                                    refined_ty_path,
+                                    ty_arguments,
+                                    ..
+                                } => match refined_ty_path {
+                                    Left(PreludeTypePath::List) => {
+                                        assert_eq!(ty_arguments.len(), 1);
+                                        ty_arguments[0]
                                     }
                                     Left(PreludeTypePath::Array) => todo!(),
                                     _ => todo!(),
@@ -321,7 +336,6 @@ impl<'a> ExprTypeEngine<'a> {
                                     return_ty,
                                     ..
                                 } => todo!(),
-                                FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
                                 FluffyTermData::HoleAtPlace {
                                     place,
                                     hole_kind,

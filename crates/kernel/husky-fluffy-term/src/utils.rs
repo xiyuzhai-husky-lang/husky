@@ -49,7 +49,7 @@ impl FluffyTerm {
             },
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::TypeOntologyAtPlace { .. } => FinalDestination::TypeOntology,
             FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
@@ -70,7 +70,7 @@ impl FluffyTerm {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ty_ethereal_term,
             } => 0,
             FluffyTermData::TypeOntologyAtPlace {

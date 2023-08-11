@@ -49,7 +49,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
@@ -205,7 +205,7 @@ impl ExpectEqsFunctionType {
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
-                arguments,
+                ty_arguments: arguments,
                 ..
             } => todo!(),
             FluffyTermData::Curry {

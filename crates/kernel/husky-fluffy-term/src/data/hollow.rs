@@ -25,11 +25,11 @@ pub enum HollowTermData {
         params: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,
     },
-    PlaceTypeOntology {
+    TypeOntologyAtPlace {
         place: Place,
-        path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
-        arguments: SmallVec<[FluffyTerm; 2]>,
+        ty_path: TypePath,
+        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        ty_arguments: SmallVec<[FluffyTerm; 2]>,
     },
     PlaceHole {
         place: Place,
@@ -95,7 +95,7 @@ impl HollowTerm {
             } => FluffyTermData::TypeOntology {
                 ty_path: *path,
                 refined_ty_path: *refined_path,
-                arguments: argument_tys,
+                ty_arguments: argument_tys,
                 ty_ethereal_term: None,
             },
             HollowTermData::Curry {
@@ -129,12 +129,18 @@ impl HollowTerm {
                 parameter_contracted_tys,
                 return_ty: *return_ty,
             },
-            HollowTermData::PlaceTypeOntology {
+            HollowTermData::TypeOntologyAtPlace {
                 place,
-                path,
-                refined_path,
-                arguments,
-            } => todo!(),
+                ty_path: path,
+                refined_ty_path,
+                ty_arguments,
+            } => FluffyTermData::TypeOntologyAtPlace {
+                ty_path: *path,
+                refined_ty_path: *refined_ty_path,
+                ty_arguments,
+                base_ty_ethereal_term: None,
+                place: *place,
+            },
             HollowTermData::PlaceHole {
                 place,
                 hole_kind,
@@ -218,12 +224,20 @@ impl HollowTerm {
                     return_ty: *return_ty,
                 },
             ),
-            HollowTermData::PlaceTypeOntology {
+            HollowTermData::TypeOntologyAtPlace {
                 place,
-                path,
-                refined_path,
-                arguments,
-            } => todo!(),
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
+            } => (
+                Some(*place),
+                FluffyBaseTypeData::TypeOntology {
+                    ty_path: *ty_path,
+                    refined_ty_path: *refined_ty_path,
+                    ty_arguments,
+                    ty_ethereal_term: None,
+                },
+            ),
             HollowTermData::PlaceHole {
                 place,
                 hole_kind,

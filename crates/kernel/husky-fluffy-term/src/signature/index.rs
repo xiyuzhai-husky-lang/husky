@@ -47,7 +47,7 @@ fn list_index_signature(
         FluffyTermData::TypeOntology {
             ty_path,
             refined_ty_path,
-            arguments,
+            ty_arguments: arguments,
             ..
         }
         | FluffyTermData::TypeOntologyAtPlace {
