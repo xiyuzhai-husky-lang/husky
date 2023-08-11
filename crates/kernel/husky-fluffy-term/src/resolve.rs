@@ -71,7 +71,7 @@ impl FluffyTermRegion {
                         self.add_expectation(src, expectee, expectation);
                     }
                     FluffyTermResolveAction::FillHole { hole, term } => {
-                        self.hollow_terms_mut().fill_hole(db, hole, term)
+                        self.terms_mut().fill_hole(db, hole, term)
                     }
                     FluffyTermResolveAction::AddHoleConstraint {
                         hole,

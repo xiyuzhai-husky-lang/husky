@@ -70,7 +70,7 @@ impl<'a> FluffyTermData<'a> {
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,
-                ty_arguments: arguments,
+                ty_arguments,
                 ty_ethereal_term,
             } => match ty_ethereal_term {
                 Some(base_ty_term) => format!("{}", base_ty_term.display(db)),
@@ -78,8 +78,8 @@ impl<'a> FluffyTermData<'a> {
                     use std::fmt::Write;
                     let mut s = String::default();
                     write!(s, "{}", ty_path.ident(db).data(db));
-                    for argument in arguments.iter() {
-                        write!(s, " {}", argument.show(db, terms));
+                    for ty_argument in ty_arguments.iter() {
+                        write!(s, " {}", ty_argument.show(db, terms));
                     }
                     s
                 }
@@ -92,7 +92,15 @@ impl<'a> FluffyTermData<'a> {
                 place,
             } => match base_ty_ethereal_term {
                 Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
-                None => todo!(),
+                None => {
+                    use std::fmt::Write;
+                    let mut s = String::default();
+                    write!(s, "@{:?} {}", place, ty_path.ident(db).data(db));
+                    for argument in ty_arguments.iter() {
+                        write!(s, " {}", argument.show(db, terms));
+                    }
+                    s
+                }
             },
             FluffyTermData::Curry {
                 curry_kind,
