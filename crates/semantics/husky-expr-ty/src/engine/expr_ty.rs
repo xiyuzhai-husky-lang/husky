@@ -80,10 +80,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ty,
                 expr_ty_expectation,
             ),
-            _ => {
-                p!(expr_idx, ty_result.debug(self.db));
-                Default::default()
-            }
+            _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
         self.fluffy_term_region

@@ -29,7 +29,7 @@ fn partition<T: Ord>(mut arr: [:]T, low: isize, high: isize) -> isize:
 
 @test
 fn quick_sort_works_for_integers():
-    let mut v = [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]
+    let mut v: []i32 = [4, 65, 2, -31, 0, 99, 2, 83, 782, 1]
     quick_sort(v)
     assert v == [-31, 0, 1, 2, 2, 4, 65, 83, 99, 782]
 

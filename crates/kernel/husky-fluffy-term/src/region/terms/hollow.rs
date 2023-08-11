@@ -58,27 +58,6 @@ impl HollowTerms {
         }
     }
 
-    #[deprecated]
-    pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
-        let mut hole_entry = &mut self.entries[hole.idx()];
-        match hole_entry.data {
-            HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
-            HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
-            _ => unreachable!(),
-        }
-        // update progress if term is resolved
-        match term.nested() {
-            NestedFluffyTerm::Ethereal(term) => {
-                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
-            }
-            NestedFluffyTerm::Solid(term) => {
-                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
-            }
-            NestedFluffyTerm::Hollow(_) => (),
-        }
-        self.update_entries(db)
-    }
-
     pub(crate) fn empty_holes_with_non_empty_constraints<'a>(
         &'a self,
     ) -> impl Iterator<Item = (Hole, HoleKind, &'a [HoleConstraint])> + 'a {
@@ -99,10 +78,11 @@ impl HollowTerms {
                 _ => None,
             })
     }
-    fn update_entries(&mut self, db: &dyn FluffyTermDb) {
+
+    fn update_entries(&mut self, db: &dyn FluffyTermDb, solid_terms: &mut SolidTerms) {
         let first_unresolved_idx = self.get_first_unresolved_term_idx();
         for idx in first_unresolved_idx..self.entries.len() {
-            self.try_update_entry(db, idx)
+            self.try_update_entry(db, solid_terms, idx)
         }
     }
 
@@ -120,7 +100,12 @@ impl HollowTerms {
         idx
     }
 
-    fn try_update_entry(&mut self, db: &dyn FluffyTermDb, idx: usize) {
+    fn try_update_entry(
+        &mut self,
+        db: &dyn FluffyTermDb,
+        solid_terms: &mut SolidTerms,
+        idx: usize,
+    ) {
         if self.entries[idx].is_resolved() {
             return;
         }
@@ -171,7 +156,21 @@ impl HollowTerms {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 ty_arguments: ref arguments,
-            } => todo!(),
+            } => {
+                // todo: use merger
+                for argument in arguments {
+                    match argument.resolve_progress(self) {
+                        // we can't proceed if any argument is unresolved hollow
+                        TermResolveProgress::UnresolvedHollow => return,
+                        TermResolveProgress::ResolvedEthereal(_) => (),
+                        TermResolveProgress::ResolvedSolid(_) => (),
+                        TermResolveProgress::Err => todo!(),
+                    }
+                }
+                let term = todo!();
+                self.entries[idx].resolve_progress =
+                    HollowTermResolveProgressBuf::ResolvedSolid(term)
+            }
             HollowTermData::Curry {
                 curry_kind,
                 variance,
@@ -261,6 +260,28 @@ impl HollowTerms {
                 TermResolveProgress::Err => todo!(),
             },
         }
+    }
+}
+
+impl FluffyTerms {
+    pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
+        let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
+        match hole_entry.data {
+            HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
+            HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
+            _ => unreachable!(),
+        }
+        // update progress if term is resolved
+        match term.nested() {
+            NestedFluffyTerm::Ethereal(term) => {
+                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
+            }
+            NestedFluffyTerm::Solid(term) => {
+                hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
+            }
+            NestedFluffyTerm::Hollow(_) => (),
+        }
+        self.hollow_terms.update_entries(db, &mut self.solid_terms)
     }
 }
 

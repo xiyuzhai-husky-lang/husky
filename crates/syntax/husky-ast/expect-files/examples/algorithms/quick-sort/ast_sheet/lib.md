@@ -449,13 +449,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `quick_sort_works_for_strs`,
                         token_idx: TokenIdx(
-                            289,
+                            293,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            290,
+                            294,
                         ),
                         drained: false,
                     },

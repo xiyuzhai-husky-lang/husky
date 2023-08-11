@@ -54,64 +54,57 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::String(val) => TermLiteral::String(val),
                 Literal::Integer(ilit) => match ilit {
                     IntegerLikeLiteral::UnspecifiedRegular(val) => {
+                        // todo: what if place is not none?
                         let ty = self
                             .expr_ty_infos
                             .get(expr_idx)
                             .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
                             .ty()?;
-                        match ty {
-                            FluffyTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-                                match ty_path.prelude_ty_path(self.db) {
-                                    Some(prelude_ty_path) => match prelude_ty_path {
-                                        PreludeTypePath::Num(num_ty_path) => match num_ty_path {
-                                            PreludeNumTypePath::Int(int_ty_path) => {
-                                                match int_ty_path {
-                                                    PreludeIntTypePath::I8 => todo!(),
-                                                    PreludeIntTypePath::I16 => todo!(),
-                                                    PreludeIntTypePath::I32 => TermLiteral::I32(
-                                                        val.try_into().expect("todo"),
-                                                    ),
-                                                    PreludeIntTypePath::I64 => todo!(),
-                                                    PreludeIntTypePath::I128 => todo!(),
-                                                    PreludeIntTypePath::ISize => {
-                                                        TermLiteral::ISize(TermISizeLiteral::new(
-                                                            self.db,
-                                                            val.try_into().expect("ok"),
-                                                        ))
-                                                    }
-                                                    PreludeIntTypePath::U8 => todo!(),
-                                                    PreludeIntTypePath::U16 => todo!(),
-                                                    PreludeIntTypePath::U32 => todo!(),
-                                                    PreludeIntTypePath::U64 => todo!(),
-                                                    PreludeIntTypePath::U128 => todo!(),
-                                                    PreludeIntTypePath::USize => {
-                                                        TermLiteral::USize(TermUSizeLiteral::new(
-                                                            self.db,
-                                                            val.try_into().expect("ok"),
-                                                        ))
-                                                    }
-                                                    PreludeIntTypePath::R8 => todo!(),
-                                                    PreludeIntTypePath::R16 => todo!(),
-                                                    PreludeIntTypePath::R32 => todo!(),
-                                                    PreludeIntTypePath::R64 => todo!(),
-                                                    PreludeIntTypePath::R128 => todo!(),
-                                                    PreludeIntTypePath::RSize => todo!(),
-                                                }
-                                            }
-                                            PreludeNumTypePath::Float(_) => todo!(),
-                                        },
-                                        _ => todo!(),
-                                    },
-                                    None => todo!(),
+                        let (place, base_ty) = ty.ty_data(self);
+                        match base_ty {
+                            FluffyBaseTypeData::TypeOntology {
+                                ty_path,
+                                refined_ty_path:
+                                    Left(PreludeTypePath::Num(PreludeNumTypePath::Int(int_ty_path))),
+                                ty_arguments,
+                                ty_ethereal_term,
+                            } => match int_ty_path {
+                                PreludeIntTypePath::I8 => todo!(),
+                                PreludeIntTypePath::I16 => todo!(),
+                                PreludeIntTypePath::I32 => {
+                                    TermLiteral::I32(val.try_into().expect("todo"))
                                 }
-                            }
+                                PreludeIntTypePath::I64 => todo!(),
+                                PreludeIntTypePath::I128 => todo!(),
+                                PreludeIntTypePath::ISize => TermLiteral::ISize(
+                                    TermISizeLiteral::new(self.db, val.try_into().expect("ok")),
+                                ),
+                                PreludeIntTypePath::U8 => todo!(),
+                                PreludeIntTypePath::U16 => todo!(),
+                                PreludeIntTypePath::U32 => todo!(),
+                                PreludeIntTypePath::U64 => todo!(),
+                                PreludeIntTypePath::U128 => todo!(),
+                                PreludeIntTypePath::USize => TermLiteral::USize(
+                                    TermUSizeLiteral::new(self.db, val.try_into().expect("ok")),
+                                ),
+                                PreludeIntTypePath::R8 => todo!(),
+                                PreludeIntTypePath::R16 => todo!(),
+                                PreludeIntTypePath::R32 => todo!(),
+                                PreludeIntTypePath::R64 => todo!(),
+                                PreludeIntTypePath::R128 => todo!(),
+                                PreludeIntTypePath::RSize => todo!(),
+                            },
                             _ => {
-                                p!(
-                                    ty.show(self.db, self.fluffy_term_region.terms()),
-                                    token_idx,
-                                    self.path()
-                                );
-                                todo!();
+                                #[cfg(test)]
+                                {
+                                    p!(
+                                        ty.debug(self.db),
+                                        ty.show(self.db, self.fluffy_term_region.terms()),
+                                        token_idx,
+                                        self.path()
+                                    );
+                                    todo!();
+                                }
                                 Err(DerivedExprTermError::LiteralTypeNotResolved)?
                             }
                         }
