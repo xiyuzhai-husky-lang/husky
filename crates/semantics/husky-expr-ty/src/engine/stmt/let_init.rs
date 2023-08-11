@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         let_variable_decls: &SynExprResult<LetVariableDecls>,
         initial_value: SynExprIdx,
     ) -> Option<FluffyTerm> {
-        let pattern_ty = match let_variable_decls {
+        let annotated_pattern_ty = match let_variable_decls {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {
                     self.infer_new_expr_ty_discarded(
@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 todo!()
             }
         };
-        match pattern_ty {
+        let pattern_ty = match annotated_pattern_ty {
             Some(pattern_ty) => {
                 let contract = self.expr_region_data.pattern_contract(
                     let_variable_decls
@@ -34,15 +34,16 @@ impl<'a> ExprTypeEngine<'a> {
                     initial_value,
                     ExpectCoersion::new(contract, pattern_ty),
                 );
+                Some(pattern_ty)
             }
             None => {
-                self.infer_new_expr_ty_discarded(
+                self.infer_new_expr_ty(
                     initial_value,
                     // ad hoc
                     ExpectAnyOriginal,
-                );
+                )
             }
-        }
+        };
         match pattern_ty {
             Some(ty) if ty == self.term_menu.never().into() => Some(self.term_menu.never().into()),
             Some(ty) => {

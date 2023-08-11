@@ -34,3 +34,7 @@ Looking out for infinite loops.
 ## Couldn't find Vscode Publisher
 
 https://marketplace.visualstudio.com/manage/publishers/husky-lang
+
+## lsp-type version
+
+94.1 sucks, so many bugs it caused, use 94.0

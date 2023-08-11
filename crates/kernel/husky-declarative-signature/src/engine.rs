@@ -17,7 +17,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
