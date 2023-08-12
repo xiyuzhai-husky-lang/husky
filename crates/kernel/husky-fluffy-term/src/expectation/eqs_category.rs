@@ -56,17 +56,17 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        match state.expectee() {
-            FluffyTerm::Hollow(_) => todo!(),
-            FluffyTerm::Solid(_) => todo!(),
-            FluffyTerm::Category(cat) => match cat.universe() >= self.smallest_universe {
-                true => state.set_ok(
-                    FluffyTermExpectationOutcome::EqsSort(cat.universe()),
-                    smallvec![],
-                ),
-                false => todo!(),
-                // state.set_err(todo!(), smallvec![]),
-            },
+        match state.expectee().base() {
+            FluffyTermBase::Ethereal(EtherealTerm::Category(cat)) => {
+                match cat.universe() >= self.smallest_universe {
+                    true => state.set_ok(
+                        FluffyTermExpectationOutcome::EqsSort(cat.universe()),
+                        smallvec![],
+                    ),
+                    false => todo!(),
+                    // state.set_err(todo!(), smallvec![]),
+                }
+            }
             _ => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedCategory {
                     expectee: state.expectee(),

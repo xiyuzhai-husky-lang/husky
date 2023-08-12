@@ -13,13 +13,6 @@ impl<'a> ExprTypeEngine<'a> {
                 Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok(arguments[0]),
                 _ => Err(OriginalExprTypeError::CannotUnwrap)?,
             },
-            FluffyTermData::TypeOntologyAtPlace {
-                ty_path,
-                refined_ty_path,
-                ty_arguments: arguments,
-                base_ty_ethereal_term,
-                place,
-            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -29,11 +22,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::HoleAtPlace {
-                hole_kind,
-                hole,
-                place,
-            } => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
@@ -41,7 +29,6 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
             } => todo!(),
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::SymbolAtPlace { term, place } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

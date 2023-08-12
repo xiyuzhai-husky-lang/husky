@@ -25,25 +25,24 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                base_ty_term,
-            } => match base_ty_term.as_ref() {
-                Some(&base_ty_term) => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
-                    JustOk(
-                        base_ty_term
-                            .ty_method_dispatch(engine, expr_idx, ident_token)?
-                            .merge(indirections),
-                    )
-                }
-                None => todo!(),
-            },
+            // SolidTermData::TypeOntologyAtPlace {
+            //     place,
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     arguments,
+            //     base_ty_term,
+            // } => match base_ty_term.as_ref() {
+            //     Some(&base_ty_term) => {
+            //         indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+            //         JustOk(
+            //             base_ty_term
+            //                 .ty_method_dispatch(engine, expr_idx, ident_token)?
+            //                 .merge(indirections),
+            //         )
+            //     }
+            //     None => todo!(),
+            // },
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
-            SolidTermData::SymbolAtPlace { .. } => todo!(),
         }
     }
 }

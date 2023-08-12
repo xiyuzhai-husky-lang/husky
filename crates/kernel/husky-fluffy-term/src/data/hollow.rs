@@ -25,17 +25,6 @@ pub enum HollowTermData {
         params: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,
     },
-    TypeOntologyAtPlace {
-        place: Place,
-        ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        ty_arguments: SmallVec<[FluffyTerm; 2]>,
-    },
-    PlaceHole {
-        place: Place,
-        hole_kind: HoleKind,
-        hole: Hole,
-    },
 }
 
 /// refinement of HollowTerm
@@ -129,27 +118,6 @@ impl HollowTerm {
                 parameter_contracted_tys,
                 return_ty: *return_ty,
             },
-            HollowTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path,
-                ty_arguments,
-            } => FluffyTermData::TypeOntologyAtPlace {
-                ty_path: *path,
-                refined_ty_path: *refined_ty_path,
-                ty_arguments,
-                base_ty_ethereal_term: None,
-                place: *place,
-            },
-            HollowTermData::PlaceHole {
-                place,
-                hole_kind,
-                hole,
-            } => FluffyTermData::HoleAtPlace {
-                place: *place,
-                hole_kind: *hole_kind,
-                hole: *hole,
-            },
         }
     }
 
@@ -224,25 +192,6 @@ impl HollowTerm {
                     return_ty: *return_ty,
                 },
             ),
-            HollowTermData::TypeOntologyAtPlace {
-                place,
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
-            } => (
-                Some(*place),
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path: *ty_path,
-                    refined_ty_path: *refined_ty_path,
-                    ty_arguments,
-                    ty_ethereal_term: None,
-                },
-            ),
-            HollowTermData::PlaceHole {
-                place,
-                hole_kind,
-                hole,
-            } => (Some(*place), FluffyBaseTypeData::Hole(*hole_kind, *hole)),
         }
     }
 }

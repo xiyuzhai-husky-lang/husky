@@ -16,41 +16,95 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
-#[enum_class::from_variants]
-pub enum FluffyTerm {
-    Literal(TermLiteral),
-    Symbol(EtherealTermSymbol),
-    Variable(EtherealTermVariable),
-    EntityPath(TermEntityPath),
-    Category(TermCategory),
-    Universe(TermUniverse),
-    Curry(EtherealTermCurry),
-    Ritchie(EtherealTermRitchie),
-    Abstraction(EtherealTermAbstraction),
-    Application(EtherealTermApplication),
-    Subitem(EtherealTermSubitem),
-    AsTraitSubitem(EtherealTermAsTraitSubitem),
-    TraitConstraint(EtherealTermTraitConstraint),
-    /// terms with determined local lifetimes and places, without undetermined arguments
-    Solid(SolidTerm),
-    /// terms with undetermined arguments
-    Hollow(HollowTerm),
+pub struct FluffyTerm {
+    place: Option<Place>,
+    base: FluffyTermBase,
 }
 
-impl FluffyTerm {
-    #[inline(always)]
-    pub fn ethereal(self) -> Option<EtherealTerm> {
-        match self {
-            FluffyTerm::Solid(_) | FluffyTerm::Hollow(_) => None,
-            _ => Some(unsafe { std::mem::transmute(self) }),
-        }
-    }
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
+#[enum_class::from_variants]
+pub enum FluffyTermBase {
+    Ethereal(EtherealTerm),
+    Solid(SolidTerm),
+    Hollow(HollowTerm),
 }
 
 impl From<EtherealTerm> for FluffyTerm {
     #[inline(always)]
     fn from(term: EtherealTerm) -> Self {
-        unsafe { std::mem::transmute(term) }
+        Self {
+            place: None,
+            base: term.into(),
+        }
+    }
+}
+
+impl From<TermLiteral> for FluffyTerm {
+    fn from(value: TermLiteral) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<TermEntityPath> for FluffyTerm {
+    fn from(value: TermEntityPath) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<EtherealTermApplication> for FluffyTerm {
+    fn from(value: EtherealTermApplication) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<EtherealTermCurry> for FluffyTerm {
+    fn from(value: EtherealTermCurry) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<TermCategory> for FluffyTerm {
+    fn from(value: TermCategory) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<EtherealTermSymbol> for FluffyTerm {
+    fn from(value: EtherealTermSymbol) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<EtherealTermVariable> for FluffyTerm {
+    fn from(value: EtherealTermVariable) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<EtherealTermRitchie> for FluffyTerm {
+    fn from(value: EtherealTermRitchie) -> Self {
+        Into::<EtherealTerm>::into(value).into()
+    }
+}
+
+impl From<SolidTerm> for FluffyTerm {
+    #[inline(always)]
+    fn from(term: SolidTerm) -> Self {
+        Self {
+            place: None,
+            base: term.into(),
+        }
+    }
+}
+
+impl From<HollowTerm> for FluffyTerm {
+    #[inline(always)]
+    fn from(term: HollowTerm) -> Self {
+        Self {
+            place: None,
+            base: term.into(),
+        }
     }
 }
 
@@ -69,11 +123,15 @@ fn term_to_fluffy_term_works() {
 }
 
 impl FluffyTerm {
+    pub fn place(self) -> Option<Place> {
+        self.place
+    }
+
+    pub fn base(self) -> FluffyTermBase {
+        self.base
+    }
+
     pub fn show(self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => term.display(db).to_string(),
-            NestedFluffyTerm::Solid(term) => term.show(db, terms.solid_terms()),
-            NestedFluffyTerm::Hollow(term) => self.data_inner(db, terms).show(db, terms),
-        }
+        self.data_inner(db, terms).show(db, terms)
     }
 }

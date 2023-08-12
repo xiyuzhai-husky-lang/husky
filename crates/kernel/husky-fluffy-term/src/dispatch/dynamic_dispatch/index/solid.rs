@@ -24,20 +24,19 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                base_ty_term,
-            } => match base_ty_term {
-                Some(base_ty_term) => JustOk(
-                    ethereal_owner_ty_index_dispatch(engine, expr_idx, *base_ty_term, index_ty)?
-                        .merge(indirections),
-                ),
-                None => todo!(),
-            },
-            SolidTermData::SymbolAtPlace { .. } => todo!(),
+            // SolidTermData::TypeOntologyAtPlace {
+            //     place,
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     arguments,
+            //     base_ty_term,
+            // } => match base_ty_term {
+            //     Some(base_ty_term) => JustOk(
+            //         ethereal_owner_ty_index_dispatch(engine, expr_idx, *base_ty_term, index_ty)?
+            //             .merge(indirections),
+            //     ),
+            //     None => todo!(),
+            // },
             SolidTermData::Curry {
                 curry_kind,
                 variance,

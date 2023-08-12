@@ -43,17 +43,19 @@ pub trait FluffyTermEngine<'a>: Sized {
         if shift == 0 {
             return Ok(return_ty);
         }
+        debug_assert_eq!(parameter_ty.place(), None);
+        debug_assert_eq!(return_ty.place(), None);
         match (
-            parameter_symbol.map(FluffyTerm::nested),
-            parameter_ty.nested(),
-            return_ty.nested(),
-            argument_ty.nested(),
+            parameter_symbol.map(FluffyTerm::base),
+            parameter_ty.base(),
+            return_ty.base(),
+            argument_ty.base(),
         ) {
             (
                 None,
-                NestedFluffyTerm::Ethereal(parameter_ty),
-                NestedFluffyTerm::Ethereal(return_ty),
-                NestedFluffyTerm::Ethereal(argument_ty),
+                FluffyTermBase::Ethereal(parameter_ty),
+                FluffyTermBase::Ethereal(return_ty),
+                FluffyTermBase::Ethereal(argument_ty),
             ) => {
                 return Ok(EtherealTerm::synthesize_function_application_expr_ty(
                     self.db(),

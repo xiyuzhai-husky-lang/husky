@@ -46,13 +46,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                base_ty_ethereal_term,
-            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -69,13 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
@@ -94,13 +81,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                base_ty_ethereal_term,
-            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -117,13 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
@@ -191,8 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
         match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
             Some(opd_ty) => match opd_ty.data(self) {
                 FluffyTermData::Literal(_) => todo!(),
-                FluffyTermData::TypeOntology { .. }
-                | FluffyTermData::TypeOntologyAtPlace { .. } => {
+                FluffyTermData::TypeOntology { .. } => {
                     Ok((true_suffix.into(), true_suffix_f(self, opd_ty)))
                 }
                 FluffyTermData::Curry {
@@ -210,13 +183,7 @@ impl<'a> ExprTypeEngine<'a> {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyTermData::HoleAtPlace {
-                    place,
-                    hole_kind,
-                    hole,
-                } => todo!(),
                 FluffyTermData::Symbol { .. } => todo!(),
-                FluffyTermData::SymbolAtPlace { .. } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
                 FluffyTermData::TypeVariant { path } => todo!(),
             },
@@ -236,13 +203,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments: arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path,
-                refined_ty_path,
-                ty_arguments: arguments,
-                base_ty_ethereal_term,
-            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -259,13 +219,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

@@ -33,29 +33,28 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                base_ty_term,
-                place,
-            } => match base_ty_term.as_ref() {
-                Some(&base_ty_term) => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
-                    JustOk(
-                        base_ty_term
-                            .trai_method_dispatch_aux(
-                                engine,
-                                expr_idx,
-                                ident_token,
-                                trai_item_records,
-                            )?
-                            .merge(indirections),
-                    )
-                }
-                None => todo!(),
-            },
-            SolidTermData::SymbolAtPlace { term, place } => todo!(),
+            // SolidTermData::TypeOntologyAtPlace {
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     arguments,
+            //     base_ty_term,
+            //     place,
+            // } => match base_ty_term.as_ref() {
+            //     Some(&base_ty_term) => {
+            //         indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+            //         JustOk(
+            //             base_ty_term
+            //                 .trai_method_dispatch_aux(
+            //                     engine,
+            //                     expr_idx,
+            //                     ident_token,
+            //                     trai_item_records,
+            //                 )?
+            //                 .merge(indirections),
+            //         )
+            //     }
+            //     None => todo!(),
+            // },
             SolidTermData::Curry {
                 curry_kind,
                 variance,

@@ -43,13 +43,6 @@ impl FluffyTerms {
                     ty_arguments: arguments,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::TypeOntologyAtPlace {
-                    place,
-                    ty_path,
-                    refined_ty_path,
-                    ty_arguments: arguments,
-                    base_ty_ethereal_term,
-                } => todo!(),
                 FluffyTermData::Curry {
                     curry_kind,
                     variance,
@@ -70,11 +63,6 @@ impl FluffyTerms {
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
-                } => todo!(),
-                FluffyTermData::HoleAtPlace {
-                    place,
-                    hole_kind,
-                    hole,
                 } => todo!(),
                 FluffyTermData::Symbol { .. } => HoleKind::Any,
                 FluffyTermData::Variable { ty } => todo!(),

@@ -10,18 +10,6 @@ pub enum SolidTermData {
         // use fluffy term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FluffyTerm; 2]>,
     },
-    TypeOntologyAtPlace {
-        ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        // use fluffy term here because we don't want to recreate vectors when converting
-        arguments: SmallVec<[FluffyTerm; 2]>,
-        base_ty_term: Option<EtherealTerm>,
-        place: Place,
-    },
-    SymbolAtPlace {
-        term: EtherealTermSymbol,
-        place: Place,
-    },
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
@@ -69,23 +57,6 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments: argument_tys,
-                base_ty_term,
-                place,
-            } => FluffyTermData::TypeOntologyAtPlace {
-                place: *place,
-                ty_path: *path,
-                refined_ty_path: *refined_path,
-                ty_arguments: argument_tys,
-                base_ty_ethereal_term: *base_ty_term,
-            },
-            SolidTermData::SymbolAtPlace { term, place } => FluffyTermData::SymbolAtPlace {
-                term: *term,
-                place: *place,
-            },
         }
     }
 }
@@ -128,24 +99,6 @@ impl<'a> Into<(Option<Place>, FluffyBaseTypeData<'a>)> for &'a SolidTermData {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments: argument_tys,
-                base_ty_term,
-                place,
-            } => (
-                Some(*place),
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path: *path,
-                    refined_ty_path: *refined_path,
-                    ty_arguments: argument_tys,
-                    ty_ethereal_term: *base_ty_term,
-                },
-            ),
-            SolidTermData::SymbolAtPlace { term, place } => {
-                (Some(*place), FluffyBaseTypeData::Symbol { term: *term })
-            }
         }
     }
 }

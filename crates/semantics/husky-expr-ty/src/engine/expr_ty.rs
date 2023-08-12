@@ -305,18 +305,18 @@ impl<'a> ExprTypeEngine<'a> {
                                     _ => todo!(),
                                 },
                                 // ad hoc
-                                FluffyTermData::TypeOntologyAtPlace {
-                                    refined_ty_path,
-                                    ty_arguments,
-                                    ..
-                                } => match refined_ty_path {
-                                    Left(PreludeTypePath::List) => {
-                                        assert_eq!(ty_arguments.len(), 1);
-                                        ty_arguments[0]
-                                    }
-                                    Left(PreludeTypePath::Array) => todo!(),
-                                    _ => todo!(),
-                                },
+                                // FluffyTermData::TypeOntologyAtPlace {
+                                //     refined_ty_path,
+                                //     ty_arguments,
+                                //     ..
+                                // } => match refined_ty_path {
+                                //     Left(PreludeTypePath::List) => {
+                                //         assert_eq!(ty_arguments.len(), 1);
+                                //         ty_arguments[0]
+                                //     }
+                                //     Left(PreludeTypePath::Array) => todo!(),
+                                //     _ => todo!(),
+                                // },
                                 FluffyTermData::Curry {
                                     curry_kind,
                                     variance,
@@ -333,13 +333,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     return_ty,
                                     ..
                                 } => todo!(),
-                                FluffyTermData::HoleAtPlace {
-                                    place,
-                                    hole_kind,
-                                    hole,
-                                } => todo!(),
                                 FluffyTermData::Symbol { .. } => todo!(),
-                                FluffyTermData::SymbolAtPlace { .. } => todo!(),
                                 FluffyTermData::Variable { ty } => todo!(),
                                 FluffyTermData::TypeVariant { path } => todo!(),
                             },

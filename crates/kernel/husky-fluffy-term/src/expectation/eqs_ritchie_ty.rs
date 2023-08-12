@@ -87,14 +87,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 },
                 smallvec![],
             ),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
@@ -194,14 +187,7 @@ impl ExpectEqsRitchieType {
                 },
                 Default::default(),
             ),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

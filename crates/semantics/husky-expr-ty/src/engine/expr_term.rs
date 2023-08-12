@@ -48,108 +48,127 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            SynExpr::Literal(token_idx, lit) => Ok(FluffyTerm::Literal(match lit {
-                Literal::Unit => TermLiteral::Unit,
-                Literal::Char(_) => todo!(),
-                Literal::String(val) => TermLiteral::String(val),
-                Literal::Integer(ilit) => match ilit {
-                    IntegerLikeLiteral::UnspecifiedRegular(val) => {
-                        // todo: what if place is not none?
-                        let ty = self
-                            .expr_ty_infos
-                            .get(expr_idx)
-                            .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
-                            .ty()?;
-                        let (place, base_ty) = ty.ty_data(self);
-                        match base_ty {
-                            FluffyBaseTypeData::TypeOntology {
-                                ty_path,
-                                refined_ty_path:
-                                    Left(PreludeTypePath::Num(PreludeNumTypePath::Int(int_ty_path))),
-                                ty_arguments,
-                                ty_ethereal_term,
-                            } => match int_ty_path {
-                                PreludeIntTypePath::I8 => todo!(),
-                                PreludeIntTypePath::I16 => todo!(),
-                                PreludeIntTypePath::I32 => {
-                                    TermLiteral::I32(val.try_into().expect("todo"))
+            SynExpr::Literal(token_idx, lit) => {
+                Ok(
+                    EtherealTerm::Literal(match lit {
+                        Literal::Unit => TermLiteral::Unit,
+                        Literal::Char(_) => todo!(),
+                        Literal::String(val) => TermLiteral::String(val),
+                        Literal::Integer(ilit) => match ilit {
+                            IntegerLikeLiteral::UnspecifiedRegular(val) => {
+                                // todo: what if place is not none?
+                                let ty = self
+                                    .expr_ty_infos
+                                    .get(expr_idx)
+                                    .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
+                                    .ty()?;
+                                let (place, base_ty) = ty.ty_data(self);
+                                match base_ty {
+                                    FluffyBaseTypeData::TypeOntology {
+                                        ty_path,
+                                        refined_ty_path:
+                                            Left(PreludeTypePath::Num(PreludeNumTypePath::Int(
+                                                int_ty_path,
+                                            ))),
+                                        ty_arguments,
+                                        ty_ethereal_term,
+                                    } => match int_ty_path {
+                                        PreludeIntTypePath::I8 => todo!(),
+                                        PreludeIntTypePath::I16 => todo!(),
+                                        PreludeIntTypePath::I32 => {
+                                            TermLiteral::I32(val.try_into().expect("todo"))
+                                        }
+                                        PreludeIntTypePath::I64 => todo!(),
+                                        PreludeIntTypePath::I128 => todo!(),
+                                        PreludeIntTypePath::ISize => {
+                                            TermLiteral::ISize(TermISizeLiteral::new(
+                                                self.db,
+                                                val.try_into().expect("ok"),
+                                            ))
+                                        }
+                                        PreludeIntTypePath::U8 => todo!(),
+                                        PreludeIntTypePath::U16 => todo!(),
+                                        PreludeIntTypePath::U32 => todo!(),
+                                        PreludeIntTypePath::U64 => todo!(),
+                                        PreludeIntTypePath::U128 => todo!(),
+                                        PreludeIntTypePath::USize => {
+                                            TermLiteral::USize(TermUSizeLiteral::new(
+                                                self.db,
+                                                val.try_into().expect("ok"),
+                                            ))
+                                        }
+                                        PreludeIntTypePath::R8 => todo!(),
+                                        PreludeIntTypePath::R16 => todo!(),
+                                        PreludeIntTypePath::R32 => todo!(),
+                                        PreludeIntTypePath::R64 => todo!(),
+                                        PreludeIntTypePath::R128 => todo!(),
+                                        PreludeIntTypePath::RSize => todo!(),
+                                    },
+                                    _ => {
+                                        #[cfg(test)]
+                                        {
+                                            p!(
+                                                ty.debug(self.db),
+                                                ty.show(self.db, self.fluffy_term_region.terms()),
+                                                token_idx,
+                                                self.path()
+                                            );
+                                            todo!();
+                                        }
+                                        Err(DerivedExprTermError::LiteralTypeNotResolved)?
+                                    }
                                 }
-                                PreludeIntTypePath::I64 => todo!(),
-                                PreludeIntTypePath::I128 => todo!(),
-                                PreludeIntTypePath::ISize => TermLiteral::ISize(
-                                    TermISizeLiteral::new(self.db, val.try_into().expect("ok")),
-                                ),
-                                PreludeIntTypePath::U8 => todo!(),
-                                PreludeIntTypePath::U16 => todo!(),
-                                PreludeIntTypePath::U32 => todo!(),
-                                PreludeIntTypePath::U64 => todo!(),
-                                PreludeIntTypePath::U128 => todo!(),
-                                PreludeIntTypePath::USize => TermLiteral::USize(
-                                    TermUSizeLiteral::new(self.db, val.try_into().expect("ok")),
-                                ),
-                                PreludeIntTypePath::R8 => todo!(),
-                                PreludeIntTypePath::R16 => todo!(),
-                                PreludeIntTypePath::R32 => todo!(),
-                                PreludeIntTypePath::R64 => todo!(),
-                                PreludeIntTypePath::R128 => todo!(),
-                                PreludeIntTypePath::RSize => todo!(),
-                            },
-                            _ => {
-                                #[cfg(test)]
-                                {
-                                    p!(
-                                        ty.debug(self.db),
-                                        ty.show(self.db, self.fluffy_term_region.terms()),
-                                        token_idx,
-                                        self.path()
-                                    );
-                                    todo!();
-                                }
-                                Err(DerivedExprTermError::LiteralTypeNotResolved)?
                             }
-                        }
-                    }
-                    IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
-                    IntegerLikeLiteral::I8(val) => TermLiteral::I8(val),
-                    IntegerLikeLiteral::I16(val) => TermLiteral::I16(val),
-                    IntegerLikeLiteral::I32(val) => TermLiteral::I32(val),
-                    IntegerLikeLiteral::I64(val) => {
-                        TermLiteral::I64(TermI64Literal::new(self.db, val))
-                    }
-                    IntegerLikeLiteral::I128(val) => {
-                        TermLiteral::I128(TermI128Literal::new(self.db, val))
-                    }
-                    IntegerLikeLiteral::ISize(val) => {
-                        TermLiteral::ISize(TermISizeLiteral::new(self.db, val))
-                    }
-                    IntegerLikeLiteral::R8(val) => TermLiteral::R8(val),
-                    IntegerLikeLiteral::R16(val) => TermLiteral::R16(val),
-                    IntegerLikeLiteral::R32(val) => TermLiteral::R32(val),
-                    IntegerLikeLiteral::R64(val) => TermLiteral::R64(todo!()),
-                    IntegerLikeLiteral::R128(val) => TermLiteral::R128(todo!()),
-                    IntegerLikeLiteral::RSize(val) => TermLiteral::RSize(todo!()),
-                    IntegerLikeLiteral::U8(val) => TermLiteral::U8(val),
-                    IntegerLikeLiteral::U16(val) => TermLiteral::U16(val),
-                    IntegerLikeLiteral::U32(val) => TermLiteral::U32(val),
-                    IntegerLikeLiteral::U64(val) => TermLiteral::U64(todo!()),
-                    IntegerLikeLiteral::U128(val) => TermLiteral::U128(todo!()),
-                    IntegerLikeLiteral::USize(val) => TermLiteral::USize(todo!()),
-                },
-                Literal::Float(lit) => match lit {
-                    FloatLiteral::Unspecified(lit) => {
-                        let ty = self
-                            .expr_ty_infos
-                            .get(expr_idx)
-                            .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
-                            .ty()?;
-                        match ty {
-                            FluffyTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-                                match ty_path.prelude_ty_path(self.db) {
-                                    Some(prelude_ty_path) => match prelude_ty_path {
-                                        PreludeTypePath::Num(num_ty_path) => match num_ty_path {
-                                            PreludeNumTypePath::Int(_) => todo!(),
-                                            PreludeNumTypePath::Float(float_ty_path) => {
-                                                match float_ty_path {
+                            IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
+                            IntegerLikeLiteral::I8(val) => TermLiteral::I8(val),
+                            IntegerLikeLiteral::I16(val) => TermLiteral::I16(val),
+                            IntegerLikeLiteral::I32(val) => TermLiteral::I32(val),
+                            IntegerLikeLiteral::I64(val) => {
+                                TermLiteral::I64(TermI64Literal::new(self.db, val))
+                            }
+                            IntegerLikeLiteral::I128(val) => {
+                                TermLiteral::I128(TermI128Literal::new(self.db, val))
+                            }
+                            IntegerLikeLiteral::ISize(val) => {
+                                TermLiteral::ISize(TermISizeLiteral::new(self.db, val))
+                            }
+                            IntegerLikeLiteral::R8(val) => TermLiteral::R8(val),
+                            IntegerLikeLiteral::R16(val) => TermLiteral::R16(val),
+                            IntegerLikeLiteral::R32(val) => TermLiteral::R32(val),
+                            IntegerLikeLiteral::R64(val) => TermLiteral::R64(todo!()),
+                            IntegerLikeLiteral::R128(val) => TermLiteral::R128(todo!()),
+                            IntegerLikeLiteral::RSize(val) => TermLiteral::RSize(todo!()),
+                            IntegerLikeLiteral::U8(val) => TermLiteral::U8(val),
+                            IntegerLikeLiteral::U16(val) => TermLiteral::U16(val),
+                            IntegerLikeLiteral::U32(val) => TermLiteral::U32(val),
+                            IntegerLikeLiteral::U64(val) => TermLiteral::U64(todo!()),
+                            IntegerLikeLiteral::U128(val) => TermLiteral::U128(todo!()),
+                            IntegerLikeLiteral::USize(val) => TermLiteral::USize(todo!()),
+                        },
+                        Literal::Float(lit) => {
+                            match lit {
+                                FloatLiteral::Unspecified(lit) => {
+                                    let ty = self
+                                        .expr_ty_infos
+                                        .get(expr_idx)
+                                        .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
+                                        .ty()?;
+                                    match ty.base() {
+                                        FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
+                                            TermEntityPath::TypeOntology(ty_path),
+                                        )) => {
+                                            match ty_path.prelude_ty_path(self.db) {
+                                                Some(prelude_ty_path) => {
+                                                    match prelude_ty_path {
+                                                        PreludeTypePath::Num(num_ty_path) => {
+                                                            match num_ty_path {
+                                                                PreludeNumTypePath::Int(_) => {
+                                                                    todo!()
+                                                                }
+                                                                PreludeNumTypePath::Float(
+                                                                    float_ty_path,
+                                                                ) => {
+                                                                    match float_ty_path {
                                                     PreludeFloatTypePath::F32 => TermLiteral::F32(
                                                         lit.data(self.db).parse().expect("todo"),
                                                     ),
@@ -157,25 +176,31 @@ impl<'a> ExprTypeEngine<'a> {
                                                         todo!(), // lit.data(self.db).parse().expect("todo"),
                                                     ),
                                                 }
+                                                                }
+                                                            }
+                                                        }
+                                                        _ => todo!(),
+                                                    }
+                                                }
+                                                None => todo!(),
                                             }
-                                        },
-                                        _ => todo!(),
-                                    },
-                                    None => todo!(),
+                                        }
+                                        _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
+                                    }
                                 }
+                                FloatLiteral::F32(val) => TermLiteral::F32(val),
+                                FloatLiteral::F64(_) => todo!(),
                             }
-                            _ => Err(DerivedExprTermError::LiteralTypeNotResolved)?,
                         }
-                    }
-                    FloatLiteral::F32(val) => TermLiteral::F32(val),
-                    FloatLiteral::F64(_) => todo!(),
-                },
-                Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(val) => match val {
-                    BoolLiteral::True => TermLiteral::Bool(true),
-                    BoolLiteral::False => TermLiteral::Bool(false),
-                },
-            })),
+                        Literal::TupleIndex(_) => todo!(),
+                        Literal::Bool(val) => match val {
+                            BoolLiteral::True => TermLiteral::Bool(true),
+                            BoolLiteral::False => TermLiteral::Bool(false),
+                        },
+                    })
+                    .into(),
+                )
+            }
             SynExpr::PrincipalEntityPath {
                 item_path_expr,
                 opt_path,
