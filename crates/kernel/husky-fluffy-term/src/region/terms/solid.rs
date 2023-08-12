@@ -53,17 +53,16 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                base_ty_term,
-                place,
-            } => match base_ty_term {
-                Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
-                None => todo!(),
-            },
-            SolidTermData::SymbolAtPlace { term, place } => todo!(),
+            // SolidTermData::TypeOntologyAtPlace {
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     arguments,
+            //     base_ty_term,
+            //     place,
+            // } => match base_ty_term {
+            //     Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
+            //     None => todo!(),
+            // },
             SolidTermData::Curry {
                 curry_kind,
                 variance,

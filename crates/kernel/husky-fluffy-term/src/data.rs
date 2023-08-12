@@ -19,13 +19,6 @@ pub enum FluffyTermData<'a> {
         ty_arguments: &'a [FluffyTerm],
         ty_ethereal_term: Option<EtherealTerm>,
     },
-    TypeOntologyAtPlace {
-        ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
-        ty_arguments: &'a [FluffyTerm],
-        base_ty_ethereal_term: Option<EtherealTerm>,
-        place: Place,
-    },
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
@@ -35,11 +28,6 @@ pub enum FluffyTermData<'a> {
         ty_ethereal_term: Option<EtherealTermCurry>,
     },
     Hole(HoleKind, Hole),
-    HoleAtPlace {
-        hole_kind: HoleKind,
-        hole: Hole,
-        place: Place,
-    },
     Category(TermCategory),
     Ritchie {
         ritchie_kind: RitchieKind,
@@ -49,10 +37,6 @@ pub enum FluffyTermData<'a> {
     Symbol {
         term: EtherealTermSymbol,
         ty: FluffyTerm,
-    },
-    SymbolAtPlace {
-        term: EtherealTermSymbol,
-        place: Place,
     },
     Variable {
         ty: FluffyTerm,
@@ -84,24 +68,6 @@ impl<'a> FluffyTermData<'a> {
                     s
                 }
             },
-            FluffyTermData::TypeOntologyAtPlace {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
-                base_ty_ethereal_term,
-                place,
-            } => match base_ty_ethereal_term {
-                Some(base_ty_term) => format!("@{:?} {}", place, base_ty_term.display(db)),
-                None => {
-                    use std::fmt::Write;
-                    let mut s = String::default();
-                    write!(s, "@{:?} {}", place, ty_path.ident(db).data(db));
-                    for argument in ty_arguments.iter() {
-                        write!(s, " {}", argument.show(db, terms));
-                    }
-                    s
-                }
-            },
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -116,16 +82,6 @@ impl<'a> FluffyTermData<'a> {
                 HoleKind::ImplicitType => "_t".to_string(),
                 HoleKind::Any => "_a".to_string(),
             },
-            FluffyTermData::HoleAtPlace {
-                hole_kind,
-                hole,
-                place,
-            } => match hole_kind {
-                HoleKind::UnspecifiedIntegerType => format!("@{:?} _i", place),
-                HoleKind::UnspecifiedFloatType => format!("@{:?} _f", place),
-                HoleKind::ImplicitType => format!("@{:?} _t", place),
-                HoleKind::Any => format!("@{:?} _a", place),
-            },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
@@ -133,7 +89,6 @@ impl<'a> FluffyTermData<'a> {
                 return_ty,
             } => todo!(),
             FluffyTermData::Symbol { term, ty } => todo!(),
-            FluffyTermData::SymbolAtPlace { term, place } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
@@ -182,10 +137,10 @@ impl FluffyTerm {
         db: &'a dyn FluffyTermDb,
         terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => ethereal_term_data(db, term),
-            NestedFluffyTerm::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            NestedFluffyTerm::Hollow(term) => term.fluffy_data(db, terms),
+        match self.base() {
+            FluffyTermBase::Ethereal(term) => ethereal_term_data(db, term),
+            FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
+            FluffyTermBase::Hollow(term) => term.fluffy_data(db, terms),
         }
     }
 
@@ -204,10 +159,10 @@ impl FluffyTerm {
         db: &'a dyn FluffyTermDb,
         terms: &'a FluffyTerms,
     ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => ethereal_term_data2(db, term),
-            NestedFluffyTerm::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            NestedFluffyTerm::Hollow(term) => term.fluffy_data2(db, terms),
+        match self.base() {
+            FluffyTermBase::Ethereal(term) => ethereal_term_data2(db, term),
+            FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
+            FluffyTermBase::Hollow(term) => term.fluffy_data2(db, terms),
         }
     }
 }

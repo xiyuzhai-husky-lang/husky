@@ -43,13 +43,6 @@ impl ExpectFluffyTerm for ExpectNumType {
                 ty_arguments: arguments,
                 ..
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ..
-            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -70,22 +63,21 @@ impl ExpectFluffyTerm for ExpectNumType {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => match hole_kind {
-                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
-                    ExpectNumTypeOutcome {
-                        placeless_num_ty: hole.into(),
-                    },
-                    smallvec![],
-                ),
-                HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
-            },
+            // FluffyTermData::HoleAtPlace {
+            //     place,
+            //     hole_kind,
+            //     hole,
+            // } => match hole_kind {
+            //     HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => state.set_ok(
+            //         ExpectNumTypeOutcome {
+            //             placeless_num_ty: hole.into(),
+            //         },
+            //         smallvec![],
+            //     ),
+            //     HoleKind::ImplicitType => todo!(),
+            //     HoleKind::Any => todo!(),
+            // },
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

@@ -90,14 +90,14 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(ty_term) => {
+        match self.base() {
+            FluffyTermBase::Ethereal(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
             }
-            NestedFluffyTerm::Solid(ty_term) => {
+            FluffyTermBase::Solid(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
             }
-            NestedFluffyTerm::Hollow(ty_term) => {
+            FluffyTermBase::Hollow(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
             }
         }
@@ -112,14 +112,14 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(ty_term) => {
+        match self.base() {
+            FluffyTermBase::Ethereal(ty_term) => {
                 ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
-            NestedFluffyTerm::Solid(ty_term) => {
+            FluffyTermBase::Solid(ty_term) => {
                 ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
-            NestedFluffyTerm::Hollow(ty_term) => {
+            FluffyTermBase::Hollow(ty_term) => {
                 ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
         }
@@ -136,14 +136,14 @@ impl HasFluffyMethodDispatch for FluffyTerm {}
 //     available_traits: &[TraitPath],
 //     mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
 // ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-//     match self.nested() {
-//         NestedFluffyTerm::Ethereal(term) => {
+//     match self.base() {
+//         FluffyTermBase::Ethereal(term) => {
 //             todo!()
 //             // ethereal_ty_method_dispatch(engine, expr_idx, term, ident)
 //         }
-//         NestedFluffyTerm::Solid(term) => {
+//         FluffyTermBase::Solid(term) => {
 //             term.method_dispatch_aux(engine, expr_idx, ident, available_traits, indirections)
 //         }
-//         NestedFluffyTerm::Hollow(term) => todo!(),
+//         FluffyTermBase::Hollow(term) => todo!(),
 //     }
 // }

@@ -47,13 +47,6 @@ impl<'a> ExprTypeEngine<'a> {
                         },
                         Right(_) => todo!(),
                     },
-                    FluffyTermData::TypeOntologyAtPlace {
-                        place,
-                        ty_path: path,
-                        refined_ty_path: refined_path,
-                        ty_arguments: arguments,
-                        base_ty_ethereal_term,
-                    } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
@@ -76,13 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
                         return_ty,
                         ..
                     } => todo!(),
-                    FluffyTermData::HoleAtPlace {
-                        place,
-                        hole_kind,
-                        hole,
-                    } => todo!(),
                     FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 }
@@ -160,14 +147,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

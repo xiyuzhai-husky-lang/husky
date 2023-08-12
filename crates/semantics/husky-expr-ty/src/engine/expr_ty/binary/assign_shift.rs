@@ -24,29 +24,22 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
                 Ok(lopd_ty)
             }
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: Left(PreludeTypePath::Num(_)),
-                ..
-            } => {
-                self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
-                Ok(TermEntityPath::TypeOntology(path).into())
-            }
+            // FluffyTermData::TypeOntologyAtPlace {
+            //     place,
+            //     ty_path: path,
+            //     refined_ty_path: Left(PreludeTypePath::Num(_)),
+            //     ..
+            // } => {
+            //     self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
+            //     Ok(TermEntityPath::TypeOntology(path).into())
+            // }
             FluffyTermData::TypeOntology { .. }
             | FluffyTermData::Hole(_, _)
             | FluffyTermData::Literal(_)
             | FluffyTermData::Curry { .. }
             | FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
@@ -65,29 +58,13 @@ impl<'a> ExprTypeEngine<'a> {
                 refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
-            | FluffyTermData::TypeOntologyAtPlace {
-                refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
-                ..
-            }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
             FluffyTermData::TypeOntology { .. } => todo!(),
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

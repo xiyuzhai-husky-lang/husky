@@ -35,16 +35,10 @@ impl<'a> ExprTypeEngine<'a> {
                 match expr_ty_expectation.destination() {
                     Some(destination) => match destination.data(self) {
                         FluffyTermData::TypeOntology { ty_path, .. }
-                        | FluffyTermData::TypeOntologyAtPlace {
-                            ty_path,
-                            place:
-                                Place::Const
-                                | Place::StackPure { .. }
-                                | Place::Transient
-                                | Place::Ref { .. }
-                                | Place::RefMut { .. },
-                            ..
-                        } if ty_path == parent_ty_path => Ok(destination),
+                            if ty_path == parent_ty_path =>
+                        {
+                            Ok(destination)
+                        }
                         _ => Ok(path.ty(self.db)?.into()),
                     },
                     None => Ok(path.ty(self.db)?.into()),

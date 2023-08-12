@@ -14,24 +14,23 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                base_ty_term,
-            } => match base_ty_term {
-                Some(base_ty_term) => {
-                    indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
-                    JustOk(
-                        ethereal_ty_field_dispatch(engine.db(), *base_ty_term, ident)?
-                            .merge(indirections),
-                    )
-                }
-                None => todo!(),
-            },
+            // SolidTermData::TypeOntologyAtPlace {
+            //     place,
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     arguments,
+            //     base_ty_term,
+            // } => match base_ty_term {
+            //     Some(base_ty_term) => {
+            //         indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+            //         JustOk(
+            //             ethereal_ty_field_dispatch(engine.db(), *base_ty_term, ident)?
+            //                 .merge(indirections),
+            //         )
+            //     }
+            //     None => todo!(),
+            // },
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
-            SolidTermData::SymbolAtPlace { .. } => todo!(),
         }
     }
 }

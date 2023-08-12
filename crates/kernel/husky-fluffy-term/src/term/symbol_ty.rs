@@ -32,175 +32,177 @@ impl SymbolType {
         current_symbol_idx: CurrentSynSymbolIdx,
         ty: FluffyTerm,
     ) -> Self {
-        let expr_region_data = engine.expr_region_data();
-        let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
-        let place = match expr_region_data[current_symbol_idx].modifier() {
-            EphemSymbolModifier::None => Place::StackPure {
-                location: local_symbol_idx.into(),
-            },
-            EphemSymbolModifier::Mut => Place::MutableStackOwned {
-                location: local_symbol_idx.into(),
-            },
-            EphemSymbolModifier::RefMut => Place::RefMut {
-                guard: Left(local_symbol_idx.into()),
-            },
-            EphemSymbolModifier::Const => Place::Const,
-            EphemSymbolModifier::Ambersand(_) => todo!(),
-            EphemSymbolModifier::AmbersandMut(_) => todo!(),
-            EphemSymbolModifier::Le => todo!(),
-            EphemSymbolModifier::Tilde => todo!(), // todo: handle variance
-        };
-        Self(match ty {
-            FluffyTerm::Literal(_) => todo!(),
-            FluffyTerm::Symbol(term) => SolidTerm::new(
-                engine.fluffy_term_region_mut().solid_terms_mut(),
-                SolidTermData::SymbolAtPlace { term, place },
-            )
-            .into(),
-            FluffyTerm::Variable(_) => todo!(),
-            FluffyTerm::EntityPath(path) => match path {
-                TermEntityPath::Fugitive(_) => todo!(),
-                TermEntityPath::Trait(_) => todo!(),
-                TermEntityPath::TypeOntology(path) => {
-                    let data = SolidTermData::TypeOntologyAtPlace {
-                        place,
-                        ty_path: path,
-                        refined_ty_path: path.refine(engine.db()),
-                        arguments: smallvec![],
-                        base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
-                    };
-                    SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
-                }
-                TermEntityPath::TypeInstance(_) => todo!(),
-                TermEntityPath::TypeVariant(_) => todo!(),
-            },
-            FluffyTerm::Category(term) => match place {
-                Place::Const => term.into(),
-                Place::StackPure { location } => todo!(),
-                Place::ImmutableStackOwned { location } => todo!(),
-                Place::MutableStackOwned { location } => todo!(),
-                Place::Transient => todo!(),
-                Place::Ref { guard } => todo!(),
-                Place::RefMut { guard } => todo!(),
-                Place::Leashed => todo!(),
-                Place::Todo => todo!(),
-            },
-            FluffyTerm::Universe(_) => todo!(),
-            FluffyTerm::Curry(_) => todo!(),
-            FluffyTerm::Ritchie(_) => todo!(),
-            FluffyTerm::Abstraction(_) => todo!(),
-            FluffyTerm::Application(term) => {
-                let expansion = term.application_expansion(engine.db());
-                match expansion.function() {
-                    TermFunctionReduced::TypeOntology(path) => {
-                        let data = SolidTermData::TypeOntologyAtPlace {
-                            place,
-                            ty_path: path,
-                            refined_ty_path: path.refine(engine.db()),
-                            arguments: expansion
-                                .arguments(engine.db())
-                                .iter()
-                                .map(|t| (*t).into())
-                                .collect(),
-                            base_ty_term: Some(term.into()),
-                        };
-                        SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data)
-                            .into()
-                    }
-                    TermFunctionReduced::Trait(_) => todo!(),
-                    TermFunctionReduced::Other(_) => todo!(),
-                }
-            }
-            FluffyTerm::Subitem(_) => todo!(),
-            FluffyTerm::AsTraitSubitem(_) => todo!(),
-            FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(_) => {
-                let (inner_place, base_ty) = ty.ty_data(engine);
-                let place = match inner_place {
-                    // ad hoc
-                    Some(inner_place) => place,
-                    None => place,
-                };
-                let data = match base_ty {
-                    FluffyBaseTypeData::TypeOntology {
-                        ty_path,
-                        refined_ty_path,
-                        ty_arguments,
-                        ty_ethereal_term,
-                    } => SolidTermData::TypeOntologyAtPlace {
-                        ty_path,
-                        refined_ty_path,
-                        arguments: ty_arguments.to_smallvec(),
-                        base_ty_term: ty_ethereal_term,
-                        place,
-                    },
-                    FluffyBaseTypeData::Curry {
-                        curry_kind,
-                        variance,
-                        parameter_variable,
-                        parameter_ty,
-                        return_ty,
-                        ty_ethereal_term,
-                    } => todo!(),
-                    FluffyBaseTypeData::Hole(_, _) => todo!(),
-                    FluffyBaseTypeData::Category(_) => todo!(),
-                    FluffyBaseTypeData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys,
-                        return_ty,
-                    } => todo!(),
-                    FluffyBaseTypeData::Symbol { term } => todo!(),
-                };
-                SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
-            }
-            FluffyTerm::Hollow(_) => {
-                let data = match ty.data(engine) {
-                    FluffyTermData::Literal(_) => todo!(),
-                    FluffyTermData::TypeOntology {
-                        ty_path: path,
-                        refined_ty_path: refined_path,
-                        ty_arguments: arguments,
-                        ..
-                    } => HollowTermData::TypeOntologyAtPlace {
-                        place,
-                        ty_path: path,
-                        refined_ty_path: refined_path,
-                        ty_arguments: arguments.to_smallvec(),
-                    },
-                    FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-                    FluffyTermData::Curry {
-                        curry_kind,
-                        variance,
-                        parameter_variable,
-                        parameter_ty,
-                        return_ty,
-                        ty_ethereal_term,
-                    } => todo!(),
-                    FluffyTermData::Hole(hole_kind, hole) => HollowTermData::PlaceHole {
-                        place,
-                        hole_kind,
-                        hole,
-                    },
-                    FluffyTermData::Category(_) => todo!(),
-                    FluffyTermData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys,
-                        return_ty,
-                        ..
-                    } => todo!(),
-                    FluffyTermData::HoleAtPlace {
-                        place,
-                        hole_kind,
-                        hole,
-                    } => todo!(),
-                    FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
-                    FluffyTermData::Variable { ty } => todo!(),
-                    FluffyTermData::TypeVariant { path } => todo!(),
-                };
-                HollowTerm::new(engine, data).into()
-            }
-        })
+        // ad hoc
+        Self(ty)
+        // let expr_region_data = engine.expr_region_data();
+        // let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
+        // let place = match expr_region_data[current_symbol_idx].modifier() {
+        //     EphemSymbolModifier::None => Place::StackPure {
+        //         location: local_symbol_idx.into(),
+        //     },
+        //     EphemSymbolModifier::Mut => Place::MutableStackOwned {
+        //         location: local_symbol_idx.into(),
+        //     },
+        //     EphemSymbolModifier::RefMut => Place::RefMut {
+        //         guard: Left(local_symbol_idx.into()),
+        //     },
+        //     EphemSymbolModifier::Const => Place::Const,
+        //     EphemSymbolModifier::Ambersand(_) => todo!(),
+        //     EphemSymbolModifier::AmbersandMut(_) => todo!(),
+        //     EphemSymbolModifier::Le => todo!(),
+        //     EphemSymbolModifier::Tilde => todo!(), // todo: handle variance
+        // };
+        // Self(match ty {
+        //     FluffyTerm::Literal(_) => todo!(),
+        //     FluffyTerm::Symbol(term) => SolidTerm::new(
+        //         engine.fluffy_term_region_mut().solid_terms_mut(),
+        //         SolidTermData::SymbolAtPlace { term, place },
+        //     )
+        //     .into(),
+        //     FluffyTerm::Variable(_) => todo!(),
+        //     FluffyTerm::EntityPath(path) => match path {
+        //         TermEntityPath::Fugitive(_) => todo!(),
+        //         TermEntityPath::Trait(_) => todo!(),
+        //         TermEntityPath::TypeOntology(path) => {
+        //             let data = SolidTermData::TypeOntologyAtPlace {
+        //                 place,
+        //                 ty_path: path,
+        //                 refined_ty_path: path.refine(engine.db()),
+        //                 arguments: smallvec![],
+        //                 base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
+        //             };
+        //             SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
+        //         }
+        //         TermEntityPath::TypeInstance(_) => todo!(),
+        //         TermEntityPath::TypeVariant(_) => todo!(),
+        //     },
+        //     FluffyTerm::Category(term) => match place {
+        //         Place::Const => term.into(),
+        //         Place::StackPure { location } => todo!(),
+        //         Place::ImmutableStackOwned { location } => todo!(),
+        //         Place::MutableStackOwned { location } => todo!(),
+        //         Place::Transient => todo!(),
+        //         Place::Ref { guard } => todo!(),
+        //         Place::RefMut { guard } => todo!(),
+        //         Place::Leashed => todo!(),
+        //         Place::Todo => todo!(),
+        //     },
+        //     FluffyTerm::Universe(_) => todo!(),
+        //     FluffyTerm::Curry(_) => todo!(),
+        //     FluffyTerm::Ritchie(_) => todo!(),
+        //     FluffyTerm::Abstraction(_) => todo!(),
+        //     FluffyTerm::Application(term) => {
+        //         let expansion = term.application_expansion(engine.db());
+        //         match expansion.function() {
+        //             TermFunctionReduced::TypeOntology(path) => {
+        //                 let data = SolidTermData::TypeOntologyAtPlace {
+        //                     place,
+        //                     ty_path: path,
+        //                     refined_ty_path: path.refine(engine.db()),
+        //                     arguments: expansion
+        //                         .arguments(engine.db())
+        //                         .iter()
+        //                         .map(|t| (*t).into())
+        //                         .collect(),
+        //                     base_ty_term: Some(term.into()),
+        //                 };
+        //                 SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data)
+        //                     .into()
+        //             }
+        //             TermFunctionReduced::Trait(_) => todo!(),
+        //             TermFunctionReduced::Other(_) => todo!(),
+        //         }
+        //     }
+        //     FluffyTerm::Subitem(_) => todo!(),
+        //     FluffyTerm::AsTraitSubitem(_) => todo!(),
+        //     FluffyTerm::TraitConstraint(_) => todo!(),
+        //     FluffyTerm::Solid(_) => {
+        //         let (inner_place, base_ty) = ty.ty_data(engine);
+        //         let place = match inner_place {
+        //             // ad hoc
+        //             Some(inner_place) => place,
+        //             None => place,
+        //         };
+        //         let data = match base_ty {
+        //             FluffyBaseTypeData::TypeOntology {
+        //                 ty_path,
+        //                 refined_ty_path,
+        //                 ty_arguments,
+        //                 ty_ethereal_term,
+        //             } => SolidTermData::TypeOntologyAtPlace {
+        //                 ty_path,
+        //                 refined_ty_path,
+        //                 arguments: ty_arguments.to_smallvec(),
+        //                 base_ty_term: ty_ethereal_term,
+        //                 place,
+        //             },
+        //             FluffyBaseTypeData::Curry {
+        //                 curry_kind,
+        //                 variance,
+        //                 parameter_variable,
+        //                 parameter_ty,
+        //                 return_ty,
+        //                 ty_ethereal_term,
+        //             } => todo!(),
+        //             FluffyBaseTypeData::Hole(_, _) => todo!(),
+        //             FluffyBaseTypeData::Category(_) => todo!(),
+        //             FluffyBaseTypeData::Ritchie {
+        //                 ritchie_kind,
+        //                 parameter_contracted_tys,
+        //                 return_ty,
+        //             } => todo!(),
+        //             FluffyBaseTypeData::Symbol { term } => todo!(),
+        //         };
+        //         SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
+        //     }
+        //     FluffyTerm::Hollow(_) => {
+        //         let data = match ty.data(engine) {
+        //             FluffyTermData::Literal(_) => todo!(),
+        //             FluffyTermData::TypeOntology {
+        //                 ty_path: path,
+        //                 refined_ty_path: refined_path,
+        //                 ty_arguments: arguments,
+        //                 ..
+        //             } => HollowTermData::TypeOntologyAtPlace {
+        //                 place,
+        //                 ty_path: path,
+        //                 refined_ty_path: refined_path,
+        //                 ty_arguments: arguments.to_smallvec(),
+        //             },
+        //             FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+        //             FluffyTermData::Curry {
+        //                 curry_kind,
+        //                 variance,
+        //                 parameter_variable,
+        //                 parameter_ty,
+        //                 return_ty,
+        //                 ty_ethereal_term,
+        //             } => todo!(),
+        //             FluffyTermData::Hole(hole_kind, hole) => HollowTermData::PlaceHole {
+        //                 place,
+        //                 hole_kind,
+        //                 hole,
+        //             },
+        //             FluffyTermData::Category(_) => todo!(),
+        //             FluffyTermData::Ritchie {
+        //                 ritchie_kind,
+        //                 parameter_contracted_tys,
+        //                 return_ty,
+        //                 ..
+        //             } => todo!(),
+        //             FluffyTermData::HoleAtPlace {
+        //                 place,
+        //                 hole_kind,
+        //                 hole,
+        //             } => todo!(),
+        //             FluffyTermData::Symbol { .. } => todo!(),
+        //             FluffyTermData::SymbolAtPlace { .. } => todo!(),
+        //             FluffyTermData::Variable { ty } => todo!(),
+        //             FluffyTermData::TypeVariant { path } => todo!(),
+        //         };
+        //         HollowTerm::new(engine, data).into()
+        //     }
+        // })
     }
 }
 

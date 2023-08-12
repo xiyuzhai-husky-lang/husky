@@ -220,8 +220,11 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
     ) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-                Some(FluffyTerm::EntityPath(TermEntityPath::TypeOntology(path)))
-                    if path == engine.item_path_menu.never_ty_path() =>
+                Some(new_block_ty)
+                    if new_block_ty.base()
+                        == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
+                            TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
+                        )) =>
                 {
                     ()
                 }

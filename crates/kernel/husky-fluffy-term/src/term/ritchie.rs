@@ -82,16 +82,16 @@ impl FluffyTerm {
         let mut solid_flag = false;
         let mut hollow_flag = false;
         for parameter_contracted_ty in &parameter_contracted_tys {
-            match parameter_contracted_ty.ty().nested() {
-                NestedFluffyTerm::Ethereal(_) => (),
-                NestedFluffyTerm::Solid(_) => solid_flag = true,
-                NestedFluffyTerm::Hollow(_) => hollow_flag = true,
+            match parameter_contracted_ty.ty().base() {
+                FluffyTermBase::Ethereal(_) => (),
+                FluffyTermBase::Solid(_) => solid_flag = true,
+                FluffyTermBase::Hollow(_) => hollow_flag = true,
             }
         }
-        match return_ty.nested() {
-            NestedFluffyTerm::Ethereal(_) => (),
-            NestedFluffyTerm::Solid(_) => solid_flag = true,
-            NestedFluffyTerm::Hollow(_) => hollow_flag = true,
+        match return_ty.base() {
+            FluffyTermBase::Ethereal(_) => (),
+            FluffyTermBase::Solid(_) => solid_flag = true,
+            FluffyTermBase::Hollow(_) => hollow_flag = true,
         }
         if hollow_flag {
             fluffy_terms

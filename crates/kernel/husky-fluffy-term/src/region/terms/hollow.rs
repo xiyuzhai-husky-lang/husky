@@ -151,26 +151,26 @@ impl HollowTerms {
                     }
                 }
             }
-            HollowTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: ref arguments,
-            } => {
-                // todo: use merger
-                for argument in arguments {
-                    match argument.resolve_progress(self) {
-                        // we can't proceed if any argument is unresolved hollow
-                        TermResolveProgress::UnresolvedHollow => return,
-                        TermResolveProgress::ResolvedEthereal(_) => (),
-                        TermResolveProgress::ResolvedSolid(_) => (),
-                        TermResolveProgress::Err => todo!(),
-                    }
-                }
-                let term = todo!();
-                self.entries[idx].resolve_progress =
-                    HollowTermResolveProgressBuf::ResolvedSolid(term)
-            }
+            // HollowTermData::TypeOntologyAtPlace {
+            //     place,
+            //     ty_path: path,
+            //     refined_ty_path: refined_path,
+            //     ty_arguments: ref arguments,
+            // } => {
+            //     // todo: use merger
+            //     for argument in arguments {
+            //         match argument.resolve_progress(self) {
+            //             // we can't proceed if any argument is unresolved hollow
+            //             TermResolveProgress::UnresolvedHollow => return,
+            //             TermResolveProgress::ResolvedEthereal(_) => (),
+            //             TermResolveProgress::ResolvedSolid(_) => (),
+            //             TermResolveProgress::Err => todo!(),
+            //         }
+            //     }
+            //     let term = todo!();
+            //     self.entries[idx].resolve_progress =
+            //         HollowTermResolveProgressBuf::ResolvedSolid(term)
+            // }
             HollowTermData::Curry {
                 curry_kind,
                 variance,
@@ -249,16 +249,16 @@ impl HollowTerms {
                         }
                 }
             }
-            HollowTermData::PlaceHole {
-                place,
-                hole_kind,
-                hole,
-            } => match hole.term().resolve_progress(self) {
-                TermResolveProgress::UnresolvedHollow => return,
-                TermResolveProgress::ResolvedEthereal(_) => todo!(),
-                TermResolveProgress::ResolvedSolid(_) => todo!(),
-                TermResolveProgress::Err => todo!(),
-            },
+            // HollowTermData::PlaceHole {
+            //     place,
+            //     hole_kind,
+            //     hole,
+            // } => match hole.term().resolve_progress(self) {
+            //     TermResolveProgress::UnresolvedHollow => return,
+            //     TermResolveProgress::ResolvedEthereal(_) => todo!(),
+            //     TermResolveProgress::ResolvedSolid(_) => todo!(),
+            //     TermResolveProgress::Err => todo!(),
+            // },
         }
     }
 }
@@ -272,14 +272,14 @@ impl FluffyTerms {
             _ => unreachable!(),
         }
         // update progress if term is resolved
-        match term.nested() {
-            NestedFluffyTerm::Ethereal(term) => {
+        match term.base() {
+            FluffyTermBase::Ethereal(term) => {
                 hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedEthereal(term)
             }
-            NestedFluffyTerm::Solid(term) => {
+            FluffyTermBase::Solid(term) => {
                 hole_entry.resolve_progress = HollowTermResolveProgressBuf::ResolvedSolid(term)
             }
-            NestedFluffyTerm::Hollow(_) => (),
+            FluffyTermBase::Hollow(_) => (),
         }
         self.hollow_terms.update_entries(db, &mut self.solid_terms)
     }
@@ -301,10 +301,10 @@ impl FluffyTerm {
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> TermResolveProgress {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
-            NestedFluffyTerm::Solid(term) => TermResolveProgress::ResolvedSolid(term),
-            NestedFluffyTerm::Hollow(term) => term.resolve_progress(terms.borrow()),
+        match self.base() {
+            FluffyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
+            FluffyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
+            FluffyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),
         }
     }
 
@@ -327,19 +327,6 @@ pub struct HollowTermEntry {
 }
 
 impl HollowTermEntry {
-    pub(super) fn force_resolve_term(&mut self) -> Option<NestedFluffyTerm> {
-        todo!()
-        // match self.resolve_progress {
-        //     Ok(FluffyTerm::EtherealTerm(term)) => Some(term),
-        //     Ok(FluffyTerm::Unresolved(_)) => {
-        //         self.resolve_progress = Err(OriginalFluffyTermResolveError::UnresolvedTerm.into());
-        //         None
-        //     }
-        //     Ok(FluffyTerm::PlaceType(_)) => todo!(),
-        //     Err(_) => None,
-        // }
-    }
-
     pub fn data(&self) -> &HollowTermData {
         &self.data
     }

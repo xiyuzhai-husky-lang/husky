@@ -109,14 +109,7 @@ impl FluffyTerm {
                 let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
                 FluffyTerm::new_richie(db, terms, ritchie_kind, parameter_contracted_tys, return_ty)
             }
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => substitution_rules
                 .iter()
                 .copied()

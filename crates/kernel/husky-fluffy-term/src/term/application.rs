@@ -5,19 +5,19 @@ impl FluffyTerm {
     pub fn new_application(
         engine: &mut impl FluffyTermEngine,
         expr_idx: SynExprIdx,
-        function: impl Into<NestedFluffyTerm>,
-        argument: impl Into<NestedFluffyTerm>,
+        function: impl Into<FluffyTerm>,
+        argument: impl Into<FluffyTerm>,
     ) -> EtherealTermResult<Self> {
         let db = engine.db();
         let function = function.into();
         let argument = argument.into();
-        match (function, argument) {
-            (NestedFluffyTerm::Ethereal(function), NestedFluffyTerm::Ethereal(argument)) => {
+        match (function.base(), argument.base()) {
+            (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
                 Ok(EtherealTermApplication::new(db, function, argument)?.into())
             }
             (
-                NestedFluffyTerm::Ethereal(_) | NestedFluffyTerm::Solid(_),
-                NestedFluffyTerm::Ethereal(_) | NestedFluffyTerm::Solid(_),
+                FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),
+                FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_),
             ) => {
                 todo!()
             }
@@ -38,7 +38,6 @@ impl FluffyTerm {
                             arguments,
                         }
                     }
-                    FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
@@ -54,20 +53,14 @@ impl FluffyTerm {
                         parameter_contracted_tys,
                         return_ty,
                         ..
-                    } => todo!(),
-                    FluffyTermData::HoleAtPlace {
-                        place,
-                        hole_kind,
-                        hole,
-                    } => todo!(),
-                    FluffyTermData::Symbol { .. } => todo!(),
-                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
+                    } => todo!(), 
+                    FluffyTermData::Symbol { .. } => todo!(), 
                     FluffyTermData::Variable { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
             }
-            // (NestedFluffyTerm::Ethereal(function), argument) => {
+            // (FluffyTermBase::Ethereal(function), argument) => {
             //     let expansion = function.application_expansion(db);
             //     match expansion.function() {
             //         TermFunctionReduced::TypeOntology(path) => {
@@ -90,7 +83,7 @@ impl FluffyTerm {
             //         TermFunctionReduced::Other(_) => todo!(),
             //     }
             // }
-            // (FluffyTerm::Unresolved(_), NestedFluffyTerm::Ethereal(_)) => todo!(),
+            // (FluffyTerm::Unresolved(_), FluffyTermBase::Ethereal(_)) => todo!(),
             // (FluffyTerm::Unresolved(_), FluffyTerm::Unresolved(_)) => todo!(),
             // _ => todo!(),
         }

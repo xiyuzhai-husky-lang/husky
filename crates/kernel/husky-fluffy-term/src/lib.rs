@@ -9,7 +9,6 @@ mod engine;
 mod error;
 mod expectation;
 mod instantiation;
-pub mod nested;
 mod progress;
 mod region;
 mod resolve;
@@ -38,7 +37,6 @@ pub(crate) use self::signature::*;
 pub(crate) use self::tests::*;
 
 use self::instantiation::*;
-use self::nested::*;
 use alt_option::*;
 use either::*;
 use husky_declarative_signature::*;

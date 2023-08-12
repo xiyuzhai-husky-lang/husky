@@ -39,22 +39,17 @@ fn coersible_to_int(engine: &mut impl FluffyTermEngine, index_ty: FluffyTerm) ->
         FluffyTermData::Literal(_) => unreachable!(),
         FluffyTermData::TypeOntology {
             refined_ty_path, ..
-        }
-        | FluffyTermData::TypeOntologyAtPlace {
-            refined_ty_path, ..
         } => match refined_ty_path {
             Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))) => true,
             _ => false,
         },
         FluffyTermData::Curry { .. } => false,
-        FluffyTermData::Hole(hole_kind, _) | FluffyTermData::HoleAtPlace { hole_kind, .. } => {
-            match hole_kind {
-                HoleKind::UnspecifiedIntegerType => true,
-                HoleKind::UnspecifiedFloatType => false,
-                HoleKind::ImplicitType => false,
-                HoleKind::Any => false,
-            }
-        }
+        FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+            HoleKind::UnspecifiedIntegerType => true,
+            HoleKind::UnspecifiedFloatType => false,
+            HoleKind::ImplicitType => false,
+            HoleKind::Any => false,
+        },
         FluffyTermData::Category(_) => false,
         FluffyTermData::Ritchie {
             ritchie_kind,
@@ -62,7 +57,6 @@ fn coersible_to_int(engine: &mut impl FluffyTermEngine, index_ty: FluffyTerm) ->
             return_ty,
         } => false,
         FluffyTermData::Symbol { term, ty } => false,
-        FluffyTermData::SymbolAtPlace { term, place } => unreachable!(),
         FluffyTermData::Variable { ty } => unreachable!(),
         FluffyTermData::TypeVariant { path } => unreachable!(),
     }

@@ -16,14 +16,14 @@ impl FluffyTerm {
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
     ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(owner_ty) => {
+        match self.base() {
+            FluffyTermBase::Ethereal(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty)
             }
-            NestedFluffyTerm::Solid(owner_ty) => {
+            FluffyTermBase::Solid(owner_ty) => {
                 owner_ty.disambiguate_index(engine, expr_idx, index_ty)
             }
-            NestedFluffyTerm::Hollow(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
         }
     }
 }

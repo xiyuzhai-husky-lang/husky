@@ -19,11 +19,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
-            }
-            | FluffyTermData::TypeOntologyAtPlace {
-                ty_path,
-                refined_ty_path: Left(PreludeTypePath::Num(_)),
-                ..
             } => Ok(TermEntityPath::TypeOntology(ty_path).into()),
             FluffyTermData::TypeOntology {
                 ty_path: path,
@@ -31,7 +26,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments: arguments,
                 ..
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -40,15 +34,11 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(hole_kind, _) | FluffyTermData::HoleAtPlace { hole_kind, .. } => {
-                match hole_kind {
-                    HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
-                        Ok(lopd_ty)
-                    }
-                    HoleKind::ImplicitType => todo!(),
-                    HoleKind::Any => todo!(),
-                }
-            }
+            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(lopd_ty),
+                HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
+            },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
@@ -57,7 +47,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }

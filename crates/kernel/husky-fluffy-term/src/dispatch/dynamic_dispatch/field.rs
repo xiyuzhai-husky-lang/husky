@@ -59,14 +59,14 @@ impl FluffyTerm {
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => {
+        match self.base() {
+            FluffyTermBase::Ethereal(term) => {
                 JustOk(ethereal_ty_field_dispatch(engine.db(), term, ident)?.merge(indirections))
             }
-            NestedFluffyTerm::Solid(term) => {
+            FluffyTermBase::Solid(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
-            NestedFluffyTerm::Hollow(term) => todo!(),
+            FluffyTermBase::Hollow(term) => todo!(),
         }
     }
 }

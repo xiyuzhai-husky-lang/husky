@@ -26,7 +26,8 @@ impl<'a> ExprTypeEngine<'a> {
                         Place::Leashed => todo!(),
                         Place::Todo => todo!(),
                     },
-                    None => todo!(),
+                    // ad hoc
+                    None => (), // todo!(),
                 };
                 let ropd_ty_expected: FluffyTerm = match lopd_base_ty {
                     FluffyBaseTypeData::TypeOntology {

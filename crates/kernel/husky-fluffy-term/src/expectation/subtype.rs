@@ -119,14 +119,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => todo!(),
             FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
                 FluffyTermData::Literal(_) => todo!(),
@@ -135,13 +128,6 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     refined_ty_path,
                     ty_arguments: arguments,
                     ty_ethereal_term,
-                } => todo!(),
-                FluffyTermData::TypeOntologyAtPlace {
-                    ty_path,
-                    refined_ty_path,
-                    ty_arguments: arguments,
-                    base_ty_ethereal_term,
-                    place,
                 } => todo!(),
                 FluffyTermData::Curry {
                     curry_kind,
@@ -158,11 +144,6 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         term: self.expected,
                     }],
                 ),
-                FluffyTermData::HoleAtPlace {
-                    hole_kind,
-                    hole,
-                    place,
-                } => todo!(),
                 FluffyTermData::Category(_) => todo!(),
                 FluffyTermData::Ritchie {
                     ritchie_kind,
@@ -170,7 +151,6 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                 } => todo!(),
                 FluffyTermData::Symbol { term, ty } => todo!(),
-                FluffyTermData::SymbolAtPlace { term, place } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
                 FluffyTermData::TypeVariant { path } => todo!(),
             },

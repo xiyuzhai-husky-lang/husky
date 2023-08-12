@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
-use husky_fluffy_term::{nested::NestedFluffyTerm, FluffyTerm};
+use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
 use husky_syn_expr::{SynExpr, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmt, SynStmtIdx};
 use salsa::DebugWithDb;
 
@@ -85,16 +85,17 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 
     pub(crate) fn expr_term(&self, syn_expr_idx: SynExprIdx) -> EtherealTerm {
+        // ad hoc
         match self
             .expr_ty_region
             .expr_fluffy_term(syn_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
-            .nested()
+            .base()
         {
-            NestedFluffyTerm::Ethereal(term) => term,
-            NestedFluffyTerm::Solid(_) => todo!(),
-            NestedFluffyTerm::Hollow(_) => todo!(),
+            FluffyTermBase::Ethereal(term) => term,
+            FluffyTermBase::Solid(_) => todo!(),
+            FluffyTermBase::Hollow(_) => todo!(),
         }
     }
 }

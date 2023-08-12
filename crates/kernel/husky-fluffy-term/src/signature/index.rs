@@ -49,12 +49,6 @@ fn list_index_signature(
             refined_ty_path,
             ty_arguments: arguments,
             ..
-        }
-        | FluffyTermData::TypeOntologyAtPlace {
-            ty_path,
-            refined_ty_path,
-            ty_arguments: arguments,
-            ..
         } => match refined_ty_path {
             Left(prelude_ty_path) => match prelude_ty_path {
                 PreludeTypePath::Basic(_) => todo!(),
@@ -113,13 +107,7 @@ fn list_index_signature(
             return_ty,
             ..
         } => todo!(),
-        FluffyTermData::HoleAtPlace {
-            place,
-            hole_kind,
-            hole,
-        } => todo!(),
         FluffyTermData::Symbol { .. } => todo!(),
-        FluffyTermData::SymbolAtPlace { .. } => todo!(),
         FluffyTermData::Variable { ty } => todo!(),
         FluffyTermData::TypeVariant { path } => todo!(),
     }
