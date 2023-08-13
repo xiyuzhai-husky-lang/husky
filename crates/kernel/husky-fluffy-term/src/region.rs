@@ -14,6 +14,12 @@ pub struct FluffyTermRegion {
     pub(crate) expectations: Expectations,
 }
 
+impl std::borrow::Borrow<HollowTerms> for FluffyTermRegion {
+    fn borrow(&self) -> &HollowTerms {
+        self.terms.borrow()
+    }
+}
+
 impl FluffyTermRegion {
     pub fn new(parent: Option<&Self>) -> Self {
         Self {

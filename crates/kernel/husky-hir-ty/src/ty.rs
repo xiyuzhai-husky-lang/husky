@@ -2,8 +2,8 @@ pub mod ritchie;
 
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
-    EtherealTerm, EtherealTermApplication, EtherealTermSymbol, EtherealTermSymbolIndexInner,
-    TermFunctionReduced,
+    EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbol,
+    EtherealTermSymbolIndexInner, TermFunctionReduced,
 };
 use husky_term_prelude::TermEntityPath;
 
@@ -47,7 +47,9 @@ impl HirType {
                 TermEntityPath::TypeInstance(_) => todo!(),
                 TermEntityPath::TypeVariant(_) => todo!(),
             },
-            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Ritchie(term_ritchie) => {
+                hir_ty_from_ethereal_term_ritchie(db, term_ritchie)
+            }
             EtherealTerm::Application(term_application) => {
                 hir_ty_from_ethereal_term_application(db, term_application)
             }
@@ -56,6 +58,14 @@ impl HirType {
             _ => unreachable!("it should be guaranteed that the term is a valid HirType"),
         }
     }
+}
+
+#[salsa::tracked(jar = HirTypeJar)]
+fn hir_ty_from_ethereal_term_ritchie(
+    db: &dyn HirTypeDb,
+    term_ritchie: EtherealTermRitchie,
+) -> HirType {
+    HirType::Ritchie()
 }
 
 #[salsa::tracked(jar = HirTypeJar)]

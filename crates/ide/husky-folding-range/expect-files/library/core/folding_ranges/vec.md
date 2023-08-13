@@ -5,9 +5,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 18,
+            end_line: 20,
             end_character: Some(
-                79,
+                71,
             ),
             kind: Some(
                 Region,

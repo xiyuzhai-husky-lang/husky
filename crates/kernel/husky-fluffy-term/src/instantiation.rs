@@ -111,7 +111,7 @@ impl FluffyTermInstantiate for EtherealTerm {
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Subitem(_) => todo!(),
@@ -146,6 +146,36 @@ impl FluffyTermInstantiate for EtherealTermApplication {
         match flag {
             true => FluffyTerm::new_application(engine, expr_idx, function, argument)
                 .expect("should be okay"),
+            false => self.into(),
+        }
+    }
+}
+
+impl FluffyTermInstantiate for EtherealTermRitchie {
+    type Target = FluffyTerm;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: SynExprIdx,
+        instantiation: &mut FluffyTermInstantiation,
+    ) -> Self::Target {
+        let mut flag = false;
+        let params: Vec<_> = self
+            .parameter_contracted_tys(engine.db())
+            .iter()
+            .map(|param| param.instantiate_with_flag(engine, expr_idx, instantiation, &mut flag))
+            .collect();
+        let db = engine.db();
+        match flag {
+            true => FluffyTerm::new_ritchie(
+                engine,
+                expr_idx,
+                self.ritchie_kind(db),
+                params,
+                self.return_ty(db).into(),
+            )
+            .expect("should be okay"),
             false => self.into(),
         }
     }
