@@ -77,9 +77,9 @@ pub enum SynStmt {
         block: SynExprResult<SynStmtIdxRange>,
     },
     IfElse {
-        if_branch: IfBranch,
-        elif_branches: Vec<ElifBranch>,
-        else_branch: Option<ElseBranch>,
+        if_branch: SynIfBranch,
+        elif_branches: Vec<SynElifBranch>,
+        else_branch: Option<SynElseBranch>,
     },
     Match {
         match_token: MatchToken,

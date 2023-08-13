@@ -397,7 +397,7 @@ impl<'a> BlockExprParser<'a> {
         })
     }
 
-    fn parse_if_branch(&mut self, if_branch: AstIdx) -> IfBranch {
+    fn parse_if_branch(&mut self, if_branch: AstIdx) -> SynIfBranch {
         match self.ast_sheet[if_branch] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
@@ -408,14 +408,14 @@ impl<'a> BlockExprParser<'a> {
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
-                IfBranch {
+                SynIfBranch {
                     if_token: ctx.try_parse_option().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
                     eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(
+                    stmts: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
                     ),
@@ -428,14 +428,14 @@ impl<'a> BlockExprParser<'a> {
         self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end()
     }
 
-    fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<ElifBranch> {
+    fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<SynElifBranch> {
         elif_branches
             .into_iter()
             .map(|elif_branch| self.parse_elif_branch(elif_branch))
             .collect()
     }
 
-    fn parse_elif_branch(&mut self, elif_branch: AstIdx) -> ElifBranch {
+    fn parse_elif_branch(&mut self, elif_branch: AstIdx) -> SynElifBranch {
         match self.ast_sheet[elif_branch] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
@@ -447,21 +447,21 @@ impl<'a> BlockExprParser<'a> {
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
-                ElifBranch {
+                SynElifBranch {
                     elif_token: ctx.try_parse_option().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
                     ),
                     eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                    stmts: self.parse_block_stmts_expected(body, token_group_idx),
                 }
             }
             _ => unreachable!(),
         }
     }
 
-    fn parse_else_branch(&mut self, else_branch: Option<AstIdx>) -> Option<ElseBranch> {
+    fn parse_else_branch(&mut self, else_branch: Option<AstIdx>) -> Option<SynElseBranch> {
         match self.ast_sheet[else_branch?] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
@@ -471,10 +471,10 @@ impl<'a> BlockExprParser<'a> {
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
-                Some(ElseBranch {
+                Some(SynElseBranch {
                     else_token: ctx.try_parse_option().unwrap().unwrap(),
                     eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(
+                    stmts: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),
                         token_group_idx,
                     ),
