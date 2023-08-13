@@ -102,104 +102,6 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 33,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 34,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 35,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 36,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 44,
-                        },
-                    ),
-                ),
-            },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 37,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 38,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 39,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
                         value: 40,
                     },
                 ),
@@ -239,6 +141,27 @@
             ),
         ),
     ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::Type(
+            TypeImplBlockHirDecl {
+                path: TypeImplBlockPath {
+                    module_path: `mnist_classifier::geom2d`,
+                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 44,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
             MethodFn(
@@ -248,27 +171,6 @@
                     },
                 ),
             ),
-        ),
-    ),
-    HirDecl::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 42,
-                        },
-                    ),
-                ),
-            },
         ),
     ),
     HirDecl::AssociatedItem(
@@ -291,27 +193,6 @@
                     },
                 ),
             ),
-        ),
-    ),
-    HirDecl::ImplBlock(
-        ImplBlockHirDecl::Type(
-            TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                    disambiguator: 0,
-                },
-                template_parameters: HirTemplateParameters {
-                    data: [],
-                },
-                self_ty: PathLeading(
-                    HirTypePathLeading(
-                        Id {
-                            value: 46,
-                        },
-                    ),
-                ),
-            },
         ),
     ),
     HirDecl::AssociatedItem(
@@ -369,12 +250,131 @@
             ),
         ),
     ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::Type(
+            TypeImplBlockHirDecl {
+                path: TypeImplBlockPath {
+                    module_path: `mnist_classifier::geom2d`,
+                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 42,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
                         value: 52,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 53,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::Type(
+            TypeImplBlockHirDecl {
+                path: TypeImplBlockPath {
+                    module_path: `mnist_classifier::geom2d`,
+                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 46,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 54,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 55,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 56,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 57,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 58,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 59,
                     },
                 ),
             ),
@@ -406,7 +406,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 53,
+                        value: 60,
                     },
                 ),
             ),
@@ -417,7 +417,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 54,
+                        value: 61,
                     },
                 ),
             ),
@@ -428,7 +428,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 55,
+                        value: 62,
                     },
                 ),
             ),
@@ -439,7 +439,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 56,
+                        value: 63,
                     },
                 ),
             ),

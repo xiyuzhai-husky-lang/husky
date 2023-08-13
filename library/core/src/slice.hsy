@@ -9,6 +9,9 @@ impl<E> Slice E:
 
 pub extern CyclicSliceLeashed<covariant E>;
 
+impl<E> core::ops::IntIndex for CyclicSliceLeashed E:
+    type Output = E
+
 impl<E> CyclicSliceLeashed E:
     pub fn ilen() -> i32;
 

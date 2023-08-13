@@ -107,4 +107,64 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::raw_bits`,
+                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `ctz`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `ctz`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
 ]

@@ -18,6 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
         term
     }
 
+    /// clear all holes before using this
     pub(super) fn infer_extra_expr_terms_in_preparation_for_hir(&mut self) {
         for syn_expr_idx in self.expr_region_data.expr_arena().index_iter() {
             self.infer_extra_expr_term_in_preparation_for_hir(syn_expr_idx)

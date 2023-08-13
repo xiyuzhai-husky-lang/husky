@@ -120,7 +120,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_bitnot_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
-        let Some(ty) = self.infer_new_expr_ty(opd, self.expect_ty0_subtype()) else {
+        let Some(ty) = self.infer_new_expr_ty(opd, ExpectNumType) else {
             Err(DerivedExprTypeError::BitNotOperandTypeNotInferred)?
         };
         match ty.data(self) {

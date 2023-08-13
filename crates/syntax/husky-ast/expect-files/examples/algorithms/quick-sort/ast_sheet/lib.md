@@ -194,31 +194,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        28,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        29,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        32,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        33,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        34,
+                        30,
                     ),
                     body: None,
                 },
@@ -414,7 +390,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    24..27,
+                                    24..25,
                                 ),
                             },
                         ),
@@ -422,13 +398,13 @@ Ok(
                 },
                 Ast::Decr {
                     token_group_idx: TokenGroupIdx(
-                        30,
+                        28,
                     ),
                     ident: `test`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        29,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -449,13 +425,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `quick_sort_works_for_strs`,
                         token_idx: TokenIdx(
-                            293,
+                            264,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            294,
+                            265,
                         ),
                         drained: false,
                     },
@@ -468,7 +444,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    27..30,
+                                    25..26,
                                 ),
                             },
                         ),
@@ -477,7 +453,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            30..37,
+            26..33,
         ),
         siblings: [
             ArenaIdxRange(
@@ -559,28 +535,16 @@ Ok(
                 24..24,
             ),
             ArenaIdxRange(
-                24..24,
+                24..25,
             ),
             ArenaIdxRange(
-                24..24,
+                25..25,
             ),
             ArenaIdxRange(
-                24..27,
+                25..26,
             ),
             ArenaIdxRange(
-                27..27,
-            ),
-            ArenaIdxRange(
-                27..27,
-            ),
-            ArenaIdxRange(
-                27..27,
-            ),
-            ArenaIdxRange(
-                27..30,
-            ),
-            ArenaIdxRange(
-                30..37,
+                26..33,
             ),
         ],
     },

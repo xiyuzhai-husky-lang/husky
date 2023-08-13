@@ -185,6 +185,17 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 9,
+                    },
+                ),
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
@@ -260,7 +271,18 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 9,
+                        value: 10,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 11,
                     },
                 ),
             ),
@@ -341,7 +363,29 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 10,
+                        value: 12,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 13,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 14,
                     },
                 ),
             ),
@@ -422,7 +466,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 11,
+                        value: 15,
                     },
                 ),
             ),
@@ -503,7 +547,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 12,
+                        value: 16,
                     },
                 ),
             ),
@@ -584,7 +628,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 13,
+                        value: 17,
                     },
                 ),
             ),
@@ -665,7 +709,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 14,
+                        value: 18,
                     },
                 ),
             ),
@@ -746,7 +790,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 15,
+                        value: 19,
                     },
                 ),
             ),
@@ -827,7 +871,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 16,
+                        value: 20,
                     },
                 ),
             ),
@@ -908,7 +952,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 17,
+                        value: 21,
                     },
                 ),
             ),
@@ -989,7 +1033,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 18,
+                        value: 22,
                     },
                 ),
             ),
@@ -1070,7 +1114,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 19,
+                        value: 23,
                     },
                 ),
             ),
@@ -1151,7 +1195,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 20,
+                        value: 24,
                     },
                 ),
             ),
@@ -1162,7 +1206,29 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 21,
+                        value: 25,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 26,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 27,
                     },
                 ),
             ),
@@ -1243,7 +1309,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 22,
+                        value: 28,
                     },
                 ),
             ),

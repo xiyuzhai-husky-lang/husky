@@ -36,7 +36,18 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 23,
+                        value: 29,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 30,
                     },
                 ),
             ),

@@ -215,7 +215,7 @@ impl<'a> ExprTypeEngine<'a> {
         //     assert!(self.expr_ty_infos.has(expr_idx))
         // }
         self.fluffy_term_region
-            .finalize_unresolved_term_table(self.db);
+            .finalize_unresolved_term_table(self.db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();
         ExprTypeRegion::new(
             self.db,

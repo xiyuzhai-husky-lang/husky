@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 30,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `quick_sort`,
                                 token_idx: TokenIdx(
@@ -65,7 +65,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 31,
+                            ast_idx: 27,
                             ident_token: IdentToken {
                                 ident: `quick_sort_aux`,
                                 token_idx: TokenIdx(
@@ -117,7 +117,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 32,
+                            ast_idx: 28,
                             ident_token: IdentToken {
                                 ident: `partition`,
                                 token_idx: TokenIdx(
@@ -169,7 +169,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 34,
+                            ast_idx: 30,
                             ident_token: IdentToken {
                                 ident: `quick_sort_works_for_integers`,
                                 token_idx: TokenIdx(
@@ -185,7 +185,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            24..27,
+                                            24..25,
                                         ),
                                     },
                                 ),
@@ -221,11 +221,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 36,
+                            ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `quick_sort_works_for_strs`,
                                 token_idx: TokenIdx(
-                                    293,
+                                    264,
                                 ),
                             },
                             block: Fugitive {
@@ -237,7 +237,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            27..30,
+                                            25..26,
                                         ),
                                     },
                                 ),
@@ -280,7 +280,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 30,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `quick_sort`,
                                 token_idx: TokenIdx(
@@ -325,7 +325,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 31,
+                            ast_idx: 27,
                             ident_token: IdentToken {
                                 ident: `quick_sort_aux`,
                                 token_idx: TokenIdx(
@@ -370,7 +370,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 32,
+                            ast_idx: 28,
                             ident_token: IdentToken {
                                 ident: `partition`,
                                 token_idx: TokenIdx(
@@ -415,7 +415,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 34,
+                            ast_idx: 30,
                             ident_token: IdentToken {
                                 ident: `quick_sort_works_for_integers`,
                                 token_idx: TokenIdx(
@@ -431,7 +431,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            24..27,
+                                            24..25,
                                         ),
                                     },
                                 ),
@@ -460,11 +460,11 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
-                            ast_idx: 36,
+                            ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `quick_sort_works_for_strs`,
                                 token_idx: TokenIdx(
-                                    293,
+                                    264,
                                 ),
                             },
                             block: Fugitive {
@@ -476,7 +476,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            27..30,
+                                            25..26,
                                         ),
                                     },
                                 ),

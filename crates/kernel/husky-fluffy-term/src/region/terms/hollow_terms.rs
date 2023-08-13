@@ -172,8 +172,11 @@ impl HollowTerms {
             }
             HollowTermData::Hole { fill, .. } => match fill {
                 Some(fill) => match fill.resolve_progress(self) {
-                    TermResolveProgress::UnresolvedHollow => return,
-                    TermResolveProgress::ResolvedEthereal(_) => todo!(),
+                    TermResolveProgress::UnresolvedHollow => (),
+                    TermResolveProgress::ResolvedEthereal(term) => {
+                        self.entries[idx].resolve_progress =
+                            HollowTermResolveProgressBuf::ResolvedEthereal(term)
+                    }
                     TermResolveProgress::ResolvedSolid(_) => todo!(),
                     TermResolveProgress::Err => todo!(),
                 },
@@ -229,23 +232,17 @@ impl HollowTerms {
                         }
                 }
             }
-            // HollowTermData::PlaceHole {
-            //     place,
-            //     hole_kind,
-            //     hole,
-            // } => match hole.term().resolve_progress(self) {
-            //     TermResolveProgress::UnresolvedHollow => return,
-            //     TermResolveProgress::ResolvedEthereal(_) => todo!(),
-            //     TermResolveProgress::ResolvedSolid(_) => todo!(),
-            //     TermResolveProgress::Err => todo!(),
-            // },
         }
     }
 }
 
 impl FluffyTerms {
     pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
-        let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
+        self.fill_hole_aux(hole.idx(), term, db)
+    }
+
+    fn fill_hole_aux(&mut self, hole_idx: usize, term: FluffyTerm, db: &dyn FluffyTermDb) {
+        let mut hole_entry = &mut self.hollow_terms.entries[hole_idx];
         match hole_entry.data {
             HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
             HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
@@ -269,7 +266,7 @@ impl FluffyTerms {
         hole: Hole,
         db: &dyn FluffyTermDb,
         term_menu: &EtherealTermMenu,
-    ) -> FluffyTermResult<()> {
+    ) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
         let HollowTermData::Hole {
             hole_kind,
@@ -283,13 +280,31 @@ impl FluffyTerms {
             0 => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => term_menu.i32_ty_ontology().into(),
                 HoleKind::UnspecifiedFloatType => term_menu.f32_ty_ontology().into(),
-                HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
+                HoleKind::ImplicitType => return, // ad hoc
+                HoleKind::Any => return,          // ad hoc
             },
             _ => todo!(),
         };
-        self.fill_hole(db, hole, term);
-        Ok(())
+        self.fill_hole(db, hole, term)
+    }
+
+    pub(in crate::region) fn fill_all_holes(
+        &mut self,
+        db: &dyn FluffyTermDb,
+        term_menu: &EtherealTermMenu,
+    ) {
+        // we know that no new holes are generated
+        for idx in 0..self.hollow_terms.entries.len() {
+            match self.hollow_terms.entries[idx].data {
+                HollowTermData::Hole {
+                    hole_source,
+                    hole_kind,
+                    fill: None,
+                    ref constraints,
+                } => self.fill_hole_by_force(Hole(HollowTerm(idx as u32)), db, term_menu),
+                _ => continue,
+            }
+        }
     }
 }
 
