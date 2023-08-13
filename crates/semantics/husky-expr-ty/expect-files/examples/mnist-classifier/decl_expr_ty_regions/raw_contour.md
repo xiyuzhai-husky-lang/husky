@@ -2150,7 +2150,7 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`List Point2d`),
+                            EtherealTerm(`Vec Point2d`),
                         ),
                     },
                 ),

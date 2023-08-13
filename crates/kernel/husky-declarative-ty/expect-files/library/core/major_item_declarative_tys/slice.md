@@ -12,7 +12,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                TypePath(`core::slice::CyclicSlice`, `Extern`),
             ),
         ),
         Ok(

@@ -27,7 +27,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`fn( Leash List ConcaveComponent,  List fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
+                                    EtherealTerm(`fn( Leash Vec ConcaveComponent,  Vec fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                 ),
                             },
                         ),
@@ -47,7 +47,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConcaveComponent`),
+                                    EtherealTerm(`Leash Vec ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -87,7 +87,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                    EtherealTerm(`Vec fn( Leash ConcaveComponent) -> Option f32`),
                                 ),
                             },
                         ),
@@ -112,7 +112,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 30,
+                                                                value: 33,
                                                             },
                                                         ),
                                                     ),
@@ -137,7 +137,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 32,
+                                                                value: 35,
                                                             },
                                                         ),
                                                     ),
@@ -223,7 +223,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn( Leash List ConcaveComponent,  List fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
+                                        EtherealTerm(`fn( Leash Vec ConcaveComponent,  Vec fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -249,7 +249,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 30,
+                                                                                    value: 33,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -266,7 +266,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 32,
+                                                                                    value: 35,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -289,7 +289,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash List ConcaveComponent`),
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                 },
@@ -303,7 +303,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConcaveComponent`),
+                                        EtherealTerm(`Leash Vec ConcaveComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -359,7 +359,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                            EtherealTerm(`Vec fn( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                 },
@@ -373,7 +373,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                        EtherealTerm(`Vec fn( Leash ConcaveComponent) -> Option f32`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -489,7 +489,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 36,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -505,7 +505,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 38,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -521,7 +521,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 40,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -537,7 +537,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 42,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -554,7 +554,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 26,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -571,7 +571,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 28,
                                     },
                                 ),
                             ),
@@ -587,7 +587,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 25,
+                                        value: 28,
                                     },
                                 ),
                             ),
@@ -607,7 +607,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 36,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -625,7 +625,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 38,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -643,7 +643,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 40,
+                                                value: 43,
                                             },
                                         ),
                                     ),
@@ -661,7 +661,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 42,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -680,7 +680,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 26,
+                                                    value: 25,
                                                 },
                                             ),
                                         ),
@@ -699,7 +699,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 25,
+                                                value: 28,
                                             },
                                         ),
                                     ),
@@ -717,7 +717,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 25,
+                                                value: 28,
                                             },
                                         ),
                                     ),
@@ -942,7 +942,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -987,7 +987,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -1112,7 +1112,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 26,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -1125,7 +1125,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List Option Leash RawContour`),
+                                    EtherealTerm(`Vec Option Leash RawContour`),
                                 ),
                             },
                         ),
@@ -1169,7 +1169,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 25,
+                                                            value: 28,
                                                         },
                                                     ),
                                                 ),
@@ -1294,7 +1294,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 26,
+                                                        value: 29,
                                                     },
                                                 ),
                                             ),
@@ -1307,7 +1307,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List Option Leash RawContour`),
+                                    EtherealTerm(`Vec Option Leash RawContour`),
                                 ),
                             },
                         ),
@@ -1351,7 +1351,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 25,
+                                                            value: 28,
                                                         },
                                                     ),
                                                 ),
@@ -1589,7 +1589,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 25,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
@@ -1606,7 +1606,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                     ),
@@ -1634,7 +1634,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 25,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
@@ -1651,7 +1651,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                     ),
@@ -2050,7 +2050,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List Option Leash RawContour`),
+                                        EtherealTerm(`Vec Option Leash RawContour`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -2219,7 +2219,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List Option Leash RawContour`),
+                                        EtherealTerm(`Vec Option Leash RawContour`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -2584,7 +2584,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                     ),
@@ -2683,7 +2683,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 44,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -2696,7 +2696,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -2711,7 +2711,9 @@
                     (
                         ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
-                                indirections: [],
+                                indirections: [
+                                    Leash,
+                                ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
@@ -2721,7 +2723,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 46,
+                                                            value: 51,
                                                         },
                                                     ),
                                                 ),
@@ -2848,7 +2850,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 44,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -2861,7 +2863,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -2876,7 +2878,9 @@
                     (
                         ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
-                                indirections: [],
+                                indirections: [
+                                    Leash,
+                                ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
@@ -2886,7 +2890,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 46,
+                                                            value: 51,
                                                         },
                                                     ),
                                                 ),
@@ -2994,7 +2998,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -3037,7 +3041,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -3158,7 +3162,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                     ),
@@ -3402,7 +3406,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -3518,7 +3522,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,

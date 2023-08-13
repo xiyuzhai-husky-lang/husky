@@ -49,7 +49,7 @@ pub struct ItemPathMenu {
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
-    list_ty_path: TypePath,
+    vec_ty_path: TypePath,
     array_ty_path: TypePath,
     leash_ty_path: TypePath,
     // prelude
@@ -98,7 +98,7 @@ impl ItemPathMenu {
         let core_num = path_menu.core_num().inner();
         let core_raw_bits = path_menu.core_raw_bits().inner();
         let core_mem = path_menu.core_mem().inner();
-        let core_list = path_menu.core_list().inner();
+        let core_vec = path_menu.core_vec().inner();
         let core_array = path_menu.core_array().inner();
         let core_visual = path_menu.core_visual().inner();
         let option_ty_path = TypePath::new(
@@ -325,10 +325,10 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
-        let list_ty_path = TypePath::new(
+        let vec_ty_path = TypePath::new(
             db,
-            core_list,
-            db.it_ident_borrowed("List").unwrap(),
+            core_vec,
+            db.it_ident_borrowed("Vec").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
@@ -349,7 +349,7 @@ impl ItemPathMenu {
         let cyclic_slice_leashed_ty_path = TypePath::new(
             db,
             core_slice,
-            db.it_ident_borrowed("CyclicSliceLeashed").unwrap(),
+            db.it_ident_borrowed("CyclicSlice").unwrap(),
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
@@ -516,7 +516,7 @@ impl ItemPathMenu {
             ref_ty_path,
             ref_mut_ty_path,
             html_ty_path,
-            list_ty_path,
+            vec_ty_path,
             array_ty_path,
             leash_ty_path,
             core_ops_add_trai_path,
@@ -678,8 +678,8 @@ impl ItemPathMenu {
         self.result_ty_path
     }
 
-    pub fn list_ty_path(&self) -> TypePath {
-        self.list_ty_path
+    pub fn vec_ty_path(&self) -> TypePath {
+        self.vec_ty_path
     }
 
     pub fn array_ty_path(&self) -> TypePath {

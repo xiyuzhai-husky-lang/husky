@@ -818,7 +818,7 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`Leash List ConcaveComponent`),
+                            EtherealTerm(`Leash Vec ConcaveComponent`),
                         ),
                     },
                 ),
@@ -826,7 +826,7 @@
                     FluffyTerm {
                         place: None,
                         base: FluffyTermBase::Ethereal(
-                            EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                            EtherealTerm(`Vec fn( Leash ConcaveComponent) -> Option f32`),
                         ),
                     },
                 ),

@@ -19,9 +19,6 @@ Ok(
             `core::fmt`,
         ),
         SubmodulePath(
-            `core::list`,
-        ),
-        SubmodulePath(
             `core::logic`,
         ),
         SubmodulePath(
@@ -47,6 +44,9 @@ Ok(
         ),
         SubmodulePath(
             `core::result`,
+        ),
+        SubmodulePath(
+            `core::vec`,
         ),
         SubmodulePath(
             `core::slice`,

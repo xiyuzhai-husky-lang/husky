@@ -32,9 +32,9 @@
         MajorItemHirDefn::Type(
             TypeHirDefn::Extern(
                 ExternTypeHirDefn {
-                    path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     hir_decl: ExternTypeHirDecl {
-                        path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         template_parameters: HirTemplateParameters {
                             data: [
                                 HirTemplateParameter {
@@ -82,7 +82,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 24,
+                            value: 19,
                         },
                     ),
                 ),
@@ -115,7 +115,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -127,7 +127,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 24,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -175,7 +175,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 24,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -187,7 +187,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 24,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -219,7 +219,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 4,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -235,7 +235,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -255,7 +255,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 8,
+                            value: 21,
                         },
                     ),
                 ),
@@ -269,7 +269,7 @@
                     path: TypeItemPath {
                         impl_block: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                         ident: `ilen`,
@@ -279,7 +279,7 @@
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 disambiguator: 0,
                             },
                             ident: `ilen`,
@@ -288,7 +288,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -300,7 +300,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -311,7 +311,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 3,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -329,7 +329,7 @@
                     path: TypeItemPath {
                         impl_block: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                         ident: `start`,
@@ -339,7 +339,7 @@
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 disambiguator: 0,
                             },
                             ident: `start`,
@@ -348,7 +348,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -360,7 +360,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -371,7 +371,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 3,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -389,7 +389,7 @@
                     path: TypeItemPath {
                         impl_block: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                         ident: `end`,
@@ -399,7 +399,7 @@
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 disambiguator: 0,
                             },
                             ident: `end`,
@@ -408,7 +408,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -420,7 +420,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -431,7 +431,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 3,
+                                    value: 5,
                                 },
                             ),
                         ),
@@ -449,7 +449,7 @@
                     path: TypeItemPath {
                         impl_block: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                         ident: `first`,
@@ -459,7 +459,7 @@
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 disambiguator: 0,
                             },
                             ident: `first`,
@@ -468,7 +468,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -480,7 +480,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -491,7 +491,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 25,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -509,7 +509,7 @@
                     path: TypeItemPath {
                         impl_block: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                         ident: `last`,
@@ -519,7 +519,7 @@
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 disambiguator: 0,
                             },
                             ident: `last`,
@@ -528,7 +528,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 8,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -540,7 +540,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 8,
+                                        value: 21,
                                     },
                                 ),
                             ),
@@ -551,7 +551,7 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 25,
+                                    value: 22,
                                 },
                             ),
                         ),

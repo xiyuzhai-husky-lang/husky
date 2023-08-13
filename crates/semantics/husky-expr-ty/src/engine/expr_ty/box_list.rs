@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
         // }
         // Ok(self.new_ty_ontology_application(
         //     expr_idx,
-        //     self.item_path_menu.list_ty_path(),
+        //     self.item_path_menu.vec_ty_path(),
         //     smallvec![element_ty],
         // ))
     }

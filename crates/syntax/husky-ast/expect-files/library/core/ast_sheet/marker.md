@@ -10,7 +10,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 10,
+                                    value: 9,
                                 },
                             ),
                         ),

@@ -60,18 +60,14 @@ fn prelude_ethereal_owner_ty_index_signature(
         PreludeTypePath::Lifetime => todo!(),
         PreludeTypePath::Module => todo!(),
         PreludeTypePath::Trait => todo!(),
-        PreludeTypePath::List | PreludeTypePath::Slice | PreludeTypePath::CyclicSliceLeashed => {
+        PreludeTypePath::List => todo!(),
+        PreludeTypePath::Arr(_) => {
             if owner_ty_arguments.len() != 1 {
                 todo!()
             }
             let element_ty = owner_ty_arguments[0];
             list_like_index_signature(engine, expr_idx, element_ty.into(), index_ty)
         }
-        PreludeTypePath::Array => todo!(),
-        PreludeTypePath::Array2d => todo!(),
-        PreludeTypePath::Array3d => todo!(),
-        PreludeTypePath::Array4d => todo!(),
-        PreludeTypePath::Array5d => todo!(),
         PreludeTypePath::StringLiteral => todo!(),
         PreludeTypePath::Str => todo!(),
         PreludeTypePath::Option => todo!(),

@@ -2347,7 +2347,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `LineSegmentSketch`,
                                                 token_idx: TokenIdx(
-                                                    171,
+                                                    172,
                                                 ),
                                             },
                                             block: Type {
@@ -2491,7 +2491,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            538,
+                                                            539,
                                                         ),
                                                     },
                                                     block: Fugitive {

@@ -69,7 +69,7 @@
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                     },
@@ -744,7 +744,7 @@
                     TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             disambiguator: 0,
                         },
                     },
@@ -983,7 +983,7 @@
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                                 ident: `ilen`,
@@ -1098,7 +1098,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`CyclicSliceLeashed t`),
+            EtherealTerm(`CyclicSlice t`),
         ),
     },
     ExprTypeRegion {
@@ -1110,7 +1110,7 @@
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                                 ident: `start`,
@@ -1225,7 +1225,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`CyclicSliceLeashed t`),
+            EtherealTerm(`CyclicSlice t`),
         ),
     },
     ExprTypeRegion {
@@ -1237,7 +1237,7 @@
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                                 ident: `end`,
@@ -1352,7 +1352,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`CyclicSliceLeashed t`),
+            EtherealTerm(`CyclicSlice t`),
         ),
     },
     ExprTypeRegion {
@@ -1364,7 +1364,7 @@
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                                 ident: `first`,
@@ -1585,7 +1585,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`CyclicSliceLeashed t`),
+            EtherealTerm(`CyclicSlice t`),
         ),
     },
     ExprTypeRegion {
@@ -1597,7 +1597,7 @@
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                                 ident: `last`,
@@ -1818,7 +1818,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`CyclicSliceLeashed t`),
+            EtherealTerm(`CyclicSlice t`),
         ),
     },
 ]

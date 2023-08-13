@@ -344,7 +344,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            171,
+                                            172,
                                         ),
                                     },
                                     block: Type {
@@ -397,7 +397,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            370,
+                                            371,
                                         ),
                                     },
                                     block: Fugitive {
@@ -456,7 +456,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            467,
+                                            468,
                                         ),
                                     },
                                     block: Fugitive {
@@ -515,7 +515,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            564,
+                                            565,
                                         ),
                                     },
                                     block: Fugitive {
@@ -574,7 +574,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            797,
+                                            798,
                                         ),
                                     },
                                     block: Fugitive {
@@ -633,7 +633,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1063,
+                                            1064,
                                         ),
                                     },
                                     block: Fugitive {
@@ -755,7 +755,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    538,
+                                                    539,
                                                 ),
                                             },
                                             block: Fugitive {

@@ -343,47 +343,6 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
-                    ident: `list`,
-                    visibility: Scope::PubUnder(
-                        `core::clone`,
-                    ),
-                    symbol: EntitySymbol::Use(
-                        UseSymbol {
-                            original_symbol: EntitySymbol::Submodule {
-                                submodule_path: SubmodulePath(
-                                    `core::list`,
-                                ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::list`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    ident_token: IdentToken {
-                                        ident: `list`,
-                                        token_idx: TokenIdx(
-                                            20,
-                                        ),
-                                    },
-                                },
-                            },
-                            path: PrincipalEntityPath::Module(
-                                `core::list`,
-                            ),
-                            visibility: Scope::PubUnder(
-                                `core::clone`,
-                            ),
-                            ast_idx: 2,
-                            use_expr_idx: 0,
-                        },
-                    ),
-                },
-                EntitySymbolEntry {
                     ident: `logic`,
                     visibility: Scope::PubUnder(
                         `core::clone`,
@@ -404,11 +363,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 7,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            23,
+                                            20,
                                         ),
                                     },
                                 },
@@ -445,11 +404,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 8,
+                                    ast_idx: 7,
                                     ident_token: IdentToken {
                                         ident: `marker`,
                                         token_idx: TokenIdx(
-                                            26,
+                                            23,
                                         ),
                                     },
                                 },
@@ -486,11 +445,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 9,
+                                    ast_idx: 8,
                                     ident_token: IdentToken {
                                         ident: `mem`,
                                         token_idx: TokenIdx(
-                                            29,
+                                            26,
                                         ),
                                     },
                                 },
@@ -527,11 +486,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 9,
                                     ident_token: IdentToken {
                                         ident: `num`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            29,
                                         ),
                                     },
                                 },
@@ -568,11 +527,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 11,
+                                    ast_idx: 10,
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            35,
+                                            32,
                                         ),
                                     },
                                 },
@@ -609,11 +568,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `option`,
                                         token_idx: TokenIdx(
-                                            38,
+                                            35,
                                         ),
                                     },
                                 },
@@ -650,11 +609,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            38,
                                         ),
                                     },
                                 },
@@ -691,11 +650,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `raw_bits`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            41,
                                         ),
                                     },
                                 },
@@ -732,9 +691,50 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `result`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::Module(
+                                `core::result`,
+                            ),
+                            visibility: Scope::PubUnder(
+                                `core::clone`,
+                            ),
+                            ast_idx: 2,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `vec`,
+                    visibility: Scope::PubUnder(
+                        `core::clone`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: SubmodulePath(
+                                    `core::vec`,
+                                ),
+                                node: SubmoduleSynNode {
+                                    syn_node_path: SubmoduleSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::vec`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `vec`,
                                         token_idx: TokenIdx(
                                             47,
                                         ),
@@ -742,7 +742,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::Module(
-                                `core::result`,
+                                `core::vec`,
                             ),
                             visibility: Scope::PubUnder(
                                 `core::clone`,
@@ -1295,7 +1295,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 14,
+                                                                value: 13,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1372,7 +1372,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 15,
+                                                                value: 14,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1449,7 +1449,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 16,
+                                                                value: 15,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1526,7 +1526,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 17,
+                                                                value: 16,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1603,7 +1603,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 18,
+                                                                value: 17,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1680,7 +1680,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 19,
+                                                                value: 18,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1757,7 +1757,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 20,
+                                                                value: 19,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1834,7 +1834,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 21,
+                                                                value: 20,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1911,7 +1911,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 22,
+                                                                value: 21,
                                                             },
                                                         ),
                                                         variants: None,
@@ -1988,7 +1988,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 23,
+                                                                value: 22,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2065,7 +2065,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 24,
+                                                                value: 23,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2142,7 +2142,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2219,7 +2219,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2296,7 +2296,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 27,
+                                                                value: 26,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2373,7 +2373,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 30,
+                                                                value: 29,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2924,7 +2924,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 29,
+                                                                value: 28,
                                                             },
                                                         ),
                                                         variants: Some(
@@ -3494,7 +3494,7 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
-                    ident: `CyclicSliceLeashed`,
+                    ident: `CyclicSlice`,
                     visibility: Scope::PubUnder(
                         `core::clone`,
                     ),
@@ -3506,13 +3506,13 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Type(
-                                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
                                                 node: MajorItemSynNode {
                                                     syn_node_path: MajorItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                                path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         },
@@ -3520,7 +3520,7 @@ Ok(
                                                     visibility: Scope::Pub,
                                                     ast_idx: 11,
                                                     ident_token: IdentToken {
-                                                        ident: `CyclicSliceLeashed`,
+                                                        ident: `CyclicSlice`,
                                                         token_idx: TokenIdx(
                                                             46,
                                                         ),
@@ -3537,7 +3537,7 @@ Ok(
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -3547,7 +3547,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
-                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -3559,7 +3559,7 @@ Ok(
                             ),
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 ),
                             ),
                             visibility: Scope::PubUnder(

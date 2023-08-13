@@ -80,6 +80,26 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::Leash,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`covariant Type -> Type`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
                         ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
@@ -94,7 +114,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
             },
             ExprTypeInfo {
@@ -112,7 +132,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    5,
                 ),
             },
         ],
@@ -203,15 +223,47 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: FinalDestination::Sort,
+                            expectation: Expectation::CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`covariant Type -> Type`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: FinalDestination::Sort,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -271,9 +323,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 4,
                                 src: ExpectationSource {
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -294,9 +346,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 5,
                                 src: ExpectationSource {
-                                    expr_idx: 4,
+                                    expr_idx: 5,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
