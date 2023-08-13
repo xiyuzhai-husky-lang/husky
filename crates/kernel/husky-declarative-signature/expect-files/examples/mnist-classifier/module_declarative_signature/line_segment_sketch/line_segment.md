@@ -18,10 +18,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `start`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `end`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

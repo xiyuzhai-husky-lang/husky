@@ -34,6 +34,10 @@ impl PropsFieldDeclPattern {
     pub fn ty_expr_idx(&self) -> SynExprIdx {
         self.ty_expr_idx
     }
+
+    pub fn initialization(&self) -> Option<PropsFieldInitialization> {
+        self.initialization
+    }
 }
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for PropsFieldDeclPattern {

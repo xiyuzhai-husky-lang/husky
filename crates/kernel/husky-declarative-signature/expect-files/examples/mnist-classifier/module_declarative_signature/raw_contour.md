@@ -18,10 +18,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `cc`,
                                     ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `points`,
                                     ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -310,10 +312,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `prev1`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `prev2`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

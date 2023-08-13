@@ -18,10 +18,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `y`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -49,10 +51,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `y`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -80,10 +84,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `x`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `y`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -111,10 +117,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `min`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `max`,
                                     ty: DeclarativeTerm(`core::num::f32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -142,10 +150,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `xrange`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `yrange`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -173,10 +183,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `xrange`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `yrange`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

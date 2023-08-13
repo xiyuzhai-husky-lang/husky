@@ -18,18 +18,22 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `row_start`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `row_end`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `upper_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `lower_mass`,
                                     ty: DeclarativeTerm(`core::num::i32`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -57,6 +61,7 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
@@ -115,6 +120,7 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `mask`,
                                     ty: DeclarativeTerm(`mnist::BinaryImage28`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

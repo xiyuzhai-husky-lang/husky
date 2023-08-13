@@ -18,10 +18,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `matches`,
                                     ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `others`,
                                     ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

@@ -14,6 +14,7 @@ pub struct PropsStructTypeDeclarativeSignatureTemplate {
 pub struct PropsStructFieldDeclarativeSignatureTemplate {
     ident: Ident,
     ty: DeclarativeTerm,
+    has_initialization: bool,
 }
 
 impl PropsStructTypeDeclarativeSignatureTemplate {
@@ -48,6 +49,7 @@ impl PropsStructTypeDeclarativeSignatureTemplate {
                             ))
                         }
                     },
+                    has_initialization: field.initialization().is_some(),
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
@@ -64,8 +66,9 @@ impl PropsStructFieldDeclarativeSignatureTemplate {
         self.ty
     }
 
-    pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
-        DeclarativeTermRitchieRegularParameter::new(Contract::Move, self.ty).into()
+    pub fn into_ritchie_parameter_contracted_ty(self) -> Option<DeclarativeTermRitchieParameter> {
+        (!self.has_initialization)
+            .then_some(DeclarativeTermRitchieRegularParameter::new(Contract::Move, self.ty).into())
     }
 }
 
