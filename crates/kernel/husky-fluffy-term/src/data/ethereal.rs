@@ -161,42 +161,36 @@ impl TermApplicationFluffyData {
 pub(super) fn ethereal_term_data2<'a>(
     db: &'a dyn FluffyTermDb,
     term: EtherealTerm,
-) -> (Option<Place>, FluffyBaseTypeData<'a>) {
+) -> FluffyBaseTypeData<'a> {
     match term {
         EtherealTerm::Literal(_) => todo!(),
-        EtherealTerm::Symbol(term) => (None, FluffyBaseTypeData::Symbol { term }),
+        EtherealTerm::Symbol(term) => FluffyBaseTypeData::Symbol { term },
         EtherealTerm::Variable(term) => unreachable!(),
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Fugitive(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(ty_path) => (
-                None,
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path,
-                    refined_ty_path: ty_path.refine(db),
-                    ty_arguments: &[],
-                    ty_ethereal_term: Some(path.into()),
-                },
-            ),
+            TermEntityPath::TypeOntology(ty_path) => FluffyBaseTypeData::TypeOntology {
+                ty_path,
+                refined_ty_path: ty_path.refine(db),
+                ty_arguments: &[],
+                ty_ethereal_term: Some(path.into()),
+            },
             TermEntityPath::TypeInstance(_) => todo!(),
             TermEntityPath::TypeVariant(path) => unreachable!(),
         },
-        EtherealTerm::Category(term) => (None, FluffyBaseTypeData::Category(term)),
+        EtherealTerm::Category(term) => FluffyBaseTypeData::Category(term),
         EtherealTerm::Universe(_) => todo!(),
-        EtherealTerm::Curry(term) => (
-            None,
-            FluffyBaseTypeData::Curry {
-                curry_kind: term.curry_kind(db),
-                variance: term.variance(db),
-                parameter_variable: term.parameter_variable(db).map(Into::into),
-                parameter_ty: term.parameter_ty(db).into(),
-                return_ty: term.return_ty(db).into(),
-                ty_ethereal_term: Some(term),
-            },
-        ),
-        EtherealTerm::Ritchie(term) => (None, term_ritchie_fluffy_data(db, term).as_ref2()),
+        EtherealTerm::Curry(term) => FluffyBaseTypeData::Curry {
+            curry_kind: term.curry_kind(db),
+            variance: term.variance(db),
+            parameter_variable: term.parameter_variable(db).map(Into::into),
+            parameter_ty: term.parameter_ty(db).into(),
+            return_ty: term.return_ty(db).into(),
+            ty_ethereal_term: Some(term),
+        },
+        EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref2(),
         EtherealTerm::Abstraction(_) => todo!(),
-        EtherealTerm::Application(term) => (None, term_application_fluffy_data(db, term).as_ref2()),
+        EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref2(),
         EtherealTerm::Subitem(_) => todo!(),
         EtherealTerm::AsTraitSubitem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),

@@ -62,7 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     .get(expr_idx)
                                     .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
                                     .ty()?;
-                                let (place, base_ty) = ty.ty_data(self);
+                                let base_ty = ty.base_ty_data(self);
                                 match base_ty {
                                     FluffyBaseTypeData::TypeOntology {
                                         ty_path,
@@ -153,7 +153,7 @@ impl<'a> ExprTypeEngine<'a> {
                                         .get(expr_idx)
                                         .ok_or(DerivedExprTermError::TypeInfoNotInferred)?
                                         .ty()?;
-                                    match ty.base() {
+                                    match ty.base_resolved(self) {
                                         FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
                                             TermEntityPath::TypeOntology(ty_path),
                                         )) => {

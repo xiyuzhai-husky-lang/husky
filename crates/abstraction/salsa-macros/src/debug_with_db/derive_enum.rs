@@ -4,7 +4,6 @@ use super::*;
 
 pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
-    let _ident_string = ident.to_string();
     let generic_decls = generic_decls(&item.generics, db_path);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
@@ -12,7 +11,7 @@ pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_m
         let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
             item.generics.params.iter().map(|param| match param {
                 syn::GenericParam::Type(param) => {
-                    let ident = &param.ident;
+                    let ident = param.ident.to_string();
                     quote! { #ident }
                 }
                 syn::GenericParam::Lifetime(param) => {

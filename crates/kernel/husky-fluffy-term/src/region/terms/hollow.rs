@@ -43,7 +43,7 @@ impl HollowTerms {
         &self.entry(hollow_term).data
     }
 
-    fn entry(&self, hollow_term: HollowTerm) -> &HollowTermEntry {
+    pub(crate) fn entry(&self, hollow_term: HollowTerm) -> &HollowTermEntry {
         &self.entries[hollow_term.idx()]
     }
 
@@ -151,26 +151,6 @@ impl HollowTerms {
                     }
                 }
             }
-            // HollowTermData::TypeOntologyAtPlace {
-            //     place,
-            //     ty_path: path,
-            //     refined_ty_path: refined_path,
-            //     ty_arguments: ref arguments,
-            // } => {
-            //     // todo: use merger
-            //     for argument in arguments {
-            //         match argument.resolve_progress(self) {
-            //             // we can't proceed if any argument is unresolved hollow
-            //             TermResolveProgress::UnresolvedHollow => return,
-            //             TermResolveProgress::ResolvedEthereal(_) => (),
-            //             TermResolveProgress::ResolvedSolid(_) => (),
-            //             TermResolveProgress::Err => todo!(),
-            //         }
-            //     }
-            //     let term = todo!();
-            //     self.entries[idx].resolve_progress =
-            //         HollowTermResolveProgressBuf::ResolvedSolid(term)
-            // }
             HollowTermData::Curry {
                 curry_kind,
                 variance,
@@ -267,8 +247,8 @@ impl FluffyTerms {
     pub(crate) fn fill_hole(&mut self, db: &dyn FluffyTermDb, hole: Hole, term: FluffyTerm) {
         let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
         match hole_entry.data {
-            HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
             HollowTermData::Hole { fill: Some(_), .. } => unreachable!(),
+            HollowTermData::Hole { ref mut fill, .. } => *fill = Some(term),
             _ => unreachable!(),
         }
         // update progress if term is resolved
@@ -282,6 +262,34 @@ impl FluffyTerms {
             FluffyTermBase::Hollow(_) => (),
         }
         self.hollow_terms.update_entries(db, &mut self.solid_terms)
+    }
+
+    pub(crate) fn fill_hole_by_force(
+        &mut self,
+        hole: Hole,
+        db: &dyn FluffyTermDb,
+        term_menu: &EtherealTermMenu,
+    ) -> FluffyTermResult<()> {
+        let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
+        let HollowTermData::Hole {
+            hole_kind,
+            ref constraints,
+            ..
+        } = hole_entry.data
+        else {
+            unreachable!()
+        };
+        let term = match constraints.len() {
+            0 => match hole_kind {
+                HoleKind::UnspecifiedIntegerType => term_menu.i32_ty_ontology().into(),
+                HoleKind::UnspecifiedFloatType => term_menu.f32_ty_ontology().into(),
+                HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
+            },
+            _ => todo!(),
+        };
+        self.fill_hole(db, hole, term);
+        Ok(())
     }
 }
 
@@ -301,7 +309,7 @@ impl FluffyTerm {
         self,
         terms: &impl std::borrow::Borrow<HollowTerms>,
     ) -> TermResolveProgress {
-        match self.base() {
+        match self.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
             FluffyTermBase::Solid(term) => TermResolveProgress::ResolvedSolid(term),
             FluffyTermBase::Hollow(term) => term.resolve_progress(terms.borrow()),

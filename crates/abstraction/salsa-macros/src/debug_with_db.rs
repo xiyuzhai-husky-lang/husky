@@ -6,6 +6,7 @@ use self::derive_enum::*;
 use self::derive_struct::*;
 use self::utils::*;
 use crate::options::Options;
+use proc_macro2::Span;
 use syn::{spanned::Spanned, Item};
 use syn::{Ident, ItemStruct, Path};
 

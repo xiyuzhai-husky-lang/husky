@@ -61,39 +61,33 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
     }
 }
 
-impl<'a> Into<(Option<Place>, FluffyBaseTypeData<'a>)> for &'a SolidTermData {
-    fn into(self) -> (Option<Place>, FluffyBaseTypeData<'a>) {
+impl<'a> Into<FluffyBaseTypeData<'a>> for &'a SolidTermData {
+    fn into(self) -> FluffyBaseTypeData<'a> {
         match self {
             SolidTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => (
-                None,
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path: *path,
-                    refined_ty_path: *refined_path,
-                    ty_arguments: argument_tys,
-                    ty_ethereal_term: None,
-                },
-            ),
+            } => FluffyBaseTypeData::TypeOntology {
+                ty_path: *path,
+                refined_ty_path: *refined_path,
+                ty_arguments: argument_tys,
+                ty_ethereal_term: None,
+            },
             SolidTermData::Curry {
                 curry_kind,
                 variance,
                 parameter_variable,
                 parameter_ty,
                 return_ty,
-            } => (
-                None,
-                FluffyBaseTypeData::Curry {
-                    curry_kind: *curry_kind,
-                    variance: *variance,
-                    parameter_variable: parameter_variable.map(Into::into),
-                    parameter_ty: (*parameter_ty).into(),
-                    return_ty: (*return_ty).into(),
-                    ty_ethereal_term: None,
-                },
-            ),
+            } => FluffyBaseTypeData::Curry {
+                curry_kind: *curry_kind,
+                variance: *variance,
+                parameter_variable: parameter_variable.map(Into::into),
+                parameter_ty: (*parameter_ty).into(),
+                return_ty: (*return_ty).into(),
+                ty_ethereal_term: None,
+            },
             SolidTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

@@ -51,7 +51,7 @@ impl ConnectedComponent:
     
     val max_row_span: f32 =
         // todo: change self to func
-        let mut max_row = 0
+        let mut max_row: i32 = 0
         for 0 < i < 29:
             max_row = max_row.max(self.mask[i].span())
         return max_row as f32

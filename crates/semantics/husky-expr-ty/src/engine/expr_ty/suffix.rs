@@ -14,8 +14,10 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
-            SuffixOpr::Incr => Ok((ExprDisambiguation::Trivial, self.calc_incr_expr_ty(opd))),
-            SuffixOpr::Decr => Ok((ExprDisambiguation::Trivial, self.calc_decr_expr_ty(opd))),
+            SuffixOpr::Incr | SuffixOpr::Decr => Ok((
+                ExprDisambiguation::Trivial,
+                self.calc_incr_or_decr_expr_ty(opd),
+            )),
             SuffixOpr::UnveilOrComposeWithOption => {
                 self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
             }
@@ -34,18 +36,21 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_incr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_incr_or_decr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         let opd_ty = self
             .infer_new_expr_ty(opd, ExpectAnyOriginal)
             .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
                 ty_ethereal_term,
-            } => todo!(),
+            } => match refined_ty_path {
+                Left(PreludeTypePath::Num(_)) => (),
+                _ => todo!(),
+            },
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -54,42 +59,12 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
-        }
-        Ok(self.term_menu.unit_ty_ontology().into())
-    }
-
-    fn calc_decr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
-        let opd_ty = self
-            .infer_new_expr_ty(opd, ExpectAnyOriginal)
-            .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
-        match opd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Curry {
-                curry_kind,
-                variance,
-                parameter_variable,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType => (),
+                HoleKind::UnspecifiedFloatType => todo!(),
+                HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
+            },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,

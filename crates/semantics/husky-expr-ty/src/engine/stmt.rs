@@ -221,7 +221,7 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
                 Some(new_block_ty)
-                    if new_block_ty.base()
+                    if new_block_ty.base_resolved(engine)
                         == FluffyTermBase::Ethereal(EtherealTerm::EntityPath(
                             TermEntityPath::TypeOntology(engine.item_path_menu.never_ty_path()),
                         )) =>

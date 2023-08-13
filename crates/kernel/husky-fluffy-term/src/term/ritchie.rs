@@ -74,7 +74,7 @@ impl FluffyTermRitchieParameter {
 impl FluffyTerm {
     pub(crate) fn new_richie(
         db: &dyn FluffyTermDb,
-        fluffy_terms: &mut FluffyTerms,
+        terms: &mut FluffyTerms,
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,
@@ -82,19 +82,19 @@ impl FluffyTerm {
         let mut solid_flag = false;
         let mut hollow_flag = false;
         for parameter_contracted_ty in &parameter_contracted_tys {
-            match parameter_contracted_ty.ty().base() {
+            match parameter_contracted_ty.ty().base_resolved_inner(terms) {
                 FluffyTermBase::Ethereal(_) => (),
                 FluffyTermBase::Solid(_) => solid_flag = true,
                 FluffyTermBase::Hollow(_) => hollow_flag = true,
             }
         }
-        match return_ty.base() {
+        match return_ty.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(_) => (),
             FluffyTermBase::Solid(_) => solid_flag = true,
             FluffyTermBase::Hollow(_) => hollow_flag = true,
         }
         if hollow_flag {
-            fluffy_terms
+            terms
                 .hollow_terms_mut()
                 .alloc_new(HollowTermData::Ritchie {
                     ritchie_kind,

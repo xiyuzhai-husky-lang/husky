@@ -46,10 +46,10 @@ pub trait FluffyTermEngine<'a>: Sized {
         debug_assert_eq!(parameter_ty.place(), None);
         debug_assert_eq!(return_ty.place(), None);
         match (
-            parameter_symbol.map(FluffyTerm::base),
-            parameter_ty.base(),
-            return_ty.base(),
-            argument_ty.base(),
+            parameter_symbol.map(|symbol| symbol.base_resolved(self)),
+            parameter_ty.base_resolved(self),
+            return_ty.base_resolved(self),
+            argument_ty.base_resolved(self),
         ) {
             (
                 None,

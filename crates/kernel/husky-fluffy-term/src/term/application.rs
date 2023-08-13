@@ -11,7 +11,7 @@ impl FluffyTerm {
         let db = engine.db();
         let function = function.into();
         let argument = argument.into();
-        match (function.base(), argument.base()) {
+        match (function.base_resolved(engine), argument.base_resolved(engine)) {
             (FluffyTermBase::Ethereal(function), FluffyTermBase::Ethereal(argument)) => {
                 Ok(EtherealTermApplication::new(db, function, argument)?.into())
             }
@@ -53,8 +53,8 @@ impl FluffyTerm {
                         parameter_contracted_tys,
                         return_ty,
                         ..
-                    } => todo!(), 
-                    FluffyTermData::Symbol { .. } => todo!(), 
+                    } => todo!(),
+                    FluffyTermData::Symbol { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 };
