@@ -3741,7 +3741,7 @@ Ok(
                         ast_idx: 13,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                72,
+                                69,
                             ),
                         },
                         ty_expr: 52,

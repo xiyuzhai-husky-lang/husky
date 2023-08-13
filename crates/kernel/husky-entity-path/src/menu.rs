@@ -44,6 +44,7 @@ pub struct ItemPathMenu {
     option_ty_path: TypePath,
     result_ty_path: TypePath,
     slice_ty_path: TypePath,
+    cyclic_slice_leashed_ty_path: TypePath,
     string_literal_ty_path: TypePath,
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
@@ -345,6 +346,13 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             TypeKind::Extern,
         );
+        let cyclic_slice_leashed_ty_path = TypePath::new(
+            db,
+            core_slice,
+            db.it_ident_borrowed("CyclicSliceLeashed").unwrap(),
+            MajorItemConnection::Connected,
+            TypeKind::Extern,
+        );
         let string_literal_ty_path = TypePath::new(
             db,
             core_str,
@@ -502,6 +510,7 @@ impl ItemPathMenu {
             lifetime_ty_path,
             option_ty_path,
             slice_ty_path,
+            cyclic_slice_leashed_ty_path,
             string_literal_ty_path,
             str_ty_path,
             ref_ty_path,
@@ -643,6 +652,10 @@ impl ItemPathMenu {
 
     pub fn slice_ty_path(&self) -> TypePath {
         self.slice_ty_path
+    }
+
+    pub fn cyclic_slice_leashed_ty_path(&self) -> TypePath {
+        self.cyclic_slice_leashed_ty_path
     }
 
     pub fn string_literal_ty_path(&self) -> TypePath {

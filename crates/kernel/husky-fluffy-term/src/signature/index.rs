@@ -35,7 +35,7 @@ impl MemberSignature for FluffyIndexSignature {
 }
 
 // to: better name
-fn list_index_signature(
+fn list_like_index_signature(
     engine: &mut impl FluffyTermEngine,
     expr_idx: SynExprIdx,
     element_ty: FluffyTerm,
@@ -51,29 +51,10 @@ fn list_index_signature(
             ..
         } => match refined_ty_path {
             Left(prelude_ty_path) => match prelude_ty_path {
-                PreludeTypePath::Basic(_) => todo!(),
-                PreludeTypePath::Num(prelude_num_ty_path) => match prelude_num_ty_path {
-                    PreludeNumTypePath::Int(prelude_int_ty_path) => {
-                        JustOk(FluffyIndexSignature::Int { element_ty })
-                    }
-                    PreludeNumTypePath::Float(_) => todo!(),
-                },
-                PreludeTypePath::Indirection(_) => todo!(),
-                PreludeTypePath::Nat => todo!(),
-                PreludeTypePath::Lifetime => todo!(),
-                PreludeTypePath::Module => todo!(),
-                PreludeTypePath::Trait => todo!(),
-                PreludeTypePath::List => todo!(),
-                PreludeTypePath::Array => todo!(),
-                PreludeTypePath::Array2d => todo!(),
-                PreludeTypePath::Array3d => todo!(),
-                PreludeTypePath::Array4d => todo!(),
-                PreludeTypePath::Array5d => todo!(),
-                PreludeTypePath::Slice => todo!(),
-                PreludeTypePath::StringLiteral => todo!(),
-                PreludeTypePath::Str => todo!(),
-                PreludeTypePath::Option => todo!(),
-                PreludeTypePath::Result => todo!(),
+                PreludeTypePath::Num(PreludeNumTypePath::Int(prelude_int_ty_path)) => {
+                    JustOk(FluffyIndexSignature::Int { element_ty })
+                }
+                _ => todo!(),
             },
             Right(_) => todo!(),
         },

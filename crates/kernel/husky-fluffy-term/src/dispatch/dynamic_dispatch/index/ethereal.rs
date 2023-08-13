@@ -60,23 +60,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
                     )
                 }
             },
-            PreludeTypePath::Basic(_)
-            | PreludeTypePath::Num(_)
-            | PreludeTypePath::Nat
-            | PreludeTypePath::Lifetime
-            | PreludeTypePath::Module
-            | PreludeTypePath::Trait
-            | PreludeTypePath::List
-            | PreludeTypePath::Array
-            | PreludeTypePath::Array2d
-            | PreludeTypePath::Array3d
-            | PreludeTypePath::Array4d
-            | PreludeTypePath::Array5d
-            | PreludeTypePath::Slice
-            | PreludeTypePath::StringLiteral
-            | PreludeTypePath::Str => Nothing,
-            PreludeTypePath::Option => todo!(),
-            PreludeTypePath::Result => todo!(),
+            _ => Nothing,
         },
         // ad hoc
         Right(_) => Nothing,
