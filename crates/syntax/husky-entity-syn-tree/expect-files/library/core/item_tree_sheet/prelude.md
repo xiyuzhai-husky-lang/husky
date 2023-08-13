@@ -260,7 +260,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 33,
+                                    ast_idx: 39,
                                     ident_token: IdentToken {
                                         ident: `i8`,
                                         token_idx: TokenIdx(
@@ -307,11 +307,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 38,
+                                    ast_idx: 44,
                                     ident_token: IdentToken {
                                         ident: `i16`,
                                         token_idx: TokenIdx(
-                                            84,
+                                            95,
                                         ),
                                     },
                                     block: Type {
@@ -354,11 +354,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 43,
+                                    ast_idx: 49,
                                     ident_token: IdentToken {
                                         ident: `i32`,
                                         token_idx: TokenIdx(
-                                            136,
+                                            158,
                                         ),
                                     },
                                     block: Type {
@@ -401,11 +401,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 48,
+                                    ast_idx: 54,
                                     ident_token: IdentToken {
                                         ident: `i64`,
                                         token_idx: TokenIdx(
-                                            187,
+                                            231,
                                         ),
                                     },
                                     block: Type {
@@ -448,11 +448,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 53,
+                                    ast_idx: 59,
                                     ident_token: IdentToken {
                                         ident: `i128`,
                                         token_idx: TokenIdx(
-                                            239,
+                                            283,
                                         ),
                                     },
                                     block: Type {
@@ -495,11 +495,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 58,
+                                    ast_idx: 64,
                                     ident_token: IdentToken {
                                         ident: `isize`,
                                         token_idx: TokenIdx(
-                                            291,
+                                            335,
                                         ),
                                     },
                                     block: Type {
@@ -542,11 +542,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 63,
+                                    ast_idx: 69,
                                     ident_token: IdentToken {
                                         ident: `u8`,
                                         token_idx: TokenIdx(
-                                            343,
+                                            387,
                                         ),
                                     },
                                     block: Type {
@@ -589,11 +589,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 68,
+                                    ast_idx: 74,
                                     ident_token: IdentToken {
                                         ident: `u16`,
                                         token_idx: TokenIdx(
-                                            395,
+                                            439,
                                         ),
                                     },
                                     block: Type {
@@ -636,11 +636,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 73,
+                                    ast_idx: 79,
                                     ident_token: IdentToken {
                                         ident: `u32`,
                                         token_idx: TokenIdx(
-                                            447,
+                                            491,
                                         ),
                                     },
                                     block: Type {
@@ -683,11 +683,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 78,
+                                    ast_idx: 84,
                                     ident_token: IdentToken {
                                         ident: `u64`,
                                         token_idx: TokenIdx(
-                                            499,
+                                            543,
                                         ),
                                     },
                                     block: Type {
@@ -730,11 +730,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 83,
+                                    ast_idx: 89,
                                     ident_token: IdentToken {
                                         ident: `u128`,
                                         token_idx: TokenIdx(
-                                            551,
+                                            595,
                                         ),
                                     },
                                     block: Type {
@@ -777,11 +777,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 88,
+                                    ast_idx: 94,
                                     ident_token: IdentToken {
                                         ident: `usize`,
                                         token_idx: TokenIdx(
-                                            603,
+                                            647,
                                         ),
                                     },
                                     block: Type {
@@ -824,11 +824,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 93,
+                                    ast_idx: 99,
                                     ident_token: IdentToken {
                                         ident: `f32`,
                                         token_idx: TokenIdx(
-                                            655,
+                                            699,
                                         ),
                                     },
                                     block: Type {
@@ -871,11 +871,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 98,
+                                    ast_idx: 104,
                                     ident_token: IdentToken {
                                         ident: `f64`,
                                         token_idx: TokenIdx(
-                                            714,
+                                            780,
                                         ),
                                     },
                                     block: Type {
@@ -918,7 +918,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 4,
+                                    ast_idx: 5,
                                     ident_token: IdentToken {
                                         ident: `r32`,
                                         token_idx: TokenIdx(

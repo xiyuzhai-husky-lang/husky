@@ -92,6 +92,19 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -142,6 +155,19 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -188,6 +214,32 @@ Ok(
                         disambiguator: 0,
                     },
                     ident: `abs`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `min`,
                     item_kind: MethodFn,
                 },
             ),
@@ -701,6 +753,32 @@ Ok(
                         disambiguator: 0,
                     },
                     ident: `sqrt`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `min`,
                     item_kind: MethodFn,
                 },
             ),

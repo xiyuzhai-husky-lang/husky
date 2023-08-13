@@ -6,3 +6,6 @@ pub extern r32;
 
 impl r32:
     pub fn last_bits(k: i32) -> r32;
+
+    // count trailing zeros
+    pub fn ctz() -> i32;

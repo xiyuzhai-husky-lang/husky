@@ -32,7 +32,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
             return OneVsAll::Yes
-        let downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
+        let downmost_number_of_strokes = downmost!.strokes.end() - downmost!.strokes.start()
         require one_fermi_match.norm < 1.0
         narrow_down(
             major_connected_component.top_k_row_span_sum(3),
@@ -48,14 +48,14 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
         )?
         if upmost be some:
             // ad hoc; improve syntax
-            require upmost.strokes.end - upmost.strokes.start == 2
-            let long_vertical = upmost.strokes[upmost.strokes.start + 1]
+            require upmost!.strokes.end() - upmost!.strokes.start() == 2
+            let long_vertical = upmost!.strokes[upmost!.strokes.start() + 1]
             let long_vertical_dp = long_vertical.displacement()
             require long_vertical_dp.y > 0.0
             narrow_down(
-                upmost.norm,
-                upmost.rel_norm,
-                upmost.angle_change.abs(),
+                upmost!.norm,
+                upmost!.rel_norm,
+                upmost!.angle_change.abs(),
                 skip = 2,
             )?
             narrow_down( 
@@ -72,9 +72,9 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
             )?
         // ad hoc
         require downmost_number_of_strokes == 3
-        let downmost_hat = downmost.strokes[downmost.strokes.start]
+        let downmost_hat = downmost!.strokes[downmost!.strokes.start()]
         let downmost_hat_dp = downmost_hat.displacement()
-        let downmost_feet = downmost.strokes[downmost.strokes.start + 2]
+        let downmost_feet = downmost!.strokes[downmost!.strokes.start() + 2]
         let downmost_feet_dp = downmost_feet.displacement()
         narrow_down(
             downmost_hat_dp.y,

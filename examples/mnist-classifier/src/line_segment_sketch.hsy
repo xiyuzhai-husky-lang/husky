@@ -183,7 +183,7 @@ fn find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
                         and dp.cross(dp1).abs()<0.001 
                         and dp.dot(dp1) > 0.0:
                     let ls_last = line_segments.pop()!
-                    ls = LineSegmentStroke::new(ct, ls_last.points.start, ls.points.end)
+                    ls = LineSegmentStroke::new(ct, ls_last.points.start(), ls.points.end())
             else:
                 max_end = start + ct.points.ilen()
             line_segments.push(ls)
@@ -192,11 +192,11 @@ fn find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
     let N = ct.points.ilen()
     let first_line_segment_points_end = line_segments.first()!.points.end()
     let last_line_segment = line_segments.last()!
-    if last_line_segment.points.end >= first_line_segment_points_end + N:
+    if last_line_segment.points.end() >= first_line_segment_points_end + N:
         let last_line_segment = line_segments.pop()!
         line_segments.first()! = LineSegmentStroke::new(
             ct,
-            last_line_segment.points.start - N,
+            last_line_segment.points.start() - N,
             line_segments.first()!.points.end() - 1
         )
     line_segments

@@ -346,6 +346,56 @@
         ),
     ),
     (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::i8`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::i8`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::i8`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::i8`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i8`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -495,6 +545,56 @@
         ),
     ),
     (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::i16`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::i16`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::i16`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::i16`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i16`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -635,6 +735,106 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::i32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::i32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `min`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::i32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::i32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::i32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::i32`),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
                         },
@@ -2168,6 +2368,106 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `max`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `min`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
                         },

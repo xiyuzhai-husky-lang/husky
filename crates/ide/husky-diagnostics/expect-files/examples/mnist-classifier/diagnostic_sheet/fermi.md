@@ -25,21 +25,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [37:29, 37:53),
             },
-            Diagnostic {
-                message: "Type Error: no method named `max` for type `f32`",
-                severity: Error,
-                range: [13:25, 13:28),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `max` for type `f32`",
-                severity: Error,
-                range: [19:25, 19:28),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `max` for type `f32`",
-                severity: Error,
-                range: [25:25, 25:28),
-            },
         ],
     },
 }

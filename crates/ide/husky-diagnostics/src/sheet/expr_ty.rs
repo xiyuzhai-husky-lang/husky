@@ -188,6 +188,9 @@ impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self.1 {
+            OriginalExprTypeError::NoSuchField { ident_token, .. } => ctx
+                .ranged_token_sheet()
+                .token_idx_text_range(ident_token.token_idx()),
             OriginalExprTypeError::NoMethodForType { ident_token, .. } => ctx
                 .ranged_token_sheet()
                 .token_idx_text_range(ident_token.token_idx()),

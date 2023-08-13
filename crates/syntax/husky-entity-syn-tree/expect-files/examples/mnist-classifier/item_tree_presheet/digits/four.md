@@ -281,7 +281,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    251,
+                                    254,
                                 ),
                             },
                             block: Fugitive {
@@ -333,7 +333,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    280,
+                                    283,
                                 ),
                             },
                             block: Fugitive {

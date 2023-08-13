@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 33,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
@@ -57,11 +57,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 38,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
-                                    84,
+                                    95,
                                 ),
                             },
                             block: Type {
@@ -99,11 +99,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 43,
+                            ast_idx: 49,
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
-                                    136,
+                                    158,
                                 ),
                             },
                             block: Type {
@@ -141,11 +141,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 48,
+                            ast_idx: 54,
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
-                                    187,
+                                    231,
                                 ),
                             },
                             block: Type {
@@ -183,11 +183,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 53,
+                            ast_idx: 59,
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
-                                    239,
+                                    283,
                                 ),
                             },
                             block: Type {
@@ -225,11 +225,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 58,
+                            ast_idx: 64,
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
-                                    291,
+                                    335,
                                 ),
                             },
                             block: Type {
@@ -267,11 +267,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 63,
+                            ast_idx: 69,
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
-                                    343,
+                                    387,
                                 ),
                             },
                             block: Type {
@@ -309,11 +309,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 68,
+                            ast_idx: 74,
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
-                                    395,
+                                    439,
                                 ),
                             },
                             block: Type {
@@ -351,11 +351,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 73,
+                            ast_idx: 79,
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
-                                    447,
+                                    491,
                                 ),
                             },
                             block: Type {
@@ -393,11 +393,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 78,
+                            ast_idx: 84,
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
-                                    499,
+                                    543,
                                 ),
                             },
                             block: Type {
@@ -435,11 +435,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 83,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
-                                    551,
+                                    595,
                                 ),
                             },
                             block: Type {
@@ -477,11 +477,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 88,
+                            ast_idx: 94,
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
-                                    603,
+                                    647,
                                 ),
                             },
                             block: Type {
@@ -519,11 +519,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 93,
+                            ast_idx: 99,
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
-                                    655,
+                                    699,
                                 ),
                             },
                             block: Type {
@@ -561,11 +561,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 98,
+                            ast_idx: 104,
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    714,
+                                    780,
                                 ),
                             },
                             block: Type {
@@ -612,7 +612,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 33,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
@@ -647,11 +647,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 38,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
-                                    84,
+                                    95,
                                 ),
                             },
                             block: Type {
@@ -682,11 +682,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 43,
+                            ast_idx: 49,
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
-                                    136,
+                                    158,
                                 ),
                             },
                             block: Type {
@@ -717,11 +717,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 48,
+                            ast_idx: 54,
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
-                                    187,
+                                    231,
                                 ),
                             },
                             block: Type {
@@ -752,11 +752,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 53,
+                            ast_idx: 59,
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
-                                    239,
+                                    283,
                                 ),
                             },
                             block: Type {
@@ -787,11 +787,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 58,
+                            ast_idx: 64,
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
-                                    291,
+                                    335,
                                 ),
                             },
                             block: Type {
@@ -822,11 +822,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 63,
+                            ast_idx: 69,
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
-                                    343,
+                                    387,
                                 ),
                             },
                             block: Type {
@@ -857,11 +857,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 68,
+                            ast_idx: 74,
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
-                                    395,
+                                    439,
                                 ),
                             },
                             block: Type {
@@ -892,11 +892,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 73,
+                            ast_idx: 79,
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
-                                    447,
+                                    491,
                                 ),
                             },
                             block: Type {
@@ -927,11 +927,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 78,
+                            ast_idx: 84,
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
-                                    499,
+                                    543,
                                 ),
                             },
                             block: Type {
@@ -962,11 +962,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 83,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
-                                    551,
+                                    595,
                                 ),
                             },
                             block: Type {
@@ -997,11 +997,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 88,
+                            ast_idx: 94,
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
-                                    603,
+                                    647,
                                 ),
                             },
                             block: Type {
@@ -1032,11 +1032,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 93,
+                            ast_idx: 99,
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
-                                    655,
+                                    699,
                                 ),
                             },
                             block: Type {
@@ -1067,11 +1067,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 98,
+                            ast_idx: 104,
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    714,
+                                    780,
                                 ),
                             },
                             block: Type {
@@ -1121,7 +1121,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1162,7 +1162,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1203,7 +1203,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1244,7 +1244,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1285,7 +1285,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1326,7 +1326,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1367,7 +1367,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1408,7 +1408,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1449,7 +1449,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1490,7 +1490,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1531,7 +1531,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1572,7 +1572,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1613,7 +1613,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1654,7 +1654,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1695,7 +1695,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1736,7 +1736,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1777,7 +1777,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1818,7 +1818,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1859,7 +1859,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1916,7 +1916,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 30,
+                            ast_idx: 36,
                             use_expr_idx: 2,
                         },
                     ),
@@ -1993,7 +1993,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2070,7 +2070,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2147,7 +2147,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2224,7 +2224,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2301,7 +2301,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2331,7 +2331,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 33,
+                                                    ast_idx: 39,
                                                     ident_token: IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
@@ -2378,7 +2378,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2408,11 +2408,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 38,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            84,
+                                                            95,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2455,7 +2455,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2485,11 +2485,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 43,
+                                                    ast_idx: 49,
                                                     ident_token: IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            136,
+                                                            158,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2532,7 +2532,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2562,11 +2562,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 48,
+                                                    ast_idx: 54,
                                                     ident_token: IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            187,
+                                                            231,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2609,7 +2609,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2639,11 +2639,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 53,
+                                                    ast_idx: 59,
                                                     ident_token: IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            239,
+                                                            283,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2686,7 +2686,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2716,11 +2716,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 58,
+                                                    ast_idx: 64,
                                                     ident_token: IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            291,
+                                                            335,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2763,7 +2763,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2793,11 +2793,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 63,
+                                                    ast_idx: 69,
                                                     ident_token: IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            343,
+                                                            387,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2840,7 +2840,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2870,11 +2870,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 68,
+                                                    ast_idx: 74,
                                                     ident_token: IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            395,
+                                                            439,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2917,7 +2917,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2947,11 +2947,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 73,
+                                                    ast_idx: 79,
                                                     ident_token: IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            447,
+                                                            491,
                                                         ),
                                                     },
                                                     block: Type {
@@ -2994,7 +2994,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3024,11 +3024,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 78,
+                                                    ast_idx: 84,
                                                     ident_token: IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            499,
+                                                            543,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3071,7 +3071,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3101,11 +3101,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 83,
+                                                    ast_idx: 89,
                                                     ident_token: IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            551,
+                                                            595,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3148,7 +3148,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3178,11 +3178,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 88,
+                                                    ast_idx: 94,
                                                     ident_token: IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            603,
+                                                            647,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3225,7 +3225,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3255,11 +3255,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 93,
+                                                    ast_idx: 99,
                                                     ident_token: IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            655,
+                                                            699,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3302,7 +3302,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3332,11 +3332,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 98,
+                                                    ast_idx: 104,
                                                     ident_token: IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            714,
+                                                            780,
                                                         ),
                                                     },
                                                     block: Type {
@@ -3379,7 +3379,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3409,7 +3409,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 5,
                                                     ident_token: IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
@@ -3456,7 +3456,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3533,7 +3533,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3616,7 +3616,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3693,7 +3693,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3770,7 +3770,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3847,7 +3847,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3930,7 +3930,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4013,7 +4013,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4081,7 +4081,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4149,7 +4149,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4226,7 +4226,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4303,7 +4303,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4380,7 +4380,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4457,7 +4457,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4534,7 +4534,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4611,7 +4611,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::num`,
                             ),
-                            ast_idx: 29,
+                            ast_idx: 35,
                             use_expr_idx: 0,
                         },
                     ),
@@ -4638,7 +4638,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 34,
+                        ast_idx: 40,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 34,
@@ -4647,7 +4647,7 @@ Ok(
                         ty_expr: 4,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                0..1,
+                                0..2,
                             ),
                         },
                     },
@@ -4678,15 +4678,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 35,
+                        ast_idx: 41,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                45,
+                                56,
                             ),
                         },
                         trai_expr: 5,
                         for_token: TokenIdx(
-                            48,
+                            59,
                         ),
                         ty_sketch_expr: Path(
                             6,
@@ -4695,7 +4695,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        2..3,
                                     ),
                                 },
                             ),
@@ -4722,16 +4722,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 39,
+                        ast_idx: 45,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                86,
+                                97,
                             ),
                         },
                         ty_expr: 7,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                2..3,
+                                3..5,
                             ),
                         },
                     },
@@ -4762,15 +4762,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 40,
+                        ast_idx: 46,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                97,
+                                119,
                             ),
                         },
                         trai_expr: 8,
                         for_token: TokenIdx(
-                            100,
+                            122,
                         ),
                         ty_sketch_expr: Path(
                             9,
@@ -4779,7 +4779,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        3..4,
+                                        5..6,
                                     ),
                                 },
                             ),
@@ -4806,16 +4806,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 44,
+                        ast_idx: 50,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                138,
+                                160,
                             ),
                         },
                         ty_expr: 10,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                4..5,
+                                6..9,
                             ),
                         },
                     },
@@ -4846,15 +4846,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 45,
+                        ast_idx: 51,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                149,
+                                193,
                             ),
                         },
                         trai_expr: 11,
                         for_token: TokenIdx(
-                            152,
+                            196,
                         ),
                         ty_sketch_expr: Path(
                             12,
@@ -4863,7 +4863,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        5..6,
+                                        9..10,
                                     ),
                                 },
                             ),
@@ -4890,16 +4890,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 49,
+                        ast_idx: 55,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                189,
+                                233,
                             ),
                         },
                         ty_expr: 13,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                6..7,
+                                10..11,
                             ),
                         },
                     },
@@ -4930,15 +4930,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 50,
+                        ast_idx: 56,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                200,
+                                244,
                             ),
                         },
                         trai_expr: 14,
                         for_token: TokenIdx(
-                            203,
+                            247,
                         ),
                         ty_sketch_expr: Path(
                             15,
@@ -4947,7 +4947,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        7..8,
+                                        11..12,
                                     ),
                                 },
                             ),
@@ -4974,16 +4974,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 54,
+                        ast_idx: 60,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                241,
+                                285,
                             ),
                         },
                         ty_expr: 16,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                8..9,
+                                12..13,
                             ),
                         },
                     },
@@ -5014,15 +5014,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 55,
+                        ast_idx: 61,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                252,
+                                296,
                             ),
                         },
                         trai_expr: 17,
                         for_token: TokenIdx(
-                            255,
+                            299,
                         ),
                         ty_sketch_expr: Path(
                             18,
@@ -5031,7 +5031,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        9..10,
+                                        13..14,
                                     ),
                                 },
                             ),
@@ -5058,16 +5058,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 59,
+                        ast_idx: 65,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                293,
+                                337,
                             ),
                         },
                         ty_expr: 19,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                10..11,
+                                14..15,
                             ),
                         },
                     },
@@ -5098,15 +5098,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 60,
+                        ast_idx: 66,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                304,
+                                348,
                             ),
                         },
                         trai_expr: 20,
                         for_token: TokenIdx(
-                            307,
+                            351,
                         ),
                         ty_sketch_expr: Path(
                             21,
@@ -5115,7 +5115,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        11..12,
+                                        15..16,
                                     ),
                                 },
                             ),
@@ -5142,16 +5142,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 64,
+                        ast_idx: 70,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                345,
+                                389,
                             ),
                         },
                         ty_expr: 22,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                12..13,
+                                16..17,
                             ),
                         },
                     },
@@ -5182,15 +5182,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 65,
+                        ast_idx: 71,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                356,
+                                400,
                             ),
                         },
                         trai_expr: 23,
                         for_token: TokenIdx(
-                            359,
+                            403,
                         ),
                         ty_sketch_expr: Path(
                             24,
@@ -5199,7 +5199,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        13..14,
+                                        17..18,
                                     ),
                                 },
                             ),
@@ -5226,16 +5226,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 69,
+                        ast_idx: 75,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                397,
+                                441,
                             ),
                         },
                         ty_expr: 25,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                14..15,
+                                18..19,
                             ),
                         },
                     },
@@ -5266,15 +5266,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 70,
+                        ast_idx: 76,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                408,
+                                452,
                             ),
                         },
                         trai_expr: 26,
                         for_token: TokenIdx(
-                            411,
+                            455,
                         ),
                         ty_sketch_expr: Path(
                             27,
@@ -5283,7 +5283,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        15..16,
+                                        19..20,
                                     ),
                                 },
                             ),
@@ -5310,16 +5310,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 74,
+                        ast_idx: 80,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                449,
+                                493,
                             ),
                         },
                         ty_expr: 28,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                16..17,
+                                20..21,
                             ),
                         },
                     },
@@ -5350,15 +5350,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 75,
+                        ast_idx: 81,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                460,
+                                504,
                             ),
                         },
                         trai_expr: 29,
                         for_token: TokenIdx(
-                            463,
+                            507,
                         ),
                         ty_sketch_expr: Path(
                             30,
@@ -5367,7 +5367,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        17..18,
+                                        21..22,
                                     ),
                                 },
                             ),
@@ -5394,16 +5394,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 79,
+                        ast_idx: 85,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                501,
+                                545,
                             ),
                         },
                         ty_expr: 31,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                18..19,
+                                22..23,
                             ),
                         },
                     },
@@ -5434,15 +5434,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 80,
+                        ast_idx: 86,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                512,
+                                556,
                             ),
                         },
                         trai_expr: 32,
                         for_token: TokenIdx(
-                            515,
+                            559,
                         ),
                         ty_sketch_expr: Path(
                             33,
@@ -5451,7 +5451,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        19..20,
+                                        23..24,
                                     ),
                                 },
                             ),
@@ -5478,16 +5478,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 84,
+                        ast_idx: 90,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                553,
+                                597,
                             ),
                         },
                         ty_expr: 34,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                20..21,
+                                24..25,
                             ),
                         },
                     },
@@ -5518,15 +5518,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 85,
+                        ast_idx: 91,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                564,
+                                608,
                             ),
                         },
                         trai_expr: 35,
                         for_token: TokenIdx(
-                            567,
+                            611,
                         ),
                         ty_sketch_expr: Path(
                             36,
@@ -5535,7 +5535,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        21..22,
+                                        25..26,
                                     ),
                                 },
                             ),
@@ -5562,16 +5562,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 89,
+                        ast_idx: 95,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                605,
+                                649,
                             ),
                         },
                         ty_expr: 37,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                22..23,
+                                26..27,
                             ),
                         },
                     },
@@ -5602,15 +5602,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 90,
+                        ast_idx: 96,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                616,
+                                660,
                             ),
                         },
                         trai_expr: 38,
                         for_token: TokenIdx(
-                            619,
+                            663,
                         ),
                         ty_sketch_expr: Path(
                             39,
@@ -5619,7 +5619,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        23..24,
+                                        27..28,
                                     ),
                                 },
                             ),
@@ -5646,16 +5646,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 94,
+                        ast_idx: 100,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                657,
+                                701,
                             ),
                         },
                         ty_expr: 40,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                24..26,
+                                28..32,
                             ),
                         },
                     },
@@ -5686,15 +5686,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 95,
+                        ast_idx: 101,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                676,
+                                742,
                             ),
                         },
                         trai_expr: 41,
                         for_token: TokenIdx(
-                            679,
+                            745,
                         ),
                         ty_sketch_expr: Path(
                             42,
@@ -5703,7 +5703,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        26..27,
+                                        32..33,
                                     ),
                                 },
                             ),
@@ -5730,16 +5730,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 99,
+                        ast_idx: 105,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                716,
+                                782,
                             ),
                         },
                         ty_expr: 43,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..28,
+                                33..34,
                             ),
                         },
                     },
@@ -5770,15 +5770,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 100,
+                        ast_idx: 106,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                727,
+                                793,
                             ),
                         },
                         trai_expr: 44,
                         for_token: TokenIdx(
-                            730,
+                            796,
                         ),
                         ty_sketch_expr: Path(
                             45,
@@ -5787,7 +5787,7 @@ Ok(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        28..29,
+                                        34..35,
                                     ),
                                 },
                             ),
@@ -5799,7 +5799,7 @@ Ok(
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 29,
+                    ast_idx: 35,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -5826,7 +5826,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 30,
+                    ast_idx: 36,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -5853,7 +5853,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 30,
+                    ast_idx: 36,
                     use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -5905,7 +5905,7 @@ Ok(
                     },
                 },
                 OnceUseRule {
-                    ast_idx: 30,
+                    ast_idx: 36,
                     use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -5972,7 +5972,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `core`,
                     is_same_crate: true,
-                    ast_idx: 29,
+                    ast_idx: 35,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::num`,
