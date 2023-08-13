@@ -4,7 +4,7 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
-                        value: 27,
+                        value: 26,
                     },
                 ),
             ),
@@ -15,7 +15,7 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
-                        value: 28,
+                        value: 27,
                     },
                 ),
             ),
@@ -46,7 +46,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 24,
+                            value: 19,
                         },
                     ),
                 ),
@@ -58,7 +58,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 31,
+                        value: 24,
                     },
                 ),
             ),
@@ -69,7 +69,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 32,
+                        value: 25,
                     },
                 ),
             ),
@@ -80,7 +80,7 @@
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
                     module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     disambiguator: 0,
                 },
                 template_parameters: HirTemplateParameters {
@@ -100,7 +100,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 8,
+                            value: 21,
                         },
                     ),
                 ),
@@ -112,7 +112,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 33,
+                        value: 26,
                     },
                 ),
             ),
@@ -123,7 +123,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 34,
+                        value: 27,
                     },
                 ),
             ),
@@ -134,7 +134,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 35,
+                        value: 28,
                     },
                 ),
             ),
@@ -145,7 +145,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 36,
+                        value: 29,
                     },
                 ),
             ),
@@ -156,7 +156,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 37,
+                        value: 30,
                     },
                 ),
             ),

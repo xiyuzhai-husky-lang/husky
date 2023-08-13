@@ -62,16 +62,6 @@
     (
         ItemPath::Submodule(
             SubmodulePath(
-                `core::list`,
-            ),
-        ),
-        Ok(
-            SignatureTemplate::Module,
-        ),
-    ),
-    (
-        ItemPath::Submodule(
-            SubmodulePath(
                 `core::logic`,
             ),
         ),
@@ -153,6 +143,16 @@
         ItemPath::Submodule(
             SubmodulePath(
                 `core::result`,
+            ),
+        ),
+        Ok(
+            SignatureTemplate::Module,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::vec`,
             ),
         ),
         Ok(

@@ -246,7 +246,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `list`,
+                        ident: `logic`,
                         token_idx: TokenIdx(
                             20,
                         ),
@@ -284,7 +284,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `logic`,
+                        ident: `marker`,
                         token_idx: TokenIdx(
                             23,
                         ),
@@ -322,7 +322,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `marker`,
+                        ident: `mem`,
                         token_idx: TokenIdx(
                             26,
                         ),
@@ -360,7 +360,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `mem`,
+                        ident: `num`,
                         token_idx: TokenIdx(
                             29,
                         ),
@@ -398,7 +398,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `num`,
+                        ident: `ops`,
                         token_idx: TokenIdx(
                             32,
                         ),
@@ -436,7 +436,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `ops`,
+                        ident: `option`,
                         token_idx: TokenIdx(
                             35,
                         ),
@@ -474,7 +474,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `option`,
+                        ident: `prelude`,
                         token_idx: TokenIdx(
                             38,
                         ),
@@ -512,7 +512,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `prelude`,
+                        ident: `raw_bits`,
                         token_idx: TokenIdx(
                             41,
                         ),
@@ -550,7 +550,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `raw_bits`,
+                        ident: `result`,
                         token_idx: TokenIdx(
                             44,
                         ),
@@ -588,7 +588,7 @@ Ok(
                     },
                     item_kind: Module,
                     ident_token: IdentToken {
-                        ident: `result`,
+                        ident: `vec`,
                         token_idx: TokenIdx(
                             47,
                         ),
@@ -604,7 +604,7 @@ Ok(
                         path: SubmodulePath(
                             ModulePath(
                                 Id {
-                                    value: 17,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -642,7 +642,7 @@ Ok(
                         path: SubmodulePath(
                             ModulePath(
                                 Id {
-                                    value: 18,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -680,7 +680,7 @@ Ok(
                         path: SubmodulePath(
                             ModulePath(
                                 Id {
-                                    value: 19,
+                                    value: 18,
                                 },
                             ),
                         ),

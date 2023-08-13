@@ -6,7 +6,7 @@ use crate::*
 
 pub struct ConcaveComponent {
     line_segment_sketch: ~LineSegmentSketch,
-    strokes: CyclicSliceLeashed LineSegmentStroke,
+    strokes: ~CyclicSlice LineSegmentStroke,
 }
 
 impl Visualize for ConcaveComponent:

@@ -30,13 +30,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `visualize`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            27,
+                            28,
                         ),
                         drained: false,
                     },

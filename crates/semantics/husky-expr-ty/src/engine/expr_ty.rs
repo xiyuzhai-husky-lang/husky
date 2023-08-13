@@ -301,7 +301,10 @@ impl<'a> ExprTypeEngine<'a> {
                                         assert_eq!(ty_arguments.len(), 1);
                                         ty_arguments[0]
                                     }
-                                    Left(PreludeTypePath::Array) => todo!(),
+                                    Left(PreludeTypePath::Arr(_)) => {
+                                        assert_eq!(ty_arguments.len(), 1);
+                                        ty_arguments[0]
+                                    }
                                     _ => todo!(),
                                 },
                                 // ad hoc

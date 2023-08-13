@@ -32,11 +32,6 @@ Ok(
         ),
         ItemPath::Submodule(
             SubmodulePath(
-                `core::list`,
-            ),
-        ),
-        ItemPath::Submodule(
-            SubmodulePath(
                 `core::logic`,
             ),
         ),
@@ -78,6 +73,11 @@ Ok(
         ItemPath::Submodule(
             SubmodulePath(
                 `core::result`,
+            ),
+        ),
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::vec`,
             ),
         ),
         ItemPath::Submodule(

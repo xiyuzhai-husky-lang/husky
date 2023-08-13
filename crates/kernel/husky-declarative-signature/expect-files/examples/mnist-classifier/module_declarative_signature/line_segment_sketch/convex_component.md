@@ -21,7 +21,7 @@
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `line_segments`,
-                                    ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                    ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                 },
                             ],
                         },

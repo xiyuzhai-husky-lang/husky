@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 14,
+                                        value: 13,
                                     },
                                 ),
                                 variants: None,
@@ -67,7 +67,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 15,
+                                        value: 14,
                                     },
                                 ),
                                 variants: None,
@@ -109,7 +109,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 15,
                                     },
                                 ),
                                 variants: None,
@@ -151,7 +151,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 17,
+                                        value: 16,
                                     },
                                 ),
                                 variants: None,
@@ -193,7 +193,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 18,
+                                        value: 17,
                                     },
                                 ),
                                 variants: None,
@@ -235,7 +235,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 19,
+                                        value: 18,
                                     },
                                 ),
                                 variants: None,
@@ -277,7 +277,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 20,
+                                        value: 19,
                                     },
                                 ),
                                 variants: None,
@@ -319,7 +319,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 21,
+                                        value: 20,
                                     },
                                 ),
                                 variants: None,
@@ -361,7 +361,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 22,
+                                        value: 21,
                                     },
                                 ),
                                 variants: None,
@@ -403,7 +403,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 23,
+                                        value: 22,
                                     },
                                 ),
                                 variants: None,
@@ -445,7 +445,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 24,
+                                        value: 23,
                                     },
                                 ),
                                 variants: None,
@@ -487,7 +487,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 25,
+                                        value: 24,
                                     },
                                 ),
                                 variants: None,
@@ -529,7 +529,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 26,
+                                        value: 25,
                                     },
                                 ),
                                 variants: None,
@@ -571,7 +571,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 27,
+                                        value: 26,
                                     },
                                 ),
                                 variants: None,
@@ -622,7 +622,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 14,
+                                        value: 13,
                                     },
                                 ),
                                 variants: None,
@@ -657,7 +657,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 15,
+                                        value: 14,
                                     },
                                 ),
                                 variants: None,
@@ -692,7 +692,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 16,
+                                        value: 15,
                                     },
                                 ),
                                 variants: None,
@@ -727,7 +727,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 17,
+                                        value: 16,
                                     },
                                 ),
                                 variants: None,
@@ -762,7 +762,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 18,
+                                        value: 17,
                                     },
                                 ),
                                 variants: None,
@@ -797,7 +797,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 19,
+                                        value: 18,
                                     },
                                 ),
                                 variants: None,
@@ -832,7 +832,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 20,
+                                        value: 19,
                                     },
                                 ),
                                 variants: None,
@@ -867,7 +867,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 21,
+                                        value: 20,
                                     },
                                 ),
                                 variants: None,
@@ -902,7 +902,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 22,
+                                        value: 21,
                                     },
                                 ),
                                 variants: None,
@@ -937,7 +937,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 23,
+                                        value: 22,
                                     },
                                 ),
                                 variants: None,
@@ -972,7 +972,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 24,
+                                        value: 23,
                                     },
                                 ),
                                 variants: None,
@@ -1007,7 +1007,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 25,
+                                        value: 24,
                                     },
                                 ),
                                 variants: None,
@@ -1042,7 +1042,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 26,
+                                        value: 25,
                                     },
                                 ),
                                 variants: None,
@@ -1077,7 +1077,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 27,
+                                        value: 26,
                                     },
                                 ),
                                 variants: None,
@@ -1332,47 +1332,6 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
-                    ident: `list`,
-                    visibility: Scope::PubUnder(
-                        `core::num`,
-                    ),
-                    symbol: EntitySymbol::Use(
-                        UseSymbol {
-                            original_symbol: EntitySymbol::Submodule {
-                                submodule_path: SubmodulePath(
-                                    `core::list`,
-                                ),
-                                node: SubmoduleSynNode {
-                                    syn_node_path: SubmoduleSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `core::list`,
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    visibility: Scope::Pub,
-                                    ast_idx: 6,
-                                    ident_token: IdentToken {
-                                        ident: `list`,
-                                        token_idx: TokenIdx(
-                                            20,
-                                        ),
-                                    },
-                                },
-                            },
-                            path: PrincipalEntityPath::Module(
-                                `core::list`,
-                            ),
-                            visibility: Scope::PubUnder(
-                                `core::num`,
-                            ),
-                            ast_idx: 35,
-                            use_expr_idx: 0,
-                        },
-                    ),
-                },
-                EntitySymbolEntry {
                     ident: `logic`,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -1393,11 +1352,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 7,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `logic`,
                                         token_idx: TokenIdx(
-                                            23,
+                                            20,
                                         ),
                                     },
                                 },
@@ -1434,11 +1393,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 8,
+                                    ast_idx: 7,
                                     ident_token: IdentToken {
                                         ident: `marker`,
                                         token_idx: TokenIdx(
-                                            26,
+                                            23,
                                         ),
                                     },
                                 },
@@ -1475,11 +1434,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 9,
+                                    ast_idx: 8,
                                     ident_token: IdentToken {
                                         ident: `mem`,
                                         token_idx: TokenIdx(
-                                            29,
+                                            26,
                                         ),
                                     },
                                 },
@@ -1516,11 +1475,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 10,
+                                    ast_idx: 9,
                                     ident_token: IdentToken {
                                         ident: `num`,
                                         token_idx: TokenIdx(
-                                            32,
+                                            29,
                                         ),
                                     },
                                 },
@@ -1557,11 +1516,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 11,
+                                    ast_idx: 10,
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            35,
+                                            32,
                                         ),
                                     },
                                 },
@@ -1598,11 +1557,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 12,
+                                    ast_idx: 11,
                                     ident_token: IdentToken {
                                         ident: `option`,
                                         token_idx: TokenIdx(
-                                            38,
+                                            35,
                                         ),
                                     },
                                 },
@@ -1639,11 +1598,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `prelude`,
                                         token_idx: TokenIdx(
-                                            41,
+                                            38,
                                         ),
                                     },
                                 },
@@ -1680,11 +1639,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 14,
+                                    ast_idx: 13,
                                     ident_token: IdentToken {
                                         ident: `raw_bits`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            41,
                                         ),
                                     },
                                 },
@@ -1721,9 +1680,50 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `result`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::Module(
+                                `core::result`,
+                            ),
+                            visibility: Scope::PubUnder(
+                                `core::num`,
+                            ),
+                            ast_idx: 35,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `vec`,
+                    visibility: Scope::PubUnder(
+                        `core::num`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Submodule {
+                                submodule_path: SubmodulePath(
+                                    `core::vec`,
+                                ),
+                                node: SubmoduleSynNode {
+                                    syn_node_path: SubmoduleSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::vec`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    visibility: Scope::Pub,
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `vec`,
                                         token_idx: TokenIdx(
                                             47,
                                         ),
@@ -1731,7 +1731,7 @@ Ok(
                                 },
                             },
                             path: PrincipalEntityPath::Module(
-                                `core::result`,
+                                `core::vec`,
                             ),
                             visibility: Scope::PubUnder(
                                 `core::num`,
@@ -2341,7 +2341,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 14,
+                                                                value: 13,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2418,7 +2418,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 15,
+                                                                value: 14,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2495,7 +2495,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 16,
+                                                                value: 15,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2572,7 +2572,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 17,
+                                                                value: 16,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2649,7 +2649,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 18,
+                                                                value: 17,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2726,7 +2726,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 19,
+                                                                value: 18,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2803,7 +2803,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 20,
+                                                                value: 19,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2880,7 +2880,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 21,
+                                                                value: 20,
                                                             },
                                                         ),
                                                         variants: None,
@@ -2957,7 +2957,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 22,
+                                                                value: 21,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3034,7 +3034,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 23,
+                                                                value: 22,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3111,7 +3111,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 24,
+                                                                value: 23,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3188,7 +3188,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3265,7 +3265,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3342,7 +3342,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 27,
+                                                                value: 26,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3419,7 +3419,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 30,
+                                                                value: 29,
                                                             },
                                                         ),
                                                         variants: None,
@@ -3970,7 +3970,7 @@ Ok(
                                                     block: Type {
                                                         path: TypePath(
                                                             Id {
-                                                                value: 29,
+                                                                value: 28,
                                                             },
                                                         ),
                                                         variants: Some(
@@ -4540,7 +4540,7 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
-                    ident: `CyclicSliceLeashed`,
+                    ident: `CyclicSlice`,
                     visibility: Scope::PubUnder(
                         `core::num`,
                     ),
@@ -4552,13 +4552,13 @@ Ok(
                                         UseSymbol {
                                             original_symbol: EntitySymbol::MajorItem {
                                                 module_item_path: MajorItemPath::Type(
-                                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
                                                 node: MajorItemSynNode {
                                                     syn_node_path: MajorItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                                path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         },
@@ -4566,7 +4566,7 @@ Ok(
                                                     visibility: Scope::Pub,
                                                     ast_idx: 11,
                                                     ident_token: IdentToken {
-                                                        ident: `CyclicSliceLeashed`,
+                                                        ident: `CyclicSlice`,
                                                         token_idx: TokenIdx(
                                                             46,
                                                         ),
@@ -4583,7 +4583,7 @@ Ok(
                                             },
                                             path: PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
-                                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
                                             ),
                                             visibility: Scope::Pub,
@@ -4593,7 +4593,7 @@ Ok(
                                     ),
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Type(
-                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
                                         ),
                                     ),
                                     visibility: Scope::PubUnder(
@@ -4605,7 +4605,7 @@ Ok(
                             ),
                             path: PrincipalEntityPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 ),
                             ),
                             visibility: Scope::PubUnder(
@@ -4644,7 +4644,7 @@ Ok(
                                 34,
                             ),
                         },
-                        ty_expr: 4,
+                        ty_expr: 3,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 0..2,
@@ -4684,12 +4684,12 @@ Ok(
                                 56,
                             ),
                         },
-                        trai_expr: 5,
+                        trai_expr: 4,
                         for_token: TokenIdx(
                             59,
                         ),
                         ty_sketch_expr: Path(
-                            6,
+                            5,
                         ),
                         items: Some(
                             TraitForType(
@@ -4728,7 +4728,7 @@ Ok(
                                 97,
                             ),
                         },
-                        ty_expr: 7,
+                        ty_expr: 6,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 3..5,
@@ -4768,12 +4768,12 @@ Ok(
                                 119,
                             ),
                         },
-                        trai_expr: 8,
+                        trai_expr: 7,
                         for_token: TokenIdx(
                             122,
                         ),
                         ty_sketch_expr: Path(
-                            9,
+                            8,
                         ),
                         items: Some(
                             TraitForType(
@@ -4812,7 +4812,7 @@ Ok(
                                 160,
                             ),
                         },
-                        ty_expr: 10,
+                        ty_expr: 9,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 6..9,
@@ -4852,12 +4852,12 @@ Ok(
                                 193,
                             ),
                         },
-                        trai_expr: 11,
+                        trai_expr: 10,
                         for_token: TokenIdx(
                             196,
                         ),
                         ty_sketch_expr: Path(
-                            12,
+                            11,
                         ),
                         items: Some(
                             TraitForType(
@@ -4896,7 +4896,7 @@ Ok(
                                 233,
                             ),
                         },
-                        ty_expr: 13,
+                        ty_expr: 12,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 10..11,
@@ -4936,12 +4936,12 @@ Ok(
                                 244,
                             ),
                         },
-                        trai_expr: 14,
+                        trai_expr: 13,
                         for_token: TokenIdx(
                             247,
                         ),
                         ty_sketch_expr: Path(
-                            15,
+                            14,
                         ),
                         items: Some(
                             TraitForType(
@@ -4980,7 +4980,7 @@ Ok(
                                 285,
                             ),
                         },
-                        ty_expr: 16,
+                        ty_expr: 15,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 12..13,
@@ -5020,12 +5020,12 @@ Ok(
                                 296,
                             ),
                         },
-                        trai_expr: 17,
+                        trai_expr: 16,
                         for_token: TokenIdx(
                             299,
                         ),
                         ty_sketch_expr: Path(
-                            18,
+                            17,
                         ),
                         items: Some(
                             TraitForType(
@@ -5064,7 +5064,7 @@ Ok(
                                 337,
                             ),
                         },
-                        ty_expr: 19,
+                        ty_expr: 18,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 14..15,
@@ -5104,12 +5104,12 @@ Ok(
                                 348,
                             ),
                         },
-                        trai_expr: 20,
+                        trai_expr: 19,
                         for_token: TokenIdx(
                             351,
                         ),
                         ty_sketch_expr: Path(
-                            21,
+                            20,
                         ),
                         items: Some(
                             TraitForType(
@@ -5148,7 +5148,7 @@ Ok(
                                 389,
                             ),
                         },
-                        ty_expr: 22,
+                        ty_expr: 21,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 16..17,
@@ -5188,12 +5188,12 @@ Ok(
                                 400,
                             ),
                         },
-                        trai_expr: 23,
+                        trai_expr: 22,
                         for_token: TokenIdx(
                             403,
                         ),
                         ty_sketch_expr: Path(
-                            24,
+                            23,
                         ),
                         items: Some(
                             TraitForType(
@@ -5232,7 +5232,7 @@ Ok(
                                 441,
                             ),
                         },
-                        ty_expr: 25,
+                        ty_expr: 24,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 18..19,
@@ -5272,12 +5272,12 @@ Ok(
                                 452,
                             ),
                         },
-                        trai_expr: 26,
+                        trai_expr: 25,
                         for_token: TokenIdx(
                             455,
                         ),
                         ty_sketch_expr: Path(
-                            27,
+                            26,
                         ),
                         items: Some(
                             TraitForType(
@@ -5316,7 +5316,7 @@ Ok(
                                 493,
                             ),
                         },
-                        ty_expr: 28,
+                        ty_expr: 27,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 20..21,
@@ -5356,12 +5356,12 @@ Ok(
                                 504,
                             ),
                         },
-                        trai_expr: 29,
+                        trai_expr: 28,
                         for_token: TokenIdx(
                             507,
                         ),
                         ty_sketch_expr: Path(
-                            30,
+                            29,
                         ),
                         items: Some(
                             TraitForType(
@@ -5400,7 +5400,7 @@ Ok(
                                 545,
                             ),
                         },
-                        ty_expr: 31,
+                        ty_expr: 30,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 22..23,
@@ -5440,12 +5440,12 @@ Ok(
                                 556,
                             ),
                         },
-                        trai_expr: 32,
+                        trai_expr: 31,
                         for_token: TokenIdx(
                             559,
                         ),
                         ty_sketch_expr: Path(
-                            33,
+                            32,
                         ),
                         items: Some(
                             TraitForType(
@@ -5484,7 +5484,7 @@ Ok(
                                 597,
                             ),
                         },
-                        ty_expr: 34,
+                        ty_expr: 33,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 24..25,
@@ -5524,12 +5524,12 @@ Ok(
                                 608,
                             ),
                         },
-                        trai_expr: 35,
+                        trai_expr: 34,
                         for_token: TokenIdx(
                             611,
                         ),
                         ty_sketch_expr: Path(
-                            36,
+                            35,
                         ),
                         items: Some(
                             TraitForType(
@@ -5568,7 +5568,7 @@ Ok(
                                 649,
                             ),
                         },
-                        ty_expr: 37,
+                        ty_expr: 36,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 26..27,
@@ -5608,12 +5608,12 @@ Ok(
                                 660,
                             ),
                         },
-                        trai_expr: 38,
+                        trai_expr: 37,
                         for_token: TokenIdx(
                             663,
                         ),
                         ty_sketch_expr: Path(
-                            39,
+                            38,
                         ),
                         items: Some(
                             TraitForType(
@@ -5652,7 +5652,7 @@ Ok(
                                 701,
                             ),
                         },
-                        ty_expr: 40,
+                        ty_expr: 39,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 28..32,
@@ -5692,12 +5692,12 @@ Ok(
                                 742,
                             ),
                         },
-                        trai_expr: 41,
+                        trai_expr: 40,
                         for_token: TokenIdx(
                             745,
                         ),
                         ty_sketch_expr: Path(
-                            42,
+                            41,
                         ),
                         items: Some(
                             TraitForType(
@@ -5736,7 +5736,7 @@ Ok(
                                 782,
                             ),
                         },
-                        ty_expr: 43,
+                        ty_expr: 42,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 33..34,
@@ -5776,12 +5776,12 @@ Ok(
                                 793,
                             ),
                         },
-                        trai_expr: 44,
+                        trai_expr: 43,
                         for_token: TokenIdx(
                             796,
                         ),
                         ty_sketch_expr: Path(
-                            45,
+                            44,
                         ),
                         items: Some(
                             TraitForType(
@@ -5892,11 +5892,11 @@ Ok(
                                         },
                                     },
                                     visibility: Scope::Pub,
-                                    ast_idx: 11,
+                                    ast_idx: 10,
                                     ident_token: IdentToken {
                                         ident: `ops`,
                                         token_idx: TokenIdx(
-                                            35,
+                                            32,
                                         ),
                                     },
                                 },

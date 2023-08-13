@@ -82,7 +82,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 18,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -96,13 +96,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            66,
+                            67,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            67,
+                            68,
                         ),
                         drained: false,
                     },
@@ -119,7 +119,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    76,
+                                    77,
                                 ),
                             },
                         },
@@ -132,13 +132,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ilen`,
                         token_idx: TokenIdx(
-                            78,
+                            79,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            79,
+                            80,
                         ),
                         drained: false,
                     },
@@ -155,7 +155,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    84,
+                                    85,
                                 ),
                             },
                         },
@@ -168,13 +168,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start`,
                         token_idx: TokenIdx(
-                            86,
+                            87,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            87,
+                            88,
                         ),
                         drained: false,
                     },
@@ -191,7 +191,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    92,
+                                    93,
                                 ),
                             },
                         },
@@ -204,13 +204,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end`,
                         token_idx: TokenIdx(
-                            94,
+                            95,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            95,
+                            96,
                         ),
                         drained: false,
                     },
@@ -227,7 +227,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    100,
+                                    101,
                                 ),
                             },
                         },
@@ -240,13 +240,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `first`,
                         token_idx: TokenIdx(
-                            102,
+                            103,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            103,
+                            104,
                         ),
                         drained: false,
                     },
@@ -263,7 +263,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    110,
+                                    111,
                                 ),
                             },
                         },
@@ -276,13 +276,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `last`,
                         token_idx: TokenIdx(
-                            112,
+                            113,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            113,
+                            114,
                         ),
                         drained: false,
                     },
@@ -298,7 +298,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 18,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -342,7 +342,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 32,
+                                value: 31,
                             },
                         ),
                         variants: None,
@@ -383,7 +383,7 @@ Ok(
                         connection: Connected,
                     },
                     ident_token: IdentToken {
-                        ident: `CyclicSliceLeashed`,
+                        ident: `CyclicSlice`,
                         token_idx: TokenIdx(
                             46,
                         ),
@@ -398,7 +398,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 33,
+                                value: 32,
                             },
                         ),
                         variants: None,

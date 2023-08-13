@@ -31,11 +31,6 @@
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: `core::list`,
-        },
-    ),
-    HirDecl::Submodule(
-        SubmoduleHirDecl {
             path: `core::logic`,
         },
     ),
@@ -77,6 +72,11 @@
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: `core::result`,
+        },
+    ),
+    HirDecl::Submodule(
+        SubmoduleHirDecl {
+            path: `core::vec`,
         },
     ),
     HirDecl::Submodule(

@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 32,
+                                        value: 31,
                                     },
                                 ),
                                 variants: None,
@@ -51,7 +51,7 @@ Ok(
                             syn_node_path: MajorItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -59,7 +59,7 @@ Ok(
                             visibility: Scope::Pub,
                             ast_idx: 11,
                             ident_token: IdentToken {
-                                ident: `CyclicSliceLeashed`,
+                                ident: `CyclicSlice`,
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -67,7 +67,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 33,
+                                        value: 32,
                                     },
                                 ),
                                 variants: None,
@@ -78,13 +78,13 @@ Ok(
                         MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                    path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                     disambiguator: 0,
                                 },
                             },
                         ),
                     ),
-                    ident: `CyclicSliceLeashed`,
+                    ident: `CyclicSlice`,
                     visibility: Scope::Pub,
                 },
             ],

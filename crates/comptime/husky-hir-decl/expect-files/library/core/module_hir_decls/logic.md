@@ -4,7 +4,7 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
-                        value: 8,
+                        value: 7,
                     },
                 ),
             ),

@@ -13,7 +13,7 @@ pub struct VfsPathMenu {
     core_basic: SubmodulePath,
     core_clone: SubmodulePath,
     core_default: SubmodulePath,
-    core_list: SubmodulePath,
+    core_vec: SubmodulePath,
     core_marker: SubmodulePath,
     core_mem: SubmodulePath,
     /// core::num
@@ -68,10 +68,10 @@ impl VfsPathMenu {
             db.it_ident_borrowed("default")
                 .expect("should be valid identifier"),
         );
-        let core_list = ModulePath::new_child(
+        let core_vec = ModulePath::new_child(
             db,
             core_root,
-            db.it_ident_borrowed("list")
+            db.it_ident_borrowed("vec")
                 .expect("should be valid identifier"),
         );
         let core_marker = ModulePath::new_child(
@@ -161,7 +161,7 @@ impl VfsPathMenu {
             core_result,
             core_slice,
             core_str,
-            core_list,
+            core_vec,
             core_visual,
         }
     }
@@ -223,8 +223,8 @@ impl VfsPathMenu {
     }
 
     /// core::list
-    pub fn core_list(&self) -> SubmodulePath {
-        self.core_list
+    pub fn core_vec(&self) -> SubmodulePath {
+        self.core_vec
     }
 
     /// core::array
@@ -278,6 +278,6 @@ fn vfs_path_menu_works() {
         menu.core_raw_bits().to_string_with_db(&db),
         "core::raw_bits"
     );
-    assert_eq!(menu.core_list().to_string_with_db(&db), "core::list");
+    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::list");
     assert_eq!(menu.core_visual().to_string_with_db(&db), "core::visual");
 }

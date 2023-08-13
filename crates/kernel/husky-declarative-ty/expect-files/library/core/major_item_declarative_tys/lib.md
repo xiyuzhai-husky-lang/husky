@@ -62,16 +62,6 @@
     (
         ItemPath::Submodule(
             SubmodulePath(
-                `core::list`,
-            ),
-        ),
-        Ok(
-            DeclarativeTerm(`core::basic::Module`),
-        ),
-    ),
-    (
-        ItemPath::Submodule(
-            SubmodulePath(
                 `core::logic`,
             ),
         ),
@@ -153,6 +143,16 @@
         ItemPath::Submodule(
             SubmodulePath(
                 `core::result`,
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::vec`,
             ),
         ),
         Ok(

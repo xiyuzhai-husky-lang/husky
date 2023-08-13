@@ -107,7 +107,7 @@ impl DeclarativeTermMenu0 {
             slice_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.slice_ty_path()).into(),
             str_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.str_ty_path()).into(),
             ref_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.ref_ty_path()).into(),
-            list_ty: DeclarativeTermEntityPath::Type(item_path_menu.list_ty_path()).into(),
+            list_ty: DeclarativeTermEntityPath::Type(item_path_menu.vec_ty_path()).into(),
             unit: DeclarativeTermEntityPath::Type(item_path_menu.unit_ty_path()).into(),
             never: DeclarativeTermEntityPath::Type(item_path_menu.never_ty_path()).into(),
             bool: DeclarativeTermEntityPath::Type(item_path_menu.bool_ty_path()).into(),

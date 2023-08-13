@@ -57,7 +57,7 @@
                             fields: [
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `points`,
-                                    ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed mnist_classifier::geom2d::Point2d`),
+                                    ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::geom2d::Point2d`),
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `start`,

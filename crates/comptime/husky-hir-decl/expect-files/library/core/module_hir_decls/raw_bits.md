@@ -4,7 +4,7 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
-                        value: 26,
+                        value: 25,
                     },
                 ),
             ),
@@ -24,7 +24,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 21,
+                            value: 16,
                         },
                     ),
                 ),
@@ -36,7 +36,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 29,
+                        value: 22,
                     },
                 ),
             ),
@@ -47,7 +47,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 30,
+                        value: 23,
                     },
                 ),
             ),

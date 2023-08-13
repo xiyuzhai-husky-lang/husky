@@ -121,7 +121,7 @@ impl TermMenu0 {
             slice_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.slice_ty_path()).into(),
             str_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.str_ty_path()).into(),
             ref_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.ref_ty_path()).into(),
-            list_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.list_ty_path()).into(),
+            list_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.vec_ty_path()).into(),
             array_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.array_ty_path()).into(),
             leash_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.leash_ty_path()).into(),
             unit: TermEntityPath::TypeOntology(item_path_menu.unit_ty_path()).into(),

@@ -27,7 +27,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`fn( BinaryImage28) -> List ConnectedComponent`),
+                                    EtherealTerm(`fn( BinaryImage28) -> Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -93,7 +93,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List ConnectedComponent`),
+                                    EtherealTerm(`Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -111,7 +111,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List ConnectedComponent`),
+                                    EtherealTerm(`Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -160,7 +160,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`fn( BinaryImage28) -> List ConnectedComponent`),
+                                        EtherealTerm(`fn( BinaryImage28) -> Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -171,7 +171,7 @@
                                                 return_ty: FluffyTerm {
                                                     place: None,
                                                     base: FluffyTermBase::Ethereal(
-                                                        EtherealTerm(`List ConnectedComponent`),
+                                                        EtherealTerm(`Vec ConnectedComponent`),
                                                     ),
                                                 },
                                                 variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
@@ -246,7 +246,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`List ConnectedComponent`),
+                                            EtherealTerm(`Vec ConnectedComponent`),
                                         ),
                                     },
                                 },
@@ -260,7 +260,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List ConnectedComponent`),
+                                        EtherealTerm(`Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -281,7 +281,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`List ConnectedComponent`),
+                                            EtherealTerm(`Vec ConnectedComponent`),
                                         ),
                                     },
                                 },
@@ -295,7 +295,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List ConnectedComponent`),
+                                        EtherealTerm(`Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -315,7 +315,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`List ConnectedComponent`),
+            EtherealTerm(`Vec ConnectedComponent`),
         ),
         self_ty: None,
     },
@@ -366,7 +366,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 26,
+                                            value: 25,
                                         },
                                     ),
                                 ),
@@ -416,7 +416,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 26,
+                                                    value: 25,
                                                 },
                                             ),
                                         ),
@@ -479,7 +479,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConnectedComponent`),
+                                    EtherealTerm(`Leash Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -507,7 +507,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 16,
+                                                                value: 15,
                                                             },
                                                         ),
                                                     ),
@@ -542,7 +542,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConnectedComponent`),
+                                    EtherealTerm(`Leash Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -629,7 +629,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -831,7 +831,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConnectedComponent`),
+                                    EtherealTerm(`Leash Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -1005,7 +1005,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 25,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
@@ -1022,7 +1022,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                     ),
@@ -1050,7 +1050,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -1067,7 +1067,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                     ),
@@ -1143,7 +1143,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConnectedComponent`),
+                                        EtherealTerm(`Leash Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -1181,7 +1181,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConnectedComponent`),
+                                        EtherealTerm(`Leash Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -1498,7 +1498,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConnectedComponent`),
+                                        EtherealTerm(`Leash Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -1714,7 +1714,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConnectedComponent`),
+                                    EtherealTerm(`Leash Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -1742,7 +1742,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 16,
+                                                                value: 15,
                                                             },
                                                         ),
                                                     ),
@@ -1777,7 +1777,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Leash List ConnectedComponent`),
+                                    EtherealTerm(`Leash Vec ConnectedComponent`),
                                 ),
                             },
                         ),
@@ -1884,7 +1884,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -1987,7 +1987,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -2107,7 +2107,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 26,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -2124,7 +2124,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 26,
+                                                                value: 25,
                                                             },
                                                         ),
                                                     ),
@@ -2179,7 +2179,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConnectedComponent`),
+                                        EtherealTerm(`Leash Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -2238,7 +2238,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`Leash List ConnectedComponent`),
+                                        EtherealTerm(`Leash Vec ConnectedComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -2567,7 +2567,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 24,
+                                                        value: 27,
                                                     },
                                                 ),
                                             ),
@@ -2580,7 +2580,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List RawContour`),
+                                    EtherealTerm(`Vec RawContour`),
                                 ),
                             },
                         ),
@@ -2598,7 +2598,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List RawContour`),
+                                    EtherealTerm(`Vec RawContour`),
                                 ),
                             },
                         ),
@@ -2658,7 +2658,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash List RawContour`),
+                                            EtherealTerm(`Leash Vec RawContour`),
                                         ),
                                     },
                                 },
@@ -2672,7 +2672,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List RawContour`),
+                                        EtherealTerm(`Vec RawContour`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -2691,7 +2691,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash List RawContour`),
+                                            EtherealTerm(`Leash Vec RawContour`),
                                         ),
                                     },
                                 },
@@ -2705,7 +2705,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List RawContour`),
+                                        EtherealTerm(`Vec RawContour`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -2723,7 +2723,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`Leash List RawContour`),
+            EtherealTerm(`Leash Vec RawContour`),
         ),
         self_ty: None,
     },
@@ -2785,7 +2785,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 24,
+                                                        value: 27,
                                                     },
                                                 ),
                                             ),
@@ -2798,7 +2798,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List RawContour`),
+                                    EtherealTerm(`Vec RawContour`),
                                 ),
                             },
                         ),
@@ -2927,7 +2927,7 @@
                                                 TypeOntology(
                                                     TypePath(
                                                         Id {
-                                                            value: 25,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
@@ -2944,7 +2944,7 @@
                                                     TypeOntology(
                                                         TypePath(
                                                             Id {
-                                                                value: 25,
+                                                                value: 24,
                                                             },
                                                         ),
                                                     ),
@@ -2997,7 +2997,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List RawContour`),
+                                        EtherealTerm(`Vec RawContour`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -3415,7 +3415,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 29,
+                                                        value: 32,
                                                     },
                                                 ),
                                             ),
@@ -3428,7 +3428,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List ConcaveComponent`),
+                                    EtherealTerm(`Vec ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -3446,7 +3446,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`List ConcaveComponent`),
+                                    EtherealTerm(`Vec ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -3506,7 +3506,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash List ConcaveComponent`),
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                 },
@@ -3520,7 +3520,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List ConcaveComponent`),
+                                        EtherealTerm(`Vec ConcaveComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -3539,7 +3539,7 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`Leash List ConcaveComponent`),
+                                            EtherealTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
                                 },
@@ -3553,7 +3553,7 @@
                                 expectee: FluffyTerm {
                                     place: None,
                                     base: FluffyTermBase::Ethereal(
-                                        EtherealTerm(`List ConcaveComponent`),
+                                        EtherealTerm(`Vec ConcaveComponent`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
@@ -3571,7 +3571,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`Leash List ConcaveComponent`),
+            EtherealTerm(`Leash Vec ConcaveComponent`),
         ),
         self_ty: None,
     },

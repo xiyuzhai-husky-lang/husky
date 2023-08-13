@@ -1,5 +1,6 @@
 use crate::*
 
+// todo: impl ?Sized
 pub extern Slice<covariant E>;
 
 impl<E> Slice E:
@@ -7,12 +8,13 @@ impl<E> Slice E:
 
     pub fn swap(&mut self, a: usize, b: usize);
 
-pub extern CyclicSliceLeashed<covariant E>;
+// todo: impl ?Sized
+pub extern CyclicSlice<covariant E>;
 
-impl<E> core::ops::IntIndex for CyclicSliceLeashed E:
+impl<E> core::ops::IntIndex for ~CyclicSlice E:
     type Output = E
 
-impl<E> CyclicSliceLeashed E:
+impl<E> CyclicSlice E:
     pub fn ilen() -> i32;
 
     pub fn start() -> i32;

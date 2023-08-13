@@ -21,7 +21,7 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `pop_with_largest_opt_f32` for type `List Leash ConcaveComponent`",
+                message: "Type Error: no method named `pop_with_largest_opt_f32` for type `Vec Leash ConcaveComponent`",
                 severity: Error,
                 range: [37:29, 37:53),
             },

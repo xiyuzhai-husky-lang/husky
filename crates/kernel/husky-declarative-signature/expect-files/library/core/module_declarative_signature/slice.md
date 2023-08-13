@@ -34,7 +34,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                TypePath(`core::slice::CyclicSlice`, `Extern`),
             ),
         ),
         Ok(
@@ -220,7 +220,7 @@
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     disambiguator: 0,
                 },
             ),
@@ -242,7 +242,7 @@
                                 },
                             ],
                         },
-                        ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                        ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                     },
                 ),
             ),
@@ -254,7 +254,7 @@
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `ilen`,
@@ -281,15 +281,15 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
@@ -307,7 +307,7 @@
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `start`,
@@ -334,15 +334,15 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
@@ -360,7 +360,7 @@
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `end`,
@@ -387,15 +387,15 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
@@ -413,7 +413,7 @@
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `first`,
@@ -440,15 +440,15 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
@@ -466,7 +466,7 @@
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `last`,
@@ -493,15 +493,15 @@
                                         },
                                     ],
                                 },
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
-                            self_ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                            self_ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
+                                ty: DeclarativeTerm(`core::slice::CyclicSlice t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],

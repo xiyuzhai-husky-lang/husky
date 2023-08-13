@@ -4,6 +4,17 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            Extern(
+                ExternTypeHirDecl(
+                    Id {
                         value: 9,
                     },
                 ),
@@ -16,17 +27,6 @@
                 ExternTypeHirDecl(
                     Id {
                         value: 10,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::MajorItem(
-        MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 11,
                     },
                 ),
             ),
@@ -64,7 +64,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 6,
+                            value: 2,
                         },
                     ),
                 ),

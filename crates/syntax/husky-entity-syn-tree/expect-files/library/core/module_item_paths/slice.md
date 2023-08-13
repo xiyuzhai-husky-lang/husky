@@ -7,7 +7,7 @@ Ok(
         ),
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                TypePath(`core::slice::CyclicSlice`, `Extern`),
             ),
         ),
         ItemPath::ImplBlock(
@@ -49,7 +49,7 @@ Ok(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                     disambiguator: 0,
                 },
             ),
@@ -59,7 +59,7 @@ Ok(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `ilen`,
@@ -72,7 +72,7 @@ Ok(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `start`,
@@ -85,7 +85,7 @@ Ok(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `end`,
@@ -98,7 +98,7 @@ Ok(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `first`,
@@ -111,7 +111,7 @@ Ok(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
                         module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                         disambiguator: 0,
                     },
                     ident: `last`,
