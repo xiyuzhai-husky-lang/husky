@@ -19,17 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: missing argument",
-                severity: Error,
-                range: [172:35, 172:49),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `i32` to `bool` under contract ``",
-                severity: Error,
-                range: [212:20, 212:32),
-            },
-        ],
+        diagnostics: [],
     },
 }

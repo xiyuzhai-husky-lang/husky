@@ -1301,16 +1301,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 10,
@@ -1326,10 +1318,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -2567,7 +2557,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 27,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -2785,7 +2775,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 27,
+                                                        value: 25,
                                                     },
                                                 ),
                                             ),
@@ -3415,7 +3405,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 32,
+                                                        value: 30,
                                                     },
                                                 ),
                                             ),

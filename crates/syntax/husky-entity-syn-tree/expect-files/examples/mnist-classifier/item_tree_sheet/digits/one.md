@@ -1642,7 +1642,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 13,
+                                                    ast_idx: 14,
                                                     ident_token: IdentToken {
                                                         ident: `MnistLabel`,
                                                         token_idx: TokenIdx(
@@ -1727,7 +1727,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 15,
+                                                    ast_idx: 16,
                                                     ident_token: IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
@@ -1806,11 +1806,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 17,
+                                                    ast_idx: 19,
                                                     ident_token: IdentToken {
                                                         ident: `BinaryGrid28`,
                                                         token_idx: TokenIdx(
-                                                            54,
+                                                            66,
                                                         ),
                                                     },
                                                     block: Type {
@@ -1885,11 +1885,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 20,
+                                                    ast_idx: 22,
                                                     ident_token: IdentToken {
                                                         ident: `input`,
                                                         token_idx: TokenIdx(
-                                                            87,
+                                                            100,
                                                         ),
                                                     },
                                                     block: Fugitive {

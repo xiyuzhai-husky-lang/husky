@@ -21,7 +21,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 60,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -37,7 +37,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 59,
+                                        value: 57,
                                     },
                                 ),
                             ),
@@ -73,7 +73,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 60,
+                                                value: 58,
                                             },
                                         ),
                                     ),
@@ -91,7 +91,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 59,
+                                                value: 57,
                                             },
                                         ),
                                     ),
@@ -156,7 +156,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 60,
+                                                            value: 58,
                                                         },
                                                     ),
                                                 ),
@@ -504,7 +504,7 @@
                                                             Application(
                                                                 EtherealTermApplication(
                                                                     Id {
-                                                                        value: 58,
+                                                                        value: 56,
                                                                     },
                                                                 ),
                                                             ),
@@ -616,7 +616,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 59,
+                                                                value: 57,
                                                             },
                                                         ),
                                                     ),
@@ -641,7 +641,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 60,
+                                                                value: 58,
                                                             },
                                                         ),
                                                     ),
@@ -1269,7 +1269,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 59,
+                                                                                    value: 57,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1286,7 +1286,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 60,
+                                                                                    value: 58,
                                                                                 },
                                                                             ),
                                                                         ),

@@ -13,13 +13,16 @@ pub enum MnistLabel
 @derive(Debug, Clone)
 pub struct BinaryImage28([30]r32)
 
+impl BinaryImage28:
+    pub static fn new_zeros() -> Self;
+
 impl core::ops::IntIndex for BinaryImage28:
     type Output = r32
 
 pub struct BinaryGrid28([31]r32)
 
 impl BinaryGrid28:
-    pub fn new() -> Self;
+    pub static fn new_zeros() -> Self;
 
 impl core::ops::IntIndex for BinaryGrid28:
     type Output = r32

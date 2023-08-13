@@ -21,6 +21,28 @@ Ok(
             ),
         ),
         ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath {
+                    module_path: `mnist`,
+                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist`,
+                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `new_zeros`,
+                    item_kind: AssociatedFn,
+                },
+            ),
+        ),
+        ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
                     module_path: `mnist`,
@@ -65,8 +87,8 @@ Ok(
                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                         disambiguator: 0,
                     },
-                    ident: `new`,
-                    item_kind: MethodFn,
+                    ident: `new_zeros`,
+                    item_kind: AssociatedFn,
                 },
             ),
         ),

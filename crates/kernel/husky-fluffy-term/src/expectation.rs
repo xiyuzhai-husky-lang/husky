@@ -2,6 +2,7 @@ mod any_derived;
 mod any_original;
 mod casting;
 mod coersion;
+mod condition_ty;
 mod curry_destination;
 mod eqs_category;
 mod eqs_function_ty;
@@ -15,6 +16,7 @@ pub use self::any_derived::*;
 pub use self::any_original::*;
 pub use self::casting::*;
 pub use self::coersion::*;
+pub use self::condition_ty::*;
 pub use self::curry_destination::*;
 pub use self::eqs_category::*;
 pub use self::eqs_function_ty::*;
@@ -45,6 +47,7 @@ pub enum Expectation {
     EqsRitchieType(ExpectEqsRitchieType),
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
+    ConditionType(ExpectConditionType),
     NumType(ExpectNumType),
     FinalDestination(ExpectFinalDestination),
     CurryDestination(ExpectCurryDestination),
@@ -76,6 +79,7 @@ impl Expectation {
             Expectation::NumType(epn) => epn.resolve(db, terms, meta),
             Expectation::FinalDestination(epn) => epn.resolve(db, terms, meta),
             Expectation::CurryDestination(epn) => epn.resolve(db, terms, meta),
+            Expectation::ConditionType(epn) => epn.resolve(db, terms, meta),
         }
     }
 }
@@ -164,6 +168,7 @@ pub enum FluffyTermExpectationOutcome {
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),
     NumType(ExpectNumTypeOutcome),
+    ConditionType(ExpectConditionTypeOutcome),
 }
 
 impl FluffyTermExpectationOutcome {
@@ -177,6 +182,7 @@ impl FluffyTermExpectationOutcome {
             FluffyTermExpectationOutcome::EqsFunctionCallType(_) => todo!(),
             FluffyTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
             FluffyTermExpectationOutcome::NumType(_) => todo!(),
+            FluffyTermExpectationOutcome::ConditionType(_) => todo!(),
         }
     }
 }

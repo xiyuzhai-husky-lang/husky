@@ -130,7 +130,7 @@ pub fn find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
         while unsearched[j]:
             let a = unsearched[j]
             let shift = a.ctz()
-            let mut mask = BinaryImage28()
+            let mut mask = BinaryImage28::new_zeros()
             mask[j] = horizontal_extend(a, 1r32 << shift)
             let mut flag = false
             while !flag:

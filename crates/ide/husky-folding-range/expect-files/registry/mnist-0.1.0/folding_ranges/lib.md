@@ -21,7 +21,7 @@ Ok(
             ),
             end_line: 16,
             end_character: Some(
-                21,
+                38,
             ),
             kind: Some(
                 Region,
@@ -29,13 +29,13 @@ Ok(
             collapsed_text: None,
         },
         FoldingRange {
-            start_line: 20,
+            start_line: 18,
             start_character: Some(
                 0,
             ),
-            end_line: 21,
+            end_line: 19,
             end_character: Some(
-                25,
+                21,
             ),
             kind: Some(
                 Region,
@@ -48,6 +48,20 @@ Ok(
                 0,
             ),
             end_line: 24,
+            end_character: Some(
+                38,
+            ),
+            kind: Some(
+                Region,
+            ),
+            collapsed_text: None,
+        },
+        FoldingRange {
+            start_line: 26,
+            start_character: Some(
+                0,
+            ),
+            end_line: 27,
             end_character: Some(
                 21,
             ),
