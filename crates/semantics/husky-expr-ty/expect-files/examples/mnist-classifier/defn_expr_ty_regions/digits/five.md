@@ -24,13 +24,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`OneVsAll MnistLabel`),
-                                    argument: EtherealTerm(`Five`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Five`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -43,13 +42,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`OneVsAll MnistLabel`),
-                                    argument: EtherealTerm(`Five`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Five`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -61,20 +59,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -93,13 +83,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`OneVsAll MnistLabel`),
-                                            argument: EtherealTerm(`Five`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`OneVsAll MnistLabel Five`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -108,13 +97,12 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Five`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`OneVsAll MnistLabel Five`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -130,13 +118,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`OneVsAll MnistLabel`),
-                                            argument: EtherealTerm(`Five`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`OneVsAll MnistLabel Five`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -145,13 +132,12 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Five`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`OneVsAll MnistLabel Five`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(

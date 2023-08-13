@@ -19,17 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Term Error: expected coersion from `List i32` to `Slice _t` under contract `move `",
-                severity: Error,
-                range: [33:16, 33:17),
-            },
-            Diagnostic {
-                message: "Term Error: expected coersion from `List Ref 'static str` to `Slice _t` under contract `move `",
-                severity: Error,
-                range: [39:16, 39:20),
-            },
-        ],
+        diagnostics: [],
     },
 }

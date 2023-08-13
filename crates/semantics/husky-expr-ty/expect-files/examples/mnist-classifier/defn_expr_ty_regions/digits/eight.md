@@ -24,26 +24,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Ritchie(
-                                EtherealTermRitchie {
-                                    ritchie_kind: FnType,
-                                    parameter_contracted_tys: [
-                                        EtherealTermRitchieParameter::Regular(
-                                            EtherealTermRitchieRegularParameter {
-                                                contract: None,
-                                                ty: EtherealTerm(`Leash List ConcaveComponent`),
-                                            },
-                                        ),
-                                        EtherealTermRitchieParameter::Regular(
-                                            EtherealTermRitchieRegularParameter {
-                                                contract: None,
-                                                ty: EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
-                                            },
-                                        ),
-                                    ],
-                                    return_ty: EtherealTerm(`FermiMatchResult`),
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`fn( Leash List ConcaveComponent,  List fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -58,13 +44,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`List ConcaveComponent`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash List ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -79,20 +64,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Ritchie(
-                                EtherealTermRitchie {
-                                    ritchie_kind: FnType,
-                                    parameter_contracted_tys: [
-                                        EtherealTermRitchieParameter::Regular(
-                                            EtherealTermRitchieRegularParameter {
-                                                contract: None,
-                                                ty: EtherealTerm(`Leash ConcaveComponent`),
-                                            },
-                                        ),
-                                    ],
-                                    return_ty: EtherealTerm(`Option f32`),
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -107,13 +84,12 @@
                             ListExprDisambiguation::NewList,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`List`),
-                                    argument: EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -130,13 +106,18 @@
                                     Regular(
                                         FluffyTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 29,
-                                                    },
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 30,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
-                                            ),
+                                            },
                                         },
                                         RegularOrVariadicCallListItem {
                                             argument_expr_idx: 1,
@@ -150,13 +131,18 @@
                                     Regular(
                                         FluffyTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: Application(
-                                                EtherealTermApplication(
-                                                    Id {
-                                                        value: 31,
-                                                    },
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 32,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
-                                            ),
+                                            },
                                         },
                                         RegularOrVariadicCallListItem {
                                             argument_expr_idx: 3,
@@ -167,11 +153,12 @@
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`FermiMatchResult`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -184,11 +171,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`FermiMatchResult`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -200,20 +188,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -240,61 +220,58 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Ritchie(
-                                    EtherealTermRitchie {
-                                        ritchie_kind: FnType,
-                                        parameter_contracted_tys: [
-                                            EtherealTermRitchieParameter::Regular(
-                                                EtherealTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: EtherealTerm(`Leash List ConcaveComponent`),
-                                                },
-                                            ),
-                                            EtherealTermRitchieParameter::Regular(
-                                                EtherealTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: EtherealTerm(`FermiMatchResult`),
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn( Leash List ConcaveComponent,  List fn( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::EqsFunctionCallType(
                                             ExpectEqsFunctionTypeOutcome {
                                                 template_parameter_substitutions: [],
-                                                return_ty: FluffyTerm::EntityPath(
-                                                    TermEntityPath::TypeOntology(
-                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                return_ty: FluffyTerm {
+                                                    place: None,
+                                                    base: FluffyTermBase::Ethereal(
+                                                        EtherealTerm(`FermiMatchResult`),
                                                     ),
-                                                ),
+                                                },
                                                 variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
                                                         FluffyTermRitchieParameter::Regular(
                                                             FluffyTermRitchieRegularParameter {
                                                                 contract: None,
-                                                                ty: Application(
-                                                                    EtherealTermApplication(
-                                                                        Id {
-                                                                            value: 29,
-                                                                        },
+                                                                ty: FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Application(
+                                                                            EtherealTermApplication(
+                                                                                Id {
+                                                                                    value: 30,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     ),
-                                                                ),
+                                                                },
                                                             },
                                                         ),
                                                         FluffyTermRitchieParameter::Regular(
                                                             FluffyTermRitchieRegularParameter {
                                                                 contract: None,
-                                                                ty: Application(
-                                                                    EtherealTermApplication(
-                                                                        Id {
-                                                                            value: 31,
-                                                                        },
+                                                                ty: FluffyTerm {
+                                                                    place: None,
+                                                                    base: Ethereal(
+                                                                        Application(
+                                                                            EtherealTermApplication(
+                                                                                Id {
+                                                                                    value: 32,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     ),
-                                                                ),
+                                                                },
                                                             },
                                                         ),
                                                     ],
@@ -309,13 +286,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`Leash`),
-                                            argument: EtherealTerm(`List ConcaveComponent`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Leash List ConcaveComponent`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -324,13 +300,12 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`List ConcaveComponent`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash List ConcaveComponent`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -346,20 +321,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Ritchie(
-                                        EtherealTermRitchie {
-                                            ritchie_kind: FnType,
-                                            parameter_contracted_tys: [
-                                                EtherealTermRitchieParameter::Regular(
-                                                    EtherealTermRitchieRegularParameter {
-                                                        contract: None,
-                                                        ty: EtherealTerm(`Leash ConcaveComponent`),
-                                                    },
-                                                ),
-                                            ],
-                                            return_ty: EtherealTerm(`Option f32`),
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -368,20 +335,12 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Ritchie(
-                                    EtherealTermRitchie {
-                                        ritchie_kind: FnType,
-                                        parameter_contracted_tys: [
-                                            EtherealTermRitchieParameter::Regular(
-                                                EtherealTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: EtherealTerm(`Leash ConcaveComponent`),
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: EtherealTerm(`Option f32`),
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -397,13 +356,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`List`),
-                                            argument: EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -412,13 +370,12 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`List`),
-                                        argument: EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`List fn( Leash ConcaveComponent) -> Option f32`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -434,11 +391,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -447,11 +405,12 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -467,11 +426,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`FermiMatchResult`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -480,11 +440,12 @@
                                     expr_idx: 5,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`FermiMatchResult`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -522,68 +483,116 @@
         pattern_expr_ty_infos: [
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 35,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 36,
+                                    },
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             },
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 37,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 38,
+                                    },
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             },
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 39,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             },
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 41,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             },
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 24,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
+                            ),
                         ),
-                    ),
+                    },
                 ),
             },
             PatternExprTypeInfo {
                 ty: Ok(
-                    Application(
-                        EtherealTermApplication(
-                            Id {
-                                value: 24,
-                            },
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                            ),
                         ),
-                    ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
                 ),
             },
         ],
@@ -592,79 +601,128 @@
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 35,
-                                    },
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
                     },
                 ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 37,
-                                    },
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
                     },
                 ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 39,
-                                    },
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 40,
+                                            },
+                                        ),
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
                     },
                 ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 41,
-                                    },
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 42,
+                                            },
+                                        ),
+                                    ),
                                 ),
-                            ),
-                        ),
-                    },
-                ),
-                None,
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 24,
-                                    },
-                                ),
-                            ),
+                            },
                         ),
                     },
                 ),
                 Some(
                     PatternSymbolTypeInfo {
                         ty: Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 24,
-                                    },
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                 ),
-                            ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
                         ),
                     },
                 ),
@@ -678,13 +736,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`OneVsAll MnistLabel One`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash OneVsAll MnistLabel One`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -697,11 +754,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -716,13 +774,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`OneVsAll MnistLabel Six`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash OneVsAll MnistLabel Six`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -735,11 +792,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -754,13 +812,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`OneVsAll MnistLabel Zero`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash OneVsAll MnistLabel Zero`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -773,11 +830,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -792,13 +850,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`OneVsAll MnistLabel Seven`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash OneVsAll MnistLabel Seven`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -811,11 +868,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -830,13 +888,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`ConnectedComponent`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConnectedComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -851,13 +908,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`ConnectedComponent`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConnectedComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -879,24 +935,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -918,24 +980,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -948,11 +1016,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -967,13 +1036,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`ConnectedComponent`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConnectedComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -995,24 +1063,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 44,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`EffHoles`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1032,24 +1106,28 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 25,
-                                            },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
+                                            ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`List`),
-                                    argument: EtherealTerm(`Option Leash RawContour`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`List Option Leash RawContour`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1062,11 +1140,14 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    0,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Hollow(
+                                    HollowTerm(
+                                        0,
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1082,25 +1163,29 @@
                                 FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: Int {
-                                        element_ty: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                        element_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 },
                             ),
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Option`),
-                                    argument: EtherealTerm(`Leash RawContour`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash RawContour`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1113,11 +1198,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1132,13 +1218,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`ConnectedComponent`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConnectedComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1160,24 +1245,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 44,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 44,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`EffHoles`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1197,24 +1288,28 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 25,
-                                            },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
+                                            ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`List`),
-                                    argument: EtherealTerm(`Option Leash RawContour`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`List Option Leash RawContour`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1227,11 +1322,14 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Hollow(
-                                HollowTerm(
-                                    1,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Hollow(
+                                    HollowTerm(
+                                        1,
+                                    ),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1247,25 +1345,29 @@
                                 FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: Int {
-                                        element_ty: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                        element_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 },
                             ),
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Option`),
-                                    argument: EtherealTerm(`Leash RawContour`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash RawContour`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1278,11 +1380,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1295,11 +1398,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1312,11 +1416,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -1331,13 +1436,12 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`OneVsAll MnistLabel`),
-                                    argument: EtherealTerm(`Eight`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1350,13 +1454,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`OneVsAll MnistLabel`),
-                                    argument: EtherealTerm(`Eight`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -1367,274 +1470,108 @@
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [
-            Err(
-                ExprTermError::Derived(
-                    DerivedExprTermError::LiteralTypeNotResolved,
-                ),
-            ),
-            Err(
-                ExprTermError::Derived(
-                    DerivedExprTermError::LiteralTypeNotResolved,
-                ),
+            Ok(
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`1`),
+                    ),
+                },
             ),
             Ok(
-                FluffyTerm::Literal(
-                    TermLiteral::Bool(
-                        false,
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`0`),
                     ),
-                ),
+                },
             ),
             Ok(
-                FluffyTerm::Literal(
-                    TermLiteral::Bool(
-                        false,
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`false`),
                     ),
-                ),
+                },
+            ),
+            Ok(
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`false`),
+                    ),
+                },
             ),
         ],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [],
+            current_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash OneVsAll MnistLabel One`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash OneVsAll MnistLabel Six`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    2,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash OneVsAll MnistLabel Zero`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    3,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash OneVsAll MnistLabel Seven`),
                         ),
-                    ),
-                    None,
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    4,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    5,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Option Leash RawContour`),
                         ),
-                    ),
-                ],
-            },
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Option Leash RawContour`),
+                        ),
+                    },
+                ),
+            ],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                ],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::mem::Leash`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Indirection(
-                                    Leash,
-                                ),
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`One`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Leash OneVsAll MnistLabel One`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::mem::Leash`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Indirection(
-                                    Leash,
-                                ),
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Six`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Leash OneVsAll MnistLabel Six`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        1,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::mem::Leash`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Indirection(
-                                    Leash,
-                                ),
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Zero`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Leash OneVsAll MnistLabel Zero`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        2,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::mem::Leash`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Indirection(
-                                    Leash,
-                                ),
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Seven`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Leash OneVsAll MnistLabel Seven`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        3,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::option::Option`, `Enum`),
-                            refined_path: Left(
-                                PreludeTypePath::Option,
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Option Leash RawContour`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        5,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::option::Option`, `Enum`),
-                            refined_path: Left(
-                                PreludeTypePath::Option,
-                            ),
-                            arguments: [
-                                FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Option Leash RawContour`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        6,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [
@@ -1645,27 +1582,37 @@
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                constraints: [
-                                    CoercibleInto {
-                                        target: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 25,
-                                                    },
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
+                                    },
+                                ),
+                                constraints: [
+                                    CoercibleInto {
+                                        target: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 25,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     },
                                 ],
                             },
@@ -1680,27 +1627,37 @@
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                constraints: [
-                                    CoercibleInto {
-                                        target: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 25,
-                                                    },
+                                    FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
+                                    },
+                                ),
+                                constraints: [
+                                    CoercibleInto {
+                                        target: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 25,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
                                     },
                                 ],
                             },
@@ -1725,13 +1682,12 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`OneVsAll MnistLabel One`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash OneVsAll MnistLabel One`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1739,11 +1695,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -1752,11 +1709,12 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -1778,13 +1736,12 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`OneVsAll MnistLabel Six`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash OneVsAll MnistLabel Six`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1792,11 +1749,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -1805,11 +1763,12 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -1831,13 +1790,12 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`OneVsAll MnistLabel Zero`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash OneVsAll MnistLabel Zero`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1845,11 +1803,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -1858,11 +1817,12 @@
                                     expr_idx: 5,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -1884,13 +1844,12 @@
                                     expr_idx: 6,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`OneVsAll MnistLabel Seven`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash OneVsAll MnistLabel Seven`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1898,11 +1857,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -1911,11 +1871,12 @@
                                     expr_idx: 7,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -1937,13 +1898,12 @@
                                     expr_idx: 8,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`ConnectedComponent`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1957,11 +1917,12 @@
                                     expr_idx: 10,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1975,13 +1936,12 @@
                                     expr_idx: 9,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`ConnectedComponent`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -1989,11 +1949,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::num::f32`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2002,11 +1963,12 @@
                                     expr_idx: 11,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2028,11 +1990,12 @@
                                     expr_idx: 12,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2046,13 +2009,12 @@
                                     expr_idx: 13,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`ConnectedComponent`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2066,11 +2028,12 @@
                                     expr_idx: 14,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`EffHoles`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2084,13 +2047,12 @@
                                     expr_idx: 15,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`List`),
-                                        argument: EtherealTerm(`Option Leash RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`List Option Leash RawContour`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2104,11 +2066,14 @@
                                     expr_idx: 16,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2116,11 +2081,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::num::usize`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`usize`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2129,11 +2095,14 @@
                                     expr_idx: 17,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2155,13 +2124,12 @@
                                     expr_idx: 17,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Option`),
-                                        argument: EtherealTerm(`Leash RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2169,11 +2137,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2182,11 +2151,12 @@
                                     expr_idx: 18,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2208,13 +2178,12 @@
                                     expr_idx: 19,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`ConnectedComponent`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConnectedComponent`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2228,11 +2197,12 @@
                                     expr_idx: 20,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`EffHoles`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2246,13 +2216,12 @@
                                     expr_idx: 21,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`List`),
-                                        argument: EtherealTerm(`Option Leash RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`List Option Leash RawContour`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2266,11 +2235,14 @@
                                     expr_idx: 22,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        1,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Hollow(
+                                        HollowTerm(
+                                            1,
+                                        ),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2278,11 +2250,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::num::usize`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`usize`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2291,11 +2264,14 @@
                                     expr_idx: 23,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Hollow(
-                                    HollowTerm(
-                                        1,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Hollow(
+                                        HollowTerm(
+                                            1,
+                                        ),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2317,13 +2293,12 @@
                                     expr_idx: 23,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Option`),
-                                        argument: EtherealTerm(`Leash RawContour`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash RawContour`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -2331,11 +2306,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2344,11 +2320,12 @@
                                     expr_idx: 24,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2364,11 +2341,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2377,11 +2355,12 @@
                                     expr_idx: 25,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2397,11 +2376,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2410,11 +2390,12 @@
                                     expr_idx: 26,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2430,13 +2411,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`OneVsAll MnistLabel`),
-                                            argument: EtherealTerm(`Eight`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2445,13 +2425,12 @@
                                     expr_idx: 27,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Eight`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2467,13 +2446,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`OneVsAll MnistLabel`),
-                                            argument: EtherealTerm(`Eight`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -2482,13 +2460,12 @@
                                     expr_idx: 28,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`OneVsAll MnistLabel`),
-                                        argument: EtherealTerm(`Eight`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`OneVsAll MnistLabel Eight`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -2533,11 +2510,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConcaveComponent`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2551,15 +2529,6 @@
                         ExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
-                                    Place(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                LocalSymbolIdx(
-                                                    0,
-                                                ),
-                                            ),
-                                        },
-                                    ),
                                     Leash,
                                 ],
                                 ty_path: TypePath(
@@ -2568,24 +2537,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 54,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`RelativeBoundingBox`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2602,25 +2577,31 @@
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
-                                        return_ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 26,
-                                                    },
+                                        return_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 26,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 ),
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2633,11 +2614,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2650,11 +2632,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2667,11 +2650,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConcaveComponent`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2685,15 +2669,6 @@
                         ExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
-                                    Place(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                LocalSymbolIdx(
-                                                    0,
-                                                ),
-                                            ),
-                                        },
-                                    ),
                                     Leash,
                                 ],
                                 ty_path: TypePath(
@@ -2702,24 +2677,28 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 43,
-                                            },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 44,
+                                                    },
+                                                ),
+                                            ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`CyclicSliceLeashed`),
-                                    argument: EtherealTerm(`LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2736,25 +2715,29 @@
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
-                                        return_ty: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
+                                        return_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 46,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 ),
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Option`),
-                                    argument: EtherealTerm(`Leash LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2769,13 +2752,12 @@
                             UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2797,24 +2779,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 49,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2827,11 +2815,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConcaveComponent`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2845,15 +2834,6 @@
                         ExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
-                                    Place(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                LocalSymbolIdx(
-                                                    0,
-                                                ),
-                                            ),
-                                        },
-                                    ),
                                     Leash,
                                 ],
                                 ty_path: TypePath(
@@ -2862,24 +2842,28 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 43,
-                                            },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 44,
+                                                    },
+                                                ),
+                                            ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`CyclicSliceLeashed`),
-                                    argument: EtherealTerm(`LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2896,25 +2880,29 @@
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
-                                        return_ty: Application(
-                                            EtherealTermApplication(
-                                                Id {
-                                                    value: 45,
-                                                },
+                                        return_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 46,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 ),
                             },
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Option`),
-                                    argument: EtherealTerm(`Leash LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2929,13 +2917,12 @@
                             UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
                         Ok(
-                            FluffyTerm::Application(
-                                EtherealTermApplication {
-                                    function: EtherealTerm(`Leash`),
-                                    argument: EtherealTerm(`LineSegmentStroke`),
-                                    shift: 0,
-                                },
-                            ),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2957,24 +2944,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 49,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -2994,24 +2987,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3031,24 +3030,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3061,11 +3066,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::bool`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3078,11 +3084,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::Solid(
-                                SolidTerm(
-                                    0,
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash ConcaveComponent`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3096,15 +3103,6 @@
                         ExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
-                                    Place(
-                                        StackPure {
-                                            location: StackLocationIdx(
-                                                LocalSymbolIdx(
-                                                    0,
-                                                ),
-                                            ),
-                                        },
-                                    ),
                                     Leash,
                                 ],
                                 ty_path: TypePath(
@@ -3113,24 +3111,30 @@
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
-                                    ty: EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 54,
-                                                },
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`RelativeBoundingBox`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3147,25 +3151,31 @@
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
                                         parenate_parameters: [],
-                                        return_ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 26,
-                                                    },
+                                        return_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 26,
+                                                            },
+                                                        ),
+                                                    ),
                                                 ),
                                             ),
-                                        ),
+                                        },
                                     },
                                 ),
                             },
                         ),
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3178,11 +3188,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::num::f32`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -3194,73 +3205,35 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [
             Ok(
-                FluffyTerm::Literal(
-                    TermLiteral::F32(
-                        NotNan(
-                            0.5,
-                        ),
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`0.5`),
                     ),
-                ),
+                },
             ),
         ],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash ConcaveComponent`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::mem::Leash`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Indirection(
-                                    Leash,
-                                ),
-                            ),
-                            arguments: [
-                                FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    ),
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Leash ConcaveComponent`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -3280,11 +3253,12 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Solid(
-                                    SolidTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3298,11 +3272,12 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`RelativeBoundingBox`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3316,11 +3291,12 @@
                                     expr_idx: 2,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3328,11 +3304,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::num::f32`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3341,11 +3318,12 @@
                                     expr_idx: 3,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -3361,11 +3339,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3374,11 +3353,12 @@
                                     expr_idx: 4,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -3400,11 +3380,12 @@
                                     expr_idx: 5,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Solid(
-                                    SolidTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3418,13 +3399,12 @@
                                     expr_idx: 6,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`CyclicSliceLeashed`),
-                                        argument: EtherealTerm(`LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3440,13 +3420,12 @@
                                     expr_idx: 7,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Option`),
-                                        argument: EtherealTerm(`Leash LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3460,13 +3439,12 @@
                                     expr_idx: 8,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3480,11 +3458,12 @@
                                     expr_idx: 9,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3498,11 +3477,12 @@
                                     expr_idx: 15,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3516,11 +3496,12 @@
                                     expr_idx: 10,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Solid(
-                                    SolidTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3534,13 +3515,12 @@
                                     expr_idx: 11,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`CyclicSliceLeashed`),
-                                        argument: EtherealTerm(`LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`CyclicSliceLeashed LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3556,13 +3536,12 @@
                                     expr_idx: 12,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Option`),
-                                        argument: EtherealTerm(`Leash LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3576,13 +3555,12 @@
                                     expr_idx: 13,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Application(
-                                    EtherealTermApplication {
-                                        function: EtherealTerm(`Leash`),
-                                        argument: EtherealTerm(`LineSegmentStroke`),
-                                        shift: 0,
-                                    },
-                                ),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3596,11 +3574,12 @@
                                     expr_idx: 14,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3608,11 +3587,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::num::f32`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3621,11 +3601,12 @@
                                     expr_idx: 16,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -3641,11 +3622,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty_expected: FluffyTerm::EntityPath(
-                                        TermEntityPath::TypeOntology(
-                                            TypePath(`core::basic::bool`, `Extern`),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`bool`),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3654,11 +3636,12 @@
                                     expr_idx: 17,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::bool`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`bool`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -3680,11 +3663,12 @@
                                     expr_idx: 18,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::Solid(
-                                    SolidTerm(
-                                        0,
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash ConcaveComponent`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3698,11 +3682,12 @@
                                     expr_idx: 19,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`RelativeBoundingBox`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Intact,
                             },
                         },
@@ -3710,13 +3695,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`Option`),
-                                            argument: EtherealTerm(`f32`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option f32`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3725,11 +3709,12 @@
                                     expr_idx: 20,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -3743,13 +3728,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`Option`),
-                                            argument: EtherealTerm(`f32`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option f32`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -3758,11 +3742,12 @@
                                     expr_idx: 21,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::num::f32`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(

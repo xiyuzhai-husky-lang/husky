@@ -304,6 +304,77 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `max`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
     HirDefn::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
@@ -493,6 +564,77 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `max`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 10,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
     HirDefn::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
@@ -667,6 +809,148 @@
                         },
                         parenate_parameters: HirParenateParameters {
                             data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `max`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `min`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `min`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         return_ty: PathLeading(
                             HirTypePathLeading(
@@ -2617,6 +2901,148 @@
                         },
                         parenate_parameters: HirParenateParameters {
                             data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `max`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `min`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `min`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: PathLeading(
+                                        HirTypePathLeading(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         return_ty: PathLeading(
                             HirTypePathLeading(

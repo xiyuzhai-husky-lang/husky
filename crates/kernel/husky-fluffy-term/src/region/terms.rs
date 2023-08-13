@@ -1,8 +1,8 @@
-mod hollow;
-mod solid;
+mod hollow_terms;
+mod solid_terms;
 
-pub use self::hollow::*;
-pub use self::solid::*;
+pub use self::hollow_terms::*;
+pub use self::solid_terms::*;
 
 use super::*;
 

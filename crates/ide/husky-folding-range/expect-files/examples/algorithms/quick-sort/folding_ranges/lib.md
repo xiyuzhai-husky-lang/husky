@@ -131,9 +131,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 33,
+            end_line: 31,
             end_character: Some(
-                53,
+                60,
             ),
             kind: Some(
                 Region,
@@ -145,7 +145,7 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 39,
+            end_line: 37,
             end_character: Some(
                 72,
             ),

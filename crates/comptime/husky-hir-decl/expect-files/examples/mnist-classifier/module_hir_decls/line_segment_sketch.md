@@ -177,7 +177,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 65,
+                        value: 72,
                     },
                 ),
             ),

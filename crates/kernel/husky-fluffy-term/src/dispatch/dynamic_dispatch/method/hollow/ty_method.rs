@@ -28,7 +28,7 @@ impl HasFluffyTypeMethodDispatch for HollowTerm {
                 engine
                     .fluffy_term_region_mut()
                     .terms
-                    .fill_hole_by_force(hole, db, term_menu)?;
+                    .fill_hole_by_force(hole, db, term_menu);
                 // ad hoc, needs improvement
                 Into::<FluffyTerm>::into(self).ty_method_dispatch(engine, expr_idx, ident_token)
             }

@@ -26,16 +26,6 @@ DiagnosticSheet {
                 range: [172:35, 172:49),
             },
             Diagnostic {
-                message: "Term Error: expected subtype",
-                severity: Error,
-                range: [178:61, 178:80),
-            },
-            Diagnostic {
-                message: "Term Error: expected subtype",
-                severity: Error,
-                range: [178:60, 178:81),
-            },
-            Diagnostic {
                 message: "Term Error: expected coersion from `i32` to `bool` under contract ``",
                 severity: Error,
                 range: [212:20, 212:32),

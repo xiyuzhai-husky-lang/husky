@@ -135,7 +135,7 @@ impl TermLiteral {
             TermLiteral::USize(lit) => lit.value(db).fmt(f),
             TermLiteral::R8(_) => todo!(),
             TermLiteral::R16(_) => todo!(),
-            TermLiteral::R32(_) => todo!(),
+            TermLiteral::R32(val) => f.write_fmt(format_args!("{}r32", val)),
             TermLiteral::R64(_) => todo!(),
             TermLiteral::R128(_) => todo!(),
             TermLiteral::RSize(_) => todo!(),
