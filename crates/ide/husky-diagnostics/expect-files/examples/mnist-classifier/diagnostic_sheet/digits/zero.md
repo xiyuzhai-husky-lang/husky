@@ -19,6 +19,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: no field named bounding_box in Option Leash RawContour",
+                severity: Error,
+                range: [32:13, 32:36),
+            },
+            Diagnostic {
+                message: "Type Error: no field named bounding_box in Option Leash RawContour",
+                severity: Error,
+                range: [32:46, 32:69),
+            },
+        ],
     },
 }

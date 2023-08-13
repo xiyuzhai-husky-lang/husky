@@ -55,7 +55,8 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
         .iter()
         .enumerate()
         .map(|(_field_idx, field)| -> proc_macro2::TokenStream {
-            let field_ident = field.ident.as_ref().unwrap();
+            let mut field_ident = field.ident.as_ref().unwrap().clone();
+            field_ident.set_span(Span::mixed_site());
             let field_ident_string = field_ident.to_string();
             let field_ty = &field.ty;
 

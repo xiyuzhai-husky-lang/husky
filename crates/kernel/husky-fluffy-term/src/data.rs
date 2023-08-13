@@ -137,32 +137,32 @@ impl FluffyTerm {
         db: &'a dyn FluffyTermDb,
         terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
-        match self.base() {
+        match self.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(term) => ethereal_term_data(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
             FluffyTermBase::Hollow(term) => term.fluffy_data(db, terms),
         }
     }
 
-    pub fn ty_data<'a, 'b>(
+    pub fn base_ty_data<'a, 'b>(
         self,
         engine: &'a impl FluffyTermEngine<'b>,
-    ) -> (Option<Place>, FluffyBaseTypeData<'a>)
+    ) -> FluffyBaseTypeData<'a>
     where
         'b: 'a,
     {
-        self.ty_data_inner(engine.db(), engine.fluffy_terms())
+        self.base_ty_data_inner(engine.db(), engine.fluffy_terms())
     }
 
-    pub fn ty_data_inner<'a>(
+    pub fn base_ty_data_inner<'a>(
         self,
         db: &'a dyn FluffyTermDb,
         terms: &'a FluffyTerms,
-    ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
-        match self.base() {
+    ) -> FluffyBaseTypeData<'a> {
+        match self.base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(term) => ethereal_term_data2(db, term),
             FluffyTermBase::Solid(term) => term.data_inner(terms.solid_terms()).into(),
-            FluffyTermBase::Hollow(term) => term.fluffy_data2(db, terms),
+            FluffyTermBase::Hollow(term) => term.fluffy_base_ty_data(db, terms),
         }
     }
 }

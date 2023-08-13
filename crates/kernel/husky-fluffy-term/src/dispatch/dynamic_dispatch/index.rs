@@ -16,7 +16,7 @@ impl FluffyTerm {
         expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
     ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
-        match self.base() {
+        match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty)
             }

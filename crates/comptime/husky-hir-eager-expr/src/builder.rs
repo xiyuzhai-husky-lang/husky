@@ -91,7 +91,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             .expr_fluffy_term(syn_expr_idx)
             .expect("hir stage some")
             .expect("hir stage ok")
-            .base()
+            .base_resolved_inner(self.expr_ty_region.fluffy_term_region().terms())
         {
             FluffyTermBase::Ethereal(term) => term,
             FluffyTermBase::Solid(_) => todo!(),

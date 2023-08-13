@@ -28,20 +28,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -97,59 +89,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i8`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i8`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I8,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i8`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -197,20 +156,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -266,59 +217,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i32`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -366,20 +284,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -435,59 +345,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i32`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -535,20 +412,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -604,59 +473,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i64`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i64`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I64,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i64`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -704,20 +540,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -773,59 +601,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i128`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i128`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I128,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i128`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -873,20 +668,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -942,59 +729,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`isize`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::isize`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        ISize,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`isize`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1042,20 +796,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1111,59 +857,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`u8`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::u8`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        U8,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`u8`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1211,20 +924,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1280,59 +985,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`u16`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::u16`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        U16,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`u16`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1380,20 +1052,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1449,59 +1113,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`u32`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::u32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        U32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`u32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1549,20 +1180,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1618,59 +1241,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`u64`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::u64`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        U64,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`u64`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1718,20 +1308,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1787,59 +1369,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`u128`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::u128`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        U128,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`u128`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -1887,20 +1436,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -1956,59 +1497,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`usize`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::usize`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        USize,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`usize`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -2056,20 +1564,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -2122,20 +1622,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -2191,59 +1683,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::f32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Float(
-                                        F32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`f32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -2291,20 +1750,12 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -2360,59 +1811,26 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f64`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+            inherited_symbol_map: [],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::f64`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Float(
-                                        F64,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`f64`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        0,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],

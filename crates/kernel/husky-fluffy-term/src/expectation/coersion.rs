@@ -176,9 +176,9 @@ fn resolve_aux(
     terms: &FluffyTerms,
     state: &mut ExpectationState,
 ) -> AltOption<FluffyTermEffect> {
-    let (src_place, src_base_ty_data) = src.ty_data_inner(db, terms);
-    let (dst_place, dst_base_ty_data) = dst.ty_data_inner(db, terms);
-    let coersion = coersion(src_place, dst_place)?;
+    let src_base_ty_data = src.base_ty_data_inner(db, terms);
+    let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
+    let coersion = coersion(src.place(), dst.place())?;
     if src_base_ty_data == dst_base_ty_data {
         return state.set_ok(coersion, smallvec![]);
     }

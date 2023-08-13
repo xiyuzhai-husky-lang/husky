@@ -56,7 +56,7 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        match state.expectee().base() {
+        match state.expectee().base_resolved_inner(terms) {
             FluffyTermBase::Ethereal(EtherealTerm::Category(cat)) => {
                 match cat.universe() >= self.smallest_universe {
                     true => state.set_ok(

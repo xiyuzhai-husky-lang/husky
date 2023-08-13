@@ -21,8 +21,7 @@ impl ExpectCoersion {
         // }
         // todo: assert that is None
         // let (None, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms) else {
-        let (expected_place, expected_base_ty_data) = self.ty_expected.ty_data_inner(db, terms)
-        else {
+        let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms) else {
             unreachable!(
                 "place should be merged with contract already, self.ty_expected = {}",
                 self.ty_expected.show(db, terms)
@@ -39,7 +38,6 @@ impl ExpectCoersion {
                 PreludeIndirectionTypePath::RefMut => todo!(),
                 PreludeIndirectionTypePath::Leash => {
                     debug_assert_eq!(expected_ty_arguments.len(), 1);
-                    let (dst_place, dst) = expected_ty_arguments[0].ty_data_inner(db, terms);
                     // todo: check place
                     resolve_aux(
                         state.expectee(),

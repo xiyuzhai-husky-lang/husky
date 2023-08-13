@@ -38,11 +38,20 @@ impl ExpectFluffyTerm for ExpectNumType {
         match state.expectee().data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
                 ..
-            } => todo!(),
+            } => match refined_ty_path {
+                Left(PreludeTypePath::Num(_)) => state.set_ok(
+                    ExpectNumTypeOutcome {
+                        placeless_num_ty: state.expectee(),
+                    },
+                    smallvec![],
+                ),
+                _ => todo!(),
+                // state.set_err(todo!(), smallvec![]),
+            },
             FluffyTermData::Curry {
                 curry_kind,
                 variance,

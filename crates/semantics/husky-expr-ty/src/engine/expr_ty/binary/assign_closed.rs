@@ -13,8 +13,8 @@ impl<'a> ExprTypeEngine<'a> {
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         match self.infer_new_expr_ty(lopd, ExpectAnyOriginal) {
             Some(lopd_ty) => {
-                let (lopd_place, lopd_base_ty) = lopd_ty.ty_data(self);
-                match lopd_place {
+                let lopd_base_ty = lopd_ty.base_ty_data(self);
+                match lopd_ty.place() {
                     Some(lopd_place) => match lopd_place {
                         Place::Const => todo!(),
                         Place::StackPure { location } => todo!(),
@@ -47,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
                         return_ty,
                         ty_ethereal_term,
                     } => todo!(),
-                    FluffyBaseTypeData::Hole(_, _) => todo!(),
+                    FluffyBaseTypeData::Hole(_, _) => lopd_ty, // ad hoc
                     FluffyBaseTypeData::Category(_) => todo!(),
                     FluffyBaseTypeData::Ritchie {
                         ritchie_kind,

@@ -126,11 +126,55 @@ impl<'a> ExprTypeEngine<'a> {
         match ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
                 ..
-            } => todo!(),
+            } => match refined_ty_path {
+                Left(prelude_ty_path) => match prelude_ty_path {
+                    PreludeTypePath::Basic(_) => todo!(),
+                    PreludeTypePath::Num(num_ty_path) => match num_ty_path {
+                        PreludeNumTypePath::Int(int_ty_path) => match int_ty_path {
+                            PreludeIntTypePath::I8 => todo!(),
+                            PreludeIntTypePath::I16 => todo!(),
+                            PreludeIntTypePath::I32 => todo!(),
+                            PreludeIntTypePath::I64 => todo!(),
+                            PreludeIntTypePath::I128 => todo!(),
+                            PreludeIntTypePath::ISize => todo!(),
+                            PreludeIntTypePath::U8 => todo!(),
+                            PreludeIntTypePath::U16 => todo!(),
+                            PreludeIntTypePath::U32 => todo!(),
+                            PreludeIntTypePath::U64 => todo!(),
+                            PreludeIntTypePath::U128 => todo!(),
+                            PreludeIntTypePath::USize => todo!(),
+                            raw_bit_ty_path @ (PreludeIntTypePath::R8
+                            | PreludeIntTypePath::R16
+                            | PreludeIntTypePath::R32
+                            | PreludeIntTypePath::R64
+                            | PreludeIntTypePath::R128
+                            | PreludeIntTypePath::RSize) => Ok(ty),
+                        },
+                        PreludeNumTypePath::Float(_) => todo!(),
+                    },
+                    PreludeTypePath::Indirection(_) => todo!(),
+                    PreludeTypePath::Nat => todo!(),
+                    PreludeTypePath::Lifetime => todo!(),
+                    PreludeTypePath::Module => todo!(),
+                    PreludeTypePath::Trait => todo!(),
+                    PreludeTypePath::List => todo!(),
+                    PreludeTypePath::Array => todo!(),
+                    PreludeTypePath::Array2d => todo!(),
+                    PreludeTypePath::Array3d => todo!(),
+                    PreludeTypePath::Array4d => todo!(),
+                    PreludeTypePath::Array5d => todo!(),
+                    PreludeTypePath::Slice => todo!(),
+                    PreludeTypePath::StringLiteral => todo!(),
+                    PreludeTypePath::Str => todo!(),
+                    PreludeTypePath::Option => todo!(),
+                    PreludeTypePath::Result => todo!(),
+                },
+                Right(_) => todo!(),
+            },
             FluffyTermData::Curry {
                 curry_kind,
                 variance,

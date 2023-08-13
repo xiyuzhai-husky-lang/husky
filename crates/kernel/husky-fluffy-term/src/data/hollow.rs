@@ -121,13 +121,13 @@ impl HollowTerm {
         }
     }
 
-    pub(crate) fn fluffy_data2<'a>(
+    pub(crate) fn fluffy_base_ty_data<'a>(
         self,
         db: &'a dyn FluffyTermDb,
         fluffy_terms: &'a FluffyTerms,
-    ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
+    ) -> FluffyBaseTypeData<'a> {
         match self.resolve_progress(fluffy_terms) {
-            TermResolveProgress::UnresolvedHollow => self.fluffy_data_aux2(db, fluffy_terms),
+            TermResolveProgress::UnresolvedHollow => self.fluffy_base_ty_data_aux(db, fluffy_terms),
             TermResolveProgress::ResolvedEthereal(term) => ethereal_term_data2(db, term),
             TermResolveProgress::ResolvedSolid(term) => {
                 term.data_inner(fluffy_terms.solid_terms()).into()
@@ -136,62 +136,53 @@ impl HollowTerm {
         }
     }
 
-    pub(crate) fn fluffy_data_aux2<'a>(
+    pub(crate) fn fluffy_base_ty_data_aux<'a>(
         self,
         db: &'a dyn FluffyTermDb,
         fluffy_terms: &'a FluffyTerms,
-    ) -> (Option<Place>, FluffyBaseTypeData<'a>) {
+    ) -> FluffyBaseTypeData<'a> {
         match fluffy_terms.hollow_terms().hollow_term_data(self) {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
-            } => (
-                None,
-                FluffyBaseTypeData::TypeOntology {
-                    ty_path: *path,
-                    refined_ty_path: *refined_path,
-                    ty_arguments: argument_tys,
-                    ty_ethereal_term: None,
-                },
-            ),
+            } => FluffyBaseTypeData::TypeOntology {
+                ty_path: *path,
+                refined_ty_path: *refined_path,
+                ty_arguments: argument_tys,
+                ty_ethereal_term: None,
+            },
             HollowTermData::Curry {
                 curry_kind,
                 variance,
                 parameter_variable,
                 parameter_ty,
                 return_ty,
-            } => (
-                None,
-                FluffyBaseTypeData::Curry {
-                    curry_kind: *curry_kind,
-                    variance: *variance,
-                    parameter_variable: parameter_variable.map(Into::into),
-                    parameter_ty: (*parameter_ty).into(),
-                    return_ty: (*return_ty).into(),
-                    ty_ethereal_term: None,
-                },
-            ),
+            } => FluffyBaseTypeData::Curry {
+                curry_kind: *curry_kind,
+                variance: *variance,
+                parameter_variable: parameter_variable.map(Into::into),
+                parameter_ty: (*parameter_ty).into(),
+                return_ty: (*return_ty).into(),
+                ty_ethereal_term: None,
+            },
             HollowTermData::Hole {
                 fill: Some(fill), ..
-            } => fill.ty_data_inner(db, fluffy_terms),
+            } => fill.base_ty_data_inner(db, fluffy_terms),
             HollowTermData::Hole {
                 hole_kind,
                 fill: None,
                 ..
-            } => (None, FluffyBaseTypeData::Hole(*hole_kind, Hole(self))),
+            } => FluffyBaseTypeData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
                 params: parameter_contracted_tys,
                 return_ty,
-            } => (
-                None,
-                FluffyBaseTypeData::Ritchie {
-                    ritchie_kind: *ritchie_kind,
-                    parameter_contracted_tys,
-                    return_ty: *return_ty,
-                },
-            ),
+            } => FluffyBaseTypeData::Ritchie {
+                ritchie_kind: *ritchie_kind,
+                parameter_contracted_tys,
+                return_ty: *return_ty,
+            },
         }
     }
 }

@@ -90,7 +90,7 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        match self.base() {
+        match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token)
             }
@@ -112,7 +112,7 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        match self.base() {
+        match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(ty_term) => {
                 ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }

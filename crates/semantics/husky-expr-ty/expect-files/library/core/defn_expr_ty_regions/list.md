@@ -28,42 +28,28 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -116,79 +102,41 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`t`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::SymbolAtPlace {
-                            term: EtherealTermSymbol {
-                                ty: EtherealTerm(`Type`),
-                                index: EtherealTermSymbolIndex(
-                                    Type {
-                                        attrs: EtherealTemplateSymbolAttrs {
-                                            phantom: false,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            },
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        1,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -234,42 +182,28 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -322,42 +256,28 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -410,42 +330,28 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -498,42 +404,28 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -586,110 +478,49 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i32`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    1,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`i32`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    None,
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        1,
-                                    ),
-                                ),
-                            },
-                        },
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::num::i32`, `Extern`),
-                            refined_path: Left(
-                                PreludeTypePath::Num(
-                                    Int(
-                                        I32,
-                                    ),
-                                ),
-                            ),
-                            arguments: [],
-                            base_ty_term: Some(
-                                EtherealTerm(`i32`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        2,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],

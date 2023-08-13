@@ -59,7 +59,7 @@ impl FluffyTerm {
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
-        match self.base() {
+        match self.base_resolved(engine) {
             FluffyTermBase::Ethereal(term) => {
                 JustOk(ethereal_ty_field_dispatch(engine.db(), term, ident)?.merge(indirections))
             }

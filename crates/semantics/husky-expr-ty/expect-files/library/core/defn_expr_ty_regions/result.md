@@ -31,102 +31,70 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
@@ -182,11 +150,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::never`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`never`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -199,11 +168,12 @@
                     (
                         ExprDisambiguation::Trivial,
                         Ok(
-                            FluffyTerm::EntityPath(
-                                TermEntityPath::TypeOntology(
-                                    TypePath(`core::basic::never`, `Extern`),
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`never`),
                                 ),
-                            ),
+                            },
                         ),
                     ),
                 ),
@@ -215,164 +185,83 @@
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+            inherited_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Type`),
                         ),
-                    ),
-                    Some(
-                        SymbolType(
-                            Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Result t s`),
                         ),
-                    ),
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                    },
+                ),
+            ],
+            current_symbol_map: [],
         },
         symbol_terms: SymbolMap {
-            inherited_symbol_map: ArenaMap {
-                data: [
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
-                        ),
+            inherited_symbol_map: [
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    Some(
-                        Symbol(
-                            EtherealTermSymbol(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
-                        ),
+                },
+                FluffyTerm {
+                    place: None,
+                    base: FluffyTermBase::Ethereal(
+                        EtherealTerm(`t`),
                     ),
-                    None,
-                ],
-            },
-            current_symbol_map: ArenaMap {
-                data: [],
-            },
+                },
+            ],
+            current_symbol_map: [],
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: [
-                        SolidTermData::TypeOntologyAtPlace {
-                            path: TypePath(`core::result::Result`, `Enum`),
-                            refined_path: Left(
-                                PreludeTypePath::Result,
-                            ),
-                            arguments: [
-                                FluffyTerm::Symbol(
-                                    EtherealTermSymbol {
-                                        ty: EtherealTerm(`Type`),
-                                        index: EtherealTermSymbolIndex(
-                                            Type {
-                                                attrs: EtherealTemplateSymbolAttrs {
-                                                    phantom: false,
-                                                },
-                                                variance: None,
-                                                disambiguator: 1,
-                                            },
-                                        ),
-                                    },
-                                ),
-                                FluffyTerm::Symbol(
-                                    EtherealTermSymbol {
-                                        ty: EtherealTerm(`Type`),
-                                        index: EtherealTermSymbolIndex(
-                                            Type {
-                                                attrs: EtherealTemplateSymbolAttrs {
-                                                    phantom: false,
-                                                },
-                                                variance: None,
-                                                disambiguator: 3,
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ],
-                            base_ty_term: Some(
-                                EtherealTerm(`Result t s`),
-                            ),
-                            place: StackPure {
-                                location: StackLocationIdx(
-                                    LocalSymbolIdx(
-                                        4,
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -386,13 +275,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`Result t`),
-                                            argument: EtherealTerm(`t`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Result t s`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -401,11 +289,12 @@
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::never`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`never`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(
@@ -419,13 +308,12 @@
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty_expected: FluffyTerm::Application(
-                                        EtherealTermApplication {
-                                            function: EtherealTerm(`Result t`),
-                                            argument: EtherealTerm(`t`),
-                                            shift: 0,
-                                        },
-                                    ),
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Result t s`),
+                                        ),
+                                    },
                                 },
                             ),
                             meta: ExpectationState {
@@ -434,11 +322,12 @@
                                     expr_idx: 1,
                                     kind: Expr,
                                 },
-                                expectee: FluffyTerm::EntityPath(
-                                    TermEntityPath::TypeOntology(
-                                        TypePath(`core::basic::never`, `Extern`),
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`never`),
                                     ),
-                                ),
+                                },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
                                         FluffyTermExpectationOutcome::ImplicitlyConvertible(

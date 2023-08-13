@@ -127,11 +127,30 @@ impl FluffyTerm {
         self.place
     }
 
-    pub fn base(self) -> FluffyTermBase {
-        self.base
+    pub fn base_resolved(self, engine: &impl FluffyTermEngine) -> FluffyTermBase {
+        self.base_resolved_inner(engine.fluffy_terms())
+    }
+
+    pub fn base_resolved_inner(
+        self,
+        terms: &impl std::borrow::Borrow<HollowTerms>,
+    ) -> FluffyTermBase {
+        match self.base {
+            FluffyTermBase::Ethereal(_) | FluffyTermBase::Solid(_) => self.base,
+            FluffyTermBase::Hollow(term) => match term.resolve_progress(terms.borrow()) {
+                TermResolveProgress::UnresolvedHollow => self.base,
+                TermResolveProgress::ResolvedEthereal(term) => term.into(),
+                TermResolveProgress::ResolvedSolid(term) => term.into(),
+                TermResolveProgress::Err => todo!(),
+            },
+        }
     }
 
     pub fn show(self, db: &dyn FluffyTermDb, terms: &FluffyTerms) -> String {
         self.data_inner(db, terms).show(db, terms)
+    }
+
+    pub(crate) fn base(&self) -> FluffyTermBase {
+        self.base
     }
 }
