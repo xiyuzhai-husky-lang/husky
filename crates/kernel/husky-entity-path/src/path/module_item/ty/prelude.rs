@@ -23,6 +23,7 @@ pub enum PreludeTypePath {
     Str,
     Option,
     Result,
+    CyclicSliceLeashed,
 }
 
 impl PreludeTypePath {
@@ -76,6 +77,7 @@ pub enum PreludeIntTypePath {
     U64,
     U128,
     USize,
+    // todo: move R* out of here
     R8,
     R16,
     R32,
@@ -140,6 +142,9 @@ pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<P
         path if path == menu.leash_ty_path() => PreludeIndirectionTypePath::Leash.into(),
         path if path == menu.list_ty_path() => PreludeTypePath::List.into(),
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
+        path if path == menu.cyclic_slice_leashed_ty_path() => {
+            PreludeTypePath::CyclicSliceLeashed.into()
+        }
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),
         path if path == menu.str_ty_path() => PreludeTypePath::Str.into(),
         path if path == menu.option_ty_path() => PreludeTypePath::Option.into(),

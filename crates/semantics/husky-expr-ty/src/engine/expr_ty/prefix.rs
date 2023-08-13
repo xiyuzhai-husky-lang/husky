@@ -21,31 +21,10 @@ impl<'a> ExprTypeEngine<'a> {
                         ty_arguments: arguments,
                         ty_ethereal_term,
                     } => match refined_ty_path {
-                        Left(prelude_ty_path) => match prelude_ty_path {
-                            PreludeTypePath::Basic(_) => todo!(),
-                            PreludeTypePath::Num(num_ty_path) => match num_ty_path {
-                                PreludeNumTypePath::Int(_) | PreludeNumTypePath::Float(_) => {
-                                    Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
-                                }
-                            },
-                            PreludeTypePath::Indirection(_) => todo!(),
-                            PreludeTypePath::Nat => todo!(),
-                            PreludeTypePath::Lifetime => todo!(),
-                            PreludeTypePath::Module => todo!(),
-                            PreludeTypePath::Trait => todo!(),
-                            PreludeTypePath::List => todo!(),
-                            PreludeTypePath::Array => todo!(),
-                            PreludeTypePath::Array2d => todo!(),
-                            PreludeTypePath::Array3d => todo!(),
-                            PreludeTypePath::Array4d => todo!(),
-                            PreludeTypePath::Array5d => todo!(),
-                            PreludeTypePath::Slice => todo!(),
-                            PreludeTypePath::StringLiteral => todo!(),
-                            PreludeTypePath::Str => todo!(),
-                            PreludeTypePath::Option => todo!(),
-                            PreludeTypePath::Result => todo!(),
-                        },
-                        Right(_) => todo!(),
+                        Left(PreludeTypePath::Num(num_ty_path)) => {
+                            Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
+                        }
+                        _ => todo!(),
                     },
                     FluffyTermData::Curry {
                         curry_kind,
@@ -172,6 +151,7 @@ impl<'a> ExprTypeEngine<'a> {
                     PreludeTypePath::Str => todo!(),
                     PreludeTypePath::Option => todo!(),
                     PreludeTypePath::Result => todo!(),
+                    PreludeTypePath::CyclicSliceLeashed => todo!(),
                 },
                 Right(_) => todo!(),
             },

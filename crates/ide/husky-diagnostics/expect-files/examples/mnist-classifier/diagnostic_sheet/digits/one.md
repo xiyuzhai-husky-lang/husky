@@ -19,22 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: cannot index into type `CyclicSliceLeashed LineSegmentStroke`",
-                severity: Error,
-                range: [52:33, 52:77),
-            },
-            Diagnostic {
-                message: "Type Error: cannot index into type `CyclicSliceLeashed LineSegmentStroke`",
-                severity: Error,
-                range: [75:28, 75:72),
-            },
-            Diagnostic {
-                message: "Type Error: cannot index into type `CyclicSliceLeashed LineSegmentStroke`",
-                severity: Error,
-                range: [77:29, 77:77),
-            },
-        ],
+        diagnostics: [],
     },
 }
