@@ -27,5 +27,18 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::raw_bits`,
+                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `ctz`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
     ],
 )

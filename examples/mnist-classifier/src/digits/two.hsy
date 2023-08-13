@@ -45,20 +45,20 @@ pub(super) val is_two: OneVsAll MnistLabel MnistLabel::Two =
     if cc_num == 2:
         require left_cc be some
         require right_cc be some
-        let a = right_cc.angle_change
+        let a = right_cc!.angle_change
         require a>-180.0
         // get the end line of the cc
-        let end_tan = left_cc.end_tangent().angle(true)
+        let end_tan = left_cc!.end_tangent().angle(true)
         // require end_tan < -200.0
-        let x = left_cc.end_tangent().x
-        let y = left_cc.end_tangent().y
+        let x = left_cc!.end_tangent().x
+        let y = left_cc!.end_tangent().y
 
-        let left_ymax = left_cc.relative_bounding_box.ymax()
-        let left_ymin = left_cc.relative_bounding_box.ymin()
+        let left_ymax = left_cc!.relative_bounding_box.ymax()
+        let left_ymin = left_cc!.relative_bounding_box.ymin()
         let left_mid_y = (left_ymax + left_ymin) / 2.0
 
-        let right_ymax = right_cc.relative_bounding_box.ymax()
-        let right_ymin = right_cc.relative_bounding_box.ymin()
+        let right_ymax = right_cc!.relative_bounding_box.ymax()
+        let right_ymin = right_cc!.relative_bounding_box.ymin()
         let right_mid_y = (right_ymax + right_ymin) / 2.0
         require left_mid_y >= right_mid_y
 
@@ -68,6 +68,6 @@ pub(super) val is_two: OneVsAll MnistLabel MnistLabel::Two =
         require left_cc be some
         require right_cc be some
         require down_cc be some
-        require down_cc.relative_bounding_box.ymin() <0.4
-        let a = down_cc.angle_change
+        require down_cc!.relative_bounding_box.ymin() <0.4
+        let a = down_cc!.angle_change
     OneVsAll::Yes

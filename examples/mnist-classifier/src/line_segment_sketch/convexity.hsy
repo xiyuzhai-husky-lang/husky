@@ -11,14 +11,14 @@ pub fn is_convex(line_segment_sketch: LineSegmentSketch, index: i32) -> bool:
     if is_rotation_counterclockwise_result == 0:
         let mut previous_raw_cross = -999999.0
         let previous_interval = line_segment_sketch.strokes[(index-1)%L].points
-        for previous_interval.start <= i1 < previous_interval.end:
-            let displacement = line_segment_sketch.contour.displacement(previous_interval.start, i1)
+        for previous_interval.start() <= i1 < previous_interval.end():
+            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i1)
             previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))
         // current
         let mut current_raw_cross = -999999.0
         let current_interval = line_segment_sketch.strokes[index%L].points
-        for current_interval.start <= i2 < current_interval.end:
-            let displacement = line_segment_sketch.contour.displacement(previous_interval.start, i2)
+        for current_interval.start() <= i2 < current_interval.end():
+            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i2)
             current_raw_cross = current_raw_cross.max(current_displacement.cross(displacement))
         return current_raw_cross < previous_raw_cross
     else:

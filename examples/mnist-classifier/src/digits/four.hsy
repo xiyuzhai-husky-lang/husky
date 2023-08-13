@@ -63,7 +63,7 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
 
     let down_match = components_max_downwards.matches[0]
     require down_match be some
-    let down_match_dp_y = down_match.displacement().y
+    let down_match_dp_y = down_match!.displacement().y
     
     let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
@@ -76,8 +76,8 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
         let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         let upper_arc = components_max_heights.matches[0]
         require upper_arc be some
-        require upper_arc.displacement().y > 0.0
-        require upper_arc.angle_change < -110.0
+        require upper_arc!.displacement().y > 0.0
+        require upper_arc!.angle_change < -110.0
         require components_max_heights.norm < 9.0
         let a = major_connected_component.top_k_row_right_mass_sum(3)
 

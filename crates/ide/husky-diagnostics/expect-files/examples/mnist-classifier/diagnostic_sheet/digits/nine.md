@@ -19,22 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `Option Leash ConcaveComponent`",
-                severity: Error,
-                range: [18:38, 18:50),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `Option Leash ConcaveComponent`",
-                severity: Error,
-                range: [31:27, 31:39),
-            },
-            Diagnostic {
-                message: "Type Error: no field named angle_change in Option Leash ConcaveComponent",
-                severity: Error,
-                range: [32:17, 32:39),
-            },
-        ],
+        diagnostics: [],
     },
 }

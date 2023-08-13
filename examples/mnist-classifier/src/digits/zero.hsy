@@ -29,7 +29,7 @@ pub(super) val is_zero: OneVsAll MnistLabel MnistLabel::Zero =
     // require major_concave_components.ilen() <= 1 failed
     require major_connected_component.eff_holes.matches[0] be some
     let major_hole = major_connected_component.eff_holes.matches[0]
-    let a = major_hole.bounding_box.ymax() - major_hole.bounding_box.ymin()
+    let a = major_hole!.bounding_box.ymax() - major_hole!.bounding_box.ymin()
     let b = major_line_segment_sketch.bounding_box.ymax() - major_line_segment_sketch.bounding_box.ymin()
     // high_point, low_point
     let ratio = a/b

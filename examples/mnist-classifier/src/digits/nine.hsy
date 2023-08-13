@@ -15,7 +15,7 @@ pub(super) val is_nine: OneVsAll MnistLabel MnistLabel::Nine =
 
     let down_match=nine_match.matches[0]
     require down_match be some
-    let down_match_dp_y = down_match.displacement().y
+    let down_match_dp_y = down_match!.displacement().y
     
     let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
     require higher_excess>7.0
@@ -28,8 +28,8 @@ pub(super) val is_nine: OneVsAll MnistLabel MnistLabel::Nine =
         let higher_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         let upper_arc = nine_match_refine.matches[0]
         require upper_arc be some
-        require upper_arc.displacement().y > 0.0
-        require upper_arc.angle_change < -110.0
+        require upper_arc!.displacement().y > 0.0
+        require upper_arc!.angle_change < -110.0
         require nine_match_refine.norm < 9.0
         let a = major_connected_component.top_k_row_right_mass_sum(3)
 
