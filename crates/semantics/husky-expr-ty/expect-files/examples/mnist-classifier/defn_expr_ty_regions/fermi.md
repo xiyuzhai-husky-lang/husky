@@ -53,7 +53,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 12,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -109,7 +109,7 @@
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -405,7 +405,7 @@
                                                 Ritchie(
                                                     EtherealTermRitchie(
                                                         Id {
-                                                            value: 12,
+                                                            value: 13,
                                                         },
                                                     ),
                                                 ),
@@ -466,25 +466,79 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Vec Leash ConcaveComponent`),
+                                    EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
                                 ),
                             },
-                            ident_token: IdentToken {
-                                ident: `pop_with_largest_opt_f32`,
-                                token_idx: TokenIdx(
-                                    223,
-                                ),
-                            },
-                        },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    15,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodDispatch(
+                            FluffyDynamicDispatch {
+                                indirections: [],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        parenate_parameters: [
+                                            Regular(
+                                                FluffyTermRitchieRegularParameter {
+                                                    contract: None,
+                                                    ty: FluffyTerm {
+                                                        place: None,
+                                                        base: Ethereal(
+                                                            Ritchie(
+                                                                EtherealTermRitchie(
+                                                                    Id {
+                                                                        value: 13,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                        ],
+                                        return_ty: FluffyTerm {
+                                            place: None,
+                                            base: Ethereal(
+                                                Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 56,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    16,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -542,7 +596,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -562,7 +616,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    18,
                 ),
             },
             ExprTypeInfo {
@@ -580,7 +634,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -598,7 +652,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    20,
                 ),
             },
             ExprTypeInfo {
@@ -667,7 +721,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    21,
                 ),
             },
             ExprTypeInfo {
@@ -685,7 +739,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    22,
                 ),
             },
         ],
@@ -1200,13 +1254,83 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`unit`),
+                                            EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
                                 },
                             ),
                             meta: ExpectationState {
                                 idx: 15,
+                                src: ExpectationSource {
+                                    expr_idx: 17,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`fn( Leash ConcaveComponent) -> Option f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Option Leash ConcaveComponent`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 16,
+                                src: ExpectationSource {
+                                    expr_idx: 18,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`unit`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 17,
                                 src: ExpectationSource {
                                     expr_idx: 19,
                                     kind: Expr,
@@ -1235,7 +1359,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 16,
+                                idx: 18,
                                 src: ExpectationSource {
                                     expr_idx: 20,
                                     kind: Expr,
@@ -1315,7 +1439,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 17,
+                                idx: 19,
                                 src: ExpectationSource {
                                     expr_idx: 21,
                                     kind: Expr,
@@ -1350,7 +1474,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 18,
+                                idx: 20,
                                 src: ExpectationSource {
                                     expr_idx: 22,
                                     kind: Expr,
@@ -1385,7 +1509,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 19,
+                                idx: 21,
                                 src: ExpectationSource {
                                     expr_idx: 23,
                                     kind: Expr,
@@ -1420,7 +1544,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 20,
+                                idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 24,
                                     kind: Expr,

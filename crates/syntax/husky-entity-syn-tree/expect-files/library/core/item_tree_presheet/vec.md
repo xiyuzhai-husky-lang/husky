@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 8,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `Vec`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 7,
+                    ast_idx: 8,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::vec`,

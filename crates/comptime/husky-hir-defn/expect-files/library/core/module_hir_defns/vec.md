@@ -512,4 +512,69 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::vec`,
+                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `pop_with_largest_opt_f32`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::vec`,
+                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `pop_with_largest_opt_f32`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_parameter: HirRitchieParameter {
+                            contract: BorrowMut,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [
+                                HirRitchieParameter {
+                                    contract: None,
+                                    ty: Ritchie,
+                                },
+                            ],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
 ]

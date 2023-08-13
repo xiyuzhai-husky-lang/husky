@@ -102,17 +102,6 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 40,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
                         value: 41,
                     },
                 ),
@@ -141,6 +130,17 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 44,
+                    },
+                ),
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
@@ -160,17 +160,6 @@
                     ),
                 ),
             },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 44,
-                    },
-                ),
-            ),
         ),
     ),
     HirDecl::AssociatedItem(
@@ -250,6 +239,17 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 52,
+                    },
+                ),
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
@@ -276,7 +276,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 52,
+                        value: 53,
                     },
                 ),
             ),
@@ -287,7 +287,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 53,
+                        value: 54,
                     },
                 ),
             ),
@@ -312,17 +312,6 @@
                     ),
                 ),
             },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 54,
-                    },
-                ),
-            ),
         ),
     ),
     HirDecl::AssociatedItem(
@@ -380,6 +369,17 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 60,
+                    },
+                ),
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
@@ -399,17 +399,6 @@
                     ),
                 ),
             },
-        ),
-    ),
-    HirDecl::AssociatedItem(
-        AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
-                    Id {
-                        value: 60,
-                    },
-                ),
-            ),
         ),
     ),
     HirDecl::AssociatedItem(
@@ -440,6 +429,17 @@
                 TypeMethodFnHirDecl(
                     Id {
                         value: 63,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 64,
                     },
                 ),
             ),

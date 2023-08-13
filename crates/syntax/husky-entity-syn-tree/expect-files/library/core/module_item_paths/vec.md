@@ -105,5 +105,18 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::vec`,
+                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `pop_with_largest_opt_f32`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
     ],
 )

@@ -6,6 +6,18 @@ pub struct FluffyTermRitchieRegularParameter {
     ty: FluffyTerm,
 }
 
+impl FluffyTermRitchieRegularParameter {
+    pub(super) fn resolve_as_ethereal(
+        self,
+        terms: &impl std::borrow::Borrow<HollowTerms>,
+    ) -> Option<EtherealTermRitchieRegularParameter> {
+        Some(EtherealTermRitchieRegularParameter::new(
+            self.contract,
+            self.ty.resolve_as_ethereal(terms)?,
+        ))
+    }
+}
+
 impl From<EtherealTermRitchieRegularParameter> for FluffyTermRitchieRegularParameter {
     fn from(param: EtherealTermRitchieRegularParameter) -> Self {
         Self {
