@@ -48,7 +48,9 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         .fields(db)
         .iter()
         .copied()
-        .map(PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
+        .filter_map(
+            PropsStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty,
+        )
         .collect();
     let instance_constructor_ty =
         DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);

@@ -58,14 +58,17 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `points`,
                                     ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `start`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: true,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `end`,
                                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                                    has_initialization: true,
                                 },
                             ],
                         },
@@ -93,10 +96,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `contour`,
                                     ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `strokes`,
                                     ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                    has_initialization: false,
                                 },
                             ],
                         },

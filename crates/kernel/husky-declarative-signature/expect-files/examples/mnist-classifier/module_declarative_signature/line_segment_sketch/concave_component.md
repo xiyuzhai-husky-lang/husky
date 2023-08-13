@@ -18,10 +18,12 @@
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `line_segment_sketch`,
                                     ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                    has_initialization: false,
                                 },
                                 PropsStructFieldDeclarativeSignatureTemplate {
                                     ident: `strokes`,
                                     ty: DeclarativeTerm(`~ core::slice::CyclicSlice mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                    has_initialization: false,
                                 },
                             ],
                         },
