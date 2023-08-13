@@ -132,7 +132,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 33,
+                                                                value: 31,
                                                             },
                                                         ),
                                                     ),
@@ -157,7 +157,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 35,
+                                                                value: 33,
                                                             },
                                                         ),
                                                     ),
@@ -269,7 +269,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 33,
+                                                                                    value: 31,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -286,7 +286,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 35,
+                                                                                    value: 33,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -922,7 +922,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 33,
+                                                                value: 31,
                                                             },
                                                         ),
                                                     ),
@@ -947,7 +947,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 35,
+                                                                value: 33,
                                                             },
                                                         ),
                                                     ),
@@ -1059,7 +1059,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 33,
+                                                                                    value: 31,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1076,7 +1076,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 35,
+                                                                                    value: 33,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1390,7 +1390,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 33,
+                                                                value: 31,
                                                             },
                                                         ),
                                                     ),
@@ -1415,7 +1415,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 35,
+                                                                value: 33,
                                                             },
                                                         ),
                                                     ),
@@ -1527,7 +1527,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 33,
+                                                                                    value: 31,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1544,7 +1544,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 35,
+                                                                                    value: 33,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1767,7 +1767,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1783,7 +1783,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1817,7 +1817,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 28,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -1833,7 +1833,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1849,7 +1849,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1869,72 +1869,6 @@
                                             value: 25,
                                         },
                                     ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 28,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 58,
-                                    },
                                 ),
                             ),
                         ),
@@ -1967,7 +1901,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -1983,7 +1917,73 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 58,
+                                        value: 56,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 56,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 56,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -2021,7 +2021,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 56,
                                             },
                                         ),
                                     ),
@@ -2039,7 +2039,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 56,
                                             },
                                         ),
                                     ),
@@ -2077,7 +2077,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 28,
+                                                value: 26,
                                             },
                                         ),
                                     ),
@@ -2095,7 +2095,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 56,
                                             },
                                         ),
                                     ),
@@ -2113,7 +2113,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 56,
                                             },
                                         ),
                                     ),
@@ -2135,80 +2135,6 @@
                                                     value: 25,
                                                 },
                                             ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 58,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 58,
-                                            },
                                         ),
                                     ),
                                 ),
@@ -2245,7 +2171,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 26,
                                             },
                                         ),
                                     ),
@@ -2263,7 +2189,81 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 58,
+                                                value: 56,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 56,
                                             },
                                         ),
                                     ),
@@ -2335,7 +2335,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 59,
+                                                        value: 57,
                                                     },
                                                 ),
                                             ),
@@ -2392,7 +2392,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 58,
+                                                            value: 56,
                                                         },
                                                     ),
                                                 ),
@@ -2474,7 +2474,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 59,
+                                                        value: 57,
                                                     },
                                                 ),
                                             ),
@@ -2531,7 +2531,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 58,
+                                                            value: 56,
                                                         },
                                                     ),
                                                 ),
@@ -2674,7 +2674,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 29,
+                                                        value: 27,
                                                     },
                                                 ),
                                             ),
@@ -2731,7 +2731,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 28,
+                                                            value: 26,
                                                         },
                                                     ),
                                                 ),
@@ -2813,7 +2813,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 59,
+                                                        value: 57,
                                                     },
                                                 ),
                                             ),
@@ -2870,7 +2870,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 58,
+                                                            value: 56,
                                                         },
                                                     ),
                                                 ),
@@ -3292,7 +3292,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 29,
+                                                        value: 27,
                                                     },
                                                 ),
                                             ),
@@ -3349,7 +3349,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 28,
+                                                            value: 26,
                                                         },
                                                     ),
                                                 ),
@@ -3530,7 +3530,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 59,
+                                                        value: 57,
                                                     },
                                                 ),
                                             ),
@@ -3587,7 +3587,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 58,
+                                                            value: 56,
                                                         },
                                                     ),
                                                 ),
@@ -3936,7 +3936,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 59,
+                                                        value: 57,
                                                     },
                                                 ),
                                             ),
@@ -3993,7 +3993,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 58,
+                                                            value: 56,
                                                         },
                                                     ),
                                                 ),
@@ -5473,16 +5473,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 5,
@@ -5498,10 +5490,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -5623,16 +5613,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 11,
@@ -5648,10 +5630,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -5811,16 +5791,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 19,
@@ -5836,10 +5808,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -5980,16 +5950,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 26,
@@ -6005,10 +5967,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6258,16 +6218,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 38,
@@ -6283,10 +6235,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6408,16 +6358,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 44,
@@ -6433,10 +6375,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6516,16 +6456,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 48,
@@ -6541,10 +6473,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6685,16 +6615,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 55,
@@ -6710,10 +6632,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6793,16 +6713,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 59,
@@ -6818,10 +6730,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7073,16 +6983,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 71,
@@ -7098,10 +7000,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7221,16 +7121,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 77,
@@ -7246,10 +7138,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7373,16 +7263,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 83,
@@ -7398,10 +7280,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7481,16 +7361,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 87,
@@ -7506,10 +7378,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7643,16 +7513,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 93,
@@ -7668,10 +7530,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -7732,16 +7592,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 96,
@@ -7757,10 +7609,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -8339,16 +8189,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 5,
@@ -8364,10 +8206,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -9117,16 +8957,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 5,
@@ -9142,10 +8974,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -9244,16 +9074,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 10,
@@ -9269,10 +9091,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),

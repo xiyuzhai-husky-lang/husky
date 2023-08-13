@@ -50,7 +50,6 @@ impl ExpectFluffyTerm for ExpectNumType {
                     smallvec![],
                 ),
                 _ => todo!(),
-                // state.set_err(todo!(), smallvec![]),
             },
             FluffyTermData::Curry {
                 curry_kind,

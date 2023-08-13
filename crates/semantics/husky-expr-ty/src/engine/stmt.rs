@@ -54,11 +54,11 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(self.term_menu.never().into())
             }
             SynStmt::Require { condition, .. } => {
-                self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
+                self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::Assert { condition, .. } => {
-                self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
+                self.infer_new_expr_ty_discarded(condition, ExpectConditionType);
                 Some(self.term_menu.unit_ty_ontology().into())
             }
             SynStmt::Break { .. } => Some(self.term_menu.never().into()),
@@ -142,7 +142,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool())
+                    self.infer_new_expr_ty_discarded(condition, ExpectConditionType)
                 });
                 block.as_ref().copied().map(|block| {
                     let expect_unit = self.expect_unit();
@@ -180,12 +180,14 @@ impl<'a> ExprTypeEngine<'a> {
             .condition
             .as_ref()
             .copied()
-            .map(|condition| self.infer_new_expr_ty(condition, self.expect_argument_ty_bool()));
+            .map(|condition| self.infer_new_expr_ty(condition, ExpectConditionType));
         branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
-            elif_branch.condition.as_ref().copied().map(|condition| {
-                self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool())
-            });
+            elif_branch
+                .condition
+                .as_ref()
+                .copied()
+                .map(|condition| self.infer_new_expr_ty_discarded(condition, ExpectConditionType));
             branch_tys.visit_branch(self, &elif_branch.block);
         }
         if let Some(else_branch) = else_branch {

@@ -2313,16 +2313,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -2338,10 +2330,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -5165,16 +5155,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 7,
@@ -5190,10 +5172,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -5476,16 +5456,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 19,
@@ -5501,10 +5473,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6000,16 +5970,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 38,
@@ -6025,10 +5987,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),
@@ -6178,16 +6138,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: None,
-                                    ty_expected: FluffyTerm {
-                                        place: None,
-                                        base: FluffyTermBase::Ethereal(
-                                            EtherealTerm(`bool`),
-                                        ),
-                                    },
-                                },
+                            expectation: Expectation::ConditionType(
+                                ExpectConditionType,
                             ),
                             meta: ExpectationState {
                                 idx: 44,
@@ -6203,10 +6155,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                                            Trivial(
-                                                Todo,
-                                            ),
+                                        FluffyTermExpectationOutcome::ConditionType(
+                                            ExpectConditionTypeOutcome,
                                         ),
                                     ),
                                 ),

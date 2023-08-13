@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -65,7 +65,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 16,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -107,11 +107,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 17,
+                                    ast_idx: 19,
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
-                                            54,
+                                            66,
                                         ),
                                     },
                                     block: Type {
@@ -149,11 +149,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 20,
+                                    ast_idx: 22,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
-                                            87,
+                                            100,
                                         ),
                                     },
                                     block: Fugitive {
@@ -200,7 +200,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 13,
+                                    ast_idx: 14,
                                     ident_token: IdentToken {
                                         ident: `MnistLabel`,
                                         token_idx: TokenIdx(
@@ -241,7 +241,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 15,
+                                    ast_idx: 16,
                                     ident_token: IdentToken {
                                         ident: `BinaryImage28`,
                                         token_idx: TokenIdx(
@@ -276,11 +276,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 17,
+                                    ast_idx: 19,
                                     ident_token: IdentToken {
                                         ident: `BinaryGrid28`,
                                         token_idx: TokenIdx(
-                                            54,
+                                            66,
                                         ),
                                     },
                                     block: Type {
@@ -311,11 +311,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 20,
+                                    ast_idx: 22,
                                     ident_token: IdentToken {
                                         ident: `input`,
                                         token_idx: TokenIdx(
-                                            87,
+                                            100,
                                         ),
                                     },
                                     block: Fugitive {
@@ -332,6 +332,40 @@ Ok(
                     ],
                 ),
                 impl_block_syn_node_table: [
+                    (
+                        ImplBlockSynNodePath::TypeImplBlock(
+                            TypeImplBlockSynNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                        ImplBlockSynNode::TypeImplBlock(
+                            TypeImplBlockSynNode {
+                                syn_node_path: TypeImplBlockSynNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 17,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        39,
+                                    ),
+                                },
+                                ty_expr: 0,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
+                            },
+                        ),
+                    ),
                     (
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                             TraitForTypeImplBlockSynNodePath {
@@ -357,24 +391,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 16,
+                                ast_idx: 18,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        39,
+                                        51,
                                     ),
                                 },
-                                trai_expr: 2,
+                                trai_expr: 3,
                                 for_token: TokenIdx(
-                                    45,
+                                    57,
                                 ),
                                 ty_sketch_expr: Path(
-                                    3,
+                                    4,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                10..11,
+                                                11..12,
                                             ),
                                         },
                                     ),
@@ -401,16 +435,16 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 18,
+                                ast_idx: 20,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        61,
+                                        73,
                                     ),
                                 },
-                                ty_expr: 4,
+                                ty_expr: 5,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        11..12,
+                                        12..13,
                                     ),
                                 },
                             },
@@ -441,24 +475,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 19,
+                                ast_idx: 21,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        72,
+                                        85,
                                     ),
                                 },
-                                trai_expr: 7,
+                                trai_expr: 8,
                                 for_token: TokenIdx(
-                                    78,
+                                    91,
                                 ),
                                 ty_sketch_expr: Path(
-                                    8,
+                                    9,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                12..13,
+                                                13..14,
                                             ),
                                         },
                                     ),
@@ -481,9 +515,24 @@ Ok(
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
+                            ident: `BinaryImage28`,
+                            token_idx: TokenIdx(
+                                40,
+                            ),
+                        },
+                    ),
+                    major_path: MajorEntityPath::MajorItem(
+                        MajorItemPath::Type(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                    ),
+                },
+                MajorItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
                             ident: `IntIndex`,
                             token_idx: TokenIdx(
-                                44,
+                                56,
                             ),
                         },
                     ),
@@ -498,39 +547,39 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                42,
+                                54,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            43,
+                            55,
                         ),
                     ),
-                    subexpr: 0,
+                    subexpr: 1,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                40,
+                                52,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            41,
+                            53,
                         ),
                     ),
-                    subexpr: 1,
+                    subexpr: 2,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                46,
+                                58,
                             ),
                         },
                     ),
@@ -545,7 +594,7 @@ Ok(
                         IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                62,
+                                74,
                             ),
                         },
                     ),
@@ -560,7 +609,7 @@ Ok(
                         IdentToken {
                             ident: `IntIndex`,
                             token_idx: TokenIdx(
-                                77,
+                                90,
                             ),
                         },
                     ),
@@ -575,39 +624,39 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                75,
+                                88,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            76,
+                            89,
                         ),
                     ),
-                    subexpr: 5,
+                    subexpr: 6,
                 },
                 MajorItemPathExpr::Subitem {
                     name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                73,
+                                86,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            74,
+                            87,
                         ),
                     ),
-                    subexpr: 6,
+                    subexpr: 7,
                 },
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                79,
+                                92,
                             ),
                         },
                     ),

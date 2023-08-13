@@ -49,6 +49,38 @@
         ),
     ),
     HirDecl::ImplBlock(
+        ImplBlockHirDecl::Type(
+            TypeImplBlockHirDecl {
+                path: TypeImplBlockPath {
+                    module_path: `mnist`,
+                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 67,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            AssociatedFn(
+                TypeAssociatedFnHirDecl(
+                    Id {
+                        value: 4,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
                 path: TraitForTypeImplBlockPath {
@@ -110,10 +142,10 @@
     ),
     HirDecl::AssociatedItem(
         AssociatedItemHirDecl::TypeItem(
-            MethodFn(
-                TypeMethodFnHirDecl(
+            AssociatedFn(
+                TypeAssociatedFnHirDecl(
                     Id {
-                        value: 74,
+                        value: 5,
                     },
                 ),
             ),
