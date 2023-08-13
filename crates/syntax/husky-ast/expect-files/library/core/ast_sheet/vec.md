@@ -254,6 +254,42 @@ Ok(
                         body: None,
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    103,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `pop_with_largest_opt_f32`,
+                        token_idx: TokenIdx(
+                            105,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            106,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -320,7 +356,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..7,
+                                    0..8,
                                 ),
                             },
                         ),
@@ -329,7 +365,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            7..10,
+            8..11,
         ),
         siblings: [
             ArenaIdxRange(
@@ -354,10 +390,13 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..7,
+                0..0,
             ),
             ArenaIdxRange(
-                7..10,
+                0..8,
+            ),
+            ArenaIdxRange(
+                8..11,
             ),
         ],
     },

@@ -455,4 +455,64 @@
             ),
         ),
     ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::vec`,
+                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `pop_with_largest_opt_f32`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [
+                                        DeclarativeTemplateParameter {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::vec::Vec t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::vec::Vec t`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: BorrowMut,
+                                ty: DeclarativeTerm(`core::vec::Vec t`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`fn(t) -> core::option::Option core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::option::Option t`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

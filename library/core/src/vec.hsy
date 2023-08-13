@@ -17,3 +17,5 @@ impl<E> Vec E:
     pub fn collect_leashes(~self) -> []~E;
 
     pub fn cyclic_slice_leashed(~self, start: i32, end: i32) -> ~CyclicSlice E;
+
+    pub fn pop_with_largest_opt_f32(&mut self, f: fn(E) -> ?f32) -> ?E;
