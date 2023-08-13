@@ -495,7 +495,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => {
                 let start = if_branch.if_token.token_idx();
                 // it's important that every branch is computed
-                let if_branch_end: TokenIdxRangeEnd = if let Ok(block) = if_branch.block() {
+                let if_branch_end: TokenIdxRangeEnd = if let Ok(block) = if_branch.stmts() {
                     self.calc_block_range(block).end()
                 } else if let Ok(eol_colon_token) = if_branch.eol_colon_token() {
                     TokenIdxRangeEnd::new_after(eol_colon_token.token_idx())
@@ -507,7 +507,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let mut elif_branch_rev_iter = elif_branches.iter().rev();
                 let elif_branches_end: Option<TokenIdxRangeEnd> = {
                     if let Some(last_elif_branch) = elif_branch_rev_iter.next() {
-                        if let Ok(block) = last_elif_branch.block() {
+                        if let Ok(block) = last_elif_branch.stmts() {
                             Some(self.calc_block_range(block).end())
                         } else {
                             None
@@ -517,13 +517,13 @@ impl<'a> SynExprRangeCalculator<'a> {
                     }
                 };
                 for elif_branch in elif_branch_rev_iter {
-                    if let Ok(block) = elif_branch.block() {
+                    if let Ok(block) = elif_branch.stmts() {
                         self.calc_block_range(block);
                     }
                 }
                 let else_block_end: Option<TokenIdxRangeEnd> =
                     if let Some(else_branch) = else_branch {
-                        if let Ok(block) = else_branch.block() {
+                        if let Ok(block) = else_branch.stmts() {
                             Some(self.calc_block_range(block).end())
                         } else {
                             None

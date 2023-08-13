@@ -170,9 +170,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_if_else_stmt(
         &mut self,
-        if_branch: &IfBranch,
-        elif_branches: &[ElifBranch],
-        else_branch: Option<&ElseBranch>,
+        if_branch: &SynIfBranch,
+        elif_branches: &[SynElifBranch],
+        else_branch: Option<&SynElseBranch>,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
@@ -181,17 +181,17 @@ impl<'a> ExprTypeEngine<'a> {
             .as_ref()
             .copied()
             .map(|condition| self.infer_new_expr_ty(condition, ExpectConditionType));
-        branch_tys.visit_branch(self, &if_branch.block);
+        branch_tys.visit_branch(self, &if_branch.stmts);
         for elif_branch in elif_branches {
             elif_branch
                 .condition
                 .as_ref()
                 .copied()
                 .map(|condition| self.infer_new_expr_ty_discarded(condition, ExpectConditionType));
-            branch_tys.visit_branch(self, &elif_branch.block);
+            branch_tys.visit_branch(self, &elif_branch.stmts);
         }
         if let Some(else_branch) = else_branch {
-            branch_tys.visit_branch(self, &else_branch.block);
+            branch_tys.visit_branch(self, &else_branch.stmts);
         }
         // exhaustive iff else branch exists
         branch_tys.merge(else_branch.is_some(), &self.term_menu)

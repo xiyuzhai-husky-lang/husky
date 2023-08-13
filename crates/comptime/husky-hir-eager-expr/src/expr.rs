@@ -1,6 +1,7 @@
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{
-    ApplicationOrFunctionCallExprDisambiguation, ExprDisambiguation, RitchieParameterArgumentMatch,
+    ApplicationOrFunctionCallExprDisambiguation, ExprDisambiguation,
+    IndexOrComposeWithListExprDisambiguation, RitchieParameterArgumentMatch,
 };
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
 
@@ -305,8 +306,26 @@ impl<'a> HirEagerExprBuilder<'a> {
                 owner,
                 lbox_token_idx,
                 ref items,
-                rbox_token_idx,
-            } => todo!(),
+                ..
+            } => {
+                let ExprDisambiguation::IndexOrComposeWithList(disambiguation) =
+                    self.expr_disambiguation(syn_expr_idx)
+                else {
+                    unreachable!()
+                };
+                match disambiguation {
+                    IndexOrComposeWithListExprDisambiguation::Index(_) => HirEagerExpr::Index {
+                        owner: self.new_expr(owner),
+                        items: items
+                            .iter()
+                            .map(|item| self.new_expr(item.expr_idx()))
+                            .collect(),
+                    },
+                    IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
+                        todo!()
+                    }
+                }
+            }
             SynExpr::List {
                 lbox_token_idx,
                 ref items,
@@ -318,23 +337,9 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ref items,
                 rbox_token_idx,
             } => todo!(),
-            SynExpr::Block { stmts } => {
-                let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
-                let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
-                for syn_stmt_idx in stmts {
-                    match self.new_stmt(syn_stmt_idx) {
-                        Some(hir_eager_stmt) => {
-                            syn_stmt_indices.push(syn_stmt_idx);
-                            hir_eager_stmts.push(hir_eager_stmt)
-                        }
-                        None => todo!(),
-                    }
-                }
-                // todo: record syn_stmt_indices in source map
-                HirEagerExpr::Block {
-                    stmts: self.alloc_stmts(syn_stmt_indices, hir_eager_stmts),
-                }
-            }
+            SynExpr::Block { stmts } => HirEagerExpr::Block {
+                stmts: self.new_stmts(stmts),
+            },
             SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
