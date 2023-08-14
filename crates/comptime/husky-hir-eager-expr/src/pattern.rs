@@ -21,7 +21,9 @@ impl<'a> HirEagerExprBuilder<'a> {
         HirEagerLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.pattern_expr_idx()),
             // variables: todo!(),
-            ty: let_variables_pattern.ty().map(|ty| todo!()),
+            ty: let_variables_pattern
+                .ty()
+                .map(|ty| HirType::from_ethereal(self.expr_term(ty), self.db())),
         }
     }
 }

@@ -14,7 +14,7 @@ pub enum ExprDisambiguation {
     ExplicitApplication(ExplicitApplicationDisambiguation),
     Tilde(TildeDisambiguation),
     FieldDispatch(FluffyFieldDispatch),
-    MethodDispatch(FluffyMethodDispatch),
+    MethodCallOrApplication(MethodCallOrApplicationDisambiguation),
     StaticDispatch(StaticDispatch),
 }
 
@@ -85,6 +85,15 @@ pub enum ListExprDisambiguation {
     NewList,
     ListFunctor,
     ArrayFunctor,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
+pub enum MethodCallOrApplicationDisambiguation {
+    MethodCall {
+        method_dispatch: FluffyMethodDispatch,
+        ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -1,7 +1,8 @@
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{
     ApplicationOrFunctionCallExprDisambiguation, ExprDisambiguation,
-    IndexOrComposeWithListExprDisambiguation, RitchieParameterArgumentMatch,
+    IndexOrComposeWithListExprDisambiguation, MethodCallOrApplicationDisambiguation,
+    RitchieParameterArgumentMatch,
 };
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
 
@@ -63,7 +64,7 @@ pub enum HirEagerExpr {
         self_argument: HirEagerExprIdx,
         ident: Ident,
         generic_arguments: Option<HirGenericArgumentList>,
-        items: SmallVec<[HirEagerExprIdx; 4]>,
+        item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     NewTuple {
         /// guaranteed that items.len() > 0
@@ -93,6 +94,30 @@ pub enum HirEagerCallListItemGroup {
     Regular(HirEagerExprIdx),
     Variadic,
     Keyed,
+}
+
+impl<'a> HirEagerExprBuilder<'a> {
+    fn new_call_list_item_groups(
+        &mut self,
+        pams: &[RitchieParameterArgumentMatch],
+    ) -> SmallVec<[HirEagerCallListItemGroup; 4]> {
+        pams.iter()
+            .map(|pam| self.new_call_list_item_group(pam))
+            .collect()
+    }
+
+    fn new_call_list_item_group(
+        &mut self,
+        pam: &RitchieParameterArgumentMatch,
+    ) -> HirEagerCallListItemGroup {
+        match pam {
+            RitchieParameterArgumentMatch::Regular(_, item) => {
+                HirEagerCallListItemGroup::Regular(self.new_expr(item.argument_expr_idx()))
+            }
+            RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
+            RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -219,18 +244,8 @@ impl<'a> HirEagerExprBuilder<'a> {
                     } => HirEagerExpr::FunctionCall {
                         function: self.new_expr(function),
                         generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                        item_groups: ritchie_parameter_argument_matches
-                            .iter()
-                            .map(|pam| match pam {
-                                RitchieParameterArgumentMatch::Regular(_, item) => {
-                                    HirEagerCallListItemGroup::Regular(
-                                        self.new_expr(item.argument_expr_idx()),
-                                    )
-                                }
-                                RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
-                                RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
-                            })
-                            .collect(),
+                        item_groups: self
+                            .new_call_list_item_groups(ritchie_parameter_argument_matches),
                     },
                     ApplicationOrFunctionCallExprDisambiguation::GnCall {
                         ritchie_parameter_argument_matches,
@@ -268,16 +283,27 @@ impl<'a> HirEagerExprBuilder<'a> {
                 rpar_token_idx,
             } => {
                 // todo: method application should be ignored
-                let ExprDisambiguation::MethodDispatch(disambiguation) =
+                let ExprDisambiguation::MethodCallOrApplication(disambiguation) =
                     self.expr_disambiguation(syn_expr_idx)
                 else {
                     unreachable!()
                 };
-                HirEagerExpr::MethodCall {
-                    self_argument: self.new_expr(self_argument),
-                    ident: ident_token.ident(),
-                    generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                    items: items.iter().map(|item| todo!()).collect(),
+                match disambiguation {
+                    MethodCallOrApplicationDisambiguation::MethodCall {
+                        method_dispatch,
+                        ritchie_parameter_argument_matches,
+                    } => {
+                        let ritchie_parameter_argument_matches = ritchie_parameter_argument_matches
+                            .as_ref()
+                            .expect("hir stage no errors");
+                        HirEagerExpr::MethodCall {
+                            self_argument: self.new_expr(self_argument),
+                            ident: ident_token.ident(),
+                            generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
+                            item_groups: self
+                                .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                        }
+                    }
                 }
             }
             SynExpr::TemplateInstantiation {
