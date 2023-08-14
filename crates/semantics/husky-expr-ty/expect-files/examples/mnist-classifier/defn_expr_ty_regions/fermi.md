@@ -142,27 +142,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [
-                                    Leash,
-                                ],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 58,
-                                                        },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 58,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
                                 ),
                             },
                         ),
@@ -317,27 +322,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 15,
-                                                            },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
                                 ),
                             },
                         ),
@@ -486,43 +496,70 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [
-                                            Regular(
-                                                FluffyTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Ritchie(
-                                                                EtherealTermRitchie(
-                                                                    Id {
-                                                                        value: 13,
-                                                                    },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Ritchie(
+                                                                    EtherealTermRitchie(
+                                                                        Id {
+                                                                            value: 13,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
-                                                        ),
-                                                    },
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                Application(
-                                                    EtherealTermApplication(
-                                                        Id {
-                                                            value: 56,
                                                         },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 56,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Ritchie(
+                                                            EtherealTermRitchie(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 17,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
                                 ),
                             },
                         ),
@@ -543,45 +580,72 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [
-                                            Regular(
-                                                FluffyTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            Application(
-                                                                EtherealTermApplication(
-                                                                    Id {
-                                                                        value: 56,
-                                                                    },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                Application(
+                                                                    EtherealTermApplication(
+                                                                        Id {
+                                                                            value: 56,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
-                                                        ),
+                                                        },
                                                     },
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 4,
-                                                            },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 4,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Application(
+                                                            EtherealTermApplication(
+                                                                Id {
+                                                                    value: 56,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 18,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
                                 ),
                             },
                         ),
@@ -1796,47 +1860,76 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [
-                                            Regular(
-                                                FluffyTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 25,
-                                                                        },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
-                                                        ),
+                                                        },
                                                     },
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 12,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
                                 ),
                             },
                         ),
@@ -2416,47 +2509,76 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [
-                                            Regular(
-                                                FluffyTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 25,
-                                                                        },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
-                                                        ),
+                                                        },
                                                     },
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 12,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
                                 ),
                             },
                         ),
@@ -3044,47 +3166,76 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodDispatch(
-                            FluffyDynamicDispatch {
-                                indirections: [],
-                                signature: MethodFn(
-                                    MethodFnFluffySignature {
-                                        parenate_parameters: [
-                                            Regular(
-                                                FluffyTermRitchieRegularParameter {
-                                                    contract: None,
-                                                    ty: FluffyTerm {
-                                                        place: None,
-                                                        base: Ethereal(
-                                                            EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 25,
-                                                                        },
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
-                                                        ),
+                                                        },
                                                     },
-                                                },
-                                            ),
-                                        ],
-                                        return_ty: FluffyTerm {
-                                            place: None,
-                                            base: Ethereal(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 25,
-                                                            },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
+                                            },
                                         },
-                                    },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 13,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
                                 ),
                             },
                         ),

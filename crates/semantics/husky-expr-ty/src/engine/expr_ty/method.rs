@@ -25,17 +25,24 @@ impl<'a> ExprTypeEngine<'a> {
                 self_expr_ty,
                 ident_token,
             })?;
-        let return_ty = match method_dispatch.signature() {
+        match method_dispatch.signature() {
             MethodFluffySignature::MethodFn(signature) => {
-                self.calc_ritchie_arguments_ty(
+                let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
                     expr_idx,
                     signature.nonself_parameter_contracted_tys(),
                     explicit_arguments.iter().copied().map(Into::into),
                 );
-                signature.return_ty()
+                let return_ty = signature.return_ty();
+                Ok((
+                    MethodCallOrApplicationDisambiguation::MethodCall {
+                        method_dispatch,
+                        ritchie_parameter_argument_matches,
+                    }
+                    .into(),
+                    Ok(return_ty),
+                ))
             }
             MethodFluffySignature::MethodFunction(signature) => todo!(),
-        };
-        Ok((method_dispatch.into(), Ok(return_ty)))
+        }
     }
 }
