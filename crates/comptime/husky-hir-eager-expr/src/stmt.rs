@@ -31,8 +31,8 @@ pub enum HirEagerStmt {
         expr_idx: HirEagerExprIdx,
     },
     ForBetween {
-        particulars: HirForBetweenParticulars,
-        frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
+        particulars: HirEagerForBetweenParticulars,
+        // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
         block: HirEagerStmtIdxRange,
     },
     ForIn {
@@ -66,21 +66,21 @@ pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmt, V>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
-pub struct HirForBetweenParticulars {
+pub struct HirEagerForBetweenParticulars {
     pub frame_var_ident: Ident,
-    pub range: HirForBetweenRange,
+    pub range: HirEagerForBetweenRange,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
-pub struct HirForBetweenRange {
-    pub initial_boundary: HirLoopBoundary,
-    pub final_boundary: HirLoopBoundary,
+pub struct HirEagerForBetweenRange {
+    pub initial_boundary: HirEagerLoopBoundary,
+    pub final_boundary: HirEagerLoopBoundary,
     pub step: LoopStep,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct HirLoopBoundary {
+pub struct HirEagerLoopBoundary {
     pub bound_expr: Option<HirEagerExprIdx>,
     pub kind: LoopBoundaryKind,
 }
@@ -145,7 +145,10 @@ impl<'a> HirEagerExprBuilder<'a> {
                 frame_var_symbol_idx,
                 ref eol_colon,
                 ref block,
-            } => todo!(),
+            } => HirEagerStmt::ForBetween {
+                particulars: todo!(),
+                block: self.new_stmts(*block.as_ref().expect("hir stage no errors")),
+            },
             SynStmt::ForIn {
                 for_token,
                 ref condition,
