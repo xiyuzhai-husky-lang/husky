@@ -217,12 +217,18 @@ impl<'a> HirEagerExprBuilder<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => todo!(),
+            } => HirEagerExpr::Prefix {
+                opr,
+                opd: self.new_expr(opd),
+            },
             SynExpr::Suffix {
                 opd,
                 opr,
                 opr_token_idx,
-            } => todo!(),
+            } => HirEagerExpr::Suffix {
+                opr,
+                opd: self.new_expr(opd),
+            },
             SynExpr::FunctionApplicationOrCall {
                 function,
                 ref generic_arguments,
@@ -272,7 +278,10 @@ impl<'a> HirEagerExprBuilder<'a> {
                 owner,
                 dot_token_idx,
                 ident_token,
-            } => todo!(),
+            } => HirEagerExpr::Field {
+                owner: self.new_expr(owner),
+                ident: ident_token.ident(),
+            },
             SynExpr::MethodApplicationOrCall {
                 self_argument,
                 dot_token_idx,
@@ -356,7 +365,12 @@ impl<'a> HirEagerExprBuilder<'a> {
                 lbox_token_idx,
                 ref items,
                 rbox_token_idx,
-            } => todo!(),
+            } => HirEagerExpr::List {
+                items: items
+                    .iter()
+                    .map(|item| self.new_expr(item.expr_idx()))
+                    .collect(),
+            },
             SynExpr::BoxColonList {
                 lbox_token_idx,
                 colon_token_idx,
