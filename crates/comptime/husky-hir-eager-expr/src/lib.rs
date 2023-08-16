@@ -27,3 +27,20 @@ use husky_term_prelude::*;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
 use smallvec::*;
+
+pub trait ToHirEager {
+    type Output;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output;
+}
+
+impl<T> ToHirEager for Option<T>
+where
+    T: ToHirEager,
+{
+    type Output = Option<T::Output>;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        self.as_ref().map(|t| t.to_hir_eager(builder))
+    }
+}

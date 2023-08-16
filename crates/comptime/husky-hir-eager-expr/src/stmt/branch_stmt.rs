@@ -18,11 +18,20 @@ impl HirEagerIfBranch {
     }
 }
 
-impl<'a> HirEagerExprBuilder<'a> {
-    pub(super) fn new_if_branch(&mut self, if_branch: &SynIfBranch) -> HirEagerIfBranch {
+impl ToHirEager for SynIfBranch {
+    type Output = HirEagerIfBranch;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerIfBranch {
-            condition: self.new_expr(*if_branch.condition.as_ref().expect("hir stage no error")),
-            stmts: self.new_stmts(if_branch.stmts().expect("hir stage no error")),
+            condition: self
+                .condition
+                .as_ref()
+                .expect("hir stage no error")
+                .to_hir_eager(builder),
+            stmts: self
+                .stmts()
+                .expect("hir stage no error")
+                .to_hir_eager(builder),
         }
     }
 }
@@ -43,11 +52,21 @@ impl HirEagerElifBranch {
     }
 }
 
-impl<'a> HirEagerExprBuilder<'a> {
-    pub(super) fn new_elif_branch(&mut self, elif_branch: &SynElifBranch) -> HirEagerElifBranch {
+impl ToHirEager for SynElifBranch {
+    type Output = HirEagerElifBranch;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElifBranch {
-            condition: self.new_expr(*elif_branch.condition.as_ref().expect("hir stage no error")),
-            stmts: self.new_stmts(*elif_branch.stmts.as_ref().expect("hir stage no error")),
+            condition: self
+                .condition
+                .as_ref()
+                .expect("hir stage no error")
+                .to_hir_eager(builder),
+            stmts: self
+                .stmts
+                .as_ref()
+                .expect("hir stage no error")
+                .to_hir_eager(builder),
         }
     }
 }
@@ -63,10 +82,15 @@ impl HirEagerElseBranch {
     }
 }
 
-impl<'a> HirEagerExprBuilder<'a> {
-    pub(super) fn new_else_branch(&mut self, else_branch: &SynElseBranch) -> HirEagerElseBranch {
+impl ToHirEager for SynElseBranch {
+    type Output = HirEagerElseBranch;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElseBranch {
-            stmts: self.new_stmts(else_branch.stmts().expect("hir stage no error")),
+            stmts: self
+                .stmts()
+                .expect("hir stage no error")
+                .to_hir_eager(builder),
         }
     }
 }

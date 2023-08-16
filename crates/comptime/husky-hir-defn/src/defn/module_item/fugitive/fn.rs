@@ -14,7 +14,9 @@ impl FnHirDefn {
             unreachable!()
         };
         let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
-        let body = syn_defn.body(db).map(|body| builder.new_expr(body));
+        let body = syn_defn
+            .body(db)
+            .map(|body| body.to_hir_eager(&mut builder));
         let hir_expr_region = builder.finish();
         FnHirDefn::new_inner(db, path, hir_decl, body, hir_expr_region)
     }

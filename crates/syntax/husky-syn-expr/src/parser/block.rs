@@ -326,27 +326,27 @@ impl<'a> BlockExprParser<'a> {
         lopd: SynExprIdx,
         ropd: SynExprIdx,
         comparison_opr: BinaryComparisonOpr,
-    ) -> Result<ForBetweenParticulars, StmtError> {
+    ) -> Result<SynForBetweenParticulars, StmtError> {
         use OriginalExprError::UnrecognizedIdent;
         let lopd_expr = &self.expr_arena[lopd];
         let ropd_expr = &self.expr_arena[ropd];
         // todo: parse with
         if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) = lopd_expr
         {
-            Ok(ForBetweenParticulars {
+            Ok(SynForBetweenParticulars {
                 frame_var_token_idx: *token_idx,
                 frame_var_expr_idx: lopd,
                 frame_var_ident: *ident,
-                range: ForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
+                range: SynForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
             })
         } else if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) =
             ropd_expr
         {
-            Ok(ForBetweenParticulars {
+            Ok(SynForBetweenParticulars {
                 frame_var_token_idx: *token_idx,
                 frame_var_expr_idx: ropd,
                 frame_var_ident: *ident,
-                range: ForBetweenRange::new_with_default_final(lopd, comparison_opr)?,
+                range: SynForBetweenRange::new_with_default_final(lopd, comparison_opr)?,
             })
         } else {
             let final_comparison = comparison_opr;
@@ -362,11 +362,11 @@ impl<'a> BlockExprParser<'a> {
                         SynExpr::Err(ExprError::Original(UnrecognizedIdent {
                             token_idx,
                             ident,
-                        })) => Ok(ForBetweenParticulars {
+                        })) => Ok(SynForBetweenParticulars {
                             frame_var_token_idx: *token_idx,
                             frame_var_expr_idx: *lropd,
                             frame_var_ident: *ident,
-                            range: ForBetweenRange::new_without_defaults(
+                            range: SynForBetweenRange::new_without_defaults(
                                 *llopd,
                                 *initial_comparison,
                                 final_comparison,
