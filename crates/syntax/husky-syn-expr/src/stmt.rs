@@ -46,7 +46,7 @@ pub enum SynStmt {
     },
     ForBetween {
         for_token: StmtForToken,
-        particulars: ForBetweenParticulars,
+        particulars: SynForBetweenParticulars,
         frame_var_symbol_idx: CurrentSynSymbolIdx,
         eol_colon: SynExprResult<EolToken>,
         block: SynExprResult<SynStmtIdxRange>,

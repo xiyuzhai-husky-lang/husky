@@ -6,8 +6,8 @@ pub use self::loop_stmt::*;
 
 use crate::*;
 use husky_syn_expr::{
-    ForBetweenParticulars, LetVariableDecls, LoopBoundaryKind, LoopStep, SynStmt, SynStmtIdx,
-    SynStmtIdxRange,
+    LetVariableDecls, LoopBoundaryKind, LoopStep, SynForBetweenParticulars, SynForBetweenRange,
+    SynLoopBoundary, SynStmt, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -71,6 +71,17 @@ pub struct HirEagerForBetweenParticulars {
     pub range: HirEagerForBetweenRange,
 }
 
+impl ToHirEager for SynForBetweenParticulars {
+    type Output = HirEagerForBetweenParticulars;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerForBetweenParticulars {
+            frame_var_ident: self.frame_var_ident,
+            range: self.range.to_hir_eager(builder),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerForBetweenRange {
@@ -79,65 +90,75 @@ pub struct HirEagerForBetweenRange {
     pub step: LoopStep,
 }
 
+impl ToHirEager for SynForBetweenRange {
+    type Output = HirEagerForBetweenRange;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerForBetweenRange {
+            initial_boundary: self.initial_boundary.to_hir_eager(builder),
+            final_boundary: self.final_boundary.to_hir_eager(builder),
+            step: self.step,
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct HirEagerLoopBoundary {
     pub bound_expr: Option<HirEagerExprIdx>,
     pub kind: LoopBoundaryKind,
 }
 
-impl<'a> HirEagerExprBuilder<'a> {
-    pub(crate) fn new_stmts(&mut self, syn_stmts: SynStmtIdxRange) -> HirEagerStmtIdxRange {
-        let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
-        let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
-        for syn_stmt_idx in syn_stmts {
-            match self.new_stmt(syn_stmt_idx) {
-                Some(hir_eager_stmt) => {
-                    syn_stmt_indices.push(syn_stmt_idx);
-                    hir_eager_stmts.push(hir_eager_stmt)
-                }
-                None => todo!(),
-            }
-        }
-        self.alloc_stmts(syn_stmt_indices, hir_eager_stmts)
-    }
+impl ToHirEager for SynLoopBoundary {
+    type Output = HirEagerLoopBoundary;
 
-    pub(crate) fn new_stmt(&mut self, syn_stmt_idx: SynStmtIdx) -> Option<HirEagerStmt> {
-        Some(match self.syn_expr_region_data()[syn_stmt_idx] {
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerLoopBoundary {
+            bound_expr: self.bound_expr.to_hir_eager(builder),
+            kind: self.kind,
+        }
+    }
+}
+
+impl ToHirEager for SynStmtIdx {
+    type Output = Option<HirEagerStmt>;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        Some(match builder.syn_expr_region_data()[*self] {
             SynStmt::Let {
                 let_token,
                 ref let_variables_pattern,
                 initial_value,
                 ..
             } => HirEagerStmt::Let {
-                pattern: self.new_let_variables_pattern(
+                pattern: builder.new_let_variables_pattern(
                     let_variables_pattern.as_ref().expect("hir stage no error"),
                 ),
-                initial_value: self.new_expr(initial_value),
+                initial_value: initial_value.to_hir_eager(builder),
             },
             SynStmt::Return {
                 return_token,
                 result,
             } => HirEagerStmt::Return {
-                result: self.new_expr(result),
+                result: result.to_hir_eager(builder),
             },
             SynStmt::Require {
                 require_token,
                 condition,
             } => HirEagerStmt::Require {
-                condition: self.new_expr(condition),
+                condition: condition.to_hir_eager(builder),
             },
             SynStmt::Assert {
                 assert_token,
                 condition,
             } => HirEagerStmt::Assert {
-                condition: self.new_expr(condition),
+                condition: condition.to_hir_eager(builder),
             },
             SynStmt::Break { break_token } => HirEagerStmt::Break,
             SynStmt::Eval {
                 expr_idx,
                 eol_semicolon,
             } => HirEagerStmt::Eval {
-                expr_idx: self.new_expr(expr_idx),
+                expr_idx: expr_idx.to_hir_eager(builder),
             },
             SynStmt::ForBetween {
                 for_token,
@@ -146,8 +167,11 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ref eol_colon,
                 ref block,
             } => HirEagerStmt::ForBetween {
-                particulars: todo!(),
-                block: self.new_stmts(*block.as_ref().expect("hir stage no errors")),
+                particulars: particulars.to_hir_eager(builder),
+                block: block
+                    .as_ref()
+                    .expect("hir stage no errors")
+                    .to_hir_eager(builder),
             },
             SynStmt::ForIn {
                 for_token,
@@ -167,8 +191,14 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ref eol_colon,
                 ref block,
             } => HirEagerStmt::While {
-                condition: self.new_expr(*condition.as_ref().expect("hir stage no error")),
-                stmts: self.new_stmts(*block.as_ref().expect("hir stage no error")),
+                condition: condition
+                    .as_ref()
+                    .expect("hir stage no error")
+                    .to_hir_eager(builder),
+                stmts: block
+                    .as_ref()
+                    .expect("hir stage no error")
+                    .to_hir_eager(builder),
             },
             SynStmt::DoWhile {
                 do_token,
@@ -182,17 +212,36 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ref elif_branches,
                 ref else_branch,
             } => HirEagerStmt::IfElse {
-                if_branch: self.new_if_branch(if_branch),
+                if_branch: if_branch.to_hir_eager(builder),
                 elif_branches: elif_branches
                     .iter()
-                    .map(|elif_branch| self.new_elif_branch(elif_branch))
+                    .map(|elif_branch| elif_branch.to_hir_eager(builder))
                     .collect(),
                 else_branch: else_branch
                     .as_ref()
-                    .map(|else_branch| self.new_else_branch(else_branch)),
+                    .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
             SynStmt::Match { match_token } => todo!(),
             SynStmt::Err(_) => todo!(),
         })
+    }
+}
+
+impl ToHirEager for SynStmtIdxRange {
+    type Output = HirEagerStmtIdxRange;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
+        let mut hir_eager_stmts: Vec<HirEagerStmt> = vec![];
+        for syn_stmt_idx in self {
+            match syn_stmt_idx.to_hir_eager(builder) {
+                Some(hir_eager_stmt) => {
+                    syn_stmt_indices.push(syn_stmt_idx);
+                    hir_eager_stmts.push(hir_eager_stmt)
+                }
+                None => todo!(),
+            }
+        }
+        builder.alloc_stmts(syn_stmt_indices, hir_eager_stmts)
     }
 }

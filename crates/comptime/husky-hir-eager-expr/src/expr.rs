@@ -4,6 +4,7 @@ use husky_expr_ty::{
     IndexOrComposeWithListExprDisambiguation, MethodCallOrApplicationDisambiguation,
     RitchieParameterArgumentMatch,
 };
+use husky_fluffy_term::StaticDispatch;
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
 
 use crate::*;
@@ -86,6 +87,7 @@ pub enum HirEagerExpr {
         arguments: IdentMap<HtmlArgumentHirEagerExpr>,
     },
     Todo,
+    AssociatedFn,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -112,7 +114,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> HirEagerCallListItemGroup {
         match pam {
             RitchieParameterArgumentMatch::Regular(_, item) => {
-                HirEagerCallListItemGroup::Regular(self.new_expr(item.argument_expr_idx()))
+                HirEagerCallListItemGroup::Regular(item.argument_expr_idx().to_hir_eager(self))
             }
             RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
             RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
@@ -158,10 +160,12 @@ pub struct HirGenericArgumentList {/*todo */}
 #[cfg(feature = "rust-syn-gen")]
 impl Expr {}
 
-impl<'a> HirEagerExprBuilder<'a> {
-    pub fn new_expr(&mut self, syn_expr_idx: SynExprIdx) -> HirEagerExprIdx {
-        let hir_eager_expr = match self.syn_expr_region_data()[syn_expr_idx] {
-            SynExpr::Literal(_, _) => HirEagerExpr::Literal(match self.expr_term(syn_expr_idx) {
+impl ToHirEager for SynExprIdx {
+    type Output = HirEagerExprIdx;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        let hir_eager_expr = match builder.syn_expr_region_data()[*self] {
+            SynExpr::Literal(_, _) => HirEagerExpr::Literal(match builder.expr_term(*self) {
                 EtherealTerm::Literal(lit) => lit,
                 _ => unreachable!(),
             }),
@@ -177,7 +181,16 @@ impl<'a> HirEagerExprBuilder<'a> {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
-            } => todo!(),
+            } => {
+                let ExprDisambiguation::StaticDispatch(dispatch) =
+                    builder.expr_disambiguation(*self)
+                else {
+                    unreachable!()
+                };
+                match dispatch {
+                    StaticDispatch::AssociatedFn(_) => HirEagerExpr::AssociatedFn,
+                }
+            }
             SynExpr::InheritedSymbol {
                 ident,
                 token_idx,
@@ -204,9 +217,9 @@ impl<'a> HirEagerExprBuilder<'a> {
                 opr_token_idx,
                 ropd,
             } => HirEagerExpr::Binary {
-                lopd: self.new_expr(lopd),
+                lopd: lopd.to_hir_eager(builder),
                 opr,
-                ropd: self.new_expr(ropd),
+                ropd: ropd.to_hir_eager(builder),
             },
             SynExpr::Be {
                 src,
@@ -219,7 +232,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 opd,
             } => HirEagerExpr::Prefix {
                 opr,
-                opd: self.new_expr(opd),
+                opd: opd.to_hir_eager(builder),
             },
             SynExpr::Suffix {
                 opd,
@@ -227,7 +240,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 opr_token_idx,
             } => HirEagerExpr::Suffix {
                 opr,
-                opd: self.new_expr(opd),
+                opd: opd.to_hir_eager(builder),
             },
             SynExpr::FunctionApplicationOrCall {
                 function,
@@ -237,7 +250,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 rpar_token_idx,
             } => {
                 let ExprDisambiguation::ExplicitApplicationOrFunctionCall(disambiguation) =
-                    self.expr_disambiguation(syn_expr_idx)
+                    builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
                 };
@@ -248,9 +261,9 @@ impl<'a> HirEagerExprBuilder<'a> {
                     ApplicationOrFunctionCallExprDisambiguation::FnCall {
                         ritchie_parameter_argument_matches,
                     } => HirEagerExpr::FunctionCall {
-                        function: self.new_expr(function),
+                        function: function.to_hir_eager(builder),
                         generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                        item_groups: self
+                        item_groups: builder
                             .new_call_list_item_groups(ritchie_parameter_argument_matches),
                     },
                     ApplicationOrFunctionCallExprDisambiguation::GnCall {
@@ -279,7 +292,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 dot_token_idx,
                 ident_token,
             } => HirEagerExpr::Field {
-                owner: self.new_expr(owner),
+                owner: owner.to_hir_eager(builder),
                 ident: ident_token.ident(),
             },
             SynExpr::MethodApplicationOrCall {
@@ -293,7 +306,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             } => {
                 // todo: method application should be ignored
                 let ExprDisambiguation::MethodCallOrApplication(disambiguation) =
-                    self.expr_disambiguation(syn_expr_idx)
+                    builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
                 };
@@ -306,10 +319,10 @@ impl<'a> HirEagerExprBuilder<'a> {
                             .as_ref()
                             .expect("hir stage no errors");
                         HirEagerExpr::MethodCall {
-                            self_argument: self.new_expr(self_argument),
+                            self_argument: self_argument.to_hir_eager(builder),
                             ident: ident_token.ident(),
                             generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
-                            item_groups: self
+                            item_groups: builder
                                 .new_call_list_item_groups(ritchie_parameter_argument_matches),
                         }
                     }
@@ -331,7 +344,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
-            } => return self.new_expr(item),
+            } => return item.to_hir_eager(builder),
             SynExpr::NewTuple {
                 lpar_token_idx,
                 ref items,
@@ -344,16 +357,16 @@ impl<'a> HirEagerExprBuilder<'a> {
                 ..
             } => {
                 let ExprDisambiguation::IndexOrComposeWithList(disambiguation) =
-                    self.expr_disambiguation(syn_expr_idx)
+                    builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
                 };
                 match disambiguation {
                     IndexOrComposeWithListExprDisambiguation::Index(_) => HirEagerExpr::Index {
-                        owner: self.new_expr(owner),
+                        owner: owner.to_hir_eager(builder),
                         items: items
                             .iter()
-                            .map(|item| self.new_expr(item.expr_idx()))
+                            .map(|item| item.expr_idx().to_hir_eager(builder))
                             .collect(),
                     },
                     IndexOrComposeWithListExprDisambiguation::ComposeWithList => {
@@ -368,7 +381,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             } => HirEagerExpr::List {
                 items: items
                     .iter()
-                    .map(|item| self.new_expr(item.expr_idx()))
+                    .map(|item| item.expr_idx().to_hir_eager(builder))
                     .collect(),
             },
             SynExpr::BoxColonList {
@@ -378,7 +391,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 rbox_token_idx,
             } => todo!(),
             SynExpr::Block { stmts } => HirEagerExpr::Block {
-                stmts: self.new_stmts(stmts),
+                stmts: stmts.to_hir_eager(builder),
             },
             SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx,
@@ -389,9 +402,13 @@ impl<'a> HirEagerExprBuilder<'a> {
             SynExpr::Sorry { token_idx } => todo!(),
             SynExpr::Todo { token_idx } => HirEagerExpr::Todo,
             SynExpr::Err(ref e) => {
-                unreachable!("e = {:?}, path = {:?}", e.debug(self.db()), self.path())
+                unreachable!(
+                    "e = {:?}, path = {:?}",
+                    e.debug(builder.db()),
+                    builder.path()
+                )
             }
         };
-        self.alloc_expr(syn_expr_idx, hir_eager_expr)
+        builder.alloc_expr(*self, hir_eager_expr)
     }
 }

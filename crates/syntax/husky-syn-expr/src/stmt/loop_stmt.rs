@@ -2,22 +2,22 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub struct ForBetweenParticulars {
+pub struct SynForBetweenParticulars {
     pub frame_var_token_idx: TokenIdx,
     pub frame_var_expr_idx: SynExprIdx,
     pub frame_var_ident: Ident,
-    pub range: ForBetweenRange,
+    pub range: SynForBetweenRange,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub struct ForBetweenRange {
-    pub initial_boundary: LoopBoundary,
-    pub final_boundary: LoopBoundary,
+pub struct SynForBetweenRange {
+    pub initial_boundary: SynLoopBoundary,
+    pub final_boundary: SynLoopBoundary,
     pub step: LoopStep,
 }
 
-impl ForBetweenRange {
+impl SynForBetweenRange {
     pub fn new_without_defaults(
         initial_bound: SynExprIdx,
         initial_comparison: BinaryComparisonOpr,
@@ -44,11 +44,11 @@ impl ForBetweenRange {
         };
         check_compatible(initial_boundary_kind, final_boundary_kind)?;
         Ok(Self {
-            initial_boundary: LoopBoundary {
+            initial_boundary: SynLoopBoundary {
                 bound_expr: Some(initial_bound),
                 kind: initial_boundary_kind,
             },
-            final_boundary: LoopBoundary {
+            final_boundary: SynLoopBoundary {
                 bound_expr: Some(final_bound),
                 kind: final_boundary_kind,
             },
@@ -71,9 +71,9 @@ impl ForBetweenRange {
             BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
             _ => todo!(),
         };
-        Ok(ForBetweenRange {
+        Ok(SynForBetweenRange {
             initial_boundary: Default::default(),
-            final_boundary: LoopBoundary {
+            final_boundary: SynLoopBoundary {
                 bound_expr: Some(final_bound),
                 kind: final_boundary_kind,
             },
@@ -97,7 +97,7 @@ impl ForBetweenRange {
             _ => return todo!("expect comparison"),
         };
         Ok(Self {
-            initial_boundary: LoopBoundary {
+            initial_boundary: SynLoopBoundary {
                 bound_expr: Some(initial_bound),
                 kind: initial_boundary_kind,
             },
@@ -133,12 +133,12 @@ fn check_compatible(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct LoopBoundary {
+pub struct SynLoopBoundary {
     pub bound_expr: Option<SynExprIdx>,
     pub kind: LoopBoundaryKind,
 }
 
-impl Default for LoopBoundary {
+impl Default for SynLoopBoundary {
     fn default() -> Self {
         Self {
             bound_expr: None,
