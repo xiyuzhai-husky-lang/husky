@@ -2,15 +2,15 @@ use super::*;
 
 /// expect primitive number types
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ExpectNumType;
+pub struct ExpectIntType;
 
-impl ExpectFluffyTerm for ExpectNumType {
-    type Outcome = ExpectNumTypeOutcome;
+impl ExpectFluffyTerm for ExpectIntType {
+    type Outcome = ExpectIntTypeOutcome;
 
     #[inline(always)]
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            FluffyTermExpectationOutcome::NumType(outcome) => outcome,
+            FluffyTermExpectationOutcome::IntType(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -44,7 +44,7 @@ impl ExpectFluffyTerm for ExpectNumType {
                 ..
             } => match refined_ty_path {
                 Left(PreludeTypePath::Num(_)) => state.set_ok(
-                    ExpectNumTypeOutcome {
+                    ExpectIntTypeOutcome {
                         placeless_num_ty: state.expectee(),
                     },
                     smallvec![],
@@ -60,7 +60,8 @@ impl ExpectFluffyTerm for ExpectNumType {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(hole_kind, _) => match hole_kind {
-                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => AltNone,
+                HoleKind::UnspecifiedIntegerType => AltNone,
+                HoleKind::UnspecifiedFloatType => todo!(),
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
@@ -93,12 +94,12 @@ impl ExpectFluffyTerm for ExpectNumType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ExpectNumTypeOutcome {
+pub struct ExpectIntTypeOutcome {
     /// guaranteed to be placeless
     placeless_num_ty: FluffyTerm,
 }
 
-impl ExpectNumTypeOutcome {
+impl ExpectIntTypeOutcome {
     /// guaranteed to be placeless
     pub fn placeless_num_ty(&self) -> FluffyTerm {
         self.placeless_num_ty

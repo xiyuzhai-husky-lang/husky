@@ -14987,8 +14987,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 7,
@@ -15784,8 +15784,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 42,
@@ -15801,8 +15801,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -15824,8 +15824,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 43,
@@ -15841,8 +15841,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -15988,8 +15988,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 48,
@@ -18009,8 +18009,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 120,
@@ -18026,8 +18026,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -18049,8 +18049,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 121,
@@ -18066,8 +18066,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -26461,8 +26461,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 1,

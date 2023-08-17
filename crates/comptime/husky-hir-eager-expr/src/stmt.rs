@@ -6,8 +6,8 @@ pub use self::loop_stmt::*;
 
 use crate::*;
 use husky_syn_expr::{
-    LetVariableDecls, LoopBoundaryKind, LoopStep, SynForBetweenParticulars, SynForBetweenRange,
-    SynLoopBoundary, SynStmt, SynStmtIdx, SynStmtIdxRange,
+    LetVariableDecls, LoopBoundaryKind, LoopStep, SynForBetweenLoopBoundary,
+    SynForBetweenParticulars, SynForBetweenRange, SynStmt, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -35,12 +35,12 @@ pub enum HirEagerStmt {
         // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
         block: HirEagerStmtIdxRange,
     },
-    ForIn {
-        condition: HirEagerExprIdx,
+    ForExt {
+        particulars: HirEagerForExtParticulars,
         block: HirEagerStmtIdxRange,
     },
-    ForExt {
-        expr: HirEagerExprIdx,
+    ForIn {
+        condition: HirEagerExprIdx,
         block: HirEagerStmtIdxRange,
     },
     While {
@@ -63,61 +63,6 @@ pub type HirEagerStmtArena = Arena<HirEagerStmt>;
 pub type HirEagerStmtIdx = ArenaIdx<HirEagerStmt>;
 pub type HirEagerStmtIdxRange = ArenaIdxRange<HirEagerStmt>;
 pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmt, V>;
-
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
-pub struct HirEagerForBetweenParticulars {
-    pub frame_var_ident: Ident,
-    pub range: HirEagerForBetweenRange,
-}
-
-impl ToHirEager for SynForBetweenParticulars {
-    type Output = HirEagerForBetweenParticulars;
-
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        HirEagerForBetweenParticulars {
-            frame_var_ident: self.frame_var_ident,
-            range: self.range.to_hir_eager(builder),
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::debug_with_db(db = HirEagerExprDb)]
-pub struct HirEagerForBetweenRange {
-    pub initial_boundary: HirEagerLoopBoundary,
-    pub final_boundary: HirEagerLoopBoundary,
-    pub step: LoopStep,
-}
-
-impl ToHirEager for SynForBetweenRange {
-    type Output = HirEagerForBetweenRange;
-
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        HirEagerForBetweenRange {
-            initial_boundary: self.initial_boundary.to_hir_eager(builder),
-            final_boundary: self.final_boundary.to_hir_eager(builder),
-            step: self.step,
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct HirEagerLoopBoundary {
-    pub bound_expr: Option<HirEagerExprIdx>,
-    pub kind: LoopBoundaryKind,
-}
-
-impl ToHirEager for SynLoopBoundary {
-    type Output = HirEagerLoopBoundary;
-
-    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        HirEagerLoopBoundary {
-            bound_expr: self.bound_expr.to_hir_eager(builder),
-            kind: self.kind,
-        }
-    }
-}
 
 impl ToHirEager for SynStmtIdx {
     type Output = Option<HirEagerStmt>;
@@ -181,10 +126,16 @@ impl ToHirEager for SynStmtIdx {
             } => todo!(),
             SynStmt::ForExt {
                 forext_token,
-                expr,
+                ref particulars,
                 ref eol_colon,
                 ref block,
-            } => todo!(),
+            } => HirEagerStmt::ForExt {
+                particulars: particulars.to_hir_eager(builder),
+                block: block
+                    .as_ref()
+                    .expect("hir stage no error")
+                    .to_hir_eager(builder),
+            },
             SynStmt::While {
                 while_token,
                 ref condition,

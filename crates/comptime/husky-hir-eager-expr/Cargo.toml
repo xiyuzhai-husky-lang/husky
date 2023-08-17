@@ -25,6 +25,8 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [features]
 rust-syn-gen = ["dep:syn"]

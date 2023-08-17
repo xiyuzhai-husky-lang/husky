@@ -1,4 +1,5 @@
 use crate::*;
+use husky_print_utils::p;
 use husky_vfs::{ModulePath, Toolchain};
 
 #[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
@@ -90,9 +91,12 @@ impl SynExprRegionData {
     }
 
     pub fn self_ty(&self) -> Option<SynExprIdx> {
-        self.roots
-            .iter()
-            .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
+        todo!();
+        // ad hoc
+        // this will not work for derive any decl region\
+        // self.roots
+        //     .iter()
+        //     .find_map(|root| (root.kind() == ExprRootKind::SelfType).then_some(root.expr_idx()))
     }
 }
 

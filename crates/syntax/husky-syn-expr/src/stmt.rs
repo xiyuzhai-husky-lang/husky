@@ -59,7 +59,7 @@ pub enum SynStmt {
     },
     ForExt {
         forext_token: ForextToken,
-        expr: SynExprIdx,
+        particulars: SynForextParticulars,
         eol_colon: SynExprResult<EolToken>,
         block: SynExprResult<SynStmtIdxRange>,
     },

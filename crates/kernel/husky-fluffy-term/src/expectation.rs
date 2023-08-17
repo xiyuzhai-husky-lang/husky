@@ -9,7 +9,7 @@ mod eqs_function_ty;
 mod eqs_ritchie_ty;
 mod final_destination;
 mod ins_sort;
-mod num_ty;
+mod int_ty;
 mod subtype;
 
 pub use self::any_derived::*;
@@ -23,7 +23,7 @@ pub use self::eqs_function_ty::*;
 pub use self::eqs_ritchie_ty::*;
 pub use self::final_destination::*;
 pub use self::ins_sort::*;
-pub use self::num_ty::*;
+pub use self::int_ty::*;
 pub use self::subtype::*;
 
 use super::*;
@@ -48,7 +48,7 @@ pub enum Expectation {
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
     ConditionType(ExpectConditionType),
-    NumType(ExpectNumType),
+    IntType(ExpectIntType),
     FinalDestination(ExpectFinalDestination),
     CurryDestination(ExpectCurryDestination),
 }
@@ -76,7 +76,7 @@ impl Expectation {
             Expectation::EqsExactly(epn) => epn.resolve(db, terms, meta),
             Expectation::AnyOriginal(epn) => epn.resolve(db, terms, meta),
             Expectation::AnyDerived(epn) => epn.resolve(db, terms, meta),
-            Expectation::NumType(epn) => epn.resolve(db, terms, meta),
+            Expectation::IntType(epn) => epn.resolve(db, terms, meta),
             Expectation::FinalDestination(epn) => epn.resolve(db, terms, meta),
             Expectation::CurryDestination(epn) => epn.resolve(db, terms, meta),
             Expectation::ConditionType(epn) => epn.resolve(db, terms, meta),
@@ -167,7 +167,7 @@ pub enum FluffyTermExpectationOutcome {
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
     EqsRitchieCallType(ExpectEqsRitchieTypeOutcome),
-    NumType(ExpectNumTypeOutcome),
+    IntType(ExpectIntTypeOutcome),
     ConditionType(ExpectConditionTypeOutcome),
 }
 
@@ -181,7 +181,7 @@ impl FluffyTermExpectationOutcome {
             FluffyTermExpectationOutcome::Subtype(result) => result.resolved(),
             FluffyTermExpectationOutcome::EqsFunctionCallType(_) => todo!(),
             FluffyTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
-            FluffyTermExpectationOutcome::NumType(_) => todo!(),
+            FluffyTermExpectationOutcome::IntType(_) => todo!(),
             FluffyTermExpectationOutcome::ConditionType(_) => todo!(),
         }
     }

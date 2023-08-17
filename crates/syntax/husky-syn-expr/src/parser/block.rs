@@ -268,8 +268,8 @@ impl<'a> BlockExprParser<'a> {
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr)?;
                 let current_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
-                    expr_idx: particulars.frame_var_expr_idx,
-                    ident: particulars.frame_var_ident,
+                    expr_idx: particulars.for_between_loop_var_expr_idx,
+                    ident: particulars.for_between_loop_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
                 let access_start = self.ast_token_idx_range_sheet[body.ast_idx_range().start()]
@@ -290,10 +290,10 @@ impl<'a> BlockExprParser<'a> {
                     )
                     .start();
                 self.expr_arena.set(
-                    particulars.frame_var_expr_idx,
+                    particulars.for_between_loop_var_expr_idx,
                     SynExpr::FrameVarDecl {
-                        token_idx: particulars.frame_var_token_idx,
-                        ident: particulars.frame_var_ident,
+                        token_idx: particulars.for_between_loop_var_token_idx,
+                        ident: particulars.for_between_loop_var_ident,
                         frame_var_symbol_idx,
                         current_symbol_kind,
                     },
@@ -334,18 +334,18 @@ impl<'a> BlockExprParser<'a> {
         if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) = lopd_expr
         {
             Ok(SynForBetweenParticulars {
-                frame_var_token_idx: *token_idx,
-                frame_var_expr_idx: lopd,
-                frame_var_ident: *ident,
+                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_expr_idx: lopd,
+                for_between_loop_var_ident: *ident,
                 range: SynForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
             })
         } else if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) =
             ropd_expr
         {
             Ok(SynForBetweenParticulars {
-                frame_var_token_idx: *token_idx,
-                frame_var_expr_idx: ropd,
-                frame_var_ident: *ident,
+                for_between_loop_var_token_idx: *token_idx,
+                for_between_loop_var_expr_idx: ropd,
+                for_between_loop_var_ident: *ident,
                 range: SynForBetweenRange::new_with_default_final(lopd, comparison_opr)?,
             })
         } else {
@@ -363,9 +363,9 @@ impl<'a> BlockExprParser<'a> {
                             token_idx,
                             ident,
                         })) => Ok(SynForBetweenParticulars {
-                            frame_var_token_idx: *token_idx,
-                            frame_var_expr_idx: *lropd,
-                            frame_var_ident: *ident,
+                            for_between_loop_var_token_idx: *token_idx,
+                            for_between_loop_var_expr_idx: *lropd,
+                            for_between_loop_var_ident: *ident,
                             range: SynForBetweenRange::new_without_defaults(
                                 *llopd,
                                 *initial_comparison,
@@ -389,9 +389,41 @@ impl<'a> BlockExprParser<'a> {
         eol_colon: SynExprResult<EolToken>,
         body: FugitiveBody,
     ) -> StmtResult<SynStmt> {
+        let SynExpr::Binary {
+            lopd: forext_loop_var_expr_idx,
+            opr: BinaryOpr::Comparison(opr),
+            opr_token_idx,
+            ropd: bound_expr,
+        } = self.expr_arena[expr]
+        else {
+            todo!()
+        };
+        let (forext_loop_var_ident, forext_loop_var_token_idx) =
+            match self.expr_arena[forext_loop_var_expr_idx] {
+                SynExpr::InheritedSymbol {
+                    ident,
+                    token_idx,
+                    inherited_symbol_idx,
+                    inherited_symbol_kind,
+                } => (ident, token_idx),
+                SynExpr::CurrentSymbol {
+                    ident,
+                    token_idx,
+                    current_symbol_idx,
+                    current_symbol_kind,
+                } => (ident, token_idx),
+                _ => todo!(),
+            };
+        let particulars = SynForextParticulars::new(
+            forext_loop_var_token_idx,
+            forext_loop_var_ident,
+            forext_loop_var_expr_idx,
+            opr,
+            bound_expr,
+        );
         Ok(SynStmt::ForExt {
             forext_token,
-            expr,
+            particulars,
             eol_colon,
             block: self.parse_block_stmts_expected(body, token_group_idx),
         })
