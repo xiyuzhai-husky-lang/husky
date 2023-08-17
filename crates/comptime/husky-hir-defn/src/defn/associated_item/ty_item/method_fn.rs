@@ -15,9 +15,8 @@ impl TypeMethodFnHirDefn {
         path: TypeItemPath,
         hir_decl: TypeMethodFnHirDecl,
     ) -> Self {
-        let TypeItemSynDefn::MethodFn(syn_defn) = path.syn_defn(db).expect("hir stage no error")
-        else {
-            unreachable!()
+        let Ok(TypeItemSynDefn::MethodFn(syn_defn)) = path.syn_defn(db) else {
+            unreachable!("hir stage no error")
         };
         let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
         let body = syn_defn.body(db).map(|_| todo!());
