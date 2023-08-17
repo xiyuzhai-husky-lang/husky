@@ -28,4 +28,51 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TraitForTypeItem(
+            TraitForTypeItemHirDefn::MethodFn(
+                TraitForTypeMethodFnHirDefn {
+                    path: TraitForTypeItemPath {
+                        impl_block: TraitForTypeImplBlockPath {
+                            module_path: `core::visual`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::DeriveAny,
+                            disambiguator: 0,
+                        },
+                        ident: `clone`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath {
+                            impl_block: TraitForTypeImplBlockPath {
+                                module_path: `core::visual`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::DeriveAny,
+                                disambiguator: 0,
+                            },
+                            ident: `clone`,
+                            item_kind: MethodFn,
+                        },
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: Symbol(
+                                SelfType,
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: Symbol(
+                            SelfType,
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
 ]

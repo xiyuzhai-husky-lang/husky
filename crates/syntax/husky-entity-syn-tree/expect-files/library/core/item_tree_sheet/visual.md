@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Visualize`,
                                 token_idx: TokenIdx(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Html`,
                                 token_idx: TokenIdx(
@@ -114,7 +114,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Visualize`,
                                 token_idx: TokenIdx(
@@ -155,7 +155,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Html`,
                                 token_idx: TokenIdx(
@@ -209,7 +209,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -250,7 +250,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -291,7 +291,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -332,7 +332,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -373,7 +373,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -414,7 +414,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -455,7 +455,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -496,7 +496,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -537,7 +537,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -578,7 +578,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -619,7 +619,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -660,7 +660,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -701,7 +701,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -742,7 +742,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -783,7 +783,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -824,7 +824,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -865,7 +865,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -906,7 +906,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -947,7 +947,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1024,7 +1024,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1101,7 +1101,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1178,7 +1178,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1255,7 +1255,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1332,7 +1332,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1409,7 +1409,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1486,7 +1486,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1563,7 +1563,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1640,7 +1640,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1717,7 +1717,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1794,7 +1794,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1871,7 +1871,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -1948,7 +1948,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2025,7 +2025,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2102,7 +2102,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2179,7 +2179,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2256,7 +2256,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2333,7 +2333,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2410,7 +2410,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2487,7 +2487,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2564,7 +2564,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2594,7 +2594,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 2,
+                                                    ast_idx: 3,
                                                     ident_token: IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
@@ -2647,7 +2647,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2677,7 +2677,7 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 4,
                                                     ident_token: IdentToken {
                                                         ident: `Html`,
                                                         token_idx: TokenIdx(
@@ -2724,7 +2724,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2801,7 +2801,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2878,7 +2878,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -2961,7 +2961,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3044,7 +3044,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3112,7 +3112,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3180,7 +3180,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3257,7 +3257,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3334,7 +3334,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3411,7 +3411,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3488,7 +3488,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3565,7 +3565,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3642,7 +3642,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
@@ -3719,18 +3719,79 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `core::visual`,
                             ),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             use_expr_idx: 0,
                         },
                     ),
                 },
             ],
         ),
-        impl_block_syn_node_table: [],
+        impl_block_syn_node_table: [
+            (
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `core::visual`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::DeriveAny,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNode {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `core::visual`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::DeriveAny,
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 5,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                19,
+                            ),
+                        },
+                        trai_expr: 57,
+                        for_token: TokenIdx(
+                            21,
+                        ),
+                        ty_sketch_expr: DeriveAny {
+                            at_token: AtToken(
+                                TokenIdx(
+                                    22,
+                                ),
+                            ),
+                            derive_token: DeriveToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                            underscore_token: UnderscoreToken {
+                                token_idx: TokenIdx(
+                                    24,
+                                ),
+                            },
+                        },
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ],
         once_use_rules: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 1,
+                    ast_idx: 2,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::visual`,
@@ -3763,7 +3824,7 @@ Ok(
                 UseAllModuleSymbolsRule {
                     parent_module_path: `core`,
                     is_same_crate: true,
-                    ast_idx: 1,
+                    ast_idx: 2,
                     use_expr_idx: 0,
                     visibility: Scope::PubUnder(
                         `core::visual`,

@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Visualize`,
                                 token_idx: TokenIdx(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Html`,
                                 token_idx: TokenIdx(
@@ -98,7 +98,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 1,
+                    ast_idx: 2,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::visual`,

@@ -35300,21 +35300,10 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Original(
-                        OriginalExprTypeError::NoMethodForType {
-                            self_expr_ty: FluffyTerm {
-                                place: None,
-                                base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`Vec LineSegmentStroke`),
-                                ),
-                            },
-                            ident_token: IdentToken {
-                                ident: `visualize`,
-                                token_idx: TokenIdx(
-                                    202,
-                                ),
-                            },
-                        },
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FluffyTermError(
+                            FluffyTermError::Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
