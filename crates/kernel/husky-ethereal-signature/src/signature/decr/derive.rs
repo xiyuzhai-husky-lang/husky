@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use husky_term_prelude::TermTypeExpectation;
 use vec_like::{SmallVecPairMap, SmallVecSet, VecMapGetEntry};
 
@@ -46,7 +47,11 @@ pub trait HasDeriveDecrEtherealSignatureTemplates: Copy {
                 Ok(ethereal_signature_templates) => Ok(Some(ethereal_signature_templates)),
                 Err(e) => Err(*e),
             },
-            None => todo!(),
+            None => {
+                use salsa::DebugWithDb;
+                p!(trai_path.debug(db));
+                todo!()
+            }
         }
     }
 }
