@@ -34,7 +34,7 @@ pub struct EntitySynTreePresheet {
     use_one_trackers: OnceUseRules,
     use_all_trackers: UseAllModuleSymbolsRules,
     use_expr_arena: UseExprArena,
-    errors: Vec<EntityTreeError>,
+    errors: Vec<EntitySynTreeError>,
 }
 
 impl std::ops::Index<UseExprIdx> for EntitySynTreePresheet {
@@ -73,7 +73,7 @@ pub(crate) struct EntityTreePresheetMut<'a> {
     symbol_table: EntitySymbolTable,
     once_use_rules: OnceUseRules,
     all_module_items_use_rules: UseAllModuleSymbolsRules,
-    errors: Vec<EntityTreeError>,
+    errors: Vec<EntitySynTreeError>,
     use_expr_arena: &'a UseExprArena,
 }
 

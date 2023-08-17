@@ -2120,6 +2120,246 @@
     ExprTypeRegion {
         path: RegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `sgnx`,
+                                item_kind: MethodFn,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: [],
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            EtherealTerm(`i32`),
+        ),
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `cos`,
+                                item_kind: MethodFn,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: [],
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `sin`,
+                                item_kind: MethodFn,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: [],
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `acos`,
+                                item_kind: MethodFn,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: [],
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2202,6 +2442,66 @@
                                     disambiguator: 0,
                                 },
                                 ident: `abs`,
+                                item_kind: MethodFn,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        pattern_expr_ty_infos: [],
+        pattern_symbol_ty_infos: ArenaMap {
+            data: [],
+        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: [],
+            current_symbol_map: [],
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: [],
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: Some(
+            EtherealTerm(`f64`),
+        ),
+        self_ty: Some(
+            EtherealTerm(`f64`),
+        ),
+    },
+    ExprTypeRegion {
+        path: RegionPath::Defn(
+            ItemSynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `acos`,
                                 item_kind: MethodFn,
                             },
                             disambiguator: 0,

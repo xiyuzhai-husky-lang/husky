@@ -3,35 +3,5 @@ use crate::*
 pub trait Clone:
     fn clone() -> Self;
 
-// maybe the following is better?
-// ```husky
-// impl Clone for _ when [
-//     Self: derive Clone or Copy
-// ] where:
-//    fn clone() -> T;
-// ```
-// or
-// ```husky
-// impl Clone for derive Clone or Copy where:
-//    fn clone() -> T;
-// ```
-// or
-// ```husky
-// impl Clone for derive Clone or Copy when
-//     <condition>
-//     <condition>
-//     ...
-// where:
-//    fn clone() -> T;
-// ```
-// or
-// ```husky
-// impl Clone for @derive _ when
-//     <condition>
-//     <condition>
-//     ...
-// where
-//    fn clone() -> T;
-// ```
 impl Clone for @derive _:
     fn clone() -> Self;

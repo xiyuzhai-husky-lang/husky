@@ -153,7 +153,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 65,
+                        value: 73,
                     },
                 ),
             ),
@@ -164,7 +164,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 66,
+                        value: 74,
                     },
                 ),
             ),
@@ -175,7 +175,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 67,
+                        value: 75,
                     },
                 ),
             ),
@@ -186,7 +186,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 68,
+                        value: 76,
                     },
                 ),
             ),
@@ -197,7 +197,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 69,
+                        value: 77,
                     },
                 ),
             ),
@@ -208,7 +208,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 70,
+                        value: 78,
                     },
                 ),
             ),

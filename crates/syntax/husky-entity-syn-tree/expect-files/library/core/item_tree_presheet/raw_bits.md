@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 5,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `r32`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 2,
+                    ast_idx: 5,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::raw_bits`,

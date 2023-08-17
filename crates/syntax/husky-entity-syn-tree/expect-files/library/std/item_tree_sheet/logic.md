@@ -229,7 +229,7 @@ Ok(
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        57,
+                        58,
                     ),
                 },
             ],

@@ -1,6 +1,7 @@
 use crate::*
 
 /// equivalent to `[]E` when `E` is not pure concept
+@derive(Debug, Clone, Visualize)
 pub extern Vec<covariant E>;
 
 impl<E> Vec E:

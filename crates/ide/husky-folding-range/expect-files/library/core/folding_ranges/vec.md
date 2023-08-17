@@ -1,11 +1,11 @@
 Ok(
     [
         FoldingRange {
-            start_line: 5,
+            start_line: 6,
             start_character: Some(
                 0,
             ),
-            end_line: 20,
+            end_line: 21,
             end_character: Some(
                 71,
             ),

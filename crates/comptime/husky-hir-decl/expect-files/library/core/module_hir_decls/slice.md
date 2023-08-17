@@ -58,7 +58,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 24,
+                        value: 32,
                     },
                 ),
             ),
@@ -69,7 +69,57 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 25,
+                        value: 33,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `core::slice`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            traits: [],
+                        },
+                    ],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    template_arguments: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            AssociatedType(
+                TraitForTypeAssociatedTypeHirDecl(
+                    Id {
+                        value: 2,
                     },
                 ),
             ),
@@ -112,7 +162,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 26,
+                        value: 34,
                     },
                 ),
             ),
@@ -123,7 +173,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 27,
+                        value: 35,
                     },
                 ),
             ),
@@ -134,7 +184,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 28,
+                        value: 36,
                     },
                 ),
             ),
@@ -145,7 +195,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 29,
+                        value: 37,
                     },
                 ),
             ),
@@ -156,7 +206,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 30,
+                        value: 38,
                     },
                 ),
             ),

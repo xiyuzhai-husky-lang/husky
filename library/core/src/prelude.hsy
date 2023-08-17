@@ -8,3 +8,4 @@ pub use crate::clone::*
 pub use crate::option::*
 pub use crate::cmp::*
 pub use crate::slice::*
+pub use crate::vec::*

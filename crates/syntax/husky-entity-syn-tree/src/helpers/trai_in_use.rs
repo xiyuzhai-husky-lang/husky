@@ -75,7 +75,14 @@ fn module_specific_trait_items_table(
 ) -> EntitySynTreeResult<TraitInUseItemsTableImpl> {
     Ok(trait_items_table_impl(
         db,
-        module_path.item_tree_sheet(db).as_ref()?.module_symbols(),
+        module_path
+            .item_tree_sheet(db)
+            .as_ref()
+            .map_err(|e| -> EntitySynTreeError {
+                p!(e.debug(db));
+                todo!()
+            })?
+            .module_symbols(),
     ))
 }
 

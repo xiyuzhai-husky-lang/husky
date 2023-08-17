@@ -1,3 +1,4 @@
+@derive(Debug, Clone, Visualize)
 pub struct Point2d {
     x: f32,
     y: f32,
@@ -53,7 +54,7 @@ impl Vector2d:
             else:
                 -180.0
         else:
-            (self.y.sgnx() as f32) * self.cos_value.acos() * 180.0 / 3.1415926
+            (self.y.sgnx() as f32) * cos_value.acos() * 180.0 / 3.1415926
 
     // rotation direction from self to other with minimal angle
     fn rotation_direction_to(other: Vector2d) -> i32:

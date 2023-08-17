@@ -10,7 +10,7 @@ pub enum PreludeError {
     #[error("{0}")]
     Toolchain(#[from] ToolchainError),
     #[error("core prelude")]
-    CorePreludeEntityTreeSheet(Box<EntityTreeError>),
+    CorePreludeEntityTreeSheet(Box<EntitySynTreeError>),
     #[error("manifest error")]
     ManifestError,
     #[error("vfs error {0}")]

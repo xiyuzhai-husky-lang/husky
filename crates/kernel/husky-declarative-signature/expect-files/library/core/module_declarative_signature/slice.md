@@ -217,6 +217,83 @@
     ),
     (
         ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `core::slice`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                            ],
+                        },
+                        trai: DeclarativeTerm(`core::ops::IntIndex`),
+                        self_ty: Path(
+                            ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `core::slice`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            ty_term: DeclarativeTerm(`t`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,

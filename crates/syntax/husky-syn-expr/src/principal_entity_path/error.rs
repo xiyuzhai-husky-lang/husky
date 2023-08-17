@@ -34,7 +34,7 @@ pub enum OriginalPrincipalEntityPathExprError {
     #[error("item tree")]
     EntityTree {
         token_idx: TokenIdx,
-        error: EntityTreeError,
+        error: EntitySynTreeError,
     },
     #[error("expect identifier after `::`")]
     ExpectIdentAfterScopeResolution(TokenStreamState),

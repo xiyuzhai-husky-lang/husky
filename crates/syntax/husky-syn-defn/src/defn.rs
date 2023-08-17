@@ -13,6 +13,7 @@ pub use self::ty_variant::*;
 use crate::*;
 use husky_ast::AstIdx;
 use husky_entity_syn_tree::paths::{module_item_paths, module_item_syn_node_paths};
+use salsa::debug::ExpectWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynDefnDb)]
@@ -77,7 +78,9 @@ pub trait HasNodeDefns: Copy {
 
 impl HasNodeDefns for ModulePath {
     fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
-        Ok(module_syn_node_defns(db, self).as_ref()?)
+        Ok(module_syn_node_defns(db, self)
+            .as_ref()
+            .expect("syn tree error is deprecated"))
     }
 }
 
@@ -87,7 +90,8 @@ pub(crate) fn module_syn_node_defns(
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
     Ok(module_item_syn_node_paths(db, module_path)
-        .as_ref()?
+        .as_ref()
+        .expect("syn tree error is deprecated")
         .iter()
         .copied()
         .map(|syn_node_path| syn_node_path.syn_node_defn(db))
@@ -184,7 +188,9 @@ pub trait HasDefns: Copy {
 
 impl HasDefns for ModulePath {
     fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynDefn]> {
-        Ok(module_syn_defns(db, self).as_ref()?)
+        Ok(module_syn_defns(db, self)
+            .as_ref()
+            .expect("syn tree error is deprecated"))
     }
 }
 
@@ -194,7 +200,8 @@ pub(crate) fn module_syn_defns(
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SynDefn>> {
     Ok(module_item_paths(db, module_path)
-        .as_ref()?
+        .as_ref()
+        .expect_with_db(db, "syn tree error is deprecated")
         .iter()
         .copied()
         .filter_map(|path| path.syn_defn(db).ok())

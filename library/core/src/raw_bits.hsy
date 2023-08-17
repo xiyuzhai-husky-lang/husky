@@ -9,3 +9,9 @@ impl r32:
 
     // count trailing zeros
     pub fn ctz() -> i32;
+
+    pub fn co() -> i32;
+
+    pub fn span() -> i32;
+
+    pub fn right_mass() -> i32;

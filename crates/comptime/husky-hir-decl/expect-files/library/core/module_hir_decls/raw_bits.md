@@ -36,7 +36,7 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 22,
+                        value: 27,
                     },
                 ),
             ),
@@ -47,7 +47,40 @@
             MethodFn(
                 TypeMethodFnHirDecl(
                     Id {
-                        value: 23,
+                        value: 28,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 29,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 30,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TypeItem(
+            MethodFn(
+                TypeMethodFnHirDecl(
+                    Id {
+                        value: 31,
                     },
                 ),
             ),

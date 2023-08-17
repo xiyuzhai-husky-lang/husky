@@ -4,37 +4,37 @@ Ok(
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        4,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        6,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        8,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        10,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        12,
                     ),
                     body: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        2,
+                        3,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -54,13 +54,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `from_i_shift28`,
                         token_idx: TokenIdx(
-                            18,
+                            27,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            19,
+                            28,
                         ),
                         drained: false,
                     },
@@ -76,7 +76,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        5,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -96,13 +96,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `vector`,
                         token_idx: TokenIdx(
-                            50,
+                            59,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            51,
+                            60,
                         ),
                         drained: false,
                     },
@@ -118,7 +118,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        7,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -138,13 +138,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `to`,
                         token_idx: TokenIdx(
-                            67,
+                            76,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            68,
+                            77,
                         ),
                         drained: false,
                     },
@@ -160,7 +160,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -180,13 +180,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            95,
+                            104,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            96,
+                            105,
                         ),
                         drained: false,
                     },
@@ -202,7 +202,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        10,
+                        11,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -222,13 +222,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `dist`,
                         token_idx: TokenIdx(
-                            123,
+                            132,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            124,
+                            133,
                         ),
                         drained: false,
                     },
@@ -244,43 +244,43 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        16,
+                        17,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        18,
+                        19,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        20,
+                        21,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        22,
+                        23,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        24,
+                        25,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        30,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         29,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        28,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -292,13 +292,13 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        32,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        30,
+                        31,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -319,7 +319,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        27,
+                        28,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -331,13 +331,13 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        33,
+                        34,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        32,
+                        33,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -349,7 +349,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        26,
+                        27,
                     ),
                     body: None,
                 },
@@ -364,19 +364,19 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        35,
+                        36,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        45,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         44,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        43,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -388,13 +388,13 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        46,
+                        47,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        45,
+                        46,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -415,7 +415,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        42,
+                        43,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -427,19 +427,19 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        48,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
                         49,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        47,
+                        50,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        48,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -448,12 +448,6 @@ Ok(
                             ),
                         },
                     ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        37,
-                    ),
-                    body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -479,6 +473,12 @@ Ok(
                     ),
                     body: None,
                 },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        42,
+                    ),
+                    body: None,
+                },
                 Ast::IfElseStmts {
                     if_branch: 31,
                     elif_branches: ArenaIdxRange(
@@ -490,14 +490,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        15,
+                        16,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    171,
+                                    180,
                                 ),
                             },
                         },
@@ -510,13 +510,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `point`,
                         token_idx: TokenIdx(
-                            173,
+                            182,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            174,
+                            183,
                         ),
                         drained: false,
                     },
@@ -532,14 +532,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        17,
+                        18,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    189,
+                                    198,
                                 ),
                             },
                         },
@@ -552,13 +552,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `to`,
                         token_idx: TokenIdx(
-                            191,
+                            200,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            192,
+                            201,
                         ),
                         drained: false,
                     },
@@ -574,7 +574,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        19,
+                        20,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -594,13 +594,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            219,
+                            228,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            220,
+                            229,
                         ),
                         drained: false,
                     },
@@ -616,7 +616,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        21,
+                        22,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -636,13 +636,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `dot`,
                         token_idx: TokenIdx(
-                            247,
+                            256,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            248,
+                            257,
                         ),
                         drained: false,
                     },
@@ -658,7 +658,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        23,
+                        24,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -678,13 +678,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cross`,
                         token_idx: TokenIdx(
-                            272,
+                            281,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            273,
+                            282,
                         ),
                         drained: false,
                     },
@@ -700,7 +700,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        25,
+                        26,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -720,13 +720,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle`,
                         token_idx: TokenIdx(
-                            297,
+                            306,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            298,
+                            307,
                         ),
                         drained: false,
                     },
@@ -742,7 +742,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        34,
+                        35,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -762,13 +762,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `rotation_direction_to`,
                         token_idx: TokenIdx(
-                            366,
+                            373,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            367,
+                            374,
                         ),
                         drained: false,
                     },
@@ -784,7 +784,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        36,
+                        37,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -804,13 +804,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle_to`,
                         token_idx: TokenIdx(
-                            386,
+                            393,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            387,
+                            394,
                         ),
                         drained: false,
                     },
@@ -823,12 +823,6 @@ Ok(
                             },
                         ),
                     },
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        53,
-                    ),
-                    body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -856,7 +850,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        59,
+                        58,
                     ),
                     body: None,
                 },
@@ -866,9 +860,15 @@ Ok(
                     ),
                     body: None,
                 },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        61,
+                    ),
+                    body: None,
+                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        52,
+                        53,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -888,13 +888,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `relative_range`,
                         token_idx: TokenIdx(
-                            503,
+                            510,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            504,
+                            511,
                         ),
                         drained: false,
                     },
@@ -910,7 +910,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        58,
+                        59,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -930,13 +930,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            566,
+                            573,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            567,
+                            574,
                         ),
                         drained: false,
                     },
@@ -952,43 +952,43 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        64,
+                        65,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        66,
+                        67,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        68,
+                        69,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        70,
+                        71,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        72,
+                        73,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        74,
+                        75,
                     ),
                     body: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        63,
+                        64,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1008,13 +1008,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            613,
+                            620,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            614,
+                            621,
                         ),
                         drained: false,
                     },
@@ -1030,7 +1030,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        65,
+                        66,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1050,13 +1050,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
-                            648,
+                            655,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            649,
+                            656,
                         ),
                         drained: false,
                     },
@@ -1072,7 +1072,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        67,
+                        68,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1092,13 +1092,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            683,
+                            690,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            684,
+                            691,
                         ),
                         drained: false,
                     },
@@ -1114,7 +1114,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        69,
+                        70,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1134,13 +1134,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            695,
+                            702,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            696,
+                            703,
                         ),
                         drained: false,
                     },
@@ -1156,7 +1156,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        71,
+                        72,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1176,13 +1176,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            707,
+                            714,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            708,
+                            715,
                         ),
                         drained: false,
                     },
@@ -1198,7 +1198,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        73,
+                        74,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1218,13 +1218,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            719,
+                            726,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            720,
+                            727,
                         ),
                         drained: false,
                     },
@@ -1240,31 +1240,31 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        78,
+                        79,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        80,
+                        81,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        82,
+                        83,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        84,
+                        85,
                     ),
                     body: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        77,
+                        78,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1284,13 +1284,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
-                            747,
+                            754,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            748,
+                            755,
                         ),
                         drained: false,
                     },
@@ -1306,7 +1306,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        79,
+                        80,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1326,13 +1326,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
-                            759,
+                            766,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            760,
+                            767,
                         ),
                         drained: false,
                     },
@@ -1348,7 +1348,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        81,
+                        82,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1368,13 +1368,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
-                            771,
+                            778,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            772,
+                            779,
                         ),
                         drained: false,
                     },
@@ -1390,7 +1390,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        83,
+                        84,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -1410,13 +1410,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
-                            783,
+                            790,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            784,
+                            791,
                         ),
                         drained: false,
                     },
@@ -1430,16 +1430,22 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         0,
+                    ),
+                    ident: `derive`,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        1,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    0,
+                                    9,
                                 ),
                             },
                         },
@@ -1453,13 +1459,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Point2d`,
                         token_idx: TokenIdx(
-                            2,
+                            11,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            3,
+                            12,
                         ),
                         drained: false,
                     },
@@ -1474,7 +1480,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        1,
+                        2,
                     ),
                     items: Some(
                         Type(
@@ -1488,14 +1494,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        13,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    142,
+                                    151,
                                 ),
                             },
                         },
@@ -1509,13 +1515,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `RelativePoint2d`,
                         token_idx: TokenIdx(
-                            144,
+                            153,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            145,
+                            154,
                         ),
                         drained: false,
                     },
@@ -1530,14 +1536,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        14,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    155,
+                                    164,
                                 ),
                             },
                         },
@@ -1551,13 +1557,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Vector2d`,
                         token_idx: TokenIdx(
-                            157,
+                            166,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            158,
+                            167,
                         ),
                         drained: false,
                     },
@@ -1572,7 +1578,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        15,
                     ),
                     items: Some(
                         Type(
@@ -1586,14 +1592,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        50,
+                        51,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    486,
+                                    493,
                                 ),
                             },
                         },
@@ -1607,13 +1613,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ClosedRange`,
                         token_idx: TokenIdx(
-                            488,
+                            495,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            489,
+                            496,
                         ),
                         drained: false,
                     },
@@ -1628,7 +1634,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        51,
+                        52,
                     ),
                     items: Some(
                         Type(
@@ -1642,14 +1648,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        61,
+                        62,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    594,
+                                    601,
                                 ),
                             },
                         },
@@ -1663,13 +1669,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `BoundingBox`,
                         token_idx: TokenIdx(
-                            596,
+                            603,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            597,
+                            604,
                         ),
                         drained: false,
                     },
@@ -1684,7 +1690,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        62,
+                        63,
                     ),
                     items: Some(
                         Type(
@@ -1698,14 +1704,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        75,
+                        76,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    730,
+                                    737,
                                 ),
                             },
                         },
@@ -1719,13 +1725,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
-                            732,
+                            739,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            733,
+                            740,
                         ),
                         drained: false,
                     },
@@ -1740,7 +1746,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        76,
+                        77,
                     ),
                     items: Some(
                         Type(
@@ -1755,7 +1761,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            78..89,
+            78..90,
         ),
         siblings: [
             ArenaIdxRange(
@@ -1996,7 +2002,7 @@ Ok(
                 74..78,
             ),
             ArenaIdxRange(
-                78..89,
+                78..90,
             ),
         ],
     },

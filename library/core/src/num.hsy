@@ -141,6 +141,14 @@ impl f32:
     pub fn max(other: f32) -> f32;
 
     pub fn min(other: f32) -> f32;
+    
+    pub fn sgnx() -> i32;
+
+    pub fn cos() -> f32;
+
+    pub fn sin() -> f32;
+
+    pub fn acos() -> f32;
 
 impl Add f32 for f32:
     fn add(other: f32) -> f32;
@@ -151,6 +159,8 @@ pub extern f64;
 
 impl f64:
     pub fn abs() -> f64;
+
+    pub fn acos() -> f64;
 
 impl Add f64 for f64:
     pub fn add(other: f64) -> f64;

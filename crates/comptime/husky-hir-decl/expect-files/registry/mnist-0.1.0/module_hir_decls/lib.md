@@ -152,7 +152,7 @@
             AssociatedType(
                 TraitForTypeAssociatedTypeHirDecl(
                     Id {
-                        value: 3,
+                        value: 4,
                     },
                 ),
             ),
@@ -262,7 +262,7 @@
             AssociatedType(
                 TraitForTypeAssociatedTypeHirDecl(
                     Id {
-                        value: 4,
+                        value: 5,
                     },
                 ),
             ),

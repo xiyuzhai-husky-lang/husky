@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_syn_tree::{
-    EntityTreeError, IllFormedImplBlockSynNode, ImplBlockIllForm, MajorPathExprError,
+    EntitySynTreeError, IllFormedImplBlockSynNode, ImplBlockIllForm, MajorPathExprError,
     OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
 use salsa::DebugWithDb;
@@ -21,8 +21,8 @@ pub(crate) fn item_tree_diagnostic_sheet(
     if let Ok(item_tree_sheet) = db.item_syn_tree_sheet(module_path) {
         for e in item_tree_sheet.errors() {
             match e {
-                EntityTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
-                EntityTreeError::Derived(_) => (),
+                EntitySynTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
+                EntitySynTreeError::Derived(_) => (),
             }
         }
         for ill_formed_impl_block in item_tree_sheet.all_ill_formed_impl_block_syn_nodes() {

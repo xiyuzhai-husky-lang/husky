@@ -97,13 +97,16 @@ impl<'a> ExprTypeEngine<'a> {
         let self_value_ty = match expr_region_data.path() {
             RegionPath::Snippet(_) => None,
             RegionPath::Decr(_) => None,
-            RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => node_path
-                .path(db)
-                .expect("some")
-                .ethereal_signature_template(db)
-                .ok()
-                .map(|st| st.self_ty(db))
-                .flatten(),
+            RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => {
+                let Some(item_path) = node_path.path(db) else {
+                    unreachable!("node_path = {:?}", node_path.debug(db))
+                };
+                item_path
+                    .ethereal_signature_template(db)
+                    .ok()
+                    .map(|st| st.self_ty(db))
+                    .flatten()
+            }
         };
         // parent_expr_region
         //     .map(|parent_expr_region| {

@@ -232,14 +232,37 @@ Ok(
                         },
                     ),
                 },
+                Ast::Use {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    70,
+                                ),
+                            },
+                        },
+                    },
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                71,
+                            ),
+                            drained: false,
+                        },
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..10,
+            0..11,
         ),
         siblings: [
             ArenaIdxRange(
-                0..10,
+                0..11,
             ),
         ],
     },

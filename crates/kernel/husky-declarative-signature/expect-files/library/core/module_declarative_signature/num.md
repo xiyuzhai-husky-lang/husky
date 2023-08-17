@@ -2489,6 +2489,178 @@
         ),
     ),
     (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `sgnx`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `cos`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `sin`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `acos`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -2605,6 +2777,49 @@
                         disambiguator: 0,
                     },
                     ident: `abs`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f64`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f64`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f64`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f64`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `acos`,
                     item_kind: MethodFn,
                 },
             ),

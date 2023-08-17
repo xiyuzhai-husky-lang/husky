@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 39,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `i8`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 44,
+                            ast_idx: 49,
                             ident_token: IdentToken {
                                 ident: `i16`,
                                 token_idx: TokenIdx(
@@ -99,7 +99,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 49,
+                            ast_idx: 54,
                             ident_token: IdentToken {
                                 ident: `i32`,
                                 token_idx: TokenIdx(
@@ -141,7 +141,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 54,
+                            ast_idx: 59,
                             ident_token: IdentToken {
                                 ident: `i64`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 59,
+                            ast_idx: 64,
                             ident_token: IdentToken {
                                 ident: `i128`,
                                 token_idx: TokenIdx(
@@ -225,7 +225,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 64,
+                            ast_idx: 69,
                             ident_token: IdentToken {
                                 ident: `isize`,
                                 token_idx: TokenIdx(
@@ -267,7 +267,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 69,
+                            ast_idx: 74,
                             ident_token: IdentToken {
                                 ident: `u8`,
                                 token_idx: TokenIdx(
@@ -309,7 +309,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 74,
+                            ast_idx: 79,
                             ident_token: IdentToken {
                                 ident: `u16`,
                                 token_idx: TokenIdx(
@@ -351,7 +351,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 79,
+                            ast_idx: 84,
                             ident_token: IdentToken {
                                 ident: `u32`,
                                 token_idx: TokenIdx(
@@ -393,7 +393,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 84,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `u64`,
                                 token_idx: TokenIdx(
@@ -435,7 +435,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 89,
+                            ast_idx: 94,
                             ident_token: IdentToken {
                                 ident: `u128`,
                                 token_idx: TokenIdx(
@@ -477,7 +477,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 94,
+                            ast_idx: 99,
                             ident_token: IdentToken {
                                 ident: `usize`,
                                 token_idx: TokenIdx(
@@ -519,7 +519,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 99,
+                            ast_idx: 104,
                             ident_token: IdentToken {
                                 ident: `f32`,
                                 token_idx: TokenIdx(
@@ -561,11 +561,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 104,
+                            ast_idx: 109,
                             ident_token: IdentToken {
                                 ident: `f64`,
                                 token_idx: TokenIdx(
-                                    780,
+                                    812,
                                 ),
                             },
                             block: Type {
@@ -596,7 +596,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 35,
+                    ast_idx: 40,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `core::num`,
@@ -617,7 +617,7 @@ Ok(
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 36,
+                    ast_idx: 41,
                     use_expr_idx: 4,
                     visibility: Scope::PubUnder(
                         `core::num`,
