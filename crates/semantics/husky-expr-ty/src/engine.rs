@@ -93,16 +93,16 @@ impl<'a> ExprTypeEngine<'a> {
             .flatten()
             .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
             .flatten();
-        // todo: improve this
-        let self_ty = parent_expr_region
-            .map(|parent_expr_region| {
-                db.declarative_term_region(parent_expr_region)
-                    .expr_term(parent_expr_region.data(db).self_ty()?)
-                    .ok()
-            })
-            .flatten()
-            .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
-            .flatten();
+        let self_ty = todo!();
+        // parent_expr_region
+        //     .map(|parent_expr_region| {
+        //         db.declarative_term_region(parent_expr_region)
+        //             .expr_term(parent_expr_region.data(db).self_ty()?)
+        //             .ok()
+        //     })
+        //     .flatten()
+        //     .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
+        //     .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);

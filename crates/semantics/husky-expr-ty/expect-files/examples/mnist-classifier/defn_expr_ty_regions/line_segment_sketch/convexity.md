@@ -4242,8 +4242,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 39,
@@ -4259,8 +4259,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(
@@ -4877,8 +4877,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::NumType(
-                                ExpectNumType,
+                            expectation: Expectation::IntType(
+                                ExpectIntType,
                             ),
                             meta: ExpectationState {
                                 idx: 65,
@@ -4894,8 +4894,8 @@
                                 },
                                 resolve_progress: ExpectationProgress::Resolved(
                                     Ok(
-                                        FluffyTermExpectationOutcome::NumType(
-                                            ExpectNumTypeOutcome {
+                                        FluffyTermExpectationOutcome::IntType(
+                                            ExpectIntTypeOutcome {
                                                 placeless_num_ty: FluffyTerm {
                                                     place: None,
                                                     base: Ethereal(

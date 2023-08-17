@@ -78,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<FluffyTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty_for_outcome(bound_expr, ExpectNumType) {
+                    match self.infer_new_expr_ty_for_outcome(bound_expr, ExpectIntType) {
                         Some(num_ty_outcome) => {
                             expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
                         }
@@ -123,8 +123,20 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => todo!(),
-            SynStmt::ForExt { ref block, .. } => {
-                // ad hoc: handle for ext particulars
+            SynStmt::ForExt {
+                ref particulars,
+                ref block,
+                ..
+            } => {
+                let Some(forext_loop_var_ty) =
+                    self.infer_new_expr_ty(particulars.forext_loop_var_expr_idx, ExpectIntType)
+                else {
+                    todo!()
+                };
+                self.infer_new_expr_ty_discarded(
+                    particulars.bound_expr,
+                    ExpectCoersion::new_pure(self, forext_loop_var_ty),
+                );
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);

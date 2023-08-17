@@ -76,9 +76,15 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn expr_disambiguation(&self, syn_expr_idx: SynExprIdx) -> &'a ExprDisambiguation {
         let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
             unreachable!(
-                "syn_expr = {:?}, path = {:?}",
+                r#"
+    syn_expr = {:?},
+    path = {:?},
+    self.expr_ty_region.expr_disambiguation(syn_expr_idx) = {:#?}"#,
                 self.syn_expr_region_data[syn_expr_idx].debug(self.db),
-                self.path()
+                self.path(),
+                self.expr_ty_region
+                    .expr_disambiguation(syn_expr_idx)
+                    .debug(self.db)
             )
         };
         disambiguation

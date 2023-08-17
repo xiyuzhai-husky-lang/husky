@@ -3,17 +3,17 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynForBetweenParticulars {
-    pub frame_var_token_idx: TokenIdx,
-    pub frame_var_expr_idx: SynExprIdx,
-    pub frame_var_ident: Ident,
+    pub for_between_loop_var_token_idx: TokenIdx,
+    pub for_between_loop_var_ident: Ident,
+    pub for_between_loop_var_expr_idx: SynExprIdx,
     pub range: SynForBetweenRange,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynForBetweenRange {
-    pub initial_boundary: SynLoopBoundary,
-    pub final_boundary: SynLoopBoundary,
+    pub initial_boundary: SynForBetweenLoopBoundary,
+    pub final_boundary: SynForBetweenLoopBoundary,
     pub step: LoopStep,
 }
 
@@ -31,24 +31,14 @@ impl SynForBetweenRange {
             BinaryComparisonOpr::Less => (LoopBoundaryKind::LowerOpen, LoopStep::Constant(1)),
             _ => todo!(),
         };
-        let final_boundary_kind = match final_comparison {
-            // ... $frame_var >= $final_bound
-            BinaryComparisonOpr::Geq => LoopBoundaryKind::LowerClosed,
-            // ... $frame_var > $final_bound
-            BinaryComparisonOpr::Greater => LoopBoundaryKind::LowerOpen,
-            // ... $frame_var <= $final_bound
-            BinaryComparisonOpr::Leq => LoopBoundaryKind::UpperClosed,
-            // ... $frame_var < $final_bound
-            BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
-            _ => todo!(),
-        };
-        check_compatible(initial_boundary_kind, final_boundary_kind)?;
+        let final_boundary_kind = LoopBoundaryKind::new_final(final_comparison);
+        Self::check_for_between_range_compatibility(initial_boundary_kind, final_boundary_kind)?;
         Ok(Self {
-            initial_boundary: SynLoopBoundary {
+            initial_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(initial_bound),
                 kind: initial_boundary_kind,
             },
-            final_boundary: SynLoopBoundary {
+            final_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(final_bound),
                 kind: final_boundary_kind,
             },
@@ -73,7 +63,7 @@ impl SynForBetweenRange {
         };
         Ok(SynForBetweenRange {
             initial_boundary: Default::default(),
-            final_boundary: SynLoopBoundary {
+            final_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(final_bound),
                 kind: final_boundary_kind,
             },
@@ -97,7 +87,7 @@ impl SynForBetweenRange {
             _ => return todo!("expect comparison"),
         };
         Ok(Self {
-            initial_boundary: SynLoopBoundary {
+            initial_boundary: SynForBetweenLoopBoundary {
                 bound_expr: Some(initial_bound),
                 kind: initial_boundary_kind,
             },
@@ -105,44 +95,71 @@ impl SynForBetweenRange {
             step: LoopStep::Constant(-1),
         })
     }
-}
 
-fn check_compatible(
-    initial_boundary_kind: LoopBoundaryKind,
-    final_boundary_kind: LoopBoundaryKind,
-) -> StmtResult<()> {
-    #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-    enum Direction {
-        Incremental,
-        Decremental,
-    }
+    fn check_for_between_range_compatibility(
+        initial_boundary_kind: LoopBoundaryKind,
+        final_boundary_kind: LoopBoundaryKind,
+    ) -> StmtResult<()> {
+        #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+        enum Direction {
+            Incremental,
+            Decremental,
+        }
 
-    let initial_direction = match initial_boundary_kind {
-        LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => Direction::Decremental,
-        LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => Direction::Incremental,
-    };
-    let final_direction = match final_boundary_kind {
-        LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => Direction::Incremental,
-        LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => Direction::Decremental,
-    };
-    if initial_direction == final_direction {
-        Ok(())
-    } else {
-        todo!()
+        let initial_direction = match initial_boundary_kind {
+            LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => Direction::Decremental,
+            LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => Direction::Incremental,
+        };
+        let final_direction = match final_boundary_kind {
+            LoopBoundaryKind::UpperOpen | LoopBoundaryKind::UpperClosed => Direction::Incremental,
+            LoopBoundaryKind::LowerOpen | LoopBoundaryKind::LowerClosed => Direction::Decremental,
+        };
+        if initial_direction == final_direction {
+            Ok(())
+        } else {
+            todo!()
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SynLoopBoundary {
+pub struct SynForBetweenLoopBoundary {
     pub bound_expr: Option<SynExprIdx>,
     pub kind: LoopBoundaryKind,
 }
 
-impl Default for SynLoopBoundary {
+impl Default for SynForBetweenLoopBoundary {
     fn default() -> Self {
         Self {
             bound_expr: None,
             kind: LoopBoundaryKind::LowerClosed,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct SynForextParticulars {
+    pub forext_loop_var_token_idx: TokenIdx,
+    pub forext_loop_var_ident: Ident,
+    pub forext_loop_var_expr_idx: SynExprIdx,
+    pub bound_expr: SynExprIdx,
+    pub boundary_kind: LoopBoundaryKind,
+}
+
+impl SynForextParticulars {
+    pub(crate) fn new(
+        forext_loop_var_token_idx: TokenIdx,
+        forext_loop_var_ident: Ident,
+        forext_loop_var_expr_idx: SynExprIdx,
+        opr: BinaryComparisonOpr,
+        bound_expr: SynExprIdx,
+    ) -> Self {
+        Self {
+            forext_loop_var_token_idx,
+            forext_loop_var_ident,
+            forext_loop_var_expr_idx,
+            bound_expr,
+            boundary_kind: LoopBoundaryKind::new_final(opr),
         }
     }
 }
@@ -154,6 +171,22 @@ pub enum LoopBoundaryKind {
     UpperClosed,
     LowerOpen,
     LowerClosed,
+}
+
+impl LoopBoundaryKind {
+    fn new_final(final_comparison: BinaryComparisonOpr) -> LoopBoundaryKind {
+        match final_comparison {
+            // ... $frame_var >= $final_bound
+            BinaryComparisonOpr::Geq => LoopBoundaryKind::LowerClosed,
+            // ... $frame_var > $final_bound
+            BinaryComparisonOpr::Greater => LoopBoundaryKind::LowerOpen,
+            // ... $frame_var <= $final_bound
+            BinaryComparisonOpr::Leq => LoopBoundaryKind::UpperClosed,
+            // ... $frame_var < $final_bound
+            BinaryComparisonOpr::Less => LoopBoundaryKind::UpperOpen,
+            _ => todo!(),
+        }
+    }
 }
 
 /// loop step

@@ -422,7 +422,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 } else if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
                     self[bound_expr].end()
                 } else {
-                    TokenIdxRangeEnd::new_after(particulars.frame_var_token_idx)
+                    TokenIdxRangeEnd::new_after(particulars.for_between_loop_var_token_idx)
                 };
                 TokenIdxRange::new(start, end)
             }
@@ -443,9 +443,8 @@ impl<'a> SynExprRangeCalculator<'a> {
                     self.calc_block_range(*block).end()
                 } else if let Ok(eol_colon) = eol_colon {
                     TokenIdxRangeEnd::new_after(eol_colon.token_idx())
-                }
-                /* todo: particulars */
-                else {
+                } else {
+                    /* todo: particulars */
                     TokenIdxRangeEnd::new_after(start)
                 };
                 TokenIdxRange::new(start, end)
