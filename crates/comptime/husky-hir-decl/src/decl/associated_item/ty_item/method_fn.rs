@@ -7,7 +7,7 @@ pub struct TypeMethodFnHirDecl {
     pub self_ty: HirType,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
-    pub self_parameter: HirRitchieParameter,
+    pub self_value_parameter: HirRitchieParameter,
     #[return_ref]
     pub parenate_parameters: HirParenateParameters,
     pub return_ty: HirType,
@@ -24,8 +24,8 @@ impl TypeMethodFnHirDecl {
             ethereal_signature_template.template_parameters(db),
             db,
         );
-        let self_parameter = HirRitchieParameter::from_ethereal_regular(
-            ethereal_signature_template.self_parameter(db),
+        let self_value_parameter = HirRitchieParameter::from_ethereal_regular(
+            ethereal_signature_template.self_value_parameter(db),
             db,
         );
         let parenate_parameters = HirParenateParameters::from_ethereal(
@@ -38,7 +38,7 @@ impl TypeMethodFnHirDecl {
             path,
             self_ty,
             template_parameters,
-            self_parameter,
+            self_value_parameter,
             parenate_parameters,
             return_ty,
         )

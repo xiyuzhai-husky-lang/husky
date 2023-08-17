@@ -71,7 +71,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
@@ -121,7 +121,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },

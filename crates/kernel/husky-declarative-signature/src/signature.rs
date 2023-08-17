@@ -16,12 +16,12 @@ use crate::*;
 #[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum SignatureTemplate {
-    Module,
+    Submodule,
     MajorItem(MajorItemDeclarativeSignatureTemplate),
     ImplBlock(ImplBlockDeclarativeSignatureTemplate),
     AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
     Variant(TypeVariantDeclarativeSignatureTemplate),
-    Decr(DecrSignatureTemplate),
+    Decr(DecrDeclarativeSignatureTemplate),
 }
 
 pub trait HasDeclarativeSignatureTemplate: Copy {
@@ -41,7 +41,7 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
-            ItemPath::Submodule(_) => SignatureTemplate::Module,
+            ItemPath::Submodule(_) => SignatureTemplate::Submodule,
             ItemPath::MajorItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),

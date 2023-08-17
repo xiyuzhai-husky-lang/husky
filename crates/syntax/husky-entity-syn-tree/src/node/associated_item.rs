@@ -24,7 +24,18 @@ pub enum AssociatedItemSynNodePath {
 
 impl AssociatedItemSynNodePath {
     pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<AssociatedItemPath> {
-        todo!()
+        match self {
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                syn_node_path.path(db).map(Into::into)
+            }
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                syn_node_path.path(db).map(Into::into)
+            }
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                syn_node_path.path(db).map(Into::into)
+            }
+            AssociatedItemSynNodePath::IllFormedItem(syn_node_path) => None,
+        }
     }
 
     pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {

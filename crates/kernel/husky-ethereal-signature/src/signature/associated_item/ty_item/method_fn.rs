@@ -5,7 +5,7 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
-    pub self_parameter: EtherealTermRitchieRegularParameter,
+    pub self_value_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: EtherealTermParenateParameters,
     pub return_ty: EtherealTerm,
@@ -14,27 +14,27 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
 impl TypeMethodFnEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: TypeMethodFnDeclarativeSignatureTemplate,
+        dec_sig_tmpl: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
+        let self_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters = EtherealTermTemplateParameters::from_declarative(
             db,
-            declarative_signature.template_parameters(db),
+            dec_sig_tmpl.template_parameters(db),
         )?;
-        let self_parameter = EtherealTermRitchieRegularParameter::from_declarative(
+        let self_value_parameter = EtherealTermRitchieRegularParameter::from_declarative(
             db,
-            declarative_signature.self_parameter(db),
+            dec_sig_tmpl.self_value_parameter(db),
         )?;
         let parenate_parameters = EtherealTermParenateParameters::from_declarative(
             db,
-            declarative_signature.parenate_parameters(db),
+            dec_sig_tmpl.parenate_parameters(db),
         )?;
-        let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
+        let return_ty = EtherealTerm::ty_from_declarative(db, dec_sig_tmpl.return_ty(db))?;
         Ok(Self::new(
             db,
             self_ty,
             template_parameters,
-            self_parameter,
+            self_value_parameter,
             parenate_parameters,
             return_ty,
         ))

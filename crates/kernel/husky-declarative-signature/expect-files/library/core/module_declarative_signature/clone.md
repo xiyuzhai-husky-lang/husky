@@ -68,10 +68,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`t`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`t`),
                             },

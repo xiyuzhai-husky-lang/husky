@@ -7,14 +7,14 @@ use crate::*;
 pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub impl_block: TypeImplBlockDeclarativeSignatureTemplate,
     /// the term for `Self`
-    /// not necessarily equal to the type of `self`
+    /// not necessarily equal to the type of `self` which might be wrapped in & or &mut etc.
     ///
     /// we don't use self_ty_arguments because it's not determined for declarative terms
     pub self_ty: DeclarativeTerm,
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_parameter: DeclarativeTermRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeTermRitchieRegularParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DeclarativeTerm,
@@ -43,11 +43,13 @@ pub fn ty_method_fn_declarative_signature_template(
         .impl_block_path(db)
         .declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
-    let contract = match decl.self_parameter(db) {
-        Some(self_parameter) => Contract::new(self_parameter.ephem_symbol_modifier_token_group()),
+    let contract = match decl.self_value_parameter(db) {
+        Some(self_value_parameter) => {
+            Contract::new(self_value_parameter.ephem_symbol_modifier_token_group())
+        }
         None => Contract::None,
     };
-    let self_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);
+    let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);
     let declarative_term_menu = db
         .declarative_term_menu(syn_expr_region.toolchain(db))
         .unwrap();
@@ -70,7 +72,7 @@ pub fn ty_method_fn_declarative_signature_template(
         impl_block,
         self_ty,
         template_parameters,
-        self_parameter,
+        self_value_parameter,
         parenate_parameters,
         return_ty,
     ))

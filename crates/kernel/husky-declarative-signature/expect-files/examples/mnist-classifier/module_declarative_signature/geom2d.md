@@ -295,7 +295,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
@@ -338,7 +338,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
@@ -388,7 +388,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
@@ -431,7 +431,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
@@ -504,7 +504,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -547,7 +547,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -597,7 +597,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -640,7 +640,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -690,7 +690,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -740,7 +740,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -790,7 +790,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -840,7 +840,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
@@ -919,7 +919,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
@@ -969,7 +969,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
@@ -1042,7 +1042,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1092,7 +1092,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1142,7 +1142,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1185,7 +1185,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1228,7 +1228,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1271,7 +1271,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
@@ -1337,7 +1337,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
@@ -1380,7 +1380,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
@@ -1423,7 +1423,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
@@ -1466,7 +1466,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },

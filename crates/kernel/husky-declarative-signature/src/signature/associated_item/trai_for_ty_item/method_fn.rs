@@ -4,9 +4,10 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
+    pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub template_parameters: DeclarativeTemplateParameterTemplates,
-    pub self_parameter: DeclarativeTermRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeTermRitchieRegularParameter,
     /// parenate is a word I coined
     ///
     /// it means things that should be parenthesized
@@ -20,16 +21,18 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplate> {
-    let self_parameter = DeclarativeTermRitchieRegularParameter::new(
-        match decl.self_parameter(db) {
-            Some(self_parameter) => todo!(),
+    let self_ty = decl
+        .path(db)
+        .impl_block(db)
+        .declarative_signature_template(db)?
+        .self_ty(db)
+        .term();
+    let self_value_parameter = DeclarativeTermRitchieRegularParameter::new(
+        match decl.self_value_parameter(db) {
+            Some(self_value_parameter) => todo!(),
             None => Contract::None,
         },
-        decl.path(db)
-            .impl_block(db)
-            .declarative_signature_template(db)?
-            .self_ty(db)
-            .term(),
+        self_ty,
     );
     let syn_expr_region = decl.syn_expr_region(db);
     let expr_region_data = syn_expr_region.data(db);
@@ -53,8 +56,9 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     };
     Ok(TraitForTypeMethodFnDeclarativeSignatureTemplate::new(
         db,
+        self_ty,
         template_parameters,
-        self_parameter,
+        self_value_parameter,
         parenate_parameters,
         return_ty,
     ))

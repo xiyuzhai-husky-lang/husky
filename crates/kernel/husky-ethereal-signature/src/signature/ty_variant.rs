@@ -9,12 +9,22 @@ pub use self::enum_unit_ty_variant::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantEtherealSignatureTemplate {
     Props(EnumPropsTypeVariantEtherealSignatureTemplate),
     Unit(EnumUnitTypeVariantEtherealSignatureTemplate),
     Tuple(EnumTupleTypeVariantEtherealSignatureTemplate),
+}
+
+impl TypeVariantEtherealSignatureTemplate {
+    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+        match self {
+            TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
+            TypeVariantEtherealSignatureTemplate::Unit(_) => todo!(),
+            TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
+        }
+    }
 }
 
 impl HasEtherealSignatureTemplate for TypeVariantPath {

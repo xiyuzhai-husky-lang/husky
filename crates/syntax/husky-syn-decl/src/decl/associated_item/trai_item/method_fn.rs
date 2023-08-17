@@ -98,7 +98,7 @@ pub struct TraitMethodFnSynDecl {
     pub path: TraitItemPath,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
-    pub self_parameter: Option<SelfParameterDeclPattern>,
+    pub self_value_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,

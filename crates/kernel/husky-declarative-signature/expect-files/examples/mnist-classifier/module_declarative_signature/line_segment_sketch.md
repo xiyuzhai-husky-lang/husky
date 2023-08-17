@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -372,10 +372,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             },
@@ -493,7 +494,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             },
@@ -566,10 +567,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                             },

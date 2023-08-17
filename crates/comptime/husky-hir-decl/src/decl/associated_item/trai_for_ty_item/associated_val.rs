@@ -18,8 +18,8 @@ impl TraitForTypeAssociatedValHirDecl {
         let template_parameters =
             HirTemplateParameters::from_ethereal(template.template_parameters(db), db);
         todo!()
-        // let self_parameter =
-        //     HirRitchieParameter::from_ethereal_regular(template.self_parameter(db), db);
+        // let self_value_parameter =
+        //     HirRitchieParameter::from_ethereal_regular(template.self_value_parameter(db), db);
         // let parenate_parameters =
         //     HirParenateParameters::from_ethereal(template.parenate_parameters(db), db);
         // let return_ty = HirType::from_ethereal(template.return_ty(db), db);
@@ -27,7 +27,7 @@ impl TraitForTypeAssociatedValHirDecl {
         //     db,
         //     path,
         //     template_parameters,
-        //     self_parameter,
+        //     self_value_parameter,
         //     parenate_parameters,
         //     return_ty,
         // )

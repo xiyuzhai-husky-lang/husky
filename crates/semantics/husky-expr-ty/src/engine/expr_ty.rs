@@ -143,7 +143,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             SynExpr::SelfType(_) => Ok((
                 ExprDisambiguation::Trivial,
-                match self.self_ty {
+                match self.self_ty_term {
                     Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
                         Left(self_ty_ty) => Ok(self_ty_ty.into()),
                         Right(_) => unreachable!(),
@@ -153,7 +153,7 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             SynExpr::SelfValue(_) => Ok((
                 ExprDisambiguation::Trivial,
-                match self.self_ty {
+                match self.self_ty_term {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },

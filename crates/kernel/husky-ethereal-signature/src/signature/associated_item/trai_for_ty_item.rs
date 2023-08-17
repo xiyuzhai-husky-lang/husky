@@ -22,6 +22,18 @@ pub enum TraitForTypeItemEtherealSignatureTemplate {
 }
 
 impl TraitForTypeItemEtherealSignatureTemplate {
+    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+        match self {
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedVal(_) => None,
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedType(_) => None,
+            TraitForTypeItemEtherealSignatureTemplate::MethodFn(template) => {
+                // ad hoc
+                Some(template.self_ty(db))
+            }
+        }
+    }
+
     pub(crate) fn inherit_partial_instantiation(
         self,
         db: &dyn EtherealSignatureDb,
