@@ -3,16 +3,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub(crate) struct PatternSymbolDeclarativeTypeInfo {
-    modifier: EphemSymbolModifier,
+    modifier: SymbolModifier,
     base_ty: DeclarativeTerm,
 }
 
 impl PatternSymbolDeclarativeTypeInfo {
-    fn new(modifier: EphemSymbolModifier, base_ty: DeclarativeTerm) -> Self {
+    fn new(modifier: SymbolModifier, base_ty: DeclarativeTerm) -> Self {
         Self { modifier, base_ty }
     }
 
-    pub fn modifier(&self) -> EphemSymbolModifier {
+    pub fn modifier(&self) -> SymbolModifier {
         self.modifier
     }
 

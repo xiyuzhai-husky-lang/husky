@@ -47,11 +47,7 @@ pub trait HasDeriveDecrEtherealSignatureTemplates: Copy {
                 Ok(ethereal_signature_templates) => Ok(Some(ethereal_signature_templates)),
                 Err(e) => Err(*e),
             },
-            None => {
-                use salsa::DebugWithDb;
-                p!(trai_path.debug(db));
-                todo!()
-            }
+            None => Ok(None),
         }
     }
 }

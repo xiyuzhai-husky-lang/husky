@@ -51,7 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_current_symbol_ty(
         &mut self,
-        current_symbol_idx: idx_arena::ArenaIdx<CurrentSynSymbol>,
+        current_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
             CurrentSynSymbolVariant::TemplateParameter {
@@ -65,7 +65,11 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
-            CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolVariant::SelfType => todo!(),
+            CurrentSynSymbolVariant::SelfValue {
+                symbol_modifier_keyword_group,
+            } => todo!(),
         }
     }
 

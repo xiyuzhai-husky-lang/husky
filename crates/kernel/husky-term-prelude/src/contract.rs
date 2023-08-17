@@ -33,17 +33,17 @@ impl Contract {
     }
 }
 
-impl From<EphemSymbolModifier> for Contract {
-    fn from(modifier: EphemSymbolModifier) -> Self {
+impl From<SymbolModifier> for Contract {
+    fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            EphemSymbolModifier::None => Contract::None,
-            EphemSymbolModifier::Mut => Contract::Move,
-            EphemSymbolModifier::RefMut => Contract::BorrowMut,
-            EphemSymbolModifier::Const => Contract::Const,
-            EphemSymbolModifier::Ambersand(_) => todo!(),
-            EphemSymbolModifier::AmbersandMut(_) => todo!(),
-            EphemSymbolModifier::Le => todo!(),
-            EphemSymbolModifier::Tilde => todo!(),
+            SymbolModifier::None => Contract::None,
+            SymbolModifier::Mut => Contract::Move,
+            SymbolModifier::RefMut => Contract::BorrowMut,
+            SymbolModifier::Const => Contract::Const,
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(),
         }
     }
 }

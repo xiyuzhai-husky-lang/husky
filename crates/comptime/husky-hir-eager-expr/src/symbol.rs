@@ -8,7 +8,7 @@ pub struct InheritedHirEagerSymbolKind {}
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct CurrentHirEagerSymbol {
-    modifier: EphemSymbolModifier,
+    modifier: SymbolModifier,
     variant: CurrentHirEagerSymbolVariant,
 }
 

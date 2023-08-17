@@ -15,7 +15,7 @@ pub enum HirPatternData {
     Literal(/* todo */),
     /// example: `a`
     Ident {
-        symbol_modifier: Option<EphemSymbolModifier>,
+        symbol_modifier: Option<SymbolModifier>,
         ident: Ident,
     },
     /// example: `A::B`
