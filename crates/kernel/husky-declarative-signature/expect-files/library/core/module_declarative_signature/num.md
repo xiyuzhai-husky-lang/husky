@@ -331,7 +331,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i8`),
                             },
@@ -374,7 +374,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i8`),
                             },
@@ -454,10 +454,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::i8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i8`),
                             },
@@ -530,7 +531,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i16`),
                             },
@@ -573,7 +574,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i16`),
                             },
@@ -653,10 +654,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::i16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i16`),
                             },
@@ -729,7 +731,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
@@ -772,7 +774,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
@@ -822,7 +824,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
@@ -902,10 +904,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::i32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i32`),
                             },
@@ -978,7 +981,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i64`),
                             },
@@ -1051,10 +1054,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::i64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i64`),
                             },
@@ -1127,7 +1131,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i128`),
                             },
@@ -1200,10 +1204,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::i128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::i128`),
                             },
@@ -1276,7 +1281,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::isize`),
                             },
@@ -1349,10 +1354,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::isize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::isize`),
                             },
@@ -1425,7 +1431,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u8`),
                             },
@@ -1498,10 +1504,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::u8`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u8`),
                             },
@@ -1574,7 +1581,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u16`),
                             },
@@ -1647,10 +1654,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::u16`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u16`),
                             },
@@ -1723,7 +1731,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u32`),
                             },
@@ -1796,10 +1804,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::u32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u32`),
                             },
@@ -1872,7 +1881,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u64`),
                             },
@@ -1945,10 +1954,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::u64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u64`),
                             },
@@ -2021,7 +2031,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u128`),
                             },
@@ -2094,10 +2104,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::u128`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::u128`),
                             },
@@ -2170,7 +2181,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::usize`),
                             },
@@ -2243,10 +2254,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::usize`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::usize`),
                             },
@@ -2319,7 +2331,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
@@ -2362,7 +2374,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
@@ -2405,7 +2417,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
@@ -2455,7 +2467,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
@@ -2535,10 +2547,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::f32`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f32`),
                             },
@@ -2611,7 +2624,7 @@
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f64`),
                             },
@@ -2684,10 +2697,11 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`core::num::f64`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: DeclarativeTermRitchieRegularParameter {
+                            self_value_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
                                 ty: DeclarativeTerm(`core::num::f64`),
                             },

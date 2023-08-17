@@ -12,6 +12,7 @@ pub(crate) use self::utils::*;
 
 use self::symbol::*;
 use crate::*;
+use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
@@ -37,7 +38,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     pattern_expr_contracts: SynPatternExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
-    self_ty: Option<EtherealTerm>,
+    self_ty_term: Option<EtherealTerm>,
     trai_in_use_items_table: EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>,
 }
 
@@ -93,7 +94,17 @@ impl<'a> ExprTypeEngine<'a> {
             .flatten()
             .map(|term| EtherealTerm::ty_from_declarative(db, term).ok())
             .flatten();
-        let self_ty = todo!();
+        let self_value_ty = match expr_region_data.path() {
+            RegionPath::Snippet(_) => None,
+            RegionPath::Decr(_) => None,
+            RegionPath::Decl(node_path) | RegionPath::Defn(node_path) => node_path
+                .path(db)
+                .expect("some")
+                .ethereal_signature_template(db)
+                .ok()
+                .map(|st| st.self_value_ty(db))
+                .flatten(),
+        };
         // parent_expr_region
         //     .map(|parent_expr_region| {
         //         db.declarative_term_region(parent_expr_region)
@@ -138,7 +149,7 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             return_ty,
             unveiler: Unveiler::Uninitialized,
-            self_ty,
+            self_ty_term: self_value_ty,
             pattern_expr_contracts: SynPatternExprMap::new(
                 pattern_expr_region.pattern_expr_arena(),
             ),
@@ -229,7 +240,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.symbol_tys,
             self.fluffy_term_region,
             self.return_ty,
-            self.self_ty,
+            self.self_ty_term,
         )
     }
 

@@ -16,6 +16,14 @@ pub enum TraitItemEtherealSignatureTemplate {
     AssociatedFn(TraitAssociatedFnEtherealSignatureTemplate),
 }
 
+impl TraitItemEtherealSignatureTemplate {
+    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+        match self {
+            TraitItemEtherealSignatureTemplate::AssociatedFn(_) => None,
+        }
+    }
+}
+
 impl HasEtherealSignatureTemplate for TraitItemPath {
     type EtherealSignatureTemplate = TraitItemEtherealSignatureTemplate;
 

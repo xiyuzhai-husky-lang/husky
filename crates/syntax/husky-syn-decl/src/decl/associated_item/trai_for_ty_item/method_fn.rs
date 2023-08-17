@@ -88,7 +88,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
-    pub self_parameter: Option<SelfParameterDeclPattern>,
+    pub self_value_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
@@ -109,7 +109,7 @@ impl TraitForTypeMethodFnSynDecl {
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
-        let self_parameter = *parenate_parameter_decl_list.self_parameter();
+        let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
         let parenate_parameters: ExplicitParameterDeclPatterns = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
@@ -121,7 +121,7 @@ impl TraitForTypeMethodFnSynDecl {
             db,
             path,
             template_parameters,
-            self_parameter,
+            self_value_parameter,
             parenate_parameters,
             return_ty,
             syn_expr_region,

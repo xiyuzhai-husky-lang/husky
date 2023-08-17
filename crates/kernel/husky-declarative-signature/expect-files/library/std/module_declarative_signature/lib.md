@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            SignatureTemplate::Module,
+            SignatureTemplate::Submodule,
         ),
     ),
 ]

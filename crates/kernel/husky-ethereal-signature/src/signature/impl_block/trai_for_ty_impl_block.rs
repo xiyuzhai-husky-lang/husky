@@ -19,6 +19,15 @@ pub enum EtherealSelfTypeInTraitImpl {
     DeriveAny(EtherealTermSymbol),
 }
 
+impl EtherealSelfTypeInTraitImpl {
+    pub fn term(self) -> EtherealTerm {
+        match self {
+            EtherealSelfTypeInTraitImpl::PathLeading(ty_term) => ty_term,
+            EtherealSelfTypeInTraitImpl::DeriveAny(ty_term_symbol) => ty_term_symbol.into(),
+        }
+    }
+}
+
 impl EtherealTermInstantiate for EtherealSelfTypeInTraitImpl {
     type Target = EtherealTerm;
 
