@@ -20,4 +20,15 @@
             ),
         ),
     ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            MethodFn(
+                TraitForTypeMethodFnHirDecl(
+                    Id {
+                        value: 17,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]

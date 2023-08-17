@@ -1012,7 +1012,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `Visualize`,
                                         token_idx: TokenIdx(
@@ -1065,7 +1065,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 3,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `Html`,
                                         token_idx: TokenIdx(

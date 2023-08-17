@@ -4,3 +4,6 @@ pub trait Visualize:
     fn visualize() -> Html;
 
 pub extern Html;
+
+impl Visualize for @derive _:
+    fn clone() -> Self;
