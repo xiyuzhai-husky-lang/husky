@@ -277,6 +277,27 @@ where
     }
 }
 
+pub trait ExpectWithDb<Db: ?Sized> {
+    type Output;
+
+    fn expect_with_db(self, db: &Db, msg: &str) -> Self::Output;
+}
+
+impl<Db: ?Sized, T, E> ExpectWithDb<Db> for Result<T, E>
+where
+    E: DebugWithDb<Db>,
+{
+    type Output = T;
+
+    #[track_caller]
+    fn expect_with_db(self, db: &Db, msg: &str) -> Self::Output {
+        match self {
+            Ok(t) => t,
+            Err(e) => panic!("{msg}: {:?}", e.debug(db)),
+        }
+    }
+}
+
 impl<Db: ?Sized, T, E> DebugWithDb<Db> for MaybeResult<T, E>
 where
     T: DebugWithDb<Db>,

@@ -231,6 +231,89 @@
         ),
     ),
     HirDefn::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `core::slice`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            traits: [],
+                        },
+                    ],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    template_arguments: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TraitForTypeItem(
+            TraitForTypeItemHirDefn::AssociatedType(
+                TraitForTypeAssociatedTypeHirDefn {
+                    path: TraitForTypeItemPath {
+                        impl_block: TraitForTypeImplBlockPath {
+                            module_path: `core::slice`,
+                            trai_path: TraitPath(`core::ops::IntIndex`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                            ),
+                            disambiguator: 0,
+                        },
+                        ident: `Output`,
+                        item_kind: AssociatedType,
+                    },
+                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
+                        path: TraitForTypeItemPath {
+                            impl_block: TraitForTypeImplBlockPath {
+                                module_path: `core::slice`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                            ident: `Output`,
+                            item_kind: AssociatedType,
+                        },
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        associated_ty: Symbol(
+                            Type {
+                                attrs: HirSymbolAttrs,
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDefn::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {

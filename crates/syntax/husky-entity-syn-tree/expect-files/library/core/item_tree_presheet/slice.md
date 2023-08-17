@@ -57,11 +57,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 11,
+                            ast_idx: 12,
                             ident_token: IdentToken {
                                 ident: `CyclicSlice`,
                                 token_idx: TokenIdx(
-                                    46,
+                                    53,
                                 ),
                             },
                             block: Type {

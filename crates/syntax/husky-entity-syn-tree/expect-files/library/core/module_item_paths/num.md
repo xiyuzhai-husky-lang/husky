@@ -783,6 +783,58 @@ Ok(
                 },
             ),
         ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `sgnx`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `cos`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `sin`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `acos`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath {
@@ -829,6 +881,19 @@ Ok(
                         disambiguator: 0,
                     },
                     ident: `abs`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::num`,
+                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `acos`,
                     item_kind: MethodFn,
                 },
             ),

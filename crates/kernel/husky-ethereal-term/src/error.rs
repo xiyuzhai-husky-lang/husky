@@ -2,7 +2,7 @@ use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};
-use husky_entity_syn_tree::{EntityTreeBundleError, EntityTreeError};
+use husky_entity_syn_tree::{EntitySynTreeError, EntityTreeBundleError};
 use husky_syn_decl::NodeDeclError;
 use husky_syn_decr::DecrError;
 use maybe_result::MaybeResult;
@@ -68,8 +68,8 @@ impl From<&EntityPathError> for EtherealTermError {
     }
 }
 
-impl From<EntityTreeError> for EtherealTermError {
-    fn from(value: EntityTreeError) -> Self {
+impl From<EntitySynTreeError> for EtherealTermError {
+    fn from(value: EntitySynTreeError) -> Self {
         todo!()
     }
 }

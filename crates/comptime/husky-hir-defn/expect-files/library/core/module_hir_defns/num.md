@@ -3058,6 +3058,246 @@
             ),
         ),
     ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `sgnx`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `sgnx`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `cos`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `cos`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `sin`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `sin`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `acos`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `acos`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
     HirDefn::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
@@ -3208,6 +3448,66 @@
                                 disambiguator: 0,
                             },
                             ident: `abs`,
+                            item_kind: MethodFn,
+                        },
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                        template_parameters: HirTemplateParameters {
+                            data: [],
+                        },
+                        self_value_parameter: HirRitchieParameter {
+                            contract: None,
+                            ty: PathLeading(
+                                HirTypePathLeading(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
+                        },
+                        parenate_parameters: HirParenateParameters {
+                            data: [],
+                        },
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
+                    body: None,
+                    hir_expr_region: HirEagerExprRegion,
+                },
+            ),
+        ),
+    ),
+    HirDefn::AssociatedItem(
+        AssociatedItemHirDefn::TypeItem(
+            TypeItemHirDefn::MethodFn(
+                TypeMethodFnHirDefn {
+                    path: TypeItemPath {
+                        impl_block: TypeImplBlockPath {
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            disambiguator: 0,
+                        },
+                        ident: `acos`,
+                        item_kind: MethodFn,
+                    },
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `acos`,
                             item_kind: MethodFn,
                         },
                         self_ty: PathLeading(

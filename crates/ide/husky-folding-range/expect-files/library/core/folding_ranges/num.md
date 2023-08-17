@@ -341,9 +341,9 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 142,
+            end_line: 150,
             end_character: Some(
-                34,
+                25,
             ),
             kind: Some(
                 Region,
@@ -351,11 +351,11 @@ Ok(
             collapsed_text: None,
         },
         FoldingRange {
-            start_line: 144,
+            start_line: 152,
             start_character: Some(
                 0,
             ),
-            end_line: 145,
+            end_line: 153,
             end_character: Some(
                 30,
             ),
@@ -365,13 +365,13 @@ Ok(
             collapsed_text: None,
         },
         FoldingRange {
-            start_line: 151,
+            start_line: 159,
             start_character: Some(
                 0,
             ),
-            end_line: 152,
+            end_line: 162,
             end_character: Some(
-                24,
+                25,
             ),
             kind: Some(
                 Region,
@@ -379,11 +379,11 @@ Ok(
             collapsed_text: None,
         },
         FoldingRange {
-            start_line: 154,
+            start_line: 164,
             start_character: Some(
                 0,
             ),
-            end_line: 155,
+            end_line: 165,
             end_character: Some(
                 34,
             ),

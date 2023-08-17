@@ -46,6 +46,34 @@ Ok(
             ),
         ),
         ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `core::slice`,
+                    trai_path: TraitPath(`core::ops::IntIndex`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `core::slice`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `core::slice`,

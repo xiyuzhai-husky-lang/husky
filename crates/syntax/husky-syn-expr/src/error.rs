@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_syn_tree::EntityTreeError;
+use husky_entity_syn_tree::EntitySynTreeError;
 use husky_opr::Bracket;
 use husky_token::*;
 use original_error::IntoError;

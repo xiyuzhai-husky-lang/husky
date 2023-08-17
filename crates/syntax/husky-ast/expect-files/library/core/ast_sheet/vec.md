@@ -4,14 +4,14 @@ Ok(
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        4,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    19,
+                                    28,
                                 ),
                             },
                         },
@@ -24,49 +24,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ilen`,
                         token_idx: TokenIdx(
-                            21,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            22,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        4,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    27,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `push`,
-                        token_idx: TokenIdx(
-                            29,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
                             30,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            31,
                         ),
                         drained: false,
                     },
@@ -83,7 +47,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    40,
+                                    36,
                                 ),
                             },
                         },
@@ -94,15 +58,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `first`,
+                        ident: `push`,
                         token_idx: TokenIdx(
-                            42,
+                            38,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            43,
+                            39,
                         ),
                         drained: false,
                     },
@@ -130,7 +94,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `last`,
+                        ident: `first`,
                         token_idx: TokenIdx(
                             51,
                         ),
@@ -166,7 +130,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `pop`,
+                        ident: `last`,
                         token_idx: TokenIdx(
                             60,
                         ),
@@ -191,7 +155,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    70,
+                                    67,
                                 ),
                             },
                         },
@@ -202,15 +166,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `collect_leashes`,
+                        ident: `pop`,
                         token_idx: TokenIdx(
-                            72,
+                            69,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            73,
+                            70,
                         ),
                         drained: false,
                     },
@@ -227,7 +191,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    83,
+                                    79,
                                 ),
                             },
                         },
@@ -238,15 +202,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `cyclic_slice_leashed`,
+                        ident: `collect_leashes`,
                         token_idx: TokenIdx(
-                            85,
+                            81,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            86,
+                            82,
                         ),
                         drained: false,
                     },
@@ -263,7 +227,43 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    103,
+                                    92,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `cyclic_slice_leashed`,
+                        token_idx: TokenIdx(
+                            94,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            95,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    112,
                                 ),
                             },
                         },
@@ -276,13 +276,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `pop_with_largest_opt_f32`,
                         token_idx: TokenIdx(
-                            105,
+                            114,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            106,
+                            115,
                         ),
                         drained: false,
                     },
@@ -306,16 +306,22 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                    ident: `derive`,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    4,
+                                    13,
                                 ),
                             },
                         },
@@ -329,13 +335,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Vec`,
                         token_idx: TokenIdx(
-                            6,
+                            15,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            7,
+                            16,
                         ),
                         drained: false,
                     },
@@ -350,7 +356,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        2,
+                        3,
                     ),
                     items: Some(
                         Type(
@@ -365,7 +371,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            8..11,
+            8..12,
         ),
         siblings: [
             ArenaIdxRange(
@@ -396,7 +402,7 @@ Ok(
                 0..8,
             ),
             ArenaIdxRange(
-                8..11,
+                8..12,
             ),
         ],
     },

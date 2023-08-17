@@ -12,7 +12,7 @@ pub struct EntitySynTreeSheet {
     impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     once_use_rules: OnceUseRules,
     use_all_rules: UseAllModuleSymbolsRules,
-    errors: Vec<EntityTreeError>,
+    errors: Vec<EntitySynTreeError>,
 }
 
 impl vec_like::AsVecMapEntry for EntitySynTreeSheet {
@@ -37,7 +37,7 @@ impl EntitySynTreeSheet {
         item_symbol_table: EntitySymbolTable,
         once_use_rules: OnceUseRules,
         use_all_rules: UseAllModuleSymbolsRules,
-        errors: Vec<EntityTreeError>,
+        errors: Vec<EntitySynTreeError>,
         impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> Self {
         Self {
@@ -55,7 +55,7 @@ impl EntitySynTreeSheet {
         self.item_symbol_table.as_ref()
     }
 
-    pub fn errors(&self) -> &[EntityTreeError] {
+    pub fn errors(&self) -> &[EntitySynTreeError] {
         &self.errors
     }
 

@@ -76,7 +76,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        8,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -96,49 +96,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            67,
+                            73,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            68,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        9,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: Pub,
-                        variant: Pub {
-                            pub_token: PubToken {
-                                token_idx: TokenIdx(
-                                    77,
-                                ),
-                            },
-                        },
-                    },
-                    item_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            MethodFn,
-                        ),
-                    },
-                    ident_token: IdentToken {
-                        ident: `ilen`,
-                        token_idx: TokenIdx(
-                            79,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            80,
+                            74,
                         ),
                         drained: false,
                     },
@@ -155,7 +119,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    85,
+                                    83,
                                 ),
                             },
                         },
@@ -166,15 +130,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `start`,
+                        ident: `ilen`,
                         token_idx: TokenIdx(
-                            87,
+                            85,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            88,
+                            86,
                         ),
                         drained: false,
                     },
@@ -191,7 +155,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    93,
+                                    91,
                                 ),
                             },
                         },
@@ -202,15 +166,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `end`,
+                        ident: `start`,
                         token_idx: TokenIdx(
-                            95,
+                            93,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            96,
+                            94,
                         ),
                         drained: false,
                     },
@@ -227,7 +191,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    101,
+                                    99,
                                 ),
                             },
                         },
@@ -238,15 +202,15 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `first`,
+                        ident: `end`,
                         token_idx: TokenIdx(
-                            103,
+                            101,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            104,
+                            102,
                         ),
                         drained: false,
                     },
@@ -263,7 +227,43 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    111,
+                                    107,
+                                ),
+                            },
+                        },
+                    },
+                    item_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `first`,
+                        token_idx: TokenIdx(
+                            109,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            110,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    117,
                                 ),
                             },
                         },
@@ -276,13 +276,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `last`,
                         token_idx: TokenIdx(
-                            113,
+                            119,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            114,
+                            120,
                         ),
                         drained: false,
                     },
@@ -362,16 +362,22 @@ Ok(
                         ),
                     ),
                 },
-                Ast::Defn {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         5,
+                    ),
+                    ident: `derive`,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        6,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    51,
                                 ),
                             },
                         },
@@ -385,13 +391,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `CyclicSlice`,
                         token_idx: TokenIdx(
-                            46,
+                            53,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            47,
+                            54,
                         ),
                         drained: false,
                     },
@@ -406,7 +412,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        7,
                     ),
                     items: Some(
                         TraitForType(
@@ -420,7 +426,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     items: Some(
                         Type(
@@ -435,7 +441,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            8..14,
+            8..15,
         ),
         siblings: [
             ArenaIdxRange(
@@ -472,7 +478,7 @@ Ok(
                 3..8,
             ),
             ArenaIdxRange(
-                8..14,
+                8..15,
             ),
         ],
     },

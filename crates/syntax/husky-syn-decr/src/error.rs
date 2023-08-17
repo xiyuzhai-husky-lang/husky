@@ -1,4 +1,4 @@
-use husky_entity_syn_tree::EntityTreeError;
+use husky_entity_syn_tree::EntitySynTreeError;
 use husky_syn_expr::ExprError;
 use husky_token::{TokenError, TokenIdx, TokenStreamState};
 use husky_vfs::VfsError;
@@ -19,8 +19,8 @@ impl From<VfsError> for DecrError {
     }
 }
 
-impl From<EntityTreeError> for DecrError {
-    fn from(value: EntityTreeError) -> Self {
+impl From<EntitySynTreeError> for DecrError {
+    fn from(value: EntitySynTreeError) -> Self {
         todo!()
     }
 }

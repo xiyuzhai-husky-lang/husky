@@ -222,7 +222,7 @@ impl VfsPathMenu {
         self.core_result
     }
 
-    /// core::list
+    /// core::vec
     pub fn core_vec(&self) -> SubmodulePath {
         self.core_vec
     }
@@ -278,6 +278,6 @@ fn vfs_path_menu_works() {
         menu.core_raw_bits().to_string_with_db(&db),
         "core::raw_bits"
     );
-    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::list");
+    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::vec");
     assert_eq!(menu.core_visual().to_string_with_db(&db), "core::visual");
 }

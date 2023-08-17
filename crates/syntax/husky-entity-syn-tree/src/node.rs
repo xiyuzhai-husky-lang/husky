@@ -76,11 +76,11 @@ impl HasSynNodePath for ItemPath {
 #[derive(Default)]
 pub(crate) struct ItemNodeRegistry {
     next_disambiguators: VecPairMap<ItemPath, u8>,
-    errors: Vec<EntityTreeError>,
+    errors: Vec<EntitySynTreeError>,
 }
 
 impl ItemNodeRegistry {
-    pub(crate) fn finish_with_errors(self) -> Vec<EntityTreeError> {
+    pub(crate) fn finish_with_errors(self) -> Vec<EntitySynTreeError> {
         self.errors
     }
 

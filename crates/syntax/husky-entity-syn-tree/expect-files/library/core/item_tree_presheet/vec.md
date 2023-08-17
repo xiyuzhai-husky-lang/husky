@@ -15,11 +15,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `Vec`,
                                 token_idx: TokenIdx(
-                                    6,
+                                    15,
                                 ),
                             },
                             block: Type {

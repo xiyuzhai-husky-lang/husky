@@ -1,13 +1,7 @@
 DiagnosticSheet {
     [salsa id]: 16,
     item_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier `core` for major entity path",
-                severity: Error,
-                range: [14:9, 14:13),
-            },
-        ],
+        diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],

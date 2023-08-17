@@ -105,11 +105,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 78,
+                                    ast_idx: 79,
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            11,
                                         ),
                                     },
                                     block: Type {
@@ -156,11 +156,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 80,
+                                    ast_idx: 81,
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
                                         token_idx: TokenIdx(
-                                            144,
+                                            153,
                                         ),
                                     },
                                     block: Type {
@@ -207,11 +207,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 81,
+                                    ast_idx: 82,
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
                                         token_idx: TokenIdx(
-                                            157,
+                                            166,
                                         ),
                                     },
                                     block: Type {
@@ -258,11 +258,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 83,
+                                    ast_idx: 84,
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
                                         token_idx: TokenIdx(
-                                            488,
+                                            495,
                                         ),
                                     },
                                     block: Type {
@@ -309,11 +309,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 85,
+                                    ast_idx: 86,
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
                                         token_idx: TokenIdx(
-                                            596,
+                                            603,
                                         ),
                                     },
                                     block: Type {
@@ -360,11 +360,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 87,
+                                    ast_idx: 88,
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
                                         token_idx: TokenIdx(
-                                            732,
+                                            739,
                                         ),
                                     },
                                     block: Type {

@@ -8,48 +8,48 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum EntityTreeError {
+pub enum EntitySynTreeError {
     #[error("original {0}")]
     Original(#[from] OriginalEntityTreeError),
     #[error("derived {0}")]
     Derived(#[from] DerivedEntityTreeError),
 }
 
-impl From<&PreludeError> for EntityTreeError {
+impl From<&PreludeError> for EntitySynTreeError {
     fn from(e: &PreludeError) -> Self {
         todo!()
     }
 }
 
-impl From<PreludeError> for EntityTreeError {
+impl From<PreludeError> for EntitySynTreeError {
     fn from(e: PreludeError) -> Self {
-        EntityTreeError::Derived(e.into())
+        EntitySynTreeError::Derived(e.into())
     }
 }
 
-impl From<EntityTreeBundleError> for EntityTreeError {
+impl From<EntityTreeBundleError> for EntitySynTreeError {
     fn from(e: EntityTreeBundleError) -> Self {
-        EntityTreeError::Derived(e.into())
+        EntitySynTreeError::Derived(e.into())
     }
 }
 
-impl From<&EntityTreeBundleError> for EntityTreeError {
+impl From<&EntityTreeBundleError> for EntitySynTreeError {
     fn from(e: &EntityTreeBundleError) -> Self {
         todo!()
     }
 }
 
-impl From<VfsError> for EntityTreeError {
+impl From<VfsError> for EntitySynTreeError {
     fn from(e: VfsError) -> Self {
-        EntityTreeError::Derived(e.into())
+        EntitySynTreeError::Derived(e.into())
     }
 }
 
-impl From<&EntityTreeError> for EntityTreeError {
-    fn from(e: &EntityTreeError) -> Self {
-        todo!()
-    }
-}
+// impl From<&EntityTreeError> for EntityTreeError {
+//     fn from(e: &EntityTreeError) -> Self {
+//         todo!("e = {:?}", e)
+//     }
+// }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
@@ -86,5 +86,5 @@ pub enum DerivedEntityTreeError {
     InvalidModulePath(ModulePath),
 }
 
-pub type EntitySynTreeResult<T> = Result<T, EntityTreeError>;
-pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntityTreeError>;
+pub type EntitySynTreeResult<T> = Result<T, EntitySynTreeError>;
+pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntitySynTreeError>;
