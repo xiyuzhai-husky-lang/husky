@@ -854,7 +854,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1070,7 +1072,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

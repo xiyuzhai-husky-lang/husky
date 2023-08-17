@@ -56,6 +56,8 @@
         return_ty: Some(
             EtherealTerm(`t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`t`),
+        ),
     },
 ]

@@ -19,6 +19,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: no method named `visualize` for type `Vec LineSegmentStroke`",
+                severity: Error,
+                range: [39:22, 39:31),
+            },
+        ],
     },
 }

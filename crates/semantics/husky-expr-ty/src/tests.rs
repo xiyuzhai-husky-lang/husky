@@ -58,7 +58,7 @@ pub(crate) struct DB {
 impl salsa::Database for DB {}
 
 fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(syn_decl_sheet) = db.syn_node_decl_sheet(module_path) else {
+    let Ok(syn_decl_sheet) = db.syn_decl_sheet(module_path) else {
         return vec![];
     };
     syn_decl_sheet

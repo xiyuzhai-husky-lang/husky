@@ -251,7 +251,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`LineSegment`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

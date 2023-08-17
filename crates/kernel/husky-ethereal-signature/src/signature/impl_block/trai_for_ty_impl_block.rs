@@ -9,8 +9,13 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     #[return_ref]
     pub template_parameters: EtherealTermTemplateParameters,
     pub trai: EtherealTerm,
-    pub self_ty: EtherealSelfTypeInTraitImpl,
-    // todo: where clause
+    pub self_ty_refined: EtherealSelfTypeInTraitImpl,
+}
+
+impl TraitForTypeImplBlockEtherealSignatureTemplate {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+        self.self_ty_refined(db).term()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -137,7 +142,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     > {
         let mut instantiation = self.template_parameters(db).instantiation();
-        match self.self_ty(db) {
+        match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {
                     JustOk(_) => JustOk(

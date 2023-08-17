@@ -21,7 +21,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 30,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -95,7 +95,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 30,
+                                                value: 48,
                                             },
                                         ),
                                     ),
@@ -285,7 +285,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -1274,7 +1274,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -1392,7 +1392,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 47,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -1486,7 +1486,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 44,
+                                                                value: 62,
                                                             },
                                                         ),
                                                     ),
@@ -1511,7 +1511,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 47,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -3502,7 +3502,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 44,
+                                                                                    value: 62,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3519,7 +3519,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 47,
+                                                                                    value: 65,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4108,27 +4108,78 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `visualize`,
+                                token_idx: TokenIdx(
+                                    64,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -4169,7 +4220,46 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -4177,7 +4267,9 @@
         return_ty: Some(
             EtherealTerm(`Html`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -4209,35 +4301,80 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -4262,7 +4399,97 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -4270,7 +4497,9 @@
         return_ty: Some(
             EtherealTerm(`f32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -4302,77 +4531,208 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 51,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -4397,7 +4757,189 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 6,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -4405,7 +4947,9 @@
         return_ty: Some(
             EtherealTerm(`f32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -4441,6 +4985,78 @@
                     },
                 ),
             },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 49,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 59,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
         ],
         pattern_symbol_ty_infos: ArenaMap {
             data: [
@@ -4458,11 +5074,87 @@
                         ),
                     },
                 ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 59,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
                 None,
-                None,
-                None,
-                None,
-                None,
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
             ],
         },
         expr_ty_infos: [
@@ -4490,263 +5182,11 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
-                                base: FluffyTermBase::Hollow(
-                                    HollowTerm(
-                                        0,
-                                    ),
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -4759,12 +5199,35 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
                         Ok(
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`bool`),
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -4777,14 +5240,40 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
                         Ok(
                             FluffyTerm {
                                 place: None,
-                                base: FluffyTermBase::Hollow(
-                                    HollowTerm(
-                                        0,
-                                    ),
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -4797,25 +5286,14 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`unit`),
+                                    EtherealTerm(`Leash LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -4828,14 +5306,39 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
                         Ok(
                             FluffyTerm {
                                 place: None,
-                                base: FluffyTermBase::Hollow(
-                                    HollowTerm(
-                                        0,
-                                    ),
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
                                 ),
                             },
                         ),
@@ -4853,7 +5356,7 @@
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`never`),
+                                    EtherealTerm(`ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -4861,6 +5364,681 @@
                 ),
                 expectation_rule_idx: Some(
                     6,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`LineSegment`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`LineSegment`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 51,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    11,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    12,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `start`,
+                                token_idx: TokenIdx(
+                                    144,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `end`,
+                                token_idx: TokenIdx(
+                                    152,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    16,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::UnableToInferIndexExprType,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`LineSegment`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    17,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 49,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 49,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 26,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    18,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    19,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Hollow(
+                                    HollowTerm(
+                                        0,
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    20,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`bool`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    21,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Hollow(
+                                    HollowTerm(
+                                        0,
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    22,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    23,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`unit`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    24,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Hollow(
+                                    HollowTerm(
+                                        0,
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    25,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`never`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    26,
                 ),
             },
         ],
@@ -4885,6 +6063,38 @@
                             HollowTerm(
                                 0,
                             ),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Point2d`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`LineSegment`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
                         ),
                     },
                 ),
@@ -4975,11 +6185,382 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 6,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 7,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`LineSegment`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`LineSegment`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 9,
+                                src: ExpectationSource {
+                                    expr_idx: 9,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 10,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 11,
+                                src: ExpectationSource {
+                                    expr_idx: 11,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 12,
+                                src: ExpectationSource {
+                                    expr_idx: 12,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 13,
+                                src: ExpectationSource {
+                                    expr_idx: 15,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 14,
+                                src: ExpectationSource {
+                                    expr_idx: 16,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 15,
+                                src: ExpectationSource {
+                                    expr_idx: 20,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 16,
+                                src: ExpectationSource {
+                                    expr_idx: 21,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 17,
+                                src: ExpectationSource {
+                                    expr_idx: 25,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`LineSegment`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 18,
+                                src: ExpectationSource {
+                                    expr_idx: 27,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 19,
+                                src: ExpectationSource {
+                                    expr_idx: 28,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 20,
                                 src: ExpectationSource {
                                     expr_idx: 29,
                                     kind: Expr,
@@ -4992,7 +6573,15 @@
                                         ),
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Intact,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -5000,7 +6589,7 @@
                                 ExpectConditionType,
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 21,
                                 src: ExpectationSource {
                                     expr_idx: 30,
                                     kind: Expr,
@@ -5025,7 +6614,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 31,
                                     kind: Expr,
@@ -5036,6 +6625,25 @@
                                         HollowTerm(
                                             0,
                                         ),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 23,
+                                src: ExpectationSource {
+                                    expr_idx: 32,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
@@ -5054,7 +6662,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 24,
                                 src: ExpectationSource {
                                     expr_idx: 33,
                                     kind: Expr,
@@ -5089,7 +6697,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 25,
                                 src: ExpectationSource {
                                     expr_idx: 34,
                                     kind: Expr,
@@ -5126,7 +6734,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 6,
+                                idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 35,
                                     kind: Expr,
@@ -5154,7 +6762,9 @@
         return_ty: Some(
             EtherealTerm(`f32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -5236,40 +6846,137 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `start`,
+                                token_idx: TokenIdx(
+                                    206,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5277,15 +6984,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
                     ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
+                        DerivedExprTypeError::UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5302,27 +7001,78 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `start`,
+                                token_idx: TokenIdx(
+                                    217,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5331,27 +7081,78 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    7,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    8,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `end`,
+                                token_idx: TokenIdx(
+                                    225,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5360,22 +7161,60 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    9,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    10,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -5393,7 +7232,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
                     ExprTypeError::Derived(
-                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
+                        DerivedExprTypeError::UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5447,7 +7286,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    12,
                 ),
             },
             ExprTypeInfo {
@@ -5467,7 +7306,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -5493,7 +7332,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    13,
                 ),
             },
             ExprTypeInfo {
@@ -5537,7 +7376,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    14,
                 ),
             },
             ExprTypeInfo {
@@ -5557,7 +7396,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -5575,7 +7414,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    16,
                 ),
             },
         ],
@@ -5704,6 +7543,196 @@
                             meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 9,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 12,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 13,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 9,
+                                src: ExpectationSource {
+                                    expr_idx: 17,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 18,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 11,
+                                src: ExpectationSource {
                                     expr_idx: 25,
                                     kind: Expr,
                                 },
@@ -5723,7 +7752,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 24,
                                     kind: Expr,
@@ -5750,7 +7779,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 13,
                                 src: ExpectationSource {
                                     expr_idx: 27,
                                     kind: Expr,
@@ -5785,7 +7814,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 14,
                                 src: ExpectationSource {
                                     expr_idx: 30,
                                     kind: Expr,
@@ -5820,7 +7849,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 15,
                                 src: ExpectationSource {
                                     expr_idx: 31,
                                     kind: Expr,
@@ -5857,7 +7886,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 6,
+                                idx: 16,
                                 src: ExpectationSource {
                                     expr_idx: 32,
                                     kind: Expr,
@@ -5885,7 +7914,9 @@
         return_ty: Some(
             EtherealTerm(`f32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -5908,14 +7939,200 @@
                 ),
             ),
         ),
-        pattern_expr_ty_infos: [],
+        pattern_expr_ty_infos: [
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 49,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+        ],
         pattern_symbol_ty_infos: ArenaMap {
             data: [
-                None,
-                None,
-                None,
-                None,
-                None,
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
                 None,
             ],
         },
@@ -5924,303 +8141,11 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`unit`),
+                                    EtherealTerm(`ConcaveComponent`),
                                 ),
                             },
                         ),
@@ -6233,67 +8158,35 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`unit`),
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -6306,67 +8199,40 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
                                 base: FluffyTermBase::Ethereal(
-                                    EtherealTerm(`unit`),
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
                                 ),
                             },
                         ),
@@ -6379,6 +8245,534 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    4,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    5,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 49,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 49,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    9,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 49,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    10,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    11,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 49,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 25,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    12,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `start`,
+                                token_idx: TokenIdx(
+                                    306,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    16,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoSuchField {
+                            owner_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `end`,
+                                token_idx: TokenIdx(
+                                    314,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    17,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    18,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
                         ExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
@@ -6388,6 +8782,40 @@
                     ),
                 ),
                 expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::UnableToInferIndexExprType,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    20,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6414,22 +8842,109 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    19,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 29,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    21,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6446,7 +8961,502 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    22,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    24,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    23,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 35,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    25,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`unit`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    26,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    28,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    27,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 41,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    29,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`unit`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    30,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    32,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    31,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 25,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 47,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    33,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`unit`),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -6466,7 +9476,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -6486,34 +9496,44 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    36,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    37,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    38,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6585,7 +9605,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    39,
                 ),
             },
             ExprTypeInfo {
@@ -6605,34 +9625,44 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    40,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    41,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::CurrentSymbolTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`f32`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    42,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -6704,7 +9734,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -6781,7 +9811,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -6799,7 +9829,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    45,
                 ),
             },
         ],
@@ -6807,7 +9837,48 @@
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [],
-            current_symbol_map: [],
+            current_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Point2d`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`f32`),
+                        ),
+                    },
+                ),
+            ],
         },
         symbol_terms: SymbolMap {
             inherited_symbol_map: [],
@@ -6827,6 +9898,426 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 6,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 7,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 9,
+                                src: ExpectationSource {
+                                    expr_idx: 9,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 10,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 11,
+                                src: ExpectationSource {
+                                    expr_idx: 11,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 12,
+                                src: ExpectationSource {
+                                    expr_idx: 12,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 13,
+                                src: ExpectationSource {
+                                    expr_idx: 13,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 14,
+                                src: ExpectationSource {
+                                    expr_idx: 14,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 15,
+                                src: ExpectationSource {
+                                    expr_idx: 17,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 16,
+                                src: ExpectationSource {
+                                    expr_idx: 18,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 17,
+                                src: ExpectationSource {
+                                    expr_idx: 22,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 18,
+                                src: ExpectationSource {
+                                    expr_idx: 23,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 19,
+                                src: ExpectationSource {
+                                    expr_idx: 30,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 20,
+                                src: ExpectationSource {
+                                    expr_idx: 27,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 21,
+                                src: ExpectationSource {
+                                    expr_idx: 31,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
@@ -6839,7 +10330,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 32,
                                     kind: Expr,
@@ -6862,6 +10353,63 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 23,
+                                src: ExpectationSource {
+                                    expr_idx: 36,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 24,
+                                src: ExpectationSource {
+                                    expr_idx: 33,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 25,
+                                src: ExpectationSource {
+                                    expr_idx: 37,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
@@ -6874,7 +10422,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 38,
                                     kind: Expr,
@@ -6897,6 +10445,63 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 27,
+                                src: ExpectationSource {
+                                    expr_idx: 42,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 28,
+                                src: ExpectationSource {
+                                    expr_idx: 39,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 29,
+                                src: ExpectationSource {
+                                    expr_idx: 43,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
@@ -6909,7 +10514,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 44,
                                     kind: Expr,
@@ -6932,6 +10537,63 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 31,
+                                src: ExpectationSource {
+                                    expr_idx: 48,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 32,
+                                src: ExpectationSource {
+                                    expr_idx: 45,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 33,
+                                src: ExpectationSource {
+                                    expr_idx: 49,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
@@ -6944,7 +10606,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 50,
                                     kind: Expr,
@@ -6973,7 +10635,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 4,
+                                idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 51,
                                     kind: Expr,
@@ -7051,7 +10713,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 52,
                                     kind: Expr,
@@ -7129,13 +10791,83 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 37,
+                                src: ExpectationSource {
+                                    expr_idx: 53,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 38,
+                                src: ExpectationSource {
+                                    expr_idx: 54,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`ClosedRange`),
                                         ),
                                     },
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 6,
+                                idx: 39,
                                 src: ExpectationSource {
                                     expr_idx: 55,
                                     kind: Expr,
@@ -7164,7 +10896,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 7,
+                                idx: 40,
                                 src: ExpectationSource {
                                     expr_idx: 56,
                                     kind: Expr,
@@ -7242,13 +10974,83 @@
                                     ty_expected: FluffyTerm {
                                         place: None,
                                         base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 41,
+                                src: ExpectationSource {
+                                    expr_idx: 57,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`f32`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 42,
+                                src: ExpectationSource {
+                                    expr_idx: 58,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`f32`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
                                             EtherealTerm(`ClosedRange`),
                                         ),
                                     },
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 8,
+                                idx: 43,
                                 src: ExpectationSource {
                                     expr_idx: 59,
                                     kind: Expr,
@@ -7283,7 +11085,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 9,
+                                idx: 44,
                                 src: ExpectationSource {
                                     expr_idx: 60,
                                     kind: Expr,
@@ -7318,7 +11120,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 10,
+                                idx: 45,
                                 src: ExpectationSource {
                                     expr_idx: 61,
                                     kind: Expr,
@@ -7346,7 +11148,9 @@
         return_ty: Some(
             EtherealTerm(`BoundingBox`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -7378,72 +11182,274 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentSketch`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 56,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 53,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`BoundingBox`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 53,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`BoundingBox`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [
+                                                Regular(
+                                                    FluffyTermRitchieRegularParameter {
+                                                        contract: None,
+                                                        ty: FluffyTerm {
+                                                            place: None,
+                                                            base: Ethereal(
+                                                                EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 53,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 54,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [
+                                        Regular(
+                                            FluffyTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        EntityPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 53,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 4,
+                                                separator: None,
+                                            },
+                                        ),
+                                    ],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`RelativeBoundingBox`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`RelativeBoundingBox`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -7468,7 +11474,189 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentSketch`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`BoundingBox`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`BoundingBox`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`RelativeBoundingBox`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`RelativeBoundingBox`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`RelativeBoundingBox`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 6,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`RelativeBoundingBox`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -7476,7 +11664,9 @@
         return_ty: Some(
             EtherealTerm(`RelativeBoundingBox`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -7528,51 +11718,189 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    422,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7581,51 +11909,189 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    7,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    8,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    9,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    10,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    437,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7700,7 +12166,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -7718,7 +12184,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    12,
                 ),
             },
         ],
@@ -7824,6 +12290,200 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 7,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 9,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 9,
+                                src: ExpectationSource {
+                                    expr_idx: 10,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 11,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
@@ -7836,7 +12496,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 13,
                                     kind: Expr,
@@ -7871,7 +12531,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 14,
                                     kind: Expr,
@@ -7901,7 +12561,9 @@
         return_ty: Some(
             EtherealTerm(`LineSegment`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -7933,51 +12595,189 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    459,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8018,7 +12818,105 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -8026,7 +12924,9 @@
         return_ty: Some(
             EtherealTerm(`Point2d`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -8058,51 +12958,189 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 49,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    480,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8143,7 +13181,105 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -8151,7 +13287,9 @@
         return_ty: Some(
             EtherealTerm(`Point2d`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -8183,43 +13321,129 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 59,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`LineSegment`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 51,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -8244,7 +13468,116 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`LineSegment`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -8252,7 +13585,9 @@
         return_ty: Some(
             EtherealTerm(`Vector2d`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -8284,59 +13619,192 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 51,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -8361,7 +13829,156 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -8369,7 +13986,9 @@
         return_ty: Some(
             EtherealTerm(`Vector2d`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -8401,59 +14020,192 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConcaveComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 67,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 51,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    4,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Vector2d`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -8478,7 +14230,156 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConcaveComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 4,
+                                src: ExpectationSource {
+                                    expr_idx: 4,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Vector2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Vector2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -8486,6 +14387,8 @@
         return_ty: Some(
             EtherealTerm(`Vector2d`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConcaveComponent`),
+        ),
     },
 ]

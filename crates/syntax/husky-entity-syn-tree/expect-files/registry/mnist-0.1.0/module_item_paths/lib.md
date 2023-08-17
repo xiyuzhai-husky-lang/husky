@@ -21,6 +21,34 @@ Ok(
             ),
         ),
         ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `visualize`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath {
                     module_path: `mnist`,
@@ -67,6 +95,34 @@ Ok(
                     },
                     ident: `Output`,
                     item_kind: AssociatedType,
+                },
+            ),
+        ),
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `visualize`,
+                    item_kind: MethodFn,
                 },
             ),
         ),

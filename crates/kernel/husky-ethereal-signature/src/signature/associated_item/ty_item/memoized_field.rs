@@ -7,6 +7,12 @@ pub struct TypeMemoizedFieldEtherealSignatureTemplate {
 }
 
 impl TypeMemoizedFieldEtherealSignatureTemplate {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+        self.impl_block(db).self_ty(db)
+    }
+}
+
+impl TypeMemoizedFieldEtherealSignatureTemplate {
     pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
         path: TypeItemPath,

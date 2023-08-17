@@ -102,7 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .expect("some")
                 .ethereal_signature_template(db)
                 .ok()
-                .map(|st| st.self_value_ty(db))
+                .map(|st| st.self_ty(db))
                 .flatten(),
         };
         // parent_expr_region

@@ -49,6 +49,45 @@
         ),
     ),
     HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    template_arguments: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 67,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            MethodFn(
+                TraitForTypeMethodFnHirDecl(
+                    Id {
+                        value: 23,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath {
@@ -114,6 +153,45 @@
                 TraitForTypeAssociatedTypeHirDecl(
                     Id {
                         value: 3,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::ImplBlock(
+        ImplBlockHirDecl::TraitForType(
+            TraitForTypeImplBlockHirDecl {
+                path: TraitForTypeImplBlockPath {
+                    module_path: `mnist`,
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    ),
+                    disambiguator: 0,
+                },
+                template_parameters: HirTemplateParameters {
+                    data: [],
+                },
+                trai: HirTrait {
+                    trai_path: TraitPath(`core::visual::Visualize`),
+                    template_arguments: [],
+                },
+                self_ty: PathLeading(
+                    HirTypePathLeading(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
+    HirDecl::AssociatedItem(
+        AssociatedItemHirDecl::TraitForTypeItem(
+            MethodFn(
+                TraitForTypeMethodFnHirDecl(
+                    Id {
+                        value: 24,
                     },
                 ),
             ),

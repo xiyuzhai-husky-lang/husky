@@ -1604,7 +1604,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConnectedComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1820,7 +1822,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConnectedComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

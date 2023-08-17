@@ -1011,7 +1011,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Point2d`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1242,9 +1244,7 @@
             },
         },
         return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`Point2d`),
-        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1914,7 +1914,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vector2d`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3336,7 +3338,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ClosedRange`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3784,7 +3788,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`BoundingBox`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -4676,7 +4682,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`RelativeBoundingBox`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

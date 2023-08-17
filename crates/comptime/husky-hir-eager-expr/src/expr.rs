@@ -209,8 +209,8 @@ impl ToHirEager for SynExprIdx {
                 frame_var_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            SynExpr::SelfType(_) => todo!(),
-            SynExpr::SelfValue(_) => todo!(),
+            SynExpr::SelfType(_) => HirEagerExpr::SelfType,
+            SynExpr::SelfValue(_) => HirEagerExpr::SelfValue,
             SynExpr::Binary {
                 lopd,
                 opr,

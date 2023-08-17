@@ -27,12 +27,14 @@ pub enum TypeItemEtherealSignatureTemplate {
 }
 
 impl TypeItemEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
         match self {
             TypeItemEtherealSignatureTemplate::AssociatedFn(_) => None,
             TypeItemEtherealSignatureTemplate::MethodFn(template) => Some(template.self_ty(db)),
             TypeItemEtherealSignatureTemplate::MethodFunction(_) => todo!(),
-            TypeItemEtherealSignatureTemplate::MemoizedField(_) => todo!(),
+            TypeItemEtherealSignatureTemplate::MemoizedField(template) => {
+                Some(template.self_ty(db))
+            }
         }
     }
 }
