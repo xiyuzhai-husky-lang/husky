@@ -20,13 +20,13 @@ pub enum AssociatedItemEtherealSignatureTemplate {
 }
 
 impl AssociatedItemEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
         match self {
             AssociatedItemEtherealSignatureTemplate::TraitForType(template) => {
                 template.self_value_ty(db)
             }
-            AssociatedItemEtherealSignatureTemplate::Type(template) => template.self_value_ty(db),
-            AssociatedItemEtherealSignatureTemplate::Trait(template) => template.self_value_ty(db),
+            AssociatedItemEtherealSignatureTemplate::Type(template) => template.self_ty(db),
+            AssociatedItemEtherealSignatureTemplate::Trait(template) => template.self_ty(db),
         }
     }
 }

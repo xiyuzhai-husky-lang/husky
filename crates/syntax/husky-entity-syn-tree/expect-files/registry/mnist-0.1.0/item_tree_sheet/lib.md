@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 16,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -105,11 +105,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 19,
+                            ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `BinaryGrid28`,
                                 token_idx: TokenIdx(
-                                    66,
+                                    78,
                                 ),
                             },
                             block: Type {
@@ -147,11 +147,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    100,
+                                    124,
                                 ),
                             },
                             block: Fugitive {
@@ -198,7 +198,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 14,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -239,7 +239,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 16,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -274,11 +274,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 19,
+                            ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `BinaryGrid28`,
                                 token_idx: TokenIdx(
-                                    66,
+                                    78,
                                 ),
                             },
                             block: Type {
@@ -309,11 +309,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(
-                                    100,
+                                    124,
                                 ),
                             },
                             block: Fugitive {
@@ -330,6 +330,56 @@ Ok(
             ],
         ),
         impl_block_syn_node_table: [
+            (
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNode {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 19,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                39,
+                            ),
+                        },
+                        trai_expr: 0,
+                        for_token: TokenIdx(
+                            41,
+                        ),
+                        ty_sketch_expr: Path(
+                            1,
+                        ),
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
             (
                 ImplBlockSynNodePath::TypeImplBlock(
                     TypeImplBlockSynNodePath {
@@ -349,16 +399,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 17,
+                        ast_idx: 20,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                39,
+                                51,
                             ),
                         },
-                        ty_expr: 0,
+                        ty_expr: 2,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                10..11,
+                                11..12,
                             ),
                         },
                     },
@@ -389,24 +439,74 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 18,
+                        ast_idx: 21,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                51,
+                                63,
                             ),
                         },
-                        trai_expr: 3,
+                        trai_expr: 5,
                         for_token: TokenIdx(
-                            57,
+                            69,
                         ),
                         ty_sketch_expr: Path(
-                            4,
+                            6,
                         ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        11..12,
+                                        12..13,
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            (
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockSynNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNode {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
+                            path: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 23,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                85,
+                            ),
+                        },
+                        trai_expr: 7,
+                        for_token: TokenIdx(
+                            87,
+                        ),
+                        ty_sketch_expr: Path(
+                            8,
+                        ),
+                        items: Some(
+                            TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        13..14,
                                     ),
                                 },
                             ),
@@ -433,16 +533,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 20,
+                        ast_idx: 24,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                73,
+                                97,
                             ),
                         },
-                        ty_expr: 5,
+                        ty_expr: 9,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                12..13,
+                                14..15,
                             ),
                         },
                     },
@@ -473,24 +573,24 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 21,
+                        ast_idx: 25,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                85,
+                                109,
                             ),
                         },
-                        trai_expr: 8,
+                        trai_expr: 12,
                         for_token: TokenIdx(
-                            91,
+                            115,
                         ),
                         ty_sketch_expr: Path(
-                            9,
+                            13,
                         ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        13..14,
+                                        15..16,
                                     ),
                                 },
                             ),

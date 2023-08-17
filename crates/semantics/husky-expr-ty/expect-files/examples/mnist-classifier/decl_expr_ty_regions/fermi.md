@@ -1397,7 +1397,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`FermiMatchResult`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

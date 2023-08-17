@@ -2521,7 +2521,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`LineSegmentStroke`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -2684,7 +2686,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`LineSegmentStroke`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3027,9 +3031,7 @@
             },
         },
         return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`LineSegmentStroke`),
-        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3284,7 +3286,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`LineSegmentSketch`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3500,7 +3504,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`LineSegmentSketch`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -4126,8 +4132,6 @@
             },
         },
         return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`LineSegmentSketch`),
-        ),
+        self_ty: None,
     },
 ]

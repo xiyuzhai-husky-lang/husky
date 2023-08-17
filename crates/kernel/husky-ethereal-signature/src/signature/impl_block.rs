@@ -15,12 +15,10 @@ pub enum ImplBlockEtherealSignatureTemplate {
 }
 
 impl ImplBlockEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> EtherealTerm {
         match self {
             ImplBlockEtherealSignatureTemplate::TypeImpl(template) => template.self_ty(db),
-            ImplBlockEtherealSignatureTemplate::TraitForTypeImpl(template) => {
-                template.self_ty(db).term()
-            }
+            ImplBlockEtherealSignatureTemplate::TraitForTypeImpl(template) => template.self_ty(db),
         }
     }
 }

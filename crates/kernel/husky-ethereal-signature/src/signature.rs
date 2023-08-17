@@ -26,25 +26,13 @@ pub enum ItemEtherealSignatureTemplate {
 }
 
 impl ItemEtherealSignatureTemplate {
-    pub fn self_base_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
-        todo!()
-        // match self {
-        //     ItemEtherealSignatureTemplate::Submodule => None,
-        //     ItemEtherealSignatureTemplate::MajorItem(_) => None,
-        //     ItemEtherealSignatureTemplate::ImplBlock(template) => Some(template.self_base_ty(db)),
-        //     ItemEtherealSignatureTemplate::AssociatedItem(template) => template.self_base_ty(db),
-        //     ItemEtherealSignatureTemplate::Variant(template) => Some(template.self_base_ty(db)),
-        //     ItemEtherealSignatureTemplate::Decr(_) => None,
-        // }
-    }
-
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
         match self {
             ItemEtherealSignatureTemplate::Submodule => None,
             ItemEtherealSignatureTemplate::MajorItem(_) => None,
-            ItemEtherealSignatureTemplate::ImplBlock(template) => Some(template.self_value_ty(db)),
-            ItemEtherealSignatureTemplate::AssociatedItem(template) => template.self_value_ty(db),
-            ItemEtherealSignatureTemplate::Variant(template) => Some(template.self_value_ty(db)),
+            ItemEtherealSignatureTemplate::ImplBlock(template) => Some(template.self_ty(db)),
+            ItemEtherealSignatureTemplate::AssociatedItem(template) => template.self_ty(db),
+            ItemEtherealSignatureTemplate::Variant(template) => Some(template.self_ty(db)),
             ItemEtherealSignatureTemplate::Decr(_) => None,
         }
     }

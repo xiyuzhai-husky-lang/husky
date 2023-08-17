@@ -64,7 +64,9 @@
         return_ty: Some(
             EtherealTerm(`r32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`r32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -122,6 +124,8 @@
         return_ty: Some(
             EtherealTerm(`i32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`r32`),
+        ),
     },
 ]

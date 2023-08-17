@@ -147,7 +147,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`r32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

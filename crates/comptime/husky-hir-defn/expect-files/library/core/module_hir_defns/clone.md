@@ -40,7 +40,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: Symbol(
                                 SelfType,

@@ -105,7 +105,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 52,
+                                        value: 70,
                                     },
                                 ),
                             ),
@@ -151,7 +151,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 52,
+                                        value: 70,
                                     },
                                 ),
                             ),
@@ -283,7 +283,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 52,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -335,7 +335,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 52,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -403,7 +403,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -508,7 +508,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -707,7 +707,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -1180,7 +1180,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -1369,7 +1369,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 52,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -1560,7 +1560,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 21,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),
@@ -2155,7 +2155,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 76,
+                                                        value: 94,
                                                     },
                                                 ),
                                             ),
@@ -2290,7 +2290,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 52,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -2481,7 +2481,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 21,
+                                                        value: 39,
                                                     },
                                                 ),
                                             ),

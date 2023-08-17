@@ -771,7 +771,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i8`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1320,7 +1322,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i8`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1598,7 +1602,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i16`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -2147,7 +2153,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i16`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -2425,7 +2433,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3147,7 +3157,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3425,7 +3437,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -3801,7 +3815,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -4079,7 +4095,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i128`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -4455,7 +4473,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`i128`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -4733,7 +4753,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`isize`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -5109,7 +5131,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`isize`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -5387,7 +5411,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u8`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -5763,7 +5789,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u8`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -6041,7 +6069,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u16`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -6417,7 +6447,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u16`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -6695,7 +6727,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -7071,7 +7105,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -7349,7 +7385,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -7725,7 +7763,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -8003,7 +8043,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u128`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -8379,7 +8421,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`u128`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -8657,7 +8701,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`usize`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -9033,7 +9079,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`usize`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -9311,7 +9359,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -10144,7 +10194,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`f32`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -10422,7 +10474,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`f64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -10798,7 +10852,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`f64`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

@@ -518,7 +518,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConvexComponent`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

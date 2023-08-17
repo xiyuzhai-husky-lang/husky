@@ -298,7 +298,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

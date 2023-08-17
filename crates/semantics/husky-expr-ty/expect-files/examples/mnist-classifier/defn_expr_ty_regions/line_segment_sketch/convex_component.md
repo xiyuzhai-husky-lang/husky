@@ -32,27 +32,78 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         ExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`ConvexComponent`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    0,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::FieldDispatch(
+                            FluffyFieldDispatch {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 58,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Application(
+                                                EtherealTermApplication(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ExprTypeError::Original(
+                        OriginalExprTypeError::NoMethodForType {
+                            self_expr_ty: FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                ),
+                            },
+                            ident_token: IdentToken {
+                                ident: `visualize`,
+                                token_idx: TokenIdx(
+                                    37,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -93,7 +144,46 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`ConvexComponent`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice LineSegmentStroke`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -101,6 +191,8 @@
         return_ty: Some(
             EtherealTerm(`Html`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`ConvexComponent`),
+        ),
     },
 ]

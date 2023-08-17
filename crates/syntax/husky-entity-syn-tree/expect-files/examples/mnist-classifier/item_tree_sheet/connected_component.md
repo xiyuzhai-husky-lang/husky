@@ -1052,7 +1052,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 14,
+                                            ast_idx: 16,
                                             ident_token: IdentToken {
                                                 ident: `MnistLabel`,
                                                 token_idx: TokenIdx(
@@ -1123,7 +1123,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 16,
+                                            ast_idx: 18,
                                             ident_token: IdentToken {
                                                 ident: `BinaryImage28`,
                                                 token_idx: TokenIdx(
@@ -1188,11 +1188,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 19,
+                                            ast_idx: 22,
                                             ident_token: IdentToken {
                                                 ident: `BinaryGrid28`,
                                                 token_idx: TokenIdx(
-                                                    66,
+                                                    78,
                                                 ),
                                             },
                                             block: Type {
@@ -1253,11 +1253,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 22,
+                                            ast_idx: 26,
                                             ident_token: IdentToken {
                                                 ident: `input`,
                                                 token_idx: TokenIdx(
-                                                    100,
+                                                    124,
                                                 ),
                                             },
                                             block: Fugitive {

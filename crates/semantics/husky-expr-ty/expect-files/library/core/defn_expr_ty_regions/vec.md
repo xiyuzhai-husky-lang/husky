@@ -71,7 +71,9 @@
         return_ty: Some(
             EtherealTerm(`i32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -151,7 +153,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -225,7 +229,9 @@
         return_ty: Some(
             EtherealTerm(`Option t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -299,7 +305,9 @@
         return_ty: Some(
             EtherealTerm(`Option t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -373,7 +381,9 @@
         return_ty: Some(
             EtherealTerm(`Option t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -447,7 +457,9 @@
         return_ty: Some(
             EtherealTerm(`Vec Leash t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -537,7 +549,9 @@
         return_ty: Some(
             EtherealTerm(`Leash CyclicSlice t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -619,6 +633,8 @@
         return_ty: Some(
             EtherealTerm(`Option t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Vec t`),
+        ),
     },
 ]

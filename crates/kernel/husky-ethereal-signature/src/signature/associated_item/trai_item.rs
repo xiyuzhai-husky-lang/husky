@@ -17,7 +17,7 @@ pub enum TraitItemEtherealSignatureTemplate {
 }
 
 impl TraitItemEtherealSignatureTemplate {
-    pub fn self_value_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
+    pub fn self_ty(self, db: &dyn EtherealSignatureDb) -> Option<EtherealTerm> {
         match self {
             TraitItemEtherealSignatureTemplate::AssociatedFn(_) => None,
         }

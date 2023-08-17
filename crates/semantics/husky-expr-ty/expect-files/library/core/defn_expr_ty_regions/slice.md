@@ -71,7 +71,9 @@
         return_ty: Some(
             EtherealTerm(`usize`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Slice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -159,7 +161,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Slice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -233,7 +237,9 @@
         return_ty: Some(
             EtherealTerm(`i32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`CyclicSlice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -307,7 +313,9 @@
         return_ty: Some(
             EtherealTerm(`i32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`CyclicSlice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -381,7 +389,9 @@
         return_ty: Some(
             EtherealTerm(`i32`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`CyclicSlice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -455,7 +465,9 @@
         return_ty: Some(
             EtherealTerm(`Option Leash t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`CyclicSlice t`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
@@ -529,6 +541,8 @@
         return_ty: Some(
             EtherealTerm(`Option Leash t`),
         ),
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`CyclicSlice t`),
+        ),
     },
 ]

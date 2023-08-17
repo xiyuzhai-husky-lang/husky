@@ -874,7 +874,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Result t s`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1042,9 +1044,7 @@
             },
         },
         return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`Result t s`),
-        ),
+        self_ty: None,
     },
     ExprTypeRegion {
         path: RegionPath::Decl(

@@ -243,6 +243,8 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`Nat`),
+        ),
     },
 ]

@@ -122,7 +122,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -182,7 +182,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: BorrowMut,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -295,7 +295,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -355,7 +355,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -415,7 +415,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -475,7 +475,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(
@@ -535,7 +535,7 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        self_parameter: HirRitchieParameter {
+                        self_value_parameter: HirRitchieParameter {
                             contract: None,
                             ty: PathLeading(
                                 HirTypePathLeading(

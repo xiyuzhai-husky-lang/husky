@@ -824,7 +824,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 3,
+                                                        value: 4,
                                                     },
                                                 ),
                                             ),
@@ -1660,7 +1660,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 3,
+                                                        value: 4,
                                                     },
                                                 ),
                                             ),
@@ -1720,7 +1720,9 @@
             },
         },
         return_ty: None,
-        self_ty: None,
+        self_ty: Some(
+            EtherealTerm(`OneVsAll t a`),
+        ),
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
@@ -1865,8 +1867,6 @@
             },
         },
         return_ty: None,
-        self_ty: Some(
-            EtherealTerm(`OneVsAll t a`),
-        ),
+        self_ty: None,
     },
 ]
