@@ -10,20 +10,20 @@ pub enum EphemSymbolModifierTokenGroup {
     Tilde(TildeToken),
 }
 
-impl Into<EphemSymbolModifier> for EphemSymbolModifierTokenGroup {
+impl Into<SymbolModifier> for EphemSymbolModifierTokenGroup {
     #[inline(always)]
-    fn into(self) -> EphemSymbolModifier {
+    fn into(self) -> SymbolModifier {
         match self {
-            EphemSymbolModifierTokenGroup::Mut(_) => EphemSymbolModifier::Mut,
-            EphemSymbolModifierTokenGroup::RefMut(..) => EphemSymbolModifier::RefMut,
+            EphemSymbolModifierTokenGroup::Mut(_) => SymbolModifier::Mut,
+            EphemSymbolModifierTokenGroup::RefMut(..) => SymbolModifier::RefMut,
             EphemSymbolModifierTokenGroup::Ambersand(_, lifetime_token) => {
-                EphemSymbolModifier::Ambersand(lifetime_token.map(|t| t.label()))
+                SymbolModifier::Ambersand(lifetime_token.map(|t| t.label()))
             }
             EphemSymbolModifierTokenGroup::AmbersandMut(_, lifetime_token, _) => {
-                EphemSymbolModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
+                SymbolModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierTokenGroup::Le(..) => EphemSymbolModifier::Le,
-            EphemSymbolModifierTokenGroup::Tilde(..) => EphemSymbolModifier::Tilde,
+            EphemSymbolModifierTokenGroup::Le(..) => SymbolModifier::Le,
+            EphemSymbolModifierTokenGroup::Tilde(..) => SymbolModifier::Tilde,
         }
     }
 }

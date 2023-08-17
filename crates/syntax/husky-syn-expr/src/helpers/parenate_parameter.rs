@@ -147,7 +147,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolVariant::ExplicitVariadicParameter {
+                CurrentSynSymbolVariant::ParenateVariadicParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },

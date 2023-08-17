@@ -34,7 +34,7 @@ pub enum ImplicitParameterSymbol {
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
-    modifier: EphemSymbolModifier,
+    modifier: SymbolModifier,
     kind: InheritedSynSymbolKind,
 }
 
@@ -77,7 +77,7 @@ pub enum InheritedImplicitParameterSynSymbol {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub struct CurrentSynSymbol {
-    modifier: EphemSymbolModifier,
+    modifier: SymbolModifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
@@ -92,14 +92,14 @@ impl CurrentSynSymbol {
         variant: CurrentSynSymbolVariant,
     ) -> Self {
         Self {
-            modifier: variant.modifier(pattern_expr_region),
+            modifier: variant.symbol_modifier(pattern_expr_region),
             access_start,
             access_end,
             variant,
         }
     }
 
-    pub fn modifier(&self) -> EphemSymbolModifier {
+    pub fn modifier(&self) -> SymbolModifier {
         self.modifier
     }
 
@@ -119,7 +119,7 @@ impl CurrentSynSymbol {
                     | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
                 ..
             }
-            | CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+            | CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
                 Some(ident_token.ident())
             }
             CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. }
@@ -130,6 +130,7 @@ impl CurrentSynSymbol {
                     CurrentTemplateParameterSynSymbolVariant::Lifetime { .. },
                 ..
             } => None,
+            CurrentSynSymbolVariant::SelfType | CurrentSynSymbolVariant::SelfValue { .. } => None,
         }
     }
 
@@ -172,11 +173,15 @@ pub enum CurrentSynSymbolVariant {
         annotated_variance_token: Option<VarianceToken>,
         template_parameter_variant: CurrentTemplateParameterSynSymbolVariant,
     },
+    SelfType,
+    SelfValue {
+        symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
+    },
     ParenateRegularParameter {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
-    ExplicitVariadicParameter {
+    ParenateVariadicParameter {
         symbol_modifier_keyword_group: Option<EphemSymbolModifierTokenGroup>,
         ident_token: IdentToken,
     },
@@ -221,23 +226,27 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentSynSymbolVariant {
-    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> EphemSymbolModifier {
+    fn symbol_modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> SymbolModifier {
         match self {
             CurrentSynSymbolVariant::TemplateParameter {
                 template_parameter_variant,
                 ..
-            } => EphemSymbolModifier::Const,
+            } => SymbolModifier::Const,
             CurrentSynSymbolVariant::ParenateRegularParameter {
                 pattern_symbol_idx, ..
             }
             | CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSynSymbolVariant::ExplicitVariadicParameter {
+            CurrentSynSymbolVariant::ParenateVariadicParameter {
                 symbol_modifier_keyword_group,
                 ..
-            } => EphemSymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => EphemSymbolModifier::None,
+            } => SymbolModifier::new(*symbol_modifier_keyword_group),
+            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::None,
+            CurrentSynSymbolVariant::SelfType => SymbolModifier::Const,
+            CurrentSynSymbolVariant::SelfValue {
+                symbol_modifier_keyword_group,
+            } => SymbolModifier::new(*symbol_modifier_keyword_group),
         }
     }
 }
@@ -303,11 +312,15 @@ impl CurrentSynSymbolVariant {
             CurrentSynSymbolVariant::FrameVariable { expr_idx, .. } => {
                 CurrentSynSymbolKind::FrameVariable(*expr_idx)
             }
-            CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+            CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
                 CurrentSynSymbolKind::ExplicitVariadicParameter {
                     ident_token: *ident_token,
                 }
             }
+            CurrentSynSymbolVariant::SelfType => todo!(),
+            CurrentSynSymbolVariant::SelfValue {
+                symbol_modifier_keyword_group,
+            } => todo!(),
         }
     }
 }

@@ -15,7 +15,7 @@ pub struct SymbolDeclarativeTermRegion {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
     term_symbol: Option<DeclarativeTermSymbol>,
-    modifier: EphemSymbolModifier,
+    modifier: SymbolModifier,
     ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
 }
 
@@ -24,7 +24,7 @@ impl SymbolSignature {
         self.term_symbol
     }
 
-    pub fn modifier(&self) -> EphemSymbolModifier {
+    pub fn modifier(&self) -> SymbolModifier {
         self.modifier
     }
 
@@ -52,7 +52,7 @@ impl SymbolDeclarativeTermRegion {
             SymbolSignature {
                 term_symbol: Some(term_symbol),
                 ty,
-                modifier: EphemSymbolModifier::Const,
+                modifier: SymbolModifier::Const,
             },
         )
     }
@@ -62,18 +62,16 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         current_symbol: CurrentSynSymbolIdx,
-        modifier: EphemSymbolModifier,
+        modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
         let symbol = match modifier {
-            EphemSymbolModifier::Const => todo!(),
-            EphemSymbolModifier::None | EphemSymbolModifier::Mut | EphemSymbolModifier::RefMut => {
-                None
-            }
-            EphemSymbolModifier::Ambersand(_) => todo!(),
-            EphemSymbolModifier::AmbersandMut(_) => todo!(),
-            EphemSymbolModifier::Le => todo!(),
-            EphemSymbolModifier::Tilde => todo!(),
+            SymbolModifier::Const => todo!(),
+            SymbolModifier::None | SymbolModifier::Mut | SymbolModifier::RefMut => None,
+            SymbolModifier::Ambersand(_) => todo!(),
+            SymbolModifier::AmbersandMut(_) => todo!(),
+            SymbolModifier::Le => todo!(),
+            SymbolModifier::Tilde => todo!(),
         };
         self.add_new_current_symbol_signature(
             db,

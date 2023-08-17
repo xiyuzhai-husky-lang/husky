@@ -184,11 +184,15 @@ impl SynSymbolRegion {
                 } => {
                     InheritedSynSymbolKind::ImplicitParameter(template_parameter_variant.bequeath())
                 }
-                CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+                CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
                     InheritedSynSymbolKind::ExplicitParameter {
                         ident: ident_token.ident(),
                     }
                 }
+                CurrentSynSymbolVariant::SelfType => todo!(),
+                CurrentSynSymbolVariant::SelfValue {
+                    symbol_modifier_keyword_group,
+                } => todo!(),
             };
             inherited_symbol_arena.alloc_one(InheritedSynSymbol {
                 kind,
