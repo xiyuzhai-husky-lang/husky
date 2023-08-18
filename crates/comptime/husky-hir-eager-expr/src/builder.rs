@@ -26,10 +26,6 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub fn finish(self) -> HirEagerExprRegion {
-        HirEagerExprRegion::new(self.db)
-    }
-
     pub fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
@@ -106,5 +102,9 @@ impl<'a> HirEagerExprBuilder<'a> {
             FluffyTermBase::Solid(_) => todo!(),
             FluffyTermBase::Hollow(_) => todo!(),
         }
+    }
+
+    pub fn finish(self) -> HirEagerExprRegion {
+        HirEagerExprRegion::new(self.db)
     }
 }
