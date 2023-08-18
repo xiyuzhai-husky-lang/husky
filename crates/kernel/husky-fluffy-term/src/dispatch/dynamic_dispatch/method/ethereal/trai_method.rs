@@ -41,39 +41,55 @@ fn ethereal_term_trai_method_dispatch_aux(
         SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
         2,
     > = Default::default();
-    match application_expansion.function() {
-        TermFunctionReduced::TypeOntology(ty_path) => {
-            for record in trai_item_records.records() {
-                // todo: check scope
-                let trai_path = record.trai_path();
-                let mut matches: SmallVec<
-                    [TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2],
-                > = Default::default();
-                for template in
-                    trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
-                        .iter()
-                {
-                    match template.instantiate_ty(db, arguments, term) {
-                        JustOk(template_partially_instantiated) => {
-                            matches.push(template_partially_instantiated)
-                        }
-                        JustErr(_) => todo!(),
-                        Nothing => todo!(),
-                    }
+    let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
+        unreachable!()
+    };
+    for record in trai_item_records.records() {
+        // todo: check scope
+        let trai_path = record.trai_path();
+        let mut matches: SmallVec<
+            [TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2],
+        > = Default::default();
+        for template in
+            trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?.iter()
+        {
+            match template.instantiate_ty(db, arguments, term) {
+                JustOk(template_partially_instantiated) => {
+                    matches.push(template_partially_instantiated)
                 }
-                if !matches.is_empty() {
-                    unsafe { matches_map.insert_new_unchecked((trai_path, matches)) }
-                }
+                JustErr(_) => todo!(),
+                Nothing => todo!(),
             }
         }
-        TermFunctionReduced::Trait(_) => todo!(),
-        TermFunctionReduced::Other(_) => todo!(),
+        if !matches.is_empty() {
+            unsafe { matches_map.insert_new_unchecked((trai_path, matches)) }
+        }
     }
     match matches_map.len() {
-        0 => {
-            // ad hoc, consider indirections
-            Nothing
-        }
+        0 => match ty_path.refine(db) {
+            Left(PreludeTypePath::Indirection(path)) => match path {
+                PreludeIndirectionTypePath::Ref => todo!(),
+                PreludeIndirectionTypePath::RefMut => todo!(),
+                PreludeIndirectionTypePath::Leash => {
+                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
+                    debug_assert_eq!(arguments.len(), 1);
+                    let the_argument = arguments[0];
+                    ethereal_term_trai_method_dispatch_aux(
+                        engine,
+                        expr_idx,
+                        the_argument,
+                        ident_token,
+                        trai_item_records,
+                        indirections,
+                    )
+                }
+            },
+            Left(_) => Nothing,
+            Right(_) => {
+                // todo: consider custom Deref Carrier etc
+                Nothing
+            }
+        },
         1 => {
             let (trai_path, ref matches) = matches_map.data()[0];
             match matches.len() {

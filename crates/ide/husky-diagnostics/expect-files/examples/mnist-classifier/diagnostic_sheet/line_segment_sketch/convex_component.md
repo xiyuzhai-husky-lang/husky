@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `visualize` for type `Leash CyclicSlice LineSegmentStroke`",
-                severity: Error,
-                range: [10:28, 10:37),
-            },
-        ],
+        diagnostics: [],
     },
 }
