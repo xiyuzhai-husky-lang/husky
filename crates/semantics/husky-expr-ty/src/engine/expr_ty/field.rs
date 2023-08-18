@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         owner: SynExprIdx,
         ident_token: IdentToken,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal) else {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into());
         };
@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
                 owner_ty,
                 ident_token,
             })?;
-        let expr_ty = field_dispatch.signature().ty();
+        let expr_ty = field_dispatch.signature().return_ty();
         Ok((field_dispatch.into(), Ok(expr_ty)))
     }
 }

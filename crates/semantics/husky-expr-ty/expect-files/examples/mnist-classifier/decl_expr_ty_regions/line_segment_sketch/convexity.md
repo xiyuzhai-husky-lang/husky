@@ -23,7 +23,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -43,7 +43,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -63,7 +63,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(

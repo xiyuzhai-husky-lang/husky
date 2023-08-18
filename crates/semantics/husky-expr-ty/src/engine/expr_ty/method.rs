@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentToken,
         generic_arguments: Option<&SynGenericArgumentList>,
         explicit_arguments: &[SynCommaListItem],
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) = self.infer_new_expr_ty(self_argument, ExpectAnyOriginal) else {
             if let Some(generic_arguments) = generic_arguments {
                 todo!()
@@ -43,6 +43,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ))
             }
             MethodFluffySignature::MethodFunction(signature) => todo!(),
+            MethodFluffySignature::MethodGn => todo!(),
         }
     }
 }

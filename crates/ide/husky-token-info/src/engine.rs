@@ -4,7 +4,9 @@ use husky_syn_defn::*;
 
 use husky_entity_syn_tree::ParentUseExpr;
 use husky_entity_taxonomy::EntityKind;
-use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion, IndexOrComposeWithListExprDisambiguation};
+use husky_expr_ty::{
+    ExprTypeRegion, IndexOrComposeWithListExprDisambiguation, SynExprDisambiguation,
+};
 use husky_syn_expr::*;
 
 pub(crate) struct InferEngine<'a> {
@@ -357,7 +359,7 @@ impl<'a> InferContext<'a> {
                 // this should always be some
                 match self.expr_ty_region.expr_disambiguation(expr_idx) {
                     Some(Ok(disambiguation)) => match disambiguation {
-                        ExprDisambiguation::IndexOrComposeWithList(disambiguation) => {
+                        SynExprDisambiguation::IndexOrComposeWithList(disambiguation) => {
                             match disambiguation {
                                 IndexOrComposeWithListExprDisambiguation::Index(_) => (),
                                 IndexOrComposeWithListExprDisambiguation::ComposeWithList => {

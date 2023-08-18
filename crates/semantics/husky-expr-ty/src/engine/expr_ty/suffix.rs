@@ -12,10 +12,10 @@ impl<'a> ExprTypeEngine<'a> {
         opd: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
             SuffixOpr::Incr | SuffixOpr::Decr => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.calc_incr_or_decr_expr_ty(opd),
             )),
             SuffixOpr::UnveilOrComposeWithOption => {
@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: SynExprIdx,
         expected_final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::Unique {
@@ -100,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
                             ExpectCoersion::new(Contract::Move, opd_ty.into()),
                         );
                         Ok((
-                            ExprDisambiguation::UnveilOrComposeWithOption(
+                            SynExprDisambiguation::UnveilOrComposeWithOption(
                                 UnveilOrComposeWithOptionExprDisambiguation::Unveil,
                             ),
                             Ok(unveil_output_ty.into()),
@@ -124,7 +124,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<ExprDisambiguation>>(
+    fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<SynExprDisambiguation>>(
         &mut self,
         opd: SynExprIdx,
         final_destination: FinalDestination,
@@ -136,7 +136,7 @@ impl<'a> ExprTypeEngine<'a> {
             D,
             fn(&mut Self, opd_ty: FluffyTerm) -> ExprTypeResult<FluffyTerm>,
         ),
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
             Some(opd_ty) => match opd_ty.data(self) {
                 FluffyTermData::Literal(_) => todo!(),

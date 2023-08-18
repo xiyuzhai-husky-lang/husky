@@ -68,7 +68,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::ArrayFunctor,
                         ),
                         Ok(
@@ -88,7 +88,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -108,7 +108,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -296,7 +296,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::ArrayFunctor,
                         ),
                         Ok(
@@ -316,7 +316,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -336,7 +336,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -524,7 +524,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -629,7 +629,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -649,7 +649,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -782,7 +782,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -886,7 +886,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -997,7 +997,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
@@ -1063,7 +1063,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -1083,7 +1083,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1216,7 +1216,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1321,7 +1321,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -1341,7 +1341,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1474,7 +1474,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1578,7 +1578,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1689,7 +1689,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
@@ -1755,7 +1755,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -1775,7 +1775,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1908,7 +1908,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(

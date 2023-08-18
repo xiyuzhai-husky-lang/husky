@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         let path = path.ok_or(DerivedExprTypeError::EntityPathError)?;
         let ty_result = match path {

@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectFluffyTerm,
         generic_arguments: Option<&SynGenericArgumentList>,
         items: &[SynCommaListItem],
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                     items.iter().copied().map(Into::into),
                 )?;
                 Ok((
-                    ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                    SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::FnCall {
                             ritchie_parameter_argument_matches,
                         },
@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                     _ => todo!(),
                 }
                 Ok((
-                    ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                    SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::Application,
                     ),
                     Ok(*return_ty),
@@ -73,7 +73,7 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
         generic_arguments: Option<&SynGenericArgumentList>,
         items: &[CallListItem],
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self
             .infer_new_expr_ty_for_outcome(function, ExpectEqsRitchieType::new(final_destination))
         else {
@@ -87,6 +87,6 @@ impl<'a> ExprTypeEngine<'a> {
             outcome.parameter_contracted_tys(),
             items.iter().copied(),
         );
-        Ok((ExprDisambiguation::Trivial, Ok(outcome.return_ty())))
+        Ok((SynExprDisambiguation::Trivial, Ok(outcome.return_ty())))
     }
 }

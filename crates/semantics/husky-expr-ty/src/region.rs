@@ -94,12 +94,26 @@ impl ExprTypeRegion {
     pub fn expr_disambiguation(
         &self,
         syn_expr_idx: SynExprIdx,
-    ) -> Option<ExprTypeResultRef<&ExprDisambiguation>> {
+    ) -> Option<ExprTypeResultRef<&SynExprDisambiguation>> {
         // ad hoc
         // todo: change this to always some
         self.expr_ty_infos
             .get(syn_expr_idx)
             .map(|ty_info| ty_info.disambiguation())
+    }
+
+    #[track_caller]
+    pub fn expr_disambiguation_unwrapped(
+        &self,
+        syn_expr_idx: SynExprIdx,
+    ) -> &SynExprDisambiguation {
+        // ad hoc
+        // todo: change this to always some
+        self.expr_ty_infos
+            .get(syn_expr_idx)
+            .unwrap()
+            .disambiguation()
+            .unwrap()
     }
 }
 

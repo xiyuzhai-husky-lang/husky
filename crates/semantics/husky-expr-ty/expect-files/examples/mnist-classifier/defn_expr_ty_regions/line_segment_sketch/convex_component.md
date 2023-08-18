@@ -31,7 +31,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -49,7 +49,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -57,7 +57,7 @@
                                         value: 58,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -100,7 +100,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::BlockTypeError,
