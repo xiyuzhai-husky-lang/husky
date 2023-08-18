@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
-use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
+use husky_expr_ty::{ExprTypeRegion, SynExprDisambiguation};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase};
 use husky_syn_expr::{SynExpr, SynExprIdx, SynExprRegion, SynExprRegionData, SynStmt, SynStmtIdx};
 use salsa::DebugWithDb;
@@ -73,7 +73,10 @@ impl<'a> HirEagerExprBuilder<'a> {
     //     self.expr_ty_region
     // }
 
-    pub(crate) fn expr_disambiguation(&self, syn_expr_idx: SynExprIdx) -> &'a ExprDisambiguation {
+    pub(crate) fn expr_disambiguation(
+        &self,
+        syn_expr_idx: SynExprIdx,
+    ) -> &'a SynExprDisambiguation {
         let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
             unreachable!(
                 r#"

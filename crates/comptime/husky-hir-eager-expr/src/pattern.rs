@@ -1,5 +1,5 @@
 use husky_hir_ty::HirType;
-use husky_syn_expr::LetVariableDecls;
+use husky_syn_expr::{BeVariablesPattern, LetVariableDecls};
 
 use crate::*;
 
@@ -9,9 +9,6 @@ pub struct HirEagerLetVariablesPattern {
     // variables: CurrentHirEagerSymbolIdxRange,
     ty: Option<HirType>,
 }
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct HirEagerBeVariablesPattern {}
 
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
@@ -25,5 +22,16 @@ impl<'a> HirEagerExprBuilder<'a> {
                 .ty()
                 .map(|ty| HirType::from_ethereal(self.expr_term(ty), self.db())),
         }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct HirEagerBeVariablesPattern {}
+
+impl ToHirEager for BeVariablesPattern {
+    type Output = HirEagerBeVariablesPattern;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerBeVariablesPattern {}
     }
 }

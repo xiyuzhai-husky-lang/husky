@@ -1,13 +1,12 @@
+use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{
-    ApplicationOrFunctionCallExprDisambiguation, ExprDisambiguation,
-    IndexOrComposeWithListExprDisambiguation, MethodCallOrApplicationDisambiguation,
-    RitchieParameterArgumentMatch,
+    ApplicationOrFunctionCallExprDisambiguation, IndexOrComposeWithListExprDisambiguation,
+    MethodCallOrApplicationDisambiguation, RitchieParameterArgumentMatch, SynExprDisambiguation,
 };
 use husky_fluffy_term::StaticDispatch;
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
-
-use crate::*;
+use salsa::debug::ExpectWithDb;
 
 pub type HirEagerExprArena = Arena<HirEagerExpr>;
 pub type HirEagerExprIdx = ArenaIdx<HirEagerExpr>;
@@ -182,7 +181,7 @@ impl ToHirEager for SynExprIdx {
                 scope_resolution_token,
                 ident_token,
             } => {
-                let ExprDisambiguation::StaticDispatch(dispatch) =
+                let SynExprDisambiguation::StaticDispatch(dispatch) =
                     builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
@@ -225,7 +224,13 @@ impl ToHirEager for SynExprIdx {
                 src,
                 be_token_idx,
                 ref target,
-            } => todo!(),
+            } => HirEagerExpr::Be {
+                src: src.to_hir_eager(builder),
+                target: target
+                    .as_ref()
+                    .expect_with_db(builder.db(), "hir stage no errors")
+                    .to_hir_eager(builder),
+            },
             SynExpr::Prefix {
                 opr,
                 opr_token_idx,
@@ -249,7 +254,7 @@ impl ToHirEager for SynExprIdx {
                 ref items,
                 rpar_token_idx,
             } => {
-                let ExprDisambiguation::ExplicitApplicationOrFunctionCall(disambiguation) =
+                let SynExprDisambiguation::ExplicitApplicationOrFunctionCall(disambiguation) =
                     builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
@@ -305,7 +310,7 @@ impl ToHirEager for SynExprIdx {
                 rpar_token_idx,
             } => {
                 // todo: method application should be ignored
-                let ExprDisambiguation::MethodCallOrApplication(disambiguation) =
+                let SynExprDisambiguation::MethodCallOrApplication(disambiguation) =
                     builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
@@ -356,7 +361,7 @@ impl ToHirEager for SynExprIdx {
                 ref items,
                 ..
             } => {
-                let ExprDisambiguation::IndexOrComposeWithList(disambiguation) =
+                let SynExprDisambiguation::IndexOrComposeWithList(disambiguation) =
                     builder.expr_disambiguation(*self)
                 else {
                     unreachable!()

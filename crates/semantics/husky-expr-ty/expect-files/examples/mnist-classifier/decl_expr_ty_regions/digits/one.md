@@ -20,7 +20,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -121,7 +121,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -141,7 +141,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -161,7 +161,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -179,7 +179,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -199,7 +199,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -484,7 +484,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -504,7 +504,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Tilde(
+                        SynExprDisambiguation::Tilde(
                             TildeDisambiguation::Leash,
                         ),
                         Ok(
@@ -524,7 +524,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -544,7 +544,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -755,7 +755,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -775,7 +775,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Tilde(
+                        SynExprDisambiguation::Tilde(
                             TildeDisambiguation::Leash,
                         ),
                         Ok(
@@ -795,7 +795,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -815,7 +815,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1026,7 +1026,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1046,7 +1046,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Tilde(
+                        SynExprDisambiguation::Tilde(
                             TildeDisambiguation::Leash,
                         ),
                         Ok(
@@ -1066,7 +1066,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -1086,7 +1086,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,

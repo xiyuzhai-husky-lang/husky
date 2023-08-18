@@ -20,7 +20,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -38,7 +38,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -56,7 +56,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -74,7 +74,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -92,7 +92,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -110,7 +110,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -128,7 +128,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -146,7 +146,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -164,7 +164,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -182,7 +182,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -540,7 +540,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -558,7 +558,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -576,7 +576,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -594,7 +594,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -612,7 +612,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -630,7 +630,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -648,7 +648,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -925,7 +925,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -943,7 +943,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -961,7 +961,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -979,7 +979,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -997,7 +997,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1015,7 +1015,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1033,7 +1033,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1051,7 +1051,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1069,7 +1069,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1087,7 +1087,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1523,7 +1523,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -1543,7 +1543,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1561,7 +1561,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1579,7 +1579,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -1652,7 +1652,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -1672,7 +1672,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1690,7 +1690,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -1708,7 +1708,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -1781,7 +1781,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::BlockTypeError,
@@ -2262,7 +2262,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2280,7 +2280,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -2300,7 +2300,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2318,7 +2318,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2336,7 +2336,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -2356,7 +2356,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2374,7 +2374,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2392,7 +2392,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2410,7 +2410,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2428,7 +2428,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2446,7 +2446,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -2466,7 +2466,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2484,7 +2484,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2502,7 +2502,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -2520,7 +2520,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -2610,7 +2610,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::BlockTypeError,
@@ -3209,7 +3209,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -3229,7 +3229,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3247,7 +3247,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3265,7 +3265,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -3338,7 +3338,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -3358,7 +3358,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3376,7 +3376,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3394,7 +3394,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -3467,7 +3467,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Err(
                             ExprTypeError::Derived(
                                 DerivedExprTypeError::BlockTypeError,
@@ -4032,7 +4032,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4050,7 +4050,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -4096,7 +4096,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4114,7 +4114,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4132,7 +4132,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4150,7 +4150,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4168,7 +4168,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -4208,7 +4208,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4226,7 +4226,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4244,7 +4244,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4262,7 +4262,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4280,7 +4280,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -4320,7 +4320,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -4340,7 +4340,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4358,7 +4358,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4376,7 +4376,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -4384,7 +4384,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -4419,7 +4419,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -4427,7 +4427,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -4462,7 +4462,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4480,7 +4480,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4498,7 +4498,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4516,7 +4516,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4534,7 +4534,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4552,7 +4552,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4570,7 +4570,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -4578,7 +4578,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -4613,7 +4613,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -4621,7 +4621,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -4656,7 +4656,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4674,7 +4674,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4692,7 +4692,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4710,7 +4710,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -4728,7 +4728,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -4805,7 +4805,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6522,7 +6522,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
@@ -6542,7 +6542,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -6562,7 +6562,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6580,7 +6580,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::NewList,
                         ),
                         Ok(
@@ -6600,7 +6600,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -6620,7 +6620,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [],
@@ -6670,7 +6670,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [],
                             },
@@ -6692,7 +6692,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6712,7 +6712,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6732,7 +6732,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6750,7 +6750,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
@@ -6760,7 +6760,7 @@
                                         value: 45,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -6795,7 +6795,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6815,7 +6815,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6835,7 +6835,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6855,7 +6855,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -6895,7 +6895,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6913,7 +6913,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
@@ -6923,7 +6923,7 @@
                                         value: 45,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -6958,7 +6958,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -6978,7 +6978,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -7018,7 +7018,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7036,7 +7036,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7056,7 +7056,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7074,7 +7074,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7092,7 +7092,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7112,7 +7112,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7130,7 +7130,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7148,7 +7148,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7168,7 +7168,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7186,7 +7186,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7204,7 +7204,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7222,7 +7222,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7240,7 +7240,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7258,7 +7258,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7276,7 +7276,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7294,7 +7294,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7312,7 +7312,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7330,7 +7330,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7348,7 +7348,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7366,7 +7366,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7384,7 +7384,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7402,7 +7402,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7420,7 +7420,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7438,7 +7438,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Tilde(
+                        SynExprDisambiguation::Tilde(
                             TildeDisambiguation::BitNot,
                         ),
                         Ok(
@@ -7458,7 +7458,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7476,7 +7476,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7494,7 +7494,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -7534,7 +7534,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7552,7 +7552,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7570,7 +7570,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7590,7 +7590,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7610,7 +7610,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7628,7 +7628,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7648,7 +7648,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -7688,7 +7688,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
@@ -7708,7 +7708,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -7728,7 +7728,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7746,7 +7746,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::List(
+                        SynExprDisambiguation::List(
                             ListExprDisambiguation::NewList,
                         ),
                         Ok(
@@ -7766,7 +7766,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7786,7 +7786,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7804,7 +7804,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7824,7 +7824,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -7864,7 +7864,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -7910,7 +7910,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7928,7 +7928,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
@@ -7938,7 +7938,7 @@
                                         value: 45,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -7973,7 +7973,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -7993,7 +7993,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8013,7 +8013,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8033,7 +8033,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -8073,7 +8073,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8091,7 +8091,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
@@ -8101,7 +8101,7 @@
                                         value: 45,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -8136,7 +8136,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8156,7 +8156,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -8196,7 +8196,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -8216,7 +8216,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8234,7 +8234,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8252,7 +8252,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8270,7 +8270,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -8370,7 +8370,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8390,7 +8390,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8408,7 +8408,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8426,7 +8426,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8446,7 +8446,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8466,7 +8466,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8486,7 +8486,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8506,7 +8506,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8526,7 +8526,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8546,7 +8546,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8566,7 +8566,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8586,7 +8586,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8606,7 +8606,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8626,7 +8626,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8646,7 +8646,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8664,7 +8664,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8682,7 +8682,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8700,7 +8700,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8718,7 +8718,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8736,7 +8736,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8754,7 +8754,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8772,7 +8772,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8790,7 +8790,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8808,7 +8808,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8826,7 +8826,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8844,7 +8844,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -8864,7 +8864,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8882,7 +8882,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8900,7 +8900,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8918,7 +8918,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -8936,7 +8936,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -9063,7 +9063,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -9083,7 +9083,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9101,7 +9101,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9119,7 +9119,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -9192,7 +9192,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9210,7 +9210,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9230,7 +9230,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9248,7 +9248,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9268,7 +9268,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9286,7 +9286,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9304,7 +9304,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9322,7 +9322,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9340,7 +9340,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Tilde(
+                        SynExprDisambiguation::Tilde(
                             TildeDisambiguation::BitNot,
                         ),
                         Ok(
@@ -9360,7 +9360,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -9400,7 +9400,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9418,7 +9418,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -9458,7 +9458,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9476,7 +9476,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9494,7 +9494,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9512,7 +9512,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9532,7 +9532,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9552,7 +9552,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9572,7 +9572,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9592,7 +9592,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9612,7 +9612,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9632,7 +9632,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9650,7 +9650,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9668,7 +9668,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9688,7 +9688,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9708,7 +9708,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9726,7 +9726,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9744,7 +9744,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9764,7 +9764,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9784,7 +9784,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9804,7 +9804,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9822,7 +9822,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9840,7 +9840,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9860,7 +9860,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9880,7 +9880,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9898,7 +9898,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9916,7 +9916,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9934,7 +9934,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -9952,7 +9952,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -9996,7 +9996,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -10016,7 +10016,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10034,7 +10034,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                        SynExprDisambiguation::UnwrapOrComposeWithNot(
                             UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
                         Ok(
@@ -10054,7 +10054,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -10098,7 +10098,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10116,7 +10116,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10134,7 +10134,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -10154,7 +10154,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [
@@ -10243,7 +10243,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10263,7 +10263,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10281,7 +10281,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -10354,7 +10354,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -10444,7 +10444,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10464,7 +10464,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10484,7 +10484,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10504,7 +10504,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10522,7 +10522,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10542,7 +10542,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10562,7 +10562,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10582,7 +10582,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10600,7 +10600,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10620,7 +10620,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10640,7 +10640,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10660,7 +10660,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10680,7 +10680,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10700,7 +10700,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10718,7 +10718,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10736,7 +10736,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10756,7 +10756,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10776,7 +10776,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10794,7 +10794,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10812,7 +10812,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10830,7 +10830,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -10848,7 +10848,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -10892,7 +10892,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -10912,7 +10912,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [
@@ -11001,7 +11001,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11021,7 +11021,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11039,7 +11039,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                        SynExprDisambiguation::UnwrapOrComposeWithNot(
                             UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
                         Ok(
@@ -11059,7 +11059,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -11132,7 +11132,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11150,7 +11150,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11170,7 +11170,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11190,7 +11190,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11208,7 +11208,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11228,7 +11228,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11248,7 +11248,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11266,7 +11266,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11286,7 +11286,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11306,7 +11306,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11326,7 +11326,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11346,7 +11346,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11366,7 +11366,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11384,7 +11384,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11402,7 +11402,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11422,7 +11422,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11442,7 +11442,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11460,7 +11460,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11478,7 +11478,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11498,7 +11498,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11518,7 +11518,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11536,7 +11536,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11554,7 +11554,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11572,7 +11572,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11590,7 +11590,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -11634,7 +11634,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -11654,7 +11654,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [
@@ -11743,7 +11743,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11763,7 +11763,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11781,7 +11781,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::UnwrapOrComposeWithNot(
+                        SynExprDisambiguation::UnwrapOrComposeWithNot(
                             UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
                         ),
                         Ok(
@@ -11801,7 +11801,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -11874,7 +11874,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11892,7 +11892,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11912,7 +11912,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11932,7 +11932,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11952,7 +11952,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11970,7 +11970,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -11990,7 +11990,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12010,7 +12010,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12030,7 +12030,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12048,7 +12048,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12066,7 +12066,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -12086,7 +12086,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [
@@ -12175,7 +12175,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12195,7 +12195,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12213,7 +12213,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -12286,7 +12286,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -12376,7 +12376,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12396,7 +12396,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12416,7 +12416,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12434,7 +12434,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12454,7 +12454,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12474,7 +12474,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12492,7 +12492,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12512,7 +12512,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12532,7 +12532,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12550,7 +12550,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12570,7 +12570,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12590,7 +12590,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12608,7 +12608,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12628,7 +12628,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12646,7 +12646,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12664,7 +12664,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12682,7 +12682,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12700,7 +12700,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12718,7 +12718,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12738,7 +12738,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12758,7 +12758,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12778,7 +12778,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12796,7 +12796,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12816,7 +12816,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12834,7 +12834,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12854,7 +12854,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12874,7 +12874,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12894,7 +12894,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12914,7 +12914,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12934,7 +12934,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12952,7 +12952,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12970,7 +12970,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -12990,7 +12990,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13010,7 +13010,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13028,7 +13028,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13046,7 +13046,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13064,7 +13064,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13082,7 +13082,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -13126,7 +13126,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13144,7 +13144,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -13164,7 +13164,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13182,7 +13182,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13200,7 +13200,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -13269,7 +13269,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -13359,7 +13359,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -13377,7 +13377,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23011,7 +23011,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23029,7 +23029,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23179,7 +23179,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
@@ -23199,7 +23199,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::StaticDispatch(
+                        SynExprDisambiguation::StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     parenate_parameters: [
@@ -23286,7 +23286,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23304,7 +23304,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23322,7 +23322,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -23393,7 +23393,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23965,7 +23965,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -23983,7 +23983,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -23991,7 +23991,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24024,7 +24024,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24044,7 +24044,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -24084,7 +24084,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24102,7 +24102,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24110,7 +24110,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24145,7 +24145,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24163,7 +24163,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24171,7 +24171,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24206,7 +24206,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24224,7 +24224,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24232,7 +24232,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24267,7 +24267,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24285,7 +24285,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24293,7 +24293,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24328,7 +24328,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24346,7 +24346,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24354,7 +24354,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24387,7 +24387,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -24433,7 +24433,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24451,7 +24451,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24459,7 +24459,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24492,7 +24492,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24510,7 +24510,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -24550,7 +24550,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24568,7 +24568,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24586,7 +24586,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24594,7 +24594,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24629,7 +24629,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24647,7 +24647,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -24737,7 +24737,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24755,7 +24755,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24773,7 +24773,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24791,7 +24791,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -24799,7 +24799,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -24834,7 +24834,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24852,7 +24852,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -24942,7 +24942,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24960,7 +24960,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24978,7 +24978,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -24996,7 +24996,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -25004,7 +25004,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -25039,7 +25039,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25057,7 +25057,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -25147,7 +25147,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25165,7 +25165,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25183,7 +25183,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25201,7 +25201,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -25209,7 +25209,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -25244,7 +25244,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25262,7 +25262,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -25352,7 +25352,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25370,7 +25370,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -25390,7 +25390,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -25410,7 +25410,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25428,7 +25428,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25446,7 +25446,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -25519,7 +25519,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::TypePath(
+                        SynExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
@@ -25539,7 +25539,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25557,7 +25557,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -25575,7 +25575,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -25648,7 +25648,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -25725,7 +25725,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -27413,7 +27413,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -27431,7 +27431,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -27439,7 +27439,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -27472,7 +27472,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
@@ -27482,7 +27482,7 @@
                                         value: 45,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: Memoized {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -27515,7 +27515,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -27535,7 +27535,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -27575,7 +27575,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -27583,7 +27583,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: Memoized {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -27618,7 +27618,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -27636,7 +27636,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -27644,7 +27644,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: Memoized {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -27679,7 +27679,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -27769,7 +27769,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28361,7 +28361,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28381,7 +28381,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28401,7 +28401,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28419,7 +28419,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28427,7 +28427,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -28460,7 +28460,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -28506,7 +28506,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28524,7 +28524,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28532,7 +28532,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -28565,7 +28565,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28583,7 +28583,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28601,7 +28601,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28619,7 +28619,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -28659,7 +28659,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28677,7 +28677,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28685,7 +28685,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -28718,7 +28718,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28736,7 +28736,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -28776,7 +28776,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28794,7 +28794,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28812,7 +28812,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28820,7 +28820,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -28855,7 +28855,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28863,7 +28863,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -28898,7 +28898,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28916,7 +28916,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28934,7 +28934,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28952,7 +28952,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -28970,7 +28970,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -28978,7 +28978,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29013,7 +29013,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29021,7 +29021,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29056,7 +29056,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29074,7 +29074,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29092,7 +29092,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -29138,7 +29138,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -29184,7 +29184,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29204,7 +29204,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29222,7 +29222,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29240,7 +29240,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29258,7 +29258,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29266,7 +29266,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29299,7 +29299,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29317,7 +29317,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29325,7 +29325,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29358,7 +29358,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -29404,7 +29404,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29422,7 +29422,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29440,7 +29440,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -29480,7 +29480,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29498,7 +29498,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29506,7 +29506,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29539,7 +29539,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29559,7 +29559,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -29599,7 +29599,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29617,7 +29617,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29635,7 +29635,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29643,7 +29643,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29678,7 +29678,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29686,7 +29686,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29721,7 +29721,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29739,7 +29739,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29757,7 +29757,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29775,7 +29775,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29793,7 +29793,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29801,7 +29801,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29836,7 +29836,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -29844,7 +29844,7 @@
                                         value: 49,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -29879,7 +29879,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29897,7 +29897,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -29915,7 +29915,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -29961,7 +29961,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -30007,7 +30007,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -30027,7 +30027,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -30045,7 +30045,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -30063,7 +30063,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -30083,7 +30083,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -31960,7 +31960,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -31978,7 +31978,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -31986,7 +31986,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -32019,7 +32019,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -32065,7 +32065,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32083,7 +32083,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -32091,7 +32091,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -32124,7 +32124,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32142,7 +32142,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32160,7 +32160,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32178,7 +32178,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -32218,7 +32218,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32236,7 +32236,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::FieldDispatch(
+                        SynExprDisambiguation::FieldDispatch(
                             FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
@@ -32244,7 +32244,7 @@
                                         value: 46,
                                     },
                                 ),
-                                signature: FluffyFieldSignature {
+                                signature: PropsStruct {
                                     ty: FluffyTerm {
                                         place: None,
                                         base: Ethereal(
@@ -32277,7 +32277,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32295,7 +32295,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32313,7 +32313,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32331,7 +32331,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::IndexOrComposeWithList(
+                        SynExprDisambiguation::IndexOrComposeWithList(
                             IndexOrComposeWithListExprDisambiguation::Index(
                                 FluffyDynamicDispatch {
                                     indirections: [],
@@ -32371,7 +32371,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32389,7 +32389,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -32407,7 +32407,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::MethodCallOrApplication(
+                        SynExprDisambiguation::MethodCallOrApplication(
                             MethodCallOrApplicationDisambiguation::MethodCall {
                                 method_dispatch: FluffyDynamicDispatch {
                                     indirections: [],
@@ -32497,7 +32497,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExprDisambiguation::Trivial,
+                        SynExprDisambiguation::Trivial,
                         Ok(
                             FluffyTerm {
                                 place: None,

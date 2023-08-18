@@ -8,6 +8,7 @@ use husky_token::IdentToken;
 pub enum MethodFluffySignature {
     MethodFn(MethodFnFluffySignature),
     MethodFunction(MethodFunctionFluffySignature),
+    MethodGn,
 }
 
 impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {

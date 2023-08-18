@@ -292,7 +292,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref items,
                 rbox_token_idx,
             } => match self.expr_disambiguation(expr_idx) {
-                Ok(ExprDisambiguation::IndexOrComposeWithList(_)) => todo!(),
+                Ok(SynExprDisambiguation::IndexOrComposeWithList(_)) => todo!(),
                 Err(e) => Err(DerivedExprTermError::ExprTypeError.into()),
                 Ok(_) => unreachable!(),
             },
@@ -326,15 +326,17 @@ impl<'a> ExprTypeEngine<'a> {
                         .expr_ty_info_variant(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
-                        ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
-                            TypePathDisambiguation::OntologyConstructor => {
-                                TermEntityPath::TypeOntology(path)
+                        SynExprDisambiguation::TypePath(disambiguation) => {
+                            Ok(match disambiguation {
+                                TypePathDisambiguation::OntologyConstructor => {
+                                    TermEntityPath::TypeOntology(path)
+                                }
+                                TypePathDisambiguation::InstanceConstructor => {
+                                    TermEntityPath::TypeInstance(path)
+                                }
                             }
-                            TypePathDisambiguation::InstanceConstructor => {
-                                TermEntityPath::TypeInstance(path)
-                            }
+                            .into())
                         }
-                        .into()),
                         _ => unreachable!(),
                     },
                     MajorItemPath::Trait(_) => todo!(),

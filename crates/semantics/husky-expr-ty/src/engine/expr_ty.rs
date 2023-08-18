@@ -96,10 +96,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
             SynExpr::Literal(literal_token_idx, _) => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
             SynExpr::PrincipalEntityPath {
@@ -116,7 +116,7 @@ impl<'a> ExprTypeEngine<'a> {
                 inherited_symbol_idx,
                 ..
             } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 match self
                     .symbol_tys
                     .inherited_symbol_map()
@@ -132,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
                 current_symbol_kind,
                 ..
             } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.get_current_symbol_ty(expr_idx, current_symbol_idx),
             )),
             SynExpr::FrameVarDecl {
@@ -142,7 +142,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             SynExpr::SelfType(_) => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 match self.self_ty_term {
                     Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
                         Left(self_ty_ty) => Ok(self_ty_ty.into()),
@@ -152,7 +152,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
             )),
             SynExpr::SelfValue(_) => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 match self.self_ty_term {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
@@ -165,7 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr_token_idx,
                 ..
             } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
             )),
             SynExpr::Be {
@@ -183,7 +183,7 @@ impl<'a> ExprTypeEngine<'a> {
                     None => (),
                 };
                 Ok((
-                    ExprDisambiguation::Trivial,
+                    SynExprDisambiguation::Trivial,
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
@@ -253,12 +253,12 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_ty_expectation.final_destination(self),
             ),
             SynExpr::Bracketed { item, .. } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             )),
             SynExpr::Unit { .. } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.unit_ty_ontology().into()),
             )),
             SynExpr::NewTuple { ref items, .. } => todo!(),
@@ -363,18 +363,18 @@ impl<'a> ExprTypeEngine<'a> {
             }
             SynExpr::BoxColonList { ref items, .. } => match items.len() {
                 0 => Ok((
-                    ExprDisambiguation::Trivial,
+                    SynExprDisambiguation::Trivial,
                     Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                 )),
                 _ => todo!(),
             },
             SynExpr::Block { stmts } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 self.infer_new_block(stmts, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             )),
             SynExpr::EmptyHtmlTag { .. } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.html_ty_ontology().into()),
             )),
             SynExpr::Ritchie {
@@ -391,11 +391,14 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty_expr.map(|return_ty_expr| {
                     self.infer_new_expr_ty_discarded(return_ty_expr, self.expect_ty0_subtype())
                 });
-                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
+                Ok((
+                    SynExprDisambiguation::Trivial,
+                    Ok(self.term_menu.ty0().into()),
+                ))
             }
             SynExpr::Sorry { token_idx } => todo!(),
             SynExpr::Todo { token_idx } => Ok((
-                ExprDisambiguation::Trivial,
+                SynExprDisambiguation::Trivial,
                 Ok(self.term_menu.never().into()),
             )),
             SynExpr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
@@ -408,9 +411,9 @@ impl<'a> ExprTypeEngine<'a> {
         function_expr_idx: SynExprIdx,
         argument_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((
-            ExprDisambiguation::Trivial,
+            SynExprDisambiguation::Trivial,
             self.calc_function_application_expr_ty(
                 expr_idx,
                 function_expr_idx,
