@@ -1992,7 +1992,7 @@ Ok(
                                             ),
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         65,
@@ -2010,7 +2010,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..3,
                                                     ),
@@ -3878,7 +3878,7 @@ Ok(
                                             ),
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         191,
@@ -3896,7 +3896,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         2..3,
                                                     ),
@@ -3904,7 +3904,7 @@ Ok(
                                             },
                                             elif_branches: [],
                                             else_branch: Some(
-                                                ElseBranch {
+                                                SynElseBranch {
                                                     else_token: ElseToken {
                                                         token_idx: TokenIdx(
                                                             197,
@@ -3919,7 +3919,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    block: Ok(
+                                                    stmts: Ok(
                                                         ArenaIdxRange(
                                                             3..4,
                                                         ),
@@ -4367,7 +4367,7 @@ Ok(
                             },
                         },
                         body: Some(
-                            29,
+                            15,
                         ),
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -4441,9 +4441,32 @@ Ok(
                                 ),
                                 expr_arena: Arena {
                                     data: [
+                                        SynExpr::List {
+                                            lbox_token_idx: TokenIdx(
+                                                235,
+                                            ),
+                                            items: [],
+                                            rbox_token_idx: TokenIdx(
+                                                236,
+                                            ),
+                                        },
+                                        SynExpr::PrincipalEntityPath {
+                                            item_path_expr: 0,
+                                            opt_path: Some(
+                                                PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                        SynExpr::ExplicitApplication {
+                                            function_expr_idx: 0,
+                                            argument_expr_idx: 1,
+                                        },
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                236,
+                                                240,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4453,7 +4476,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                238,
+                                                242,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4463,7 +4486,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                240,
+                                                244,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4473,7 +4496,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                243,
+                                                247,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4484,13 +4507,13 @@ Ok(
                                         SynExpr::Prefix {
                                             opr: Minus,
                                             opr_token_idx: TokenIdx(
-                                                242,
+                                                246,
                                             ),
-                                            opd: 3,
+                                            opd: 6,
                                         },
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                245,
+                                                249,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4500,7 +4523,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                247,
+                                                251,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4510,7 +4533,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                249,
+                                                253,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4520,7 +4543,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                251,
+                                                255,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4530,7 +4553,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                253,
+                                                257,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4540,7 +4563,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                255,
+                                                259,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4550,27 +4573,11 @@ Ok(
                                         ),
                                         SynExpr::List {
                                             lbox_token_idx: TokenIdx(
-                                                235,
+                                                239,
                                             ),
                                             items: [
                                                 SynCommaListItem {
-                                                    expr_idx: 0,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            237,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 1,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            239,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 2,
+                                                    expr_idx: 3,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
                                                             241,
@@ -4581,7 +4588,7 @@ Ok(
                                                     expr_idx: 4,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            244,
+                                                            243,
                                                         ),
                                                     ),
                                                 },
@@ -4589,15 +4596,7 @@ Ok(
                                                     expr_idx: 5,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            246,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 6,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            248,
+                                                            245,
                                                         ),
                                                     ),
                                                 },
@@ -4605,7 +4604,7 @@ Ok(
                                                     expr_idx: 7,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            250,
+                                                            248,
                                                         ),
                                                     ),
                                                 },
@@ -4613,7 +4612,7 @@ Ok(
                                                     expr_idx: 8,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            252,
+                                                            250,
                                                         ),
                                                     ),
                                                 },
@@ -4621,271 +4620,46 @@ Ok(
                                                     expr_idx: 9,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            254,
+                                                            252,
                                                         ),
                                                     ),
                                                 },
                                                 SynCommaListItem {
                                                     expr_idx: 10,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                256,
-                                            ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 0,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            254,
+                                                        ),
                                                     ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::CurrentSymbol {
-                                            ident: `v`,
-                                            token_idx: TokenIdx(
-                                                259,
-                                            ),
-                                            current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
-                                            },
-                                        },
-                                        SynExpr::FunctionApplicationOrCall {
-                                            function: 12,
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                258,
-                                            ),
-                                            items: [
+                                                },
+                                                SynCommaListItem {
+                                                    expr_idx: 11,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            256,
+                                                        ),
+                                                    ),
+                                                },
+                                                SynCommaListItem {
+                                                    expr_idx: 12,
+                                                    comma_token_idx: Some(
+                                                        TokenIdx(
+                                                            258,
+                                                        ),
+                                                    ),
+                                                },
                                                 SynCommaListItem {
                                                     expr_idx: 13,
                                                     comma_token_idx: None,
                                                 },
                                             ],
-                                            rpar_token_idx: TokenIdx(
+                                            rbox_token_idx: TokenIdx(
                                                 260,
                                             ),
                                         },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                266,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    31,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Prefix {
-                                            opr: Minus,
-                                            opr_token_idx: TokenIdx(
-                                                265,
-                                            ),
-                                            opd: 15,
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                268,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    0,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                270,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                272,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    2,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                274,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    2,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                276,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    4,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                278,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    65,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                280,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    83,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                282,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    99,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                284,
-                                            ),
-                                            Literal::Integer(
-                                                UnspecifiedRegular(
-                                                    782,
-                                                ),
-                                            ),
-                                        ),
-                                        SynExpr::CurrentSymbol {
-                                            ident: `v`,
-                                            token_idx: TokenIdx(
-                                                262,
-                                            ),
-                                            current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
-                                            },
-                                        },
-                                        SynExpr::List {
-                                            lbox_token_idx: TokenIdx(
-                                                264,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 16,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            267,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 17,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            269,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 18,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            271,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 19,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            273,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 20,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            275,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 21,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            277,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 22,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            279,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 23,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            281,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 24,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            283,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 25,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                285,
-                                            ),
-                                        },
-                                        SynExpr::Binary {
-                                            lopd: 26,
-                                            opr: Comparison(
-                                                Eq,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                263,
-                                            ),
-                                            ropd: 27,
-                                        },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
-                                                0..3,
+                                                0..1,
                                             ),
                                         },
                                     ],
@@ -4895,15 +4669,15 @@ Ok(
                                         PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
-                                                    ident: `quick_sort`,
+                                                    ident: `i32`,
                                                     token_idx: TokenIdx(
-                                                        257,
+                                                        237,
                                                     ),
                                                 },
                                             ),
                                             principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort`, `Fn`),
+                                                MajorItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -4924,33 +4698,27 @@ Ok(
                                                         0..1,
                                                     ),
                                                     colon_token: Ok(
-                                                        None,
+                                                        Some(
+                                                            ColonToken(
+                                                                TokenIdx(
+                                                                    234,
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
-                                                    ty: None,
+                                                    ty: Some(
+                                                        2,
+                                                    ),
                                                 },
                                             ),
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        234,
+                                                        238,
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 11,
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 14,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Assert {
-                                            assert_token: AssertToken {
-                                                token_idx: TokenIdx(
-                                                    261,
-                                                ),
-                                            },
-                                            condition: 28,
+                                            initial_value: 14,
                                         },
                                     ],
                                 },
@@ -5019,7 +4787,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            286,
+                                                            261,
                                                         ),
                                                     ),
                                                 ),
@@ -5032,24 +4800,30 @@ Ok(
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
-                                    pattern_ty_constraints: [],
+                                    pattern_ty_constraints: [
+                                        (
+                                            LetVariables {
+                                                pattern: 0,
+                                                ty: 2,
+                                            },
+                                            ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                        ),
+                                    ],
                                 },
                                 roots: [
                                     SynExprRoot {
-                                        kind: LetStmtInitialValue,
-                                        expr_idx: 11,
+                                        kind: LetStmtType,
+                                        expr_idx: 2,
                                     },
                                     SynExprRoot {
-                                        kind: EvalExpr,
+                                        kind: LetStmtInitialValue,
                                         expr_idx: 14,
                                     },
                                     SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 28,
-                                    },
-                                    SynExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 29,
+                                        expr_idx: 15,
                                     },
                                 ],
                             },
@@ -5124,7 +4898,7 @@ Ok(
                             },
                         },
                         body: Some(
-                            19,
+                            7,
                         ),
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -5200,7 +4974,7 @@ Ok(
                                     data: [
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                298,
+                                                273,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5210,7 +4984,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                300,
+                                                275,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5220,7 +4994,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                302,
+                                                277,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5230,7 +5004,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                304,
+                                                279,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5240,7 +5014,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                306,
+                                                281,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5250,7 +5024,7 @@ Ok(
                                         ),
                                         SynExpr::Literal(
                                             TokenIdx(
-                                                308,
+                                                283,
                                             ),
                                             Literal::String(
                                                 StringLiteral {
@@ -5260,14 +5034,14 @@ Ok(
                                         ),
                                         SynExpr::List {
                                             lbox_token_idx: TokenIdx(
-                                                297,
+                                                272,
                                             ),
                                             items: [
                                                 SynCommaListItem {
                                                     expr_idx: 0,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            299,
+                                                            274,
                                                         ),
                                                     ),
                                                 },
@@ -5275,7 +5049,7 @@ Ok(
                                                     expr_idx: 1,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            301,
+                                                            276,
                                                         ),
                                                     ),
                                                 },
@@ -5283,7 +5057,7 @@ Ok(
                                                     expr_idx: 2,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            303,
+                                                            278,
                                                         ),
                                                     ),
                                                 },
@@ -5291,7 +5065,7 @@ Ok(
                                                     expr_idx: 3,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            305,
+                                                            280,
                                                         ),
                                                     ),
                                                 },
@@ -5299,7 +5073,7 @@ Ok(
                                                     expr_idx: 4,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
-                                                            307,
+                                                            282,
                                                         ),
                                                     ),
                                                 },
@@ -5309,211 +5083,25 @@ Ok(
                                                 },
                                             ],
                                             rbox_token_idx: TokenIdx(
-                                                309,
+                                                284,
                                             ),
-                                        },
-                                        SynExpr::PrincipalEntityPath {
-                                            item_path_expr: 0,
-                                            opt_path: Some(
-                                                PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                        SynExpr::CurrentSymbol {
-                                            ident: `strs`,
-                                            token_idx: TokenIdx(
-                                                312,
-                                            ),
-                                            current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
-                                            },
-                                        },
-                                        SynExpr::FunctionApplicationOrCall {
-                                            function: 7,
-                                            generic_arguments: None,
-                                            lpar_token_idx: TokenIdx(
-                                                311,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 8,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rpar_token_idx: TokenIdx(
-                                                313,
-                                            ),
-                                        },
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                318,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "airplane",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                320,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "art",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                322,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "beach",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                324,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "car",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                326,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "hotel",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::Literal(
-                                            TokenIdx(
-                                                328,
-                                            ),
-                                            Literal::String(
-                                                StringLiteral {
-                                                    data: "house",
-                                                },
-                                            ),
-                                        ),
-                                        SynExpr::CurrentSymbol {
-                                            ident: `strs`,
-                                            token_idx: TokenIdx(
-                                                315,
-                                            ),
-                                            current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                                pattern_symbol_idx: 0,
-                                            },
-                                        },
-                                        SynExpr::List {
-                                            lbox_token_idx: TokenIdx(
-                                                317,
-                                            ),
-                                            items: [
-                                                SynCommaListItem {
-                                                    expr_idx: 10,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            319,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 11,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            321,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 12,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            323,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 13,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            325,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 14,
-                                                    comma_token_idx: Some(
-                                                        TokenIdx(
-                                                            327,
-                                                        ),
-                                                    ),
-                                                },
-                                                SynCommaListItem {
-                                                    expr_idx: 15,
-                                                    comma_token_idx: None,
-                                                },
-                                            ],
-                                            rbox_token_idx: TokenIdx(
-                                                329,
-                                            ),
-                                        },
-                                        SynExpr::Binary {
-                                            lopd: 16,
-                                            opr: Comparison(
-                                                Eq,
-                                            ),
-                                            opr_token_idx: TokenIdx(
-                                                316,
-                                            ),
-                                            ropd: 17,
                                         },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
-                                                0..3,
+                                                0..1,
                                             ),
                                         },
                                     ],
                                 },
                                 principal_item_path_expr_arena: Arena {
-                                    data: [
-                                        PrincipalEntityPathExpr::Root {
-                                            path_name_token: PathNameToken::Ident(
-                                                IdentToken {
-                                                    ident: `quick_sort`,
-                                                    token_idx: TokenIdx(
-                                                        310,
-                                                    ),
-                                                },
-                                            ),
-                                            principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                                                ),
-                                            ),
-                                        },
-                                    ],
+                                    data: [],
                                 },
                                 stmt_arena: Arena {
                                     data: [
                                         SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    293,
+                                                    268,
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
@@ -5531,25 +5119,11 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        296,
+                                                        271,
                                                     ),
                                                 ),
                                             ),
                                             initial_value: 6,
-                                        },
-                                        SynStmt::Eval {
-                                            expr_idx: 9,
-                                            eol_semicolon: Ok(
-                                                None,
-                                            ),
-                                        },
-                                        SynStmt::Assert {
-                                            assert_token: AssertToken {
-                                                token_idx: TokenIdx(
-                                                    314,
-                                                ),
-                                            },
-                                            condition: 18,
                                         },
                                     ],
                                 },
@@ -5561,7 +5135,7 @@ Ok(
                                                     Mut(
                                                         MutToken {
                                                             token_idx: TokenIdx(
-                                                                294,
+                                                                269,
                                                             ),
                                                         },
                                                     ),
@@ -5569,7 +5143,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `strs`,
                                                     token_idx: TokenIdx(
-                                                        295,
+                                                        270,
                                                     ),
                                                 },
                                             },
@@ -5613,12 +5187,12 @@ Ok(
                                             CurrentSynSymbol {
                                                 modifier: Mut,
                                                 access_start: TokenIdx(
-                                                    296,
+                                                    271,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            330,
+                                                            285,
                                                         ),
                                                     ),
                                                 ),
@@ -5639,16 +5213,8 @@ Ok(
                                         expr_idx: 6,
                                     },
                                     SynExprRoot {
-                                        kind: EvalExpr,
-                                        expr_idx: 9,
-                                    },
-                                    SynExprRoot {
-                                        kind: Condition,
-                                        expr_idx: 18,
-                                    },
-                                    SynExprRoot {
                                         kind: BlockExpr,
-                                        expr_idx: 19,
+                                        expr_idx: 7,
                                     },
                                 ],
                             },

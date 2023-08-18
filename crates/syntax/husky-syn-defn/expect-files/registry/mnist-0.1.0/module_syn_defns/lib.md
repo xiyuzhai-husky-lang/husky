@@ -235,7 +235,7 @@ Ok(
                                         data: [
                                             SynExpr::Literal(
                                                 TokenIdx(
-                                                    57,
+                                                    81,
                                                 ),
                                                 Literal::Integer(
                                                     UnspecifiedRegular(
@@ -245,7 +245,7 @@ Ok(
                                             ),
                                             SynExpr::List {
                                                 lbox_token_idx: TokenIdx(
-                                                    56,
+                                                    80,
                                                 ),
                                                 items: [
                                                     SynCommaListItem {
@@ -254,7 +254,7 @@ Ok(
                                                     },
                                                 ],
                                                 rbox_token_idx: TokenIdx(
-                                                    58,
+                                                    82,
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
@@ -280,7 +280,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            59,
+                                                            83,
                                                         ),
                                                     },
                                                 ),
@@ -384,7 +384,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            89,
+                                                            126,
                                                         ),
                                                     },
                                                 ),
@@ -475,7 +475,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `BinaryImage28`,
                                                                 token_idx: TokenIdx(
-                                                                    89,
+                                                                    126,
                                                                 ),
                                                             },
                                                         ),
@@ -586,6 +586,1214 @@ Ok(
                 TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    template_parameters: [],
+                    trai_expr: TraitExpr {
+                        expr: 0,
+                    },
+                    self_ty_decl: PathLeadingExpr(
+                        SelfTypeExpr {
+                            expr: 1,
+                        },
+                    ),
+                    syn_expr_region: SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
+                                            path: TraitForTypeImplBlockPath {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Trait(
+                                                    TraitPath(`core::visual::Visualize`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `Visualize`,
+                                                token_idx: TokenIdx(
+                                                    40,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::visual::Visualize`),
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `BinaryImage28`,
+                                                token_idx: TokenIdx(
+                                                    42,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                SynExprRoot {
+                                    kind: Trait,
+                                    expr_idx: 0,
+                                },
+                                SynExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 1,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TraitForTypeItem(
+                TraitForTypeItemSynDefn::MethodFn(
+                    TraitForTypeMethodFnSynDefn {
+                        path: TraitForTypeItemPath {
+                            impl_block: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                            ident: `visualize`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TraitForTypeMethodFnSynDecl {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath {
+                                                                path: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::visual::Visualize`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 1,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Visualize`,
+                                                                    token_idx: TokenIdx(
+                                                                        40,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Trait(
+                                                                    TraitPath(`core::visual::Visualize`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `BinaryImage28`,
+                                                                    token_idx: TokenIdx(
+                                                                        42,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: Trait,
+                                                        expr_idx: 0,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 1,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath {
+                                                            impl_block: TraitForTypeImplBlockPath {
+                                                                module_path: `mnist`,
+                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `visualize`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::visual::Html`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `Html`,
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePath {
+                                                                        path: TraitForTypeImplBlockPath {
+                                                                            module_path: `mnist`,
+                                                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Trait(
+                                                                                TraitPath(`core::visual::Visualize`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 1,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Visualize`,
+                                                                            token_idx: TokenIdx(
+                                                                                40,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
+                                                                            TraitPath(`core::visual::Visualize`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `BinaryImage28`,
+                                                                            token_idx: TokenIdx(
+                                                                                42,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: Trait,
+                                                                expr_idx: 0,
+                                                            },
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 1,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitForTypeItemPath {
+                                                                    impl_block: TraitForTypeImplBlockPath {
+                                                                        module_path: `mnist`,
+                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `visualize`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::visual::Html`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Html`,
+                                                                token_idx: TokenIdx(
+                                                                    49,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::visual::Html`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath {
+                                                        impl_block: TraitForTypeImplBlockPath {
+                                                            module_path: `mnist`,
+                                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `visualize`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::ImplBlock(
+            ImplBlockSynDecl::Type(
+                TypeImplBlockSynDecl {
+                    path: TypeImplBlockPath {
+                        module_path: `mnist`,
+                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    template_parameters: [],
+                    self_ty_expr: SelfTypeExpr {
+                        expr: 0,
+                    },
+                    syn_expr_region: SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist`,
+                                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `BinaryImage28`,
+                                                token_idx: TokenIdx(
+                                                    52,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                SynExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::AssociatedFn(
+                    TypeAssociatedFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `mnist`,
+                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                disambiguator: 0,
+                            },
+                            ident: `new_zeros`,
+                            item_kind: AssociatedFn,
+                        },
+                        decl: TypeAssociatedFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                                ident: `new_zeros`,
+                                item_kind: AssociatedFn,
+                            },
+                            template_parameters: [],
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `BinaryImage28`,
+                                                                    token_idx: TokenIdx(
+                                                                        52,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `mnist`,
+                                                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `new_zeros`,
+                                                            item_kind: AssociatedFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::SelfType(
+                                                TokenIdx(
+                                                    61,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `mnist`,
+                                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `BinaryImage28`,
+                                                                            token_idx: TokenIdx(
+                                                                                52,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `mnist`,
+                                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `new_zeros`,
+                                                                    item_kind: AssociatedFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::SelfType(
+                                                        TokenIdx(
+                                                            61,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `new_zeros`,
+                                                        item_kind: AssociatedFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::ImplBlock(
+            ImplBlockSynDecl::TraitForType(
+                TraitForTypeImplBlockSynDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
                         trai_path: TraitPath(`core::ops::IntIndex`),
                         ty_sketch: TypeSketch::Path(
                             TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -651,7 +1859,7 @@ Ok(
                                             IdentToken {
                                                 ident: `core`,
                                                 token_idx: TokenIdx(
-                                                    40,
+                                                    64,
                                                 ),
                                             },
                                         ),
@@ -663,14 +1871,14 @@ Ok(
                                         parent: 0,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                41,
+                                                65,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `ops`,
                                                 token_idx: TokenIdx(
-                                                    42,
+                                                    66,
                                                 ),
                                             },
                                         ),
@@ -684,14 +1892,14 @@ Ok(
                                         parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                43,
+                                                67,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `IntIndex`,
                                                 token_idx: TokenIdx(
-                                                    44,
+                                                    68,
                                                 ),
                                             },
                                         ),
@@ -708,7 +1916,7 @@ Ok(
                                             IdentToken {
                                                 ident: `BinaryImage28`,
                                                 token_idx: TokenIdx(
-                                                    46,
+                                                    70,
                                                 ),
                                             },
                                         ),
@@ -849,7 +2057,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `core`,
                                                                     token_idx: TokenIdx(
-                                                                        40,
+                                                                        64,
                                                                     ),
                                                                 },
                                                             ),
@@ -861,14 +2069,14 @@ Ok(
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    41,
+                                                                    65,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `ops`,
                                                                     token_idx: TokenIdx(
-                                                                        42,
+                                                                        66,
                                                                     ),
                                                                 },
                                                             ),
@@ -882,14 +2090,14 @@ Ok(
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    43,
+                                                                    67,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `IntIndex`,
                                                                     token_idx: TokenIdx(
-                                                                        44,
+                                                                        68,
                                                                     ),
                                                                 },
                                                             ),
@@ -906,7 +2114,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `BinaryImage28`,
                                                                     token_idx: TokenIdx(
-                                                                        46,
+                                                                        70,
                                                                     ),
                                                                 },
                                                             ),
@@ -1005,7 +2213,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            51,
+                                                            75,
                                                         ),
                                                     },
                                                 ),
@@ -1112,7 +2320,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `core`,
                                                                             token_idx: TokenIdx(
-                                                                                40,
+                                                                                64,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1124,14 +2332,14 @@ Ok(
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            41,
+                                                                            65,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `ops`,
                                                                             token_idx: TokenIdx(
-                                                                                42,
+                                                                                66,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1145,14 +2353,14 @@ Ok(
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            43,
+                                                                            67,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `IntIndex`,
                                                                             token_idx: TokenIdx(
-                                                                                44,
+                                                                                68,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1169,7 +2377,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `BinaryImage28`,
                                                                             token_idx: TokenIdx(
-                                                                                46,
+                                                                                70,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1268,7 +2476,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `r32`,
                                                                 token_idx: TokenIdx(
-                                                                    51,
+                                                                    75,
                                                                 ),
                                                             },
                                                         ),
@@ -1386,6 +2594,691 @@ Ok(
             ),
         ),
         SynDefn::ImplBlock(
+            ImplBlockSynDecl::TraitForType(
+                TraitForTypeImplBlockSynDecl {
+                    path: TraitForTypeImplBlockPath {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    template_parameters: [],
+                    trai_expr: TraitExpr {
+                        expr: 0,
+                    },
+                    self_ty_decl: PathLeadingExpr(
+                        SelfTypeExpr {
+                            expr: 1,
+                        },
+                    ),
+                    syn_expr_region: SynExprRegion {
+                        data: SynExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                ItemSynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
+                                            path: TraitForTypeImplBlockPath {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Trait(
+                                                    TraitPath(`core::visual::Visualize`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    SynExpr::PrincipalEntityPath {
+                                        item_path_expr: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::MajorItem(
+                                                MajorItemPath::Type(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_item_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `Visualize`,
+                                                token_idx: TokenIdx(
+                                                    86,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Trait(
+                                                TraitPath(`core::visual::Visualize`),
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `BinaryGrid28`,
+                                                token_idx: TokenIdx(
+                                                    88,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Type(
+                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SynSymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                SynExprRoot {
+                                    kind: Trait,
+                                    expr_idx: 0,
+                                },
+                                SynExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 1,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TraitForTypeItem(
+                TraitForTypeItemSynDefn::MethodFn(
+                    TraitForTypeMethodFnSynDefn {
+                        path: TraitForTypeItemPath {
+                            impl_block: TraitForTypeImplBlockPath {
+                                module_path: `mnist`,
+                                trai_path: TraitPath(`core::visual::Visualize`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                ),
+                                disambiguator: 0,
+                            },
+                            ident: `visualize`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TraitForTypeMethodFnSynDecl {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `mnist`,
+                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                                ident: `visualize`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath {
+                                                                path: TraitForTypeImplBlockPath {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Trait(
+                                                                        TraitPath(`core::visual::Visualize`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 1,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `Visualize`,
+                                                                    token_idx: TokenIdx(
+                                                                        86,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Trait(
+                                                                    TraitPath(`core::visual::Visualize`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `BinaryGrid28`,
+                                                                    token_idx: TokenIdx(
+                                                                        88,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: Trait,
+                                                        expr_idx: 0,
+                                                    },
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 1,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath {
+                                                            impl_block: TraitForTypeImplBlockPath {
+                                                                module_path: `mnist`,
+                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `visualize`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::visual::Html`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `Html`,
+                                                        token_idx: TokenIdx(
+                                                            95,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::visual::Html`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePath {
+                                                                        path: TraitForTypeImplBlockPath {
+                                                                            module_path: `mnist`,
+                                                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                                                            ty_sketch: TypeSketch::Path(
+                                                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Trait(
+                                                                                TraitPath(`core::visual::Visualize`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 1,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `Visualize`,
+                                                                            token_idx: TokenIdx(
+                                                                                86,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Trait(
+                                                                            TraitPath(`core::visual::Visualize`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `BinaryGrid28`,
+                                                                            token_idx: TokenIdx(
+                                                                                88,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: Trait,
+                                                                expr_idx: 0,
+                                                            },
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 1,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitForTypeItemPath {
+                                                                    impl_block: TraitForTypeImplBlockPath {
+                                                                        module_path: `mnist`,
+                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `visualize`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::visual::Html`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Html`,
+                                                                token_idx: TokenIdx(
+                                                                    95,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::visual::Html`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath {
+                                                        impl_block: TraitForTypeImplBlockPath {
+                                                            module_path: `mnist`,
+                                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                                            ty_sketch: TypeSketch::Path(
+                                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `visualize`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
@@ -1434,7 +3327,7 @@ Ok(
                                             IdentToken {
                                                 ident: `BinaryGrid28`,
                                                 token_idx: TokenIdx(
-                                                    62,
+                                                    98,
                                                 ),
                                             },
                                         ),
@@ -1489,29 +3382,28 @@ Ok(
         ),
         SynDefn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
-                TypeItemSynDefn::MethodFn(
-                    TypeMethodFnSynDefn {
+                TypeItemSynDefn::AssociatedFn(
+                    TypeAssociatedFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist`,
                                 ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ident: `new`,
-                            item_kind: MethodFn,
+                            ident: `new_zeros`,
+                            item_kind: AssociatedFn,
                         },
-                        decl: TypeMethodFnSynDecl {
+                        decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist`,
                                     ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                     disambiguator: 0,
                                 },
-                                ident: `new`,
-                                item_kind: MethodFn,
+                                ident: `new_zeros`,
+                                item_kind: AssociatedFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -1558,7 +3450,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `BinaryGrid28`,
                                                                     token_idx: TokenIdx(
-                                                                        62,
+                                                                        98,
                                                                     ),
                                                                 },
                                                             ),
@@ -1620,8 +3512,8 @@ Ok(
                                                                 ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                                                 disambiguator: 0,
                                                             },
-                                                            ident: `new`,
-                                                            item_kind: MethodFn,
+                                                            ident: `new_zeros`,
+                                                            item_kind: AssociatedFn,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -1633,7 +3525,7 @@ Ok(
                                         data: [
                                             SynExpr::SelfType(
                                                 TokenIdx(
-                                                    70,
+                                                    107,
                                                 ),
                                             ),
                                         ],
@@ -1724,7 +3616,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `BinaryGrid28`,
                                                                             token_idx: TokenIdx(
-                                                                                62,
+                                                                                98,
                                                                             ),
                                                                         },
                                                                     ),
@@ -1786,8 +3678,8 @@ Ok(
                                                                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                                                         disambiguator: 0,
                                                                     },
-                                                                    ident: `new`,
-                                                                    item_kind: MethodFn,
+                                                                    ident: `new_zeros`,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                                 disambiguator: 0,
                                                             },
@@ -1799,7 +3691,7 @@ Ok(
                                                 data: [
                                                     SynExpr::SelfType(
                                                         TokenIdx(
-                                                            70,
+                                                            107,
                                                         ),
                                                     ),
                                                 ],
@@ -1857,8 +3749,8 @@ Ok(
                                                             ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                                             disambiguator: 0,
                                                         },
-                                                        ident: `new`,
-                                                        item_kind: MethodFn,
+                                                        ident: `new_zeros`,
+                                                        item_kind: AssociatedFn,
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1899,7 +3791,7 @@ Ok(
                                         data: [],
                                     },
                                     allow_self_type: True,
-                                    allow_self_value: True,
+                                    allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [],
@@ -1979,7 +3871,7 @@ Ok(
                                             IdentToken {
                                                 ident: `core`,
                                                 token_idx: TokenIdx(
-                                                    73,
+                                                    110,
                                                 ),
                                             },
                                         ),
@@ -1991,14 +3883,14 @@ Ok(
                                         parent: 0,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                74,
+                                                111,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `ops`,
                                                 token_idx: TokenIdx(
-                                                    75,
+                                                    112,
                                                 ),
                                             },
                                         ),
@@ -2012,14 +3904,14 @@ Ok(
                                         parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
-                                                76,
+                                                113,
                                             ),
                                         ),
                                         ident_token: Ok(
                                             IdentToken {
                                                 ident: `IntIndex`,
                                                 token_idx: TokenIdx(
-                                                    77,
+                                                    114,
                                                 ),
                                             },
                                         ),
@@ -2036,7 +3928,7 @@ Ok(
                                             IdentToken {
                                                 ident: `BinaryGrid28`,
                                                 token_idx: TokenIdx(
-                                                    79,
+                                                    116,
                                                 ),
                                             },
                                         ),
@@ -2177,7 +4069,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `core`,
                                                                     token_idx: TokenIdx(
-                                                                        73,
+                                                                        110,
                                                                     ),
                                                                 },
                                                             ),
@@ -2189,14 +4081,14 @@ Ok(
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    74,
+                                                                    111,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `ops`,
                                                                     token_idx: TokenIdx(
-                                                                        75,
+                                                                        112,
                                                                     ),
                                                                 },
                                                             ),
@@ -2210,14 +4102,14 @@ Ok(
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
-                                                                    76,
+                                                                    113,
                                                                 ),
                                                             ),
                                                             ident_token: Ok(
                                                                 IdentToken {
                                                                     ident: `IntIndex`,
                                                                     token_idx: TokenIdx(
-                                                                        77,
+                                                                        114,
                                                                     ),
                                                                 },
                                                             ),
@@ -2234,7 +4126,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `BinaryGrid28`,
                                                                     token_idx: TokenIdx(
-                                                                        79,
+                                                                        116,
                                                                     ),
                                                                 },
                                                             ),
@@ -2333,7 +4225,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            84,
+                                                            121,
                                                         ),
                                                     },
                                                 ),
@@ -2440,7 +4332,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `core`,
                                                                             token_idx: TokenIdx(
-                                                                                73,
+                                                                                110,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2452,14 +4344,14 @@ Ok(
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            74,
+                                                                            111,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `ops`,
                                                                             token_idx: TokenIdx(
-                                                                                75,
+                                                                                112,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2473,14 +4365,14 @@ Ok(
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
-                                                                            76,
+                                                                            113,
                                                                         ),
                                                                     ),
                                                                     ident_token: Ok(
                                                                         IdentToken {
                                                                             ident: `IntIndex`,
                                                                             token_idx: TokenIdx(
-                                                                                77,
+                                                                                114,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2497,7 +4389,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `BinaryGrid28`,
                                                                             token_idx: TokenIdx(
-                                                                                79,
+                                                                                116,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2596,7 +4488,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `r32`,
                                                                 token_idx: TokenIdx(
-                                                                    84,
+                                                                    121,
                                                                 ),
                                                             },
                                                         ),

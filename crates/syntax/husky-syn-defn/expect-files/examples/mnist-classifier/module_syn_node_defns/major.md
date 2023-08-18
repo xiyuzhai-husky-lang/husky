@@ -657,7 +657,13 @@ Ok(
                                                 32,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 127,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::PrincipalEntityPath {
@@ -976,7 +982,7 @@ Ok(
                                             initial_value: 9,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         51,
@@ -994,7 +1000,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..2,
                                                     ),
@@ -1063,18 +1069,18 @@ Ok(
                                                     33,
                                                 ),
                                             },
-                                            particulars: ForBetweenParticulars {
-                                                frame_var_token_idx: TokenIdx(
+                                            particulars: SynForBetweenParticulars {
+                                                for_between_loop_var_token_idx: TokenIdx(
                                                     34,
                                                 ),
-                                                frame_var_expr_idx: 3,
-                                                frame_var_ident: `i`,
-                                                range: ForBetweenRange {
-                                                    initial_boundary: LoopBoundary {
+                                                for_between_loop_var_ident: `i`,
+                                                for_between_loop_var_expr_idx: 3,
+                                                range: SynForBetweenRange {
+                                                    initial_boundary: SynForBetweenLoopBoundary {
                                                         bound_expr: None,
                                                         kind: LowerClosed,
                                                     },
-                                                    final_boundary: LoopBoundary {
+                                                    final_boundary: SynForBetweenLoopBoundary {
                                                         bound_expr: Some(
                                                             4,
                                                         ),
@@ -1576,7 +1582,13 @@ Ok(
                                                 77,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 128,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::PrincipalEntityPath {
@@ -1835,18 +1847,18 @@ Ok(
                                                     78,
                                                 ),
                                             },
-                                            particulars: ForBetweenParticulars {
-                                                frame_var_token_idx: TokenIdx(
+                                            particulars: SynForBetweenParticulars {
+                                                for_between_loop_var_token_idx: TokenIdx(
                                                     79,
                                                 ),
-                                                frame_var_expr_idx: 2,
-                                                frame_var_ident: `i`,
-                                                range: ForBetweenRange {
-                                                    initial_boundary: LoopBoundary {
+                                                for_between_loop_var_ident: `i`,
+                                                for_between_loop_var_expr_idx: 2,
+                                                range: SynForBetweenRange {
+                                                    initial_boundary: SynForBetweenLoopBoundary {
                                                         bound_expr: None,
                                                         kind: LowerClosed,
                                                     },
-                                                    final_boundary: LoopBoundary {
+                                                    final_boundary: SynForBetweenLoopBoundary {
                                                         bound_expr: Some(
                                                             3,
                                                         ),

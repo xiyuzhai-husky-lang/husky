@@ -1064,7 +1064,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -1504,6 +1504,649 @@ Ok(
                 ),
             ),
         ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `max`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            50,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::i8`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i8`,
+                                                                    token_idx: TokenIdx(
+                                                                        35,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `max`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i8`,
+                                                        token_idx: TokenIdx(
+                                                            51,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i8`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i8`,
+                                                        token_idx: TokenIdx(
+                                                            54,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i8`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        50,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::i8`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i8`,
+                                                                            token_idx: TokenIdx(
+                                                                                35,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::i8`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `max`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i8`,
+                                                                token_idx: TokenIdx(
+                                                                    51,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i8`,
+                                                                token_idx: TokenIdx(
+                                                                    54,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    49,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                50,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `max`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
         SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
@@ -1588,7 +2231,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    46,
+                                                    57,
                                                 ),
                                             },
                                         ),
@@ -1603,7 +2246,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i8`,
                                                 token_idx: TokenIdx(
-                                                    47,
+                                                    58,
                                                 ),
                                             },
                                         ),
@@ -1618,7 +2261,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i8`,
                                                 token_idx: TokenIdx(
-                                                    49,
+                                                    60,
                                                 ),
                                             },
                                         ),
@@ -1705,7 +2348,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -1714,7 +2357,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            56,
+                                            67,
                                         ),
                                     ),
                                     ty: 0,
@@ -1792,7 +2435,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        46,
+                                                                        57,
                                                                     ),
                                                                 },
                                                             ),
@@ -1807,7 +2450,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        47,
+                                                                        58,
                                                                     ),
                                                                 },
                                                             ),
@@ -1822,7 +2465,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i8`,
                                                                     token_idx: TokenIdx(
-                                                                        49,
+                                                                        60,
                                                                     ),
                                                                 },
                                                             ),
@@ -1931,7 +2574,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            57,
+                                                            68,
                                                         ),
                                                     },
                                                 ),
@@ -1946,7 +2589,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i8`,
                                                         token_idx: TokenIdx(
-                                                            60,
+                                                            71,
                                                         ),
                                                     },
                                                 ),
@@ -1969,7 +2612,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            55,
+                                                            66,
                                                         ),
                                                     },
                                                 },
@@ -2013,7 +2656,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        56,
+                                                        67,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2121,7 +2764,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                46,
+                                                                                57,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2136,7 +2779,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                47,
+                                                                                58,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2151,7 +2794,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i8`,
                                                                             token_idx: TokenIdx(
-                                                                                49,
+                                                                                60,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2260,7 +2903,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    57,
+                                                                    68,
                                                                 ),
                                                             },
                                                         ),
@@ -2275,7 +2918,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i8`,
                                                                 token_idx: TokenIdx(
-                                                                    60,
+                                                                    71,
                                                                 ),
                                                             },
                                                         ),
@@ -2298,7 +2941,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    55,
+                                                                    66,
                                                                 ),
                                                             },
                                                         },
@@ -2342,7 +2985,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                56,
+                                                                67,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -2504,7 +3147,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i16`,
                                                 token_idx: TokenIdx(
-                                                    87,
+                                                    98,
                                                 ),
                                             },
                                         ),
@@ -2581,7 +3224,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -2628,7 +3271,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i16`,
                                                                     token_idx: TokenIdx(
-                                                                        87,
+                                                                        98,
                                                                     ),
                                                                 },
                                                             ),
@@ -2720,7 +3363,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            95,
+                                                            106,
                                                         ),
                                                     },
                                                 ),
@@ -2815,7 +3458,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i16`,
                                                                             token_idx: TokenIdx(
-                                                                                87,
+                                                                                98,
                                                                             ),
                                                                         },
                                                                     ),
@@ -2907,7 +3550,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    95,
+                                                                    106,
                                                                 ),
                                                             },
                                                         ),
@@ -3021,6 +3664,649 @@ Ok(
                 ),
             ),
         ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `max`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            113,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::i16`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i16`,
+                                                                    token_idx: TokenIdx(
+                                                                        98,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `max`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i16`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i16`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i16`,
+                                                        token_idx: TokenIdx(
+                                                            114,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i16`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i16`,
+                                                        token_idx: TokenIdx(
+                                                            117,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i16`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            112,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        113,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::i16`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i16`,
+                                                                            token_idx: TokenIdx(
+                                                                                98,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::i16`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `max`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i16`,
+                                                                token_idx: TokenIdx(
+                                                                    114,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i16`,
+                                                                token_idx: TokenIdx(
+                                                                    117,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    112,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                113,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `max`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
         SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
@@ -3105,7 +4391,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    98,
+                                                    120,
                                                 ),
                                             },
                                         ),
@@ -3120,7 +4406,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    99,
+                                                    121,
                                                 ),
                                             },
                                         ),
@@ -3135,7 +4421,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i16`,
                                                 token_idx: TokenIdx(
-                                                    101,
+                                                    123,
                                                 ),
                                             },
                                         ),
@@ -3222,7 +4508,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -3231,7 +4517,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            108,
+                                            130,
                                         ),
                                     ),
                                     ty: 0,
@@ -3309,7 +4595,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        98,
+                                                                        120,
                                                                     ),
                                                                 },
                                                             ),
@@ -3324,7 +4610,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        99,
+                                                                        121,
                                                                     ),
                                                                 },
                                                             ),
@@ -3339,7 +4625,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i16`,
                                                                     token_idx: TokenIdx(
-                                                                        101,
+                                                                        123,
                                                                     ),
                                                                 },
                                                             ),
@@ -3448,7 +4734,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            109,
+                                                            131,
                                                         ),
                                                     },
                                                 ),
@@ -3463,7 +4749,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i16`,
                                                         token_idx: TokenIdx(
-                                                            112,
+                                                            134,
                                                         ),
                                                     },
                                                 ),
@@ -3486,7 +4772,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            107,
+                                                            129,
                                                         ),
                                                     },
                                                 },
@@ -3530,7 +4816,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        108,
+                                                        130,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -3638,7 +4924,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                98,
+                                                                                120,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3653,7 +4939,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                99,
+                                                                                121,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3668,7 +4954,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i16`,
                                                                             token_idx: TokenIdx(
-                                                                                101,
+                                                                                123,
                                                                             ),
                                                                         },
                                                                     ),
@@ -3777,7 +5063,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    109,
+                                                                    131,
                                                                 ),
                                                             },
                                                         ),
@@ -3792,7 +5078,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i16`,
                                                                 token_idx: TokenIdx(
-                                                                    112,
+                                                                    134,
                                                                 ),
                                                             },
                                                         ),
@@ -3815,7 +5101,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    107,
+                                                                    129,
                                                                 ),
                                                             },
                                                         },
@@ -3859,7 +5145,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                108,
+                                                                130,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -4021,7 +5307,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    139,
+                                                    161,
                                                 ),
                                             },
                                         ),
@@ -4098,7 +5384,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -4145,7 +5431,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        139,
+                                                                        161,
                                                                     ),
                                                                 },
                                                             ),
@@ -4237,7 +5523,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            147,
+                                                            169,
                                                         ),
                                                     },
                                                 ),
@@ -4332,7 +5618,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                139,
+                                                                                161,
                                                                             ),
                                                                         },
                                                                     ),
@@ -4424,7 +5710,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    147,
+                                                                    169,
                                                                 ),
                                                             },
                                                         ),
@@ -4538,6 +5824,1292 @@ Ok(
                 ),
             ),
         ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `max`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            176,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i32`,
+                                                                    token_idx: TokenIdx(
+                                                                        161,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `max`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            177,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            180,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            175,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        176,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::i32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i32`,
+                                                                            token_idx: TokenIdx(
+                                                                                161,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `max`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    177,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    180,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    175,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                176,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `max`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `min`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `min`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            187,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::i32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `i32`,
+                                                                    token_idx: TokenIdx(
+                                                                        161,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `min`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            188,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            191,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            186,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        187,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::i32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `i32`,
+                                                                            token_idx: TokenIdx(
+                                                                                161,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `min`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    188,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    191,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    186,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                187,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `min`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
         SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
@@ -4622,7 +7194,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    150,
+                                                    194,
                                                 ),
                                             },
                                         ),
@@ -4637,7 +7209,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    151,
+                                                    195,
                                                 ),
                                             },
                                         ),
@@ -4652,7 +7224,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i32`,
                                                 token_idx: TokenIdx(
-                                                    153,
+                                                    197,
                                                 ),
                                             },
                                         ),
@@ -4739,7 +7311,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -4748,7 +7320,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            159,
+                                            203,
                                         ),
                                     ),
                                     ty: 0,
@@ -4826,7 +7398,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        150,
+                                                                        194,
                                                                     ),
                                                                 },
                                                             ),
@@ -4841,7 +7413,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        151,
+                                                                        195,
                                                                     ),
                                                                 },
                                                             ),
@@ -4856,7 +7428,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i32`,
                                                                     token_idx: TokenIdx(
-                                                                        153,
+                                                                        197,
                                                                     ),
                                                                 },
                                                             ),
@@ -4965,7 +7537,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            204,
                                                         ),
                                                     },
                                                 ),
@@ -4980,7 +7552,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i32`,
                                                         token_idx: TokenIdx(
-                                                            163,
+                                                            207,
                                                         ),
                                                     },
                                                 ),
@@ -5003,7 +7575,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            158,
+                                                            202,
                                                         ),
                                                     },
                                                 },
@@ -5047,7 +7619,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        159,
+                                                        203,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -5155,7 +7727,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                150,
+                                                                                194,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5170,7 +7742,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                151,
+                                                                                195,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5185,7 +7757,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i32`,
                                                                             token_idx: TokenIdx(
-                                                                                153,
+                                                                                197,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5294,7 +7866,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    160,
+                                                                    204,
                                                                 ),
                                                             },
                                                         ),
@@ -5309,7 +7881,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i32`,
                                                                 token_idx: TokenIdx(
-                                                                    163,
+                                                                    207,
                                                                 ),
                                                             },
                                                         ),
@@ -5332,7 +7904,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    158,
+                                                                    202,
                                                                 ),
                                                             },
                                                         },
@@ -5376,7 +7948,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                159,
+                                                                203,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -5538,7 +8110,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    190,
+                                                    234,
                                                 ),
                                             },
                                         ),
@@ -5615,7 +8187,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -5662,7 +8234,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        190,
+                                                                        234,
                                                                     ),
                                                                 },
                                                             ),
@@ -5754,7 +8326,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            198,
+                                                            242,
                                                         ),
                                                     },
                                                 ),
@@ -5849,7 +8421,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                190,
+                                                                                234,
                                                                             ),
                                                                         },
                                                                     ),
@@ -5941,7 +8513,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    198,
+                                                                    242,
                                                                 ),
                                                             },
                                                         ),
@@ -6139,7 +8711,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    201,
+                                                    245,
                                                 ),
                                             },
                                         ),
@@ -6154,7 +8726,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    202,
+                                                    246,
                                                 ),
                                             },
                                         ),
@@ -6169,7 +8741,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i64`,
                                                 token_idx: TokenIdx(
-                                                    204,
+                                                    248,
                                                 ),
                                             },
                                         ),
@@ -6256,7 +8828,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -6265,7 +8837,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            211,
+                                            255,
                                         ),
                                     ),
                                     ty: 0,
@@ -6343,7 +8915,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        201,
+                                                                        245,
                                                                     ),
                                                                 },
                                                             ),
@@ -6358,7 +8930,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        202,
+                                                                        246,
                                                                     ),
                                                                 },
                                                             ),
@@ -6373,7 +8945,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i64`,
                                                                     token_idx: TokenIdx(
-                                                                        204,
+                                                                        248,
                                                                     ),
                                                                 },
                                                             ),
@@ -6482,7 +9054,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            212,
+                                                            256,
                                                         ),
                                                     },
                                                 ),
@@ -6497,7 +9069,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i64`,
                                                         token_idx: TokenIdx(
-                                                            215,
+                                                            259,
                                                         ),
                                                     },
                                                 ),
@@ -6520,7 +9092,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            210,
+                                                            254,
                                                         ),
                                                     },
                                                 },
@@ -6564,7 +9136,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        211,
+                                                        255,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -6672,7 +9244,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                201,
+                                                                                245,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6687,7 +9259,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                202,
+                                                                                246,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6702,7 +9274,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i64`,
                                                                             token_idx: TokenIdx(
-                                                                                204,
+                                                                                248,
                                                                             ),
                                                                         },
                                                                     ),
@@ -6811,7 +9383,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    212,
+                                                                    256,
                                                                 ),
                                                             },
                                                         ),
@@ -6826,7 +9398,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i64`,
                                                                 token_idx: TokenIdx(
-                                                                    215,
+                                                                    259,
                                                                 ),
                                                             },
                                                         ),
@@ -6849,7 +9421,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    210,
+                                                                    254,
                                                                 ),
                                                             },
                                                         },
@@ -6893,7 +9465,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                211,
+                                                                255,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -7055,7 +9627,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    242,
+                                                    286,
                                                 ),
                                             },
                                         ),
@@ -7132,7 +9704,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -7179,7 +9751,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        242,
+                                                                        286,
                                                                     ),
                                                                 },
                                                             ),
@@ -7271,7 +9843,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            250,
+                                                            294,
                                                         ),
                                                     },
                                                 ),
@@ -7366,7 +9938,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                242,
+                                                                                286,
                                                                             ),
                                                                         },
                                                                     ),
@@ -7458,7 +10030,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    250,
+                                                                    294,
                                                                 ),
                                                             },
                                                         ),
@@ -7656,7 +10228,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    253,
+                                                    297,
                                                 ),
                                             },
                                         ),
@@ -7671,7 +10243,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    254,
+                                                    298,
                                                 ),
                                             },
                                         ),
@@ -7686,7 +10258,7 @@ Ok(
                                             IdentToken {
                                                 ident: `i128`,
                                                 token_idx: TokenIdx(
-                                                    256,
+                                                    300,
                                                 ),
                                             },
                                         ),
@@ -7773,7 +10345,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -7782,7 +10354,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            263,
+                                            307,
                                         ),
                                     ),
                                     ty: 0,
@@ -7860,7 +10432,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        253,
+                                                                        297,
                                                                     ),
                                                                 },
                                                             ),
@@ -7875,7 +10447,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        254,
+                                                                        298,
                                                                     ),
                                                                 },
                                                             ),
@@ -7890,7 +10462,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `i128`,
                                                                     token_idx: TokenIdx(
-                                                                        256,
+                                                                        300,
                                                                     ),
                                                                 },
                                                             ),
@@ -7999,7 +10571,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            264,
+                                                            308,
                                                         ),
                                                     },
                                                 ),
@@ -8014,7 +10586,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `i128`,
                                                         token_idx: TokenIdx(
-                                                            267,
+                                                            311,
                                                         ),
                                                     },
                                                 ),
@@ -8037,7 +10609,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            262,
+                                                            306,
                                                         ),
                                                     },
                                                 },
@@ -8081,7 +10653,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        263,
+                                                        307,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -8189,7 +10761,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                253,
+                                                                                297,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8204,7 +10776,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                254,
+                                                                                298,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8219,7 +10791,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `i128`,
                                                                             token_idx: TokenIdx(
-                                                                                256,
+                                                                                300,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8328,7 +10900,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    264,
+                                                                    308,
                                                                 ),
                                                             },
                                                         ),
@@ -8343,7 +10915,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `i128`,
                                                                 token_idx: TokenIdx(
-                                                                    267,
+                                                                    311,
                                                                 ),
                                                             },
                                                         ),
@@ -8366,7 +10938,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    262,
+                                                                    306,
                                                                 ),
                                                             },
                                                         },
@@ -8410,7 +10982,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                263,
+                                                                307,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -8572,7 +11144,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    294,
+                                                    338,
                                                 ),
                                             },
                                         ),
@@ -8649,7 +11221,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -8696,7 +11268,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        294,
+                                                                        338,
                                                                     ),
                                                                 },
                                                             ),
@@ -8788,7 +11360,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            302,
+                                                            346,
                                                         ),
                                                     },
                                                 ),
@@ -8883,7 +11455,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                294,
+                                                                                338,
                                                                             ),
                                                                         },
                                                                     ),
@@ -8975,7 +11547,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    302,
+                                                                    346,
                                                                 ),
                                                             },
                                                         ),
@@ -9173,7 +11745,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    305,
+                                                    349,
                                                 ),
                                             },
                                         ),
@@ -9188,7 +11760,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    306,
+                                                    350,
                                                 ),
                                             },
                                         ),
@@ -9203,7 +11775,7 @@ Ok(
                                             IdentToken {
                                                 ident: `isize`,
                                                 token_idx: TokenIdx(
-                                                    308,
+                                                    352,
                                                 ),
                                             },
                                         ),
@@ -9290,7 +11862,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -9299,7 +11871,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            315,
+                                            359,
                                         ),
                                     ),
                                     ty: 0,
@@ -9377,7 +11949,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        305,
+                                                                        349,
                                                                     ),
                                                                 },
                                                             ),
@@ -9392,7 +11964,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        306,
+                                                                        350,
                                                                     ),
                                                                 },
                                                             ),
@@ -9407,7 +11979,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `isize`,
                                                                     token_idx: TokenIdx(
-                                                                        308,
+                                                                        352,
                                                                     ),
                                                                 },
                                                             ),
@@ -9516,7 +12088,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            316,
+                                                            360,
                                                         ),
                                                     },
                                                 ),
@@ -9531,7 +12103,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `isize`,
                                                         token_idx: TokenIdx(
-                                                            319,
+                                                            363,
                                                         ),
                                                     },
                                                 ),
@@ -9554,7 +12126,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            314,
+                                                            358,
                                                         ),
                                                     },
                                                 },
@@ -9598,7 +12170,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        315,
+                                                        359,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -9706,7 +12278,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                305,
+                                                                                349,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9721,7 +12293,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                306,
+                                                                                350,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9736,7 +12308,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `isize`,
                                                                             token_idx: TokenIdx(
-                                                                                308,
+                                                                                352,
                                                                             ),
                                                                         },
                                                                     ),
@@ -9845,7 +12417,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    316,
+                                                                    360,
                                                                 ),
                                                             },
                                                         ),
@@ -9860,7 +12432,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `isize`,
                                                                 token_idx: TokenIdx(
-                                                                    319,
+                                                                    363,
                                                                 ),
                                                             },
                                                         ),
@@ -9883,7 +12455,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    314,
+                                                                    358,
                                                                 ),
                                                             },
                                                         },
@@ -9927,7 +12499,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                315,
+                                                                359,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -10089,7 +12661,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    346,
+                                                    390,
                                                 ),
                                             },
                                         ),
@@ -10166,7 +12738,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -10213,7 +12785,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        346,
+                                                                        390,
                                                                     ),
                                                                 },
                                                             ),
@@ -10305,7 +12877,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            354,
+                                                            398,
                                                         ),
                                                     },
                                                 ),
@@ -10400,7 +12972,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                346,
+                                                                                390,
                                                                             ),
                                                                         },
                                                                     ),
@@ -10492,7 +13064,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    354,
+                                                                    398,
                                                                 ),
                                                             },
                                                         ),
@@ -10690,7 +13262,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    357,
+                                                    401,
                                                 ),
                                             },
                                         ),
@@ -10705,7 +13277,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    358,
+                                                    402,
                                                 ),
                                             },
                                         ),
@@ -10720,7 +13292,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u8`,
                                                 token_idx: TokenIdx(
-                                                    360,
+                                                    404,
                                                 ),
                                             },
                                         ),
@@ -10807,7 +13379,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -10816,7 +13388,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            367,
+                                            411,
                                         ),
                                     ),
                                     ty: 0,
@@ -10894,7 +13466,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        357,
+                                                                        401,
                                                                     ),
                                                                 },
                                                             ),
@@ -10909,7 +13481,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        358,
+                                                                        402,
                                                                     ),
                                                                 },
                                                             ),
@@ -10924,7 +13496,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u8`,
                                                                     token_idx: TokenIdx(
-                                                                        360,
+                                                                        404,
                                                                     ),
                                                                 },
                                                             ),
@@ -11033,7 +13605,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            368,
+                                                            412,
                                                         ),
                                                     },
                                                 ),
@@ -11048,7 +13620,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u8`,
                                                         token_idx: TokenIdx(
-                                                            371,
+                                                            415,
                                                         ),
                                                     },
                                                 ),
@@ -11071,7 +13643,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            366,
+                                                            410,
                                                         ),
                                                     },
                                                 },
@@ -11115,7 +13687,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        367,
+                                                        411,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -11223,7 +13795,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                357,
+                                                                                401,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11238,7 +13810,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                358,
+                                                                                402,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11253,7 +13825,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u8`,
                                                                             token_idx: TokenIdx(
-                                                                                360,
+                                                                                404,
                                                                             ),
                                                                         },
                                                                     ),
@@ -11362,7 +13934,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    368,
+                                                                    412,
                                                                 ),
                                                             },
                                                         ),
@@ -11377,7 +13949,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u8`,
                                                                 token_idx: TokenIdx(
-                                                                    371,
+                                                                    415,
                                                                 ),
                                                             },
                                                         ),
@@ -11400,7 +13972,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    366,
+                                                                    410,
                                                                 ),
                                                             },
                                                         },
@@ -11444,7 +14016,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                367,
+                                                                411,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -11606,7 +14178,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    398,
+                                                    442,
                                                 ),
                                             },
                                         ),
@@ -11683,7 +14255,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -11730,7 +14302,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        398,
+                                                                        442,
                                                                     ),
                                                                 },
                                                             ),
@@ -11822,7 +14394,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            406,
+                                                            450,
                                                         ),
                                                     },
                                                 ),
@@ -11917,7 +14489,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                398,
+                                                                                442,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12009,7 +14581,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    406,
+                                                                    450,
                                                                 ),
                                                             },
                                                         ),
@@ -12207,7 +14779,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    409,
+                                                    453,
                                                 ),
                                             },
                                         ),
@@ -12222,7 +14794,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    410,
+                                                    454,
                                                 ),
                                             },
                                         ),
@@ -12237,7 +14809,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u16`,
                                                 token_idx: TokenIdx(
-                                                    412,
+                                                    456,
                                                 ),
                                             },
                                         ),
@@ -12324,7 +14896,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -12333,7 +14905,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            419,
+                                            463,
                                         ),
                                     ),
                                     ty: 0,
@@ -12411,7 +14983,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        409,
+                                                                        453,
                                                                     ),
                                                                 },
                                                             ),
@@ -12426,7 +14998,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        410,
+                                                                        454,
                                                                     ),
                                                                 },
                                                             ),
@@ -12441,7 +15013,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u16`,
                                                                     token_idx: TokenIdx(
-                                                                        412,
+                                                                        456,
                                                                     ),
                                                                 },
                                                             ),
@@ -12550,7 +15122,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            420,
+                                                            464,
                                                         ),
                                                     },
                                                 ),
@@ -12565,7 +15137,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u16`,
                                                         token_idx: TokenIdx(
-                                                            423,
+                                                            467,
                                                         ),
                                                     },
                                                 ),
@@ -12588,7 +15160,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            418,
+                                                            462,
                                                         ),
                                                     },
                                                 },
@@ -12632,7 +15204,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        419,
+                                                        463,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -12740,7 +15312,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                409,
+                                                                                453,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12755,7 +15327,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                410,
+                                                                                454,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12770,7 +15342,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u16`,
                                                                             token_idx: TokenIdx(
-                                                                                412,
+                                                                                456,
                                                                             ),
                                                                         },
                                                                     ),
@@ -12879,7 +15451,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    420,
+                                                                    464,
                                                                 ),
                                                             },
                                                         ),
@@ -12894,7 +15466,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u16`,
                                                                 token_idx: TokenIdx(
-                                                                    423,
+                                                                    467,
                                                                 ),
                                                             },
                                                         ),
@@ -12917,7 +15489,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    418,
+                                                                    462,
                                                                 ),
                                                             },
                                                         },
@@ -12961,7 +15533,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                419,
+                                                                463,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -13123,7 +15695,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    450,
+                                                    494,
                                                 ),
                                             },
                                         ),
@@ -13200,7 +15772,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -13247,7 +15819,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        450,
+                                                                        494,
                                                                     ),
                                                                 },
                                                             ),
@@ -13339,7 +15911,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            458,
+                                                            502,
                                                         ),
                                                     },
                                                 ),
@@ -13434,7 +16006,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                450,
+                                                                                494,
                                                                             ),
                                                                         },
                                                                     ),
@@ -13526,7 +16098,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    458,
+                                                                    502,
                                                                 ),
                                                             },
                                                         ),
@@ -13724,7 +16296,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    461,
+                                                    505,
                                                 ),
                                             },
                                         ),
@@ -13739,7 +16311,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    462,
+                                                    506,
                                                 ),
                                             },
                                         ),
@@ -13754,7 +16326,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u32`,
                                                 token_idx: TokenIdx(
-                                                    464,
+                                                    508,
                                                 ),
                                             },
                                         ),
@@ -13841,7 +16413,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -13850,7 +16422,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            471,
+                                            515,
                                         ),
                                     ),
                                     ty: 0,
@@ -13928,7 +16500,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        461,
+                                                                        505,
                                                                     ),
                                                                 },
                                                             ),
@@ -13943,7 +16515,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        462,
+                                                                        506,
                                                                     ),
                                                                 },
                                                             ),
@@ -13958,7 +16530,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u32`,
                                                                     token_idx: TokenIdx(
-                                                                        464,
+                                                                        508,
                                                                     ),
                                                                 },
                                                             ),
@@ -14067,7 +16639,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            472,
+                                                            516,
                                                         ),
                                                     },
                                                 ),
@@ -14082,7 +16654,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u32`,
                                                         token_idx: TokenIdx(
-                                                            475,
+                                                            519,
                                                         ),
                                                     },
                                                 ),
@@ -14105,7 +16677,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            470,
+                                                            514,
                                                         ),
                                                     },
                                                 },
@@ -14149,7 +16721,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        471,
+                                                        515,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -14257,7 +16829,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                461,
+                                                                                505,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14272,7 +16844,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                462,
+                                                                                506,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14287,7 +16859,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u32`,
                                                                             token_idx: TokenIdx(
-                                                                                464,
+                                                                                508,
                                                                             ),
                                                                         },
                                                                     ),
@@ -14396,7 +16968,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    472,
+                                                                    516,
                                                                 ),
                                                             },
                                                         ),
@@ -14411,7 +16983,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u32`,
                                                                 token_idx: TokenIdx(
-                                                                    475,
+                                                                    519,
                                                                 ),
                                                             },
                                                         ),
@@ -14434,7 +17006,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    470,
+                                                                    514,
                                                                 ),
                                                             },
                                                         },
@@ -14478,7 +17050,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                471,
+                                                                515,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -14640,7 +17212,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    502,
+                                                    546,
                                                 ),
                                             },
                                         ),
@@ -14717,7 +17289,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -14764,7 +17336,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        502,
+                                                                        546,
                                                                     ),
                                                                 },
                                                             ),
@@ -14856,7 +17428,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            510,
+                                                            554,
                                                         ),
                                                     },
                                                 ),
@@ -14951,7 +17523,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                502,
+                                                                                546,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15043,7 +17615,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    510,
+                                                                    554,
                                                                 ),
                                                             },
                                                         ),
@@ -15241,7 +17813,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    513,
+                                                    557,
                                                 ),
                                             },
                                         ),
@@ -15256,7 +17828,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    514,
+                                                    558,
                                                 ),
                                             },
                                         ),
@@ -15271,7 +17843,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u64`,
                                                 token_idx: TokenIdx(
-                                                    516,
+                                                    560,
                                                 ),
                                             },
                                         ),
@@ -15358,7 +17930,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -15367,7 +17939,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            523,
+                                            567,
                                         ),
                                     ),
                                     ty: 0,
@@ -15445,7 +18017,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        513,
+                                                                        557,
                                                                     ),
                                                                 },
                                                             ),
@@ -15460,7 +18032,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        514,
+                                                                        558,
                                                                     ),
                                                                 },
                                                             ),
@@ -15475,7 +18047,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u64`,
                                                                     token_idx: TokenIdx(
-                                                                        516,
+                                                                        560,
                                                                     ),
                                                                 },
                                                             ),
@@ -15584,7 +18156,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            524,
+                                                            568,
                                                         ),
                                                     },
                                                 ),
@@ -15599,7 +18171,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u64`,
                                                         token_idx: TokenIdx(
-                                                            527,
+                                                            571,
                                                         ),
                                                     },
                                                 ),
@@ -15622,7 +18194,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            522,
+                                                            566,
                                                         ),
                                                     },
                                                 },
@@ -15666,7 +18238,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        523,
+                                                        567,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -15774,7 +18346,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                513,
+                                                                                557,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15789,7 +18361,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                514,
+                                                                                558,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15804,7 +18376,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u64`,
                                                                             token_idx: TokenIdx(
-                                                                                516,
+                                                                                560,
                                                                             ),
                                                                         },
                                                                     ),
@@ -15913,7 +18485,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    524,
+                                                                    568,
                                                                 ),
                                                             },
                                                         ),
@@ -15928,7 +18500,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u64`,
                                                                 token_idx: TokenIdx(
-                                                                    527,
+                                                                    571,
                                                                 ),
                                                             },
                                                         ),
@@ -15951,7 +18523,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    522,
+                                                                    566,
                                                                 ),
                                                             },
                                                         },
@@ -15995,7 +18567,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                523,
+                                                                567,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -16157,7 +18729,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    554,
+                                                    598,
                                                 ),
                                             },
                                         ),
@@ -16234,7 +18806,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -16281,7 +18853,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        554,
+                                                                        598,
                                                                     ),
                                                                 },
                                                             ),
@@ -16373,7 +18945,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            562,
+                                                            606,
                                                         ),
                                                     },
                                                 ),
@@ -16468,7 +19040,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                554,
+                                                                                598,
                                                                             ),
                                                                         },
                                                                     ),
@@ -16560,7 +19132,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    562,
+                                                                    606,
                                                                 ),
                                                             },
                                                         ),
@@ -16758,7 +19330,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    565,
+                                                    609,
                                                 ),
                                             },
                                         ),
@@ -16773,7 +19345,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    566,
+                                                    610,
                                                 ),
                                             },
                                         ),
@@ -16788,7 +19360,7 @@ Ok(
                                             IdentToken {
                                                 ident: `u128`,
                                                 token_idx: TokenIdx(
-                                                    568,
+                                                    612,
                                                 ),
                                             },
                                         ),
@@ -16875,7 +19447,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -16884,7 +19456,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            575,
+                                            619,
                                         ),
                                     ),
                                     ty: 0,
@@ -16962,7 +19534,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        565,
+                                                                        609,
                                                                     ),
                                                                 },
                                                             ),
@@ -16977,7 +19549,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        566,
+                                                                        610,
                                                                     ),
                                                                 },
                                                             ),
@@ -16992,7 +19564,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `u128`,
                                                                     token_idx: TokenIdx(
-                                                                        568,
+                                                                        612,
                                                                     ),
                                                                 },
                                                             ),
@@ -17101,7 +19673,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            576,
+                                                            620,
                                                         ),
                                                     },
                                                 ),
@@ -17116,7 +19688,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `u128`,
                                                         token_idx: TokenIdx(
-                                                            579,
+                                                            623,
                                                         ),
                                                     },
                                                 ),
@@ -17139,7 +19711,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            574,
+                                                            618,
                                                         ),
                                                     },
                                                 },
@@ -17183,7 +19755,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        575,
+                                                        619,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -17291,7 +19863,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                565,
+                                                                                609,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17306,7 +19878,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                566,
+                                                                                610,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17321,7 +19893,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `u128`,
                                                                             token_idx: TokenIdx(
-                                                                                568,
+                                                                                612,
                                                                             ),
                                                                         },
                                                                     ),
@@ -17430,7 +20002,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    576,
+                                                                    620,
                                                                 ),
                                                             },
                                                         ),
@@ -17445,7 +20017,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `u128`,
                                                                 token_idx: TokenIdx(
-                                                                    579,
+                                                                    623,
                                                                 ),
                                                             },
                                                         ),
@@ -17468,7 +20040,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    574,
+                                                                    618,
                                                                 ),
                                                             },
                                                         },
@@ -17512,7 +20084,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                575,
+                                                                619,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -17674,7 +20246,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    606,
+                                                    650,
                                                 ),
                                             },
                                         ),
@@ -17751,7 +20323,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -17798,7 +20370,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        606,
+                                                                        650,
                                                                     ),
                                                                 },
                                                             ),
@@ -17890,7 +20462,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            614,
+                                                            658,
                                                         ),
                                                     },
                                                 ),
@@ -17985,7 +20557,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                606,
+                                                                                650,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18077,7 +20649,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    614,
+                                                                    658,
                                                                 ),
                                                             },
                                                         ),
@@ -18275,7 +20847,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    617,
+                                                    661,
                                                 ),
                                             },
                                         ),
@@ -18290,7 +20862,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    618,
+                                                    662,
                                                 ),
                                             },
                                         ),
@@ -18305,7 +20877,7 @@ Ok(
                                             IdentToken {
                                                 ident: `usize`,
                                                 token_idx: TokenIdx(
-                                                    620,
+                                                    664,
                                                 ),
                                             },
                                         ),
@@ -18392,7 +20964,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -18401,7 +20973,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            627,
+                                            671,
                                         ),
                                     ),
                                     ty: 0,
@@ -18479,7 +21051,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        617,
+                                                                        661,
                                                                     ),
                                                                 },
                                                             ),
@@ -18494,7 +21066,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        618,
+                                                                        662,
                                                                     ),
                                                                 },
                                                             ),
@@ -18509,7 +21081,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `usize`,
                                                                     token_idx: TokenIdx(
-                                                                        620,
+                                                                        664,
                                                                     ),
                                                                 },
                                                             ),
@@ -18618,7 +21190,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            628,
+                                                            672,
                                                         ),
                                                     },
                                                 ),
@@ -18633,7 +21205,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `usize`,
                                                         token_idx: TokenIdx(
-                                                            631,
+                                                            675,
                                                         ),
                                                     },
                                                 ),
@@ -18656,7 +21228,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            626,
+                                                            670,
                                                         ),
                                                     },
                                                 },
@@ -18700,7 +21272,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        627,
+                                                        671,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -18808,7 +21380,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                617,
+                                                                                661,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18823,7 +21395,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                618,
+                                                                                662,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18838,7 +21410,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `usize`,
                                                                             token_idx: TokenIdx(
-                                                                                620,
+                                                                                664,
                                                                             ),
                                                                         },
                                                                     ),
@@ -18947,7 +21519,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    628,
+                                                                    672,
                                                                 ),
                                                             },
                                                         ),
@@ -18962,7 +21534,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `usize`,
                                                                 token_idx: TokenIdx(
-                                                                    631,
+                                                                    675,
                                                                 ),
                                                             },
                                                         ),
@@ -18985,7 +21557,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    626,
+                                                                    670,
                                                                 ),
                                                             },
                                                         },
@@ -19029,7 +21601,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                627,
+                                                                671,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -19191,7 +21763,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    658,
+                                                    702,
                                                 ),
                                             },
                                         ),
@@ -19268,7 +21840,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -19315,7 +21887,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        658,
+                                                                        702,
                                                                     ),
                                                                 },
                                                             ),
@@ -19407,7 +21979,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            666,
+                                                            710,
                                                         ),
                                                     },
                                                 ),
@@ -19502,7 +22074,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                658,
+                                                                                702,
                                                                             ),
                                                                         },
                                                                     ),
@@ -19594,7 +22166,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    666,
+                                                                    710,
                                                                 ),
                                                             },
                                                         ),
@@ -19732,7 +22304,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -19779,7 +22351,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        658,
+                                                                        702,
                                                                     ),
                                                                 },
                                                             ),
@@ -19871,7 +22443,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            674,
+                                                            718,
                                                         ),
                                                     },
                                                 ),
@@ -19966,7 +22538,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                658,
+                                                                                702,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20058,7 +22630,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    674,
+                                                                    718,
                                                                 ),
                                                             },
                                                         ),
@@ -20121,6 +22693,3148 @@ Ok(
                                                             disambiguator: 0,
                                                         },
                                                         ident: `sqrt`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `max`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `max`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            725,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `max`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            726,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            729,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            724,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        725,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `max`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    726,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    729,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    724,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                725,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `max`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `min`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `min`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [
+                                SpecificParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            736,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 1,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `min`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            737,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            740,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                SynPatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `other`,
+                                                        token_idx: TokenIdx(
+                                                            735,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                SynPatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `other`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        736,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                        ident: `other`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 1,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `min`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    737,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    740,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        SynPatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    735,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        SynPatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSynSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                736,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSynSymbolVariant::ParenateRegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 0,
+                                                },
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `min`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSynSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                    ident: `other`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `sgnx`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `sgnx`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `sgnx`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            748,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `sgnx`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    748,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `sgnx`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `cos`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `cos`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `cos`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            756,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `cos`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    756,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `cos`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `sin`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `sin`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `sin`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            764,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `sin`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    764,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `sin`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `acos`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `acos`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f32`,
+                                                                    token_idx: TokenIdx(
+                                                                        702,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `acos`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            772,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f32`,
+                                                                            token_idx: TokenIdx(
+                                                                                702,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `acos`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    772,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `acos`,
                                                         item_kind: MethodFn,
                                                     },
                                                     disambiguator: 0,
@@ -20256,7 +25970,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    677,
+                                                    775,
                                                 ),
                                             },
                                         ),
@@ -20271,7 +25985,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    678,
+                                                    776,
                                                 ),
                                             },
                                         ),
@@ -20286,7 +26000,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f32`,
                                                 token_idx: TokenIdx(
-                                                    680,
+                                                    778,
                                                 ),
                                             },
                                         ),
@@ -20373,7 +26087,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -20382,7 +26096,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            686,
+                                            784,
                                         ),
                                     ),
                                     ty: 0,
@@ -20460,7 +26174,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        677,
+                                                                        775,
                                                                     ),
                                                                 },
                                                             ),
@@ -20475,7 +26189,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        678,
+                                                                        776,
                                                                     ),
                                                                 },
                                                             ),
@@ -20490,7 +26204,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f32`,
                                                                     token_idx: TokenIdx(
-                                                                        680,
+                                                                        778,
                                                                     ),
                                                                 },
                                                             ),
@@ -20599,7 +26313,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            687,
+                                                            785,
                                                         ),
                                                     },
                                                 ),
@@ -20614,7 +26328,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f32`,
                                                         token_idx: TokenIdx(
-                                                            690,
+                                                            788,
                                                         ),
                                                     },
                                                 ),
@@ -20637,7 +26351,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            685,
+                                                            783,
                                                         ),
                                                     },
                                                 },
@@ -20681,7 +26395,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        686,
+                                                        784,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -20789,7 +26503,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                677,
+                                                                                775,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20804,7 +26518,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                678,
+                                                                                776,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20819,7 +26533,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f32`,
                                                                             token_idx: TokenIdx(
-                                                                                680,
+                                                                                778,
                                                                             ),
                                                                         },
                                                                     ),
@@ -20928,7 +26642,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    687,
+                                                                    785,
                                                                 ),
                                                             },
                                                         ),
@@ -20943,7 +26657,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f32`,
                                                                 token_idx: TokenIdx(
-                                                                    690,
+                                                                    788,
                                                                 ),
                                                             },
                                                         ),
@@ -20966,7 +26680,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    685,
+                                                                    783,
                                                                 ),
                                                             },
                                                         },
@@ -21010,7 +26724,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                686,
+                                                                784,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -21172,7 +26886,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    717,
+                                                    815,
                                                 ),
                                             },
                                         ),
@@ -21249,7 +26963,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
@@ -21296,7 +27010,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        717,
+                                                                        815,
                                                                     ),
                                                                 },
                                                             ),
@@ -21388,7 +27102,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            725,
+                                                            823,
                                                         ),
                                                     },
                                                 ),
@@ -21483,7 +27197,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                717,
+                                                                                815,
                                                                             ),
                                                                         },
                                                                     ),
@@ -21575,7 +27289,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    725,
+                                                                    823,
                                                                 ),
                                                             },
                                                         ),
@@ -21638,6 +27352,470 @@ Ok(
                                                             disambiguator: 0,
                                                         },
                                                         ident: `abs`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `acos`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `acos`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::num::f64`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `f64`,
+                                                                    token_idx: TokenIdx(
+                                                                        815,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `acos`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::f64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f64`,
+                                                        token_idx: TokenIdx(
+                                                            831,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::f64`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::num`,
+                                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::num::f64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `f64`,
+                                                                            token_idx: TokenIdx(
+                                                                                815,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::num::f64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `acos`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::f64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f64`,
+                                                                token_idx: TokenIdx(
+                                                                    831,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `acos`,
                                                         item_kind: MethodFn,
                                                     },
                                                     disambiguator: 0,
@@ -21773,7 +27951,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Add`,
                                                 token_idx: TokenIdx(
-                                                    728,
+                                                    834,
                                                 ),
                                             },
                                         ),
@@ -21788,7 +27966,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    729,
+                                                    835,
                                                 ),
                                             },
                                         ),
@@ -21803,7 +27981,7 @@ Ok(
                                             IdentToken {
                                                 ident: `f64`,
                                                 token_idx: TokenIdx(
-                                                    731,
+                                                    837,
                                                 ),
                                             },
                                         ),
@@ -21890,7 +28068,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -21899,7 +28077,7 @@ Ok(
                                     ),
                                     colon: ColonToken(
                                         TokenIdx(
-                                            738,
+                                            844,
                                         ),
                                     ),
                                     ty: 0,
@@ -21977,7 +28155,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Add`,
                                                                     token_idx: TokenIdx(
-                                                                        728,
+                                                                        834,
                                                                     ),
                                                                 },
                                                             ),
@@ -21992,7 +28170,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        729,
+                                                                        835,
                                                                     ),
                                                                 },
                                                             ),
@@ -22007,7 +28185,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `f64`,
                                                                     token_idx: TokenIdx(
-                                                                        731,
+                                                                        837,
                                                                     ),
                                                                 },
                                                             ),
@@ -22116,7 +28294,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            739,
+                                                            845,
                                                         ),
                                                     },
                                                 ),
@@ -22131,7 +28309,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `f64`,
                                                         token_idx: TokenIdx(
-                                                            742,
+                                                            848,
                                                         ),
                                                     },
                                                 ),
@@ -22154,7 +28332,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `other`,
                                                         token_idx: TokenIdx(
-                                                            737,
+                                                            843,
                                                         ),
                                                     },
                                                 },
@@ -22198,7 +28376,7 @@ Ok(
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
-                                                        738,
+                                                        844,
                                                     ),
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -22306,7 +28484,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Add`,
                                                                             token_idx: TokenIdx(
-                                                                                728,
+                                                                                834,
                                                                             ),
                                                                         },
                                                                     ),
@@ -22321,7 +28499,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                729,
+                                                                                835,
                                                                             ),
                                                                         },
                                                                     ),
@@ -22336,7 +28514,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `f64`,
                                                                             token_idx: TokenIdx(
-                                                                                731,
+                                                                                837,
                                                                             ),
                                                                         },
                                                                     ),
@@ -22445,7 +28623,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    739,
+                                                                    845,
                                                                 ),
                                                             },
                                                         ),
@@ -22460,7 +28638,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `f64`,
                                                                 token_idx: TokenIdx(
-                                                                    742,
+                                                                    848,
                                                                 ),
                                                             },
                                                         ),
@@ -22483,7 +28661,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
-                                                                    737,
+                                                                    843,
                                                                 ),
                                                             },
                                                         },
@@ -22527,7 +28705,7 @@ Ok(
                                                         CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
-                                                                738,
+                                                                844,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {

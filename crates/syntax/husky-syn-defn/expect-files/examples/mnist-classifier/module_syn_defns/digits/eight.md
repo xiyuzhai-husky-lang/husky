@@ -1261,7 +1261,7 @@ Ok(
                                             condition: 25,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         68,
@@ -1279,7 +1279,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..1,
                                                     ),
@@ -1356,7 +1356,7 @@ Ok(
                                             initial_value: 12,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         56,
@@ -1374,7 +1374,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         1..3,
                                                     ),
@@ -2187,7 +2187,13 @@ Ok(
                                                 108,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 108,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -2419,7 +2425,7 @@ Ok(
                                             condition: 17,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         99,
@@ -2437,7 +2443,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..1,
                                                     ),

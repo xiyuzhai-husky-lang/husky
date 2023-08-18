@@ -1375,7 +1375,7 @@
                                             argument_expr_idx: 46,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    460,
+                                                    462,
                                                 ),
                                             ),
                                         },
@@ -4274,7 +4274,7 @@
                                             argument_expr_idx: 46,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    557,
+                                                    559,
                                                 ),
                                             ),
                                         },
@@ -6385,7 +6385,7 @@
                                                 argument_expr_idx: 2,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        597,
+                                                        599,
                                                     ),
                                                 ),
                                             },
@@ -7000,7 +7000,7 @@
                                                 argument_expr_idx: 24,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        640,
+                                                        642,
                                                     ),
                                                 ),
                                             },
@@ -7266,7 +7266,7 @@
                                             argument_expr_idx: 37,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    663,
+                                                    665,
                                                 ),
                                             ),
                                         },
@@ -7395,7 +7395,7 @@
                                             argument_expr_idx: 41,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    673,
+                                                    675,
                                                 ),
                                             ),
                                         },
@@ -8280,7 +8280,7 @@
                                             argument_expr_idx: 77,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    739,
+                                                    741,
                                                 ),
                                             ),
                                         },
@@ -8409,7 +8409,7 @@
                                             argument_expr_idx: 81,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    748,
+                                                    750,
                                                 ),
                                             ),
                                         },
@@ -9122,7 +9122,7 @@
                                                 argument_expr_idx: 103,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        786,
+                                                        788,
                                                     ),
                                                 ),
                                             },
@@ -13416,7 +13416,7 @@
                                                 argument_expr_idx: 2,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        834,
+                                                        836,
                                                     ),
                                                 ),
                                             },
@@ -14013,7 +14013,7 @@
                                                 argument_expr_idx: 23,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        873,
+                                                        875,
                                                     ),
                                                 ),
                                             },
@@ -14387,7 +14387,7 @@
                                             argument_expr_idx: 38,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    901,
+                                                    903,
                                                 ),
                                             ),
                                         },
@@ -14516,7 +14516,7 @@
                                             argument_expr_idx: 42,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    911,
+                                                    913,
                                                 ),
                                             ),
                                         },
@@ -14817,7 +14817,7 @@
                                                 argument_expr_idx: 50,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        932,
+                                                        934,
                                                     ),
                                                 ),
                                             },
@@ -15269,7 +15269,7 @@
                                             argument_expr_idx: 72,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    972,
+                                                    974,
                                                 ),
                                             ),
                                         },
@@ -15398,7 +15398,7 @@
                                             argument_expr_idx: 76,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    981,
+                                                    983,
                                                 ),
                                             ),
                                         },
@@ -21594,7 +21594,7 @@
                                             argument_expr_idx: 13,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1121,
+                                                    1123,
                                                 ),
                                             ),
                                         },
@@ -21621,7 +21621,7 @@
                                             argument_expr_idx: 14,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1123,
+                                                    1125,
                                                 ),
                                             ),
                                         },
@@ -21894,7 +21894,7 @@
                                             argument_expr_idx: 21,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1134,
+                                                    1136,
                                                 ),
                                             ),
                                         },
@@ -21921,7 +21921,7 @@
                                             argument_expr_idx: 22,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1136,
+                                                    1138,
                                                 ),
                                             ),
                                         },
@@ -23214,7 +23214,7 @@
                                             argument_expr_idx: 55,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1219,
+                                                    1221,
                                                 ),
                                             ),
                                         },
@@ -23241,7 +23241,7 @@
                                             argument_expr_idx: 60,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1232,
+                                                    1234,
                                                 ),
                                             ),
                                         },
@@ -23518,7 +23518,7 @@
                                             argument_expr_idx: 70,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1246,
+                                                    1248,
                                                 ),
                                             ),
                                         },
@@ -23545,7 +23545,7 @@
                                             argument_expr_idx: 71,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1248,
+                                                    1250,
                                                 ),
                                             ),
                                         },
@@ -23572,7 +23572,7 @@
                                             argument_expr_idx: 72,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1250,
+                                                    1252,
                                                 ),
                                             ),
                                         },
@@ -23845,7 +23845,7 @@
                                             argument_expr_idx: 79,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1262,
+                                                    1264,
                                                 ),
                                             ),
                                         },
@@ -23872,7 +23872,7 @@
                                             argument_expr_idx: 80,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1264,
+                                                    1266,
                                                 ),
                                             ),
                                         },
@@ -25717,7 +25717,7 @@
                                             argument_expr_idx: 129,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1375,
+                                                    1377,
                                                 ),
                                             ),
                                         },
@@ -25744,7 +25744,7 @@
                                             argument_expr_idx: 132,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1383,
+                                                    1385,
                                                 ),
                                             ),
                                         },
@@ -27489,7 +27489,7 @@
                                             argument_expr_idx: 182,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1487,
+                                                    1489,
                                                 ),
                                             ),
                                         },
@@ -27516,7 +27516,7 @@
                                             argument_expr_idx: 187,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    1497,
+                                                    1499,
                                                 ),
                                             ),
                                         },
@@ -33809,8 +33809,16 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: Expectation::AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 0,
@@ -33824,12 +33832,28 @@
                                         EtherealTerm(`Html`),
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Intact,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 1,
@@ -33843,7 +33867,15 @@
                                         EtherealTerm(`Html`),
                                     ),
                                 },
-                                resolve_progress: ExpectationProgress::Intact,
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -33851,7 +33883,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`Html`),
+        ),
         self_ty: Some(
             EtherealTerm(`LineSegmentStroke`),
         ),
@@ -34177,7 +34211,7 @@
                                                 argument_expr_idx: 6,
                                                 separator: Comma(
                                                     TokenIdx(
-                                                        147,
+                                                        149,
                                                     ),
                                                 ),
                                             },
@@ -35299,27 +35333,68 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FluffyTermError(
-                            FluffyTermError::Todo,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 36,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Html`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         SynExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Html`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -35381,6 +35456,76 @@
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Html`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Html`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -37568,7 +37713,7 @@
                                             argument_expr_idx: 49,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    331,
+                                                    333,
                                                 ),
                                             ),
                                         },
@@ -37697,7 +37842,7 @@
                                             argument_expr_idx: 53,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    338,
+                                                    340,
                                                 ),
                                             ),
                                         },
@@ -37770,7 +37915,7 @@
                                             argument_expr_idx: 51,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    334,
+                                                    336,
                                                 ),
                                             ),
                                         },
@@ -37797,7 +37942,7 @@
                                             argument_expr_idx: 55,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    341,
+                                                    343,
                                                 ),
                                             ),
                                         },
@@ -39665,7 +39810,7 @@
                                             argument_expr_idx: 3,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    366,
+                                                    368,
                                                 ),
                                             ),
                                         },
@@ -39736,7 +39881,7 @@
                                             argument_expr_idx: 1,
                                             separator: Comma(
                                                 TokenIdx(
-                                                    362,
+                                                    364,
                                                 ),
                                             ),
                                         },

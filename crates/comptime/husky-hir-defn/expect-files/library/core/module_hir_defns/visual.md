@@ -39,7 +39,7 @@
                             ty_sketch: TypeSketch::DeriveAny,
                             disambiguator: 0,
                         },
-                        ident: `clone`,
+                        ident: `visualize`,
                         item_kind: MethodFn,
                     },
                     hir_decl: TraitForTypeMethodFnHirDecl {
@@ -50,7 +50,7 @@
                                 ty_sketch: TypeSketch::DeriveAny,
                                 disambiguator: 0,
                             },
-                            ident: `clone`,
+                            ident: `visualize`,
                             item_kind: MethodFn,
                         },
                         template_parameters: HirTemplateParameters {
@@ -65,8 +65,12 @@
                         parenate_parameters: HirParenateParameters {
                             data: [],
                         },
-                        return_ty: Symbol(
-                            SelfType,
+                        return_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     },
                     body: None,

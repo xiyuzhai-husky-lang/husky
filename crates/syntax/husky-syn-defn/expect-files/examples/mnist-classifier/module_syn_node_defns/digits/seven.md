@@ -441,7 +441,7 @@ Ok(
                                             19,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterDecl::Regular {
@@ -925,7 +925,13 @@ Ok(
                                                 42,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 96,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -1602,7 +1608,7 @@ Ok(
                                             64,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterDecl::Regular {
@@ -2086,7 +2092,13 @@ Ok(
                                                 87,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 97,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -2146,7 +2158,13 @@ Ok(
                                                 97,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 98,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -2402,7 +2420,7 @@ Ok(
                                             107,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterDecl::Regular {
@@ -2886,7 +2904,13 @@ Ok(
                                                 130,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 99,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -2946,7 +2970,13 @@ Ok(
                                                 140,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 100,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -3037,7 +3067,13 @@ Ok(
                                                 157,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 101,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -3791,7 +3827,13 @@ Ok(
                                                 185,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 102,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -3841,7 +3883,13 @@ Ok(
                                                 195,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 103,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -3984,7 +4032,13 @@ Ok(
                                                 219,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 104,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -4098,7 +4152,13 @@ Ok(
                                                 245,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 105,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::CurrentSymbol {
@@ -4154,7 +4214,13 @@ Ok(
                                                 253,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 106,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -4236,7 +4302,13 @@ Ok(
                                                 268,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 107,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -4770,7 +4842,7 @@ Ok(
                                             initial_value: 22,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         216,
@@ -4788,7 +4860,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..3,
                                                     ),
@@ -4900,7 +4972,7 @@ Ok(
                                             initial_value: 9,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         192,
@@ -4918,7 +4990,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         3..7,
                                                     ),
@@ -4928,7 +5000,7 @@ Ok(
                                             else_branch: None,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         250,
@@ -4946,7 +5018,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         7..10,
                                                     ),

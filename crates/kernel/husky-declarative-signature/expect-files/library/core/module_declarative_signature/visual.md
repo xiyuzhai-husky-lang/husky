@@ -78,7 +78,7 @@
                         ty_sketch: TypeSketch::DeriveAny,
                         disambiguator: 0,
                     },
-                    ident: `clone`,
+                    ident: `visualize`,
                     item_kind: MethodFn,
                 },
             ),
@@ -99,7 +99,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`t`),
+                            return_ty: DeclarativeTerm(`core::visual::Html`),
                         },
                     ),
                 ),

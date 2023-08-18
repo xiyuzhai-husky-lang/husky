@@ -20,7 +20,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: OnceUseRuleIdx(
-                    10,
+                    11,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -71,7 +71,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: OnceUseRuleIdx(
-                    11,
+                    12,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -89,11 +89,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 10,
+                                ast_idx: 9,
                                 ident_token: IdentToken {
                                     ident: `num`,
                                     token_idx: TokenIdx(
-                                        32,
+                                        29,
                                     ),
                                 },
                             },
@@ -122,7 +122,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: OnceUseRuleIdx(
-                    12,
+                    13,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -140,11 +140,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 14,
+                                ast_idx: 13,
                                 ident_token: IdentToken {
                                     ident: `raw_bits`,
                                     token_idx: TokenIdx(
-                                        44,
+                                        41,
                                     ),
                                 },
                             },
@@ -173,7 +173,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: OnceUseRuleIdx(
-                    13,
+                    14,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -224,7 +224,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: OnceUseRuleIdx(
-                    14,
+                    15,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -275,7 +275,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: OnceUseRuleIdx(
-                    15,
+                    16,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -293,11 +293,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
+                                ast_idx: 7,
                                 ident_token: IdentToken {
                                     ident: `marker`,
                                     token_idx: TokenIdx(
-                                        26,
+                                        23,
                                     ),
                                 },
                             },
@@ -326,7 +326,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 19,
                 rule_idx: OnceUseRuleIdx(
-                    16,
+                    17,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -377,7 +377,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 22,
                 rule_idx: OnceUseRuleIdx(
-                    17,
+                    18,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -395,11 +395,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 12,
+                                ast_idx: 11,
                                 ident_token: IdentToken {
                                     ident: `option`,
                                     token_idx: TokenIdx(
-                                        38,
+                                        35,
                                     ),
                                 },
                             },
@@ -428,7 +428,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 25,
                 rule_idx: OnceUseRuleIdx(
-                    18,
+                    19,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -479,7 +479,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 28,
                 rule_idx: OnceUseRuleIdx(
-                    19,
+                    20,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -502,6 +502,57 @@ Ok(
                                     ident: `slice`,
                                     token_idx: TokenIdx(
                                         50,
+                                    ),
+                                },
+                            },
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 32,
+                rule_idx: OnceUseRuleIdx(
+                    10,
+                ),
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 31,
+                rule_idx: OnceUseRuleIdx(
+                    21,
+                ),
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: SubmodulePath(
+                                `core::vec`,
+                            ),
+                            node: SubmoduleSynNode {
+                                syn_node_path: SubmoduleSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::vec`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::Pub,
+                                ast_idx: 15,
+                                ident_token: IdentToken {
+                                    ident: `vec`,
+                                    token_idx: TokenIdx(
+                                        47,
                                     ),
                                 },
                             },

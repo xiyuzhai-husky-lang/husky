@@ -293,8 +293,8 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Ident(
-                `todo`,
+            Token::Keyword(
+                Keyword::Todo,
             ),
         ],
         group_starts: [

@@ -208,8 +208,13 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
             Token::Ident(
-                `CyclicSliceLeashed`,
+                `CyclicSlice`,
             ),
             Token::Ident(
                 `LineSegmentStroke`,
@@ -495,7 +500,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 109,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -687,6 +698,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Binary(
                         Comparison(
                             Leq,
@@ -722,6 +747,20 @@ Ok(
             ),
             Token::Ident(
                 `end`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -901,7 +940,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 110,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -965,6 +1010,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Ket(
                         Box,
                     ),
@@ -1020,6 +1079,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::LaOrLt,
                 ),
             ),
@@ -1051,6 +1124,20 @@ Ok(
             ),
             Token::Ident(
                 `end`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1417,6 +1504,20 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Binary(
                         Comparison(
                             Leq,
@@ -1452,6 +1553,20 @@ Ok(
             ),
             Token::Ident(
                 `end`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -3156,76 +3271,76 @@ Ok(
             22,
             28,
             32,
-            47,
-            52,
-            59,
-            66,
-            69,
-            74,
-            77,
-            82,
-            95,
-            100,
-            105,
-            118,
-            126,
-            138,
-            153,
-            164,
-            173,
+            48,
+            53,
+            60,
+            67,
+            70,
+            75,
+            78,
+            83,
+            96,
+            101,
+            106,
+            119,
+            127,
+            139,
+            158,
+            169,
             178,
-            181,
             183,
+            186,
             188,
             193,
-            211,
-            226,
-            239,
-            249,
-            252,
-            254,
-            259,
-            272,
-            279,
-            286,
-            293,
-            300,
-            315,
-            326,
-            336,
-            346,
-            356,
-            366,
-            384,
-            389,
-            401,
-            408,
-            440,
-            447,
-            461,
-            468,
-            482,
-            489,
-            498,
-            505,
-            517,
-            524,
-            536,
-            550,
-            560,
-            570,
+            198,
+            218,
+            237,
+            250,
+            260,
+            263,
+            265,
+            270,
+            283,
+            290,
+            297,
+            304,
+            311,
+            330,
+            341,
+            351,
+            361,
+            371,
+            381,
+            399,
+            404,
+            416,
+            423,
+            455,
+            462,
+            476,
+            483,
+            497,
+            504,
+            513,
+            520,
+            532,
+            539,
+            551,
+            565,
             575,
-            580,
-            594,
-            596,
-            600,
-            607,
+            585,
+            590,
+            595,
+            609,
+            611,
+            615,
             622,
-            624,
-            631,
-            651,
-            654,
-            659,
+            637,
+            639,
+            646,
+            666,
+            669,
+            674,
         ],
         indents: [
             0,

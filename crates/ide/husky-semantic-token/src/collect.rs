@@ -83,6 +83,7 @@ fn token_to_semantic_token(
                 connection: MajorItemConnectionKind::Connected,
             })
         }
+        TokenInfo::Todo => SemanticToken::Todo,
     };
     Some(RangedSemanticToken {
         semantic_token,

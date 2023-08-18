@@ -64,7 +64,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::list`,
+                        `core::logic`,
                     ),
                     ast_idx: 6,
                 },
@@ -74,7 +74,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::logic`,
+                        `core::marker`,
                     ),
                     ast_idx: 7,
                 },
@@ -84,7 +84,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::marker`,
+                        `core::mem`,
                     ),
                     ast_idx: 8,
                 },
@@ -94,7 +94,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::mem`,
+                        `core::num`,
                     ),
                     ast_idx: 9,
                 },
@@ -104,7 +104,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::num`,
+                        `core::ops`,
                     ),
                     ast_idx: 10,
                 },
@@ -114,7 +114,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::ops`,
+                        `core::option`,
                     ),
                     ast_idx: 11,
                 },
@@ -124,7 +124,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::option`,
+                        `core::prelude`,
                     ),
                     ast_idx: 12,
                 },
@@ -134,7 +134,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::prelude`,
+                        `core::raw_bits`,
                     ),
                     ast_idx: 13,
                 },
@@ -144,7 +144,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::raw_bits`,
+                        `core::result`,
                     ),
                     ast_idx: 14,
                 },
@@ -154,7 +154,7 @@ Ok(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
                     path: SubmodulePath(
-                        `core::result`,
+                        `core::vec`,
                     ),
                     ast_idx: 15,
                 },

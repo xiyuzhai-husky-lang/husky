@@ -201,7 +201,7 @@
                                     ty_sketch: TypeSketch::DeriveAny,
                                     disambiguator: 0,
                                 },
-                                ident: `clone`,
+                                ident: `visualize`,
                                 item_kind: MethodFn,
                             },
                             disambiguator: 0,
@@ -218,7 +218,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::Trivial,
+                        SynExprDisambiguation::TypePath(
+                            OntologyConstructor,
+                        ),
                         Ok(
                             FluffyTerm {
                                 place: None,

@@ -86,10 +86,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Type(
-                        TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
                     ),
                 ),
             ),

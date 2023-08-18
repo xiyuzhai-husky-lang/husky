@@ -169,7 +169,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 83,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -184,7 +190,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 84,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -214,7 +226,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 85,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -388,7 +406,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 86,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -589,7 +613,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 87,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -770,7 +800,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 88,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -946,6 +982,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
@@ -985,6 +1026,11 @@ Ok(
             ),
             Token::Ident(
                 `major_hole`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1147,7 +1193,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 89,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1212,11 +1264,11 @@ Ok(
             171,
             182,
             193,
-            211,
-            229,
-            235,
-            239,
-            245,
+            213,
+            231,
+            237,
+            241,
+            247,
         ],
         indents: [
             0,

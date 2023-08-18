@@ -98,21 +98,6 @@ Ok(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
-                                `core::list`,
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-                Module,
-            ),
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::EntityNode(
-                ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
                                 `core::logic`,
                             ),
                             disambiguator: 0,
@@ -248,6 +233,21 @@ Ok(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: SubmodulePath(
+                                `core::vec`,
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                Module,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::Submodule(
+                    SubmoduleSynNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: SubmodulePath(
                                 `core::slice`,
                             ),
                             disambiguator: 0,
@@ -322,11 +322,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 13,
+                                ast_idx: 12,
                                 ident_token: IdentToken {
                                     ident: `prelude`,
                                     token_idx: TokenIdx(
-                                        41,
+                                        38,
                                     ),
                                 },
                             },

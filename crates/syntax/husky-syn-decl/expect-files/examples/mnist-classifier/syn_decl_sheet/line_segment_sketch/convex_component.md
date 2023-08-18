@@ -46,7 +46,7 @@ Ok(
                                                 15,
                                             ),
                                         ),
-                                        ty_expr_idx: 4,
+                                        ty_expr_idx: 5,
                                         initialization: None,
                                     },
                                 ],
@@ -89,10 +89,17 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
-                                                                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                             ),
                                                         ),
                                                     ),
+                                                },
+                                                SynExpr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        16,
+                                                    ),
+                                                    opd: 2,
                                                 },
                                                 SynExpr::PrincipalEntityPath {
                                                     item_path_expr: 2,
@@ -105,8 +112,8 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::ExplicitApplication {
-                                                    function_expr_idx: 2,
-                                                    argument_expr_idx: 3,
+                                                    function_expr_idx: 3,
+                                                    argument_expr_idx: 4,
                                                 },
                                             ],
                                         },
@@ -130,15 +137,15 @@ Ok(
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
-                                                            ident: `CyclicSliceLeashed`,
+                                                            ident: `CyclicSlice`,
                                                             token_idx: TokenIdx(
-                                                                16,
+                                                                17,
                                                             ),
                                                         },
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
-                                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -147,7 +154,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentStroke`,
                                                             token_idx: TokenIdx(
-                                                                17,
+                                                                18,
                                                             ),
                                                         },
                                                     ),
@@ -196,7 +203,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 205,
+                                                                    value: 217,
                                                                 },
                                                             ),
                                                         ),
@@ -213,7 +220,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 394,
+                                                                    value: 396,
                                                                 },
                                                             ),
                                                         ),
@@ -222,7 +229,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                expr_idx: 4,
+                                                expr_idx: 5,
                                             },
                                         ],
                                     },
@@ -315,7 +322,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Visualize`,
                                                         token_idx: TokenIdx(
-                                                            21,
+                                                            22,
                                                         ),
                                                     },
                                                 ),
@@ -330,7 +337,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `ConvexComponent`,
                                                         token_idx: TokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                     },
                                                 ),
@@ -422,7 +429,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
@@ -482,7 +489,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `Visualize`,
                                                                         token_idx: TokenIdx(
-                                                                            21,
+                                                                            22,
                                                                         ),
                                                                     },
                                                                 ),
@@ -497,7 +504,7 @@ Ok(
                                                                     IdentToken {
                                                                         ident: `ConvexComponent`,
                                                                         token_idx: TokenIdx(
-                                                                            23,
+                                                                            24,
                                                                         ),
                                                                     },
                                                                 ),
@@ -596,7 +603,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Html`,
                                                             token_idx: TokenIdx(
-                                                                30,
+                                                                31,
                                                             ),
                                                         },
                                                     ),

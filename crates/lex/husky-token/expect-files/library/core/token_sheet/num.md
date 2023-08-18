@@ -213,6 +213,57 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `max`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `i8`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i8`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -449,6 +500,57 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `max`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `i16`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i16`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -661,6 +763,108 @@ Ok(
                         Par,
                     ),
                 ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `max`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `min`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `i32`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -3082,6 +3286,268 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `max`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `min`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `other`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `sgnx`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `cos`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `sin`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `acos`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -3315,6 +3781,46 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `acos`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `f64`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Ident(
@@ -3397,99 +3903,110 @@ Ok(
             34,
             37,
             45,
-            51,
+            56,
             62,
-            69,
-            82,
-            86,
-            89,
+            73,
+            80,
+            93,
             97,
-            103,
-            114,
-            121,
-            134,
-            138,
-            141,
-            149,
-            155,
-            165,
-            172,
-            185,
-            189,
-            192,
-            200,
-            206,
-            217,
-            224,
-            237,
-            241,
+            100,
+            108,
+            119,
+            125,
+            136,
+            143,
+            156,
+            160,
+            163,
+            171,
+            182,
+            193,
+            199,
+            209,
+            216,
+            229,
+            233,
+            236,
             244,
-            252,
-            258,
-            269,
-            276,
-            289,
-            293,
+            250,
+            261,
+            268,
+            281,
+            285,
+            288,
             296,
-            304,
-            310,
-            321,
-            328,
-            341,
-            345,
+            302,
+            313,
+            320,
+            333,
+            337,
+            340,
             348,
-            356,
-            362,
-            373,
-            380,
-            393,
-            397,
+            354,
+            365,
+            372,
+            385,
+            389,
+            392,
             400,
-            408,
-            414,
-            425,
-            432,
-            445,
-            449,
+            406,
+            417,
+            424,
+            437,
+            441,
+            444,
             452,
-            460,
-            466,
-            477,
-            484,
-            497,
-            501,
+            458,
+            469,
+            476,
+            489,
+            493,
+            496,
             504,
-            512,
-            518,
-            529,
-            536,
-            549,
-            553,
+            510,
+            521,
+            528,
+            541,
+            545,
+            548,
             556,
-            564,
-            570,
-            581,
-            588,
-            601,
-            605,
+            562,
+            573,
+            580,
+            593,
+            597,
+            600,
             608,
-            616,
-            622,
-            633,
-            640,
-            653,
-            657,
+            614,
+            625,
+            632,
+            645,
+            649,
+            652,
             660,
-            668,
-            676,
-            682,
-            692,
-            699,
+            666,
+            677,
+            684,
+            697,
+            701,
+            704,
             712,
-            716,
-            719,
-            727,
-            733,
+            720,
+            731,
+            742,
+            750,
+            758,
+            766,
+            774,
+            780,
+            790,
+            797,
+            810,
+            814,
+            817,
+            825,
+            833,
+            839,
         ],
         indents: [
             0,
@@ -3499,12 +4016,6 @@ Ok(
             0,
             0,
             4,
-            0,
-            4,
-            0,
-            0,
-            0,
-            0,
             4,
             0,
             4,
@@ -3513,12 +4024,15 @@ Ok(
             0,
             0,
             4,
+            4,
             0,
             4,
             0,
             0,
             0,
             0,
+            4,
+            4,
             4,
             0,
             4,
@@ -3583,6 +4097,19 @@ Ok(
             0,
             0,
             4,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
             4,
             0,
             4,
@@ -3590,6 +4117,7 @@ Ok(
             0,
             0,
             0,
+            4,
             4,
             0,
             4,

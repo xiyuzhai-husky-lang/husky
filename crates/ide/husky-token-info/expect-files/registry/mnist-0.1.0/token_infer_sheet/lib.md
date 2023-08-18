@@ -82,6 +82,105 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::visual::Visualize`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `new_zeros`,
+                                    item_kind: AssociatedFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        AssociatedFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::SelfType,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 EntityPath::Module(
                     `core`,
                 ),
@@ -181,11 +280,69 @@ Ok(
             TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::visual::Visualize`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`mnist::BinaryGrid28`, `Struct`),
                     ),
                 ),
             ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `mnist`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -200,8 +357,8 @@ Ok(
                                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ident: `new`,
-                                    item_kind: MethodFn,
+                                    ident: `new_zeros`,
+                                    item_kind: AssociatedFn,
                                 },
                                 disambiguator: 0,
                             },
@@ -210,7 +367,7 @@ Ok(
                 ),
                 AssociatedItem {
                     associated_item_kind: TypeItem(
-                        MethodFn,
+                        AssociatedFn,
                     ),
                 },
             ),

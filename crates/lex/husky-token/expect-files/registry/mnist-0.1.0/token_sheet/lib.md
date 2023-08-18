@@ -178,6 +178,118 @@ Ok(
                 Keyword::Impl,
             ),
             Token::Ident(
+                `Visualize`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Html`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Static,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `new_zeros`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfType,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
                 `core`,
             ),
             Token::Punctuation(
@@ -282,6 +394,62 @@ Ok(
                 Keyword::Impl,
             ),
             Token::Ident(
+                `Visualize`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `BinaryGrid28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Html`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
                 `BinaryGrid28`,
             ),
             Token::Punctuation(
@@ -293,12 +461,15 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
+                Keyword::Static,
+            ),
+            Token::Keyword(
                 Keyword::Fugitive(
                     Fn,
                 ),
             ),
             Token::Ident(
-                `new`,
+                `new_zeros`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -426,13 +597,19 @@ Ok(
             23,
             30,
             39,
-            48,
-            52,
-            61,
-            64,
+            44,
+            51,
+            54,
+            63,
             72,
-            81,
+            76,
             85,
+            90,
+            97,
+            100,
+            109,
+            118,
+            122,
         ],
         indents: [
             0,
@@ -451,6 +628,12 @@ Ok(
             0,
             4,
             0,
+            4,
+            0,
+            4,
+            0,
+            0,
+            4,
             0,
             4,
             0,

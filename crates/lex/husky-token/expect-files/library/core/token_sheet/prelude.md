@@ -331,6 +331,39 @@ Ok(
                     PunctuationMapped::Star,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `vec`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -343,8 +376,10 @@ Ok(
             49,
             56,
             63,
+            70,
         ],
         indents: [
+            0,
             0,
             0,
             0,

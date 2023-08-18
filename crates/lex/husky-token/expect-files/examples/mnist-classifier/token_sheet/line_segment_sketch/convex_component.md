@@ -75,8 +75,13 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
             Token::Ident(
-                `CyclicSliceLeashed`,
+                `CyclicSlice`,
             ),
             Token::Ident(
                 `LineSegmentStroke`,
@@ -188,9 +193,9 @@ Ok(
         group_starts: [
             0,
             6,
-            20,
-            25,
-            32,
+            21,
+            26,
+            33,
         ],
         indents: [
             0,

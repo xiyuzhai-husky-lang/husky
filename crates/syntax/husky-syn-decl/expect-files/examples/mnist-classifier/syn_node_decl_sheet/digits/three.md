@@ -388,10 +388,10 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                160,
+                                                165,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -401,7 +401,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        162,
+                                                        167,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -410,7 +410,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                165,
+                                                170,
                                             ),
                                         ),
                                     },
@@ -419,7 +419,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                166,
+                                                171,
                                             ),
                                         ),
                                     ),
@@ -435,7 +435,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                169,
+                                                174,
                                             ),
                                         },
                                     ),
@@ -470,7 +470,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        163,
+                                                        168,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -487,7 +487,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        167,
+                                                        172,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -500,7 +500,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                164,
+                                                                169,
                                                             ),
                                                         },
                                                     ),
@@ -515,7 +515,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                168,
+                                                                173,
                                                             ),
                                                         },
                                                     ),
@@ -538,7 +538,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                161,
+                                                                166,
                                                             ),
                                                         },
                                                     },
@@ -582,7 +582,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            162,
+                                                            167,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -652,10 +652,10 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                197,
+                                                202,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -665,7 +665,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        199,
+                                                        204,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -674,7 +674,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                202,
+                                                207,
                                             ),
                                         ),
                                     },
@@ -683,7 +683,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                203,
+                                                208,
                                             ),
                                         ),
                                     ),
@@ -699,7 +699,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                206,
+                                                211,
                                             ),
                                         },
                                     ),
@@ -734,7 +734,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        200,
+                                                        205,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -751,7 +751,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        204,
+                                                        209,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -764,7 +764,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                201,
+                                                                206,
                                                             ),
                                                         },
                                                     ),
@@ -779,7 +779,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                205,
+                                                                210,
                                                             ),
                                                         },
                                                     ),
@@ -802,7 +802,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                198,
+                                                                203,
                                                             ),
                                                         },
                                                     },
@@ -846,7 +846,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            199,
+                                                            204,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {
@@ -916,10 +916,10 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                234,
+                                                239,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -929,7 +929,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        236,
+                                                        241,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -938,7 +938,7 @@ Ok(
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                239,
+                                                244,
                                             ),
                                         ),
                                     },
@@ -947,7 +947,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                240,
+                                                245,
                                             ),
                                         ),
                                     ),
@@ -963,7 +963,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                243,
+                                                248,
                                             ),
                                         },
                                     ),
@@ -998,7 +998,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        237,
+                                                        242,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -1015,7 +1015,7 @@ Ok(
                                                 SynExpr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        241,
+                                                        246,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -1028,7 +1028,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                238,
+                                                                243,
                                                             ),
                                                         },
                                                     ),
@@ -1043,7 +1043,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                242,
+                                                                247,
                                                             ),
                                                         },
                                                     ),
@@ -1066,7 +1066,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                235,
+                                                                240,
                                                             ),
                                                         },
                                                     },
@@ -1110,7 +1110,7 @@ Ok(
                                                     CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            236,
+                                                            241,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSynSymbolVariant::ParenateRegularParameter {

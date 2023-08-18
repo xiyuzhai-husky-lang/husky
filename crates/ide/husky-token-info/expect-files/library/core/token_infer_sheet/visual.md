@@ -64,6 +64,57 @@ Ok(
                 },
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::visual::Visualize`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `core::visual`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::DeriveAny,
+                                        disambiguator: 0,
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
         ],
     },
 )

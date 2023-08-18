@@ -53,11 +53,11 @@ Ok(
                                     },
                                 },
                                 visibility: Scope::Pub,
-                                ast_idx: 11,
+                                ast_idx: 10,
                                 ident_token: IdentToken {
                                     ident: `ops`,
                                     token_idx: TokenIdx(
-                                        35,
+                                        32,
                                     ),
                                 },
                             },
@@ -191,6 +191,59 @@ Ok(
                 },
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i8`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
@@ -370,6 +423,59 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i16`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i16`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Trait(
@@ -527,6 +633,112 @@ Ok(
                 },
             ),
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `min`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
@@ -2255,6 +2467,264 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `max`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `min`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `sgnx`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `cos`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `sin`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `acos`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Trait(
@@ -2397,6 +2867,44 @@ Ok(
                                         disambiguator: 0,
                                     },
                                     ident: `abs`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f64`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `acos`,
                                     item_kind: MethodFn,
                                 },
                                 disambiguator: 0,

@@ -379,10 +379,11 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
                     MajorItemPath::Type(
-                        TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                        TypePath(`core::slice::CyclicSlice`, `Extern`),
                     ),
                 ),
             ),
@@ -489,6 +490,14 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::visual::Html`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::HtmlFunctionIdent,
@@ -4257,7 +4266,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
@@ -4269,7 +4280,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -4433,7 +4446,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 16,
@@ -4513,7 +4528,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 15,

@@ -56,6 +56,183 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Ident(
+                `Slice`,
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `len`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `usize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `swap`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ambersand,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Modifier(
+                    Mut,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `a`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `usize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `b`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `usize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::At,
+                ),
+            ),
+            Token::Ident(
+                `derive`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Debug`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `Visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Pub,
             ),
             Token::Keyword(
@@ -64,7 +241,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `CyclicSliceLeashed`,
+                `CyclicSlice`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -105,8 +282,81 @@ Ok(
                     PunctuationMapped::RaOrGt,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
             Token::Ident(
-                `CyclicSliceLeashed`,
+                `ops`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `IntIndex`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `CyclicSlice`,
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Type,
+                ),
+            ),
+            Token::Ident(
+                `Output`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Ident(
+                `CyclicSlice`,
             ),
             Token::Ident(
                 `E`,
@@ -341,17 +591,29 @@ Ok(
             0,
             4,
             12,
-            20,
+            19,
             27,
-            35,
-            43,
+            44,
             51,
-            61,
+            59,
+            72,
+            76,
+            83,
+            91,
+            99,
+            107,
+            117,
         ],
         indents: [
             0,
             0,
             0,
+            4,
+            4,
+            0,
+            0,
+            0,
+            4,
             0,
             4,
             4,

@@ -88,18 +88,86 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Visualize`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::At,
+                ),
+            ),
+            Token::Ident(
+                `derive`,
+            ),
+            Token::Ident(
+                `_`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `visualize`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Html`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
         ],
         group_starts: [
             0,
             4,
             8,
             15,
+            19,
+            26,
         ],
         indents: [
             0,
             0,
             4,
             0,
+            0,
+            4,
         ],
     },
 )
