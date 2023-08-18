@@ -14,16 +14,14 @@ impl TypeAssociatedFnHirDefn {
         path: TypeItemPath,
         hir_decl: TypeAssociatedFnHirDecl,
     ) -> TypeAssociatedFnHirDefn {
-        todo!()
-        // let TypeItemHirNodeDefn::AssociatedFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-        //     unreachable!()
-        // };
-        // Ok(TypeAssociatedFnHirDefn::new_inner(
-        //     db,
-        //     path,
-        //     hir_decl,
-        //     syn_node_defn.body(db),
-        //     syn_node_defn.hir_expr_region(db),
-        // ))
+        let Ok(TypeItemSynDefn::AssociatedFn(syn_defn)) = path.syn_defn(db) else {
+            unreachable!()
+        };
+        let mut builder = HirEagerExprBuilder::new(db, syn_defn.syn_expr_region(db));
+        let body = syn_defn
+            .body(db)
+            .map(|body| body.to_hir_eager(&mut builder));
+        let hir_expr_region = builder.finish();
+        TypeAssociatedFnHirDefn::new_inner(db, path, hir_decl, body, hir_expr_region)
     }
 }

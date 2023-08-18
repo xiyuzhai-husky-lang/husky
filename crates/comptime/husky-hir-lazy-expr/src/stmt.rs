@@ -108,16 +108,16 @@ impl ToHirLazy for SynStmtIdxRange {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let mut syn_stmt_indices: Vec<SynStmtIdx> = vec![];
-        let mut hir_eager_stmts: Vec<HirLazyStmt> = vec![];
+        let mut hir_lazy_stmts: Vec<HirLazyStmt> = vec![];
         for syn_stmt_idx in self {
             match syn_stmt_idx.to_hir_lazy(builder) {
-                Some(hir_eager_stmt) => {
+                Some(hir_lazy_stmt) => {
                     syn_stmt_indices.push(syn_stmt_idx);
-                    hir_eager_stmts.push(hir_eager_stmt)
+                    hir_lazy_stmts.push(hir_lazy_stmt)
                 }
                 None => todo!(),
             }
         }
-        builder.alloc_stmts(syn_stmt_indices, hir_eager_stmts)
+        builder.alloc_stmts(syn_stmt_indices, hir_lazy_stmts)
     }
 }

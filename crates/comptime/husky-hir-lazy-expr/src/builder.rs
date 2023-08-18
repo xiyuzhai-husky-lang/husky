@@ -1,7 +1,8 @@
 use crate::*;
-use husky_expr_ty::ExprTypeRegion;
+use husky_expr_ty::{ExprTypeRegion, SynExprDisambiguation};
 use husky_fluffy_term::FluffyTermBase;
 use husky_syn_expr::{SynExprIdx, SynExprRegion, SynExprRegionData, SynStmtIdx};
+use salsa::DebugWithDb;
 
 pub struct HirLazyExprBuilder<'a> {
     db: &'a dyn HirLazyExprDb,
@@ -16,11 +17,11 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub fn new(db: &'a dyn HirLazyExprDb, syn_expr_region: SynExprRegion) -> Self {
         Self {
             db,
-            syn_expr_region_data: todo!(),
-            expr_ty_region: todo!(),
-            expr_arena: todo!(),
-            stmt_arena: todo!(),
-            pattern_expr_arena: todo!(),
+            syn_expr_region_data: syn_expr_region.data(db),
+            expr_ty_region: db.expr_ty_region(syn_expr_region),
+            expr_arena: Default::default(),
+            stmt_arena: Default::default(),
+            pattern_expr_arena: Default::default(),
         }
     }
 
@@ -41,10 +42,10 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub(crate) fn alloc_expr(
         &mut self,
         syn_expr_idx: SynExprIdx,
-        hir_eager_expr: HirLazyExpr,
+        hir_lazy_expr: HirLazyExpr,
     ) -> HirLazyExprIdx {
         // todo: record syn_expr_idx in source map
-        self.expr_arena.alloc_one(hir_eager_expr)
+        self.expr_arena.alloc_one(hir_lazy_expr)
     }
 
     pub(crate) fn alloc_pattern_expr(
@@ -57,6 +58,31 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub fn db(&self) -> &'a dyn HirLazyExprDb {
         self.db
+    }
+
+    pub(crate) fn path(&self) -> String {
+        format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
+    }
+
+    #[track_caller]
+    pub(crate) fn expr_disambiguation(
+        &self,
+        syn_expr_idx: SynExprIdx,
+    ) -> &'a SynExprDisambiguation {
+        let Some(Ok(disambiguation)) = self.expr_ty_region.expr_disambiguation(syn_expr_idx) else {
+            unreachable!(
+                r#"
+    syn_expr = {:?},
+    path = {:?},
+    self.expr_ty_region.expr_disambiguation(syn_expr_idx) = {:#?}"#,
+                self.syn_expr_region_data[syn_expr_idx].debug(self.db),
+                self.path(),
+                self.expr_ty_region
+                    .expr_disambiguation(syn_expr_idx)
+                    .debug(self.db)
+            )
+        };
+        disambiguation
     }
 
     pub(crate) fn expr_term(&self, syn_expr_idx: SynExprIdx) -> EtherealTerm {

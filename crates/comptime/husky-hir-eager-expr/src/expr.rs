@@ -1,3 +1,5 @@
+mod call_list;
+
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_expr_ty::{
@@ -51,9 +53,9 @@ pub enum HirEagerExpr {
         opd: HirEagerExprIdx,
         opr: SuffixOpr,
     },
-    FunctionCall {
+    FnCall {
         function: HirEagerExprIdx,
-        generic_arguments: Option<HirGenericArgumentList>,
+        generic_arguments: Option<HirEagerGenericArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     Field {
@@ -63,7 +65,7 @@ pub enum HirEagerExpr {
     MethodCall {
         self_argument: HirEagerExprIdx,
         ident: Ident,
-        generic_arguments: Option<HirGenericArgumentList>,
+        generic_arguments: Option<HirEagerGenericArgumentList>,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -95,30 +97,6 @@ pub enum HirEagerCallListItemGroup {
     Regular(HirEagerExprIdx),
     Variadic,
     Keyed,
-}
-
-impl<'a> HirEagerExprBuilder<'a> {
-    fn new_call_list_item_groups(
-        &mut self,
-        pams: &[RitchieParameterArgumentMatch],
-    ) -> SmallVec<[HirEagerCallListItemGroup; 4]> {
-        pams.iter()
-            .map(|pam| self.new_call_list_item_group(pam))
-            .collect()
-    }
-
-    fn new_call_list_item_group(
-        &mut self,
-        pam: &RitchieParameterArgumentMatch,
-    ) -> HirEagerCallListItemGroup {
-        match pam {
-            RitchieParameterArgumentMatch::Regular(_, item) => {
-                HirEagerCallListItemGroup::Regular(item.argument_expr_idx().to_hir_eager(self))
-            }
-            RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
-            RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -154,7 +132,7 @@ impl vec_like::AsVecMapEntry for HtmlArgumentHirEagerExpr {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct HirGenericArgumentList {/*todo */}
+pub struct HirEagerGenericArgumentList {/*todo */}
 
 #[cfg(feature = "rust-syn-gen")]
 impl Expr {}
@@ -254,7 +232,7 @@ impl ToHirEager for SynExprIdx {
                 ref items,
                 rpar_token_idx,
             } => {
-                let SynExprDisambiguation::ExplicitApplicationOrFunctionCall(disambiguation) =
+                let SynExprDisambiguation::ApplicationOrFunctionCall(disambiguation) =
                     builder.expr_disambiguation(*self)
                 else {
                     unreachable!()
@@ -265,7 +243,7 @@ impl ToHirEager for SynExprIdx {
                     }
                     ApplicationOrFunctionCallExprDisambiguation::FnCall {
                         ritchie_parameter_argument_matches,
-                    } => HirEagerExpr::FunctionCall {
+                    } => HirEagerExpr::FnCall {
                         function: function.to_hir_eager(builder),
                         generic_arguments: generic_arguments.as_ref().map(|_| todo!()),
                         item_groups: builder

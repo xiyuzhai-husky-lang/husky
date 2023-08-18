@@ -771,7 +771,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::Application,
                         ),
                         Ok(
