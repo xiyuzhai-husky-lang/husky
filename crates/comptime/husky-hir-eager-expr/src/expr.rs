@@ -1,4 +1,8 @@
 mod call_list;
+mod html;
+
+pub use self::call_list::*;
+pub use self::html::*;
 
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
@@ -9,6 +13,7 @@ use husky_expr_ty::{
 use husky_fluffy_term::StaticDispatch;
 use husky_syn_expr::{SynExpr, SynExprIdx, SynStmtIdx};
 use salsa::debug::ExpectWithDb;
+use vec_like::VecMap;
 
 pub type HirEagerExprArena = Arena<HirEagerExpr>;
 pub type HirEagerExprIdx = ArenaIdx<HirEagerExpr>;
@@ -85,50 +90,10 @@ pub enum HirEagerExpr {
     // todo: handle container
     EmptyHtmlTag {
         function_ident: Ident,
-        arguments: IdentMap<HtmlArgumentHirEagerExpr>,
+        arguments: IdentMap<HirEagerHtmlArgumentExpr>,
     },
     Todo,
     AssociatedFn,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[enum_class::from_variants]
-pub enum HirEagerCallListItemGroup {
-    Regular(HirEagerExprIdx),
-    Variadic,
-    Keyed,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum HtmlArgumentHirEagerExpr {
-    Expanded {
-        property_ident: Ident,
-        expr: HirEagerExprIdx,
-    },
-    Shortened {
-        property_ident: Ident,
-    },
-}
-
-impl vec_like::AsVecMapEntry for HtmlArgumentHirEagerExpr {
-    type K = Ident;
-
-    fn key(&self) -> Self::K
-    where
-        Self::K: Copy,
-    {
-        match self {
-            HtmlArgumentHirEagerExpr::Expanded { property_ident, .. }
-            | HtmlArgumentHirEagerExpr::Shortened { property_ident, .. } => *property_ident,
-        }
-    }
-
-    fn key_ref(&self) -> &Self::K {
-        match self {
-            HtmlArgumentHirEagerExpr::Expanded { property_ident, .. }
-            | HtmlArgumentHirEagerExpr::Shortened { property_ident, .. } => property_ident,
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -381,7 +346,16 @@ impl ToHirEager for SynExprIdx {
                 function_ident,
                 ref arguments,
                 empty_html_ket,
-            } => todo!(),
+            } => HirEagerExpr::EmptyHtmlTag {
+                function_ident: function_ident.ident(),
+                arguments: unsafe {
+                    VecMap::from_iter_assuming_no_repetitions_unchecked(
+                        arguments
+                            .iter()
+                            .map(|argument| argument.to_hir_eager(builder)),
+                    )
+                },
+            },
             SynExpr::Sorry { token_idx } => todo!(),
             SynExpr::Todo { token_idx } => HirEagerExpr::Todo,
             SynExpr::Err(ref e) => {

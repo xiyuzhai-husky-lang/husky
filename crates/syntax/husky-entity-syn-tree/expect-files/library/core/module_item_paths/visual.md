@@ -29,7 +29,7 @@ Ok(
                         ty_sketch: TypeSketch::DeriveAny,
                         disambiguator: 0,
                     },
-                    ident: `clone`,
+                    ident: `visualize`,
                     item_kind: MethodFn,
                 },
             ),

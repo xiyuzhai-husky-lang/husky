@@ -203,7 +203,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -412,7 +418,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 41,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -460,7 +472,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 42,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Ident(
@@ -615,7 +633,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 43,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -663,7 +687,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 44,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -746,7 +776,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Ident(
@@ -866,7 +902,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 46,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -908,7 +950,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 47,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1018,7 +1066,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 48,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1142,7 +1196,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 49,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1178,7 +1238,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 50,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1245,7 +1311,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 51,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(

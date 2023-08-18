@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 276,
+                                                                value: 282,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 248,
+                                                                value: 258,
                                                             },
                                                         ),
                                                     ),
@@ -240,7 +240,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 276,
+                                                                    value: 282,
                                                                 },
                                                             ),
                                                         ),
@@ -257,7 +257,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 248,
+                                                                    value: 258,
                                                                 },
                                                             ),
                                                         ),
@@ -392,7 +392,7 @@ Ok(
                                                 412,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -730,7 +730,7 @@ Ok(
                                                 437,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -1068,7 +1068,7 @@ Ok(
                                                 458,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -1406,7 +1406,7 @@ Ok(
                                                 483,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -1836,7 +1836,7 @@ Ok(
                                                 614,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -2174,7 +2174,7 @@ Ok(
                                                 675,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -2703,7 +2703,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 320,
+                                                                value: 324,
                                                             },
                                                         ),
                                                     ),
@@ -2726,7 +2726,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 321,
+                                                                value: 325,
                                                             },
                                                         ),
                                                     ),
@@ -2877,7 +2877,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 320,
+                                                                    value: 324,
                                                                 },
                                                             ),
                                                         ),
@@ -2894,7 +2894,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 321,
+                                                                    value: 325,
                                                                 },
                                                             ),
                                                         ),
@@ -2945,7 +2945,7 @@ Ok(
                                                 889,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -3208,7 +3208,7 @@ Ok(
                                                 955,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -3708,7 +3708,7 @@ Ok(
                                                 45,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
@@ -5186,7 +5186,7 @@ Ok(
                                                 350,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {

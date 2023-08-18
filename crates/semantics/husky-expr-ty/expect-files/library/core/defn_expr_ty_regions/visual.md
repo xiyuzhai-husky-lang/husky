@@ -12,7 +12,7 @@
                                     ty_sketch: TypeSketch::DeriveAny,
                                     disambiguator: 0,
                                 },
-                                ident: `clone`,
+                                ident: `visualize`,
                                 item_kind: MethodFn,
                             },
                             disambiguator: 0,
@@ -54,7 +54,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`t`),
+            EtherealTerm(`Html`),
         ),
         self_ty: Some(
             EtherealTerm(`t`),

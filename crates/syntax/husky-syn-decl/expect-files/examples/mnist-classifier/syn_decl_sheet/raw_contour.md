@@ -180,7 +180,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 276,
+                                                                    value: 282,
                                                                 },
                                                             ),
                                                         ),
@@ -197,7 +197,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 248,
+                                                                    value: 258,
                                                                 },
                                                             ),
                                                         ),
@@ -2383,7 +2383,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 320,
+                                                                    value: 324,
                                                                 },
                                                             ),
                                                         ),
@@ -2400,7 +2400,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 321,
+                                                                    value: 325,
                                                                 },
                                                             ),
                                                         ),
@@ -3042,7 +3042,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
@@ -4292,7 +4292,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

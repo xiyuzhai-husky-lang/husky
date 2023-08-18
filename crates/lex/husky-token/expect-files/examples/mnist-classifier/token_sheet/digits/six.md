@@ -535,6 +535,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
@@ -594,6 +599,11 @@ Ok(
             ),
             Token::Ident(
                 `upmost_match`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -672,7 +682,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 52,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -714,7 +730,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 53,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -732,7 +754,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 54,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Ident(
@@ -839,6 +867,11 @@ Ok(
             ),
             Token::Ident(
                 `upmost_match`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -990,7 +1023,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 55,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1110,7 +1149,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 56,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1141,7 +1186,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 57,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1183,6 +1234,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
@@ -1218,7 +1274,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 58,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1308,6 +1370,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Exclamation,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Dot,
                 ),
             ),
@@ -1343,7 +1410,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 59,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1361,7 +1434,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 60,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Ident(
@@ -1496,7 +1575,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 61,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Ident(
@@ -1634,7 +1719,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 62,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1721,7 +1812,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 63,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1769,7 +1866,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 64,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1874,7 +1977,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 65,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1932,40 +2041,40 @@ Ok(
             88,
             103,
             112,
-            120,
-            126,
-            136,
-            142,
-            148,
-            153,
-            158,
-            162,
-            171,
-            175,
-            190,
-            210,
-            217,
-            221,
-            225,
-            236,
-            243,
-            249,
-            264,
-            274,
-            289,
-            293,
-            296,
-            308,
-            316,
-            322,
-            325,
-            337,
-            345,
-            353,
-            369,
-            379,
-            396,
-            402,
+            121,
+            127,
+            138,
+            144,
+            150,
+            155,
+            160,
+            164,
+            173,
+            177,
+            193,
+            213,
+            220,
+            224,
+            228,
+            239,
+            246,
+            252,
+            268,
+            278,
+            294,
+            298,
+            301,
+            313,
+            321,
+            327,
+            330,
+            342,
+            350,
+            358,
+            374,
+            384,
+            401,
+            407,
         ],
         indents: [
             0,

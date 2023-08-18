@@ -127,6 +127,7 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::SubmoduleIdent => format!("submodule ident"),
             TokenInfo::UnitLeftParenthesis => format!("unit `(`"),
             TokenInfo::UnitRightParenthesis => format!("unit `)`"),
+            TokenInfo::Todo => format!(""),
         };
         format!(
             r#"

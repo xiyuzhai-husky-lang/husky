@@ -1,6 +1,6 @@
 Ok(
     SynNodeDeclSheet {
-        [salsa id]: 9,
+        [salsa id]: 8,
         decls: [
             (
                 ItemSynNodePath::MajorItem(

@@ -62,15 +62,6 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
-                `list`,
-            ),
-            Token::Keyword(
-                Keyword::Pub,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
                 `logic`,
             ),
             Token::Keyword(
@@ -144,6 +135,15 @@ Ok(
             ),
             Token::Ident(
                 `result`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `vec`,
             ),
             Token::Keyword(
                 Keyword::Pub,

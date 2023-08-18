@@ -491,7 +491,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(

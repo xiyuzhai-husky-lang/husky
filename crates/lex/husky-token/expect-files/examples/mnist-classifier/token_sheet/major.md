@@ -153,7 +153,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 123,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -352,7 +358,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 124,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(

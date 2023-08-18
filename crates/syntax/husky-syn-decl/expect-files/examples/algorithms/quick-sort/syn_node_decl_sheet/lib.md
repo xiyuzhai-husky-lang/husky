@@ -23,7 +23,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 30,
+                                ast_idx: 26,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -75,7 +75,7 @@ Ok(
                                                 8,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -347,7 +347,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 31,
+                                ast_idx: 27,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -399,7 +399,7 @@ Ok(
                                                 47,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -846,7 +846,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 32,
+                                ast_idx: 28,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -898,7 +898,7 @@ Ok(
                                                 108,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {
@@ -1384,7 +1384,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 34,
+                                ast_idx: 30,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -1395,7 +1395,7 @@ Ok(
                                                 228,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
@@ -1501,7 +1501,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 36,
+                                ast_idx: 32,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -1509,16 +1509,16 @@ Ok(
                                     RitchieParameters {
                                         lpar: LparToken(
                                             TokenIdx(
-                                                290,
+                                                265,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
                                         rpar: RparToken(
                                             TokenIdx(
-                                                291,
+                                                266,
                                             ),
                                         ),
                                     },
@@ -1533,7 +1533,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                292,
+                                                267,
                                             ),
                                         },
                                     ),

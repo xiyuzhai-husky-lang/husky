@@ -58,7 +58,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `clone`,
+                        ident: `visualize`,
                         token_idx: TokenIdx(
                             27,
                         ),

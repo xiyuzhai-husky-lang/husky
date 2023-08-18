@@ -95,21 +95,6 @@ Ok(
             (
                 ItemPath::Submodule(
                     SubmodulePath(
-                        `core::list`,
-                    ),
-                ),
-                Decl::Submodule(
-                    SubmoduleSynDecl {
-                        path: SubmodulePath(
-                            `core::list`,
-                        ),
-                        ast_idx: 6,
-                    },
-                ),
-            ),
-            (
-                ItemPath::Submodule(
-                    SubmodulePath(
                         `core::logic`,
                     ),
                 ),
@@ -118,7 +103,7 @@ Ok(
                         path: SubmodulePath(
                             `core::logic`,
                         ),
-                        ast_idx: 7,
+                        ast_idx: 6,
                     },
                 ),
             ),
@@ -133,7 +118,7 @@ Ok(
                         path: SubmodulePath(
                             `core::marker`,
                         ),
-                        ast_idx: 8,
+                        ast_idx: 7,
                     },
                 ),
             ),
@@ -148,7 +133,7 @@ Ok(
                         path: SubmodulePath(
                             `core::mem`,
                         ),
-                        ast_idx: 9,
+                        ast_idx: 8,
                     },
                 ),
             ),
@@ -163,7 +148,7 @@ Ok(
                         path: SubmodulePath(
                             `core::num`,
                         ),
-                        ast_idx: 10,
+                        ast_idx: 9,
                     },
                 ),
             ),
@@ -178,7 +163,7 @@ Ok(
                         path: SubmodulePath(
                             `core::ops`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 10,
                     },
                 ),
             ),
@@ -193,7 +178,7 @@ Ok(
                         path: SubmodulePath(
                             `core::option`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 11,
                     },
                 ),
             ),
@@ -208,7 +193,7 @@ Ok(
                         path: SubmodulePath(
                             `core::prelude`,
                         ),
-                        ast_idx: 13,
+                        ast_idx: 12,
                     },
                 ),
             ),
@@ -223,7 +208,7 @@ Ok(
                         path: SubmodulePath(
                             `core::raw_bits`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 13,
                     },
                 ),
             ),
@@ -237,6 +222,21 @@ Ok(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `core::result`,
+                        ),
+                        ast_idx: 14,
+                    },
+                ),
+            ),
+            (
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::vec`,
+                    ),
+                ),
+                Decl::Submodule(
+                    SubmoduleSynDecl {
+                        path: SubmodulePath(
+                            `core::vec`,
                         ),
                         ast_idx: 15,
                     },

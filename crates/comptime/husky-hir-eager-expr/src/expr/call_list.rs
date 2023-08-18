@@ -1,5 +1,13 @@
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[enum_class::from_variants]
+pub enum HirEagerCallListItemGroup {
+    Regular(HirEagerExprIdx),
+    Variadic,
+    Keyed,
+}
+
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_call_list_item_groups(
         &mut self,

@@ -88,27 +88,70 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FluffyTermError(
-                            FluffyTermError::Todo,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 36,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Html`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         SynExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::BlockTypeError,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Html`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -170,6 +213,76 @@
                                     ),
                                 },
                                 resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Html`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Html`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Html`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],

@@ -363,7 +363,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 113,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -497,7 +503,13 @@ Ok(
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 114,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Punctuation(

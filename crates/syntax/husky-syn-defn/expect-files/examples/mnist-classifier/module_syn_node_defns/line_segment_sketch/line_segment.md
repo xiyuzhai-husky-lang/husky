@@ -40,7 +40,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 50,
+                                                            value: 146,
                                                         },
                                                     ),
                                                 ),
@@ -63,7 +63,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 51,
+                                                            value: 147,
                                                         },
                                                     ),
                                                 ),
@@ -214,7 +214,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 50,
+                                                                value: 146,
                                                             },
                                                         ),
                                                     ),
@@ -231,7 +231,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 51,
+                                                                value: 147,
                                                             },
                                                         ),
                                                     ),
@@ -459,7 +459,7 @@ Ok(
                                             24,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [],
                                     commas: [],
@@ -1078,7 +1078,7 @@ Ok(
                                             41,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterDecl::Regular {
@@ -1804,7 +1804,13 @@ Ok(
                                                 76,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 35,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -1949,7 +1955,13 @@ Ok(
                                                 104,
                                             ),
                                             Literal::Float(
-                                                Unspecified,
+                                                Unspecified(
+                                                    UnspecifiedFloatLiteral(
+                                                        Id {
+                                                            value: 36,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                         SynExpr::Binary {
@@ -2155,7 +2167,7 @@ Ok(
                                             initial_value: 16,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         96,
@@ -2173,7 +2185,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -2181,7 +2193,7 @@ Ok(
                                             },
                                             elif_branches: [],
                                             else_branch: Some(
-                                                ElseBranch {
+                                                SynElseBranch {
                                                     else_token: ElseToken {
                                                         token_idx: TokenIdx(
                                                             111,
@@ -2196,7 +2208,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    block: Ok(
+                                                    stmts: Ok(
                                                         ArenaIdxRange(
                                                             2..3,
                                                         ),
@@ -2259,7 +2271,7 @@ Ok(
                                             initial_value: 5,
                                         },
                                         SynStmt::IfElse {
-                                            if_branch: IfBranch {
+                                            if_branch: SynIfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
                                                         68,
@@ -2277,7 +2289,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                block: Ok(
+                                                stmts: Ok(
                                                     ArenaIdxRange(
                                                         0..1,
                                                     ),
@@ -2285,7 +2297,7 @@ Ok(
                                             },
                                             elif_branches: [],
                                             else_branch: Some(
-                                                ElseBranch {
+                                                SynElseBranch {
                                                     else_token: ElseToken {
                                                         token_idx: TokenIdx(
                                                             83,
@@ -2300,7 +2312,7 @@ Ok(
                                                             },
                                                         ),
                                                     ),
-                                                    block: Ok(
+                                                    stmts: Ok(
                                                         ArenaIdxRange(
                                                             3..5,
                                                         ),

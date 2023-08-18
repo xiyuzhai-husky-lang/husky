@@ -746,7 +746,7 @@ Ok(
                                                         72,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSynSymbolVariant::ExplicitVariadicParameter {
+                                                    variant: CurrentSynSymbolVariant::ParenateVariadicParameter {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `f`,
@@ -1102,7 +1102,7 @@ Ok(
                                                                 72,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSynSymbolVariant::ExplicitVariadicParameter {
+                                                            variant: CurrentSynSymbolVariant::ParenateVariadicParameter {
                                                                 symbol_modifier_keyword_group: None,
                                                                 ident_token: IdentToken {
                                                                     ident: `f`,

@@ -47,6 +47,7 @@ pub enum SemanticToken {
     HtmlFunctionIdent,
     HtmlPropertyIdent,
     SubmoduleIdent,
+    Todo,
 }
 
 impl SemanticToken {
@@ -125,6 +126,7 @@ impl SemanticToken {
             SemanticToken::HtmlFunctionIdent => ext::SemanticTokenType::FUNCTION,
             SemanticToken::HtmlPropertyIdent => ext::SemanticTokenType::PROPERTY,
             SemanticToken::SubmoduleIdent => ext::SemanticTokenType::NAMESPACE,
+            SemanticToken::Todo => ext::SemanticTokenType::MACRO,
         })
     }
 

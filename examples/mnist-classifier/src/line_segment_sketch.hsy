@@ -18,7 +18,7 @@ pub struct LineSegmentStroke {
 }
 
 impl Visualize for LineSegmentStroke:
-    fn visualize():
+    fn visualize() -> Html:
         <LineSegment start = {self.start} end = {self.end} />
 
 impl LineSegmentStroke:

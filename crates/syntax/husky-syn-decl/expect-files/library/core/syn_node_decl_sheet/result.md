@@ -1,6 +1,6 @@
 Ok(
     SynNodeDeclSheet {
-        [salsa id]: 16,
+        [salsa id]: 15,
         decls: [
             (
                 ItemSynNodePath::MajorItem(
@@ -1404,7 +1404,7 @@ Ok(
                                                 56,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {

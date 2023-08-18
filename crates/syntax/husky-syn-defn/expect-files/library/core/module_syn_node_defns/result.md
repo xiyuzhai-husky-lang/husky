@@ -1998,7 +1998,7 @@ Ok(
                                             56,
                                         ),
                                     ),
-                                    self_parameter: None,
+                                    self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
                                         SpecificParameterDecl::Regular {
@@ -3416,16 +3416,11 @@ Ok(
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        SynExpr::Err(
-                                            ExprError::Original(
-                                                OriginalExprError::UnrecognizedIdent {
-                                                    token_idx: TokenIdx(
-                                                        68,
-                                                    ),
-                                                    ident: `todo`,
-                                                },
+                                        SynExpr::Todo {
+                                            token_idx: TokenIdx(
+                                                68,
                                             ),
-                                        ),
+                                        },
                                         SynExpr::Block {
                                             stmts: ArenaIdxRange(
                                                 0..1,

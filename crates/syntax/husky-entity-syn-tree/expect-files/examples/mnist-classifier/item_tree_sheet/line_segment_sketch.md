@@ -213,7 +213,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    172,
+                                    174,
                                 ),
                             },
                             block: Type {
@@ -257,7 +257,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    371,
+                                    373,
                                 ),
                             },
                             block: Fugitive {
@@ -309,7 +309,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    468,
+                                    470,
                                 ),
                             },
                             block: Fugitive {
@@ -361,7 +361,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    565,
+                                    567,
                                 ),
                             },
                             block: Fugitive {
@@ -413,7 +413,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    798,
+                                    800,
                                 ),
                             },
                             block: Fugitive {
@@ -465,7 +465,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1064,
+                                    1066,
                                 ),
                             },
                             block: Fugitive {
@@ -683,7 +683,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    172,
+                                    174,
                                 ),
                             },
                             block: Type {
@@ -722,7 +722,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    371,
+                                    373,
                                 ),
                             },
                             block: Fugitive {
@@ -767,7 +767,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    468,
+                                    470,
                                 ),
                             },
                             block: Fugitive {
@@ -812,7 +812,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    565,
+                                    567,
                                 ),
                             },
                             block: Fugitive {
@@ -857,7 +857,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    798,
+                                    800,
                                 ),
                             },
                             block: Fugitive {
@@ -902,7 +902,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1064,
+                                    1066,
                                 ),
                             },
                             block: Fugitive {
@@ -1552,7 +1552,7 @@ Ok(
                         ast_idx: 171,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                111,
+                                113,
                             ),
                         },
                         ty_expr: 13,
@@ -1592,12 +1592,12 @@ Ok(
                         ast_idx: 173,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                186,
+                                188,
                             ),
                         },
                         trai_expr: 14,
                         for_token: TokenIdx(
-                            188,
+                            190,
                         ),
                         ty_sketch_expr: Path(
                             15,
@@ -1636,7 +1636,7 @@ Ok(
                         ast_idx: 174,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                205,
+                                207,
                             ),
                         },
                         ty_expr: 16,

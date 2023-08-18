@@ -6,19 +6,21 @@ use thiserror::Error;
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
 pub enum FluffyTermError {
-    #[error("todo")]
-    Todo,
+    #[error("ethereal signature")]
+    EtherealSignature(EtherealSignatureError),
+    #[error("ethereal term")]
+    EtherealTerm(EtherealTermError),
 }
 
 impl From<EtherealSignatureError> for FluffyTermError {
-    fn from(value: EtherealSignatureError) -> Self {
-        FluffyTermError::Todo
+    fn from(e: EtherealSignatureError) -> Self {
+        FluffyTermError::EtherealSignature(e)
     }
 }
 
 impl From<EtherealTermError> for FluffyTermError {
     fn from(e: EtherealTermError) -> Self {
-        FluffyTermError::Todo
+        FluffyTermError::EtherealTerm(e)
     }
 }
 

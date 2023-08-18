@@ -120,12 +120,20 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -163,7 +171,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -224,12 +232,20 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -267,7 +283,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -328,12 +344,20 @@ Ok(
                 syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },
@@ -371,7 +395,7 @@ Ok(
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSynSymbolKind::FrameVariable(
-                    3,
+                    4,
                 ),
                 syn_expr_region: ExprRegionLeash(_),
             },

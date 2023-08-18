@@ -193,7 +193,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -797,6 +797,1862 @@ Ok(
                                                 },
                                             },
                                         ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `ctz`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `ctz`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::raw_bits`,
+                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `r32`,
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::raw_bits`,
+                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `ctz`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            48,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::raw_bits`,
+                                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `r32`,
+                                                                            token_idx: TokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::raw_bits`,
+                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `ctz`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    48,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `ctz`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `co`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `co`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::raw_bits`,
+                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `r32`,
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::raw_bits`,
+                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `co`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            56,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::raw_bits`,
+                                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `r32`,
+                                                                            token_idx: TokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::raw_bits`,
+                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `co`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    56,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `co`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `span`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `span`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::raw_bits`,
+                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `r32`,
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::raw_bits`,
+                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `span`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            64,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::raw_bits`,
+                                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `r32`,
+                                                                            token_idx: TokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::raw_bits`,
+                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `span`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    64,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `span`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: True,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        SynDefn::AssociatedItem(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
+                    TypeMethodFnSynDefn {
+                        path: TypeItemPath {
+                            impl_block: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ident: `right_mass`,
+                            item_kind: MethodFn,
+                        },
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath {
+                                impl_block: TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                                ident: `right_mass`,
+                                item_kind: MethodFn,
+                            },
+                            template_parameters: [],
+                            self_value_parameter: None,
+                            parenate_parameters: [],
+                            return_ty: Some(
+                                ReturnTypeExprBeforeColon {
+                                    expr: 0,
+                                },
+                            ),
+                            syn_expr_region: SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: Some(
+                                        SynExprRegion {
+                                            data: SynExprRegionData {
+                                                parent: None,
+                                                path: RegionPath::Decl(
+                                                    ItemSynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
+                                                                path: TypeImplBlockPath {
+                                                                    module_path: `core::raw_bits`,
+                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        SynExpr::PrincipalEntityPath {
+                                                            item_path_expr: 0,
+                                                            opt_path: Some(
+                                                                PrincipalEntityPath::MajorItem(
+                                                                    MajorItemPath::Type(
+                                                                        TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                principal_item_path_expr_arena: Arena {
+                                                    data: [
+                                                        PrincipalEntityPathExpr::Root {
+                                                            path_name_token: PathNameToken::Ident(
+                                                                IdentToken {
+                                                                    ident: `r32`,
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                            principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: SynPatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SynSymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: False,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    SynExprRoot {
+                                                        kind: SelfType,
+                                                        expr_idx: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                    path: RegionPath::Decl(
+                                        ItemSynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath {
+                                                            impl_block: TypeImplBlockPath {
+                                                                module_path: `core::raw_bits`,
+                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                            ident: `right_mass`,
+                                                            item_kind: MethodFn,
+                                                        },
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExpr::PrincipalEntityPath {
+                                                item_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `i32`,
+                                                        token_idx: TokenIdx(
+                                                            72,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_infos: [],
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    symbol_region: SynSymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: True,
+                                        allow_self_value: True,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    roots: [
+                                        SynExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 0,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: None,
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: Some(
+                                    SynExprRegion {
+                                        data: SynExprRegionData {
+                                            parent: Some(
+                                                SynExprRegion {
+                                                    data: SynExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            ItemSynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
+                                                                        path: TypeImplBlockPath {
+                                                                            module_path: `core::raw_bits`,
+                                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                SynExpr::PrincipalEntityPath {
+                                                                    item_path_expr: 0,
+                                                                    opt_path: Some(
+                                                                        PrincipalEntityPath::MajorItem(
+                                                                            MajorItemPath::Type(
+                                                                                TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        principal_item_path_expr_arena: Arena {
+                                                            data: [
+                                                                PrincipalEntityPathExpr::Root {
+                                                                    path_name_token: PathNameToken::Ident(
+                                                                        IdentToken {
+                                                                            ident: `r32`,
+                                                                            token_idx: TokenIdx(
+                                                                                29,
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                                        MajorItemPath::Type(
+                                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: SynPatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SynSymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            SynExprRoot {
+                                                                kind: SelfType,
+                                                                expr_idx: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                ItemSynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypeItemPath {
+                                                                    impl_block: TypeImplBlockPath {
+                                                                        module_path: `core::raw_bits`,
+                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                    ident: `right_mass`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    SynExpr::PrincipalEntityPath {
+                                                        item_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::MajorItem(
+                                                                MajorItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            principal_item_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `i32`,
+                                                                token_idx: TokenIdx(
+                                                                    72,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                            MajorItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SynSymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                SynExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    ItemSynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath {
+                                                        impl_block: TypeImplBlockPath {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                        ident: `right_mass`,
+                                                        item_kind: MethodFn,
+                                                    },
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SynSymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [],
                                     },
                                     current_symbol_arena: Arena {
                                         data: [],

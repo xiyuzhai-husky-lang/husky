@@ -1,6 +1,6 @@
 Ok(
     SynDeclSheet {
-        [salsa id]: 16,
+        [salsa id]: 15,
         decls: [
             (
                 ItemPath::MajorItem(
@@ -1215,7 +1215,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

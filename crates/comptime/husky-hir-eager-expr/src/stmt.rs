@@ -10,6 +10,7 @@ use husky_syn_expr::{
     SynForBetweenParticulars, SynForBetweenRange, SynStmt, SynStmtIdx, SynStmtIdxRange,
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use salsa::debug::ExpectWithDb;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HirEagerStmt {
@@ -137,10 +138,9 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
             },
             SynStmt::While {
-                while_token,
                 ref condition,
-                ref eol_colon,
                 ref block,
+                ..
             } => HirEagerStmt::While {
                 condition: condition
                     .as_ref()
@@ -152,12 +152,19 @@ impl ToHirEager for SynStmtIdx {
                     .to_hir_eager(builder),
             },
             SynStmt::DoWhile {
-                do_token,
-                while_token,
                 ref condition,
-                ref eol_colon,
                 ref block,
-            } => todo!(),
+                ..
+            } => HirEagerStmt::DoWhile {
+                condition: condition
+                    .as_ref()
+                    .expect("hir stage no errors")
+                    .to_hir_eager(builder),
+                block: block
+                    .as_ref()
+                    .expect("hir stage no errors")
+                    .to_hir_eager(builder),
+            },
             SynStmt::IfElse {
                 ref if_branch,
                 ref elif_branches,
@@ -172,7 +179,7 @@ impl ToHirEager for SynStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_eager(builder)),
             },
-            SynStmt::Match { match_token } => todo!(),
+            SynStmt::Match { match_token } => HirEagerStmt::Match {},
             SynStmt::Err(_) => todo!(),
         })
     }

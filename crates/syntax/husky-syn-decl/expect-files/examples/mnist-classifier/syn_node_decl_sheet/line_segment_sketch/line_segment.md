@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 50,
+                                                                value: 146,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 51,
+                                                                value: 147,
                                                             },
                                                         ),
                                                     ),
@@ -220,7 +220,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 50,
+                                                                    value: 146,
                                                                 },
                                                             ),
                                                         ),
@@ -237,7 +237,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 51,
+                                                                    value: 147,
                                                                 },
                                                             ),
                                                         ),
@@ -482,7 +482,7 @@ Ok(
                                                 24,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [],
                                         commas: [],
@@ -776,7 +776,7 @@ Ok(
                                                 41,
                                             ),
                                         ),
-                                        self_parameter: None,
+                                        self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
                                             SpecificParameterDecl::Regular {

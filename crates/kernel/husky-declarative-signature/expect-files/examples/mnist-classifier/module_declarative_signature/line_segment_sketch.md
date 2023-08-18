@@ -383,7 +383,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DeclarativeTerm(`core::visual::Html`),
                         },
                     ),
                 ),

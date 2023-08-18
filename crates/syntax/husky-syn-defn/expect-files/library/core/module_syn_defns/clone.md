@@ -213,7 +213,7 @@ Ok(
                                 item_kind: MethodFn,
                             },
                             template_parameters: [],
-                            self_parameter: None,
+                            self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {

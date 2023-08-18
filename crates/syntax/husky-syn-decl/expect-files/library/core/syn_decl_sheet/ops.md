@@ -1,6 +1,6 @@
 Ok(
     SynDeclSheet {
-        [salsa id]: 12,
+        [salsa id]: 11,
         decls: [
             (
                 ItemPath::MajorItem(

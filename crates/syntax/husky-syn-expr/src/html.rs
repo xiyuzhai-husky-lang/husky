@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum HtmlArgumentExpr {
+pub enum SynHtmlArgumentExpr {
     Expanded {
         property_ident: IdentToken,
         eq: EqToken,
@@ -16,7 +16,7 @@ pub enum HtmlArgumentExpr {
     },
 }
 
-impl vec_like::AsVecMapEntry for HtmlArgumentExpr {
+impl vec_like::AsVecMapEntry for SynHtmlArgumentExpr {
     type K = Ident;
 
     fn key(&self) -> Self::K
@@ -24,18 +24,18 @@ impl vec_like::AsVecMapEntry for HtmlArgumentExpr {
         Self::K: Copy,
     {
         match self {
-            HtmlArgumentExpr::Expanded { property_ident, .. }
-            | HtmlArgumentExpr::Shortened { property_ident, .. } => property_ident.ident(),
+            SynHtmlArgumentExpr::Expanded { property_ident, .. }
+            | SynHtmlArgumentExpr::Shortened { property_ident, .. } => property_ident.ident(),
         }
     }
 
     fn key_ref(&self) -> &Self::K {
         match self {
-            HtmlArgumentExpr::Expanded {
+            SynHtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
                 ..
             }
-            | HtmlArgumentExpr::Shortened {
+            | SynHtmlArgumentExpr::Shortened {
                 property_ident: argument_ident,
                 ..
             } => argument_ident.ident_ref(),

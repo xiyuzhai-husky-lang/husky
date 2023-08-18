@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: OnceUseRuleIdx(\n        12,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::raw_bits`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::raw_bits`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 14,\n                    ident_token: IdentToken {\n                        ident: `raw_bits`,\n                        token_idx: TokenIdx(\n                            44,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: OnceUseRuleIdx(\n        13,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::raw_bits`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::raw_bits`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 13,\n                    ident_token: IdentToken {\n                        ident: `raw_bits`,\n                        token_idx: TokenIdx(\n                            41,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        15,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::marker`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::marker`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 8,\n                    ident_token: IdentToken {\n                        ident: `marker`,\n                        token_idx: TokenIdx(\n                            26,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 16,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::marker`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::marker`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 7,\n                    ident_token: IdentToken {\n                        ident: `marker`,\n                        token_idx: TokenIdx(\n                            23,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: OnceUseRuleIdx(\n        18,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::cmp`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::cmp`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 3,\n                    ident_token: IdentToken {\n                        ident: `cmp`,\n                        token_idx: TokenIdx(\n                            11,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: OnceUseRuleIdx(\n        19,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `core::cmp`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `core::cmp`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::Pub,\n                    ast_idx: 3,\n                    ident_token: IdentToken {\n                        ident: `cmp`,\n                        token_idx: TokenIdx(\n                            11,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -712,6 +712,66 @@ Ok(
                                 end: Position {
                                     line: 9,
                                     character: 23,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                72,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 72;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 32,\n    rule_idx: OnceUseRuleIdx(\n        10,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::CrateRoot {\n                root_module_path: `core`,\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 10,
+                                    character: 8,
+                                },
+                                end: Position {
+                                    line: 10,
+                                    character: 13,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                75,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 75;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 10,
+                                    character: 18,
+                                },
+                                end: Position {
+                                    line: 10,
+                                    character: 20,
                                 },
                             },
                         ),

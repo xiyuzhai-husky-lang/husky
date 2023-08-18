@@ -248,7 +248,7 @@ pub enum SynExpr {
     EmptyHtmlTag {
         empty_html_bra_idx: TokenIdx,
         function_ident: IdentToken,
-        arguments: IdentMap<HtmlArgumentExpr>,
+        arguments: IdentMap<SynHtmlArgumentExpr>,
         empty_html_ket: EmptyHtmlKetToken,
     },
     /// sorry is for comptime (say proof) terms

@@ -391,8 +391,8 @@ impl<'a> InferContext<'a> {
                     .add(function_ident.token_idx(), TokenInfo::HtmlFunctionIdent);
                 for argument in arguments.iter() {
                     match argument {
-                        HtmlArgumentExpr::Expanded { property_ident, .. }
-                        | HtmlArgumentExpr::Shortened { property_ident, .. } => self
+                        SynHtmlArgumentExpr::Expanded { property_ident, .. }
+                        | SynHtmlArgumentExpr::Shortened { property_ident, .. } => self
                             .sheet
                             .add(property_ident.token_idx(), TokenInfo::HtmlPropertyIdent),
                     }
@@ -401,7 +401,7 @@ impl<'a> InferContext<'a> {
             SynExpr::FunctionCall { .. } => (),
             SynExpr::Ritchie { .. } => (),
             SynExpr::Sorry { token_idx } => todo!(),
-            SynExpr::Todo { token_idx } => todo!(),
+            SynExpr::Todo { token_idx } => self.sheet.add(*token_idx, TokenInfo::Todo),
         }
     }
 

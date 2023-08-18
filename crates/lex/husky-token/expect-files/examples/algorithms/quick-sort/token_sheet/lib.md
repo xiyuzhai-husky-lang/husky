@@ -1125,6 +1125,28 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
@@ -1252,177 +1274,6 @@ Ok(
                 Literal::Integer(
                     UnspecifiedRegular(
                         1,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Box,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `quick_sort`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `v`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Stmt(
-                    Assert,
-                ),
-            ),
-            Token::Ident(
-                `v`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        Comparison(
-                            Eq,
-                        ),
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Box,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Minus,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        31,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        0,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        1,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        2,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        2,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        4,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        65,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        83,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        99,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::Integer(
-                    UnspecifiedRegular(
-                        782,
                     ),
                 ),
             ),
@@ -1567,124 +1418,6 @@ Ok(
                     ),
                 ),
             ),
-            Token::Ident(
-                `quick_sort`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `strs`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Par,
-                    ),
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Stmt(
-                    Assert,
-                ),
-            ),
-            Token::Ident(
-                `strs`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        Comparison(
-                            Eq,
-                        ),
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Bra(
-                        Box,
-                    ),
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "airplane",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "art",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "beach",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "car",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "hotel",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Comma,
-                ),
-            ),
-            Token::Literal(
-                Literal::String(
-                    StringLiteral {
-                        data: "house",
-                    },
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Ket(
-                        Box,
-                    ),
-                ),
-            ),
         ],
         group_starts: [
             0,
@@ -1715,13 +1448,9 @@ Ok(
             224,
             226,
             231,
-            257,
             261,
-            286,
-            288,
-            293,
-            310,
-            314,
+            263,
+            268,
         ],
         indents: [
             0,
@@ -1752,12 +1481,8 @@ Ok(
             0,
             0,
             4,
-            4,
-            4,
             0,
             0,
-            4,
-            4,
             4,
         ],
     },

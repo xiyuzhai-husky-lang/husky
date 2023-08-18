@@ -3,6 +3,15 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
@@ -1012,9 +1021,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::SelfValue,
-            TokenInfo::None,
-            TokenInfo::Field,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::Method,
             TokenInfo::None,

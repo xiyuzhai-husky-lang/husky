@@ -160,7 +160,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 50,
+                                                                    value: 146,
                                                                 },
                                                             ),
                                                         ),
@@ -177,7 +177,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 51,
+                                                                    value: 147,
                                                                 },
                                                             ),
                                                         ),
@@ -337,7 +337,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
@@ -559,7 +559,7 @@ Ok(
                                     item_kind: MethodFn,
                                 },
                                 template_parameters: [],
-                                self_parameter: None,
+                                self_value_parameter: None,
                                 parenate_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

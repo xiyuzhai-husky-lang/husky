@@ -168,12 +168,26 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 90,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -344,12 +358,26 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 91,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -520,12 +548,26 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Eq,
                 ),
             ),
             Token::Literal(
                 Literal::Float(
-                    Unspecified,
+                    Unspecified(
+                        UnspecifiedFloatLiteral(
+                            Id {
+                                value: 92,
+                            },
+                        ),
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -1111,26 +1153,26 @@ Ok(
             24,
             27,
             32,
-            37,
-            48,
-            63,
+            39,
+            50,
             65,
-            70,
-            75,
-            86,
-            101,
-            103,
-            108,
-            113,
-            124,
-            143,
-            145,
-            174,
-            183,
-            195,
-            204,
-            211,
-            222,
+            67,
+            72,
+            79,
+            90,
+            105,
+            107,
+            112,
+            119,
+            130,
+            149,
+            151,
+            180,
+            189,
+            201,
+            210,
+            217,
+            228,
         ],
         indents: [
             0,

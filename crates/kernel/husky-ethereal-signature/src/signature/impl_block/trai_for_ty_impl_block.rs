@@ -241,7 +241,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
         .path(db)
         .item_paths(db)
         .get_entry(ident)
-        .ok_or(EtherealSignatureError::NoSuchItem)?
+        .ok_or(EtherealSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {template_partially_instantiated, ident})?
         .1;
     let item_ethereal_signature_template = item_path.ethereal_signature_template(db)?;
     Ok(item_ethereal_signature_template

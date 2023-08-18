@@ -40,6 +40,7 @@ pub enum TokenInfo {
     SubmoduleIdent,
     UnitLeftParenthesis,
     UnitRightParenthesis,
+    Todo,
 }
 
 /// the purpose is to avoid extra debug with db in expr region
