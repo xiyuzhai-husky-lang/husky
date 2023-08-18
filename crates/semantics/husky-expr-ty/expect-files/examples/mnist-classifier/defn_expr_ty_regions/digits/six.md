@@ -100,7 +100,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -588,7 +588,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -2224,7 +2224,102 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::Trivial,
+                        SynExprDisambiguation::FunctionCall {
+                            ritchie_kind: FnType,
+                            ritchie_parameter_argument_matches: Ok(
+                                [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        [
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 22,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        93,
+                                                    ),
+                                                ),
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 24,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        97,
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            default: Some(
+                                                FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Literal(
+                                                            I32(
+                                                                5,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                        KeyedCallListItem {
+                                            key_token_idx: TokenIdx(
+                                                98,
+                                            ),
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            argument_expr_idx: 25,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            ),
+                        },
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3049,7 +3144,94 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::Trivial,
+                        SynExprDisambiguation::FunctionCall {
+                            ritchie_kind: FnType,
+                            ritchie_parameter_argument_matches: Ok(
+                                [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        [
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 57,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        167,
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            default: Some(
+                                                FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Literal(
+                                                            I32(
+                                                                5,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                        KeyedCallListItem {
+                                            key_token_idx: TokenIdx(
+                                                168,
+                                            ),
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            argument_expr_idx: 58,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            ),
+                        },
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3574,7 +3756,118 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::Trivial,
+                        SynExprDisambiguation::FunctionCall {
+                            ritchie_kind: FnType,
+                            ritchie_parameter_argument_matches: Ok(
+                                [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        [
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 69,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        196,
+                                                    ),
+                                                ),
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 70,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        198,
+                                                    ),
+                                                ),
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 71,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        200,
+                                                    ),
+                                                ),
+                                            },
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 74,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        207,
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            default: Some(
+                                                FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Literal(
+                                                            I32(
+                                                                5,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                        KeyedCallListItem {
+                                            key_token_idx: TokenIdx(
+                                                208,
+                                            ),
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            argument_expr_idx: 75,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            ),
+                        },
                         Ok(
                             FluffyTerm {
                                 place: None,
@@ -3854,7 +4147,94 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::Trivial,
+                        SynExprDisambiguation::FunctionCall {
+                            ritchie_kind: FnType,
+                            ritchie_parameter_argument_matches: Ok(
+                                [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                        [
+                                            RegularOrVariadicCallListItem {
+                                                argument_expr_idx: 86,
+                                                separator: Comma(
+                                                    TokenIdx(
+                                                        233,
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            default: Some(
+                                                FluffyTerm {
+                                                    place: None,
+                                                    base: Ethereal(
+                                                        Literal(
+                                                            I32(
+                                                                5,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                        KeyedCallListItem {
+                                            key_token_idx: TokenIdx(
+                                                234,
+                                            ),
+                                            key: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                            argument_expr_idx: 87,
+                                            separator: None,
+                                        },
+                                    ),
+                                ],
+                            ),
+                        },
                         Ok(
                             FluffyTerm {
                                 place: None,

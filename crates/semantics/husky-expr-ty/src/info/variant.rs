@@ -8,14 +8,18 @@ pub enum SynExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
     UnwrapOrComposeWithNot(UnwrapOrComposeWithNotExprDisambiguation),
-    ExplicitApplicationOrFunctionCall(ApplicationOrFunctionCallExprDisambiguation),
+    ApplicationOrFunctionCall(ApplicationOrFunctionCallExprDisambiguation),
     TypePath(TypePathDisambiguation),
     List(ListExprDisambiguation),
-    ExplicitApplication(ExplicitApplicationDisambiguation),
+    Application(ApplicationDisambiguation),
     Tilde(TildeDisambiguation),
     FieldDispatch(FluffyFieldDispatch),
     MethodCallOrApplication(MethodCallOrApplicationDisambiguation),
     StaticDispatch(StaticDispatch),
+    FunctionCall {
+        ritchie_kind: RitchieKind,
+        ritchie_parameter_argument_matches: ExprTypeResult<RitchieParameterArgumentMatches>,
+    },
 }
 
 impl SynExprDisambiguation {
@@ -65,11 +69,11 @@ pub enum ApplicationOrFunctionCallExprDisambiguation {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = ExprTypeDb)]
-pub struct ExplicitApplicationDisambiguation {
+pub struct ApplicationDisambiguation {
     shift: u8,
 }
 
-impl ExplicitApplicationDisambiguation {
+impl ApplicationDisambiguation {
     pub fn new(shift: u8) -> Self {
         Self { shift }
     }

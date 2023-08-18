@@ -4131,7 +4131,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [],
                             },
@@ -4323,7 +4323,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -4974,7 +4974,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -5715,7 +5715,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -6336,7 +6336,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -10429,7 +10429,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -11614,7 +11614,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(
@@ -17375,7 +17375,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                        SynExprDisambiguation::ApplicationOrFunctionCall(
                             ApplicationOrFunctionCallExprDisambiguation::FnCall {
                                 ritchie_parameter_argument_matches: [
                                     Regular(

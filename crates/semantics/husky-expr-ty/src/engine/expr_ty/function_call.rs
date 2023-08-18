@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                     items.iter().copied().map(Into::into),
                 )?;
                 Ok((
-                    SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                    SynExprDisambiguation::ApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::FnCall {
                             ritchie_parameter_argument_matches,
                         },
@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                     _ => todo!(),
                 }
                 Ok((
-                    SynExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                    SynExprDisambiguation::ApplicationOrFunctionCall(
                         ApplicationOrFunctionCallExprDisambiguation::Application,
                     ),
                     Ok(*return_ty),
@@ -82,11 +82,17 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
-        self.calc_ritchie_arguments_ty(
+        let ritchie_parameter_argument_matches = self.calc_ritchie_arguments_ty(
             expr_idx,
             outcome.parameter_contracted_tys(),
             items.iter().copied(),
         );
-        Ok((SynExprDisambiguation::Trivial, Ok(outcome.return_ty())))
+        Ok((
+            SynExprDisambiguation::FunctionCall {
+                ritchie_kind: outcome.ritchie_kind(),
+                ritchie_parameter_argument_matches,
+            },
+            Ok(outcome.return_ty()),
+        ))
     }
 }

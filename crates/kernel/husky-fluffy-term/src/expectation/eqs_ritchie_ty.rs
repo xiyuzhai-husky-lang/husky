@@ -111,6 +111,10 @@ impl ExpectEqsRitchieTypeOutcome {
     pub fn return_ty(&self) -> FluffyTerm {
         self.return_ty
     }
+
+    pub fn ritchie_kind(&self) -> RitchieKind {
+        self.ritchie_kind
+    }
 }
 
 impl ExpectEqsRitchieType {

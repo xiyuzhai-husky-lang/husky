@@ -18,6 +18,7 @@ use self::db::*;
 use husky_coword::*;
 use husky_ethereal_term::EtherealTerm;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
+use smallvec::*;
 
 pub trait ToHirLazy {
     type Output;

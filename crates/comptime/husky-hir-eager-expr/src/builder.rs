@@ -69,6 +69,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     //     self.expr_ty_region
     // }
 
+    #[track_caller]
     pub(crate) fn expr_disambiguation(
         &self,
         syn_expr_idx: SynExprIdx,
