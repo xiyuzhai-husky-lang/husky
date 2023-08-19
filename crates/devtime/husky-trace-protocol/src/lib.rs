@@ -10,15 +10,15 @@ mod server_message;
 mod server_state;
 mod trace;
 
-pub use figure::*;
-pub use gui_message::*;
-pub use init::*;
-pub use key::*;
-pub use label::*;
-pub use presentation::*;
-pub use sample::*;
-pub use server_message::*;
-pub use server_state::*;
-pub use trace::*;
+pub use self::figure::*;
+pub use self::gui_message::*;
+pub use self::init::*;
+pub use self::key::*;
+pub use self::label::*;
+pub use self::presentation::*;
+pub use self::sample::*;
+pub use self::server_message::*;
+pub use self::server_state::*;
+pub use self::trace::*;
 
 use serde::*;

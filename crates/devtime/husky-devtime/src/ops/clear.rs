@@ -1,8 +1,8 @@
 use crate::*;
 
-impl Debugtime {
-    // ad hoc, use DebugtimeClearM
-    pub(super) fn clear(&mut self) -> DebugtimeUpdateM<DebugtimeOldState> {
-        DebugtimeUpdateM::Ok(self.state.clear_pop()?)
+impl Devtime {
+    // ad hoc, use DevtimeClearM
+    pub(super) fn clear(&mut self) -> DevtimeUpdateM<DevtimeOldState> {
+        DevtimeUpdateM::Ok(self.state.clear_pop()?)
     }
 }

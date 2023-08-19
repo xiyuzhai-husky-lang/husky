@@ -7,7 +7,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         loop_variant: &LoopVariant,
         indent: u8,
-        body_stmts: &[Arc<ProcStmt>],
+        body_stmts: &[HirEagerStmtIdx],
     ) {
         match loop_variant {
             LoopVariant::For {

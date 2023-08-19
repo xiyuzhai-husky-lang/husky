@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::{Trackable, TrackableMakeChangeM, TrackableTakeChangeM};
+use crate::Trackable;
 
 #[derive(Default)]
 pub struct TrackableAtom<V> {
@@ -20,12 +20,12 @@ where
 {
     type Change = TrackableAtomChange<V>;
 
-    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
+    fn take_change(&mut self) -> Self::Change {
         if self.changed {
             self.changed = false;
-            TrackableTakeChangeM::Ok(TrackableAtomChange::Some(self.value.clone()))
+            TrackableAtomChange::Some(self.value.clone())
         } else {
-            TrackableTakeChangeM::Ok(TrackableAtomChange::None)
+            TrackableAtomChange::None
         }
     }
 }
@@ -39,21 +39,13 @@ impl<V> std::ops::Deref for TrackableAtom<V> {
 }
 
 impl<V> TrackableAtom<V> {
-    pub fn set(&mut self, new_value: V) -> TrackableMakeChangeM<Self, ()> {
+    pub fn set(&mut self, new_value: V) {
         self.changed = true;
-        self.value = new_value;
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: std::marker::PhantomData,
-        }
+        self.value = new_value
     }
-    pub fn update(&mut self, f: impl FnOnce(&mut V)) -> TrackableMakeChangeM<Self, ()> {
+    pub fn update(&mut self, f: impl FnOnce(&mut V)) {
         self.changed = true;
-        f(&mut self.value);
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: std::marker::PhantomData,
-        }
+        f(&mut self.value)
     }
 
     pub fn clear_pop(&mut self) -> V

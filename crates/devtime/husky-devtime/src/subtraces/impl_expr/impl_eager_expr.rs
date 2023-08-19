@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn eager_expr_subtraces(
         &mut self,
         parent: &Trace,
@@ -29,7 +29,7 @@ impl Debugtime {
         parent: &Trace,
         history: &Arc<History>,
         opn_variant: &EagerOpnVariant,
-        opds: &[Arc<EagerExpr>],
+        opds: &[HirEagerExprIdx],
     ) -> Vec<TraceId> {
         todo!()
         // match opn_variant {

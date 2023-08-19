@@ -1,14 +1,14 @@
 use crate::*;
 use husky_ethereal_term::EtherealTerm;
 
-impl Debugtime {
+impl Devtime {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         &self.state.trace_stalks[&key]
     }
 
-    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> DebugtimeUpdateM<()> {
+    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
@@ -16,7 +16,7 @@ impl Debugtime {
                 .trace_stalks
                 .insert_new(key, self.produce_trace_stalk(trace_id, sample_id));
         }
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalk {
@@ -45,38 +45,38 @@ impl Debugtime {
                 ValStmtData::ConditionFlow { .. } => panic!(),
                 ValStmtData::ReturnHtml { .. } => todo!(),
             },
-            TraceVariant::FeatureBranch(_) => Default::default(),
+            TraceVariant::LazyBranch(_) => Default::default(),
             TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
             TraceVariant::FeatureCallArgument { ref argument, .. } => {
                 self.trace_stalk_from_expr(argument, sample_id)
             }
             TraceVariant::Module { .. }
             | TraceVariant::FuncStmt { .. }
-            | TraceVariant::ProcStmt { .. }
+            | TraceVariant::EagerStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. }
             | TraceVariant::FuncBranch { .. }
-            | TraceVariant::ProcBranch { .. }
+            | TraceVariant::EagerBranch { .. }
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::EagerCallArgument { .. } => TraceStalk::default(),
         }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> DebugtimeUpdateM<()> {
+    pub(crate) fn update_trace_stalks(&mut self) -> DevtimeUpdateM<()> {
         if let Some(sample_id) = self.state.presentation().opt_sample_id() {
             // ad hoc
             for root_trace_id in self.root_traces() {
                 self.gen_trace_stalks_within_trace(sample_id, root_trace_id)?
             }
         }
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 
     fn gen_trace_stalks_within_trace(
         &mut self,
         sample_id: SampleId,
         trace_id: TraceId,
-    ) -> DebugtimeUpdateM<()> {
+    ) -> DevtimeUpdateM<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -91,7 +91,7 @@ impl Debugtime {
                 self.gen_trace_stalks_within_trace(sample_id, subtrace_id)?
             }
         }
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 
     fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalk {

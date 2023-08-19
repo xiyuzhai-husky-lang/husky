@@ -24,6 +24,10 @@ husky-eval = { path = "../../runtime/husky-eval" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-text = { path = "../../lex/husky-text" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+# comptime
+husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

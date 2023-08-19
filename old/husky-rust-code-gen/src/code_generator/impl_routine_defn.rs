@@ -23,7 +23,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         feature_route: EtherealTerm,
         return_ty: EtherealTerm,
-        stmts: &[Arc<FuncStmt>],
+        stmts: &[HirEagerStmtIdx],
     ) {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
@@ -63,7 +63,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         feature_route: EtherealTerm,
         return_ty: EtherealTerm,
-        stmts: &[Arc<ProcStmt>],
+        stmts: &[HirEagerStmtIdx],
     ) {
         self.write("pub(crate) fn ");
         let ident = feature_route.ident();
@@ -105,7 +105,7 @@ impl<'a> RustCodeGenerator<'a> {
         _base_route: EtherealTerm,
         _parameters: &[Parameter],
         _output: EtherealTerm,
-        _stmts: &[Arc<ProcStmt>],
+        _stmts: &[HirEagerStmtIdx],
     ) {
         todo!()
         // let needs_eval_context: bool = self.db.needs_eval_context(base_route);
@@ -165,7 +165,7 @@ impl<'a> RustCodeGenerator<'a> {
         base_route: EtherealTerm,
         parameters: &[Parameter],
         output: EtherealTerm,
-        stmts: &[Arc<FuncStmt>],
+        stmts: &[HirEagerStmtIdx],
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         let needs_leash = needs_eval_context

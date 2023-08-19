@@ -7,36 +7,33 @@ impl TraceVariant {
             | TraceVariant::EntityFeature { .. }
             | TraceVariant::Module { .. } => true,
             TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::LazyBranch(_)
             | TraceVariant::FeatureExpr(_) => true,
             TraceVariant::FeatureCallArgument { .. } | TraceVariant::EagerCallArgument { .. } => {
                 true
             }
-            TraceVariant::FuncStmt { stmt, history } => match stmt.variant {
-                FuncStmtVariant::Init {
-                    ref initial_value, ..
-                } => history.contains(initial_value),
-                FuncStmtVariant::Assert { ref condition } => history.contains(condition),
-                FuncStmtVariant::Return { ref result, .. } => history.contains(result),
-                FuncStmtVariant::ConditionFlow { .. } => panic!("FuncBranch"),
-                FuncStmtVariant::Match { ref match_expr, .. } => history.contains(match_expr),
-                FuncStmtVariant::Require { ref condition, .. } => history.contains(condition),
-            },
-            TraceVariant::ProcStmt { stmt, history } => match stmt.variant {
-                ProcStmtVariant::Init {
-                    ref initial_value, ..
-                } => history.contains(initial_value),
-                ProcStmtVariant::Assert { ref condition } => history.contains(condition),
-                ProcStmtVariant::Execute { ref expr } => history.contains(expr),
-                ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
-                ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
-                ProcStmtVariant::Return { ref result, .. } => history.contains(result),
-                ProcStmtVariant::Match { .. } => todo!(),
-            },
+            TraceVariant::EagerStmt {
+                stmt,
+                history,
+                eager_expr_region,
+            } => {
+                todo!()
+                //     match stmt.variant {
+                //     ProcStmtVariant::Init {
+                //         ref initial_value, ..
+                //     } => history.contains(initial_value),
+                //     ProcStmtVariant::Assert { ref condition } => history.contains(condition),
+                //     ProcStmtVariant::Execute { ref expr } => history.contains(expr),
+                //     ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
+                //     ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
+                //     ProcStmtVariant::Return { ref result, .. } => history.contains(result),
+                //     ProcStmtVariant::Match { .. } => todo!(),
+                // }
+            }
             TraceVariant::LoopFrame { .. } => true,
             TraceVariant::EagerExpr { expr, history } => history.contains(expr),
             TraceVariant::CallHead { .. } => true,
-            TraceVariant::ProcBranch {
+            TraceVariant::EagerBranch {
                 stmt,
                 branch_idx,
                 history,

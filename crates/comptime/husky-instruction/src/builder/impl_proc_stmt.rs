@@ -7,13 +7,13 @@ use husky_vm::{
 };
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
+    pub(super) fn compile_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()
             .for_each(|stmt| self.compile_proc_stmt(stmt.clone()));
     }
 
-    fn compile_proc_stmt(&mut self, stmt: Arc<ProcStmt>) {
+    fn compile_proc_stmt(&mut self, stmt: HirEagerStmtIdx) {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -84,8 +84,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_loop(
         &mut self,
         loop_kind: &LoopVariant,
-        loop_stmt: Arc<ProcStmt>,
-        body_stmts: &[Arc<ProcStmt>],
+        loop_stmt: HirEagerStmtIdx,
+        body_stmts: &[HirEagerStmtIdx],
     ) {
         match loop_kind {
             LoopVariant::For {
@@ -182,7 +182,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         }
     }
 
-    fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &Arc<ProcStmt>) {
+    fn compile_boundary(&mut self, boundary: &Boundary, loop_stmt: &HirEagerStmtIdx) {
         todo!()
         // if let Some(ref bound) = boundary.opt_bound {
         //     self.compile_eager_expr(bound, self.sheet.variable_stack.next_stack_idx(), false)

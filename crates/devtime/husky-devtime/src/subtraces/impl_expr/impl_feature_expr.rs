@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn feature_expr_subtraces(
         &mut self,
         parent: &Trace,

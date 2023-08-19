@@ -1,12 +1,12 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn loop_subtraces(
         &mut self,
         parent: &Trace,
         loop_kind: VMLoopKind,
-        loop_stmt: &Arc<ProcStmt>,
-        body_stmts: &Arc<Vec<Arc<ProcStmt>>>,
+        loop_stmt: &HirEagerStmtIdx,
+        body_stmts: &Arc<Vec<HirEagerStmtIdx>>,
         stack_snapshot: &StackSnapshot,
         body_instruction_sheet: &Instructions,
     ) -> Vec<TraceId> {
@@ -39,8 +39,8 @@ impl Debugtime {
 
     pub(crate) fn loop_frame_subtraces(
         &mut self,
-        loop_stmt: &Arc<ProcStmt>,
-        stmts: &[Arc<ProcStmt>],
+        loop_stmt: &HirEagerStmtIdx,
+        stmts: &[HirEagerStmtIdx],
         instruction_sheet: &Instructions,
         loop_frame_data: &LoopFrameData,
         parent: &Trace,
@@ -84,7 +84,7 @@ impl Debugtime {
 
     pub(crate) fn proc_branch_subtraces(
         &mut self,
-        stmts: &[Arc<ProcStmt>],
+        stmts: &[HirEagerStmtIdx],
         instruction_sheet: &Instructions,
         stack_snapshot: &StackSnapshot,
         parent: &Trace,

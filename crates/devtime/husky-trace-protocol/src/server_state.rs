@@ -1,7 +1,6 @@
 use std::{collections::HashMap, marker::PhantomData};
 
 use crate::*;
-use monad::Monad;
 use trackable::*;
 
 pub trait AsTraceNode: TrackClone<CloneOutput = TraceNodeData> {
@@ -66,62 +65,18 @@ pub struct ServerTraceStateChange {
 impl<TraceNode: AsTraceNode> Trackable for ServerTraceState<TraceNode> {
     type Change = ServerTraceStateChange;
 
-    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
-        TrackableTakeChangeM::Ok(ServerTraceStateChange {
-            presentation: self.presentation.take_change()?,
-            trace_nodes: self.trace_nodes.take_change()?,
-            specific_figure_canvases: self.specific_figure_canvases.take_change()?,
-            generic_figure_canvases: self.generic_figure_canvases.take_change()?,
-            figure_controls: self.figure_controls.take_change()?,
-            trace_stalks: self.trace_stalks.take_change()?,
-            trace_statss: self.trace_statss.take_change()?,
-            root_traces: self.root_traces.take_change()?,
-            subtrace_ids_map: self.subtrace_ids_map.take_change()?,
-        })
-    }
-}
-
-pub enum ServerTraceStateTakeChangeM<T> {
-    Ok(T),
-}
-
-pub enum ServerTraceStateUpdateM<T> {
-    Ok(T),
-}
-
-pub struct ServerTraceStateUpdateR<T> {
-    phantom: PhantomData<T>,
-}
-
-impl<T> Monad for ServerTraceStateUpdateM<T> {}
-
-impl<T> std::ops::Try for ServerTraceStateUpdateM<T> {
-    type Output = T;
-
-    type Residual = ServerTraceStateUpdateR<T>;
-
-    fn from_output(_output: Self::Output) -> Self {
-        todo!()
-    }
-
-    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        match self {
-            ServerTraceStateUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+    fn take_change(&mut self) -> Self::Change {
+        ServerTraceStateChange {
+            presentation: self.presentation.take_change(),
+            trace_nodes: self.trace_nodes.take_change(),
+            specific_figure_canvases: self.specific_figure_canvases.take_change(),
+            generic_figure_canvases: self.generic_figure_canvases.take_change(),
+            figure_controls: self.figure_controls.take_change(),
+            trace_stalks: self.trace_stalks.take_change(),
+            trace_statss: self.trace_statss.take_change(),
+            root_traces: self.root_traces.take_change(),
+            subtrace_ids_map: self.subtrace_ids_map.take_change(),
         }
-    }
-}
-
-impl<T> std::ops::FromResidual<ServerTraceStateUpdateR<T>> for ServerTraceStateUpdateM<T> {
-    fn from_residual(_residual: ServerTraceStateUpdateR<T>) -> Self {
-        todo!()
-    }
-}
-
-impl<T> std::ops::FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>>
-    for ServerTraceStateUpdateM<T>
-{
-    fn from_residual(_residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
-        todo!()
     }
 }
 
@@ -129,40 +84,30 @@ impl<TraceNode: AsTraceNode> ServerTraceState<TraceNode> {
     pub fn presentation(&self) -> &Presentation {
         &self.presentation
     }
-    pub fn set_presentation(
-        &mut self,
-        presentation: Presentation,
-    ) -> TrackableMakeChangeM<Self, ()> {
-        self.presentation.set(presentation)?;
-        TrackableMakeChangeM::default()
+    pub fn set_presentation(&mut self, presentation: Presentation) {
+        self.presentation.set(presentation)
     }
 
-    pub fn update_presentation(
-        &mut self,
-        f: impl FnOnce(&mut Presentation),
-    ) -> TrackableMakeChangeM<Self, ()> {
-        self.presentation.update(f)?;
-        TrackableMakeChangeM::default()
+    pub fn update_presentation(&mut self, f: impl FnOnce(&mut Presentation)) {
+        self.presentation.update(f)
     }
 
     pub fn root_traces(&self) -> &[TrackSimple<TraceId>] {
         &self.root_traces
     }
 
-    pub fn set_root_traces(&mut self, root_traces: Vec<TraceId>) -> TrackableMakeChangeM<Self, ()> {
+    pub fn set_root_traces(&mut self, root_traces: Vec<TraceId>) {
         self.root_traces
-            .set(root_traces.into_iter().map(|id| id.into()).collect())?;
-        TrackableMakeChangeM::default()
+            .set(root_traces.into_iter().map(|id| id.into()).collect())
     }
 
-    pub fn activate_trace(&mut self, trace_id: TraceId) -> ServerTraceStateTakeChangeM<()> {
+    pub fn activate_trace(&mut self, trace_id: TraceId) {
         let trace_data = &self.trace_nodes[trace_id.raw()].trace_data();
         self.presentation
-            .update(|presentation| presentation.activate_trace(trace_data));
-        ServerTraceStateTakeChangeM::Ok(())
+            .update(|presentation| presentation.activate_trace(trace_data))
     }
 
-    pub fn clear_pop(&mut self) -> ServerTraceStateUpdateM<ServerTraceOldState<TraceNode>> {
+    pub fn clear_pop(&mut self) -> ServerTraceOldState<TraceNode> {
         let presentation = self.presentation.clear_pop();
         let trace_nodes = self.trace_nodes.clear_pop();
         self.specific_figure_canvases = Default::default();
@@ -172,7 +117,7 @@ impl<TraceNode: AsTraceNode> ServerTraceState<TraceNode> {
         self.trace_statss = Default::default();
         self.root_traces = Default::default();
         self.subtrace_ids_map = Default::default();
-        ServerTraceStateUpdateM::Ok(ServerTraceOldState::new(presentation, trace_nodes))
+        ServerTraceOldState::new(presentation, trace_nodes)
     }
 }
 

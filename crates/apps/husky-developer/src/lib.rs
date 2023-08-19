@@ -12,7 +12,7 @@
 
 // use futures::executor::ThreadPool;
 // use gui::handle_query;
-// use husky_debugtime::Debugtime;
+// use husky_debugtime::Devtime;
 // use husky_path_utils::collect_package_dirs;
 // use husky_print_utils::*;
 

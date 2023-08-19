@@ -12,13 +12,13 @@ use husky_coword::RootBuiltinIdent;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
+    pub(super) fn gen_func_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         for stmt in stmts {
             self.gen_func_stmt(stmt);
         }
     }
 
-    pub(super) fn gen_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
+    pub(super) fn gen_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         for stmt in stmts {
             self.gen_proc_stmt(stmt);
         }

@@ -5,24 +5,24 @@ use monad::MonadT;
 use std::time::Instant;
 
 #[must_use]
-pub enum DebugtimeHotReloadM {
-    Ok(DebugtimeStateChange),
+pub enum DevtimeHotReloadM {
+    Ok(DevtimeStateChange),
 }
 
-impl Monad for DebugtimeHotReloadM {}
+impl Monad for DevtimeHotReloadM {}
 
-impl<T> MonadT<DebugtimeUpdateM<T>> for DebugtimeHotReloadM {}
-impl<T> MonadT<DebugtimeTakeChangeM<T>> for DebugtimeHotReloadM {}
-impl MonadT<HuskyRuntimeHotReloadM> for DebugtimeHotReloadM {}
+impl<T> MonadT<DevtimeUpdateM<T>> for DevtimeHotReloadM {}
+impl<T> MonadT<DevtimeTakeChangeM<T>> for DevtimeHotReloadM {}
+impl MonadT<HuskyRuntimeHotReloadM> for DevtimeHotReloadM {}
 
-impl Debugtime {
-    pub fn hot_reload(&mut self) -> DebugtimeHotReloadM {
+impl Devtime {
+    pub fn hot_reload(&mut self) -> DevtimeHotReloadM {
         self.runtime.hot_reload()?;
         let old_state = self.clear()?;
         self.gen_root_traces();
         self.mimic_old_state(old_state);
         self.update()?;
-        DebugtimeHotReloadM::Ok(self.take_change()?)
+        DevtimeHotReloadM::Ok(self.take_change()?)
     }
 
     fn gen_root_traces(&mut self) {
@@ -75,25 +75,25 @@ impl Debugtime {
         // self.state.set_root_traces(root_traces);
     }
 
-    fn mimic_old_state(&mut self, mut old_state: DebugtimeOldState) -> DebugtimeUpdateM<()> {
+    fn mimic_old_state(&mut self, mut old_state: DevtimeOldState) -> DevtimeUpdateM<()> {
         // order matters
         self.mimic_old_expansions(&mut old_state)?;
         old_state.fix();
         self.mimic_old_presentation(&old_state)
     }
 
-    fn mimic_old_expansions(&mut self, old_state: &mut DebugtimeOldState) -> DebugtimeUpdateM<()> {
+    fn mimic_old_expansions(&mut self, old_state: &mut DevtimeOldState) -> DevtimeUpdateM<()> {
         self.mimic_old_expansions_dfs(0, old_state)
     }
 
     fn mimic_old_expansions_dfs(
         &mut self,
         start: usize,
-        old_state: &mut DebugtimeOldState,
-    ) -> DebugtimeUpdateM<()> {
+        old_state: &mut DevtimeOldState,
+    ) -> DevtimeUpdateM<()> {
         let end = self.state.trace_nodes.len();
         if start >= end {
-            return DebugtimeUpdateM::Ok(());
+            return DevtimeUpdateM::Ok(());
         }
         for idx in start..end {
             let trace_node = &self.state.trace_nodes[idx];
@@ -110,51 +110,51 @@ impl Debugtime {
         self.mimic_old_expansions_dfs(end, old_state)
     }
 
-    fn mimic_old_presentation(&mut self, old_state: &DebugtimeOldState) -> DebugtimeUpdateM<()> {
+    fn mimic_old_presentation(&mut self, old_state: &DevtimeOldState) -> DevtimeUpdateM<()> {
         self.state
             .set_presentation(old_state.mimic_presentation(&self.state.trace_nodes));
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 }
 
 pub struct DevtimeHotReloadR;
 
-impl std::ops::FromResidual<DevtimeHotReloadR> for DebugtimeHotReloadM {
+impl std::ops::FromResidual<DevtimeHotReloadR> for DevtimeHotReloadM {
     fn from_residual(_residual: DevtimeHotReloadR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<DebugtimeUpdateR> for DebugtimeHotReloadM {
-    fn from_residual(_residual: DebugtimeUpdateR) -> Self {
+impl std::ops::FromResidual<DevtimeUpdateR> for DevtimeHotReloadM {
+    fn from_residual(_residual: DevtimeUpdateR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<DebugtimeTakeChangeR> for DebugtimeHotReloadM {
-    fn from_residual(_residual: DebugtimeTakeChangeR) -> Self {
+impl std::ops::FromResidual<DevtimeTakeChangeR> for DevtimeHotReloadM {
+    fn from_residual(_residual: DevtimeTakeChangeR) -> Self {
         unreachable!()
     }
 }
 
-impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for DebugtimeHotReloadM {
+impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for DevtimeHotReloadM {
     fn from_residual(_residual: HuskyRuntimeHotReloadR) -> Self {
         todo!()
     }
 }
 
-impl std::ops::Try for DebugtimeHotReloadM {
-    type Output = DebugtimeStateChange;
+impl std::ops::Try for DevtimeHotReloadM {
+    type Output = DevtimeStateChange;
 
     type Residual = DevtimeHotReloadR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeHotReloadM::Ok(output)
+        DevtimeHotReloadM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
+            DevtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
         }
     }
 }

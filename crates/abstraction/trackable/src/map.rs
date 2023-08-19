@@ -36,16 +36,16 @@ where
 {
     type Change = TrackableMapChange<K, V>;
 
-    fn take_change(&mut self) -> TrackableTakeChangeM<Self> {
+    fn take_change(&mut self) -> Self::Change {
         if self.old_len == self.entries.len() {
-            return TrackableTakeChangeM::Ok(TrackableMapChange::None);
+            return TrackableMapChange::None;
         }
         let new_entries = self.entries[self.old_len..]
             .iter()
             .map(|entry| entry.clone())
             .collect();
         self.old_len = self.entries.len();
-        TrackableTakeChangeM::Ok(TrackableMapChange::Append { new_entries })
+        TrackableMapChange::Append { new_entries }
     }
 }
 
@@ -64,13 +64,9 @@ where
             .find_map(|(key, value)| if key == key0 { Some(value) } else { None })
     }
 
-    pub fn insert_new(&mut self, key: K, value: V) -> TrackableMakeChangeM<Self, ()> {
+    pub fn insert_new(&mut self, key: K, value: V) {
         assert!(!self.contains(&key));
-        self.entries.push((key, value));
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: PhantomData,
-        }
+        self.entries.push((key, value))
     }
 }
 

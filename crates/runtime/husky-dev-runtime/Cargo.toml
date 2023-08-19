@@ -14,7 +14,6 @@ relative-path = "1.7.2"
 # abstraction
 upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
-monad = { path = "../../abstraction/monad" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }

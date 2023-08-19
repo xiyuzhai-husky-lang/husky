@@ -6,6 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
-monad = { path = "../../abstraction/monad" }
 vec-like = { path = "../../abstraction/vec-like" }
 idx-arena = { path = "../../abstraction/idx-arena" }

@@ -16,7 +16,7 @@ husky-vm = { path = "../../../../vm/husky-vm" }
 husky-print-utils = { path = "../../../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }
 husky-entity-taxonomy = { path = "../../../../kernel/husky-entity-taxonomy" }
-husky-trace-protocol = { path = "../../../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../../../Devtime/husky-trace-protocol" }
 husky-vm-register-method = { path = "../../../../vm/husky-vm-register-method" }
 
 [build-dependencies]

@@ -12,7 +12,6 @@ upcast = { path = "../../abstraction/upcast" }
 vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
-monad = { path = "../../abstraction/monad" }
 trackable = { path = "../../abstraction/trackable" }
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }

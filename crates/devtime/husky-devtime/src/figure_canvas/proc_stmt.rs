@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: &ProcStmt,
@@ -50,7 +50,7 @@ impl Debugtime {
     ) -> SpecificFigureCanvasData {
         let loop_trace = self.trace(loop_trace_id);
         let mutations = match loop_trace.variant {
-            TraceVariant::ProcStmt {
+            TraceVariant::EagerStmt {
                 ref stmt,
                 ref history,
             } => match history.get(stmt).unwrap() {

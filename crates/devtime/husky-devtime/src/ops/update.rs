@@ -5,38 +5,38 @@ use std::ops::FromResidual;
 use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
 #[must_use]
-pub(crate) enum DebugtimeUpdateM<T> {
+pub(crate) enum DevtimeUpdateM<T> {
     Ok(T),
     OtherworldlyErr(__VMError),
 }
 
-pub enum DebugtimeUpdateR {
+pub enum DevtimeUpdateR {
     OtherworldlyErr(__VMError),
 }
 
-impl<T> Monad for DebugtimeUpdateM<T> {}
+impl<T> Monad for DevtimeUpdateM<T> {}
 
-impl<T> DebugtimeUpdateM<T> {
-    pub(crate) fn result(self) -> DebugtimeUpdateM<__VMResult<T>> {
+impl<T> DevtimeUpdateM<T> {
+    pub(crate) fn result(self) -> DevtimeUpdateM<__VMResult<T>> {
         match self {
-            DebugtimeUpdateM::Ok(output) => DebugtimeUpdateM::Ok(Ok(output)),
-            DebugtimeUpdateM::OtherworldlyErr(_) => todo!(),
+            DevtimeUpdateM::Ok(output) => DevtimeUpdateM::Ok(Ok(output)),
+            DevtimeUpdateM::OtherworldlyErr(_) => todo!(),
         }
     }
 }
-impl<T> DebugtimeTakeChangeM<T> {
-    pub fn result(self) -> DebugtimeTakeChangeM<__VMResult<T>> {
+impl<T> DevtimeTakeChangeM<T> {
+    pub fn result(self) -> DevtimeTakeChangeM<__VMResult<T>> {
         match self {
-            DebugtimeTakeChangeM::Ok(t) => DebugtimeTakeChangeM::Ok(Ok(t)),
-            DebugtimeTakeChangeM::OtherworldlyErr(e) => DebugtimeTakeChangeM::Ok(Err(e)),
+            DevtimeTakeChangeM::Ok(t) => DevtimeTakeChangeM::Ok(Ok(t)),
+            DevtimeTakeChangeM::OtherworldlyErr(e) => DevtimeTakeChangeM::Ok(Err(e)),
         }
     }
 }
 
-impl Debugtime {
-    pub(crate) fn update(&mut self) -> DebugtimeUpdateM<()> {
+impl Devtime {
+    pub(crate) fn update(&mut self) -> DevtimeUpdateM<()> {
         match self.try_update().result()? {
-            Ok(()) => DebugtimeUpdateM::Ok(()),
+            Ok(()) => DevtimeUpdateM::Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
@@ -49,7 +49,7 @@ impl Debugtime {
         }
     }
 
-    fn try_update(&mut self) -> DebugtimeUpdateM<()> {
+    fn try_update(&mut self) -> DevtimeUpdateM<()> {
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         self.update_trace_stalks()?;
@@ -57,27 +57,27 @@ impl Debugtime {
     }
 }
 
-impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for DebugtimeUpdateM<T> {
+impl<T> FromResidual<Result<std::convert::Infallible, __VMError>> for DevtimeUpdateM<T> {
     fn from_residual(_residual: Result<std::convert::Infallible, __VMError>) -> Self {
         todo!()
     }
 }
 
 // todo: refine this
-impl<T> FromResidual<ServerTraceStateUpdateR<T>> for DebugtimeUpdateM<T> {
+impl<T> FromResidual<ServerTraceStateUpdateR<T>> for DevtimeUpdateM<T> {
     fn from_residual(_residual: ServerTraceStateUpdateR<T>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<DebugtimeUpdateR> for DebugtimeUpdateM<T> {
-    fn from_residual(_residual: DebugtimeUpdateR) -> Self {
+impl<T> FromResidual<DevtimeUpdateR> for DevtimeUpdateM<T> {
+    fn from_residual(_residual: DevtimeUpdateR) -> Self {
         todo!()
     }
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>>
-    for DebugtimeUpdateM<T>
+    for DevtimeUpdateM<T>
 {
     fn from_residual(
         _residual: TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<TraceStats>>>,
@@ -86,27 +86,27 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<TraceStatsKey, Option<Tra
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for DebugtimeUpdateM<T> {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableVec<TraceNode>>> for DevtimeUpdateM<T> {
     fn from_residual(_residual: TrackableMakeChangeR<TrackableVec<TraceNode>>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for DebugtimeUpdateM<T> {
+impl<T> FromResidual<TrackableMakeChangeR<TrackableAtom<Presentation>>> for DevtimeUpdateM<T> {
     fn from_residual(_residual: TrackableMakeChangeR<TrackableAtom<Presentation>>) -> Self {
         todo!()
     }
 }
 
-impl<T> FromResidual<TrackableMakeChangeR<DebugtimeState>> for DebugtimeUpdateM<T> {
-    fn from_residual(_residual: TrackableMakeChangeR<DebugtimeState>) -> Self {
+impl<T> FromResidual<TrackableMakeChangeR<DevtimeState>> for DevtimeUpdateM<T> {
+    fn from_residual(_residual: TrackableMakeChangeR<DevtimeState>) -> Self {
         todo!()
     }
 }
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<GenericFigureCanvasKey, GenericFigureCanvasData>>,
-    > for DebugtimeUpdateM<T>
+    > for DevtimeUpdateM<T>
 {
     fn from_residual(
         _residual: TrackableMakeChangeR<
@@ -120,7 +120,7 @@ impl<T>
 impl<T>
     FromResidual<
         TrackableMakeChangeR<TrackableMap<SpecificFigureCanvasKey, SpecificFigureCanvasData>>,
-    > for DebugtimeUpdateM<T>
+    > for DevtimeUpdateM<T>
 {
     fn from_residual(
         _residual: TrackableMakeChangeR<
@@ -132,7 +132,7 @@ impl<T>
 }
 
 impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>>
-    for DebugtimeUpdateM<T>
+    for DevtimeUpdateM<T>
 {
     fn from_residual(
         _residual: TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureControlData>>,
@@ -141,20 +141,20 @@ impl<T> FromResidual<TrackableMakeChangeR<TrackableMap<FigureControlKey, FigureC
     }
 }
 
-impl<T> std::ops::Try for DebugtimeUpdateM<T> {
+impl<T> std::ops::Try for DevtimeUpdateM<T> {
     type Output = T;
 
-    type Residual = DebugtimeUpdateR;
+    type Residual = DevtimeUpdateR;
 
     fn from_output(output: Self::Output) -> Self {
-        DebugtimeUpdateM::Ok(output)
+        DevtimeUpdateM::Ok(output)
     }
 
     fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
         match self {
-            DebugtimeUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
-            DebugtimeUpdateM::OtherworldlyErr(e) => {
-                std::ops::ControlFlow::Break(DebugtimeUpdateR::OtherworldlyErr(e))
+            DevtimeUpdateM::Ok(cont) => std::ops::ControlFlow::Continue(cont),
+            DevtimeUpdateM::OtherworldlyErr(e) => {
+                std::ops::ControlFlow::Break(DevtimeUpdateR::OtherworldlyErr(e))
             }
         }
     }

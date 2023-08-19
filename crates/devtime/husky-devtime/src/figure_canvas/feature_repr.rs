@@ -151,7 +151,7 @@ impl HuskyDevtime {
             TraceVariant::FeatureStmt(ref stmt) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureBranch(ref branch) => self
+            TraceVariant::LazyBranch(ref branch) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureExpr(ref expr) => self
@@ -159,8 +159,8 @@ impl HuskyDevtime {
                 .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => todo!(),
-            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::EagerStmt { .. } => todo!(),
+            TraceVariant::EagerBranch { .. } => todo!(),
             TraceVariant::FuncBranch { .. } => todo!(),
             TraceVariant::LoopFrame { .. } => todo!(),
             TraceVariant::EagerExpr { .. } => todo!(),
@@ -186,15 +186,15 @@ impl HuskyDevtime {
                 self.runtime.eval_feature_stmt(stmt, sample_id)?,
                 stmt.return_ty,
             ),
-            TraceVariant::FeatureBranch(ref branch) => (
+            TraceVariant::LazyBranch(ref branch) => (
                 self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
                 branch.block.return_ty.route,
             ),
             TraceVariant::FeatureExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => todo!(),
-            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::EagerStmt { .. } => todo!(),
+            TraceVariant::EagerBranch { .. } => todo!(),
             TraceVariant::FuncBranch { .. } => todo!(),
             TraceVariant::LoopFrame { .. } => todo!(),
             TraceVariant::EagerExpr { .. } => todo!(),
@@ -231,15 +231,15 @@ impl HuskyDevtime {
                 self.runtime.eval_feature_stmt(stmt, sample_id)?,
                 stmt.return_ty,
             ),
-            TraceVariant::FeatureBranch(ref branch) => (
+            TraceVariant::LazyBranch(ref branch) => (
                 self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
                 branch.block.return_ty.route,
             ),
             TraceVariant::FeatureExpr(_) => todo!(),
             TraceVariant::FeatureCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::ProcStmt { .. } => todo!(),
-            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::EagerStmt { .. } => todo!(),
+            TraceVariant::EagerBranch { .. } => todo!(),
             TraceVariant::FuncBranch { .. } => todo!(),
             TraceVariant::LoopFrame { .. } => todo!(),
             TraceVariant::EagerExpr { .. } => todo!(),
