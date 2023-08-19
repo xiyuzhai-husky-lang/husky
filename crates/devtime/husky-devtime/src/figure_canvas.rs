@@ -7,14 +7,10 @@ mod proc_stmt;
 mod utils;
 
 use crate::*;
-use husky_comptime::*;
-use husky_eager_semantics::{EagerExpr, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant};
-use husky_eval::EvalFeature;
-use husky_text::TextQueryGroup;
-use husky_val_repr::{FeatureLazyExpr, ValStmt, ValStmtData};
+use husky_val_repr::{ValStmt, ValStmtData};
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant};
 
-impl Debugtime {
+impl Devtime {
     pub fn gen_trace_generic_figure(
         &self,
         trace_id: TraceId,
@@ -23,7 +19,7 @@ impl Debugtime {
         Ok(match trace.variant {
             TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
             TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_generic_figure(stmt)?,
-            TraceVariant::FeatureBranch(_) => Default::default(),
+            TraceVariant::LazyBranch(_) => Default::default(),
             TraceVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_generic_figure(repr)?
             }
@@ -37,7 +33,7 @@ impl Debugtime {
                 history: _,
             } => todo!(),
             // self.func_stmt_generic_figure(stmt, history),
-            TraceVariant::ProcStmt {
+            TraceVariant::EagerStmt {
                 stmt: _,
                 history: _,
             } => todo!(),
@@ -71,7 +67,7 @@ impl Debugtime {
             //     None => Default::default(),
             //     _ => panic!(),
             // },
-            TraceVariant::ProcBranch { .. } => todo!(),
+            TraceVariant::EagerBranch { .. } => todo!(),
             // match history.get(stmt) {
             //     Some(HistoryEntry::ControlFlow {
             //         opt_branch_entered: branch_entered,
@@ -100,7 +96,7 @@ impl Debugtime {
         Ok(match trace.variant {
             TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
             TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_specific_figure(stmt)?,
-            TraceVariant::FeatureBranch(_) => Default::default(),
+            TraceVariant::LazyBranch(_) => Default::default(),
             TraceVariant::EntityFeature { ref repr, .. } => {
                 self.feature_repr_specific_figure(repr)?
             }
@@ -112,7 +108,7 @@ impl Debugtime {
                 ref stmt,
                 ref history,
             } => self.func_stmt_figure(stmt, history),
-            TraceVariant::ProcStmt {
+            TraceVariant::EagerStmt {
                 ref stmt,
                 ref history,
             } => self.proc_stmt_figure(stmt, history).into(),
@@ -150,7 +146,7 @@ impl Debugtime {
                 None => Default::default(),
                 _ => panic!(),
             },
-            TraceVariant::ProcBranch {
+            TraceVariant::EagerBranch {
                 ref stmt,
                 branch_idx,
                 ref history,

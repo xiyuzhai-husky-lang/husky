@@ -19,7 +19,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../Devtime/husky-trace-protocol" }
 husky-models-static-defn = { path = "../domains/ml/husky-models-static-defn" }
 husky-datasets-static-defn = { path = "../domains/ml/husky-datasets-static-defn" }
 __husky = { path = "../__husky" }

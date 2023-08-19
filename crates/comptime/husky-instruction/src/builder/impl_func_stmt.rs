@@ -4,13 +4,13 @@ use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
 use husky_vm::{Instruction, InstructionData, VMConditionBranch, VMPattern, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
-    pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
+    pub(super) fn compile_func_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
         stmts
             .iter()
             .for_each(|stmt| self.compile_func_stmt(stmt.clone()));
     }
 
-    fn compile_func_stmt(&mut self, stmt: Arc<FuncStmt>) {
+    fn compile_func_stmt(&mut self, stmt: HirEagerStmtIdx) {
         match stmt.variant {
             FuncStmtVariant::Init {
                 varname,

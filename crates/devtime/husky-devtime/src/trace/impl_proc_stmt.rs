@@ -1,17 +1,17 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn new_proc_stmt_trace(
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<ProcStmt>,
+        stmt: HirEagerStmtIdx,
         history: Arc<History>,
     ) -> TraceId {
         self.new_trace(
             Some(parent_id),
             indent,
-            TraceVariant::ProcStmt { stmt, history },
+            TraceVariant::EagerStmt { stmt, history },
         )
     }
 
@@ -19,7 +19,7 @@ impl Debugtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<ProcStmt>,
+        stmt: HirEagerStmtIdx,
         branch: Arc<ProcConditionFlowBranch>,
         branch_idx: u8,
         history: Arc<History>,
@@ -33,7 +33,7 @@ impl Debugtime {
         self.new_trace(
             Some(parent_id),
             indent,
-            TraceVariant::ProcBranch {
+            TraceVariant::EagerBranch {
                 stmt,
                 branch,
                 branch_idx,
@@ -47,7 +47,7 @@ impl Debugtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmts: &[Arc<ProcStmt>],
+        stmts: &[HirEagerStmtIdx],
         history: &Arc<History>,
     ) -> Vec<TraceId> {
         let mut traces = Vec::new();

@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn feature_stmt_specific_figure(
         &self,
         stmt: &ValStmt,

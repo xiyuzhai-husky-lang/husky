@@ -272,7 +272,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     &mut self,
     //     indent: Indent,
     //     ty: EntityRoutePtr,
-    //     opds: &Vec<Arc<EagerExpr>>,
+    //     opds: &Vec<HirEagerExprIdx>,
     //     ty_decl: &Arc<infer_decl::TyDecl>,
     // ) {
     //     let type_call = ty_decl.opt_type_call.as_ref().unwrap();
@@ -292,7 +292,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     &mut self,
     //     indent: Indent,
     //     ty: EntityRoutePtr,
-    //     opds: &Vec<Arc<EagerExpr>>,
+    //     opds: &Vec<HirEagerExprIdx>,
     //     type_call: &CallFugitiveDecl,
     // ) {
     //     self.gen_item_route(ty, EntityRouteRole::Caller);
@@ -316,7 +316,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     &mut self,
     //     indent: Indent,
     //     ty: EntityRoutePtr,
-    //     opds: &Vec<Arc<EagerExpr>>,
+    //     opds: &Vec<HirEagerExprIdx>,
     //     type_call: &CallFugitiveDecl,
     // ) {
     //     self.write("{\n");
@@ -507,7 +507,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     }
     // }
 
-    // fn gen_arguments(&mut self, indent: Indent, exprs: &[Arc<EagerExpr>]) {
+    // fn gen_arguments(&mut self, indent: Indent, exprs: &[HirEagerExprIdx]) {
     //     for (i, expr) in exprs.iter().enumerate() {
     //         if i > 0 {
     //             self.write(", ");

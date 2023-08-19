@@ -10,7 +10,7 @@ use map_collect::MapCollect;
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_eager_expr(
         &mut self,
-        expr: &Arc<EagerExpr>,
+        expr: HirEagerExprIdx,
         output_stack_idx: VMStackIdx,
         discard: bool,
     ) {
@@ -174,8 +174,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_opn(
         &mut self,
         opn_variant: &EagerOpnVariant,
-        opds: &[Arc<EagerExpr>],
-        expr: &Arc<EagerExpr>,
+        opds: &[HirEagerExprIdx],
+        expr: HirEagerExprIdx,
         output_stack_idx: VMStackIdx,
         discard: bool,
     ) {
@@ -397,8 +397,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_suffix(
         &mut self,
         _opr: &EagerSuffixOpr,
-        _opds: &[Arc<EagerExpr>],
-        _expr: &Arc<EagerExpr>,
+        _opds: &[HirEagerExprIdx],
+        _expr: HirEagerExprIdx,
         _discard: bool,
     ) {
         todo!()
@@ -506,8 +506,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_binary_opn(
         &mut self,
         opr: BinaryOpr,
-        opds: &[Arc<EagerExpr>],
-        expr: &Arc<EagerExpr>,
+        opds: &[HirEagerExprIdx],
+        expr: HirEagerExprIdx,
         discard: bool,
     ) {
         todo!()
@@ -604,8 +604,8 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_prefix_opn(
         &mut self,
         prefix: PrefixOpr,
-        opds: &[Arc<EagerExpr>],
-        expr: &Arc<EagerExpr>,
+        opds: &[HirEagerExprIdx],
+        expr: HirEagerExprIdx,
         discard: bool,
     ) {
         todo!()
@@ -634,8 +634,8 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_element_access(
         &mut self,
-        expr: Arc<EagerExpr>,
-        opds: &[Arc<EagerExpr>],
+        expr: HirEagerExprIdx,
+        opds: &[HirEagerExprIdx],
         element_binding: Binding,
     ) {
         let index_linkage = self.db.index_linkage(opds.map(|opd| opd.intrinsic_ty()));

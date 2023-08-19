@@ -33,7 +33,7 @@ impl<'a> LinkageCollector<'a> {
     //     }
     // }
 
-    // pub(crate) fn collect_from_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
+    // pub(crate) fn collect_from_func_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
     //     for stmt in stmts {
     //         match stmt.variant {
     //             FuncStmtVariant::Init {
@@ -73,7 +73,7 @@ impl<'a> LinkageCollector<'a> {
     //     }
     // }
 
-    // pub(crate) fn collect_from_proc_stmts(&mut self, stmts: &[Arc<ProcStmt>]) {
+    // pub(crate) fn collect_from_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
     //     for stmt in stmts {
     //         match stmt.variant {
     //             ProcStmtVariant::Init {

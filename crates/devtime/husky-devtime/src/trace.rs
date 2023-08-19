@@ -5,7 +5,7 @@ use husky_item_semantics::EntityDefn;
 
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn feature_stmt_traces(
         &mut self,
         parent: &Trace,
@@ -37,16 +37,12 @@ impl Debugtime {
         indent: Indent,
         branch: Arc<FeatureLazyBranch>,
     ) -> TraceId {
-        self.new_trace(
-            Some(parent.id()),
-            indent,
-            TraceVariant::FeatureBranch(branch),
-        )
+        self.new_trace(Some(parent.id()), indent, TraceVariant::LazyBranch(branch))
     }
 
     pub(crate) fn new_eager_expr_trace(
         &mut self,
-        expr: Arc<EagerExpr>,
+        expr: HirEagerExprIdx,
         history: Arc<History>,
         opt_parent: Option<&Trace>,
         indent: Indent,

@@ -1,6 +1,6 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn feature_expr_specific_figure(
         &self,
         expr: &ValExpr,

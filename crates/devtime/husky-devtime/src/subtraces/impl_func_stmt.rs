@@ -1,9 +1,9 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn func_branch_subtraces(
         &mut self,
-        stmts: &[Arc<FuncStmt>],
+        stmts: &[HirEagerStmtIdx],
         instruction_sheet: &Instructions,
         stack_snapshot: &StackSnapshot,
         parent: &Trace,

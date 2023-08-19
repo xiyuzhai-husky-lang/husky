@@ -5,7 +5,7 @@ use husky_vm::HistoryEntry;
 
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     #[inline(always)]
     pub fn figure_control(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
@@ -32,14 +32,14 @@ impl Debugtime {
             | TraceVariant::EntityFeature { .. }
             | TraceVariant::Module { .. }
             | TraceVariant::FeatureStmt(_)
-            | TraceVariant::FeatureBranch(_)
+            | TraceVariant::LazyBranch(_)
             | TraceVariant::FeatureExpr(_)
             | TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. }
             | TraceVariant::EagerCallArgument { .. } => FigureControlData::default(),
-            TraceVariant::ProcStmt {
+            TraceVariant::EagerStmt {
                 ref stmt,
                 ref history,
             } => match stmt.variant {
@@ -75,7 +75,7 @@ impl Debugtime {
                 }
                 _ => panic!(),
             },
-            TraceVariant::ProcBranch {
+            TraceVariant::EagerBranch {
                 ref stmt,
                 branch_idx,
                 ref history,
@@ -97,17 +97,17 @@ impl Debugtime {
         }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) -> DebugtimeUpdateM<()> {
+    pub(crate) fn update_figure_controls(&mut self) -> DevtimeUpdateM<()> {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_control(pin)?;
         }
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 
-    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> DebugtimeUpdateM<()> {
+    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -115,14 +115,14 @@ impl Debugtime {
                 .figure_controls
                 .insert_new(key, figure_control_data.clone());
         }
-        DebugtimeUpdateM::Ok(())
+        DevtimeUpdateM::Ok(())
     }
 
     pub fn set_figure_control(
         &mut self,
         _trace_id: TraceId,
         _new_figure_control_data: FigureControlData,
-    ) -> DebugtimeTakeChangeM<()> {
+    ) -> DevtimeTakeChangeM<()> {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
         // DevtimeStageChangeM::Ok(

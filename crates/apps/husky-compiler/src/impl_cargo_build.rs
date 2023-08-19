@@ -5,8 +5,6 @@ pub enum CargoBuildM {
     Ok,
 }
 
-impl Monad for CargoBuildM {}
-
 pub struct CargoBuildR;
 
 impl std::ops::FromResidual<CargoBuildR> for CargoBuildM {

@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_taxonomy::EntityKind;
 use husky_ethereal_term::EtherealTerm;
 
-impl Debugtime {
+impl Devtime {
     pub(super) fn module_subtraces(&mut self, trace: &Trace, module: EtherealTerm) -> Vec<TraceId> {
         todo!()
         // let mut subtrace_ids = vec![];

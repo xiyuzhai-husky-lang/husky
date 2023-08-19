@@ -1,11 +1,11 @@
 use super::*;
 
-impl Debugtime {
+impl Devtime {
     pub(crate) fn func_stmts_traces(
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmts: &[Arc<FuncStmt>],
+        stmts: &[HirEagerStmtIdx],
         history: &Arc<History>,
     ) -> Vec<TraceId> {
         let mut traces = Vec::new();
@@ -38,7 +38,7 @@ impl Debugtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<FuncStmt>,
+        stmt: HirEagerStmtIdx,
         branch: Arc<FuncConditionFlowBranch>,
         branch_idx: u8,
         history: Arc<History>,
@@ -66,7 +66,7 @@ impl Debugtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: Arc<FuncStmt>,
+        stmt: HirEagerStmtIdx,
         history: Arc<History>,
     ) -> TraceId {
         self.new_trace(

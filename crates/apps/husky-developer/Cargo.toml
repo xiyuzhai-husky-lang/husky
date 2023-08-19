@@ -28,7 +28,6 @@ relative-path = "1.7.2"
 # abstraction
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
-monad = { path = "../../abstraction/monad" }
 # apps
 husky-compiler = { path = "../../apps/husky-compiler" }
 # comptime

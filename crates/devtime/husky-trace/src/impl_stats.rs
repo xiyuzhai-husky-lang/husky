@@ -18,14 +18,14 @@ impl TraceVariant {
                 feature_repr_opt_stats(runtime, partitions, repr, None)
             }
             TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, partitions, stmt),
-            TraceVariant::FeatureBranch(branch) => {
+            TraceVariant::LazyBranch(branch) => {
                 feature_branch_opt_stats(runtime, partitions, branch)
             }
             TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, partitions, expr),
             TraceVariant::FeatureCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
-            | TraceVariant::ProcStmt { .. }
-            | TraceVariant::ProcBranch { .. }
+            | TraceVariant::EagerStmt { .. }
+            | TraceVariant::EagerBranch { .. }
             | TraceVariant::FuncBranch { .. }
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::EagerExpr { .. }

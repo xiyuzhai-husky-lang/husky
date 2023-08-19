@@ -64,21 +64,13 @@ impl<E> TrackableVec<E>
 where
     E: TrackClone,
 {
-    pub fn push(&mut self, elem: E) -> TrackableMakeChangeM<Self, ()> {
-        self.entries.push(elem);
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: PhantomData,
-        }
+    pub fn push(&mut self, elem: E) {
+        self.entries.push(elem)
     }
 
-    pub fn set(&mut self, new_value: Vec<E>) -> TrackableMakeChangeM<Self, ()> {
+    pub fn set(&mut self, new_value: Vec<E>) {
         self.state = Default::default();
-        self.entries = new_value;
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: PhantomData,
-        }
+        self.entries = new_value
     }
 
     pub fn clear_pop(&mut self) -> Vec<E> {
@@ -87,43 +79,23 @@ where
         entries
     }
 
-    pub fn set_elem(&mut self, index: usize, new_value: E) -> TrackableMakeChangeM<Self, ()> {
+    pub fn set_elem(&mut self, index: usize, new_value: E) {
         self.entries[index] = new_value;
-        self.state.modify_element(index);
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: PhantomData,
-        }
+        self.state.modify_element(index)
     }
 
-    pub fn update_elem(
-        &mut self,
-        index: usize,
-        f: impl FnOnce(&mut E),
-    ) -> TrackableMakeChangeM<Self, ()> {
+    pub fn update_elem(&mut self, index: usize, f: impl FnOnce(&mut E)) {
         f(&mut self.entries[index]);
-        self.state.modify_element(index);
-        TrackableMakeChangeM::Ok {
-            cont: (),
-            phantom_state: PhantomData,
-        }
+        self.state.modify_element(index)
     }
 
-    pub fn apply_set_elem(&mut self, _index: usize, _elem: E) -> TrackableApplyChangeM<Self, ()> {
+    pub fn apply_set_elem(&mut self, _index: usize, _elem: E) {
         todo!()
     }
 
-    pub fn apply_update_elem(
-        &mut self,
-        index: usize,
-        f: impl FnOnce(&mut E),
-    ) -> TrackableApplyChangeM<Self, ()> {
+    pub fn apply_update_elem(&mut self, index: usize, f: impl FnOnce(&mut E)) {
         f(&mut self.entries[index]);
-        self.state.modify_element(index);
-        TrackableApplyChangeM::Ok {
-            this: PhantomData,
-            cont: (),
-        }
+        self.state.modify_element(index)
     }
 
     pub fn state(&self) -> &TrackableVecState {

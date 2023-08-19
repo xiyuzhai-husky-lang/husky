@@ -7,7 +7,7 @@ use crate::*;
 
 // pub fn new_visual_instruction_sheet(
 //     db: &dyn InstructionDb,
-//     stmts: &[Arc<FuncStmt>],
+//     stmts: &[HirEagerStmtIdx],
 // ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
 //     builder.compile_func_stmts(stmts);
@@ -17,7 +17,7 @@ use crate::*;
 // pub fn new_func_instruction_sheet(
 //     db: &dyn InstructionDb,
 //     inputs: impl Iterator<Item = Ident>,
-//     stmts: &[Arc<FuncStmt>],
+//     stmts: &[HirEagerStmtIdx],
 //     has_this: bool,
 // ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
@@ -28,7 +28,7 @@ use crate::*;
 // pub fn new_proc_instruction_sheet(
 //     db: &dyn InstructionDb,
 //     inputs: impl Iterator<Item = Ident>,
-//     stmts: &[Arc<ProcStmt>],
+//     stmts: &[HirEagerStmtIdx],
 //     has_this: bool,
 // ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
