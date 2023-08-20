@@ -14,7 +14,7 @@ impl AsTraceSketch for TraceSketch {
     fn new(node: &Self::Node) -> Option<Self> {
         todo!()
         // match node.trace().variant {
-        //     TraceVariant::Main(_) => Some(TraceSketch::Main),
+        //     TraceVariant::Main(..) => Some(TraceSketch::Main),
         //     TraceVariant::Module {
         //         route,
         //         file: _,

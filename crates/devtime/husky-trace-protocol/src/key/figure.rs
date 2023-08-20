@@ -37,9 +37,9 @@ impl GenericFigureCanvasKey {
                 restriction: presentation.restriction(),
             }),
             TraceKind::FuncStmt
-            | TraceKind::ProcStmt
+            | TraceKind::EagerStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch
+            | TraceKind::EagerBranch
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame
             | TraceKind::Module
@@ -69,9 +69,9 @@ impl SpecificFigureCanvasKey {
             | TraceKind::FeatureExprEager
             | TraceKind::FeatureCallArgument
             | TraceKind::FuncStmt
-            | TraceKind::ProcStmt
+            | TraceKind::EagerStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch
+            | TraceKind::EagerBranch
             | TraceKind::EagerExpr
             | TraceKind::LoopFrame
             | TraceKind::EagerCallArgument => Some(SpecificFigureCanvasKey {

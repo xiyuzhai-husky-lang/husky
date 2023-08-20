@@ -1,67 +1,67 @@
-// #![feature(try_trait_v2)]
+#![feature(try_trait_v2)]
 
-// mod comptime;
-// mod hot_reload;
-// mod impl_necessary;
-// mod impl_train;
-// mod query;
-// mod variant;
+mod comptime;
+mod hot_reload;
+mod impl_necessary;
+mod impl_train;
+mod query;
+mod variant;
 
-// pub use hot_reload::{HuskyRuntimeHotReloadM, HuskyRuntimeHotReloadR};
-// pub use husky_comptime::*;
-// pub use husky_val_repr::{ValReprDb, FeatureGenQueryGroupStorage, InternFeature};
-// pub use husky_instruction_gen::InstructionDb;
-// pub use query::*;
+pub use hot_reload::{HuskyRuntimeHotReloadM, HuskyRuntimeHotReloadR};
+pub use husky_comptime::*;
+pub use husky_instruction_gen::InstructionDb;
+pub use husky_val_repr::{FeatureGenQueryGroupStorage, InternFeature, ValReprDb};
+pub use query::*;
 
-// use husky_check_utils::*;
-// use husky_compiler::CompilerInstance;
-// use husky_diagnostics::DiagnosticsDb;
-// use husky_item_semantics::EntityRouteStore;
-// use husky_eval::*;
-// use husky_eval::{EvalFeature, Session};
-// use husky_val_repr::FeatureInterner;
-// use husky_linkage_table::LinkageTable;
-// use husky_path::{FileQueryGroup, DiffPath};
-// use husky_print_utils::*;
+use husky_check_utils::*;
+use husky_compiler::CompilerInstance;
+use husky_diagnostics::DiagnosticsDb;
+use husky_eval::*;
+use husky_eval::{EvalFeature, Session};
+use husky_item_semantics::EntityRouteStore;
+use husky_linkage_table::LinkageTable;
+use husky_path::{DiffPath, FileQueryGroup};
+use husky_print_utils::*;
+use husky_val_repr::FeatureInterner;
 
-// use indexmap::IndexMap;
+use indexmap::IndexMap;
 
-// use relative_path::RelativePathBuf;
-// use std::sync::Arc;
-// use sync_utils::ASafeRwLock;
-// use variant::*;
+use relative_path::RelativePathBuf;
+use std::sync::Arc;
+use sync_utils::ASafeRwLock;
+use variant::*;
 
-// #[salsa::database(
-//     husky_val_repr::FeatureGenQueryGroupStorage,
-//     husky_instruction_gen::InstructionDbStorage,
-//     husky_data_viewer::DataViewerDbStorage,
-//     // comptime
-//     husky_path::FileQueryStorage,
-//     husky_token_sheet::TokenQueryGroupStorage,
-//     husky_entity_syn_tree::ScopeQueryGroupStorage,
-//     husky_text::TextQueryGroupStorage,
-//     husky_ast::AstQueryGroupStorage,
-//     husky_syn_fmt::FormatQueryGroupStorage,
-//     husky_item_semantics::EntityQueryGroupStorage,
-//     husky_package_semantics::PackageQueryGroupStorage,
-//     husky_diagnostics::DiagnosticsDbGroupStorage,
-//     husky_rust_code_gen::RustGenQueryStorage,
-//     husky_layout::HuskyLayoutQueryGroupStorage
-// )]
-// pub struct DevRuntime {
-//     storage: salsa::Storage<DevRuntime>,
-//     variant: HuskyRuntimeVariant,
-//     config: RuntimeConfig,
-//     live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
-//     linkage_table: LinkageTable,
-//     item_route_store: EntityRouteStore,
-// }
+#[salsa::database(
+    husky_val_repr::FeatureGenQueryGroupStorage,
+    husky_instruction_gen::InstructionDbStorage,
+    husky_data_viewer::DataViewerDbStorage,
+    // comptime
+    husky_path::FileQueryStorage,
+    husky_token_sheet::TokenQueryGroupStorage,
+    husky_entity_syn_tree::ScopeQueryGroupStorage,
+    husky_text::TextQueryGroupStorage,
+    husky_ast::AstQueryGroupStorage,
+    husky_syn_fmt::FormatQueryGroupStorage,
+    husky_item_semantics::EntityQueryGroupStorage,
+    husky_package_semantics::PackageQueryGroupStorage,
+    husky_diagnostics::DiagnosticsDbGroupStorage,
+    husky_rust_code_gen::RustGenQueryStorage,
+    husky_layout::HuskyLayoutQueryGroupStorage
+)]
+pub struct DevRuntime {
+    storage: salsa::Storage<DevRuntime>,
+    variant: HuskyRuntimeVariant,
+    config: RuntimeConfig,
+    live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
+    linkage_table: LinkageTable,
+    item_route_store: EntityRouteStore,
+}
 
-// #[derive(Debug)]
-// pub struct RuntimeConfig {
-//     pub evaluator: EvaluatorConfig,
-//     pub comptime: ComptimeConfig,
-// }
+#[derive(Debug)]
+pub struct RuntimeConfig {
+    pub evaluator: EvaluatorConfig,
+    pub comptime: ComptimeConfig,
+}
 
 // impl DevRuntime {
 //     pub fn new(config: RuntimeConfig) -> DevRuntime {

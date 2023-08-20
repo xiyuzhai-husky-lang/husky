@@ -20,6 +20,8 @@ thin-vec = { path = "../../../forks/thin-vec" }
 upcast = { path = "../../abstraction/upcast" }
 avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
@@ -40,6 +42,7 @@ husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
 husky-vm = { path = "../../vm/husky-vm" }
 # comptime
+husky-hir-defn = { path = "../../comptime/husky-hir-defn" }
 husky-instruction = { path = "../../comptime/husky-instruction" }
 # husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # runtime

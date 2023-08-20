@@ -24,9 +24,9 @@ impl SubtracesKey {
             | TraceKind::FeatureStmt
             | TraceKind::FeatureBranch
             | TraceKind::FuncStmt
-            | TraceKind::ProcStmt
+            | TraceKind::EagerStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch
+            | TraceKind::EagerBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr
             | TraceKind::EntityFeatureLazy

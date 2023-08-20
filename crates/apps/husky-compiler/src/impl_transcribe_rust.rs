@@ -124,7 +124,7 @@ A common pitfall is that one use `git branch stable` instead of `git checkout or
     //     comptime: &HuskyComptime,
     //     rust_code_path: PathBuf,
     //     husky_code_snapshot_path: &Path,
-    //     module: &EntityDefn,
+    //     module: SynDefn,
     // ) {
     //     match module.variant {
     //         EntityDefnVariant::Module { .. } => (),

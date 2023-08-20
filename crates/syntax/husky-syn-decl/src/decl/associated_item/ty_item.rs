@@ -187,9 +187,9 @@ pub enum TypeItemSynDecl {
     MemoizedField(TypeMemoizedFieldSynDecl),
 }
 
-impl From<TypeItemSynDecl> for Decl {
+impl From<TypeItemSynDecl> for SynDecl {
     fn from(decl: TypeItemSynDecl) -> Self {
-        Decl::AssociatedItem(decl.into())
+        SynDecl::AssociatedItem(decl.into())
     }
 }
 

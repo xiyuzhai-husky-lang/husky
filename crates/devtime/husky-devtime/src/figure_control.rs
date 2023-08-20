@@ -1,4 +1,3 @@
-use husky_eager_semantics::ProcStmtVariant;
 use husky_print_utils::msg_once;
 use husky_trace::*;
 use husky_vm::HistoryEntry;
@@ -28,13 +27,13 @@ impl Devtime {
     pub fn gen_figure_control_data(&mut self, trace_id: TraceId) -> FigureControlData {
         let trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(_)
-            | TraceVariant::EntityFeature { .. }
+            TraceVariant::Main(..)
+            | TraceVariant::EntityVal { .. }
             | TraceVariant::Module { .. }
-            | TraceVariant::FeatureStmt(_)
-            | TraceVariant::LazyBranch(_)
-            | TraceVariant::FeatureExpr(_)
-            | TraceVariant::FeatureCallArgument { .. }
+            | TraceVariant::ValStmt(_)
+            | TraceVariant::ValBranch(_)
+            | TraceVariant::LazyExpr(_)
+            | TraceVariant::ValCallArgument { .. }
             | TraceVariant::FuncStmt { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::CallHead { .. }
@@ -42,18 +41,22 @@ impl Devtime {
             TraceVariant::EagerStmt {
                 ref stmt,
                 ref history,
-            } => match stmt.variant {
-                ProcStmtVariant::Loop { .. } => match history.get(stmt)? {
-                    HistoryEntry::Loop { mutations, .. } => {
-                        FigureControlData::mutations_default(mutations.len())
-                    }
-                    _ => {
-                        p!(stmt.file, stmt.range);
-                        panic!()
-                    }
-                },
-                _ => FigureControlData::default(),
-            },
+                ..
+            } => {
+                todo!()
+                //     match stmt.variant {
+                //     HirEagerStmt::Loop { .. } => match history.get(stmt)? {
+                //         HistoryEntry::Loop { mutations, .. } => {
+                //             FigureControlData::mutations_default(mutations.len())
+                //         }
+                //         _ => {
+                //             p!(stmt.file, stmt.range);
+                //             panic!()
+                //         }
+                //     },
+                //     _ => FigureControlData::default(),
+                // }
+            }
             TraceVariant::LoopFrame { .. } => {
                 self.gen_figure_control_data(trace.raw_data.opt_parent_id.unwrap())
             }
@@ -97,17 +100,16 @@ impl Devtime {
         }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_figure_controls(&mut self) {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_control(active_trace_id)?;
         }
         for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_control(pin)?;
         }
-        DevtimeUpdateM::Ok(())
     }
 
-    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) {
         let key = self.gen_figure_control_key(trace_id);
         if !self.state.figure_controls.contains(&key) {
             let figure_control_data = self.gen_figure_control_data(trace_id);
@@ -115,7 +117,6 @@ impl Devtime {
                 .figure_controls
                 .insert_new(key, figure_control_data.clone());
         }
-        DevtimeUpdateM::Ok(())
     }
 
     pub fn set_figure_control(

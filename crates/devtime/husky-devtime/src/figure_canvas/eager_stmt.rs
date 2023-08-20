@@ -1,17 +1,18 @@
 use super::*;
+use husky_hir_eager_expr::HirEagerStmt;
 
 impl Devtime {
     pub(crate) fn proc_stmt_figure(
         &self,
-        stmt: &ProcStmt,
+        stmt: &HirEagerStmt,
         history: &History,
     ) -> SpecificFigureCanvasData {
         match stmt.variant {
-            ProcStmtVariant::Init {
+            HirEagerStmt::Init {
                 ref initial_value, ..
             } => self.eager_expr_figure(initial_value, history),
-            ProcStmtVariant::Assert { .. } => todo!(),
-            ProcStmtVariant::Execute { ref expr } => {
+            HirEagerStmt::Assert { .. } => todo!(),
+            HirEagerStmt::Execute { ref expr } => {
                 if let Some(entry) = history.get(expr) {
                     match entry {
                         HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
@@ -24,9 +25,9 @@ impl Devtime {
                     Default::default()
                 }
             }
-            ProcStmtVariant::Return { ref result, .. } => self.eager_expr_figure(result, history),
-            ProcStmtVariant::ConditionFlow { .. } => todo!(),
-            ProcStmtVariant::Loop { .. } => {
+            HirEagerStmt::Return { ref result, .. } => self.eager_expr_figure(result, history),
+            HirEagerStmt::ConditionFlow { .. } => todo!(),
+            HirEagerStmt::Loop { .. } => {
                 if let Some(entry) = history.get(stmt) {
                     match entry {
                         HistoryEntry::Loop { ref mutations, .. } => {
@@ -38,8 +39,8 @@ impl Devtime {
                     Default::default()
                 }
             }
-            ProcStmtVariant::Break => Default::default(),
-            ProcStmtVariant::Match { .. } => todo!(),
+            HirEagerStmt::Break => Default::default(),
+            HirEagerStmt::Match { .. } => todo!(),
         }
     }
 
@@ -51,8 +52,7 @@ impl Devtime {
         let loop_trace = self.trace(loop_trace_id);
         let mutations = match loop_trace.variant {
             TraceVariant::EagerStmt {
-                ref stmt,
-                ref history,
+                stmt, ref history, ..
             } => match history.get(stmt).unwrap() {
                 HistoryEntry::Loop {
                     stack_snapshot,

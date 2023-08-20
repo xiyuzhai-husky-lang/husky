@@ -41,7 +41,7 @@ pub enum TypeVariantSynDefn {
 }
 
 impl TypeVariantSynDefn {
-    pub fn decl(self, _db: &dyn SynDefnDb) -> Decl {
+    pub fn decl(self, _db: &dyn SynDefnDb) -> SynDecl {
         todo!()
     }
 

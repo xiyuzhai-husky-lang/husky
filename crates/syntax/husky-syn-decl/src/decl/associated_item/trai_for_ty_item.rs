@@ -164,9 +164,9 @@ pub enum TraitForTypeItemSynDecl {
     AssociatedVal(TraitForTypeAssociatedValSynDecl),
 }
 
-impl From<TraitForTypeItemSynDecl> for Decl {
+impl From<TraitForTypeItemSynDecl> for SynDecl {
     fn from(decl: TraitForTypeItemSynDecl) -> Self {
-        Decl::AssociatedItem(decl.into())
+        SynDecl::AssociatedItem(decl.into())
     }
 }
 

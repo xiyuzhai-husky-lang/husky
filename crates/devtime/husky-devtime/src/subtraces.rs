@@ -1,4 +1,4 @@
-mod impl_expr;
+mod expr_subtraces;
 mod impl_feature_branch;
 mod impl_feature_repr;
 mod impl_func_stmt;
@@ -26,12 +26,12 @@ impl Devtime {
         //         ref stmt,
         //         ref history,
         //     } => match stmt.variant {
-        //         ProcStmtVariant::Init { .. }
-        //         | ProcStmtVariant::Assert { .. }
-        //         | ProcStmtVariant::Execute { .. }
-        //         | ProcStmtVariant::Return { .. } => None,
-        //         ProcStmtVariant::ConditionFlow { .. } => panic!(),
-        //         ProcStmtVariant::Loop { ref stmts, .. } => {
+        //         HirEagerStmt::Init { .. }
+        //         | HirEagerStmt::Assert { .. }
+        //         | HirEagerStmt::Execute { .. }
+        //         | HirEagerStmt::Return { .. } => None,
+        //         HirEagerStmt::ConditionFlow { .. } => panic!(),
+        //         HirEagerStmt::Loop { ref stmts, .. } => {
         //             match history
         //                 .get(stmt)
         //                 .expect("if there is no entry, there is no subtraces")
@@ -55,8 +55,8 @@ impl Devtime {
         //                 HistoryEntry::PatternMatching { .. } => todo!(),
         //             }
         //         }
-        //         ProcStmtVariant::Break => None,
-        //         ProcStmtVariant::Match { .. } => todo!(),
+        //         HirEagerStmt::Break => None,
+        //         HirEagerStmt::Match { .. } => todo!(),
         //     },
         //     TraceVariant::FeatureExpr(ref expr) => self.feature_expr_subtraces(trace, expr),
         //     TraceVariant::FeatureBranch(ref branch) => {

@@ -9,7 +9,7 @@ mod proc_stmt;
 mod token;
 
 pub use expr_config::*;
-use husky_text::Row;
+use husky_text::TextLine;
 
 use super::*;
 
@@ -70,7 +70,7 @@ impl<'a> TraceLineGenerator<'a> {
     pub(super) fn gen(mut self) -> Vec<TraceLineData> {
         todo!()
         // match self.trace_variant {
-        //     TraceVariant::Main(_) => self.render_keyword_token("main", None, None),
+        //     TraceVariant::Main(..) => self.render_keyword_token("main", None, None),
         //     TraceVariant::EntityFeature {
         //         route, ref repr, ..
         //     } => {

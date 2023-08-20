@@ -129,11 +129,11 @@ impl<'a> RustCodeGenerator<'a> {
         // self.newline();
     }
 
-    fn gen_proc_stmt(&mut self, _stmt: &ProcStmt) {
+    fn gen_proc_stmt(&mut self, _stmt: &HirEagerStmt) {
         todo!()
         // self.indent(stmt.indent);
         // match stmt.variant {
-        //     ProcStmtVariant::Init {
+        //     HirEagerStmt::Init {
         //         varname,
         //         ref initial_value,
         //         init_kind,
@@ -149,16 +149,16 @@ impl<'a> RustCodeGenerator<'a> {
         //         self.gen_expr(stmt.indent, initial_value);
         //         self.write(";");
         //     }
-        //     ProcStmtVariant::Assert { ref condition } => {
+        //     HirEagerStmt::Assert { ref condition } => {
         //         self.write("assert!(");
         //         self.gen_expr(stmt.indent, condition);
         //         self.write(");");
         //     }
-        //     ProcStmtVariant::Execute { ref expr } => {
+        //     HirEagerStmt::Execute { ref expr } => {
         //         self.gen_expr(stmt.indent, expr);
         //         self.write(";");
         //     }
-        //     ProcStmtVariant::Return {
+        //     HirEagerStmt::Return {
         //         ref result,
         //         return_context,
         //     } => match result.variant {
@@ -195,17 +195,17 @@ impl<'a> RustCodeGenerator<'a> {
         //             ),
         //         },
         //     },
-        //     ProcStmtVariant::ConditionFlow { ref branches } => {
+        //     HirEagerStmt::ConditionFlow { ref branches } => {
         //         self.gen_proc_condition_flow(stmt.indent, branches)
         //     }
-        //     ProcStmtVariant::Loop {
+        //     HirEagerStmt::Loop {
         //         ref loop_variant,
         //         ref stmts,
         //     } => self.gen_loop_stmt(loop_variant, stmt.indent, stmts),
-        //     ProcStmtVariant::Break => {
+        //     HirEagerStmt::Break => {
         //         self.write("break;");
         //     }
-        //     ProcStmtVariant::Match {
+        //     HirEagerStmt::Match {
         //         ref match_expr,
         //         ref branches,
         //     } => self.gen_proc_match_pattern(match_expr, stmt.indent, branches),
@@ -257,7 +257,7 @@ impl<'a> RustCodeGenerator<'a> {
         }
     }
 
-    fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
+    fn gen_condition(&mut self, indent: Indent, condition: HirEagerExprIdx) {
         match condition.intrinsic_ty() {
             EtherealTerm::Root(builtin_ident) => match builtin_ident {
                 RootBuiltinIdent::Void => todo!(),

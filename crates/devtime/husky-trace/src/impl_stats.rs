@@ -8,25 +8,26 @@ use husky_vm::{__RegularValue, __VMResult};
 impl TraceVariant {
     pub fn opt_stats_result(
         &self,
-        runtime: &dyn EvalFeature,
+        runtime: &dyn TraceRuntime,
         partitions: &Partitions,
     ) -> __VMResult<Option<TraceStats>> {
         match self {
-            TraceVariant::Main(repr) => feature_repr_opt_stats(runtime, partitions, repr, None),
+            TraceVariant::Main(..) => todo!(),
+            // val_repr_opt_stats(runtime, partitions, repr, None),
             TraceVariant::Module { .. } => Ok(None),
-            TraceVariant::EntityFeature { repr, .. } => {
-                feature_repr_opt_stats(runtime, partitions, repr, None)
+            TraceVariant::EntityVal { .. } => {
+                todo!()
+                // val_repr_opt_stats(runtime, partitions, repr, None)
             }
-            TraceVariant::FeatureStmt(stmt) => feature_stmt_opt_stats(runtime, partitions, stmt),
-            TraceVariant::LazyBranch(branch) => {
-                feature_branch_opt_stats(runtime, partitions, branch)
+            TraceVariant::ValStmt(stmt) => feature_stmt_opt_stats(runtime, partitions, stmt),
+            TraceVariant::ValBranch(branch) => {
+                todo!()
+                // feature_branch_opt_stats(runtime, partitions, branch)
             }
-            TraceVariant::FeatureExpr(expr) => feature_expr_opt_stats(runtime, partitions, expr),
-            TraceVariant::FeatureCallArgument { .. }
-            | TraceVariant::FuncStmt { .. }
+            TraceVariant::LazyExpr(expr) => feature_expr_opt_stats(runtime, partitions, *expr),
+            TraceVariant::ValCallArgument { .. }
             | TraceVariant::EagerStmt { .. }
             | TraceVariant::EagerBranch { .. }
-            | TraceVariant::FuncBranch { .. }
             | TraceVariant::LoopFrame { .. }
             | TraceVariant::EagerExpr { .. }
             | TraceVariant::EagerCallArgument { .. }
@@ -35,23 +36,24 @@ impl TraceVariant {
     }
 }
 
-fn feature_repr_opt_stats(
-    db: &dyn EvalFeature,
+fn val_repr_opt_stats(
+    db: &dyn TraceRuntime,
     partitions: &Partitions,
-    repr: &ValRepr,
+    // repr: &ValRepr,
     opt_arrival_indicator: Option<&ValDomain>,
 ) -> __VMResult<Option<TraceStats>> {
-    feature_opt_stats(
-        db,
-        partitions,
-        repr.ty(),
-        |sample_id| db.eval_feature_repr_cached(repr, sample_id),
-        opt_arrival_indicator,
-    )
+    todo!()
+    // feature_opt_stats(
+    //     db,
+    //     partitions,
+    //     repr.ty(),
+    //     |sample_id| db.eval_feature_repr_cached(repr, sample_id),
+    //     opt_arrival_indicator,
+    // )
 }
 
 fn feature_stmt_opt_stats(
-    _db: &dyn EvalFeature,
+    _db: &dyn TraceRuntime,
     _partitions: &Partitions,
     _stmt: &ValStmt,
 ) -> __VMResult<Option<TraceStats>> {
@@ -75,9 +77,9 @@ fn feature_stmt_opt_stats(
 }
 
 fn feature_branch_opt_stats(
-    db: &dyn EvalFeature,
+    db: &dyn TraceRuntime,
     partitions: &Partitions,
-    branch: &FeatureLazyBranch,
+    // branch: &FeatureLazyBranch,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
     // msg_once!("consider whether condition is satisfied");
@@ -106,21 +108,22 @@ fn feature_branch_opt_stats(
 }
 
 fn feature_expr_opt_stats(
-    db: &dyn EvalFeature,
+    db: &dyn TraceRuntime,
     partitions: &Partitions,
-    expr: &FeatureLazyExpr,
+    expr: ValExpr,
 ) -> __VMResult<Option<TraceStats>> {
-    feature_opt_stats(
-        db,
-        partitions,
-        expr.expr.intrinsic_ty(),
-        |sample_id| db.eval_feature_expr(expr, sample_id),
-        expr.opt_domain_indicator.as_ref(),
-    )
+    todo!()
+    // feature_opt_stats(
+    //     db,
+    //     partitions,
+    //     expr.expr.intrinsic_ty(),
+    //     |sample_id| db.eval_feature_expr(expr, sample_id),
+    //     expr.opt_domain_indicator.as_ref(),
+    // )
 }
 
 fn feature_opt_stats(
-    _db: &dyn EvalFeature,
+    _db: &dyn TraceRuntime,
     _partitions: &Partitions,
     _feature_ty: EtherealTerm,
     _compute_value: impl Fn(SampleId) -> __VMResult<__RegularValue>,

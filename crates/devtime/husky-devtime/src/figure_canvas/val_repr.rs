@@ -1,9 +1,8 @@
-use husky_comptime::utils::__RegisterDowncastResult;
 use husky_vm_primitive_value::PrimitiveValueData;
 
 use super::*;
 
-impl HuskyDevtime {
+impl Devtime {
     pub(crate) fn feature_repr_specific_figure(
         &self,
         repr: &ValRepr,
@@ -22,59 +21,60 @@ impl HuskyDevtime {
         repr: &ValRepr,
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
-        let ty = repr.ty();
-        let visualizer = self.runtime().visualizer(ty.intrinsic());
-        match visualizer.visual_ty {
-            VisualTy::Void => Ok(GenericFigureCanvasData::Unit),
-            VisualTy::Bool => todo!(),
-            VisualTy::B32 => todo!(),
-            VisualTy::B64 => todo!(),
-            VisualTy::Integer => {
-                let ref this = self;
-                Ok(GenericFigureCanvasData::GenericI32 {
-                    partitioned_samples: this.feature_repr_partitioned_samples(
-                        repr,
-                        |visual_data| match visual_data {
-                            VisualData::Primitive {
-                                value: PrimitiveValueData::I32(i),
-                            } => i,
-                            _ => {
-                                p!(visual_data);
-                                panic!()
-                            }
-                        },
-                    )?,
-                }
-                .into())
-            }
-            VisualTy::Float => Ok(GenericFigureCanvasData::GenericF32 {
-                partitioned_samples: self.feature_repr_partitioned_samples(
-                    repr,
-                    |visual_data| match visual_data {
-                        VisualData::Primitive {
-                            value: PrimitiveValueData::F32(f),
-                        } => f,
-                        _ => panic!(),
-                    },
-                )?,
-            }
-            .into()),
-            VisualTy::Point2d => todo!(),
-            VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
-                Ok(GenericFigureCanvasData::GenericGraphics2d {
-                    partitioned_samples: self
-                        .feature_repr_partitioned_samples(repr, |visual_data| {
-                            Graphics2dCanvasData::from_visual_data(visual_data)
-                        })?,
-                }
-                .into())
-            }
-            VisualTy::Dataset => todo!(),
-            VisualTy::Plot2d => todo!(),
-            VisualTy::Any => todo!(),
-            VisualTy::AnyGroup => todo!(),
-            VisualTy::ThickFp => todo!(),
-        }
+        todo!()
+        // let ty = repr.ty();
+        // let visualizer = self.runtime().visualizer(ty.intrinsic());
+        // match visualizer.visual_ty {
+        //     VisualTy::Void => Ok(GenericFigureCanvasData::Unit),
+        //     VisualTy::Bool => todo!(),
+        //     VisualTy::B32 => todo!(),
+        //     VisualTy::B64 => todo!(),
+        //     VisualTy::Integer => {
+        //         let ref this = self;
+        //         Ok(GenericFigureCanvasData::GenericI32 {
+        //             partitioned_samples: this.feature_repr_partitioned_samples(
+        //                 repr,
+        //                 |visual_data| match visual_data {
+        //                     VisualData::Primitive {
+        //                         value: PrimitiveValueData::I32(i),
+        //                     } => i,
+        //                     _ => {
+        //                         p!(visual_data);
+        //                         panic!()
+        //                     }
+        //                 },
+        //             )?,
+        //         }
+        //         .into())
+        //     }
+        //     VisualTy::Float => Ok(GenericFigureCanvasData::GenericF32 {
+        //         partitioned_samples: self.feature_repr_partitioned_samples(
+        //             repr,
+        //             |visual_data| match visual_data {
+        //                 VisualData::Primitive {
+        //                     value: PrimitiveValueData::F32(f),
+        //                 } => f,
+        //                 _ => panic!(),
+        //             },
+        //         )?,
+        //     }
+        //     .into()),
+        //     VisualTy::Point2d => todo!(),
+        //     VisualTy::Shape2d | VisualTy::Region2d | VisualTy::Image2d | VisualTy::Graphics2d => {
+        //         Ok(GenericFigureCanvasData::GenericGraphics2d {
+        //             partitioned_samples: self
+        //                 .feature_repr_partitioned_samples(repr, |visual_data| {
+        //                     Graphics2dCanvasData::from_visual_data(visual_data)
+        //                 })?,
+        //         }
+        //         .into())
+        //     }
+        //     VisualTy::Dataset => todo!(),
+        //     VisualTy::Plot2d => todo!(),
+        //     VisualTy::Any => todo!(),
+        //     VisualTy::AnyGroup => todo!(),
+        //     VisualTy::ThickFp => todo!(),
+        // }
     }
 
     fn feature_repr_partitioned_samples<T>(
@@ -145,19 +145,19 @@ impl HuskyDevtime {
     fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
         let trace = self.trace(trace_id);
         match trace.variant {
-            TraceVariant::Main(_) => Ok(true),
+            TraceVariant::Main(..) => Ok(true),
             TraceVariant::Module { .. } => panic!(),
-            TraceVariant::EntityFeature { .. } => Ok(true),
-            TraceVariant::FeatureStmt(ref stmt) => self
+            TraceVariant::EntityVal { .. } => Ok(true),
+            TraceVariant::ValStmt(ref stmt) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::LazyBranch(ref branch) => self
+            TraceVariant::ValBranch(ref branch) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureExpr(ref expr) => self
+            TraceVariant::LazyExpr(ref expr) => self
                 .runtime()
                 .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::ValCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::EagerStmt { .. } => todo!(),
             TraceVariant::EagerBranch { .. } => todo!(),
@@ -179,19 +179,19 @@ impl HuskyDevtime {
             TraceVariant::Main(ref repr) => {
                 (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
             }
-            TraceVariant::EntityFeature { ref repr, .. } => {
+            TraceVariant::EntityVal { ref repr, .. } => {
                 (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
             }
-            TraceVariant::FeatureStmt(ref stmt) => (
+            TraceVariant::ValStmt(ref stmt) => (
                 self.runtime.eval_feature_stmt(stmt, sample_id)?,
                 stmt.return_ty,
             ),
-            TraceVariant::LazyBranch(ref branch) => (
+            TraceVariant::ValBranch(ref branch) => (
                 self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
                 branch.block.return_ty.route,
             ),
-            TraceVariant::FeatureExpr(_) => todo!(),
-            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::LazyExpr(_) => todo!(),
+            TraceVariant::ValCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::EagerStmt { .. } => todo!(),
             TraceVariant::EagerBranch { .. } => todo!(),
@@ -201,16 +201,17 @@ impl HuskyDevtime {
             TraceVariant::EagerCallArgument { .. } => todo!(),
             TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
         };
-        Ok(match value.data_kind() {
-            __RegisterDataKind::PrimitiveValue
-            | __RegisterDataKind::Box
-            | __RegisterDataKind::Leash
-            | __RegisterDataKind::TempRef
-            | __RegisterDataKind::TempMut
-            | __RegisterDataKind::SomeNone => true,
-            __RegisterDataKind::Unreturned => false,
-            __RegisterDataKind::Moved => unreachable!(),
-        })
+        todo!()
+        // Ok(match value.data_kind() {
+        //     __RegisterDataKind::PrimitiveValue
+        //     | __RegisterDataKind::Box
+        //     | __RegisterDataKind::Leash
+        //     | __RegisterDataKind::TempRef
+        //     | __RegisterDataKind::TempMut
+        //     | __RegisterDataKind::SomeNone => true,
+        //     __RegisterDataKind::Unreturned => false,
+        //     __RegisterDataKind::Moved => unreachable!(),
+        // })
     }
 
     fn is_trace_striking_evil(
@@ -224,19 +225,19 @@ impl HuskyDevtime {
             TraceVariant::Main(ref repr) => {
                 (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
             }
-            TraceVariant::EntityFeature { ref repr, .. } => {
+            TraceVariant::EntityVal { ref repr, .. } => {
                 (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
             }
-            TraceVariant::FeatureStmt(ref stmt) => (
+            TraceVariant::ValStmt(ref stmt) => (
                 self.runtime.eval_feature_stmt(stmt, sample_id)?,
                 stmt.return_ty,
             ),
-            TraceVariant::LazyBranch(ref branch) => (
+            TraceVariant::ValBranch(ref branch) => (
                 self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
                 branch.block.return_ty.route,
             ),
-            TraceVariant::FeatureExpr(_) => todo!(),
-            TraceVariant::FeatureCallArgument { .. } => todo!(),
+            TraceVariant::LazyExpr(_) => todo!(),
+            TraceVariant::ValCallArgument { .. } => todo!(),
             TraceVariant::FuncStmt { .. } => todo!(),
             TraceVariant::EagerStmt { .. } => todo!(),
             TraceVariant::EagerBranch { .. } => todo!(),
@@ -249,15 +250,16 @@ impl HuskyDevtime {
         assert!(ty == self.runtime().target_return_ty().unwrap());
         let label_downcast_result = self.runtime().register_to_label_converter()(&value);
         let true_label = self.runtime.session().dev().label(sample_id);
-        match label_downcast_result {
-            __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
-            __RegisterDowncastResult::None { number_of_somes } => {
-                if number_of_somes != 0 {
-                    todo!()
-                }
-                Ok(partitions.is_nondefault(true_label))
-            }
-            __RegisterDowncastResult::Unreturned => Ok(false),
-        }
+        todo!()
+        // match label_downcast_result {
+        //     __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
+        //     __RegisterDowncastResult::None { number_of_somes } => {
+        //         if number_of_somes != 0 {
+        //             todo!()
+        //         }
+        //         Ok(partitions.is_nondefault(true_label))
+        //     }
+        //     __RegisterDowncastResult::Unreturned => Ok(false),
+        // }
     }
 }

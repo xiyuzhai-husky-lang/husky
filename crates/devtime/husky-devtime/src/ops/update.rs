@@ -4,18 +4,6 @@ use monad::Monad;
 use std::ops::FromResidual;
 use trackable::{TrackableAtom, TrackableMakeChangeR, TrackableMap, TrackableVec};
 
-#[must_use]
-pub(crate) enum DevtimeUpdateM<T> {
-    Ok(T),
-    OtherworldlyErr(__VMError),
-}
-
-pub enum DevtimeUpdateR {
-    OtherworldlyErr(__VMError),
-}
-
-impl<T> Monad for DevtimeUpdateM<T> {}
-
 impl<T> DevtimeUpdateM<T> {
     pub(crate) fn result(self) -> DevtimeUpdateM<__VMResult<T>> {
         match self {

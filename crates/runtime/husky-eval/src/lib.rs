@@ -1,5 +1,5 @@
 pub mod db;
-// mod evaluator;
+mod evaluator;
 // mod session;
 
 // pub use self::evaluator::*;

@@ -1,17 +1,18 @@
-use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
-use husky_item_semantics::DefinitionRepr;
-use husky_linkage_table::ResolveLinkage;
-use husky_vm::__RegularValue;
-use EntityPath;
-
 use crate::*;
+use husky_entity_path::FugitivePath;
+use husky_ethereal_term::EtherealTerm;
+use husky_hir_defn::HirDefn;
+use husky_text::TextRange;
+use husky_val::Val;
+use husky_vfs::DiffPath;
+use husky_vm::__RegularValue;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ValRepr {
     Expr(ValExpr),
     Stmt(ValStmt),
     Fugitive(FugitivePath),
-    AdHocConstant(ConstantVal),
+    // AdHocConstant(ConstantVal),
     // Value {
     //     value: __RegularValue,
     //     ty: HirType,
@@ -19,37 +20,39 @@ pub enum ValRepr {
     //     range: TextRange,
     //     feature: Val,
     // },
-    LazyBody(ValBlock),
-    FuncBody(Arc<FeatureFuncBody>),
-    ProcBody(Arc<FeatureProcBody>),
-    TargetInput {
-        main_file: DiffPath,
-        ty: HirType,
-        feature: Val,
-    },
+    // LazyBody(ValBlock),
+    // FuncBody(Arc<FeatureFuncBody>),
+    // ProcBody(Arc<FeatureProcBody>),
+    // TargetInput {
+    //     main_file: DiffPath,
+    //     ty: HirType,
+    //     feature: Val,
+    // },
 }
 
 impl ValRepr {
     pub fn is_lazy(&self) -> bool {
-        match self {
-            ValRepr::LazyExpr(_) => true,
-            ValRepr::LazyBody(_) => true,
-            ValRepr::Value { .. } => false,
-            ValRepr::FuncBody(_) => false,
-            ValRepr::ProcBody(_) => false,
-            ValRepr::TargetInput { .. } => false,
-        }
+        todo!()
+        // match self {
+        //     ValRepr::LazyExpr(_) => true,
+        //     ValRepr::LazyBody(_) => true,
+        //     ValRepr::Value { .. } => false,
+        //     ValRepr::FuncBody(_) => false,
+        //     ValRepr::ProcBody(_) => false,
+        //     ValRepr::TargetInput { .. } => false,
+        // }
     }
 
     pub fn opt_leading_keyword(&self) -> Option<&'static str> {
-        match self {
-            ValRepr::Value { .. } => panic!(),
-            ValRepr::LazyExpr(_) => Some("def "),
-            ValRepr::LazyBody(_) => Some("def "),
-            ValRepr::FuncBody(_) => Some("func "),
-            ValRepr::ProcBody(_) => Some("proc "),
-            ValRepr::TargetInput { .. } => None,
-        }
+        todo!()
+        // match self {
+        //     ValRepr::Value { .. } => panic!(),
+        //     ValRepr::LazyExpr(_) => Some("def "),
+        //     ValRepr::LazyBody(_) => Some("def "),
+        //     ValRepr::FuncBody(_) => Some("func "),
+        //     ValRepr::ProcBody(_) => Some("proc "),
+        //     ValRepr::TargetInput { .. } => None,
+        // }
     }
 
     pub fn ty(&self) -> EtherealTerm {
@@ -64,43 +67,46 @@ impl ValRepr {
         // }
     }
     pub fn feature(&self) -> Val {
-        match self {
-            ValRepr::Value { feature, .. } => *feature,
-            ValRepr::LazyExpr(expr) => expr.feature,
-            ValRepr::LazyBody(block) => block.feature,
-            ValRepr::FuncBody(block) => block.feature,
-            ValRepr::ProcBody(block) => block.feature,
-            ValRepr::TargetInput { feature, .. } => *feature,
-        }
+        todo!()
+        // match self {
+        //     ValRepr::Value { feature, .. } => *feature,
+        //     ValRepr::LazyExpr(expr) => expr.feature,
+        //     ValRepr::LazyBody(block) => block.feature,
+        //     ValRepr::FuncBody(block) => block.feature,
+        //     ValRepr::ProcBody(block) => block.feature,
+        //     ValRepr::TargetInput { feature, .. } => *feature,
+        // }
     }
 
     pub fn file(&self) -> DiffPath {
-        match self {
-            ValRepr::Value { file, .. } => *file,
-            ValRepr::LazyExpr(expr) => expr.expr.file,
-            ValRepr::LazyBody(block) => block.file,
-            ValRepr::FuncBody(block) => block.file,
-            ValRepr::ProcBody(block) => block.file,
-            ValRepr::TargetInput { main_file, .. } => *main_file,
-        }
+        todo!()
+        // match self {
+        //     ValRepr::Value { file, .. } => *file,
+        //     ValRepr::LazyExpr(expr) => expr.expr.file,
+        //     ValRepr::LazyBody(block) => block.file,
+        //     ValRepr::FuncBody(block) => block.file,
+        //     ValRepr::ProcBody(block) => block.file,
+        //     ValRepr::TargetInput { main_file, .. } => *main_file,
+        // }
     }
 
     pub fn text_range(&self) -> TextRange {
-        match self {
-            ValRepr::Value { range, .. } => *range,
-            ValRepr::LazyExpr(expr) => expr.expr.range,
-            ValRepr::LazyBody(block) => block.range,
-            ValRepr::FuncBody(block) => block.range,
-            ValRepr::ProcBody(block) => block.range,
-            ValRepr::TargetInput { .. } => Default::default(),
-        }
+        todo!()
+        // match self {
+        //     ValRepr::Value { range, .. } => *range,
+        //     ValRepr::LazyExpr(expr) => expr.expr.range,
+        //     ValRepr::LazyBody(block) => block.range,
+        //     ValRepr::FuncBody(block) => block.range,
+        //     ValRepr::ProcBody(block) => block.range,
+        //     ValRepr::TargetInput { .. } => Default::default(),
+        // }
     }
 
     pub fn from_defn(
         db: &dyn ValReprDb,
         opt_this: Option<ValRepr>,
-        defn_repr: &DefinitionRepr,
-        feature_interner: &FeatureInterner,
+        defn_repr: HirDefn,
+        // feature_interner: &FeatureInterner,
     ) -> Self {
         todo!()
         // let result =
@@ -201,25 +207,28 @@ impl ValRepr {
     }
 
     pub fn opt_domain_indicator(&self) -> Option<&ValDomain> {
-        match self {
-            ValRepr::Value { .. } => None,
-            ValRepr::LazyExpr(expr) => expr.opt_arrival_indicator.as_ref(),
-            // ad hoc
-            // todo: rename `Body` to `Block` and add opt_domain_indicator
-            ValRepr::LazyBody(_) | ValRepr::FuncBody(_) | ValRepr::ProcBody(_) => None,
-            ValRepr::TargetInput { .. } => None,
-        }
+        todo!()
+        // match self {
+        //     ValRepr::Value { .. } => None,
+        //     ValRepr::LazyExpr(expr) => expr.opt_arrival_indicator.as_ref(),
+        //     // ad hoc
+        //     // todo: rename `Body` to `Block` and add opt_domain_indicator
+        //     ValRepr::LazyBody(_) | ValRepr::FuncBody(_) | ValRepr::ProcBody(_) => None,
+        //     ValRepr::TargetInput { .. } => None,
+        // }
     }
 }
 
 impl From<ValExpr> for ValRepr {
     fn from(expr: ValExpr) -> Self {
-        Self::LazyExpr(expr)
+        todo!()
+        // Self::LazyExpr(expr)
     }
 }
 
 impl From<ValBlock> for ValRepr {
     fn from(block: ValBlock) -> Self {
-        Self::LazyBody(block)
+        todo!()
+        // Self::LazyBody(block)
     }
 }

@@ -12,17 +12,17 @@ impl TraceVariant {
         //     | TraceVariant::FuncStmt { .. }
         //     | TraceVariant::EagerCallArgument { .. } => false,
         //     TraceVariant::ProcStmt { ref stmt, .. } => match stmt.variant {
-        //         ProcStmtVariant::Init { .. }
-        //         | ProcStmtVariant::Assert { .. }
-        //         | ProcStmtVariant::Execute { .. }
-        //         | ProcStmtVariant::Return { .. } => false,
-        //         ProcStmtVariant::Loop { .. } => true,
-        //         ProcStmtVariant::ConditionFlow { .. } => panic!(),
-        //         ProcStmtVariant::Break => false,
-        //         ProcStmtVariant::Match { .. } => todo!(),
+        //         HirEagerStmt::Init { .. }
+        //         | HirEagerStmt::Assert { .. }
+        //         | HirEagerStmt::Execute { .. }
+        //         | HirEagerStmt::Return { .. } => false,
+        //         HirEagerStmt::Loop { .. } => true,
+        //         HirEagerStmt::ConditionFlow { .. } => panic!(),
+        //         HirEagerStmt::Break => false,
+        //         HirEagerStmt::Match { .. } => todo!(),
         //     },
         //     TraceVariant::LoopFrame { .. }
-        //     | TraceVariant::Main(_)
+        //     | TraceVariant::Main(..)
         //     | TraceVariant::Module { .. }
         //     | TraceVariant::FeatureBranch(_) => true,
         //     TraceVariant::EntityFeature { repr, .. } => match repr {

@@ -25,7 +25,6 @@ use husky_trace::*;
 use husky_trace_protocol::*;
 use husky_val_repr::*;
 use husky_vm::*;
-use monad::Monad;
 
 use std::sync::Arc;
 use trace_node::*;
@@ -35,6 +34,8 @@ pub struct Devtime {
     runtime: DevRuntime,
     state: DevtimeState,
 }
+
+pub struct DevRuntime {}
 
 impl Devtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {

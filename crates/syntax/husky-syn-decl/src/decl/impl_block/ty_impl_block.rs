@@ -115,9 +115,9 @@ pub struct TypeImplBlockSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl From<TypeImplBlockSynDecl> for Decl {
+impl From<TypeImplBlockSynDecl> for SynDecl {
     fn from(decl: TypeImplBlockSynDecl) -> Self {
-        Decl::ImplBlock(decl.into())
+        SynDecl::ImplBlock(decl.into())
     }
 }
 

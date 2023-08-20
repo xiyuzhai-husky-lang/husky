@@ -4,7 +4,7 @@ impl Devtime {
     pub(crate) fn eager_expr_subtraces(
         &mut self,
         parent: &Trace,
-        expr: &EagerExpr,
+        expr: SynExprIdx,
         history: &Arc<History>,
     ) -> Vec<TraceId> {
         match expr.variant {
@@ -29,7 +29,7 @@ impl Devtime {
         parent: &Trace,
         history: &Arc<History>,
         opn_variant: &EagerOpnVariant,
-        opds: &[HirEagerExprIdx],
+        opds: &[SynExprIdx],
     ) -> Vec<TraceId> {
         todo!()
         // match opn_variant {

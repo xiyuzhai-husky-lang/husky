@@ -3,7 +3,7 @@ use super::*;
 impl Devtime {
     pub(crate) fn func_branch_subtraces(
         &mut self,
-        stmts: &[HirEagerStmtIdx],
+        stmts: &[SynStmtIdx],
         instruction_sheet: &Instructions,
         stack_snapshot: &StackSnapshot,
         parent: &Trace,

@@ -3,39 +3,40 @@ use husky_coword::Ident;
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(super) fn gen_call_head_lines(&mut self, item: &EntityDefn) {
-        match item.variant {
-            EntityDefnVariant::Func { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(item.file).unwrap(),
-                "func ",
-                item.ident,
-                parameters,
-            ),
-            EntityDefnVariant::Proc { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(item.file).unwrap(),
-                "proc ",
-                item.ident,
-                parameters,
-            ),
-            EntityDefnVariant::Module { .. } => todo!(),
-            EntityDefnVariant::Feature { .. } => todo!(),
-            EntityDefnVariant::Function { .. } => todo!(),
-            EntityDefnVariant::Method { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(item.file).unwrap(),
-                "func ",
-                item.ident,
-                parameters,
-            ),
-            EntityDefnVariant::EtherealTerm { .. } => todo!(),
-            EntityDefnVariant::Trait { .. } => todo!(),
-            EntityDefnVariant::EnumVariant { .. } => todo!(),
-            EntityDefnVariant::Builtin => todo!(),
-            EntityDefnVariant::TyField { .. } => todo!(),
-            EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
-            EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
-            EntityDefnVariant::TargetInput { .. } => todo!(),
-            EntityDefnVariant::Any => todo!(),
-        };
+    pub(super) fn gen_call_head_lines(&mut self, item: SynDecl) {
+        todo!()
+        // match item.variant {
+        //     EntityDefnVariant::Func { ref parameters, .. } => self.gen_call_head_lines_aux(
+        //         &self.runtime().text(item.file).unwrap(),
+        //         "func ",
+        //         item.ident,
+        //         parameters,
+        //     ),
+        //     EntityDefnVariant::Proc { ref parameters, .. } => self.gen_call_head_lines_aux(
+        //         &self.runtime().text(item.file).unwrap(),
+        //         "proc ",
+        //         item.ident,
+        //         parameters,
+        //     ),
+        //     EntityDefnVariant::Module { .. } => todo!(),
+        //     EntityDefnVariant::Feature { .. } => todo!(),
+        //     EntityDefnVariant::Function { .. } => todo!(),
+        //     EntityDefnVariant::Method { ref parameters, .. } => self.gen_call_head_lines_aux(
+        //         &self.runtime().text(item.file).unwrap(),
+        //         "func ",
+        //         item.ident,
+        //         parameters,
+        //     ),
+        //     EntityDefnVariant::EtherealTerm { .. } => todo!(),
+        //     EntityDefnVariant::Trait { .. } => todo!(),
+        //     EntityDefnVariant::EnumVariant { .. } => todo!(),
+        //     EntityDefnVariant::Builtin => todo!(),
+        //     EntityDefnVariant::TyField { .. } => todo!(),
+        //     EntityDefnVariant::TraitAssociatedTypeImpl { .. } => todo!(),
+        //     EntityDefnVariant::TraitAssociatedConstSizeImpl { .. } => todo!(),
+        //     EntityDefnVariant::TargetInput { .. } => todo!(),
+        //     EntityDefnVariant::Any => todo!(),
+        // };
     }
     pub(super) fn gen_call_head_lines_aux(
         &mut self,

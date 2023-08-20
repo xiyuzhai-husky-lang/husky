@@ -2,7 +2,7 @@ use crate::*;
 use husky_eval::FeatureEvaluator;
 
 impl Devtime {
-    pub fn feature_repr_subtraces(
+    pub fn val_repr_subtraces(
         &mut self,
         parent: &Trace,
         feature_repr: &ValRepr,
@@ -10,14 +10,14 @@ impl Devtime {
         match feature_repr {
             ValRepr::Value { .. } => todo!(),
             ValRepr::LazyExpr(_) => todo!(),
-            ValRepr::LazyBody(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
-            ValRepr::FuncBody(block) => self.feature_func_block_subtraces(parent, block),
-            ValRepr::ProcBody(block) => self.feature_proc_block_subtraces(parent, block),
+            ValRepr::LazyBody(block) => Some(self.val_lazy_block_subtraces(parent, block)),
+            ValRepr::FuncBody(block) => self.val_func_block_subtraces(parent, block),
+            ValRepr::ProcBody(block) => self.val_proc_block_subtraces(parent, block),
             ValRepr::TargetInput { .. } => None,
         }
     }
 
-    pub fn feature_lazy_block_subtraces(
+    pub fn val_lazy_block_subtraces(
         &mut self,
         parent: &Trace,
         feature_block: &ValBlock,
@@ -30,7 +30,7 @@ impl Devtime {
             .collect()
     }
 
-    pub fn feature_func_block_subtraces(
+    pub fn val_func_block_subtraces(
         &mut self,
         parent: &Trace,
         feature_block: &FeatureFuncBody,
@@ -61,7 +61,7 @@ impl Devtime {
         Some(subtraces)
     }
 
-    pub fn feature_proc_block_subtraces(
+    pub fn val_proc_block_subtraces(
         &mut self,
         parent: &Trace,
         feature_block: &FeatureProcBody,

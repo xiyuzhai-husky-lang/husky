@@ -76,14 +76,14 @@ impl<'a> LinkageCollector<'a> {
     // pub(crate) fn collect_from_proc_stmts(&mut self, stmts: &[HirEagerStmtIdx]) {
     //     for stmt in stmts {
     //         match stmt.variant {
-    //             ProcStmtVariant::Init {
+    //             HirEagerStmt::Init {
     //                 ref initial_value, ..
     //             } => self.collect_from_eager_expr(initial_value),
-    //             ProcStmtVariant::Assert { ref condition } => {
+    //             HirEagerStmt::Assert { ref condition } => {
     //                 self.collect_from_eager_expr(condition)
     //             }
-    //             ProcStmtVariant::Execute { ref expr } => self.collect_from_eager_expr(expr),
-    //             ProcStmtVariant::ConditionFlow { ref branches } => {
+    //             HirEagerStmt::Execute { ref expr } => self.collect_from_eager_expr(expr),
+    //             HirEagerStmt::ConditionFlow { ref branches } => {
     //                 for branch in branches {
     //                     match branch.variant {
     //                         ProcConditionFlowBranchVariant::If { ref condition } => {
@@ -97,7 +97,7 @@ impl<'a> LinkageCollector<'a> {
     //                     self.collect_from_proc_stmts(&branch.stmts)
     //                 }
     //             }
-    //             ProcStmtVariant::Loop {
+    //             HirEagerStmt::Loop {
     //                 ref loop_variant,
     //                 ref stmts,
     //             } => {
@@ -120,9 +120,9 @@ impl<'a> LinkageCollector<'a> {
     //                 }
     //                 self.collect_from_proc_stmts(stmts)
     //             }
-    //             ProcStmtVariant::Break => (),
-    //             ProcStmtVariant::Return { ref result, .. } => self.collect_from_eager_expr(result),
-    //             ProcStmtVariant::Match {
+    //             HirEagerStmt::Break => (),
+    //             HirEagerStmt::Return { ref result, .. } => self.collect_from_eager_expr(result),
+    //             HirEagerStmt::Match {
     //                 ref match_expr,
     //                 ref branches,
     //             } => {

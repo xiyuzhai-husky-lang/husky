@@ -3,6 +3,7 @@ use std::{
     sync::atomic::{AtomicUsize, Ordering},
 };
 
+use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerStmtIdx};
 use husky_text::HasSourceRange;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
@@ -10,10 +11,11 @@ static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct InstructionId(pub(crate) usize);
 
-pub trait InstructionSource:
-    std::fmt::Debug + Send + Sync + RefUnwindSafe + HasSourceRange
-{
-    fn instruction_id(&self) -> InstructionId;
+#[derive(Debug, PartialEq, Eq)]
+#[enum_class::from_variants]
+pub enum InstructionSource {
+    Expr(HirEagerExprIdx),
+    Stmt(HirEagerStmtIdx),
 }
 
 impl Default for InstructionId {

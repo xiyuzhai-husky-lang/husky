@@ -5,7 +5,7 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: HirEagerStmtIdx,
+        stmt: SynStmtIdx,
         history: Arc<History>,
     ) -> TraceId {
         self.new_trace(
@@ -19,7 +19,7 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: HirEagerStmtIdx,
+        stmt: SynStmtIdx,
         branch: Arc<ProcConditionFlowBranch>,
         branch_idx: u8,
         history: Arc<History>,
@@ -47,13 +47,13 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmts: &[HirEagerStmtIdx],
+        stmts: &[SynStmtIdx],
         history: &Arc<History>,
     ) -> Vec<TraceId> {
         let mut traces = Vec::new();
         for stmt in stmts {
             match stmt.variant {
-                ProcStmtVariant::ConditionFlow { ref branches } => {
+                HirEagerStmt::ConditionFlow { ref branches } => {
                     for (branch_idx, branch) in branches.iter().enumerate() {
                         traces.push(self.new_proc_branch_trace(
                             parent_id,

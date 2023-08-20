@@ -3,15 +3,18 @@ use crate::*;
 impl TraceVariant {
     pub fn kind(&self) -> TraceKind {
         match self {
-            TraceVariant::Main(_) => TraceKind::Main,
+            TraceVariant::Main(..) => TraceKind::Main,
             TraceVariant::Module { .. } => TraceKind::Module,
-            TraceVariant::EntityFeature { ref repr, .. } => match repr.is_lazy() {
-                true => TraceKind::EntityFeatureLazy,
-                false => TraceKind::EntityFeatureEager,
-            },
-            TraceVariant::FeatureStmt(_) => TraceKind::FeatureStmt,
-            TraceVariant::LazyBranch(_) => TraceKind::FeatureBranch,
-            TraceVariant::FeatureExpr(expr) => {
+            TraceVariant::EntityVal { 
+                // ref repr,
+                 .. } =>todo!(),
+            //       match repr.is_lazy() {
+            //     true => TraceKind::EntityFeatureLazy,
+            //     false => TraceKind::EntityFeatureEager,
+            // },
+            TraceVariant::ValStmt(_) => TraceKind::FeatureStmt,
+            TraceVariant::ValBranch(_) => TraceKind::FeatureBranch,
+            TraceVariant::LazyExpr(expr) => {
                 todo!()
                 //     match expr.variant {
                 //     FeatureLazyExprVariant::StructDerivedLazyField { ref repr, .. } => {
@@ -32,11 +35,9 @@ impl TraceVariant {
                 //     _ => TraceKind::FeatureExprEager,
                 // }
             }
-            TraceVariant::FeatureCallArgument { .. } => TraceKind::FeatureCallArgument,
-            TraceVariant::FuncStmt { .. } => TraceKind::FuncStmt,
-            TraceVariant::EagerStmt { .. } => TraceKind::ProcStmt,
-            TraceVariant::EagerBranch { .. } => TraceKind::ProcBranch,
-            TraceVariant::FuncBranch { .. } => TraceKind::FuncBranch,
+            TraceVariant::ValCallArgument { .. } => TraceKind::FeatureCallArgument, 
+            TraceVariant::EagerStmt { .. } => TraceKind::EagerStmt,
+            TraceVariant::EagerBranch { .. } => TraceKind::EagerBranch, 
             TraceVariant::LoopFrame { .. } => TraceKind::LoopFrame,
             TraceVariant::EagerExpr { .. } => TraceKind::EagerExpr,
             TraceVariant::CallHead { .. } => TraceKind::CallHead,

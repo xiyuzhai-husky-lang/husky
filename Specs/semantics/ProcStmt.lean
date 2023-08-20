@@ -32,9 +32,9 @@ inductive ProcConditionFlowBranchVariant
   | Else
 
 inductive ProcStmt where
-  | _ (file : File) (range : Range) (variant : ProcStmtVariant)
+  | _ (file : File) (range : Range) (variant : HirEagerStmt)
 
-inductive ProcStmtVariant where
+inductive HirEagerStmt where
   | Init (varname : Ident) (initial_value : EagerExpr)
   | Assert (condition : EagerExpr)
   | Execute (expr : EagerExpr)
@@ -44,8 +44,8 @@ inductive ProcStmtVariant where
   | Return (result : EagerExpr)
   | Match (match_expr : EagerExpr)
 end
-namespace ProcStmtVariant
-def subexprs : ProcStmtVariant -> List EagerExpr
+namespace HirEagerStmt
+def subexprs : HirEagerStmt -> List EagerExpr
   | Init (_) (initial_value) => [initial_value]
   | Assert (condition) => [condition]
   | Execute (expr) => [expr]
@@ -54,7 +54,7 @@ def subexprs : ProcStmtVariant -> List EagerExpr
   | Break => []
   | Return (result : EagerExpr) => [result]
   | Match (match_expr : EagerExpr) => [match_expr]
-end ProcStmtVariant
+end HirEagerStmt
 
 mutual
 inductive FuncConditionFlowBranch where

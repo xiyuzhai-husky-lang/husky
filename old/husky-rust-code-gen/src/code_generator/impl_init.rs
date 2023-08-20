@@ -36,7 +36,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &["#,
         );
     }
 
-    fn gen_linkage_entry(&mut self, _item_route: EtherealTerm, _item_defn: &EntityDefn) {
+    fn gen_linkage_entry(&mut self, _item_route: EtherealTerm, _item_defn: SynDefn) {
         todo!()
         //     if self.db.is_defn_static(item_path)
         //         && !self.db.contains_spatial_parameters(item_path)

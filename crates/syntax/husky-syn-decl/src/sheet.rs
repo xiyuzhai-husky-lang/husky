@@ -79,7 +79,7 @@ fn syn_node_decl_sheet_works() {
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynDeclSheet {
     #[return_ref]
-    pub decls: Vec<(ItemPath, Decl)>,
+    pub decls: Vec<(ItemPath, SynDecl)>,
 }
 
 // only useful for testing purposes
@@ -87,7 +87,7 @@ pub struct SynDeclSheet {
 pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
     // get decls through item paths
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
-    let mut decls: Vec<(ItemPath, Decl)> = Default::default();
+    let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.syn_decl(db) {
             decls.push((path, decl))

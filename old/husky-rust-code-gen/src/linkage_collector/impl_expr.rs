@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> LinkageCollector<'a> {
-    // pub(crate) fn collect_from_eager_expr(&mut self, expr: &EagerExpr) {
+    // pub(crate) fn collect_from_eager_expr(&mut self, expr: HirEagerExprIdx) {
     //     todo!()
     //     // match expr.variant {
     //     //     EagerExprVariant::Variable { .. } => (),

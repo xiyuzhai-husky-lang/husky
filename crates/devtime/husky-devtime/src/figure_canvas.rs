@@ -1,10 +1,9 @@
 mod eager_expr;
-mod feature_expr;
-mod feature_repr;
-mod feature_stmt;
-mod func_stmt;
-mod proc_stmt;
+mod eager_stmt;
+mod lazy_expr;
+mod lazy_stmt;
 mod utils;
+mod val_repr;
 
 use crate::*;
 use husky_val_repr::{ValStmt, ValStmtData};
@@ -17,14 +16,12 @@ impl Devtime {
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
-            TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_generic_figure(stmt)?,
-            TraceVariant::LazyBranch(_) => Default::default(),
-            TraceVariant::EntityFeature { ref repr, .. } => {
-                self.feature_repr_generic_figure(repr)?
-            }
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_generic_figure(expr)?,
-            TraceVariant::FeatureCallArgument {
+            TraceVariant::Main(..) | TraceVariant::Module { .. } => Default::default(),
+            TraceVariant::ValStmt(ref stmt) => self.feature_stmt_generic_figure(stmt)?,
+            TraceVariant::ValBranch(_) => Default::default(),
+            TraceVariant::EntityVal { ref repr, .. } => self.feature_repr_generic_figure(repr)?,
+            TraceVariant::LazyExpr(ref expr) => self.feature_expr_generic_figure(expr)?,
+            TraceVariant::ValCallArgument {
                 argument: ref input,
                 ..
             } => self.feature_expr_generic_figure(input)?,
@@ -36,6 +33,7 @@ impl Devtime {
             TraceVariant::EagerStmt {
                 stmt: _,
                 history: _,
+                ..
             } => todo!(),
             // self.proc_stmt_figure(stmt, history).into(),
             TraceVariant::EagerExpr {
@@ -94,14 +92,12 @@ impl Devtime {
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         let trace = self.trace(trace_id);
         Ok(match trace.variant {
-            TraceVariant::Main(_) | TraceVariant::Module { .. } => Default::default(),
-            TraceVariant::FeatureStmt(ref stmt) => self.feature_stmt_specific_figure(stmt)?,
-            TraceVariant::LazyBranch(_) => Default::default(),
-            TraceVariant::EntityFeature { ref repr, .. } => {
-                self.feature_repr_specific_figure(repr)?
-            }
-            TraceVariant::FeatureExpr(ref expr) => self.feature_expr_specific_figure(expr)?,
-            TraceVariant::FeatureCallArgument { ref argument, .. } => {
+            TraceVariant::Main(..) | TraceVariant::Module { .. } => Default::default(),
+            TraceVariant::ValStmt(ref stmt) => self.feature_stmt_specific_figure(stmt)?,
+            TraceVariant::ValBranch(_) => Default::default(),
+            TraceVariant::EntityVal { ref repr, .. } => self.feature_repr_specific_figure(repr)?,
+            TraceVariant::LazyExpr(ref expr) => self.feature_expr_specific_figure(expr)?,
+            TraceVariant::ValCallArgument { ref argument, .. } => {
                 self.feature_expr_specific_figure(argument)?
             }
             TraceVariant::FuncStmt {
@@ -111,6 +107,7 @@ impl Devtime {
             TraceVariant::EagerStmt {
                 ref stmt,
                 ref history,
+                ..
             } => self.proc_stmt_figure(stmt, history).into(),
             TraceVariant::EagerExpr {
                 ref expr,
@@ -138,7 +135,8 @@ impl Devtime {
                     ..
                 }) => {
                     if *branch_entered == Some(branch_idx) {
-                        self.visualize_control(control)
+                        todo!()
+                        // self.visualize_control(control)
                     } else {
                         Default::default()
                     }
