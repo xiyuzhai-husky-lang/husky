@@ -8,7 +8,7 @@ use std::sync::Arc;
 impl<'a> RustCodeGenerator<'a> {
     pub fn gen_func_match_pattern(
         &mut self,
-        ref match_expr: &EagerExpr,
+        ref match_expr: HirEagerExprIdx,
         indent: u8,
         ref branches: &[Arc<FuncStmtPatternBranch>],
     ) {
@@ -44,7 +44,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     pub fn gen_proc_match_pattern(
         &mut self,
-        ref match_expr: &EagerExpr,
+        ref match_expr: HirEagerExprIdx,
         indent: u8,
         ref branches: &[Arc<ProcStmtPatternBranch>],
     ) {

@@ -26,7 +26,7 @@ impl Devtime {
                         this.new_trace(
                             Some(parent.id()),
                             4,
-                            TraceVariant::FeatureCallArgument {
+                            TraceVariant::ValCallArgument {
                                 argument: argument.clone(),
                                 name: ident,
                             },

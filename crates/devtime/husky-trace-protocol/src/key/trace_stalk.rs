@@ -46,8 +46,8 @@ impl TraceStalkKey {
             TraceKind::Module
             | TraceKind::LoopFrame
             | TraceKind::FuncStmt
-            | TraceKind::ProcStmt
-            | TraceKind::ProcBranch
+            | TraceKind::EagerStmt
+            | TraceKind::EagerBranch
             | TraceKind::FuncBranch
             | TraceKind::CallHead
             | TraceKind::EagerExpr

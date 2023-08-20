@@ -26,11 +26,11 @@ impl Devtime {
                 self.runtime().eval_feature_repr_cached(repr, sample_id),
                 repr.ty(),
             ),
-            TraceVariant::EntityFeature { ref repr, .. } => self.trace_stalk_from_result(
+            TraceVariant::EntityVal { ref repr, .. } => self.trace_stalk_from_result(
                 self.runtime().eval_feature_repr_cached(repr, sample_id),
                 repr.ty(),
             ),
-            TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
+            TraceVariant::ValStmt(ref stmt) => match stmt.variant {
                 ValStmtData::Init { ref value, .. } => self.trace_stalk_from_expr(value, sample_id),
                 ValStmtData::Assert { ref condition } => {
                     self.trace_stalk_from_expr(condition, sample_id)
@@ -45,9 +45,9 @@ impl Devtime {
                 ValStmtData::ConditionFlow { .. } => panic!(),
                 ValStmtData::ReturnHtml { .. } => todo!(),
             },
-            TraceVariant::LazyBranch(_) => Default::default(),
-            TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
-            TraceVariant::FeatureCallArgument { ref argument, .. } => {
+            TraceVariant::ValBranch(_) => Default::default(),
+            TraceVariant::LazyExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
+            TraceVariant::ValCallArgument { ref argument, .. } => {
                 self.trace_stalk_from_expr(argument, sample_id)
             }
             TraceVariant::Module { .. }

@@ -15,7 +15,7 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn compile_proc_stmt(&mut self, stmt: HirEagerStmtIdx) {
         match stmt.variant {
-            ProcStmtVariant::Init {
+            HirEagerStmt::Init {
                 varname,
                 ref initial_value,
                 ..
@@ -27,7 +27,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.def_variable(varname.ident)
             }
-            ProcStmtVariant::Assert { ref condition } => {
+            HirEagerStmt::Assert { ref condition } => {
                 self.compile_eager_expr(
                     condition,
                     self.sheet.variable_stack.next_stack_idx(),
@@ -35,7 +35,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                 );
                 self.push_instruction(Instruction::new(InstructionData::Assert, stmt))
             }
-            ProcStmtVariant::Return { ref result, .. } => {
+            HirEagerStmt::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
                 self.push_instruction(Instruction::new(
                     InstructionData::Return {
@@ -44,17 +44,17 @@ impl<'a> InstructionSheetBuilder<'a> {
                     stmt,
                 ));
             }
-            ProcStmtVariant::Execute { ref expr } => {
+            HirEagerStmt::Execute { ref expr } => {
                 self.compile_eager_expr(expr, self.sheet.variable_stack.next_stack_idx(), true);
             }
-            ProcStmtVariant::Loop {
+            HirEagerStmt::Loop {
                 ref loop_variant,
                 ref stmts,
             } => self.compile_loop(loop_variant, stmt.clone(), stmts),
-            ProcStmtVariant::Break => {
+            HirEagerStmt::Break => {
                 self.push_instruction(Instruction::new(InstructionData::Break, stmt))
             }
-            ProcStmtVariant::ConditionFlow { ref branches, .. } => {
+            HirEagerStmt::ConditionFlow { ref branches, .. } => {
                 self.push_instruction(Instruction::new(
                     InstructionData::ConditionFlow {
                         branches: self.compile_proc_condition_flow(branches),
@@ -62,7 +62,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     stmt,
                 ))
             }
-            ProcStmtVariant::Match {
+            HirEagerStmt::Match {
                 ref match_expr,
                 ref branches,
             } => {

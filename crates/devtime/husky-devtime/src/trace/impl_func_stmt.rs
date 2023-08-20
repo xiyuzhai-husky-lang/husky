@@ -5,7 +5,7 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmts: &[HirEagerStmtIdx],
+        stmts: &[SynStmtIdx],
         history: &Arc<History>,
     ) -> Vec<TraceId> {
         let mut traces = Vec::new();
@@ -38,7 +38,7 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: HirEagerStmtIdx,
+        stmt: SynStmtIdx,
         branch: Arc<FuncConditionFlowBranch>,
         branch_idx: u8,
         history: Arc<History>,
@@ -66,7 +66,7 @@ impl Devtime {
         &mut self,
         parent_id: TraceId,
         indent: Indent,
-        stmt: HirEagerStmtIdx,
+        stmt: SynStmtIdx,
         history: Arc<History>,
     ) -> TraceId {
         self.new_trace(

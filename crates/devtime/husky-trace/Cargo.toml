@@ -17,17 +17,19 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # runtime
 husky-val-repr = { path = "../../comptime/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # comptime
-husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -22,7 +22,7 @@ pub(crate) use __husky::registration::*;
         }
     }
 
-    fn might_gen_ty_registration(&mut self, item_path: EtherealTerm, item_defn: &EntityDefn) {
+    fn might_gen_ty_registration(&mut self, item_path: EtherealTerm, item_defn: SynDefn) {
         if self.db.is_defn_static(item_path) && !self.db.contains_spatial_parameters(item_path) {
             return;
         }

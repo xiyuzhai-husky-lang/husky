@@ -11,11 +11,12 @@ mod tests;
 
 use husky_entity_path::EntityPath;
 use husky_ethereal_term::EtherealTerm;
-use husky_hir_eager_expr::*;
-use husky_hir_lazy_expr::*;
+use husky_syn_decl::SynDecl;
+use husky_syn_expr::*;
 use husky_text::TextRange;
 use husky_trace_protocol::*;
 use husky_val_repr::{db::ValReprDb, *};
+use husky_vfs::*;
 use husky_vm::{History, HistoryEntry, Instructions, LoopFrameData, VMConditionBranch};
 use serde::Serialize;
 use std::sync::Arc;
@@ -26,7 +27,7 @@ pub struct Trace {
     pub variant: TraceVariant,
     pub raw_data: TraceData,
     pub range: TextRange,
-    // pub file: DiffPath,
+    pub file: DiffPath,
 }
 
 #[derive(Debug)]
@@ -39,55 +40,46 @@ pub enum TraceVariant {
         // file: DiffPath,
         range: TextRange,
     },
-    EntityFeature {
+    EntityVal {
         item_path: EntityPath,
         // repr: ValRepr,
     },
-    FeatureStmt(Arc<ValStmt>),
-    LazyBranch(
-        // Arc<FeatureLazyBranch>
-    ),
-    FeatureExpr(ValExpr),
-    FeatureCallArgument {
+    ValStmt(ValStmt),
+    ValBranch(ValBranch),
+    LazyExpr(ValExpr),
+    ValCallArgument {
         name: &'static str,
         argument: ValExpr,
     },
     EagerStmt {
-        eager_expr_region: HirEagerExprRegion,
-        stmt: HirEagerStmtIdx,
+        eager_expr_region: SynExprRegion,
+        stmt: SynStmtIdx,
         history: Arc<History>,
     },
     EagerBranch {
-        stmt: HirEagerStmtIdx,
+        stmt: SynStmtIdx,
         // branch: Arc<ProcConditionFlowBranch>,
         opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
         branch_idx: u8,
         history: Arc<History>,
     },
-    FuncBranch {
-        stmt: HirEagerStmtIdx,
-        // branch: Arc<FuncConditionFlowBranch>,
-        opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
-        branch_idx: u8,
-        history: Arc<History>,
-    },
     LoopFrame {
-        loop_stmt: HirEagerStmtIdx,
+        loop_stmt: SynStmtIdx,
         body_instruction_sheet: Instructions,
-        body_stmts: Arc<Vec<HirEagerStmtIdx>>,
+        body_stmts: Arc<Vec<SynStmtIdx>>,
         loop_frame_data: LoopFrameData,
     },
     EagerExpr {
-        expr: HirEagerExprIdx,
+        expr: SynExprIdx,
         history: Arc<History>,
     },
     EagerCallArgument {
         name: &'static str,
-        argument: HirEagerExprIdx,
+        argument: SynExprIdx,
         history: Arc<History>,
     },
     CallHead {
-        // item: Arc<EntityDefn>,
+        item: SynDecl,
     },
 }
 
@@ -127,3 +119,5 @@ impl Trace {
         self.raw_data.id
     }
 }
+
+pub trait TraceRuntime {}

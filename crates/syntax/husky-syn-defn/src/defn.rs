@@ -120,9 +120,9 @@ pub enum SynDefn {
 }
 
 impl SynDefn {
-    pub fn syn_decl(self, db: &dyn SynDefnDb) -> Decl {
+    pub fn syn_decl(self, db: &dyn SynDefnDb) -> SynDecl {
         match self {
-            SynDefn::Submodule(defn) => Decl::Submodule(defn.decl()),
+            SynDefn::Submodule(defn) => SynDecl::Submodule(defn.decl()),
             SynDefn::MajorItem(defn) => defn.syn_decl(db).into(),
             SynDefn::TypeVariant(defn) => defn.decl(db).into(),
             SynDefn::ImplBlock(decl) => decl.into(),

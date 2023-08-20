@@ -1,5 +1,6 @@
 use husky_ethereal_term::EtherealTerm;
 use husky_text::TextRange;
+use husky_vfs::DiffPath;
 
 use crate::*;
 
@@ -43,21 +44,20 @@ impl Devtime {
         }
     }
 
-    pub(crate) fn update_figure_canvases(&mut self) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_figure_canvases(&mut self) {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_canvas(active_trace_id)?;
         }
         for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_canvas(pin)?;
         }
-        DevtimeUpdateM::Ok(())
     }
-    fn update_figure_canvas(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
-        self.update_trace_generic_figure_canvas(trace_id)?;
+    fn update_figure_canvas(&mut self, trace_id: TraceId) {
+        self.update_trace_generic_figure_canvas(trace_id);
         self.update_trace_specific_figure_canvas(trace_id)
     }
 
-    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) {
         if let Some(key) = self.gen_generic_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =
@@ -68,10 +68,9 @@ impl Devtime {
                     .insert_new(key, self.gen_trace_generic_figure(trace_id).map_err(f)?)?
             }
         }
-        DevtimeUpdateM::Ok(())
     }
 
-    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) {
         if let Some(key) = self.gen_specific_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =
@@ -82,7 +81,6 @@ impl Devtime {
                     .insert_new(key, self.gen_trace_specific_figure(trace_id).map_err(f)?)?
             }
         }
-        DevtimeUpdateM::Ok(())
     }
 
     fn gen_generic_figure_canvas_key(&self, trace_id: TraceId) -> Option<GenericFigureCanvasKey> {

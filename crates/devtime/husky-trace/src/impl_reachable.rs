@@ -3,15 +3,13 @@ use crate::*;
 impl TraceVariant {
     pub fn reachable(&self) -> bool {
         match self {
-            TraceVariant::Main(_)
-            | TraceVariant::EntityFeature { .. }
+            TraceVariant::Main(..)
+            | TraceVariant::EntityVal { .. }
             | TraceVariant::Module { .. } => true,
-            TraceVariant::FeatureStmt(_)
-            | TraceVariant::LazyBranch(_)
-            | TraceVariant::FeatureExpr(_) => true,
-            TraceVariant::FeatureCallArgument { .. } | TraceVariant::EagerCallArgument { .. } => {
+            TraceVariant::ValStmt(_) | TraceVariant::ValBranch(_) | TraceVariant::LazyExpr(_) => {
                 true
             }
+            TraceVariant::ValCallArgument { .. } | TraceVariant::EagerCallArgument { .. } => true,
             TraceVariant::EagerStmt {
                 stmt,
                 history,
@@ -19,19 +17,20 @@ impl TraceVariant {
             } => {
                 todo!()
                 //     match stmt.variant {
-                //     ProcStmtVariant::Init {
+                //     HirEagerStmt::Init {
                 //         ref initial_value, ..
                 //     } => history.contains(initial_value),
-                //     ProcStmtVariant::Assert { ref condition } => history.contains(condition),
-                //     ProcStmtVariant::Execute { ref expr } => history.contains(expr),
-                //     ProcStmtVariant::ConditionFlow { .. } => panic!("ProcBranch"),
-                //     ProcStmtVariant::Loop { .. } | ProcStmtVariant::Break => history.contains(stmt),
-                //     ProcStmtVariant::Return { ref result, .. } => history.contains(result),
-                //     ProcStmtVariant::Match { .. } => todo!(),
+                //     HirEagerStmt::Assert { ref condition } => history.contains(condition),
+                //     HirEagerStmt::Execute { ref expr } => history.contains(expr),
+                //     HirEagerStmt::ConditionFlow { .. } => panic!("ProcBranch"),
+                //     HirEagerStmt::Loop { .. } | HirEagerStmt::Break => history.contains(stmt),
+                //     HirEagerStmt::Return { ref result, .. } => history.contains(result),
+                //     HirEagerStmt::Match { .. } => todo!(),
                 // }
             }
             TraceVariant::LoopFrame { .. } => true,
-            TraceVariant::EagerExpr { expr, history } => history.contains(expr),
+            TraceVariant::EagerExpr { expr, history } => todo!(),
+            // history.contains(expr),
             TraceVariant::CallHead { .. } => true,
             TraceVariant::EagerBranch {
                 stmt,
@@ -39,53 +38,27 @@ impl TraceVariant {
                 history,
                 ..
             } => {
-                if let Some(entry) = history.get(stmt) {
-                    match entry {
-                        HistoryEntry::ControlFlow {
-                            opt_branch_entered, ..
-                        } => {
-                            if let Some(branch_entered) = opt_branch_entered {
-                                if branch_idx > branch_entered {
-                                    false
-                                } else {
-                                    true
-                                }
-                            } else {
-                                *branch_idx == 0
-                            }
-                        }
-                        _ => panic!(),
-                    }
-                } else {
-                    false
-                }
-            }
-            TraceVariant::FuncBranch {
-                stmt,
-                branch_idx,
-                history,
-                ..
-            } => {
-                if let Some(entry) = history.get(stmt) {
-                    match entry {
-                        HistoryEntry::ControlFlow {
-                            opt_branch_entered, ..
-                        } => {
-                            if let Some(branch_entered) = opt_branch_entered {
-                                if branch_idx > branch_entered {
-                                    false
-                                } else {
-                                    true
-                                }
-                            } else {
-                                *branch_idx == 0
-                            }
-                        }
-                        _ => panic!(),
-                    }
-                } else {
-                    false
-                }
+                todo!()
+                // if let Some(entry) = history.get(stmt) {
+                //     match entry {
+                //         HistoryEntry::ControlFlow {
+                //             opt_branch_entered, ..
+                //         } => {
+                //             if let Some(branch_entered) = opt_branch_entered {
+                //                 if branch_idx > branch_entered {
+                //                     false
+                //                 } else {
+                //                     true
+                //                 }
+                //             } else {
+                //                 *branch_idx == 0
+                //             }
+                //         }
+                //         _ => panic!(),
+                //     }
+                // } else {
+                //     false
+                // }
             }
         }
     }

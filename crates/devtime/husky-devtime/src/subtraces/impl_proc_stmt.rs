@@ -5,8 +5,8 @@ impl Devtime {
         &mut self,
         parent: &Trace,
         loop_kind: VMLoopKind,
-        loop_stmt: &HirEagerStmtIdx,
-        body_stmts: &Arc<Vec<HirEagerStmtIdx>>,
+        loop_stmt: &SynStmtIdx,
+        body_stmts: &Arc<Vec<SynStmtIdx>>,
         stack_snapshot: &StackSnapshot,
         body_instruction_sheet: &Instructions,
     ) -> Vec<TraceId> {
@@ -39,8 +39,8 @@ impl Devtime {
 
     pub(crate) fn loop_frame_subtraces(
         &mut self,
-        loop_stmt: &HirEagerStmtIdx,
-        stmts: &[HirEagerStmtIdx],
+        loop_stmt: &SynStmtIdx,
+        stmts: &[SynStmtIdx],
         instruction_sheet: &Instructions,
         loop_frame_data: &LoopFrameData,
         parent: &Trace,
@@ -57,7 +57,7 @@ impl Devtime {
         let mut subtraces: Vec<_> =
             self.proc_stmts_traces(parent.id(), parent.raw_data.indent + 2, stmts, &history);
         match loop_stmt.variant {
-            ProcStmtVariant::Loop {
+            HirEagerStmt::Loop {
                 ref loop_variant, ..
             } => match loop_variant {
                 LoopVariant::For { .. } | LoopVariant::ForExt { .. } => (),
@@ -84,7 +84,7 @@ impl Devtime {
 
     pub(crate) fn proc_branch_subtraces(
         &mut self,
-        stmts: &[HirEagerStmtIdx],
+        stmts: &[SynStmtIdx],
         instruction_sheet: &Instructions,
         stack_snapshot: &StackSnapshot,
         parent: &Trace,

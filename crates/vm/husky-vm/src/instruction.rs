@@ -19,7 +19,7 @@ use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 #[derive(Debug)]
 pub struct Instruction {
     pub data: InstructionData,
-    pub src: Arc<dyn InstructionSource>,
+    pub src: InstructionSource,
 }
 
 impl PartialEq for Instruction {
@@ -31,22 +31,13 @@ impl PartialEq for Instruction {
 impl Eq for Instruction {}
 
 impl Instruction {
-    pub fn new(data: InstructionData, src: Arc<dyn InstructionSource>) -> Self {
+    pub fn new(data: InstructionData, src: InstructionSource) -> Self {
         Self { data, src }
     }
 
     pub fn ins_id(&self) -> InstructionId {
-        self.src.instruction_id()
-    }
-}
-
-impl<
-        S: InstructionSource,
-        T: Deref<Target = S> + std::fmt::Debug + Send + Sync + RefUnwindSafe + HasSourceRange,
-    > InstructionSource for T
-{
-    fn instruction_id(&self) -> InstructionId {
-        S::instruction_id(self)
+        todo!()
+        // self.src.instruction_id()
     }
 }
 

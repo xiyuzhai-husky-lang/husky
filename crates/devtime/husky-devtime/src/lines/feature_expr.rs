@@ -8,7 +8,7 @@ use husky_text::RangedIdent;
 impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn gen_feature_expr(&mut self, expr: &ValExpr, config: ExprTokenConfig) {
         let opt_assoc = if config.associated {
-            Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
+            Some(self.new_trace(None, 0, TraceVariant::LazyExpr(expr.clone())))
         } else {
             None
         };

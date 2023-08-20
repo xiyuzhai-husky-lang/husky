@@ -229,7 +229,7 @@ impl From<i32> for {tyname} {{
     fn gen_ty_member_impl(
         &mut self,
         ty_contains_leash: bool,
-        ty_member: &EntityDefn,
+        ty_member: SynDefn,
         start_flag: &mut bool,
     ) {
         match ty_member.variant {

@@ -14,11 +14,11 @@ mod sheet;
 
 pub use config::*;
 use husky_ast::AstDb;
+use husky_val_repr::db::ValReprDb;
 pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
-use husky_item_semantics::*;
 use husky_trace_protocol::SampleId;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __RegularValue};
 use husky_vm::{__VMResult, c_void};

@@ -4,12 +4,12 @@ mod menu;
 mod module_path;
 mod package_path;
 
-pub use crate_path::*;
-pub use diff_path::*;
+pub use self::crate_path::*;
+pub use self::diff_path::*;
+pub use self::menu::*;
+pub use self::module_path::*;
+pub use self::package_path::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
-pub use menu::*;
-pub use module_path::*;
-pub use package_path::*;
 
 use crate::*;
 

@@ -57,9 +57,9 @@ impl TraceData {
             | TraceKind::FeatureStmt => false,
             TraceKind::FuncStmt
             | TraceKind::EagerExpr
-            | TraceKind::ProcStmt
+            | TraceKind::EagerStmt
             | TraceKind::FuncBranch
-            | TraceKind::ProcBranch => self.can_have_subtraces,
+            | TraceKind::EagerBranch => self.can_have_subtraces,
             TraceKind::EntityFeatureEager | TraceKind::FeatureExprEager => {
                 has_sample_id && self.can_have_subtraces
             }
@@ -79,8 +79,8 @@ pub enum TraceKind {
     FeatureExprEager,
     FeatureCallArgument,
     FuncStmt,
-    ProcStmt,
-    ProcBranch,
+    EagerStmt,
+    EagerBranch,
     FuncBranch,
     LoopFrame,
     EagerExpr,
@@ -101,8 +101,8 @@ impl TraceKind {
             TraceKind::FeatureExprEager => "FeatureExprEager",
             TraceKind::FeatureCallArgument => "FeatureCallArgument",
             TraceKind::FuncStmt => "FuncStmt",
-            TraceKind::ProcStmt => "ProcStmt",
-            TraceKind::ProcBranch => "ProcBranch",
+            TraceKind::EagerStmt => "ProcStmt",
+            TraceKind::EagerBranch => "ProcBranch",
             TraceKind::FuncBranch => "FuncBranch",
             TraceKind::LoopFrame => "LoopFrame",
             TraceKind::EagerExpr => "EagerExpr",
@@ -123,8 +123,8 @@ impl TraceKind {
             | TraceKind::FeatureCallArgument
             | TraceKind::EagerCallArgument
             | TraceKind::FuncStmt
-            | TraceKind::ProcStmt
-            | TraceKind::ProcBranch
+            | TraceKind::EagerStmt
+            | TraceKind::EagerBranch
             | TraceKind::FuncBranch
             | TraceKind::LoopFrame
             | TraceKind::EagerExpr

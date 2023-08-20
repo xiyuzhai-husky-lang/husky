@@ -61,7 +61,7 @@ impl ValDomain {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ValDomainData {
     AfterStmtNotReturn {
-        stmt: Arc<ValStmt>,
+        stmt: ValStmt,
     },
     AfterConditionNotMet {
         opt_parent: Option<ValDomain>,

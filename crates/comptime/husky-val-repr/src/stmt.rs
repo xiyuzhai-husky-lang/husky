@@ -10,3 +10,9 @@ pub struct ValStmt {
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 pub enum ValStmtData {}
+
+#[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
+pub struct ValBranch {}
+
+#[salsa::tracked(db = ValReprDb, jar = ValReprJar)]
+pub struct ValBlock {}

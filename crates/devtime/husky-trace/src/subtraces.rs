@@ -1,5 +1,3 @@
-use husky_eager_semantics::EagerOpnVariant;
-
 use crate::*;
 
 impl Trace {
@@ -9,7 +7,7 @@ impl Trace {
         //     return None;
         // }
         // match self.variant {
-        //     TraceVariant::Main(_)
+        //     TraceVariant::Main(..)
         //     | TraceVariant::EntityFeature { .. }
         //     | TraceVariant::FeatureStmt(_)
         //     | TraceVariant::FeatureBranch(_)

@@ -6,22 +6,14 @@ use husky_item_semantics::EntityDefn;
 use super::*;
 
 impl Devtime {
-    pub(crate) fn feature_stmt_traces(
-        &mut self,
-        parent: &Trace,
-        stmt: Arc<ValStmt>,
-    ) -> Vec<TraceId> {
+    pub(crate) fn feature_stmt_traces(&mut self, parent: &Trace, stmt: ValStmt) -> Vec<TraceId> {
         match stmt.variant {
             ValStmtData::Init { .. }
             | ValStmtData::Assert { .. }
             | ValStmtData::Require { .. }
             | ValStmtData::Return { .. }
             | ValStmtData::ReturnUnveil { .. } => {
-                vec![self.new_trace(
-                    Some(parent.id()),
-                    stmt.indent,
-                    TraceVariant::FeatureStmt(stmt),
-                )]
+                vec![self.new_trace(Some(parent.id()), stmt.indent, TraceVariant::ValStmt(stmt))]
             }
             ValStmtData::ConditionFlow { ref branches, .. } => branches
                 .iter()
@@ -37,12 +29,12 @@ impl Devtime {
         indent: Indent,
         branch: Arc<FeatureLazyBranch>,
     ) -> TraceId {
-        self.new_trace(Some(parent.id()), indent, TraceVariant::LazyBranch(branch))
+        self.new_trace(Some(parent.id()), indent, TraceVariant::ValBranch(branch))
     }
 
     pub(crate) fn new_eager_expr_trace(
         &mut self,
-        expr: HirEagerExprIdx,
+        expr: SynExprIdx,
         history: Arc<History>,
         opt_parent: Option<&Trace>,
         indent: Indent,
@@ -54,7 +46,7 @@ impl Devtime {
         )
     }
 
-    pub(crate) fn new_call_head_trace(&mut self, parent: &Trace, item: Arc<EntityDefn>) -> TraceId {
+    pub(crate) fn new_call_head_trace(&mut self, parent: &Trace, item: HirDecl) -> TraceId {
         return self.new_trace(Some(parent.id()), 0, TraceVariant::CallHead { item });
     }
 }

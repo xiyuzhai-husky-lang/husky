@@ -3,9 +3,9 @@ use husky_vm::FrameKind;
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(crate) fn proc_stmt_tokens(&mut self, stmt: &ProcStmt, history: &Arc<History>) {
+    pub(crate) fn proc_stmt_tokens(&mut self, stmt: &HirEagerStmt, history: &Arc<History>) {
         match stmt.variant {
-            ProcStmtVariant::Init {
+            HirEagerStmt::Init {
                 varname,
                 ref initial_value,
                 init_kind,
@@ -23,11 +23,11 @@ impl<'a> TraceLineGenerator<'a> {
                 self.render_special_token(" = ", None, None);
                 self.gen_eager_expr_tokens(initial_value, history, ExprTokenConfig::stmt())
             }
-            ProcStmtVariant::Assert { ref condition } => {
+            HirEagerStmt::Assert { ref condition } => {
                 self.render_keyword_token("assert ", None, None);
                 self.gen_eager_expr_tokens(condition, history, ExprTokenConfig::stmt())
             }
-            ProcStmtVariant::Execute { ref expr } => {
+            HirEagerStmt::Execute { ref expr } => {
                 self.gen_eager_expr_tokens(expr, history, ExprTokenConfig::exec());
                 match expr.variant {
                     EagerExprVariant::Opn {
@@ -50,22 +50,22 @@ impl<'a> TraceLineGenerator<'a> {
                     _ => panic!(),
                 }
             }
-            ProcStmtVariant::Return { ref result, .. } => {
+            HirEagerStmt::Return { ref result, .. } => {
                 self.render_keyword_token("return ", None, None);
                 self.gen_eager_expr_tokens(result, history, ExprTokenConfig::stmt())
             }
-            ProcStmtVariant::ConditionFlow { .. } => todo!(),
-            ProcStmtVariant::Loop {
+            HirEagerStmt::ConditionFlow { .. } => todo!(),
+            HirEagerStmt::Loop {
                 ref loop_variant, ..
             } => self.loop_stmt_tokens(stmt, loop_variant, history),
-            ProcStmtVariant::Break => self.render_keyword_token("break", None, None),
-            ProcStmtVariant::Match { .. } => todo!(),
+            HirEagerStmt::Break => self.render_keyword_token("break", None, None),
+            HirEagerStmt::Match { .. } => todo!(),
         }
     }
 
     fn loop_stmt_tokens(
         &mut self,
-        stmt: &ProcStmt,
+        stmt: &HirEagerStmt,
         loop_variant: &LoopVariant,
         history: &Arc<History>,
     ) {
@@ -171,7 +171,7 @@ impl<'a> TraceLineGenerator<'a> {
 
     pub(crate) fn gen_proc_branch_tokens(
         &mut self,
-        stmt: &ProcStmt,
+        stmt: &HirEagerStmt,
         branch: &ProcConditionFlowBranch,
         history: &Arc<History>,
     ) {

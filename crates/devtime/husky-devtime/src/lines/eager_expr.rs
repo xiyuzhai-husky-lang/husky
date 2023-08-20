@@ -5,7 +5,7 @@ use super::*;
 impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn gen_eager_expr_tokens(
         &mut self,
-        expr: HirEagerExprIdx,
+        expr: SynExprIdx,
         history: &Arc<History>,
         config: ExprTokenConfig,
     ) {
@@ -144,7 +144,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         file: DiffPath,
         ranged_scope: EtherealTerm,
-        inputs: &[HirEagerExprIdx],
+        inputs: &[SynExprIdx],
         opt_associated_trace_id: Option<TraceId>,
         history: &Arc<History>,
         config: &ExprTokenConfig,

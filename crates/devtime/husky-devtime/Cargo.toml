@@ -13,24 +13,31 @@ vec-like = { path = "../../abstraction/vec-like" }
 map-collect = { path = "../../abstraction/map-collect" }
 avec = { path = "../../abstraction/avec" }
 trackable = { path = "../../abstraction/trackable" }
+# comptime
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-trace = { path = "../../devtime/husky-trace" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
+husky-opr = { path = "../../kernel/husky-opr" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+# lex
+husky-text = { path = "../../lex/husky-text" }
 # runtime
 husky-eval = { path = "../../runtime/husky-eval" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-val-repr = { path = "../../comptime/husky-val-repr" }
 # syntax
-husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

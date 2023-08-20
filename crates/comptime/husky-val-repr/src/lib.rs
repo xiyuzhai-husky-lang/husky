@@ -1,10 +1,12 @@
 pub mod db;
 mod domain;
 mod expr;
+mod repr;
 mod stmt;
 
 pub use self::domain::*;
 pub use self::expr::*;
+pub use self::repr::*;
 pub use self::stmt::*;
 
 use self::db::*;
@@ -156,7 +158,7 @@ use husky_entity_syn_tree::RegionPath;
 // }
 
 // impl Feature {
-//     pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<ValStmt>]) -> Val {
+//     pub fn intern_block(interner: &FeatureInterner, stmts: &[ValStmt]) -> Val {
 //         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
 //         if stmt_features.len() == 1 {
 //             stmt_features[0]

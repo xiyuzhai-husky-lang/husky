@@ -9,7 +9,7 @@ use husky_primitive_literal_syntax::LiteralToken;
 use husky_coword::RootBuiltinIdent;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {
+    pub(super) fn gen_expr(&mut self, indent: Indent, expr: HirEagerExprIdx) {
         match expr.implicit_conversion {
             ImplicitConversion::None => (),
             ImplicitConversion::WrapInSome { number_of_somes } => {
@@ -397,7 +397,7 @@ impl<'a> RustCodeGenerator<'a> {
     // pub(super) fn gen_feature_return(
     //     &mut self,
     //     indent: Indent,
-    //     result: &EagerExpr,
+    //     result: HirEagerExprIdx,
     //     return_ty: EntityRoutePtr,
     // ) {
     //     let mangled_intrinsic_ty_vtable =
@@ -453,7 +453,7 @@ impl<'a> RustCodeGenerator<'a> {
     // pub(super) fn gen_lazy_field_return(
     //     &mut self,
     //     indent: Indent,
-    //     result: &EagerExpr,
+    //     result: HirEagerExprIdx,
     //     return_ty: EntityRoutePtr,
     // ) {
     //     let mangled_intrinsic_ty_vtable =
@@ -517,7 +517,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     }
     // }
 
-    // pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
+    // pub(super) fn gen_binding(&mut self, expr: HirEagerExprIdx) {
     //     match expr.ty.binding(self.db.upcast(), expr.contract) {
     //         Binding::Leash | Binding::TempRef => {
     //             if expr.ty.option_level() == 0 {
