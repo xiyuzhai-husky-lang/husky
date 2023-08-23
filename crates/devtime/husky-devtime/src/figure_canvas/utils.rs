@@ -45,20 +45,21 @@ impl Devtime {
         }
     }
 
-    pub(crate) fn update_figure_canvases(&mut self) {
+    pub(crate) fn update_figure_canvases(&mut self) -> __VMResult<()> {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_canvas(active_trace_id)?;
         }
         for pin in self.state.presentation().pins().to_vec().into_iter() {
             self.update_figure_canvas(pin)?;
         }
+        Ok(())
     }
-    fn update_figure_canvas(&mut self, trace_id: TraceId) {
+    fn update_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
         self.update_trace_generic_figure_canvas(trace_id);
         self.update_trace_specific_figure_canvas(trace_id)
     }
 
-    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) {
+    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
         if let Some(key) = self.gen_generic_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =
@@ -66,12 +67,13 @@ impl Devtime {
             if !self.state.generic_figure_canvases.contains(&key) {
                 self.state
                     .generic_figure_canvases
-                    .insert_new(key, self.gen_trace_generic_figure(trace_id).map_err(f)?)?
+                    .insert_new(key, self.gen_trace_generic_figure(trace_id).map_err(f)?)
             }
         }
+        Ok(())
     }
 
-    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) {
+    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
         if let Some(key) = self.gen_specific_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =
@@ -79,9 +81,10 @@ impl Devtime {
             if !self.state.specific_figure_canvases.contains(&key) {
                 self.state
                     .specific_figure_canvases
-                    .insert_new(key, self.gen_trace_specific_figure(trace_id).map_err(f)?)?
+                    .insert_new(key, self.gen_trace_specific_figure(trace_id).map_err(f)?)
             }
         }
+        Ok(())
     }
 
     fn gen_generic_figure_canvas_key(&self, trace_id: TraceId) -> Option<GenericFigureCanvasKey> {
