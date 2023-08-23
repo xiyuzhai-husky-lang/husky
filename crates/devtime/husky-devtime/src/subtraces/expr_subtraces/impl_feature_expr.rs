@@ -4,7 +4,7 @@ impl Devtime {
     pub(crate) fn feature_expr_subtraces(
         &mut self,
         parent: &Trace,
-        expr: &FeatureLazyExpr,
+        expr: ValExpr,
     ) -> Option<Vec<TraceId>> {
         match expr.variant {
             FeatureLazyExprVariant::Literal(_)

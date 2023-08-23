@@ -183,7 +183,7 @@ impl ValStmt {
         mut opt_arrival_indicator: Option<ValDomain>,
         feature_interner: &FeatureInterner,
     ) -> ValStmtData {
-        let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
+        let mut branches: Vec<Arc<ValBranch>> = vec![];
         for lazy_branch in lazy_branches {
             if let Some(last_branch) = branches.last() {
                 match last_branch.variant {
@@ -258,7 +258,7 @@ impl ValStmt {
                     opt_arrival_indicator.clone(),
                 ),
             };
-            branches.push(Arc::new(FeatureLazyBranch {
+            branches.push(Arc::new(ValBranch {
                 variant,
                 opt_arrival_indicator: opt_arrival_indicator.clone(),
                 eval_id: Default::default(),

@@ -1,10 +1,8 @@
+use husky_syn_expr::*;
 use std::{
     panic::RefUnwindSafe,
     sync::atomic::{AtomicUsize, Ordering},
 };
-
-use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerStmtIdx};
-use husky_text::HasSourceRange;
 
 static NEXT_VM_INSTRUCTION_ID: AtomicUsize = AtomicUsize::new(0);
 
@@ -14,8 +12,8 @@ pub struct InstructionId(pub(crate) usize);
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum InstructionSource {
-    Expr(HirEagerExprIdx),
-    Stmt(HirEagerStmtIdx),
+    Expr(SynExprIdx),
+    Stmt(SynStmtIdx),
 }
 
 impl Default for InstructionId {

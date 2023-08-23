@@ -64,7 +64,7 @@ impl<'a, 'static: 'a> FeatureEvaluator<'a> {
         }
     }
 
-    fn satisfies(&self, condition: &FeatureLazyExpr) -> __VMResult<bool> {
+    fn satisfies(&self, condition: ValExpr) -> __VMResult<bool> {
         let value = self.eval_expr_cached(condition)?;
         Ok(value.to_bool())
     }

@@ -1,47 +1,49 @@
+use husky_syn_expr::SynStmtIdx;
+
 use super::*;
-use husky_hir_eager_expr::HirEagerStmt;
 
 impl Devtime {
     pub(crate) fn proc_stmt_figure(
         &self,
-        stmt: &HirEagerStmt,
+        stmt: SynStmtIdx,
         history: &History,
     ) -> SpecificFigureCanvasData {
-        match stmt.variant {
-            HirEagerStmt::Init {
-                ref initial_value, ..
-            } => self.eager_expr_figure(initial_value, history),
-            HirEagerStmt::Assert { .. } => todo!(),
-            HirEagerStmt::Execute { ref expr } => {
-                if let Some(entry) = history.get(expr) {
-                    match entry {
-                        HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
-                        _ => {
-                            p!(entry);
-                            panic!("wrong kind of entry")
-                        }
-                    }
-                } else {
-                    Default::default()
-                }
-            }
-            HirEagerStmt::Return { ref result, .. } => self.eager_expr_figure(result, history),
-            HirEagerStmt::ConditionFlow { .. } => todo!(),
-            HirEagerStmt::Loop { .. } => {
-                if let Some(entry) = history.get(stmt) {
-                    match entry {
-                        HistoryEntry::Loop { ref mutations, .. } => {
-                            self.mutations_figure(mutations)
-                        }
-                        _ => panic!(),
-                    }
-                } else {
-                    Default::default()
-                }
-            }
-            HirEagerStmt::Break => Default::default(),
-            HirEagerStmt::Match { .. } => todo!(),
-        }
+        todo!()
+        // match stmt.variant {
+        //     HirEagerStmt::Init {
+        //         ref initial_value, ..
+        //     } => self.eager_expr_figure(initial_value, history),
+        //     HirEagerStmt::Assert { .. } => todo!(),
+        //     HirEagerStmt::Execute { ref expr } => {
+        //         if let Some(entry) = history.get(expr) {
+        //             match entry {
+        //                 HistoryEntry::Exec { ref mutations } => self.mutations_figure(mutations),
+        //                 _ => {
+        //                     p!(entry);
+        //                     panic!("wrong kind of entry")
+        //                 }
+        //             }
+        //         } else {
+        //             Default::default()
+        //         }
+        //     }
+        //     HirEagerStmt::Return { ref result, .. } => self.eager_expr_figure(result, history),
+        //     HirEagerStmt::ConditionFlow { .. } => todo!(),
+        //     HirEagerStmt::Loop { .. } => {
+        //         if let Some(entry) = history.get(stmt) {
+        //             match entry {
+        //                 HistoryEntry::Loop { ref mutations, .. } => {
+        //                     self.mutations_figure(mutations)
+        //                 }
+        //                 _ => panic!(),
+        //             }
+        //         } else {
+        //             Default::default()
+        //         }
+        //     }
+        //     HirEagerStmt::Break => Default::default(),
+        //     HirEagerStmt::Match { .. } => todo!(),
+        // }
     }
 
     pub fn loop_frame_mutations_figure(

@@ -94,7 +94,7 @@ impl Devtime {
         DevtimeUpdateM::Ok(())
     }
 
-    fn trace_stalk_from_expr(&self, expr: &FeatureLazyExpr, sample_id: SampleId) -> TraceStalk {
+    fn trace_stalk_from_expr(&self, expr: ValExpr, sample_id: SampleId) -> TraceStalk {
         let arrived = match self
             .runtime
             .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)

@@ -12,7 +12,7 @@ rust-version = "1.56"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 lsp-types.workspace = true
-indexmap = "1.8.1"
+indexmap = "2.0.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
@@ -36,6 +36,8 @@ husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 husky-opr = { path = "../../kernel/husky-opr" }
+# kernel
+husky-val = { path = "../../kernel/husky-val" }
 
 [dev-dependencies]
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

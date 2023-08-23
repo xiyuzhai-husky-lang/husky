@@ -21,8 +21,8 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-regular-value = { path = "../../kernel/husky-regular-value", features = [
     "vm_support"
 ] }
-# comptime
-husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
+# syntax
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

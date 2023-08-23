@@ -34,12 +34,12 @@ impl History {
         //     .map(|entry| entry.result())
     }
 
-    pub fn get<T: Into<InstructionSource>>(&self, t: &T) -> Option<&HistoryEntry> {
+    pub fn get<T: Into<InstructionSource>>(&self, t: T) -> Option<&HistoryEntry> {
         todo!()
         // self.entries.get(&t.instruction_id())
     }
 
-    pub fn contains<T: Into<InstructionSource>>(&self, t: &T) -> bool {
+    pub fn contains<T: Into<InstructionSource>>(&self, t: T) -> bool {
         todo!()
         // self.entries.contains_key(&t.instruction_id())
     }

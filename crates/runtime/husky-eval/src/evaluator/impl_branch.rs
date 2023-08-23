@@ -2,10 +2,7 @@ use super::*;
 use crate::*;
 
 impl<'a, 'static: 'a> FeatureEvaluator<'a> {
-    pub(crate) fn eval_lazy_branch(
-        &self,
-        branch: &FeatureLazyBranch,
-    ) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_lazy_branch(&self, branch: ValBranch) -> __VMResult<__RegularValue> {
         match branch.variant {
             FeatureLazyBranchVariant::If { ref condition } => {
                 if !self.eval_expr(condition)?.downcast_bool() {

@@ -59,7 +59,7 @@ impl<'a> LinkageCollector<'a> {
     //     // }
     // }
 
-    // pub(crate) fn collect_from_lazy_expr(&mut self, expr: &LazyExpr) {
+    // pub(crate) fn collect_from_lazy_expr(&mut self, expr: SynExprIdx) {
     //     todo!()
     //     // match expr.variant {
     //     //     LazyExprVariant::Variable { .. } => (),
