@@ -5,12 +5,13 @@ use std::time::Instant;
 
 impl Devtime {
     pub fn hot_reload(&mut self) {
-        self.runtime.hot_reload();
-        let old_state = self.clear();
-        self.gen_root_traces();
-        self.mimic_old_state(old_state);
-        self.update();
-        self.take_change()
+        todo!()
+        // self.runtime.hot_reload();
+        // let old_state = self.clear();
+        // self.gen_root_traces();
+        // self.mimic_old_state(old_state);
+        // self.update();
+        // self.take_change()
     }
 
     fn gen_root_traces(&mut self) {
@@ -63,14 +64,14 @@ impl Devtime {
         // self.state.set_root_traces(root_traces);
     }
 
-    fn mimic_old_state(&mut self, mut old_state: DevtimeOldState) -> DevtimeUpdateM<()> {
+    fn mimic_old_state(&mut self, mut old_state: DevtimeOldState) {
         // order matters
-        self.mimic_old_expansions(&mut old_state)?;
+        self.mimic_old_expansions(&mut old_state);
         old_state.fix();
         self.mimic_old_presentation(&old_state)
     }
 
-    fn mimic_old_expansions(&mut self, old_state: &mut DevtimeOldState) -> DevtimeUpdateM<()> {
+    fn mimic_old_expansions(&mut self, old_state: &mut DevtimeOldState) {
         self.mimic_old_expansions_dfs(0, old_state)
     }
 

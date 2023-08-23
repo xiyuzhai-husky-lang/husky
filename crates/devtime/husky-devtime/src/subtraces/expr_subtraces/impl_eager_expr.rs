@@ -7,28 +7,29 @@ impl Devtime {
         expr: SynExprIdx,
         history: &Arc<History>,
     ) -> Vec<TraceId> {
-        match expr.variant {
-            EagerExprVariant::Variable { .. } => todo!(),
-            EagerExprVariant::ThisValue { .. } => todo!(),
-            EagerExprVariant::ThisField { .. } => todo!(),
-            EagerExprVariant::PrimitiveLiteral(_) => todo!(),
-            EagerExprVariant::Bracketed(_) => todo!(),
-            EagerExprVariant::Opn {
-                ref opn_variant,
-                ref opds,
-            } => self.eager_opn_subtraces(parent, history, opn_variant, opds),
-            EagerExprVariant::Lambda(_, _) => todo!(),
-            EagerExprVariant::EnumKindLiteral(_) => todo!(),
-            EagerExprVariant::EntityFeature { .. } => todo!(),
-            EagerExprVariant::EntityThickFp { .. } => panic!(),
-        }
+        todo!()
+        // match expr.variant {
+        //     EagerExprVariant::Variable { .. } => todo!(),
+        //     EagerExprVariant::ThisValue { .. } => todo!(),
+        //     EagerExprVariant::ThisField { .. } => todo!(),
+        //     EagerExprVariant::PrimitiveLiteral(_) => todo!(),
+        //     EagerExprVariant::Bracketed(_) => todo!(),
+        //     EagerExprVariant::Opn {
+        //         ref opn_variant,
+        //         ref opds,
+        //     } => self.eager_opn_subtraces(parent, history, opn_variant, opds),
+        //     EagerExprVariant::Lambda(_, _) => todo!(),
+        //     EagerExprVariant::EnumKindLiteral(_) => todo!(),
+        //     EagerExprVariant::EntityFeature { .. } => todo!(),
+        //     EagerExprVariant::EntityThickFp { .. } => panic!(),
+        // }
     }
 
     pub(crate) fn eager_opn_subtraces(
         &mut self,
         parent: &Trace,
         history: &Arc<History>,
-        opn_variant: &EagerOpnVariant,
+        // opn_variant: &EagerOpnVariant,
         opds: &[SynExprIdx],
     ) -> Vec<TraceId> {
         todo!()

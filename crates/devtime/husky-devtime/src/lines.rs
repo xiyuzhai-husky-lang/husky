@@ -143,22 +143,23 @@ impl<'a> TraceLineGenerator<'a> {
     }
 
     fn add_control_tokens(&mut self, control: &ControlSnapshot) {
-        match control {
-            ControlSnapshot::None => (),
-            ControlSnapshot::Return(_) => {
-                self.gen_fade_assign_token();
-                self.render_keyword_token("return", None, None);
-                todo!()
-                // self.push(value.snapshot().into());
-            }
-            ControlSnapshot::Break => {
-                self.gen_fade_assign_token();
-                self.render_keyword_token("break", None, None);
-            }
-            ControlSnapshot::Err(ref e) => {
-                self.gen_fade_assign_token();
-                self.gen_error_token(e, None)
-            }
-        }
+        todo!()
+        // match control {
+        //     ControlSnapshot::None => (),
+        //     ControlSnapshot::Return(_) => {
+        //         self.gen_fade_assign_token();
+        //         self.render_keyword_token("return", None, None);
+        //         todo!()
+        //         // self.push(value.snapshot().into());
+        //     }
+        //     ControlSnapshot::Break => {
+        //         self.gen_fade_assign_token();
+        //         self.render_keyword_token("break", None, None);
+        //     }
+        //     ControlSnapshot::Err(ref e) => {
+        //         self.gen_fade_assign_token();
+        //         self.gen_error_token(e, None)
+        //     }
+        // }
     }
 }

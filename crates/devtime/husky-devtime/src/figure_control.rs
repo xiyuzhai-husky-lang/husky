@@ -25,88 +25,91 @@ impl Devtime {
 
     #[inline(always)]
     pub fn gen_figure_control_data(&mut self, trace_id: TraceId) -> FigureControlData {
-        let trace = self.trace(trace_id);
-        match trace.variant {
-            TraceVariant::Main(..)
-            | TraceVariant::EntityVal { .. }
-            | TraceVariant::Module { .. }
-            | TraceVariant::ValStmt(_)
-            | TraceVariant::ValBranch(_)
-            | TraceVariant::LazyExpr(_)
-            | TraceVariant::ValCallArgument { .. }
-            | TraceVariant::FuncStmt { .. }
-            | TraceVariant::EagerExpr { .. }
-            | TraceVariant::CallHead { .. }
-            | TraceVariant::EagerCallArgument { .. } => FigureControlData::default(),
-            TraceVariant::EagerStmt {
-                ref stmt,
-                ref history,
-                ..
-            } => {
-                todo!()
-                //     match stmt.variant {
-                //     HirEagerStmt::Loop { .. } => match history.get(stmt)? {
-                //         HistoryEntry::Loop { mutations, .. } => {
-                //             FigureControlData::mutations_default(mutations.len())
-                //         }
-                //         _ => {
-                //             p!(stmt.file, stmt.range);
-                //             panic!()
-                //         }
-                //     },
-                //     _ => FigureControlData::default(),
-                // }
-            }
-            TraceVariant::LoopFrame { .. } => {
-                self.gen_figure_control_data(trace.raw_data.opt_parent_id.unwrap())
-            }
-            TraceVariant::FuncBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
-                ..
-            } => match history.get(stmt)? {
-                HistoryEntry::ControlFlow {
-                    opt_branch_entered, ..
-                } => {
-                    if Some(branch_idx) == *opt_branch_entered {
-                        msg_once!("todo");
-                        FigureControlData::default()
-                    } else {
-                        FigureControlData::default()
-                    }
-                }
-                _ => panic!(),
-            },
-            TraceVariant::EagerBranch {
-                ref stmt,
-                branch_idx,
-                ref history,
-                ..
-            } => match history.get(stmt)? {
-                HistoryEntry::ControlFlow {
-                    opt_branch_entered: branch_entered,
-                    mutations,
-                    ..
-                } => {
-                    if Some(branch_idx) == *branch_entered {
-                        FigureControlData::mutations_default(mutations.len())
-                    } else {
-                        FigureControlData::default()
-                    }
-                }
-                _ => panic!(),
-            },
-        }
+        todo!()
+        // let trace = self.trace(trace_id);
+        // match trace.variant {
+        //     TraceVariant::Main(..)
+        //     | TraceVariant::EntityVal { .. }
+        //     | TraceVariant::Module { .. }
+        //     | TraceVariant::ValStmt(_)
+        //     | TraceVariant::ValBranch(_)
+        //     | TraceVariant::LazyExpr(_)
+        //     | TraceVariant::ValCallArgument { .. }
+        //     | TraceVariant::FuncStmt { .. }
+        //     | TraceVariant::EagerExpr { .. }
+        //     | TraceVariant::CallHead { .. }
+        //     | TraceVariant::EagerCallArgument { .. } => FigureControlData::default(),
+        //     TraceVariant::EagerStmt {
+        //         ref stmt,
+        //         ref history,
+        //         ..
+        //     } => {
+        //         todo!()
+        //         //     match stmt.variant {
+        //         //     HirEagerStmt::Loop { .. } => match history.get(stmt)? {
+        //         //         HistoryEntry::Loop { mutations, .. } => {
+        //         //             FigureControlData::mutations_default(mutations.len())
+        //         //         }
+        //         //         _ => {
+        //         //             p!(stmt.file, stmt.range);
+        //         //             panic!()
+        //         //         }
+        //         //     },
+        //         //     _ => FigureControlData::default(),
+        //         // }
+        //     }
+        //     TraceVariant::LoopFrame { .. } => {
+        //         self.gen_figure_control_data(trace.raw_data.opt_parent_id.unwrap())
+        //     }
+        //     TraceVariant::FuncBranch {
+        //         ref stmt,
+        //         branch_idx,
+        //         ref history,
+        //         ..
+        //     } => match history.get(stmt)? {
+        //         HistoryEntry::ControlFlow {
+        //             opt_branch_entered, ..
+        //         } => {
+        //             if Some(branch_idx) == *opt_branch_entered {
+        //                 msg_once!("todo");
+        //                 FigureControlData::default()
+        //             } else {
+        //                 FigureControlData::default()
+        //             }
+        //         }
+        //         _ => panic!(),
+        //     },
+        //     TraceVariant::EagerBranch {
+        //         ref stmt,
+        //         branch_idx,
+        //         ref history,
+        //         ..
+        //     } => match history.get(stmt)? {
+        //         HistoryEntry::ControlFlow {
+        //             opt_branch_entered: branch_entered,
+        //             mutations,
+        //             ..
+        //         } => {
+        //             if Some(branch_idx) == *branch_entered {
+        //                 FigureControlData::mutations_default(mutations.len())
+        //             } else {
+        //                 FigureControlData::default()
+        //             }
+        //         }
+        //         _ => panic!(),
+        //     },
+        // }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) {
-        if let Some(active_trace_id) = self.opt_active_trace_id() {
-            self.update_figure_control(active_trace_id)?;
-        }
-        for pin in self.state.presentation().pins().to_vec().into_iter() {
-            self.update_figure_control(pin)?;
-        }
+    pub(crate) fn update_figure_controls(&mut self) -> __VMResult<()> {
+        todo!()
+        // if let Some(active_trace_id) = self.opt_active_trace_id() {
+        //     self.update_figure_control(active_trace_id)?;
+        // }
+        // for pin in self.state.presentation().pins().to_vec().into_iter() {
+        //     self.update_figure_control(pin)?;
+        // }
+        // Ok(())
     }
 
     pub(crate) fn update_figure_control(&mut self, trace_id: TraceId) {
@@ -123,7 +126,7 @@ impl Devtime {
         &mut self,
         _trace_id: TraceId,
         _new_figure_control_data: FigureControlData,
-    ) -> DevtimeTakeChangeM<()> {
+    ) {
         todo!()
         // let key = self.gen_figure_control_key(trace_id);
         // DevtimeStageChangeM::Ok(

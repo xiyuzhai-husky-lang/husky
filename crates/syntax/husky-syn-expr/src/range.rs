@@ -104,14 +104,6 @@ impl<'a> std::ops::Index<SynStmtIdx> for SynExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> std::ops::Index<&SynStmtIdx> for SynExprRangeCalculator<'a> {
-    type Output = TokenIdxRange;
-
-    fn index(&self, index: &SynStmtIdx) -> &Self::Output {
-        &self.stmt_ranges[index]
-    }
-}
-
 impl<'a> SynExprRangeCalculator<'a> {
     fn new(db: &'a dyn SynExprDb, expr_region: SynExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);

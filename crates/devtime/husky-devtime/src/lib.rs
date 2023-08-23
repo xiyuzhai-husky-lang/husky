@@ -42,24 +42,25 @@ pub struct RuntimeConfig {}
 
 impl Devtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
-        let mut devtime = Self {
-            runtime: DevRuntime::new(runtime_config),
-            state: Default::default(),
-        };
-        assert!(devtime.state.presentation().opt_sample_id().is_none());
-        devtime.hot_reload();
-        devtime
+        todo!()
+        // let mut devtime = Self {
+        //     runtime: DevRuntime::new(runtime_config),
+        //     state: Default::default(),
+        // };
+        // assert!(devtime.state.presentation().opt_sample_id().is_none());
+        // devtime.hot_reload();
+        // devtime
     }
 
     pub fn opt_active_trace_id(&self) -> Option<TraceId> {
         self.state.presentation().opt_active_trace_id()
     }
 
-    pub fn activate_trace(&mut self, trace_id: TraceId) -> DevtimeTakeChangeM<DevtimeStateChange> {
+    pub fn activate_trace(&mut self, trace_id: TraceId) -> __VMResult<DevtimeStateChange> {
         self.state.activate_trace(trace_id);
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
-        self.take_change()
+        Ok(self.take_change())
     }
 
     pub fn root_traces(&self) -> Vec<TraceId> {
@@ -128,69 +129,67 @@ impl Devtime {
         indent: Indent,
         variant: TraceVariant,
     ) -> TraceId {
-        let trace_id = self.next_id();
-        let trace = {
-            let (file, range) = variant.file_and_range();
-            let reachable = variant.reachable();
-            let can_have_subtraces = variant.can_have_subtraces(reachable);
-            let lines = self.trace_lines(indent, &variant, opt_parent_id.is_some());
-            Trace {
-                raw_data: TraceData {
-                    id: trace_id,
-                    opt_parent_id,
-                    indent,
-                    can_have_subtraces,
-                    reachable,
-                    lines,
-                    kind: variant.kind(),
-                    opt_arrival_indicator: variant
-                        .opt_arrival_indicator()
-                        .map(|ind| ind.feature.id()),
-                    // opt_stats: variant.opt_stats(self.runtime()).expect("todo"),
-                },
-                variant,
-                file,
-                range,
-            }
-        };
-        assert!(!self.state.trace_nodes[trace.id().raw()].initialized());
-        self.state.trace_nodes.set_elem(
-            trace_id.raw(),
-            TraceNode::Initialized {
-                expanded: false,
-                shown: match trace.raw_data.kind {
-                    TraceKind::FeatureExprLazy
-                    | TraceKind::FeatureExprEager
-                    | TraceKind::EagerExpr => trace.raw_data.opt_parent_id.is_some(),
-                    _ => true,
-                },
-                trace,
-            },
-        );
-        trace_id
+        todo!()
+        // let trace_id = self.next_id();
+        // let trace = {
+        //     let (file, range) = variant.file_and_range();
+        //     let reachable = variant.reachable();
+        //     let can_have_subtraces = variant.can_have_subtraces(reachable);
+        //     let lines = self.trace_lines(indent, &variant, opt_parent_id.is_some());
+        //     Trace {
+        //         raw_data: TraceData {
+        //             id: trace_id,
+        //             opt_parent_id,
+        //             indent,
+        //             can_have_subtraces,
+        //             reachable,
+        //             lines,
+        //             kind: variant.kind(),
+        //             opt_arrival_indicator: variant
+        //                 .opt_arrival_indicator()
+        //                 .map(|ind| ind.feature.id()),
+        //             // opt_stats: variant.opt_stats(self.runtime()).expect("todo"),
+        //         },
+        //         variant,
+        //         file,
+        //         range,
+        //     }
+        // };
+        // assert!(!self.state.trace_nodes[trace.id().raw()].initialized());
+        // self.state.trace_nodes.set_elem(
+        //     trace_id.raw(),
+        //     TraceNode::Initialized {
+        //         expanded: false,
+        //         shown: match trace.raw_data.kind {
+        //             TraceKind::FeatureExprLazy
+        //             | TraceKind::FeatureExprEager
+        //             | TraceKind::EagerExpr => trace.raw_data.opt_parent_id.is_some(),
+        //             _ => true,
+        //         },
+        //         trace,
+        //     },
+        // );
+        // trace_id
     }
 
-    pub fn toggle_expansion(
-        &mut self,
-        trace_id: TraceId,
-    ) -> DevtimeTakeChangeM<DevtimeStateChange> {
-        self.state
-            .trace_nodes
-            .apply_update_elem(trace_id.raw(), |node| node.toggle_expansion())?;
-        self.update_subtraces(trace_id); // not atomic, man
-        self.update()?;
-        self.take_change()
+    pub fn toggle_expansion(&mut self, trace_id: TraceId) -> __VMResult<DevtimeStateChange> {
+        todo!()
+        // self.state
+        //     .trace_nodes
+        //     .apply_update_elem(trace_id.raw(), |node| node.toggle_expansion());
+        // self.update_subtraces(trace_id); // not atomic, man
+        // self.update();
+        // self.take_change()
     }
 
     pub fn expanded(&mut self, trace_id: TraceId) -> bool {
         self.state.trace_nodes[trace_id.raw()].expanded()
     }
 
-    pub fn toggle_show(&mut self, trace_id: TraceId) -> DevtimeTakeChangeM<()> {
+    pub fn toggle_show(&mut self, trace_id: TraceId) {
         self.state
             .trace_nodes
-            .apply_update_elem(trace_id.raw(), |node| node.toggle_shown())?;
-        DevtimeTakeChangeM::Ok(())
+            .apply_update_elem(trace_id.raw(), |node| node.toggle_shown())
     }
 
     pub fn trace(&self, trace_id: TraceId) -> &Trace {
@@ -203,6 +202,7 @@ impl Devtime {
     }
 
     fn vm_config(&self) -> &VMConfig {
-        self.runtime().vm_config()
+        todo!()
+        // self.runtime().vm_config()
     }
 }

@@ -1,14 +1,14 @@
 use crate::*;
 
 impl Devtime {
-    pub(crate) fn update_trace_statss(&mut self) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_trace_statss(&mut self) -> __VMResult<()> {
         for root_trace_id in self.root_traces() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
-        DevtimeUpdateM::Ok(())
+        Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> __VMResult<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -21,26 +21,28 @@ impl Devtime {
             self.gen_trace_stats(trace_id, trace_stats_key)?
         }
         for associated_trace_id in associated_trace_ids {
-            self.update_trace_statss_within_trace(associated_trace_id)
+            self.update_trace_statss_within_trace(associated_trace_id)?
         }
         if expanded {
             for subtrace_id in self.subtraces(trace_id) {
-                self.update_trace_statss_within_trace(subtrace_id)
+                self.update_trace_statss_within_trace(subtrace_id)?
             }
         }
+        Ok(())
     }
 
-    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) {
-        let (opt_stats, result) = self
-            .trace(trace_id)
-            .variant
-            .opt_stats_result(self.runtime(), self.state.presentation().partitions())
-            .split();
-        self.state.trace_statss.insert_new(key, opt_stats)?;
-        self.updating_t(result)
+    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> __VMResult<()> {
+        todo!()
+        // let (opt_stats, result) = self
+        //     .trace(trace_id)
+        //     .variant
+        //     .opt_stats_result(self.runtime(), self.state.presentation().partitions())
+        //     .split();
+        // self.state.trace_statss.insert_new(key, opt_stats);
+        // self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) {
+    fn updating_t(&self, result: __VMResult<()>) -> __VMResult<()> {
         match result {
             Ok(()) => Ok(()),
             Err(e) => match e.variant() {
@@ -52,7 +54,7 @@ impl Devtime {
                         todo!()
                         // DevtimeUpdateM::OtherworldlyErr(e)
                     } else {
-                        ()
+                        Ok(())
                     }
                 }
             },

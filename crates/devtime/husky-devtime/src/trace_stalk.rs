@@ -8,7 +8,7 @@ impl Devtime {
         &self.state.trace_stalks[&key]
     }
 
-    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> __VMResult<()> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
@@ -16,67 +16,68 @@ impl Devtime {
                 .trace_stalks
                 .insert_new(key, self.produce_trace_stalk(trace_id, sample_id));
         }
-        DevtimeUpdateM::Ok(())
+        Ok(())
     }
 
     fn produce_trace_stalk(&self, trace_id: TraceId, sample_id: SampleId) -> TraceStalk {
         let trace: &Trace = self.trace(trace_id);
-        match trace.variant {
-            TraceVariant::Main(ref repr) => self.trace_stalk_from_result(
-                self.runtime().eval_feature_repr_cached(repr, sample_id),
-                repr.ty(),
-            ),
-            TraceVariant::EntityVal { ref repr, .. } => self.trace_stalk_from_result(
-                self.runtime().eval_feature_repr_cached(repr, sample_id),
-                repr.ty(),
-            ),
-            TraceVariant::ValStmt(ref stmt) => match stmt.variant {
-                ValStmtData::Init { ref value, .. } => self.trace_stalk_from_expr(value, sample_id),
-                ValStmtData::Assert { ref condition } => {
-                    self.trace_stalk_from_expr(condition, sample_id)
-                }
-                ValStmtData::Require { ref condition, .. } => {
-                    self.trace_stalk_from_expr(condition, sample_id)
-                }
-                ValStmtData::Return { ref result }
-                | ValStmtData::ReturnUnveil { ref result, .. } => {
-                    self.trace_stalk_from_expr(result, sample_id)
-                }
-                ValStmtData::ConditionFlow { .. } => panic!(),
-                ValStmtData::ReturnHtml { .. } => todo!(),
-            },
-            TraceVariant::ValBranch(_) => Default::default(),
-            TraceVariant::LazyExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
-            TraceVariant::ValCallArgument { ref argument, .. } => {
-                self.trace_stalk_from_expr(argument, sample_id)
-            }
-            TraceVariant::Module { .. }
-            | TraceVariant::FuncStmt { .. }
-            | TraceVariant::EagerStmt { .. }
-            | TraceVariant::EagerExpr { .. }
-            | TraceVariant::CallHead { .. }
-            | TraceVariant::FuncBranch { .. }
-            | TraceVariant::EagerBranch { .. }
-            | TraceVariant::LoopFrame { .. }
-            | TraceVariant::EagerCallArgument { .. } => TraceStalk::default(),
-        }
+        todo!()
+        // match trace.variant {
+        //     TraceVariant::Main(ref repr) => self.trace_stalk_from_result(
+        //         self.runtime().eval_feature_repr_cached(repr, sample_id),
+        //         repr.ty(),
+        //     ),
+        //     TraceVariant::EntityVal { ref repr, .. } => self.trace_stalk_from_result(
+        //         self.runtime().eval_feature_repr_cached(repr, sample_id),
+        //         repr.ty(),
+        //     ),
+        //     TraceVariant::ValStmt(ref stmt) => match stmt.variant {
+        //         ValStmtData::Init { ref value, .. } => self.trace_stalk_from_expr(value, sample_id),
+        //         ValStmtData::Assert { ref condition } => {
+        //             self.trace_stalk_from_expr(condition, sample_id)
+        //         }
+        //         ValStmtData::Require { ref condition, .. } => {
+        //             self.trace_stalk_from_expr(condition, sample_id)
+        //         }
+        //         ValStmtData::Return { ref result }
+        //         | ValStmtData::ReturnUnveil { ref result, .. } => {
+        //             self.trace_stalk_from_expr(result, sample_id)
+        //         }
+        //         ValStmtData::ConditionFlow { .. } => panic!(),
+        //         ValStmtData::ReturnHtml { .. } => todo!(),
+        //     },
+        //     TraceVariant::ValBranch(_) => Default::default(),
+        //     TraceVariant::LazyExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),
+        //     TraceVariant::ValCallArgument { ref argument, .. } => {
+        //         self.trace_stalk_from_expr(argument, sample_id)
+        //     }
+        //     TraceVariant::Module { .. }
+        //     | TraceVariant::FuncStmt { .. }
+        //     | TraceVariant::EagerStmt { .. }
+        //     | TraceVariant::EagerExpr { .. }
+        //     | TraceVariant::CallHead { .. }
+        //     | TraceVariant::FuncBranch { .. }
+        //     | TraceVariant::EagerBranch { .. }
+        //     | TraceVariant::LoopFrame { .. }
+        //     | TraceVariant::EagerCallArgument { .. } => TraceStalk::default(),
+        // }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_trace_stalks(&mut self) -> __VMResult<()> {
         if let Some(sample_id) = self.state.presentation().opt_sample_id() {
             // ad hoc
             for root_trace_id in self.root_traces() {
                 self.gen_trace_stalks_within_trace(sample_id, root_trace_id)?
             }
         }
-        DevtimeUpdateM::Ok(())
+        Ok(())
     }
 
     fn gen_trace_stalks_within_trace(
         &mut self,
         sample_id: SampleId,
         trace_id: TraceId,
-    ) -> DevtimeUpdateM<()> {
+    ) -> __VMResult<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -91,25 +92,26 @@ impl Devtime {
                 self.gen_trace_stalks_within_trace(sample_id, subtrace_id)?
             }
         }
-        DevtimeUpdateM::Ok(())
+        Ok(())
     }
 
     fn trace_stalk_from_expr(&self, expr: ValExpr, sample_id: SampleId) -> TraceStalk {
-        let arrived = match self
-            .runtime
-            .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)
-        {
-            Ok(arrived) => arrived,
-            Err(_) => false,
-        };
-        if arrived {
-            self.trace_stalk_from_result(
-                self.runtime().eval_feature_expr(expr, sample_id),
-                expr.expr.intrinsic_ty(),
-            )
-        } else {
-            TraceStalk::unarrived()
-        }
+        todo!()
+        // let arrived = match self
+        //     .runtime
+        //     .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id)
+        // {
+        //     Ok(arrived) => arrived,
+        //     Err(_) => false,
+        // };
+        // if arrived {
+        //     self.trace_stalk_from_result(
+        //         self.runtime().eval_feature_expr(expr, sample_id),
+        //         expr.expr.intrinsic_ty(),
+        //     )
+        // } else {
+        //     TraceStalk::unarrived()
+        // }
     }
 
     fn trace_stalk_from_result(
@@ -150,10 +152,11 @@ impl Devtime {
         value: __RegularValue,
         ty: EtherealTerm,
     ) -> TraceTokenData {
-        TraceTokenData {
-            kind: TraceTokenKind::Fade,
-            value: self.runtime().print_short(&value, ty),
-            opt_associated_trace_id: None,
-        }
+        todo!()
+        // TraceTokenData {
+        //     kind: TraceTokenKind::Fade,
+        //     value: self.runtime().print_short(&value, ty),
+        //     opt_associated_trace_id: None,
+        // }
     }
 }

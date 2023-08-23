@@ -5,7 +5,7 @@ impl Devtime {
         self.state.presentation()
     }
 
-    pub fn set_presentation(&mut self, presentation: Presentation) -> HuskyDevtimeStateChange {
+    pub fn set_presentation(&mut self, presentation: Presentation) -> DevtimeStateChange {
         self.state.set_presentation(presentation);
         self.update();
         self.take_change()

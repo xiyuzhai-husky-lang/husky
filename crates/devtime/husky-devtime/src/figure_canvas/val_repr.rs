@@ -7,13 +7,14 @@ impl Devtime {
         &self,
         repr: &ValRepr,
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
-        match self
-            .runtime()
-            .visualize_feature(repr.clone(), self.state.presentation().sample_id())
-        {
-            Ok(data) => Ok(SpecificFigureCanvasData::from_visual_data(data).into()),
-            Err(_) => Ok(todo!()),
-        }
+        todo!()
+        // match self
+        //     .runtime()
+        //     .visualize_feature(repr.clone(), self.state.presentation().sample_id())
+        // {
+        //     Ok(data) => Ok(SpecificFigureCanvasData::from_visual_data(data).into()),
+        //     Err(_) => Ok(todo!()),
+        // }
     }
 
     pub(super) fn feature_repr_generic_figure(
@@ -82,33 +83,34 @@ impl Devtime {
         repr: &ValRepr,
         transform_visual_data: impl Fn(VisualData) -> T,
     ) -> Result<Vec<(Partition, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
-        let session = self.runtime().session();
-        let dev_division = session.dev();
-        let presentation = self.state.presentation();
-        let mut sampler = PartitionedSampler::<T>::new(presentation.partitions());
-        for labeled_data in dev_division.each_labeled_data() {
-            let label = labeled_data.label;
-            let sample_id = labeled_data.sample_id;
-            if !self.is_presentation_satisfied(presentation, sample_id)? {
-                continue;
-            }
-            // for testing
-            if !self
-                .runtime
-                .eval_opt_domain_indicator_cached(repr.opt_domain_indicator(), sample_id)
-                .map_err(|e| (sample_id, e))?
-            {
-                p!(presentation.restriction());
-                todo!()
-            }
-            if sampler.process(&labeled_data, || {
-                let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
-                Ok((transform_visual_data(visual_data)))
-            })? {
-                break;
-            }
-        }
-        Ok(sampler.finish())
+        todo!()
+        // let session = self.runtime().session();
+        // let dev_division = session.dev();
+        // let presentation = self.state.presentation();
+        // let mut sampler = PartitionedSampler::<T>::new(presentation.partitions());
+        // for labeled_data in dev_division.each_labeled_data() {
+        //     let label = labeled_data.label;
+        //     let sample_id = labeled_data.sample_id;
+        //     if !self.is_presentation_satisfied(presentation, sample_id)? {
+        //         continue;
+        //     }
+        //     // for testing
+        //     if !self
+        //         .runtime
+        //         .eval_opt_domain_indicator_cached(repr.opt_domain_indicator(), sample_id)
+        //         .map_err(|e| (sample_id, e))?
+        //     {
+        //         p!(presentation.restriction());
+        //         todo!()
+        //     }
+        //     if sampler.process(&labeled_data, || {
+        //         let visual_data = self.runtime().visualize_feature(repr.clone(), sample_id)?;
+        //         Ok((transform_visual_data(visual_data)))
+        //     })? {
+        //         break;
+        //     }
+        // }
+        // Ok(sampler.finish())
     }
 
     fn is_presentation_satisfied(
@@ -143,64 +145,65 @@ impl Devtime {
     }
 
     fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
-        let trace = self.trace(trace_id);
-        match trace.variant {
-            TraceVariant::Main(..) => Ok(true),
-            TraceVariant::Module { .. } => panic!(),
-            TraceVariant::EntityVal { .. } => Ok(true),
-            TraceVariant::ValStmt(ref stmt) => self
-                .runtime()
-                .eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::ValBranch(ref branch) => self
-                .runtime()
-                .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::LazyExpr(ref expr) => self
-                .runtime()
-                .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id),
-            TraceVariant::ValCallArgument { .. } => todo!(),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::EagerStmt { .. } => todo!(),
-            TraceVariant::EagerBranch { .. } => todo!(),
-            TraceVariant::FuncBranch { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::EagerCallArgument { .. } => todo!(),
-            TraceVariant::CallHead { .. } => todo!(),
-        }
+        todo!()
+        // let trace = self.trace(trace_id);
+        // match trace.variant {
+        //     TraceVariant::Main(..) => Ok(true),
+        //     TraceVariant::Module { .. } => panic!(),
+        //     TraceVariant::EntityVal { .. } => Ok(true),
+        //     TraceVariant::ValStmt(ref stmt) => self
+        //         .runtime()
+        //         .eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref(), sample_id),
+        //     TraceVariant::ValBranch(ref branch) => self
+        //         .runtime()
+        //         .eval_opt_domain_indicator_cached(branch.opt_arrival_indicator.as_ref(), sample_id),
+        //     TraceVariant::LazyExpr(ref expr) => self
+        //         .runtime()
+        //         .eval_opt_domain_indicator_cached(expr.opt_arrival_indicator.as_ref(), sample_id),
+        //     TraceVariant::ValCallArgument { .. } => todo!(),
+        //     TraceVariant::FuncStmt { .. } => todo!(),
+        //     TraceVariant::EagerStmt { .. } => todo!(),
+        //     TraceVariant::EagerBranch { .. } => todo!(),
+        //     TraceVariant::FuncBranch { .. } => todo!(),
+        //     TraceVariant::LoopFrame { .. } => todo!(),
+        //     TraceVariant::EagerExpr { .. } => todo!(),
+        //     TraceVariant::EagerCallArgument { .. } => todo!(),
+        //     TraceVariant::CallHead { .. } => todo!(),
+        // }
     }
 
     fn is_trace_returned(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
-        // ad hoc, without this, we get bugs
-        if !self.is_trace_arrived(trace_id, sample_id)? {
-            return Ok(false);
-        }
-        let trace = self.trace(trace_id);
-        let (value, ty) = match trace.variant {
-            TraceVariant::Main(ref repr) => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::EntityVal { ref repr, .. } => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::ValStmt(ref stmt) => (
-                self.runtime.eval_feature_stmt(stmt, sample_id)?,
-                stmt.return_ty,
-            ),
-            TraceVariant::ValBranch(ref branch) => (
-                self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
-                branch.block.return_ty.route,
-            ),
-            TraceVariant::LazyExpr(_) => todo!(),
-            TraceVariant::ValCallArgument { .. } => todo!(),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::EagerStmt { .. } => todo!(),
-            TraceVariant::EagerBranch { .. } => todo!(),
-            TraceVariant::FuncBranch { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::EagerCallArgument { .. } => todo!(),
-            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
-        };
+        // // ad hoc, without this, we get bugs
+        // if !self.is_trace_arrived(trace_id, sample_id)? {
+        //     return Ok(false);
+        // }
+        // let trace = self.trace(trace_id);
+        // let (value, ty) = match trace.variant {
+        //     TraceVariant::Main(ref repr) => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::EntityVal { ref repr, .. } => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::ValStmt(ref stmt) => (
+        //         self.runtime.eval_feature_stmt(stmt, sample_id)?,
+        //         stmt.return_ty,
+        //     ),
+        //     TraceVariant::ValBranch(ref branch) => (
+        //         self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+        //         branch.block.return_ty.route,
+        //     ),
+        //     TraceVariant::LazyExpr(_) => todo!(),
+        //     TraceVariant::ValCallArgument { .. } => todo!(),
+        //     TraceVariant::FuncStmt { .. } => todo!(),
+        //     TraceVariant::EagerStmt { .. } => todo!(),
+        //     TraceVariant::EagerBranch { .. } => todo!(),
+        //     TraceVariant::FuncBranch { .. } => todo!(),
+        //     TraceVariant::LoopFrame { .. } => todo!(),
+        //     TraceVariant::EagerExpr { .. } => todo!(),
+        //     TraceVariant::EagerCallArgument { .. } => todo!(),
+        //     TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        // };
         todo!()
         // Ok(match value.data_kind() {
         //     __RegisterDataKind::PrimitiveValue
@@ -220,36 +223,36 @@ impl Devtime {
         sample_id: SampleId,
         partitions: &Partitions,
     ) -> __VMResult<bool> {
-        let trace = self.trace(trace_id);
-        let (value, ty) = match trace.variant {
-            TraceVariant::Main(ref repr) => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::EntityVal { ref repr, .. } => {
-                (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
-            }
-            TraceVariant::ValStmt(ref stmt) => (
-                self.runtime.eval_feature_stmt(stmt, sample_id)?,
-                stmt.return_ty,
-            ),
-            TraceVariant::ValBranch(ref branch) => (
-                self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
-                branch.block.return_ty.route,
-            ),
-            TraceVariant::LazyExpr(_) => todo!(),
-            TraceVariant::ValCallArgument { .. } => todo!(),
-            TraceVariant::FuncStmt { .. } => todo!(),
-            TraceVariant::EagerStmt { .. } => todo!(),
-            TraceVariant::EagerBranch { .. } => todo!(),
-            TraceVariant::FuncBranch { .. } => todo!(),
-            TraceVariant::LoopFrame { .. } => todo!(),
-            TraceVariant::EagerExpr { .. } => todo!(),
-            TraceVariant::EagerCallArgument { .. } => todo!(),
-            TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
-        };
-        assert!(ty == self.runtime().target_return_ty().unwrap());
-        let label_downcast_result = self.runtime().register_to_label_converter()(&value);
-        let true_label = self.runtime.session().dev().label(sample_id);
+        // let trace = self.trace(trace_id);
+        // let (value, ty) = match trace.variant {
+        //     TraceVariant::Main(ref repr) => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::EntityVal { ref repr, .. } => {
+        //         (self.runtime.eval_feature_repr(repr, sample_id)?, repr.ty())
+        //     }
+        //     TraceVariant::ValStmt(ref stmt) => (
+        //         self.runtime.eval_feature_stmt(stmt, sample_id)?,
+        //         stmt.return_ty,
+        //     ),
+        //     TraceVariant::ValBranch(ref branch) => (
+        //         self.runtime.eval_feature_lazy_branch(branch, sample_id)?,
+        //         branch.block.return_ty.route,
+        //     ),
+        //     TraceVariant::LazyExpr(_) => todo!(),
+        //     TraceVariant::ValCallArgument { .. } => todo!(),
+        //     TraceVariant::FuncStmt { .. } => todo!(),
+        //     TraceVariant::EagerStmt { .. } => todo!(),
+        //     TraceVariant::EagerBranch { .. } => todo!(),
+        //     TraceVariant::FuncBranch { .. } => todo!(),
+        //     TraceVariant::LoopFrame { .. } => todo!(),
+        //     TraceVariant::EagerExpr { .. } => todo!(),
+        //     TraceVariant::EagerCallArgument { .. } => todo!(),
+        //     TraceVariant::Module { .. } | TraceVariant::CallHead { .. } => panic!(),
+        // };
+        // assert!(ty == self.runtime().target_return_ty().unwrap());
+        // let label_downcast_result = self.runtime().register_to_label_converter()(&value);
+        // let true_label = self.runtime.session().dev().label(sample_id);
         todo!()
         // match label_downcast_result {
         //     __RegisterDowncastResult::Value(predicted_label) => Ok(predicted_label != true_label),
