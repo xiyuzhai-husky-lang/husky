@@ -1,14 +1,14 @@
-mod call_head;
-mod eager_expr;
-mod expr_config;
-mod feature_branch;
-mod feature_expr;
-mod feature_stmt;
-mod func_stmt;
-mod proc_stmt;
-mod token;
+// mod call_head;
+// mod eager_expr;
+// mod expr_config;
+// mod feature_branch;
+// mod feature_expr;
+// mod feature_stmt;
+// mod func_stmt;
+// mod proc_stmt;
+// mod token;
 
-pub use expr_config::*;
+// pub use self::expr_config::*;
 use husky_text::TextLine;
 
 use super::*;
@@ -28,7 +28,7 @@ pub struct TraceLineGenerator<'a> {
     trace_variant: &'a TraceVariant,
     has_parent: bool,
     lines: Vec<TraceLineData>,
-    opt_cur_row: Option<Row>,
+    current_line: Option<TextLine>,
 }
 
 impl<'a> TraceLineGenerator<'a> {
@@ -47,7 +47,7 @@ impl<'a> TraceLineGenerator<'a> {
                 tokens: vec![],
                 idx: 0,
             }],
-            opt_cur_row: None,
+            current_line: None,
         }
     }
 }

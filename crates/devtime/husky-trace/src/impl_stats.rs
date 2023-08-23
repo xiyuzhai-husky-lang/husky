@@ -79,7 +79,7 @@ fn feature_stmt_opt_stats(
 fn feature_branch_opt_stats(
     db: &dyn TraceRuntime,
     partitions: &Partitions,
-    // branch: &FeatureLazyBranch,
+    // branch: ValBranch,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
     // msg_once!("consider whether condition is satisfied");

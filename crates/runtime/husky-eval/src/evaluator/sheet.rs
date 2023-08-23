@@ -81,5 +81,5 @@ unsafe fn share_cached(cached: &__VMResult<__RegularValue>) -> __VMResult<__Regu
 }
 
 pub trait HasFeatureSheet<'cache> {
-    fn feature_sheet(&self, idx: usize) -> &EvalSheet<'cache>;
+    fn feature_sheet(&self, idx: usize) -> &EvalSheet;
 }

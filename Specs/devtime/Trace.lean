@@ -22,7 +22,7 @@ inductive TraceVariant
     | FeatureStmt
       (stmt : FeatureLazyStmt)
     | FeatureBranch
-      (branch : FeatureLazyBranch)
+      (branch : ValBranch)
     | FeatureExpr
       (expr : FeatureLazyExpr)
     | FeatureCallArgument 

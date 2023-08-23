@@ -1,7 +1,7 @@
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct FeatureLazyBranch {
+pub struct ValBranch {
     pub block: ValBlock,
     pub variant: FeatureLazyBranchVariant,
     pub opt_arrival_indicator: Option<ValDomain>,

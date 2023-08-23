@@ -20,6 +20,7 @@ pub use sheet::*;
 
 use crate::*;
 use husky_trace_protocol::SampleId;
+use husky_val::Val;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __RegularValue};
 use husky_vm::{__VMResult, c_void};
 
@@ -114,7 +115,7 @@ impl<'a> __EvalContext for FeatureEvaluator<'a> {
     }
 }
 
-impl<'a, 'static: 'a> FeatureEvaluator<'a> {
+impl<'a> FeatureEvaluator<'a> {
     pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext> {
         Some(self)
     }

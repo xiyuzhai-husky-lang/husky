@@ -27,7 +27,7 @@ pub enum ValStmtData {
         result: Arc<FeatureHtmlExpr>,
     },
     ConditionFlow {
-        branches: Vec<Arc<FeatureLazyBranch>>,
+        branches: Vec<Arc<ValBranch>>,
     },
 }
 

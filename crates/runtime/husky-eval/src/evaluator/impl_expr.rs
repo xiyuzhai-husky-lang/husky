@@ -15,8 +15,8 @@ use std::{panic::catch_unwind, sync::Arc};
 
 use super::FeatureEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp, 'static> {
-    pub(crate) fn eval_expr(&self, expr: &FeatureLazyExpr) -> __VMResult<__RegularValue> {
+impl<'temp> FeatureEvaluator<'temp> {
+    pub(crate) fn eval_expr(&self, expr: ValExpr) -> __VMResult<__RegularValue> {
         let result = match expr.variant {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
@@ -148,7 +148,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
         }
     }
 
-    pub(crate) fn eval_expr_cached(&self, expr: &FeatureLazyExpr) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_expr_cached(&self, expr: ValExpr) -> __VMResult<__RegularValue> {
         match expr.variant {
             FeatureLazyExprVariant::EntityFeature {
                 repr: ValRepr::TargetInput { .. },
@@ -167,7 +167,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
         field_idx: u8,
         field_binding: Binding,
         field_ident: husky_text::RangedIdent,
-        expr: &FeatureLazyExpr,
+        expr: ValExpr,
     ) -> __VMResult<__RegularValue> {
         if let Some(linkage) = opt_linkage {
             let this_value = self.eval_feature_repr(this)?;
@@ -276,11 +276,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
         )
     }
 
-    fn eval_be_pattern(
-        &self,
-        this: &FeatureLazyExpr,
-        patt: &PurePattern,
-    ) -> __VMResult<__RegularValue> {
+    fn eval_be_pattern(&self, this: ValExpr, patt: &PurePattern) -> __VMResult<__RegularValue> {
         let this_value = self.eval_expr(this)?;
         Ok(match patt.variant {
             PurePatternVariant::PrimitiveLiteral(_) => todo!(),

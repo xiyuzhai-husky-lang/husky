@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 use super::FeatureEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp, 'static> {
+impl<'temp> FeatureEvaluator<'temp> {
     #[inline(always)]
     pub(crate) fn eval_opt_domain_indicator_cached(
         &self,

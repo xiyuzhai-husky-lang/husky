@@ -37,6 +37,9 @@ pub struct Devtime {
 
 pub struct DevRuntime {}
 
+// ad hoc
+pub struct RuntimeConfig {}
+
 impl Devtime {
     pub fn new(runtime_config: RuntimeConfig) -> Self {
         let mut devtime = Self {
@@ -80,11 +83,11 @@ impl Devtime {
     }
 
     // move this to somewhere proper
-    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    pub(crate) fn update_subtraces(&mut self, trace_id: TraceId) {
         let trace = &self.trace(trace_id);
         let opt_sample_id = self.state.presentation().opt_sample_id();
         if !trace.raw_data.has_subtraces(opt_sample_id.is_some()) {
-            return DevtimeUpdateM::Ok(());
+            return;
         }
         let key = SubtracesKey::new(trace.raw_data.kind, trace_id, opt_sample_id);
         if self.state.subtrace_ids_map.get(&key).is_none() {
@@ -93,7 +96,6 @@ impl Devtime {
                 .subtrace_ids_map
                 .insert_new(key.clone(), subtrace_ids);
         }
-        DevtimeUpdateM::Ok(())
     }
 
     pub(crate) fn subtraces(&self, trace_id: TraceId) -> Vec<TraceId> {

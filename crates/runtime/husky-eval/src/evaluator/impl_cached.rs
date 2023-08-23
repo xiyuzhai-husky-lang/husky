@@ -3,7 +3,7 @@ use husky_vm::*;
 
 use super::FeatureEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp, 'static> {
+impl<'temp> FeatureEvaluator<'temp> {
     pub(super) fn eval_cached(
         &self,
         eval_key: EvalKey,
