@@ -17,7 +17,6 @@ thin-vec = { path = "../../../forks/thin-vec" }
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 vec-like = { path = "../../abstraction/vec-like" }
-upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 original-error = { path = "../../abstraction/original-error" }
 parsec = { path = "../../abstraction/parsec" }

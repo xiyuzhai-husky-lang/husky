@@ -12,26 +12,27 @@ impl Devtime {
         file: DiffPath,
         range: TextRange,
     ) -> __VMResult<VisualData> {
-        let eval_time = self.runtime();
-        let sample_id = self.state.presentation().opt_sample_id().unwrap();
-        let feature = self
-            .runtime()
-            .feature_interner()
-            .intern(Feature::new_temp());
-        let value = eval_time
-            .session()
-            .dev()
-            .cache_temp_value(feature, sample_id, value);
-        eval_time.visualize_feature(
-            ValRepr::Value {
-                value,
-                ty,
-                file,
-                range,
-                feature,
-            },
-            sample_id,
-        )
+        todo!()
+        // let eval_time = self.runtime();
+        // let sample_id = self.state.presentation().opt_sample_id().unwrap();
+        // let feature = self
+        //     .runtime()
+        //     .feature_interner()
+        //     .intern(Feature::new_temp());
+        // let value = eval_time
+        //     .session()
+        //     .dev()
+        //     .cache_temp_value(feature, sample_id, value);
+        // eval_time.visualize_feature(
+        //     ValRepr::Value {
+        //         value,
+        //         ty,
+        //         file,
+        //         range,
+        //         feature,
+        //     },
+        //     sample_id,
+        // )
     }
 
     pub fn visualize_control(&self, control: &ControlSnapshot) -> SpecificFigureCanvasData {

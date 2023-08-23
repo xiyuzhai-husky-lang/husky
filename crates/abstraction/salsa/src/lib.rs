@@ -6,7 +6,6 @@ pub mod debug;
 pub mod display;
 pub mod durability;
 pub mod event;
-pub mod ext;
 pub mod function;
 pub mod hash;
 pub mod id;

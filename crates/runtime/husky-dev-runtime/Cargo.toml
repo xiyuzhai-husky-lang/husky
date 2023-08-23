@@ -12,24 +12,29 @@ libloading = "0.7.3"
 convert_case = "0.6.0"
 relative-path = "1.7.2"
 # abstraction
-upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 idx-arena = { path = "../../abstraction/idx-arena" }
+# comptime
+husky-comptime = { path = "../../comptime/husky-comptime" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# kernel
+husky-coword = { path = "../../kernel/husky-coword" }
+husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-task = { path = "../../kernel/husky-task" }
+# lex
+husky-text = { path = "../../lex/husky-text" }
+husky-token = { path = "../../lex/husky-token" }
+# syntax
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
+husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
-# syntax
-husky-text = { path = "../../lex/husky-text" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-token = { path = "../../lex/husky-token" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-ast = { path = "../../syntax/husky-ast" }
-husky-syn-fmt = { path = "../../syntax/husky-syn-fmt" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
 # comptime
 # husky-layout = { path = "../../comptime/husky-layout" }

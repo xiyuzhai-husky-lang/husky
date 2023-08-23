@@ -1,66 +1,41 @@
 #![feature(try_trait_v2)]
 
 mod comptime;
+mod db;
 mod hot_reload;
 mod impl_necessary;
 mod impl_train;
-mod query;
 mod variant;
 
-pub use hot_reload::{HuskyRuntimeHotReloadM, HuskyRuntimeHotReloadR};
-pub use husky_comptime::*;
-pub use husky_instruction_gen::InstructionDb;
-pub use husky_val_repr::{FeatureGenQueryGroupStorage, InternFeature, ValReprDb};
-pub use query::*;
+pub use self::db::*;
 
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
-use husky_diagnostics::DiagnosticsDb;
+use husky_comptime::Comptime;
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
-use husky_item_semantics::EntityRouteStore;
-use husky_linkage_table::LinkageTable;
-use husky_path::{DiffPath, FileQueryGroup};
 use husky_print_utils::*;
-use husky_val_repr::FeatureInterner;
-
+use husky_task::Task;
 use indexmap::IndexMap;
-
 use relative_path::RelativePathBuf;
 use std::sync::Arc;
 use sync_utils::ASafeRwLock;
 use variant::*;
 
-#[salsa::database(
-    husky_val_repr::FeatureGenQueryGroupStorage,
-    husky_instruction_gen::InstructionDbStorage,
-    husky_data_viewer::DataViewerDbStorage,
-    // comptime
-    husky_path::FileQueryStorage,
-    husky_token_sheet::TokenQueryGroupStorage,
-    husky_entity_syn_tree::ScopeQueryGroupStorage,
-    husky_text::TextQueryGroupStorage,
-    husky_ast::AstQueryGroupStorage,
-    husky_syn_fmt::FormatQueryGroupStorage,
-    husky_item_semantics::EntityQueryGroupStorage,
-    husky_package_semantics::PackageQueryGroupStorage,
-    husky_diagnostics::DiagnosticsDbGroupStorage,
-    husky_rust_code_gen::RustGenQueryStorage,
-    husky_layout::HuskyLayoutQueryGroupStorage
-)]
-pub struct DevRuntime {
-    storage: salsa::Storage<DevRuntime>,
-    variant: HuskyRuntimeVariant,
-    config: RuntimeConfig,
-    live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
-    linkage_table: LinkageTable,
-    item_route_store: EntityRouteStore,
+pub struct DevRuntime<'a, T: Task> {
+    comptime: &'a Comptime,
+    task: T,
+    // variant: HuskyRuntimeVariant,
+    // config: RuntimeConfig,
+    // live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
+    // linkage_table: LinkageTable,
+    // item_route_store: EntityRouteStore,
 }
 
 #[derive(Debug)]
 pub struct RuntimeConfig {
     pub evaluator: EvaluatorConfig,
-    pub comptime: ComptimeConfig,
+    // pub comptime: ComptimeConfig,
 }
 
 // impl DevRuntime {

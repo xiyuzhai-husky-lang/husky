@@ -1,28 +1,16 @@
 use crate::*;
 use husky_entity_taxonomy::EntityKind;
 
-use monad::MonadT;
 use std::time::Instant;
 
-#[must_use]
-pub enum DevtimeHotReloadM {
-    Ok(DevtimeStateChange),
-}
-
-impl Monad for DevtimeHotReloadM {}
-
-impl<T> MonadT<DevtimeUpdateM<T>> for DevtimeHotReloadM {}
-impl<T> MonadT<DevtimeTakeChangeM<T>> for DevtimeHotReloadM {}
-impl MonadT<HuskyRuntimeHotReloadM> for DevtimeHotReloadM {}
-
 impl Devtime {
-    pub fn hot_reload(&mut self) -> DevtimeHotReloadM {
-        self.runtime.hot_reload()?;
-        let old_state = self.clear()?;
+    pub fn hot_reload(&mut self) {
+        self.runtime.hot_reload();
+        let old_state = self.clear();
         self.gen_root_traces();
         self.mimic_old_state(old_state);
-        self.update()?;
-        DevtimeHotReloadM::Ok(self.take_change()?)
+        self.update();
+        self.take_change()
     }
 
     fn gen_root_traces(&mut self) {
@@ -86,14 +74,10 @@ impl Devtime {
         self.mimic_old_expansions_dfs(0, old_state)
     }
 
-    fn mimic_old_expansions_dfs(
-        &mut self,
-        start: usize,
-        old_state: &mut DevtimeOldState,
-    ) -> DevtimeUpdateM<()> {
+    fn mimic_old_expansions_dfs(&mut self, start: usize, old_state: &mut DevtimeOldState) {
         let end = self.state.trace_nodes.len();
         if start >= end {
-            return DevtimeUpdateM::Ok(());
+            return;
         }
         for idx in start..end {
             let trace_node = &self.state.trace_nodes[idx];
@@ -102,59 +86,16 @@ impl Devtime {
                     let new_trace_id = trace_node.trace().id();
                     self.state
                         .trace_nodes
-                        .update_elem(idx, |node| node.toggle_expansion())?;
-                    self.update_subtraces(new_trace_id)?
+                        .update_elem(idx, |node| node.toggle_expansion());
+                    self.update_subtraces(new_trace_id)
                 }
             }
         }
         self.mimic_old_expansions_dfs(end, old_state)
     }
 
-    fn mimic_old_presentation(&mut self, old_state: &DevtimeOldState) -> DevtimeUpdateM<()> {
+    fn mimic_old_presentation(&mut self, old_state: &DevtimeOldState) {
         self.state
-            .set_presentation(old_state.mimic_presentation(&self.state.trace_nodes));
-        DevtimeUpdateM::Ok(())
-    }
-}
-
-pub struct DevtimeHotReloadR;
-
-impl std::ops::FromResidual<DevtimeHotReloadR> for DevtimeHotReloadM {
-    fn from_residual(_residual: DevtimeHotReloadR) -> Self {
-        unreachable!()
-    }
-}
-
-impl std::ops::FromResidual<DevtimeUpdateR> for DevtimeHotReloadM {
-    fn from_residual(_residual: DevtimeUpdateR) -> Self {
-        unreachable!()
-    }
-}
-
-impl std::ops::FromResidual<DevtimeTakeChangeR> for DevtimeHotReloadM {
-    fn from_residual(_residual: DevtimeTakeChangeR) -> Self {
-        unreachable!()
-    }
-}
-
-impl std::ops::FromResidual<HuskyRuntimeHotReloadR> for DevtimeHotReloadM {
-    fn from_residual(_residual: HuskyRuntimeHotReloadR) -> Self {
-        todo!()
-    }
-}
-
-impl std::ops::Try for DevtimeHotReloadM {
-    type Output = DevtimeStateChange;
-
-    type Residual = DevtimeHotReloadR;
-
-    fn from_output(output: Self::Output) -> Self {
-        DevtimeHotReloadM::Ok(output)
-    }
-
-    fn branch(self) -> std::ops::ControlFlow<Self::Residual, Self::Output> {
-        match self {
-            DevtimeHotReloadM::Ok(change) => std::ops::ControlFlow::Continue(change),
-        }
+            .set_presentation(old_state.mimic_presentation(&self.state.trace_nodes))
     }
 }

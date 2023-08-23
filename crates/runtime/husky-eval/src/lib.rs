@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 pub mod db;
 mod evaluator;
 mod session;
@@ -13,7 +14,6 @@ use std::{
     panic::RefUnwindSafe,
     sync::{Arc, Mutex},
 };
-use upcast::Upcast;
 
 pub trait Runtime: RefUnwindSafe {
     fn db(&self) -> &(dyn ValReprDb + RefUnwindSafe);
@@ -23,18 +23,19 @@ pub trait Runtime: RefUnwindSafe {
         &self.evaluator_config().vm
     }
 
-    fn evaluator<'a>(&'a self, sample_id: SampleId) -> ValEvaluator<'a> {
-        let dev = self.session().dev();
-        let sheet = &dev.sheets[sample_id.0];
-        let target_input = dev.load(sample_id).input;
-        ValEvaluator {
-            sample_id,
-            db: self.db(),
-            target_input,
-            sheet,
-            evaluator_config: self.evaluator_config(),
-            opt_static_husky_feature_eval: self.opt_static_husky_feature_eval(),
-        }
+    fn evaluator<'a>(&'a self, sample_id: SampleId) -> Evaluator<'a> {
+        todo!()
+        // let dev = self.session().dev();
+        // let sheet = &dev.sheets[sample_id.0];
+        // let target_input = dev.load(sample_id).input;
+        // Evaluator {
+        //     sample_id,
+        //     db: self.db(),
+        //     target_input,
+        //     sheet,
+        //     evaluator_config: self.evaluator_config(),
+        //     opt_static_husky_feature_eval: self.opt_static_husky_feature_eval(),
+        // }
     }
 
     // None for 'static is shorter than 'static
@@ -42,7 +43,7 @@ pub trait Runtime: RefUnwindSafe {
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn Runtime>;
 
     fn visualize_feature(&self, this: ValRepr, sample_id: SampleId) -> __VMResult<VisualData> {
-        self.evaluator(sample_id).visualize_feature(this)
+        self.evaluator(sample_id).eval_visual(this)
     }
 
     fn eval_feature_repr(&self, repr: &ValRepr, sample_id: SampleId) -> __VMResult<__RegularValue> {
@@ -74,7 +75,7 @@ pub trait Runtime: RefUnwindSafe {
         branch: ValBranch,
         sample_id: SampleId,
     ) -> __VMResult<__RegularValue> {
-        self.evaluator(sample_id).eval_lazy_branch(branch)
+        self.evaluator(sample_id).eval_val_branch(branch)
     }
 
     fn eval_feature_expr(&self, expr: ValExpr, sample_id: SampleId) -> __VMResult<__RegularValue> {

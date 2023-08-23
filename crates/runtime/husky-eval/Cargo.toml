@@ -19,7 +19,6 @@ cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
-upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 husky-text = { path = "../../lex/husky-text" }
@@ -38,6 +37,8 @@ husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # kernel
 husky-val = { path = "../../kernel/husky-val" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
 
 [dev-dependencies]
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

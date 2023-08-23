@@ -1,76 +1,44 @@
 use std::sync::Arc;
 
 use dashmap::DashMap;
-use husky_ast::AstJar;
-use husky_corgi_config::CorgiConfigJar;
-use husky_corgi_config_ast::CorgiConfigAstJar;
-use husky_coword::CowordJar;
-use husky_declarative_signature::DeclarativeSignatureJar;
-use husky_declarative_term::DeclarativeTermJar;
-use husky_declarative_ty::DeclarativeTypeJar;
-use husky_diagnostics::DiagnosticsJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_syn_tree::EntitySynTreeJar;
-use husky_ethereal_signature::EtherealSignatureJar;
-use husky_ethereal_term::EtherealTermJar;
-use husky_expr_ty::ExprTypeJar;
-use husky_fluffy_term::FluffyTermJar;
-use husky_folding_range::FoldingRangeJar;
-use husky_hover::HoverJar;
-// use husky_layout::LayoutJar;
-use husky_manifest::ManifestJar;
-use husky_manifest_ast::ManifestAstJar;
-// use husky_rust_code_gen::RustTranspileJar;
-use husky_semantic_token::SemanticTokenJar;
-use husky_syn_decl::SynDeclJar;
-use husky_syn_decr::SynDecrJar;
-use husky_syn_defn::SynDefnJar;
-use husky_syn_expr::SynExprJar;
-use husky_syn_fmt::SyntaxFormatJar;
-use husky_term_prelude::TermPreludeJar;
-use husky_token::TokenJar;
-use husky_token_info::TokenInfoJar;
-use husky_toml_ast::TomlAstJar;
-use husky_toml_token::TomlTokenJar;
-use husky_vfs::*;
 
 #[salsa::db(
-    TokenJar,
-    VfsJar,
-    EntitySynTreeJar,
-    AstJar,
-    CowordJar,
-    EntityPathJar,
-    SyntaxFormatJar,
-    DiagnosticsJar,
-    // RustTranspileJar,
-    // LayoutJar,
-    TomlTokenJar,
-    TomlAstJar,
-    ManifestAstJar,
-    CorgiConfigJar,
-    CorgiConfigAstJar,
-    ManifestJar,
+    // fs
+    husky_vfs::VfsJar,
     // kernel
-    TermPreludeJar,
-    DeclarativeTermJar,
-    DeclarativeTypeJar,
-    EtherealTermJar,
-    EtherealSignatureJar,
+    husky_coword::CowordJar,
+    husky_entity_path::EntityPathJar,
+    husky_term_prelude::TermPreludeJar,
+    husky_declarative_term::DeclarativeTermJar,
+    husky_declarative_ty::DeclarativeTypeJar,
+    husky_declarative_signature::DeclarativeSignatureJar,
+    husky_ethereal_term::EtherealTermJar,
+    husky_ethereal_signature::EtherealSignatureJar,
+    husky_fluffy_term::FluffyTermJar,
+    // lex
+    husky_token::TokenJar,
+    husky_toml_token::TomlTokenJar,
     // syntax
-    SynExprJar,
-    SynDeclJar,
-    SynDecrJar,
-    SynDefnJar,
+    husky_ast::AstJar,
+    husky_toml_ast::TomlAstJar,
+    husky_corgi_config_ast::CorgiConfigAstJar,
+    husky_manifest_ast::ManifestAstJar,
+    husky_entity_syn_tree::EntitySynTreeJar,
+    husky_syn_expr::SynExprJar,
+    husky_syn_decl::SynDeclJar,
+    husky_syn_decr::SynDecrJar,
+    husky_syn_defn::SynDefnJar,
     // semantics
-    TokenInfoJar,
-    DeclarativeSignatureJar,
-    FluffyTermJar,
-    ExprTypeJar,
+    husky_expr_ty::ExprTypeJar,
+    husky_corgi_config::CorgiConfigJar,
+    husky_manifest::ManifestJar,
     // ide
-    FoldingRangeJar,
-    SemanticTokenJar,
-    HoverJar,
+    husky_token_info::TokenInfoJar,
+    husky_folding_range::FoldingRangeJar,
+    husky_semantic_token::SemanticTokenJar,
+    husky_hover::HoverJar,
+    husky_syn_fmt::SyntaxFormatJar,
+    husky_diagnostics::DiagnosticsJar,
 )]
 #[derive(Default)]
 pub struct AnalyzerDB {

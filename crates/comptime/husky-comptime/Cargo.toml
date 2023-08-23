@@ -1,43 +1,16 @@
 [package]
-name = "husky-analyzer"
-version = "0.0.0"
+name = "husky-comptime"
+version = "0.1.0"
 edition = "2021"
 
-[[bin]]
-name = "husky-analyzer-server"
-path = "src/bin/server.rs"
-
-[package.metadata.cargo-udeps.ignore]
-normal = ["winapi"]
-
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-dashmap = "5.4.0"
-crossbeam-channel = "0.5.0"
-lsp-types.workspace = true
-xflags = "0.2.1"
-serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
-threadpool = "1.7.1"
-rustc-hash = "1.1.0"
-tracing = "0.1"
-itertools = "^0.11.0"
-lsp-server = "0.7.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-vec-like = { path = "../../abstraction/vec-like" }
 # comptime
-# husky-layout = { path = "../../comptime/husky-layout" }
-# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-# husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+husky-val-repr = { path = "../../comptime/husky-val-repr" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["lsp_support"] }
-# ide
-husky-diagnostics = { path = "../../ide/husky-diagnostics" }
-husky-hover = { path = "../../ide/husky-hover" }
-husky-folding-range = { path = "../../ide/husky-folding-range" }
-husky-semantic-token = { path = "../../ide/husky-semantic-token" }
-husky-token-info = { path = "../../ide/husky-token-info" }
-husky-syn-fmt = { path = "../../ide/husky-syn-fmt" }
+husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
@@ -51,7 +24,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
+husky-text = { path = "../../lex/husky-text" }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
@@ -66,10 +39,5 @@ husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-# utils
-error-utils = { path = "../../utils/husky-error-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-husky-path-utils = { path = "../../utils/husky-path-utils" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-winapi = "0.3.9"
-husky-profile-utils = { path = "../../utils/husky-profile-utils" }
+# vm
+husky-vm = { path = "../../vm/husky-vm" }

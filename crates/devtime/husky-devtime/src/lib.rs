@@ -13,8 +13,8 @@ mod trace_node;
 mod trace_stalk;
 mod trace_stats;
 
-pub use ops::*;
-pub use state::*;
+pub use self::ops::*;
+pub use self::state::*;
 
 use husky_dev_runtime::*;
 use husky_init_syntax::*;
@@ -26,9 +26,9 @@ use husky_trace_protocol::*;
 use husky_val_repr::*;
 use husky_vm::*;
 
+use self::trace_node::*;
+use husky_syn_expr::SynExprIdx;
 use std::sync::Arc;
-use trace_node::*;
-use upcast::Upcast;
 
 pub struct Devtime {
     runtime: DevRuntime,
