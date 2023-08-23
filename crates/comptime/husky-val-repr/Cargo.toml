@@ -17,7 +17,6 @@ salsa = { path = "../../abstraction/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
-upcast = { path = "../../abstraction/upcast" }
 avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
 # fs

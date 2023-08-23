@@ -66,18 +66,20 @@ impl EvalSheet {
 }
 
 unsafe fn cache_raw_eval_value(raw: &mut __VMResult<__RegularValue>) -> __VMResult<__RegularValue> {
-    match raw {
-        Ok(ref mut value) => value.cache_eval(),
-        Err(_) => (),
-    }
-    share_cached(raw)
+    todo!()
+    // match raw {
+    //     Ok(ref mut value) => value.cache_eval(),
+    //     Err(_) => (),
+    // }
+    // share_cached(raw)
 }
 
 unsafe fn share_cached(cached: &__VMResult<__RegularValue>) -> __VMResult<__RegularValue> {
-    match cached {
-        Ok(value) => Ok(value.share_cached()),
-        Err(error) => Err(error.clone()),
-    }
+    todo!()
+    // match cached {
+    //     Ok(value) => Ok(value.share_cached()),
+    //     Err(error) => Err(error.clone()),
+    // }
 }
 
 pub trait HasFeatureSheet<'cache> {

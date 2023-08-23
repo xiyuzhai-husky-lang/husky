@@ -8,7 +8,6 @@ salsa = { path = "../../abstraction/salsa" }
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 # abstraction
-upcast = { path = "../../abstraction/upcast" }
 map-collect = { path = "../../abstraction/map-collect" }
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }

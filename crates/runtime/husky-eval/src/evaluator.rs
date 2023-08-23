@@ -1,14 +1,14 @@
 mod config;
-mod impl_arrival;
-mod impl_block;
-mod impl_branch;
+mod eval_arrival;
+mod eval_block;
+mod eval_branch;
+mod eval_visual;
 mod impl_cached;
 mod impl_eval_context;
 mod impl_expr;
 mod impl_repr;
 mod impl_serialize;
 mod impl_stmt;
-mod impl_visualize;
 mod indicator;
 mod sheet;
 
@@ -17,7 +17,7 @@ use std::panic::RefUnwindSafe;
 pub use config::*;
 use husky_ast::AstDb;
 use husky_val_repr::db::ValReprDb;
-pub use indicator::FeatureEvalIndicator;
+pub use indicator::EvalIndicator;
 pub use sheet::*;
 
 use crate::*;
@@ -26,7 +26,7 @@ use husky_val::Val;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __RegularValue};
 use husky_vm::{__VMResult, c_void};
 
-pub struct ValEvaluator<'a> {
+pub struct Evaluator<'a> {
     pub(crate) sample_id: SampleId,
     pub target_input: __RegularValue,
     pub(crate) sheet: &'a EvalSheet,
@@ -35,7 +35,7 @@ pub struct ValEvaluator<'a> {
     pub(crate) opt_static_husky_feature_eval: Option<&'a dyn Runtime>,
 }
 
-impl<'a> __EvalContext for ValEvaluator<'a> {
+impl<'a> __EvalContext for Evaluator<'a> {
     fn item_uid(&self, item_route_text: &str) -> u64 {
         todo!()
         // let route = self.db.parse_route_from_text(item_route_text);
@@ -116,7 +116,7 @@ impl<'a> __EvalContext for ValEvaluator<'a> {
     }
 }
 
-impl<'a> ValEvaluator<'a> {
+impl<'a> Evaluator<'a> {
     pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext> {
         Some(self)
     }
@@ -138,7 +138,7 @@ impl<'a> ValEvaluator<'a> {
         }
     }
 
-    fn as_static(&self) -> ValEvaluator<'a> {
+    fn as_static(&self) -> Evaluator<'a> {
         self.opt_static_husky_feature_eval
             .unwrap()
             .evaluator(self.sample_id)

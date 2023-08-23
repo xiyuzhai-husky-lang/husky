@@ -19,7 +19,6 @@ log = "0.4.5"
 parking_lot = "0.12.1"
 smallvec.workspace = true
 # abstraction
-upcast = { path = "../../abstraction/upcast" }
 salsa-macros = { path = "../../abstraction/salsa-macros" }
 vec-like = { path = "../../abstraction/vec-like" }
 maybe-result = { path = "../../abstraction/maybe-result" }

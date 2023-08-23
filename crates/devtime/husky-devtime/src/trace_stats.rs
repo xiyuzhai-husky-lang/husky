@@ -8,7 +8,7 @@ impl Devtime {
         DevtimeUpdateM::Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> DevtimeUpdateM<()> {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -21,17 +21,16 @@ impl Devtime {
             self.gen_trace_stats(trace_id, trace_stats_key)?
         }
         for associated_trace_id in associated_trace_ids {
-            self.update_trace_statss_within_trace(associated_trace_id)?
+            self.update_trace_statss_within_trace(associated_trace_id)
         }
         if expanded {
             for subtrace_id in self.subtraces(trace_id) {
-                self.update_trace_statss_within_trace(subtrace_id)?
+                self.update_trace_statss_within_trace(subtrace_id)
             }
         }
-        DevtimeUpdateM::Ok(())
     }
 
-    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> DevtimeUpdateM<()> {
+    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) {
         let (opt_stats, result) = self
             .trace(trace_id)
             .variant
@@ -41,18 +40,19 @@ impl Devtime {
         self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> DevtimeUpdateM<()> {
+    fn updating_t(&self, result: __VMResult<()>) {
         match result {
-            Ok(()) => DevtimeUpdateM::Ok(()),
+            Ok(()) => Ok(()),
             Err(e) => match e.variant() {
                 __VMErrorVariant::Normal => todo!(),
                 __VMErrorVariant::FromBatch { sample_id } => {
                     if self.state.presentation().is_generic()
                         || self.state.presentation().sample_id() != SampleId(*sample_id)
                     {
-                        DevtimeUpdateM::OtherworldlyErr(e)
+                        todo!()
+                        // DevtimeUpdateM::OtherworldlyErr(e)
                     } else {
-                        DevtimeUpdateM::Ok(())
+                        ()
                     }
                 }
             },
