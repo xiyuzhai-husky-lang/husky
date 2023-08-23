@@ -4,24 +4,25 @@ use husky_val_repr::*;
 use husky_vm::*;
 use std::sync::Arc;
 
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp> {
+impl<'temp> ValEvaluator<'temp> {
     #[inline(always)]
     pub(crate) fn eval_opt_domain_indicator_cached(
         &self,
         opt_arrival_indicator: Option<&ValDomain>,
     ) -> __VMResult<bool> {
-        if let Some(arrival_indicator) = opt_arrival_indicator {
-            self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
-                Ok(this
-                    .eval_arrival_indicator(arrival_indicator)?
-                    .to_register())
-            })
-            .map(|v| v.downcast_bool())
-        } else {
-            Ok(true)
-        }
+        todo!()
+        // if let Some(arrival_indicator) = opt_arrival_indicator {
+        //     self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
+        //         Ok(this
+        //             .eval_arrival_indicator(arrival_indicator)?
+        //             .to_register())
+        //     })
+        //     .map(|v| unsafe { v.downcast_bool() })
+        // } else {
+        //     Ok(true)
+        // }
     }
 
     fn eval_arrival_indicator(&self, arrival_indicator: &ValDomain) -> __VMResult<bool> {
@@ -39,7 +40,7 @@ impl<'temp> FeatureEvaluator<'temp> {
                 if !self.eval_opt_domain_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                !self.eval_expr(condition)?.downcast_bool()
+                !unsafe { self.eval_expr(condition)?.downcast_bool() }
             }
             ValDomainData::IfConditionMet {
                 ref opt_parent,
@@ -48,7 +49,7 @@ impl<'temp> FeatureEvaluator<'temp> {
                 if !self.eval_opt_domain_indicator_cached(opt_parent.as_ref())? {
                     return Ok(false);
                 }
-                self.eval_expr(condition)?.downcast_bool()
+                unsafe { self.eval_expr(condition)?.downcast_bool() }
             }
         })
     }

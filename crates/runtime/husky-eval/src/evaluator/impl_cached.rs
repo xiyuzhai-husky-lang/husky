@@ -1,9 +1,9 @@
 use crate::*;
 use husky_vm::*;
 
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp> {
+impl<'temp> ValEvaluator<'temp> {
     pub(super) fn eval_cached(
         &self,
         eval_key: EvalKey,

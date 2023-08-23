@@ -1,9 +1,6 @@
 use crate::*;
 use husky_coword::IdentPairMap;
-use husky_item_semantics::{CallFormSource, EntityDefnVariant};
-use husky_opn_semantics::ImplicitConversion;
-use husky_opr::BinaryPureClosedOpr;
-use husky_pattern_semantics::{PurePattern, PurePatternVariant};
+use husky_opr::BinaryClosedOpr;
 use husky_print_utils::{msg_once, p};
 use husky_text::HasSourceRange;
 use husky_trace_protocol::VisualData;
@@ -13,11 +10,11 @@ use husky_vm::*;
 use husky_xml_syntax::HtmlValue;
 use std::{panic::catch_unwind, sync::Arc};
 
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 
-impl<'temp> FeatureEvaluator<'temp> {
+impl<'temp> ValEvaluator<'temp> {
     pub(crate) fn eval_expr(&self, expr: ValExpr) -> __VMResult<__RegularValue> {
-        let result = match expr.variant {
+        let result = match expr.data(self.db()) {
             FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
             FeatureLazyExprVariant::PrimitiveBinaryOpr {
                 linkage, ref opds, ..

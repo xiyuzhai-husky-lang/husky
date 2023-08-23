@@ -3,5 +3,11 @@ pub struct Val {
     data: ValData,
 }
 
+impl Val {
+    pub unsafe fn from_raw(raw: u32) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub enum ValData {}

@@ -1,14 +1,14 @@
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 use crate::*;
 use husky_vm::*;
 
-impl<'a, 'static: 'a> FeatureEvaluator<'a> {
+impl<'a> ValEvaluator<'a> {
     pub(crate) fn eval_feature_repr(&self, repr: &ValRepr) -> __VMResult<__RegularValue> {
         let result = match repr {
             ValRepr::Value { value, .. } => Ok(value.snapshot()),
             ValRepr::LazyExpr(expr) => self.eval_expr(expr),
             ValRepr::LazyBody(block) => self.eval_lazy_block(block),
-            ValRepr::FuncBody(block) => self.eval_func_block(block),
+            ValRepr::FuncBody(block) => self.eval_val_block(block),
             ValRepr::ProcBody(block) => self.eval_proc_block(block),
             ValRepr::TargetInput { .. } => Ok(self.target_input.bind_temp_ref()),
         };

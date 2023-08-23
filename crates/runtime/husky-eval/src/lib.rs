@@ -9,23 +9,27 @@ use husky_trace_protocol::{SampleId, VisualData};
 
 use husky_val_repr::{db::ValReprDb, *};
 use husky_vm::{VMConfig, __RegularValue, __VMResult};
-use std::sync::{Arc, Mutex};
+use std::{
+    panic::RefUnwindSafe,
+    sync::{Arc, Mutex},
+};
 use upcast::Upcast;
 
-pub trait EvalFeature: ValReprDb {
+pub trait Runtime: RefUnwindSafe {
+    fn db(&self) -> &(dyn ValReprDb + RefUnwindSafe);
     fn session(&self) -> &Session;
     fn evaluator_config(&self) -> &EvaluatorConfig;
     fn vm_config(&self) -> &VMConfig {
         &self.evaluator_config().vm
     }
 
-    fn evaluator<'a>(&'a self, sample_id: SampleId) -> FeatureEvaluator<'a> {
+    fn evaluator<'a>(&'a self, sample_id: SampleId) -> ValEvaluator<'a> {
         let dev = self.session().dev();
         let sheet = &dev.sheets[sample_id.0];
         let target_input = dev.load(sample_id).input;
-        FeatureEvaluator {
+        ValEvaluator {
             sample_id,
-            db: self.upcast(),
+            db: self.db(),
             target_input,
             sheet,
             evaluator_config: self.evaluator_config(),
@@ -35,7 +39,7 @@ pub trait EvalFeature: ValReprDb {
 
     // None for 'static is shorter than 'static
     // Some(self) otherwise
-    fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature>;
+    fn opt_static_husky_feature_eval(&self) -> Option<&dyn Runtime>;
 
     fn visualize_feature(&self, this: ValRepr, sample_id: SampleId) -> __VMResult<VisualData> {
         self.evaluator(sample_id).visualize_feature(this)

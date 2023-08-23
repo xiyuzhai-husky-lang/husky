@@ -1,5 +1,5 @@
 use crate::*;
-use husky_eval::FeatureEvaluator;
+use husky_eval::ValEvaluator;
 
 impl Devtime {
     pub fn val_repr_subtraces(
@@ -47,7 +47,7 @@ impl Devtime {
         }
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let eval_time = self.runtime();
-        let evaluator: FeatureEvaluator<'_> = eval_time.evaluator(sample_id);
+        let evaluator: ValEvaluator<'_> = eval_time.evaluator(sample_id);
         let stack = arguments.into_iter().into();
         let history = exec_debug(
             self.runtime(),
@@ -78,7 +78,7 @@ impl Devtime {
         }
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let eval_time = self.runtime();
-        let evaluator: FeatureEvaluator<'_> = eval_time.evaluator(sample_id);
+        let evaluator: ValEvaluator<'_> = eval_time.evaluator(sample_id);
         let stack = arguments.into_iter().into();
         let history = exec_debug(
             self.runtime(),
