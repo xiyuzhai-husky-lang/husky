@@ -17,7 +17,7 @@ use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
 use husky_diagnostics::DiagnosticsDb;
 use husky_eval::*;
-use husky_eval::{EvalFeature, Session};
+use husky_eval::{Runtime, Session};
 use husky_item_semantics::EntityRouteStore;
 use husky_linkage_table::LinkageTable;
 use husky_path::{DiffPath, FileQueryGroup};

@@ -4,9 +4,9 @@ use husky_vm::{__RegularValue, __VMError, __VMResult};
 
 use crate::*;
 
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 
-impl<'a, 'static: 'a> FeatureEvaluator<'a> {
+impl<'a> ValEvaluator<'a> {
     pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__RegularValue> {
         match stmt.variant {
             ValStmtData::Init { .. } => Ok(__RegularValue::unreturned()),

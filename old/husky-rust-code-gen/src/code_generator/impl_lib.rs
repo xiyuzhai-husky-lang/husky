@@ -11,7 +11,7 @@ impl<'a> RustCodeGenerator<'a> {
         // pub mod __registration__;
         // use __husky::root::*;
 
-        // fn __input<'a, 'static: 'a>(
+        // fn __input<'a, >(
         //     __ctx: &'a dyn __EvalContext
         // ) -> &'a "#,
         //         ));

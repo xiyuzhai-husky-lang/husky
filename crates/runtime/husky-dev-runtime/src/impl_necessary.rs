@@ -43,8 +43,8 @@ impl Upcast<dyn ValReprDb> for DevRuntime {
     }
 }
 
-impl Upcast<dyn EvalFeature> for DevRuntime {
-    fn upcast(&self) -> &(dyn EvalFeature + 'static) {
+impl Upcast<dyn Runtime> for DevRuntime {
+    fn upcast(&self) -> &(dyn Runtime + 'static) {
         self
     }
 }
@@ -55,7 +55,7 @@ impl Upcast<dyn DataViewerDb> for DevRuntime {
     }
 }
 
-impl EvalFeature for DevRuntime {
+impl Runtime for DevRuntime {
     fn session(&self) -> &Session {
         match self.variant {
             HuskyRuntimeVariant::None => todo!(),
@@ -67,7 +67,7 @@ impl EvalFeature for DevRuntime {
         &self.config.evaluator
     }
 
-    fn opt_static_husky_feature_eval(&self) -> Option<&dyn EvalFeature> {
+    fn opt_static_husky_feature_eval(&self) -> Option<&dyn Runtime> {
         Some(self)
     }
 }

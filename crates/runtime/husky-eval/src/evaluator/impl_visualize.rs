@@ -1,4 +1,4 @@
-use super::FeatureEvaluator;
+use super::ValEvaluator;
 use husky_check_utils::should_eq;
 use husky_item_semantics::{EntityDefnQueryGroup, VisualTy, Visualizer, VisualizerVariant};
 use husky_trace_protocol::VisualData;
@@ -6,7 +6,7 @@ use husky_val_repr::*;
 use husky_vm::*;
 use std::sync::Arc;
 
-impl<'temp> FeatureEvaluator<'temp> {
+impl<'temp> ValEvaluator<'temp> {
     pub fn visualize_feature(&self, this: ValRepr) -> __VMResult<VisualData> {
         let within_domain = self.eval_opt_domain_indicator_cached(this.opt_domain_indicator())?;
         if within_domain {
@@ -16,7 +16,7 @@ impl<'temp> FeatureEvaluator<'temp> {
         }
     }
 }
-impl<'temp> FeatureEvaluator<'temp> {
+impl<'temp> ValEvaluator<'temp> {
     pub fn visualize_static(&self, this: ValRepr) -> __VMResult<VisualData> {
         todo!()
         // let ty = this.ty();

@@ -65,12 +65,12 @@ impl<'a> RustCodeGenerator<'a> {
                     }
                     self.gen_expr(indent, &opds[0]);
                     match opr {
-                        BinaryOpr::PureClosed(BinaryPureClosedOpr::RemEuclid) => {
+                        BinaryOpr::PureClosed(BinaryClosedOpr::RemEuclid) => {
                             self.write(".rem_euclid(");
                             self.gen_expr(indent, &opds[1]);
                             self.write(")")
                         }
-                        BinaryOpr::Assign(Some(BinaryPureClosedOpr::RemEuclid)) => todo!(),
+                        BinaryOpr::Assign(Some(BinaryClosedOpr::RemEuclid)) => todo!(),
                         _ => {
                             self.write(opr.spaced_code());
                             self.gen_expr(indent, &opds[1]);

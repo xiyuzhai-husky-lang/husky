@@ -73,16 +73,16 @@ pub enum FeatureLazyExprVariant {
         linkage: __LinkageGroup,
     },
     PrimitiveBinaryOpr {
-        opr: BinaryPureClosedOpr,
+        opr: BinaryClosedOpr,
         opds: Vec<ValExpr>,
         linkage: __LinkageGroup,
     },
     ShortCircuitBinaryOpr {
-        opr: BinaryPureClosedOpr,
+        opr: BinaryClosedOpr,
         opds: Vec<ValExpr>,
     },
     CustomBinaryOpr {
-        opr: BinaryPureClosedOpr,
+        opr: BinaryClosedOpr,
         opds: Vec<ValExpr>,
         opt_linkage: Option<__LinkageGroup>,
         opt_instruction_sheet: Option<InstructionRegion>,

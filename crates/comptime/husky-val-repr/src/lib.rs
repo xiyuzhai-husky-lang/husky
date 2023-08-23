@@ -73,12 +73,12 @@ use husky_entity_syn_tree::RegionPath;
 //     },
 //     Cascade(Vec<Val>),
 //     PrimitiveBinaryOpr {
-//         opr: BinaryPureClosedOpr,
+//         opr: BinaryClosedOpr,
 //         lopd: Val,
 //         ropd: Val,
 //     },
 //     CustomBinaryOpr {
-//         opr: BinaryPureClosedOpr,
+//         opr: BinaryClosedOpr,
 //         lopd: Val,
 //         ropd: Val,
 //     },
