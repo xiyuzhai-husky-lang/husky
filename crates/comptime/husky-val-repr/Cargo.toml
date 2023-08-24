@@ -43,7 +43,7 @@ husky-vm = { path = "../../vm/husky-vm" }
 # comptime
 husky-hir-defn = { path = "../../comptime/husky-hir-defn" }
 husky-instruction = { path = "../../comptime/husky-instruction" }
-# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # runtime
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
 # devtime
