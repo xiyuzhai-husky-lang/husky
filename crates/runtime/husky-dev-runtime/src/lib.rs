@@ -1,27 +1,31 @@
 #![feature(try_trait_v2)]
 
 mod comptime;
+mod config;
 mod db;
 mod hot_reload;
 mod impl_necessary;
 mod impl_train;
 mod variant;
 
-pub use self::db::*;
+pub use self::config::*;
 
+use self::db::*;
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
 use husky_comptime::DevComptime;
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
 use husky_print_utils::*;
-use husky_task::{Ascension, Task};
+use husky_task::{DevRuntimeStorage, IsAscension, IsTask};
+use husky_vfs::CratePath;
 use indexmap::IndexMap;
 use relative_path::RelativePathBuf;
 use std::sync::Arc;
 use sync_utils::ASafeRwLock;
 use variant::*;
 
+<<<<<<< HEAD
 pub struct DevRuntime<'a, T: Task> {
     comptime: &'a DevComptime,
     task: T,
@@ -29,12 +33,31 @@ pub struct DevRuntime<'a, T: Task> {
     // variant: HuskyRuntimeVariant,
     // config: RuntimeConfig,
     // live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
+=======
+pub struct DevRuntime<'a, Task: IsTask> {
+    storage: DevRuntimeStorage<Task>,
+    comptime: &'a Comptime,
+    crate_path: CratePath,
+    task: Task,
+    config: DevRuntimeConfig<Task>,
+>>>>>>> refs/remotes/origin/main
 }
 
-#[derive(Debug)]
-pub struct RuntimeConfig {
-    pub evaluator: EvaluatorConfig,
-    // pub comptime: ComptimeConfig,
+impl<'a, Task: IsTask> DevRuntime<'a, Task> {
+    fn new(
+        comptime: &'a Comptime,
+        crate_path: CratePath,
+        task: Task,
+        config: Option<DevRuntimeConfig<Task>>,
+    ) -> Self {
+        Self {
+            storage: Default::default(),
+            comptime,
+            crate_path,
+            task,
+            config: config.unwrap_or_default(),
+        }
+    }
 }
 
 // impl DevRuntime {
