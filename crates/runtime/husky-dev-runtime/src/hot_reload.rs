@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'a, T: Task> DevRuntime<'a, T> {
+impl<'a, T: IsTask> DevRuntime<'a, T> {
     pub fn hot_reload(&mut self) {
         todo!()
         // CompilerInstance::new(
