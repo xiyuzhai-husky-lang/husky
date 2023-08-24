@@ -15,7 +15,7 @@ use husky_comptime::Comptime;
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
 use husky_print_utils::*;
-use husky_task::Task;
+use husky_task::{Ascension, Task};
 use indexmap::IndexMap;
 use relative_path::RelativePathBuf;
 use std::sync::Arc;
@@ -25,11 +25,10 @@ use variant::*;
 pub struct DevRuntime<'a, T: Task> {
     comptime: &'a Comptime,
     task: T,
+    storage: <T::DevAscension as Ascension>::RuntimeStorage,
     // variant: HuskyRuntimeVariant,
     // config: RuntimeConfig,
     // live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
-    // linkage_table: LinkageTable,
-    // item_route_store: EntityRouteStore,
 }
 
 #[derive(Debug)]

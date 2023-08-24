@@ -12,6 +12,7 @@ pub trait Task: RefUnwindSafe + UnwindSafe {
 // E -> B
 pub trait Ascension {
     type Base: AscensionBase;
+    type RuntimeStorage: RefUnwindSafe + UnwindSafe;
 }
 
 pub trait AscensionBase {
