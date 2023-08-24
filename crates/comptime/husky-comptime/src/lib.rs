@@ -4,6 +4,7 @@ use self::db::*;
 
 pub struct Comptime {
     db: ComptimeDb,
+    // linkage_table: LinkageTable,
 }
 
 impl Comptime {
