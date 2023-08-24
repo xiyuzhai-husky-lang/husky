@@ -11,7 +11,7 @@ pub use self::db::*;
 
 use husky_check_utils::*;
 use husky_compiler::CompilerInstance;
-use husky_comptime::Comptime;
+use husky_comptime::DevComptime;
 use husky_eval::*;
 use husky_eval::{Runtime, Session};
 use husky_print_utils::*;
@@ -23,7 +23,7 @@ use sync_utils::ASafeRwLock;
 use variant::*;
 
 pub struct DevRuntime<'a, T: Task> {
-    comptime: &'a Comptime,
+    comptime: &'a DevComptime,
     task: T,
     storage: <T::DevAscension as Ascension>::RuntimeStorage,
     // variant: HuskyRuntimeVariant,
