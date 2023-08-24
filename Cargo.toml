@@ -36,9 +36,11 @@ opt-level = 0
 lto = false
 
 [workspace.dependencies]
+# warning: change to 0.94.1 will leads to bugs for vscode extension
 lsp-types = { version = "=0.94.0", features = ["proposed"] }
 thiserror = "1.0.37"
 smallvec = "1.10.0"
 ordered-float = "3.0.0"
 paste = "1.0.6"
 clap = { version = "4.3.23", features = ["derive"] }
+dashmap = "5.5.1"
