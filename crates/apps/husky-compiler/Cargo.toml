@@ -17,7 +17,7 @@ reserve = { path = "../../abstraction/reserve" }
 # comptime
 # husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
 # husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
-# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel

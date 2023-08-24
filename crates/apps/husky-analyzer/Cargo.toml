@@ -27,7 +27,7 @@ salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
 # comptime
 # husky-layout = { path = "../../comptime/husky-layout" }
-# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["lsp_support"] }

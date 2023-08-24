@@ -1,5 +1,5 @@
 [package]
-name = "husky-linkage-table"
+name = "husky-dev-linkage-table"
 version = "0.0.0"
 description = "TBD"
 license = "MIT OR Apache-2.0"

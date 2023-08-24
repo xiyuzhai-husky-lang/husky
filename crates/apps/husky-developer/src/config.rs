@@ -1,5 +1,5 @@
 // use crate::*;
-// use husky_comptime::ComptimeConfig;
+// use husky_dev_comptime::ComptimeConfig;
 // use husky_dev_runtime::RuntimeConfig;
 // use husky_eval::EvaluatorConfig;
 // use husky_linkage_table::LinkageTableConfig;

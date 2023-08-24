@@ -3,7 +3,7 @@ use husky_vm::InterpreterQueryGroup;
 
 use crate::*;
 
-impl<'a, T: IsTask> Runtime for DevRuntime<'a, T> {
+impl<Task: IsTask> Runtime for DevRuntime<Task> {
     fn db(&self) -> &(dyn husky_val_repr::db::ValReprDb + std::panic::RefUnwindSafe) {
         self.comptime.db()
     }

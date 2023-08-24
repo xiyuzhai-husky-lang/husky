@@ -45,7 +45,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-compile-dir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-hir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-layout/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-linkage-table/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-dev-linkage-table/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-mir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-rust-code-gen/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-rust-code-repr/src" isTestSource="false" />
