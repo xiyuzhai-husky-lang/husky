@@ -1,11 +1,10 @@
-mod key;
-mod linkage;
+mod internal;
 
-use self::key::*;
-use self::linkage::*;
+use self::internal::MonoLinkageTableInternal;
 use husky_hir_deps::{HirDepsDb, HirLinkageDeps, HirLinkageKey};
 use husky_regular_value::__RegularValue;
 use husky_task::*;
+use husky_vfs::CratePath;
 use std::{
     collections::HashMap,
     panic::{RefUnwindSafe, UnwindSafe},
@@ -13,24 +12,29 @@ use std::{
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
-pub struct MonoLinkageTable<Linkage: UnwindSafe + RefUnwindSafe + Copy> {
-    library_storage: MonoLibraryStorage,
-    map: HashMap<HirLinkageKey, (HirLinkageDeps, Linkage)>,
+pub struct MonoLinkageTable<Linkage: IsLinkage> {
+    internal: std::sync::RwLock<MonoLinkageTableInternal<Linkage>>,
 }
 
-pub struct MonoLibraryStorage {}
+impl<Linkage: IsLinkage> MonoLinkageTable<Linkage> {
+    pub fn new(target_crate: CratePath, db: &dyn HirDepsDb) -> Self {
+        Self {
+            internal: std::sync::RwLock::new(MonoLinkageTableInternal::new(target_crate, db)),
+        }
+    }
+}
 
-impl<Linkage: UnwindSafe + RefUnwindSafe + Copy> RefUnwindSafe for MonoLinkageTable<Linkage> {}
-
-impl<Linkage: UnwindSafe + RefUnwindSafe + Copy> IsLinkageTable for MonoLinkageTable<Linkage> {
+impl<Linkage: IsLinkage> IsLinkageTable for MonoLinkageTable<Linkage> {
     type Linkage = Linkage;
 
     fn get_linkage(&self, key: HirLinkageKey, db: &dyn HirDepsDb) -> Linkage {
-        let (deps, linkage) = self.map.get(&key).copied().expect("todo");
-        if deps != key.deps(db) {
-            todo!("reload")
-        } else {
+        if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
             linkage
+        } else {
+            self.internal
+                .write()
+                .expect("todo")
+                .get_linkage_with_reload(key, db)
         }
     }
 }

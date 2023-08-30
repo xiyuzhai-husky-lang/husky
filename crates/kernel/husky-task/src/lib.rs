@@ -1,4 +1,5 @@
 use husky_hir_deps::{HirDepsDb, HirLinkageDeps, HirLinkageKey};
+use husky_regular_value::__RegularValue;
 use small_cell_stack::SmallCellStack;
 use std::{
     panic::{RefUnwindSafe, UnwindSafe},
@@ -25,7 +26,7 @@ pub trait IsAscensionBase {
 }
 
 pub trait IsLinkageTable: RefUnwindSafe + UnwindSafe {
-    type Linkage;
+    type Linkage: IsLinkage;
     // linkage table has the responsibility to guarantee that the linkage provided is up to date.
     fn get_linkage(&self, key: HirLinkageKey, db: &dyn HirDepsDb) -> Self::Linkage;
 }
@@ -34,3 +35,8 @@ pub type DevLinkageTable<Task: IsTask> = <Task::DevAscension as IsAscension>::Li
 pub type DevRuntimeTaskSpecificConfig<Task: IsTask> =
     <Task::DevAscension as IsAscension>::RuntimeTaskSpecificConfig;
 pub type DevRuntimeStorage<Task: IsTask> = <Task::DevAscension as IsAscension>::RuntimeStorage;
+
+pub trait IsLinkage: UnwindSafe + RefUnwindSafe + Copy {
+    fn eval_fn();
+    fn eval_gn() -> __RegularValue;
+}
