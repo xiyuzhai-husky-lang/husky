@@ -8,3 +8,5 @@ edition = "2021"
 small-cell-stack = { path = "../../abstraction/small-cell-stack" }
 # comptime
 husky-hir-deps = { path = "../../comptime/husky-hir-deps" }
+# kernel
+husky-regular-value = { path = "../../kernel/husky-regular-value" }
