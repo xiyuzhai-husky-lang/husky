@@ -16,6 +16,7 @@ members = [
     "crates/robotics/*",
     "crates/runtime/*",
     "crates/syntax/*",
+    "crates/tasks/*",
     "crates/try/*",
     "crates/utils/*",
     "crates/vm/*",
