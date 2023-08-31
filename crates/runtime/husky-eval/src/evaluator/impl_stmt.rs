@@ -1,11 +1,11 @@
-use husky_vm::{__RegularValue, __VMError, __VMResult};
+use husky_vm::{RegularValue, __VMError, __VMResult};
 
 use crate::*;
 
 use super::Evaluator;
 
 impl<'a> Evaluator<'a> {
-    pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<RegularValue> {
         todo!()
         // match stmt.variant {
         //     ValStmtData::Init { .. } => Ok(__RegularValue::unreturned()),

@@ -5,7 +5,7 @@ use husky_hir_defn::HirDefn;
 use husky_text::TextRange;
 use husky_val::Val;
 use husky_vfs::DiffPath;
-use husky_vm::__RegularValue;
+use husky_vm::RegularValue;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ValRepr {

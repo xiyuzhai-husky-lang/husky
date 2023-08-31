@@ -1,0 +1,52 @@
+mod internal;
+
+use self::internal::MonoLinkTimeInternal;
+use husky_hir_deps::{HirDepsDb, HirLinkageDeps};
+use husky_linkage_path::LinkagePath;
+use husky_regular_value::RegularValue;
+use husky_task::*;
+use husky_vfs::CratePath;
+use std::{
+    collections::HashMap,
+    marker::PhantomData,
+    panic::{RefUnwindSafe, UnwindSafe},
+};
+
+// this will transpile everything compilable to Rust
+// then use rustc to obtain a single dylib
+pub struct MonoLinkTime<Db, Linkage>
+where
+    Db: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Linkage: IsLinkage,
+{
+    internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
+}
+
+impl<Db: HirDepsDb + UnwindSafe + RefUnwindSafe, Linkage: IsLinkage> MonoLinkTime<Db, Linkage> {
+    pub fn new(target_crate: CratePath, db: &Db) -> Self {
+        Self {
+            internal: std::sync::RwLock::new(MonoLinkTimeInternal::new(target_crate, db)),
+        }
+    }
+}
+
+impl<Db, Linkage> IsLinkageTable for MonoLinkTime<Db, Linkage>
+where
+    Db: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Linkage: IsLinkage,
+{
+    type ComptimeDb = Db;
+
+    type Linkage = Linkage;
+
+    fn get_linkage(&self, key: LinkagePath, db: &Db) -> Linkage {
+        if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
+            linkage
+        } else {
+            self.internal
+                .write()
+                .expect("todo")
+                .get_linkage_with_reload(key, db)
+        }
+    }
+}

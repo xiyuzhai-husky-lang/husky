@@ -1,3 +1,7 @@
+mod linkage;
+
+pub use self::linkage::*;
+
 use crate::*;
 
 #[salsa::interned(db = HirDepsDb, jar = HirDepsJar)]

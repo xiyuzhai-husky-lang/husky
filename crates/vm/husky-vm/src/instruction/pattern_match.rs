@@ -17,7 +17,7 @@ pub enum VMPattern {
 }
 
 impl VMPattern {
-    pub fn contains<'temp>(&self, value: &__RegularValue) -> bool {
+    pub fn contains<'temp>(&self, value: &RegularValue) -> bool {
         match self {
             VMPattern::Primitive(primitive) => todo!(),
             // value == primitive,

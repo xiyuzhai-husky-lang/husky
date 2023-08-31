@@ -25,7 +25,7 @@ impl<'temp> Interpreter<'temp> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
         opt_ctx: Option<&'temp dyn __EvalContext>,
-        argument_iter: impl Iterator<Item = __VMResult<__RegularValue>>,
+        argument_iter: impl Iterator<Item = __VMResult<RegularValue>>,
         vm_config: &'temp VMConfig,
     ) -> __VMResult<Interpreter<'temp>> {
         Ok(Self {
@@ -43,7 +43,7 @@ impl<'temp> Interpreter<'temp> {
     pub(crate) fn new(
         db: &'temp dyn InterpreterQueryGroup,
         opt_ctx: Option<&'temp dyn __EvalContext>,
-        argument_iter: impl Iterator<Item = __RegularValue>,
+        argument_iter: impl Iterator<Item = RegularValue>,
         vm_config: &'temp VMConfig,
     ) -> Interpreter<'temp> {
         Self {
@@ -80,7 +80,7 @@ impl<'temp> Interpreter<'temp> {
         &mut self,
         sheet: &Instructions,
         mode: Mode,
-    ) -> __VMResult<__RegularValue> {
+    ) -> __VMResult<RegularValue> {
         match self.exec_all(sheet, mode) {
             VMControl::None => {
                 panic!("no return from eval_instructions")

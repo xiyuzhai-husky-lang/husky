@@ -7,7 +7,7 @@ use crate::*;
 impl Devtime {
     pub fn visualize_temp_value(
         &self,
-        value: &__RegularValue,
+        value: &RegularValue,
         ty: EtherealTerm,
         file: DiffPath,
         range: TextRange,

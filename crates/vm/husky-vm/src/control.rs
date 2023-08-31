@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug)]
 pub enum VMControl {
     None,
-    Return(__RegularValue),
+    Return(RegularValue),
     Break,
     Err(__VMError),
 }

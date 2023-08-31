@@ -285,7 +285,7 @@ impl<'temp> Interpreter<'temp> {
         &mut self,
         linkage: __LinkageGroup,
         nargs: u8,
-    ) -> __VMResult<__RegularValue> {
+    ) -> __VMResult<RegularValue> {
         match linkage {
             __LinkageGroup::Member { .. } => todo!(),
             __LinkageGroup::Transfer(linkage) => {

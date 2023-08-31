@@ -1,5 +1,5 @@
 use crate::*;
-use husky_task::DevRuntimeTaskSpecificConfig;
+use husky_task::helpers::DevRuntimeTaskSpecificConfig;
 
 #[derive(Default)]
 pub struct DevRuntimeCommonConfig {}

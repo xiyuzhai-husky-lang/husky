@@ -109,63 +109,63 @@ impl __RegularSnapshotValue {
 
 impl __RegularIncubatorValue {
     /// must use once and only once
-    pub unsafe fn incubate(&mut self) -> __RegularValue {
+    pub unsafe fn incubate(&mut self) -> RegularValue {
         match self {
-            __RegularIncubatorValue::Invalid => __RegularValue::Invalid,
-            __RegularIncubatorValue::Moved => __RegularValue::Moved,
-            __RegularIncubatorValue::Unit(_) => __RegularValue::Unit(()),
-            __RegularIncubatorValue::Bool(b) => __RegularValue::Bool(*b),
-            __RegularIncubatorValue::Char(c) => __RegularValue::Char(*c),
-            __RegularIncubatorValue::I8(n) => __RegularValue::I8(*n),
-            __RegularIncubatorValue::I16(n) => __RegularValue::I16(*n),
-            __RegularIncubatorValue::I32(n) => __RegularValue::I32(*n),
-            __RegularIncubatorValue::I64(n) => __RegularValue::I64(*n),
-            __RegularIncubatorValue::I128(n) => __RegularValue::I128(*n),
-            __RegularIncubatorValue::ISize(n) => __RegularValue::ISize(*n),
-            __RegularIncubatorValue::U8(n) => __RegularValue::U8(*n),
-            __RegularIncubatorValue::U16(n) => __RegularValue::U16(*n),
-            __RegularIncubatorValue::U32(n) => __RegularValue::U32(*n),
-            __RegularIncubatorValue::U64(n) => __RegularValue::U64(*n),
-            __RegularIncubatorValue::U128(n) => __RegularValue::U128(*n),
-            __RegularIncubatorValue::USize(n) => __RegularValue::USize(*n),
+            __RegularIncubatorValue::Invalid => RegularValue::Invalid,
+            __RegularIncubatorValue::Moved => RegularValue::Moved,
+            __RegularIncubatorValue::Unit(_) => RegularValue::Unit(()),
+            __RegularIncubatorValue::Bool(b) => RegularValue::Bool(*b),
+            __RegularIncubatorValue::Char(c) => RegularValue::Char(*c),
+            __RegularIncubatorValue::I8(n) => RegularValue::I8(*n),
+            __RegularIncubatorValue::I16(n) => RegularValue::I16(*n),
+            __RegularIncubatorValue::I32(n) => RegularValue::I32(*n),
+            __RegularIncubatorValue::I64(n) => RegularValue::I64(*n),
+            __RegularIncubatorValue::I128(n) => RegularValue::I128(*n),
+            __RegularIncubatorValue::ISize(n) => RegularValue::ISize(*n),
+            __RegularIncubatorValue::U8(n) => RegularValue::U8(*n),
+            __RegularIncubatorValue::U16(n) => RegularValue::U16(*n),
+            __RegularIncubatorValue::U32(n) => RegularValue::U32(*n),
+            __RegularIncubatorValue::U64(n) => RegularValue::U64(*n),
+            __RegularIncubatorValue::U128(n) => RegularValue::U128(*n),
+            __RegularIncubatorValue::USize(n) => RegularValue::USize(*n),
             // Assuming that R8, R16, etc. are other variant types. Replace as necessary.
-            __RegularIncubatorValue::R8(n) => __RegularValue::R8(*n),
-            __RegularIncubatorValue::R16(n) => __RegularValue::R16(*n),
-            __RegularIncubatorValue::R32(n) => __RegularValue::R32(*n),
-            __RegularIncubatorValue::R64(n) => __RegularValue::R64(*n),
-            __RegularIncubatorValue::R128(n) => __RegularValue::R128(*n),
-            __RegularIncubatorValue::RSize(n) => __RegularValue::RSize(*n),
-            __RegularIncubatorValue::F32(n) => __RegularValue::F32(*n),
-            __RegularIncubatorValue::F64(n) => __RegularValue::F64(*n),
-            __RegularIncubatorValue::StringLiteral(id) => __RegularValue::StringLiteral(*id),
+            __RegularIncubatorValue::R8(n) => RegularValue::R8(*n),
+            __RegularIncubatorValue::R16(n) => RegularValue::R16(*n),
+            __RegularIncubatorValue::R32(n) => RegularValue::R32(*n),
+            __RegularIncubatorValue::R64(n) => RegularValue::R64(*n),
+            __RegularIncubatorValue::R128(n) => RegularValue::R128(*n),
+            __RegularIncubatorValue::RSize(n) => RegularValue::RSize(*n),
+            __RegularIncubatorValue::F32(n) => RegularValue::F32(*n),
+            __RegularIncubatorValue::F64(n) => RegularValue::F64(*n),
+            __RegularIncubatorValue::StringLiteral(id) => RegularValue::StringLiteral(*id),
             __RegularIncubatorValue::Intrinsic(box_value) => {
-                __RegularValue::Intrinsic(box_value.incubate_box_dyn())
+                RegularValue::Intrinsic(box_value.incubate_box_dyn())
             }
             __RegularIncubatorValue::Box(box_value) => {
-                __RegularValue::Box(box_value.incubate_box_dyn())
+                RegularValue::Box(box_value.incubate_box_dyn())
             }
-            __RegularIncubatorValue::Leash(leash) => __RegularValue::Leash(*leash),
+            __RegularIncubatorValue::Leash(leash) => RegularValue::Leash(*leash),
             __RegularIncubatorValue::SizedRef(_, box_value) => {
-                __RegularValue::SizedRef(&**box_value as *const _)
+                RegularValue::SizedRef(&**box_value as *const _)
             }
             __RegularIncubatorValue::SizedRefMut(_, box_value) => {
-                __RegularValue::SizedRef(&mut **box_value as *mut _)
+                RegularValue::SizedRef(&mut **box_value as *mut _)
             }
-            __RegularIncubatorValue::OptionBox(opt_box_value) => __RegularValue::OptionBox(
+            __RegularIncubatorValue::OptionBox(opt_box_value) => RegularValue::OptionBox(
                 opt_box_value
                     .as_mut()
                     .map(|box_value| box_value.incubate_box_dyn()),
             ),
-            __RegularIncubatorValue::OptionLeash(leash) => __RegularValue::OptionLeash(*leash),
+            __RegularIncubatorValue::OptionLeash(leash) => RegularValue::OptionLeash(*leash),
             __RegularIncubatorValue::OptionSizedRef(_, opt_box_value) => {
-                __RegularValue::OptionSizedRef(
+                RegularValue::OptionSizedRef(
                     opt_box_value
                         .as_ref()
                         .map(|box_value| &**box_value as *const _),
                 )
             }
             __RegularIncubatorValue::OptionSizedRefMut(_, opt_box_value) => {
-                __RegularValue::OptionSizedMut(
+                RegularValue::OptionSizedMut(
                     opt_box_value
                         .as_mut()
                         .map(|box_value| &mut **box_value as *mut _),

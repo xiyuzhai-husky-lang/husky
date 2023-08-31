@@ -5,7 +5,7 @@ use husky_coword::{Ident, IdentPairMap};
 use husky_ethereal_term::EtherealTerm;
 use husky_vm_binding::Binding;
 
-use husky_vm_interface::{__LinkageGroup, __RegularValue, __ResolvedLinkage};
+use husky_vm_interface::{RegularValue, __LinkageGroup, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
@@ -29,11 +29,11 @@ pub enum HuskyDataViewer {
 }
 
 impl HuskyDataViewer {
-    pub fn print(&self, _value: &__RegularValue) -> String {
+    pub fn print(&self, _value: &RegularValue) -> String {
         todo!()
     }
 
-    pub fn serialize(&self, _db: &dyn DataViewerDb, _value: &__RegularValue) -> serde_json::Value {
+    pub fn serialize(&self, _db: &dyn DataViewerDb, _value: &RegularValue) -> serde_json::Value {
         todo!()
         // match self {
         //     HuskyDataViewer::Primitive { ty } => match ty {

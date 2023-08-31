@@ -1,7 +1,7 @@
 mod db;
 
 use self::db::*;
-use husky_task::{DevLinkageTable, IsTask};
+use husky_task::{helpers::DevLinkageTable, IsTask};
 
 pub struct DevComptime<Task: IsTask> {
     db: ComptimeDb,

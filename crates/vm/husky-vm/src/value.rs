@@ -1,6 +1,6 @@
 use crate::*;
 
 pub(crate) struct StackValue {
-    regular_value: __RegularValue,
+    regular_value: RegularValue,
     snapshot: Option<__RegularSnapshotValue>,
 }

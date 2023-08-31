@@ -116,7 +116,7 @@ impl Devtime {
 
     fn trace_stalk_from_result(
         &self,
-        result: __VMResult<__RegularValue>,
+        result: __VMResult<RegularValue>,
         ty: EtherealTerm,
     ) -> TraceStalk {
         TraceStalk {
@@ -134,7 +134,7 @@ impl Devtime {
 
     pub(crate) fn trace_token_from_result(
         &self,
-        result: __VMResult<__RegularValue>,
+        result: __VMResult<RegularValue>,
         ty: EtherealTerm,
     ) -> TraceTokenData {
         match result {
@@ -149,7 +149,7 @@ impl Devtime {
 
     pub(crate) fn trace_token_from_value(
         &self,
-        value: __RegularValue,
+        value: RegularValue,
         ty: EtherealTerm,
     ) -> TraceTokenData {
         todo!()

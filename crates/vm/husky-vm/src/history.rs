@@ -27,7 +27,7 @@ impl History {
     pub fn register_result<T: Into<InstructionSource>>(
         &self,
         t: &T,
-    ) -> Option<__VMResult<__RegularValue>> {
+    ) -> Option<__VMResult<RegularValue>> {
         todo!()
         // self.entries
         //     .get(&t.instruction_id())

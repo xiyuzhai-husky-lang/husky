@@ -9,8 +9,8 @@ pub struct MutationData {
     pub range: ModuleRange,
     pub kind: MutationDataVariant,
     pub ty: EtherealTerm,
-    pub before: Option<__RegularValue>,
-    pub after: __RegularValue,
+    pub before: Option<RegularValue>,
+    pub after: RegularValue,
 }
 
 #[derive(Debug)]
