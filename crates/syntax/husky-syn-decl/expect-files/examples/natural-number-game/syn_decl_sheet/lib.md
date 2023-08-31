@@ -8,7 +8,7 @@ Ok(
                         TypePath(`natural_number_game::Nat`, `Inductive`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Inductive(
                             InductiveTypeSynDecl {
@@ -79,7 +79,7 @@ Ok(
                         TypePath(`natural_number_game::OddNat`, `Structure`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Structure(
                             StructureTypeSynDecl {
@@ -150,7 +150,7 @@ Ok(
                         TypePath(`natural_number_game::EvenNat`, `Structure`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Structure(
                             StructureTypeSynDecl {
@@ -225,7 +225,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {

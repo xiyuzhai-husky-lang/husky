@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`core::fmt::Debug`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::fmt::Debug`),

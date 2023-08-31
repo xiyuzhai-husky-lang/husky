@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -116,7 +116,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -330,7 +330,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -544,7 +544,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -758,7 +758,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {

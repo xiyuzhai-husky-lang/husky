@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {

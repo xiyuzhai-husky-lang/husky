@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -116,7 +116,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -307,7 +307,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -521,7 +521,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -735,7 +735,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {

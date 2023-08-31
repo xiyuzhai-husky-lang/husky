@@ -8,7 +8,7 @@ Ok(
                         TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {
@@ -196,7 +196,7 @@ Ok(
                         TypePath(`malamute::OneVsAllResult`, `Enum`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {
@@ -384,7 +384,7 @@ Ok(
                         FugitivePath(`malamute::narrow_down`, `Gn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Gn(
                             GnSynDecl {
@@ -861,7 +861,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -1291,7 +1291,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::AssociatedType(
                             TraitForTypeAssociatedTypeSynDecl {

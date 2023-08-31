@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -116,7 +116,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -330,7 +330,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {

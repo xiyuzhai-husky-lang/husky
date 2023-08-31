@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`core::ops::Add`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Add`),
@@ -121,7 +121,7 @@ Ok(
                         TraitPath(`core::ops::AddAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::AddAssign`),
@@ -234,7 +234,7 @@ Ok(
                         TraitPath(`core::ops::BitAnd`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAnd`),
@@ -347,7 +347,7 @@ Ok(
                         TraitPath(`core::ops::BitAndAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
@@ -460,7 +460,7 @@ Ok(
                         TraitPath(`core::ops::BitOr`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOr`),
@@ -573,7 +573,7 @@ Ok(
                         TraitPath(`core::ops::BitOrAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
@@ -686,7 +686,7 @@ Ok(
                         TraitPath(`core::ops::BitXor`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXor`),
@@ -799,7 +799,7 @@ Ok(
                         TraitPath(`core::ops::BitXorAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
@@ -912,7 +912,7 @@ Ok(
                         TraitPath(`core::ops::Div`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Div`),
@@ -1025,7 +1025,7 @@ Ok(
                         TraitPath(`core::ops::DivAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::DivAssign`),
@@ -1138,7 +1138,7 @@ Ok(
                         TraitPath(`core::ops::IntIndex`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::IntIndex`),
@@ -1208,7 +1208,7 @@ Ok(
                         TraitPath(`core::ops::Mul`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Mul`),
@@ -1321,7 +1321,7 @@ Ok(
                         TraitPath(`core::ops::MulAssign`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::MulAssign`),
@@ -1434,7 +1434,7 @@ Ok(
                         TraitPath(`core::ops::Neg`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Neg`),
@@ -1504,7 +1504,7 @@ Ok(
                         TraitPath(`core::ops::Not`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Not`),
@@ -1574,7 +1574,7 @@ Ok(
                         TraitPath(`core::ops::Sub`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Sub`),
@@ -1687,7 +1687,7 @@ Ok(
                         TraitPath(`core::ops::Unveil`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Unveil`),
@@ -1800,7 +1800,7 @@ Ok(
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {

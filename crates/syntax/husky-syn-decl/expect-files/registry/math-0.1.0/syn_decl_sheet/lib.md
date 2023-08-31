@@ -8,7 +8,7 @@ Ok(
                         `math::algebra`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `math::algebra`,
@@ -23,7 +23,7 @@ Ok(
                         `math::algebraic_geometry`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `math::algebraic_geometry`,
@@ -38,7 +38,7 @@ Ok(
                         `math::algebraic_topology`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `math::algebraic_topology`,
@@ -53,7 +53,7 @@ Ok(
                         `math::category_theory`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `math::category_theory`,
@@ -68,7 +68,7 @@ Ok(
                         `math::probability`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `math::probability`,

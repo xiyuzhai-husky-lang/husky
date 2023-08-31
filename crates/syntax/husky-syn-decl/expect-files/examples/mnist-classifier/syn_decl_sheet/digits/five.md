@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {

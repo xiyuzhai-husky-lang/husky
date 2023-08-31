@@ -8,7 +8,7 @@ Ok(
                         `std::prelude`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `std::prelude`,
@@ -23,7 +23,7 @@ Ok(
                         `std::logic`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `std::logic`,
@@ -38,7 +38,7 @@ Ok(
                         `std::ops`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `std::ops`,

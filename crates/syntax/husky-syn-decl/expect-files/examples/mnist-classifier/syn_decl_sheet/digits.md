@@ -8,7 +8,7 @@ Ok(
                         `mnist_classifier::digits::zero`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::zero`,
@@ -23,7 +23,7 @@ Ok(
                         `mnist_classifier::digits::one`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::one`,
@@ -38,7 +38,7 @@ Ok(
                         `mnist_classifier::digits::six`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::six`,
@@ -53,7 +53,7 @@ Ok(
                         `mnist_classifier::digits::three`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::three`,
@@ -68,7 +68,7 @@ Ok(
                         `mnist_classifier::digits::four`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::four`,
@@ -83,7 +83,7 @@ Ok(
                         `mnist_classifier::digits::five`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::five`,
@@ -98,7 +98,7 @@ Ok(
                         `mnist_classifier::digits::seven`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::seven`,
@@ -113,7 +113,7 @@ Ok(
                         `mnist_classifier::digits::eight`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::eight`,
@@ -128,7 +128,7 @@ Ok(
                         `mnist_classifier::digits::nine`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::nine`,
@@ -143,7 +143,7 @@ Ok(
                         `mnist_classifier::digits::two`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits::two`,

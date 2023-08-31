@@ -8,7 +8,7 @@ Ok(
                         `mnist_classifier::connected_component`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::connected_component`,
@@ -23,7 +23,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::raw_contour`,
@@ -38,7 +38,7 @@ Ok(
                         `mnist_classifier::geom2d`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::geom2d`,
@@ -53,7 +53,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch`,
@@ -68,7 +68,7 @@ Ok(
                         `mnist_classifier::fermi`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::fermi`,
@@ -83,7 +83,7 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::digits`,
@@ -98,7 +98,7 @@ Ok(
                         `mnist_classifier::major`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::major`,
