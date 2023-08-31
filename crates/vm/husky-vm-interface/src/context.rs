@@ -4,7 +4,7 @@ use std::{
     panic::{RefUnwindSafe, UnwindSafe},
 };
 
-pub trait __EvalContext: RefUnwindSafe + UnwindSafe {
+pub trait __EvalContext {
     fn item_uid(&self, item_route_text: &str) -> u64;
 
     fn opt_cached_lazy_field(

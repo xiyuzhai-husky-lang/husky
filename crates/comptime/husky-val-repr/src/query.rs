@@ -10,7 +10,6 @@ use husky_package_semantics::*;
 use husky_vm::{InterpreterQueryGroup, __ModelLinkageGroup, __RegularValue, __VMResult};
 use item_feature_repr::item_feature_repr;
 use main_feature_repr::*;
-use std::panic::{RefUnwindSafe, UnwindSafe};
 use upcast::Upcast;
 
 #[salsa::query_group(FeatureGenQueryGroupStorage)]
@@ -22,8 +21,6 @@ pub trait ValReprDb:
     + DataViewerDb
     + Upcast<dyn DataViewerDb>
     + TrainModel
-    + RefUnwindSafe
-    + UnwindSafe
 {
     fn main_feature_repr(&'static self, target_entrance: EntityPath) -> ValRepr;
     fn item_feature_repr(&self, item_path: EtherealTerm) -> ValRepr;

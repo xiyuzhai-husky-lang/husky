@@ -5,9 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
+flurry.workspace = true
+# abstraction
 # comptime
 husky-hir-deps = { path = "../../comptime/husky-hir-deps" }
 # kernel
+husky-val = { path = "../../kernel/husky-val" }
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # linktime

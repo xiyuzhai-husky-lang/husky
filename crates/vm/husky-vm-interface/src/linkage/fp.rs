@@ -32,15 +32,16 @@ impl __ResolvedLinkage {
         opt_ctx: Option<&dyn __EvalContext>,
         mut arguments: Vec<RegularValue>,
     ) -> __VMResult<RegularValue> {
-        catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
-            if let Some(msg) = e.downcast_ref::<String>() {
-                __VMError::linkage_call_error(msg)
-            } else if let Some(msg) = e.downcast_ref::<&str>() {
-                __VMError::linkage_call_error(msg)
-            } else {
-                todo!()
-            }
-        })
+        todo!()
+        // catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
+        //     if let Some(msg) = e.downcast_ref::<String>() {
+        //         __VMError::linkage_call_error(msg)
+        //     } else if let Some(msg) = e.downcast_ref::<&str>() {
+        //         __VMError::linkage_call_error(msg)
+        //     } else {
+        //         todo!()
+        //     }
+        // })
     }
 
     pub fn call(

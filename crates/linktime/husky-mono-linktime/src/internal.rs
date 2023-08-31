@@ -10,7 +10,7 @@ use self::mapgen::generate_map;
 
 pub struct MonoLinkTimeInternal<ComptimeDb, Linkage>
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    ComptimeDb: HirDepsDb,
     Linkage: IsLinkage,
 {
     target_crate: CratePath,
@@ -23,7 +23,7 @@ pub struct MonoLibraryStorage {}
 
 impl<ComptimeDb, Linkage: IsLinkage> MonoLinkTimeInternal<ComptimeDb, Linkage>
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    ComptimeDb: HirDepsDb,
     Linkage: IsLinkage,
 {
     pub(crate) fn new(target_crate: CratePath, db: &ComptimeDb) -> Self {

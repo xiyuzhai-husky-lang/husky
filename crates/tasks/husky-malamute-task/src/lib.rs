@@ -5,32 +5,29 @@ use husky_hir_deps::HirDepsDb;
 use husky_mono_linktime::MonoLinkTime;
 use husky_regular_value::RegularValue;
 use husky_task::{IsDevAscension, IsLinkage, IsTask};
-use std::{
-    marker::PhantomData,
-    panic::{RefUnwindSafe, UnwindSafe},
-};
+use std::marker::PhantomData;
 
 pub struct MlTask<ComptimeDb>
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    ComptimeDb: HirDepsDb,
 {
     _marker: PhantomData<(ComptimeDb)>,
 }
 
 impl<ComptimeDb> IsTask for MlTask<ComptimeDb>
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    ComptimeDb: HirDepsDb,
 {
     type DevAscension = MlDevAscension<ComptimeDb>;
 }
 
 pub struct MlDevAscension<ComptimeDb>(PhantomData<(ComptimeDb)>)
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe;
+    ComptimeDb: HirDepsDb;
 
 impl<ComptimeDb> IsDevAscension for MlDevAscension<ComptimeDb>
 where
-    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    ComptimeDb: HirDepsDb,
 {
     type Base = DevInput;
 
@@ -43,6 +40,7 @@ where
     type RuntimeTaskSpecificConfig = ();
 }
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub enum DevInput {
     Train(),
     Val(),
