@@ -1,5 +1,3 @@
-use std::panic::RefUnwindSafe;
-
 use crate::DevRuntime;
 
 // husky_ast::AstJar
@@ -15,5 +13,3 @@ impl salsa::ParallelDatabase for DevRuntimeDb {
         todo!()
     }
 }
-
-impl RefUnwindSafe for DevRuntimeDb {}

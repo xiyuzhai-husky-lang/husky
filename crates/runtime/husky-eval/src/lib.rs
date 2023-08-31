@@ -15,8 +15,8 @@ use std::{
     sync::{Arc, Mutex},
 };
 
-pub trait Runtime: RefUnwindSafe {
-    fn db(&self) -> &(dyn ValReprDb + RefUnwindSafe);
+pub trait Runtime {
+    fn db(&self) -> &dyn ValReprDb;
     fn session(&self) -> &Session;
     fn evaluator_config(&self) -> &EvaluatorConfig;
     fn vm_config(&self) -> &VMConfig {

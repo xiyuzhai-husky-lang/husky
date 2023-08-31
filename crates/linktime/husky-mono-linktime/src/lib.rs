@@ -6,23 +6,19 @@ use husky_linkage_path::LinkagePath;
 use husky_regular_value::RegularValue;
 use husky_task::*;
 use husky_vfs::CratePath;
-use std::{
-    collections::HashMap,
-    marker::PhantomData,
-    panic::{RefUnwindSafe, UnwindSafe},
-};
+use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
 // then use rustc to obtain a single dylib
 pub struct MonoLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Db: HirDepsDb,
     Linkage: IsLinkage,
 {
     internal: std::sync::RwLock<MonoLinkTimeInternal<Db, Linkage>>,
 }
 
-impl<Db: HirDepsDb + UnwindSafe + RefUnwindSafe, Linkage: IsLinkage> MonoLinkTime<Db, Linkage> {
+impl<Db: HirDepsDb, Linkage: IsLinkage> MonoLinkTime<Db, Linkage> {
     pub fn new(target_crate: CratePath, db: &Db) -> Self {
         Self {
             internal: std::sync::RwLock::new(MonoLinkTimeInternal::new(target_crate, db)),
@@ -32,7 +28,7 @@ impl<Db: HirDepsDb + UnwindSafe + RefUnwindSafe, Linkage: IsLinkage> MonoLinkTim
 
 impl<Db, Linkage> IsLinkageTable for MonoLinkTime<Db, Linkage>
 where
-    Db: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Db: HirDepsDb,
     Linkage: IsLinkage,
 {
     type ComptimeDb = Db;
