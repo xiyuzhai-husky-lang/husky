@@ -8,7 +8,7 @@ Ok(
                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -206,7 +206,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -323,7 +323,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -545,7 +545,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {

@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::array::Array`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {

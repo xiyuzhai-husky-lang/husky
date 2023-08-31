@@ -8,7 +8,7 @@ Ok(
                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -252,7 +252,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -412,7 +412,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {

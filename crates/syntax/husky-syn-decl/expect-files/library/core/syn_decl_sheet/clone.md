@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`core::clone::Clone`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::clone::Clone`),
@@ -83,7 +83,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -220,7 +220,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {

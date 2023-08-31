@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`core::marker::Copy`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Copy`),
@@ -78,7 +78,7 @@ Ok(
                         TraitPath(`core::marker::Sized`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Sized`),

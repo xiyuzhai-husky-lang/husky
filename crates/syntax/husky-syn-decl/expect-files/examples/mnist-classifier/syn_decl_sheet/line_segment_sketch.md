@@ -8,7 +8,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -23,7 +23,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch::convex_component`,
@@ -38,7 +38,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch::convexity`,
@@ -53,7 +53,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                 ),
-                Decl::Submodule(
+                SynDecl::Submodule(
                     SubmoduleSynDecl {
                         path: SubmodulePath(
                             `mnist_classifier::line_segment_sketch::line_segment`,
@@ -68,7 +68,7 @@ Ok(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -515,7 +515,7 @@ Ok(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -729,7 +729,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1011,7 +1011,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1293,7 +1293,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1664,7 +1664,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -2117,7 +2117,7 @@ Ok(
                         FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -2426,7 +2426,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -2586,7 +2586,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -2842,7 +2842,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -2959,7 +2959,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::AssociatedFn(
                             TypeAssociatedFnSynDecl {
@@ -3442,7 +3442,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -3663,7 +3663,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -3823,7 +3823,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -4079,7 +4079,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -4196,7 +4196,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -4429,7 +4429,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -4649,7 +4649,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::AssociatedFn(
                             TypeAssociatedFnSynDecl {

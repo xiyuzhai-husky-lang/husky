@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::raw_bits::r32`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -83,7 +83,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -200,7 +200,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -513,7 +513,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -735,7 +735,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -957,7 +957,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -1179,7 +1179,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {

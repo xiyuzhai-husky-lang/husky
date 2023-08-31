@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::str::str`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -79,7 +79,7 @@ Ok(
                         TypePath(`core::str::StringLiteral`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {

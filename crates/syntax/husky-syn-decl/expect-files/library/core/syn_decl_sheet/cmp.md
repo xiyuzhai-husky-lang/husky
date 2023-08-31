@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`core::cmp::PartialEq`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::cmp::PartialEq`),
@@ -78,7 +78,7 @@ Ok(
                         TraitPath(`core::cmp::Eq`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::cmp::Eq`),
@@ -148,7 +148,7 @@ Ok(
                         TraitPath(`core::cmp::PartialOrd`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::cmp::PartialOrd`),
@@ -218,7 +218,7 @@ Ok(
                         TraitPath(`core::cmp::Ord`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::cmp::Ord`),

@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`quick_sort::quick_sort`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -270,7 +270,7 @@ Ok(
                         FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -696,7 +696,7 @@ Ok(
                         FugitivePath(`quick_sort::partition`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1155,7 +1155,7 @@ Ok(
                         FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1228,7 +1228,7 @@ Ok(
                         FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {

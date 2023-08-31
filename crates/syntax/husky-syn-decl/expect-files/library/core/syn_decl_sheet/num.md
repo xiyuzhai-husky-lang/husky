@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::num::i8`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -79,7 +79,7 @@ Ok(
                         TypePath(`core::num::i16`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -150,7 +150,7 @@ Ok(
                         TypePath(`core::num::i32`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -221,7 +221,7 @@ Ok(
                         TypePath(`core::num::i64`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -292,7 +292,7 @@ Ok(
                         TypePath(`core::num::i128`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -363,7 +363,7 @@ Ok(
                         TypePath(`core::num::isize`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -434,7 +434,7 @@ Ok(
                         TypePath(`core::num::u8`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -505,7 +505,7 @@ Ok(
                         TypePath(`core::num::u16`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -576,7 +576,7 @@ Ok(
                         TypePath(`core::num::u32`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -647,7 +647,7 @@ Ok(
                         TypePath(`core::num::u64`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -718,7 +718,7 @@ Ok(
                         TypePath(`core::num::u128`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -789,7 +789,7 @@ Ok(
                         TypePath(`core::num::usize`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -860,7 +860,7 @@ Ok(
                         TypePath(`core::num::f32`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -931,7 +931,7 @@ Ok(
                         TypePath(`core::num::f64`, `Extern`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
@@ -1006,7 +1006,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -1123,7 +1123,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -1345,7 +1345,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -1657,7 +1657,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -1846,7 +1846,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -2222,7 +2222,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -2339,7 +2339,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -2561,7 +2561,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -2873,7 +2873,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -3062,7 +3062,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -3438,7 +3438,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -3555,7 +3555,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -3777,7 +3777,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -4090,7 +4090,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -4402,7 +4402,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -4591,7 +4591,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -4967,7 +4967,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -5084,7 +5084,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -5305,7 +5305,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -5494,7 +5494,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -5870,7 +5870,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -5987,7 +5987,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -6208,7 +6208,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -6397,7 +6397,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -6773,7 +6773,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -6890,7 +6890,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -7111,7 +7111,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -7300,7 +7300,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -7676,7 +7676,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -7793,7 +7793,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -8014,7 +8014,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -8203,7 +8203,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -8579,7 +8579,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -8696,7 +8696,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -8917,7 +8917,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -9106,7 +9106,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -9482,7 +9482,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -9599,7 +9599,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -9820,7 +9820,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -10009,7 +10009,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -10385,7 +10385,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -10502,7 +10502,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -10723,7 +10723,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -10912,7 +10912,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -11288,7 +11288,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -11405,7 +11405,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -11626,7 +11626,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -11815,7 +11815,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -12191,7 +12191,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -12308,7 +12308,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -12529,7 +12529,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -12718,7 +12718,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -13094,7 +13094,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -13211,7 +13211,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -13433,7 +13433,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -13655,7 +13655,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -13968,7 +13968,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -14281,7 +14281,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -14503,7 +14503,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -14725,7 +14725,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -14947,7 +14947,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -15168,7 +15168,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -15357,7 +15357,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -15733,7 +15733,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -15850,7 +15850,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -16072,7 +16072,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -16293,7 +16293,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -16482,7 +16482,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {

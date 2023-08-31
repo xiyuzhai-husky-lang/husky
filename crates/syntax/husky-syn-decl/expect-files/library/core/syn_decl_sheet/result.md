@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::result::Result`, `Enum`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {
@@ -169,7 +169,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -646,7 +646,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::AssociatedType(
                             TraitForTypeAssociatedTypeSynDecl {
@@ -1198,7 +1198,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {

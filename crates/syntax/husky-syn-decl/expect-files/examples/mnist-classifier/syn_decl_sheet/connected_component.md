@@ -8,7 +8,7 @@ Ok(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -320,7 +320,7 @@ Ok(
                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -482,7 +482,7 @@ Ok(
                         FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -696,7 +696,7 @@ Ok(
                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
@@ -831,7 +831,7 @@ Ok(
                         FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1113,7 +1113,7 @@ Ok(
                         FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -1333,7 +1333,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
@@ -1493,7 +1493,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
@@ -1749,7 +1749,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::ImplBlock(
+                SynDecl::ImplBlock(
                     ImplBlockSynDecl::Type(
                         TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
@@ -1866,7 +1866,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -2099,7 +2099,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -2319,7 +2319,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -2539,7 +2539,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -2759,7 +2759,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -2979,7 +2979,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -3199,7 +3199,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -3419,7 +3419,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
@@ -3639,7 +3639,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
@@ -3952,7 +3952,7 @@ Ok(
                         },
                     ),
                 ),
-                Decl::AssociatedItem(
+                SynDecl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {

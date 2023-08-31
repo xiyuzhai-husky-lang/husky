@@ -8,7 +8,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -116,7 +116,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -330,7 +330,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -438,7 +438,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -546,7 +546,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Val(
                             ValSynDecl {
@@ -737,7 +737,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
@@ -951,7 +951,7 @@ Ok(
                         FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Fugitive(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {

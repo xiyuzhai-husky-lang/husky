@@ -8,7 +8,7 @@ Ok(
                         TypePath(`core::option::Option`, `Enum`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Type(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {

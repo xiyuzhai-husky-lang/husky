@@ -8,7 +8,7 @@ Ok(
                         TraitPath(`std::ops::Add`),
                     ),
                 ),
-                Decl::MajorItem(
+                SynDecl::MajorItem(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`std::ops::Add`),
