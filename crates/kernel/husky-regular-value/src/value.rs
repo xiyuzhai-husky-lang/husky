@@ -15,7 +15,7 @@ pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 3;
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
 #[derive(Debug)]
 #[repr(u8)]
-pub enum __RegularValue {
+pub enum RegularValue {
     Invalid,
     Moved,
     Unit(()),
@@ -72,7 +72,7 @@ impl From<StringLiteral> for StringLiteralId {
 #[test]
 fn regular_value_size_works() {
     assert_eq!(
-        std::mem::size_of::<__RegularValue>(),
+        std::mem::size_of::<RegularValue>(),
         std::mem::size_of::<[u64; REGULAR_VALUE_SIZE_OVER_I64]>()
     )
 }

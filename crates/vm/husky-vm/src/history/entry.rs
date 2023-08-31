@@ -5,7 +5,7 @@ use crate::*;
 #[derive(Debug)]
 pub enum HistoryEntry {
     PureExpr {
-        result: __VMResult<__RegularValue>,
+        result: __VMResult<RegularValue>,
         ty: EtherealTerm,
     },
     Exec {
@@ -36,7 +36,7 @@ pub enum HistoryEntry {
 }
 
 impl HistoryEntry {
-    pub fn result(&self) -> __VMResult<__RegularValue> {
+    pub fn result(&self) -> __VMResult<RegularValue> {
         todo!()
         // match self {
         //     HistoryEntry::PureExpr { ref result, .. } => result.clone(),

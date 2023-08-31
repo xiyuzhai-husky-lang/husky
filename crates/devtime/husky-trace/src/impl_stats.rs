@@ -3,7 +3,7 @@ use crate::*;
 use husky_print_utils::msg_once;
 
 use husky_trace_protocol::TraceStats;
-use husky_vm::{__RegularValue, __VMResult};
+use husky_vm::{RegularValue, __VMResult};
 
 impl TraceVariant {
     pub fn opt_stats_result(
@@ -126,7 +126,7 @@ fn feature_opt_stats(
     _db: &dyn TraceRuntime,
     _partitions: &Partitions,
     _feature_ty: EtherealTerm,
-    _compute_value: impl Fn(SampleId) -> __VMResult<__RegularValue>,
+    _compute_value: impl Fn(SampleId) -> __VMResult<RegularValue>,
     _opt_arrival_indicator: Option<&ValDomain>,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()

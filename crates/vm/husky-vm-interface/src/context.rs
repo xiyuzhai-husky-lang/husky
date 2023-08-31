@@ -11,28 +11,28 @@ pub trait __EvalContext: RefUnwindSafe + UnwindSafe {
         &self,
         this: *const c_void,
         uid: u32,
-    ) -> Option<__VMResult<__RegularValue>>;
+    ) -> Option<__VMResult<RegularValue>>;
 
     fn cache_feature(
         &self,
         feature_raw_id: u32,
-        value: __VMResult<__RegularValue>,
-    ) -> __VMResult<__RegularValue>;
+        value: __VMResult<RegularValue>,
+    ) -> __VMResult<RegularValue>;
 
-    fn opt_cached_feature(&self, feature_raw_id: u32) -> Option<__VMResult<__RegularValue>>;
+    fn opt_cached_feature(&self, feature_raw_id: u32) -> Option<__VMResult<RegularValue>>;
 
     fn cache_lazy_field(
         &self,
         this: *const c_void,
         uid: u32,
-        value: __VMResult<__RegularValue>,
-    ) -> __VMResult<__RegularValue>;
+        value: __VMResult<RegularValue>,
+    ) -> __VMResult<RegularValue>;
 
     fn feature_raw_id(&self, feature_route_text: &str) -> u32;
 
-    fn eval_feature_from_uid(&self, feature_item_uid: u32) -> __VMResult<__RegularValue>;
+    fn eval_feature_from_uid(&self, feature_item_uid: u32) -> __VMResult<RegularValue>;
 
-    fn target_input(&self) -> &__RegularValue;
+    fn target_input(&self) -> &RegularValue;
 }
 
 #[macro_export]

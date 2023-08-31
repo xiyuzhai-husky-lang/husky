@@ -3,7 +3,7 @@ use crate::*;
 use husky_vm::*;
 
 impl<'a> Evaluator<'a> {
-    pub(crate) fn eval_feature_repr(&self, repr: &ValRepr) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_feature_repr(&self, repr: &ValRepr) -> __VMResult<RegularValue> {
         todo!()
         // let result = match repr {
         //     ValRepr::Value { value, .. } => Ok(value.snapshot()),
@@ -16,7 +16,7 @@ impl<'a> Evaluator<'a> {
         // result
     }
 
-    pub(crate) fn eval_feature_repr_cached(&self, repr: &ValRepr) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_feature_repr_cached(&self, repr: &ValRepr) -> __VMResult<RegularValue> {
         todo!()
         // let eval_key = EvalKey::Feature(repr.feature());
         // if let Some(result) = self.sheet.cached_value(eval_key) {

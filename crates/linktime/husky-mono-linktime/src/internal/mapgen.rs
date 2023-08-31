@@ -5,6 +5,6 @@ pub(super) fn generate_map<Linkage: IsLinkage>(
     target_crate: CratePath,
     library: &MonoLibraryStorage,
     db: &dyn HirDepsDb,
-) -> HashMap<HirLinkageKey, (HirLinkageDeps, Linkage)> {
+) -> HashMap<LinkagePath, (HirLinkageDeps, Linkage)> {
     todo!()
 }

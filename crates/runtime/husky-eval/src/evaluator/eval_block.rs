@@ -4,7 +4,7 @@ use crate::*;
 use husky_print_utils::msg_once;
 
 impl<'a> Evaluator<'a> {
-    pub(crate) fn eval_lazy_block(&self, block: &ValBlock) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_lazy_block(&self, block: &ValBlock) -> __VMResult<RegularValue> {
         todo!()
         // self.cache(EvalKey::Feature(block.feature), |this: &Self| {
         //     for stmt in block.stmts.iter() {
@@ -18,7 +18,7 @@ impl<'a> Evaluator<'a> {
         // })
     }
 
-    pub(crate) fn eval_val_block(&self, block: ValBlock) -> __VMResult<__RegularValue> {
+    pub(crate) fn eval_val_block(&self, block: ValBlock) -> __VMResult<RegularValue> {
         todo!()
         // let arguments = match block.opt_this {
         //     Some(ref this_repr) => {

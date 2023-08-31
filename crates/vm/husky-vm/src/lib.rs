@@ -48,11 +48,11 @@ pub fn eval_fast<'temp>(
     opt_ctx: Option<&'temp dyn __EvalContext>,
     opt_instrn_sheet: Option<&Instructions>,
     opt_linkage: Option<__LinkageGroup>,
-    args: impl Iterator<Item = __VMResult<__RegularValue>>, // including this value
-    _kwargs: impl Iterator<Item = (Ident, __VMResult<__RegularValue>)>,
+    args: impl Iterator<Item = __VMResult<RegularValue>>, // including this value
+    _kwargs: impl Iterator<Item = (Ident, __VMResult<RegularValue>)>,
     nargs: u8,
     vm_config: &'temp VMConfig,
-) -> __VMResult<__RegularValue> {
+) -> __VMResult<RegularValue> {
     let mut interpreter = Interpreter::try_new(db, opt_ctx, args, vm_config)?;
     if let Some(linkage) = opt_linkage {
         interpreter.eval_linkage(linkage, nargs)

@@ -5,7 +5,7 @@ use husky_coword::Ident;
 pub const STACK_SIZE: usize = 255;
 
 pub struct VMStack {
-    values: ArrayVec<__RegularValue, STACK_SIZE>,
+    values: ArrayVec<RegularValue, STACK_SIZE>,
 }
 
 impl std::fmt::Debug for VMStack {
@@ -16,7 +16,7 @@ impl std::fmt::Debug for VMStack {
     }
 }
 
-impl<T: Iterator<Item = __RegularValue>> From<T> for VMStack {
+impl<T: Iterator<Item = RegularValue>> From<T> for VMStack {
     fn from(t: T) -> Self {
         Self::new(t)
     }
@@ -24,7 +24,7 @@ impl<T: Iterator<Item = __RegularValue>> From<T> for VMStack {
 
 impl VMStack {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = __VMResult<__RegularValue>>,
+        argument_iter: impl Iterator<Item = __VMResult<RegularValue>>,
     ) -> __VMResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
@@ -33,7 +33,7 @@ impl VMStack {
         Ok(Self { values })
     }
 
-    pub(crate) fn new(argument_iter: impl Iterator<Item = __RegularValue>) -> Self {
+    pub(crate) fn new(argument_iter: impl Iterator<Item = RegularValue>) -> Self {
         let mut values = ArrayVec::new();
         for value in argument_iter {
             values.push(value)
@@ -41,11 +41,11 @@ impl VMStack {
         Self { values }
     }
 
-    pub(crate) fn value(&self, idx: VMStackIdx) -> &__RegularValue {
+    pub(crate) fn value(&self, idx: VMStackIdx) -> &RegularValue {
         &self.values[idx.raw()]
     }
 
-    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut __RegularValue {
+    pub(crate) fn value_mut(&mut self, idx: VMStackIdx) -> &mut RegularValue {
         &mut self.values[idx.raw()]
     }
 
@@ -53,7 +53,7 @@ impl VMStack {
         &mut self,
         stack_idx: VMStackIdx,
         binding: Binding,
-    ) -> &mut __RegularValue {
+    ) -> &mut RegularValue {
         unsafe {
             todo!()
             // let value = &mut self.values[stack_idx.raw()];
@@ -83,14 +83,14 @@ impl VMStack {
         self.values.len()
     }
 
-    pub(crate) fn push(&mut self, value: __RegularValue) {
+    pub(crate) fn push(&mut self, value: RegularValue) {
         self.values.push(value);
     }
-    pub(crate) fn pop(&mut self) -> __RegularValue {
+    pub(crate) fn pop(&mut self) -> RegularValue {
         self.values.pop().unwrap()
     }
 
-    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = __RegularValue> + 'a {
+    pub(crate) fn drain<'a>(&'a mut self, k: u8) -> impl Iterator<Item = RegularValue> + 'a {
         self.values.drain((self.len() - k as usize)..)
     }
 

@@ -8,7 +8,7 @@ use std::panic::catch_unwind;
 #[derive(Clone, Copy)]
 #[repr(C)]
 pub struct __ResolvedLinkage {
-    pub wrapper: unsafe fn(&mut [__RegularValue], Option<&dyn __EvalContext>) -> __RegularValue,
+    pub wrapper: unsafe fn(&mut [RegularValue], Option<&dyn __EvalContext>) -> RegularValue,
     // pub opt_thick_fp: __OptVirtualThickFp,
     pub dev_src: __StaticDevSource,
 }
@@ -30,8 +30,8 @@ impl __ResolvedLinkage {
     pub fn call_catch_unwind(
         self,
         opt_ctx: Option<&dyn __EvalContext>,
-        mut arguments: Vec<__RegularValue>,
-    ) -> __VMResult<__RegularValue> {
+        mut arguments: Vec<RegularValue>,
+    ) -> __VMResult<RegularValue> {
         catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
             if let Some(msg) = e.downcast_ref::<String>() {
                 __VMError::linkage_call_error(msg)
@@ -46,8 +46,8 @@ impl __ResolvedLinkage {
     pub fn call(
         self,
         opt_ctx: Option<&dyn __EvalContext>,
-        arguments: &mut [__RegularValue],
-    ) -> __RegularValue {
+        arguments: &mut [RegularValue],
+    ) -> RegularValue {
         unsafe { (self.wrapper)(arguments, opt_ctx) }
     }
 }

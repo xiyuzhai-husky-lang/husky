@@ -2,41 +2,48 @@ mod libgen;
 mod mapgen;
 
 use crate::*;
+use husky_hir_deps::HasDeps;
 use husky_vfs::CratePath;
 
 use self::libgen::generate_library;
 use self::mapgen::generate_map;
 
-pub struct MonoLinkageTableInternal<Linkage: IsLinkage> {
+pub struct MonoLinkTimeInternal<ComptimeDb, Linkage>
+where
+    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Linkage: IsLinkage,
+{
     target_crate: CratePath,
     library_storage: MonoLibraryStorage,
-    map: HashMap<HirLinkageKey, (HirLinkageDeps, Linkage)>,
+    map: HashMap<LinkagePath, (HirLinkageDeps, Linkage)>,
+    _marker: PhantomData<ComptimeDb>,
 }
 
 pub struct MonoLibraryStorage {}
 
-impl<Linkage: IsLinkage> MonoLinkageTableInternal<Linkage> {
-    pub(crate) fn new(target_crate: CratePath, db: &dyn HirDepsDb) -> Self {
+impl<ComptimeDb, Linkage: IsLinkage> MonoLinkTimeInternal<ComptimeDb, Linkage>
+where
+    ComptimeDb: HirDepsDb + UnwindSafe + RefUnwindSafe,
+    Linkage: IsLinkage,
+{
+    pub(crate) fn new(target_crate: CratePath, db: &ComptimeDb) -> Self {
         let library_storage = generate_library(target_crate, db);
         let map = generate_map(target_crate, &library_storage, db);
         Self {
             target_crate,
             library_storage,
             map,
+            _marker: PhantomData,
         }
     }
 
-    pub(crate) fn get_linkage(&self, key: HirLinkageKey, db: &dyn HirDepsDb) -> Option<Linkage> {
+    pub(crate) fn get_linkage(&self, key: LinkagePath, db: &ComptimeDb) -> Option<Linkage> {
         let (deps, linkage) = self.map.get(&key).copied().expect("todo");
         (deps == key.deps(db)).then_some(linkage)
     }
 
     /// still need the key to avoid redundant reload when two attempts simultaneously want to lock
-    pub(crate) fn get_linkage_with_reload(
-        &mut self,
-        key: HirLinkageKey,
-        db: &dyn HirDepsDb,
-    ) -> Linkage {
+    pub(crate) fn get_linkage_with_reload(&mut self, key: LinkagePath, db: &ComptimeDb) -> Linkage {
         let (deps, linkage) = self.map.get(&key).copied().expect("todo");
         if deps == key.deps(db) {
             return linkage;

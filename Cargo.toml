@@ -13,6 +13,8 @@ members = [
     "crates/semantics/*",
     "crates/kernel/*",
     "crates/lex/*",
+    "crates/linkage/*",
+    "crates/linktime/*",
     "crates/robotics/*",
     "crates/runtime/*",
     "crates/syntax/*",
