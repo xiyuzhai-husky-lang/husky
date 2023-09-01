@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
-            Unveiler::Unique {
+            Unveiler::UniqueFullyInstantiated {
                 opd_ty,
                 unveil_output_ty,
                 ..
@@ -23,6 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 Ok(unveil_output_ty.into())
             }
+            Unveiler::UniquePartiallyInstanted {} => todo!(),
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
@@ -35,11 +36,12 @@ impl<'a> ExprTypeEngine<'a> {
 
 pub(crate) enum Unveiler {
     Uninitialized,
-    Unique {
+    UniqueFullyInstantiated {
         opd_ty: EtherealTerm,
         unveil_output_ty: EtherealTerm,
         unveil_output_ty_final_destination: FinalDestination,
     },
+    UniquePartiallyInstanted {},
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
     ErrEtherealSignature(EtherealSignatureError),
@@ -78,7 +80,7 @@ impl Unveiler {
                         .try_into_signature(db)
                         .expect("no generic parameters for Unveil::Output");
                     let unveil_output_ty = associated_output_signature.ty_term();
-                    JustOk(Unveiler::Unique {
+                    JustOk(Unveiler::UniqueFullyInstantiated {
                         opd_ty: impl_block_signature
                             .trai()
                             .application_expansion(db)
@@ -87,8 +89,7 @@ impl Unveiler {
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
                     })
                 } else {
-                    p!(template.debug(db));
-                    todo!()
+                    JustOk(Unveiler::UniquePartiallyInstanted {})
                 }
             }
             _ => todo!(),

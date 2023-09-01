@@ -13,7 +13,6 @@ pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pr
     }
     VecPairMap::from_iter_assuming_no_repetitions(
         gen_reserved_cowords![
-            Keyword::Main,
             Keyword::Use,
             Keyword::Mod,
             Keyword::Trait,

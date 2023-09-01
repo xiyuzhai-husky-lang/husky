@@ -2,6 +2,16 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
+                TypePath(`malamute::Class`, `Enum`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`independent Type -> Type`),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
                 TypePath(`malamute::OneVsAll`, `Enum`),
             ),
         ),

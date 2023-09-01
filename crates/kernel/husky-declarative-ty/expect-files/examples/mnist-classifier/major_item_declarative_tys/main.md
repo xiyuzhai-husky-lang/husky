@@ -69,4 +69,14 @@
             DeclarativeTerm(`core::basic::Module`),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::main`, `Val`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`{val_type} malamute::Class mnist::MnistLabel`),
+        ),
+    ),
 ]

@@ -1,6 +1,13 @@
+pub enum Class<Label>
+| Within(Label)
+| Other
+
 pub enum OneVsAll<Label, const label: Label>
 | Yes
 | No
+
+impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+    type Output = ()
 
 pub enum OneVsAllResult<Label, const label: Label>
 | ConfidentYes
