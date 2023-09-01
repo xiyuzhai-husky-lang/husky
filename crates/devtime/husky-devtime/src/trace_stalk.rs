@@ -8,7 +8,7 @@ impl Devtime {
         &self.state.trace_stalks[&key]
     }
 
-    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> __VMResult<()> {
+    pub(crate) fn gen_trace_stalk(&mut self, trace_id: TraceId) -> VMResult<()> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();
         let key = TraceStalkKey::from_trace_data(sample_id, &self.trace(trace_id).raw_data);
         if !self.state.trace_stalks.contains(&key) {
@@ -63,7 +63,7 @@ impl Devtime {
         // }
     }
 
-    pub(crate) fn update_trace_stalks(&mut self) -> __VMResult<()> {
+    pub(crate) fn update_trace_stalks(&mut self) -> VMResult<()> {
         if let Some(sample_id) = self.state.presentation().opt_sample_id() {
             // ad hoc
             for root_trace_id in self.root_traces() {
@@ -77,7 +77,7 @@ impl Devtime {
         &mut self,
         sample_id: SampleId,
         trace_id: TraceId,
-    ) -> __VMResult<()> {
+    ) -> VMResult<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -116,7 +116,7 @@ impl Devtime {
 
     fn trace_stalk_from_result(
         &self,
-        result: __VMResult<RegularValue>,
+        result: VMResult<RegularValue>,
         ty: EtherealTerm,
     ) -> TraceStalk {
         TraceStalk {
@@ -134,7 +134,7 @@ impl Devtime {
 
     pub(crate) fn trace_token_from_result(
         &self,
-        result: __VMResult<RegularValue>,
+        result: VMResult<RegularValue>,
         ty: EtherealTerm,
     ) -> TraceTokenData {
         match result {

@@ -101,7 +101,7 @@ impl Devtime {
         // }
     }
 
-    pub(crate) fn update_figure_controls(&mut self) -> __VMResult<()> {
+    pub(crate) fn update_figure_controls(&mut self) -> VMResult<()> {
         todo!()
         // if let Some(active_trace_id) = self.opt_active_trace_id() {
         //     self.update_figure_control(active_trace_id)?;

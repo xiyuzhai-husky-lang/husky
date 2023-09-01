@@ -13,7 +13,7 @@ use std::{panic::catch_unwind, sync::Arc};
 use super::Evaluator;
 
 impl<'temp> Evaluator<'temp> {
-    pub(crate) fn eval_expr(&self, expr: ValExpr) -> __VMResult<RegularValue> {
+    pub(crate) fn eval_expr(&self, expr: ValExpr) -> VMResult<RegularValue> {
         todo!()
         // let result = match expr.data(self.db()) {
         //     FeatureLazyExprVariant::Literal(ref value) => Ok(value.clone()),
@@ -146,7 +146,7 @@ impl<'temp> Evaluator<'temp> {
         // }
     }
 
-    pub(crate) fn eval_expr_cached(&self, expr: ValExpr) -> __VMResult<RegularValue> {
+    pub(crate) fn eval_expr_cached(&self, expr: ValExpr) -> VMResult<RegularValue> {
         todo!()
         // match expr.variant {
         //     FeatureLazyExprVariant::EntityFeature {
@@ -167,7 +167,7 @@ impl<'temp> Evaluator<'temp> {
         field_binding: Binding,
         field_ident: husky_text::RangedIdent,
         expr: ValExpr,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         todo!()
         // if let Some(linkage) = opt_linkage {
         //     let this_value = self.eval_feature_repr(this)?;
@@ -256,7 +256,7 @@ impl<'temp> Evaluator<'temp> {
         opt_instrns: &Option<Instructions>,
         opt_linkage: Option<__LinkageGroup>,
         arguments: &[ValExpr],
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         let db = self.db;
         let vm_config = self.vm_config();
         let values = arguments

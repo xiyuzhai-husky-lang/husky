@@ -9,7 +9,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_trace_protocol::{SampleId, VisualData};
 
 use husky_val_repr::{db::ValReprDb, *};
-use husky_vm::{RegularValue, VMConfig, __VMResult};
+use husky_vm::{RegularValue, VMConfig, VMResult};
 use std::sync::{Arc, Mutex};
 
 pub trait Runtime {
@@ -39,11 +39,11 @@ pub trait Runtime {
     // Some(self) otherwise
     fn opt_static_husky_feature_eval(&self) -> Option<&dyn Runtime>;
 
-    fn visualize_feature(&self, this: ValRepr, sample_id: SampleId) -> __VMResult<VisualData> {
+    fn visualize_feature(&self, this: ValRepr, sample_id: SampleId) -> VMResult<VisualData> {
         self.evaluator(sample_id).eval_visual(this)
     }
 
-    fn eval_feature_repr(&self, repr: &ValRepr, sample_id: SampleId) -> __VMResult<RegularValue> {
+    fn eval_feature_repr(&self, repr: &ValRepr, sample_id: SampleId) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_feature_repr(repr)
     }
 
@@ -51,7 +51,7 @@ pub trait Runtime {
         &self,
         repr: &ValRepr,
         sample_id: SampleId,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_feature_repr_cached(repr)
     }
 
@@ -59,11 +59,11 @@ pub trait Runtime {
         &self,
         block: &ValBlock,
         sample_id: SampleId,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_lazy_block(block)
     }
 
-    fn eval_feature_stmt(&self, stmt: &ValStmt, sample_id: SampleId) -> __VMResult<RegularValue> {
+    fn eval_feature_stmt(&self, stmt: &ValStmt, sample_id: SampleId) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_stmt(stmt)
     }
 
@@ -71,11 +71,11 @@ pub trait Runtime {
         &self,
         branch: ValBranch,
         sample_id: SampleId,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_val_branch(branch)
     }
 
-    fn eval_feature_expr(&self, expr: ValExpr, sample_id: SampleId) -> __VMResult<RegularValue> {
+    fn eval_feature_expr(&self, expr: ValExpr, sample_id: SampleId) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_expr(expr)
     }
 
@@ -83,7 +83,7 @@ pub trait Runtime {
         &self,
         expr: ValExpr,
         sample_id: SampleId,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         self.evaluator(sample_id).eval_expr_cached(expr)
     }
 
@@ -91,7 +91,7 @@ pub trait Runtime {
         &self,
         opt_arrival_indicator: Option<&ValDomain>,
         sample_id: SampleId,
-    ) -> __VMResult<bool> {
+    ) -> VMResult<bool> {
         self.evaluator(sample_id)
             .eval_opt_domain_indicator_cached(opt_arrival_indicator)
     }

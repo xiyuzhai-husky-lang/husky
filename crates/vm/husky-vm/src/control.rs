@@ -14,8 +14,8 @@ impl Default for VMControl {
     }
 }
 
-impl From<__VMResult<()>> for VMControl {
-    fn from(result: __VMResult<()>) -> Self {
+impl From<VMResult<()>> for VMControl {
+    fn from(result: VMResult<()>) -> Self {
         match result {
             Ok(_) => Default::default(),
             Err(e) => Self::Err(e),
@@ -23,8 +23,8 @@ impl From<__VMResult<()>> for VMControl {
     }
 }
 
-impl From<__VMResult<VMControl>> for VMControl {
-    fn from(result: __VMResult<VMControl>) -> Self {
+impl From<VMResult<VMControl>> for VMControl {
+    fn from(result: VMResult<VMControl>) -> Self {
         match result {
             Ok(control) => control,
             Err(e) => Self::Err(e),

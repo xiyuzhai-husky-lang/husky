@@ -68,4 +68,4 @@ impl std::fmt::Display for __VMError {
     }
 }
 
-pub type __VMResult<T> = Result<T, __VMError>;
+pub type VMResult<T> = Result<T, __VMError>;

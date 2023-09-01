@@ -20,7 +20,7 @@ impl Devtime {
         // }
     }
 
-    fn try_update(&mut self) -> __VMResult<()> {
+    fn try_update(&mut self) -> VMResult<()> {
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
         self.update_trace_stalks()?;

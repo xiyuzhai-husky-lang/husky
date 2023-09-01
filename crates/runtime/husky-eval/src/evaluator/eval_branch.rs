@@ -2,7 +2,7 @@ use super::*;
 use crate::*;
 
 impl<'a> Evaluator<'a> {
-    pub(crate) fn eval_val_branch(&self, branch: ValBranch) -> __VMResult<RegularValue> {
+    pub(crate) fn eval_val_branch(&self, branch: ValBranch) -> VMResult<RegularValue> {
         todo!()
         // match branch.variant {
         //     FeatureLazyBranchVariant::If { ref condition } => {

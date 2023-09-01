@@ -1,14 +1,14 @@
 use crate::*;
 
 impl Devtime {
-    pub(crate) fn update_trace_statss(&mut self) -> __VMResult<()> {
+    pub(crate) fn update_trace_statss(&mut self) -> VMResult<()> {
         for root_trace_id in self.root_traces() {
             self.update_trace_statss_within_trace(root_trace_id)?;
         }
         Ok(())
     }
 
-    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> __VMResult<()> {
+    fn update_trace_statss_within_trace(&mut self, trace_id: TraceId) -> VMResult<()> {
         let trace_node_data = self.trace_node_data(trace_id);
         let expanded = trace_node_data.expanded;
         let trace_raw_data = &trace_node_data.trace_data;
@@ -31,7 +31,7 @@ impl Devtime {
         Ok(())
     }
 
-    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> __VMResult<()> {
+    fn gen_trace_stats(&mut self, trace_id: TraceId, key: TraceStatsKey) -> VMResult<()> {
         todo!()
         // let (opt_stats, result) = self
         //     .trace(trace_id)
@@ -42,7 +42,7 @@ impl Devtime {
         // self.updating_t(result)
     }
 
-    fn updating_t(&self, result: __VMResult<()>) -> __VMResult<()> {
+    fn updating_t(&self, result: VMResult<()>) -> VMResult<()> {
         match result {
             Ok(()) => Ok(()),
             Err(e) => match e.variant() {
