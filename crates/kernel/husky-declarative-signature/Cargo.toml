@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 smallvec.workspace = true
-either = "1.8.1"
+either.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }

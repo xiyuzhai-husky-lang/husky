@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 derive-getters = "0.2.0"
-either = "1.8.1"
+either.workspace = true
 smallvec.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
