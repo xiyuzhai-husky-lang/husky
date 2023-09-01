@@ -11,7 +11,7 @@ use std::{
     ops::{Add, Sub},
 };
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Arena<T> {
     data: Vec<T>,
 }
@@ -220,7 +220,15 @@ impl<T> PartialEq for ArenaIdxRange<T> {
         self.start == other.start && self.end == other.end
     }
 }
+
 impl<T> Eq for ArenaIdxRange<T> {}
+
+impl<T> std::hash::Hash for ArenaIdxRange<T> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.start.hash(state);
+        self.end.hash(state);
+    }
+}
 
 impl<T> IntoIterator for ArenaIdxRange<T> {
     type Item = ArenaIdx<T>;

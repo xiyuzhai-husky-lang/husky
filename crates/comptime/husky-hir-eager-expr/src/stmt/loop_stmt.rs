@@ -2,7 +2,7 @@ use husky_syn_expr::SynForextParticulars;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerForBetweenParticulars {
     pub frame_var_ident: Ident,
@@ -20,7 +20,7 @@ impl ToHirEager for SynForBetweenParticulars {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = HirEagerExprDb)]
 pub struct HirEagerForBetweenRange {
     pub initial_boundary: HirEagerForBetweenLoopBoundary,
@@ -40,7 +40,7 @@ impl ToHirEager for SynForBetweenRange {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerForBetweenLoopBoundary {
     pub bound_expr: Option<HirEagerExprIdx>,
     pub kind: LoopBoundaryKind,
@@ -57,7 +57,7 @@ impl ToHirEager for SynForBetweenLoopBoundary {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerForExtParticulars {}
 
 impl ToHirEager for SynForextParticulars {

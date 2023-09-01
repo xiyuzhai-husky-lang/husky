@@ -3,7 +3,7 @@ use husky_syn_expr::{BeVariablesPattern, LetVariableDecls};
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerLetVariablesPattern {
     pattern_expr_idx: HirEagerPatternExprIdx,
     // variables: CurrentHirEagerSymbolIdxRange,
@@ -25,7 +25,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerBeVariablesPattern {}
 
 impl ToHirEager for BeVariablesPattern {

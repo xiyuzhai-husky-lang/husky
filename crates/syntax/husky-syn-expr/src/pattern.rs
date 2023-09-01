@@ -13,7 +13,7 @@ use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{StreamParser, TryParseOptionFromStream};
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LiteralData {
     NotNanFloat,
     NotNanF32(NotNan<f32>),

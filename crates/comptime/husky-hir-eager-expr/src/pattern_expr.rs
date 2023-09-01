@@ -1,7 +1,7 @@
 use crate::*;
 use husky_syn_expr::{LiteralData, SynPatternExpr, SynPatternExprIdx};
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerPatternExpr {
     /// example: `1`
     /// todo: change this to primitive value data

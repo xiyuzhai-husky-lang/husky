@@ -2,7 +2,7 @@ use husky_syn_expr::{SynElifBranch, SynElseBranch, SynIfBranch};
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerIfBranch {
     pub condition: HirEagerExprIdx,
     pub stmts: HirEagerStmtIdxRange,
@@ -36,7 +36,7 @@ impl ToHirEager for SynIfBranch {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerElifBranch {
     pub condition: HirEagerExprIdx,
     pub stmts: HirEagerStmtIdxRange,
@@ -71,7 +71,7 @@ impl ToHirEager for SynElifBranch {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerElseBranch {
     pub stmts: HirEagerStmtIdxRange,
 }
