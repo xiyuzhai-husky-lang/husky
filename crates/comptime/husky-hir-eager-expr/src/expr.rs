@@ -20,7 +20,7 @@ pub type HirEagerExprIdx = ArenaIdx<HirEagerExpr>;
 pub type HirEagerExprIdxRange = ArenaIdxRange<HirEagerExpr>;
 pub type HirEagerExprMap<V> = ArenaMap<HirEagerExpr, V>;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerExpr {
     Literal(TermLiteral),
     PrincipalEntityPath(PrincipalEntityPath),
@@ -96,7 +96,7 @@ pub enum HirEagerExpr {
     AssociatedFn,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerGenericArgumentList {/*todo */}
 
 #[cfg(feature = "rust-syn-gen")]

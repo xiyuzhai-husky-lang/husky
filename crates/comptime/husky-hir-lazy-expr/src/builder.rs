@@ -101,6 +101,11 @@ impl<'a> HirLazyExprBuilder<'a> {
     }
 
     pub fn finish(self) -> HirLazyExprRegion {
-        HirLazyExprRegion::new(self.db)
+        HirLazyExprRegion::new(
+            self.db,
+            self.expr_arena,
+            self.stmt_arena,
+            self.pattern_expr_arena,
+        )
     }
 }

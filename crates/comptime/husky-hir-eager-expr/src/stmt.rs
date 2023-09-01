@@ -12,7 +12,7 @@ use husky_syn_expr::{
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::debug::ExpectWithDb;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmt {
     Let {
         pattern: HirEagerLetVariablesPattern,

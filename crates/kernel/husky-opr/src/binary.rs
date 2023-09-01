@@ -8,7 +8,7 @@ pub use self::logic::*;
 pub use self::pure_closed::*;
 pub use self::shift::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum BinaryOpr {
     Closed(BinaryClosedOpr),
     Shift(BinaryShiftOpr),

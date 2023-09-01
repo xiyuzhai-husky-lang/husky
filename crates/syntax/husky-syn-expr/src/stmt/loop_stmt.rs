@@ -165,7 +165,7 @@ impl SynForextParticulars {
 }
 
 /// loop boundary kind
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LoopBoundaryKind {
     UpperOpen,
     UpperClosed,
@@ -190,7 +190,7 @@ impl LoopBoundaryKind {
 }
 
 /// loop step
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LoopStep {
     Constant(i32),
 }

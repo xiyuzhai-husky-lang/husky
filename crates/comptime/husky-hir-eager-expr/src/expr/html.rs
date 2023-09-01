@@ -2,7 +2,7 @@ use husky_syn_expr::SynHtmlArgumentExpr;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerHtmlArgumentExpr {
     property_ident: Ident,
     expr: HirEagerExprIdx,

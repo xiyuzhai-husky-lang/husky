@@ -106,6 +106,11 @@ impl<'a> HirEagerExprBuilder<'a> {
     }
 
     pub fn finish(self) -> HirEagerExprRegion {
-        HirEagerExprRegion::new(self.db)
+        HirEagerExprRegion::new(
+            self.db,
+            self.expr_arena,
+            self.stmt_arena,
+            self.pattern_expr_arena,
+        )
     }
 }
