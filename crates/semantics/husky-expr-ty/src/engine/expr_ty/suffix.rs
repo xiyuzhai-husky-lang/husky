@@ -86,7 +86,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
-            Unveiler::Unique {
+            Unveiler::UniqueFullyInstantiated {
                 opd_ty,
                 unveil_output_ty,
                 unveil_output_ty_final_destination,
@@ -114,6 +114,7 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::AnyDerived => todo!(),
                 FinalDestination::Ritchie(_) => todo!(),
             },
+            Unveiler::UniquePartiallyInstanted {} => todo!(),
             Unveiler::Nothing => todo!(),
             Unveiler::ErrUnableToInferReturnTypeForUnveiling
             | Unveiler::ErrEtherealSignature(_) => {

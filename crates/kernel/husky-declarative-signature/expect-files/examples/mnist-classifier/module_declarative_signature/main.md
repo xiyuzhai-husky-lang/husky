@@ -69,4 +69,22 @@
             SignatureTemplate::Submodule,
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::main`, `Val`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::MajorItem(
+                MajorItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValFugitiveDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`malamute::Class mnist::MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]

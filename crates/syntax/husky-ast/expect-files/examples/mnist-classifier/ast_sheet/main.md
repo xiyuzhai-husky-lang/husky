@@ -472,13 +472,51 @@ Ok(
                         ),
                     },
                 },
-                Ast::Main {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    body: FugitiveBody {
-                        ast_idx_range: ArenaIdxRange(
-                            1..11,
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    item_kind: MajorItem {
+                        module_item_kind: Fugitive(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `main`,
+                        token_idx: TokenIdx(
+                            65,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            66,
+                        ),
+                        drained: false,
+                    },
+                    block: Fugitive {
+                        path: FugitivePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                        body: Some(
+                            FugitiveBody {
+                                ast_idx_range: ArenaIdxRange(
+                                    1..11,
+                                ),
+                            },
                         ),
                     },
                 },

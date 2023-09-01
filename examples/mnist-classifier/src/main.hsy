@@ -18,7 +18,7 @@ use mnist::*
 task:
     new_binary_dataset()
 
-main:
+val main: Class MnistLabel =
     is_one?
     is_six?
     is_zero?

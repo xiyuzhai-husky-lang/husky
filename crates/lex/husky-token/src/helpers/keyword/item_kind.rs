@@ -194,7 +194,6 @@ where
                 })))
             }
             Keyword::Stmt(_) => todo!(),
-            Keyword::Main => Ok(None),
             Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Mod(ModToken { token_idx }))),
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,

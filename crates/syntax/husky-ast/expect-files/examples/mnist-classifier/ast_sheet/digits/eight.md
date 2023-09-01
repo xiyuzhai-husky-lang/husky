@@ -177,7 +177,7 @@ Ok(
                     block: Fugitive {
                         path: FugitivePath(
                             Id {
-                                value: 10,
+                                value: 11,
                             },
                         ),
                         body: Some(
@@ -248,7 +248,7 @@ Ok(
                     block: Fugitive {
                         path: FugitivePath(
                             Id {
-                                value: 11,
+                                value: 12,
                             },
                         ),
                         body: Some(
@@ -296,7 +296,7 @@ Ok(
                     block: Fugitive {
                         path: FugitivePath(
                             Id {
-                                value: 12,
+                                value: 13,
                             },
                         ),
                         body: Some(
