@@ -47,7 +47,7 @@ pub fn item_path_declarative_ty(
                 }
             },
             MajorItemPath::Trait(path) => trai_path_declarative_ty(db, path),
-            MajorItemPath::Fugitive(path) => form_path_declarative_ty(db, path),
+            MajorItemPath::Fugitive(path) => fugitive_path_declarative_ty(db, path),
         },
         ItemPath::AssociatedItem(_) => todo!(),
         ItemPath::TypeVariant(_) => todo!(),

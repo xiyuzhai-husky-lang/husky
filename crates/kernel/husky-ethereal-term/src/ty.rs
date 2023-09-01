@@ -56,7 +56,7 @@ impl HasType for TraitPath {
 
 impl HasType for FugitivePath {
     fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_declarative(db, form_path_declarative_ty(db, self)?)
+        EtherealTerm::ty_from_declarative(db, fugitive_path_declarative_ty(db, self)?)
     }
 }
 

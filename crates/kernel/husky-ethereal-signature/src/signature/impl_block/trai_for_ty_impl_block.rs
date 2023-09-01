@@ -131,20 +131,24 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
-    /// `Nothing` means template matching failed
+    /// returns `Nothing` when template matching failed
     #[inline(always)]
     pub fn instantiate_ty(
         self,
         db: &dyn EtherealSignatureDb,
-        arguments: &[EtherealTerm],
-        ty_target: EtherealTerm,
+        target_ty_arguments: &[EtherealTerm],
+        target_ty_term: EtherealTerm,
     ) -> EtherealSignatureMaybeResult<
         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     > {
         let mut instantiation = self.template_parameters(db).instantiation();
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
-                match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {
+                match instantiation.try_add_rules_from_application(
+                    self_ty_term,
+                    target_ty_arguments,
+                    db,
+                ) {
                     JustOk(_) => JustOk(
                         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
                             db,
@@ -158,7 +162,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
                 unsafe {
-                    instantiation.add_self_ty_parameter(symbol, ty_target);
+                    instantiation.add_self_ty_parameter_mapping(symbol, target_ty_term);
                 }
                 JustOk(
                     TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
@@ -184,6 +188,24 @@ impl TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
             trai: template.trai(db).instantiate(db, &instantiation),
             self_ty: template.self_ty(db).instantiate(db, &instantiation),
         })
+    }
+
+    /// normally further instantiation comes from methods or associated fns/gns/functions
+    /// but this serves as a useful shortcut for traits like `Unveil`
+    /// return `Nothing` when template matching failed
+    pub fn instantiate_trai(
+        self,
+        target_trai_arguments: &[EtherealTerm],
+        db: &dyn EtherealSignatureDb,
+    ) -> EtherealSignatureMaybeResult<Self> {
+        let mut partial_instantiation = self.partial_instantiation(db);
+        let template = self.template(db);
+        partial_instantiation.try_add_rules_from_application(
+            template.trai(db),
+            target_trai_arguments,
+            db,
+        )?;
+        JustOk(Self::new(db, template, partial_instantiation))
     }
 
     /// for better caching, many common traits use "Output" as an associated

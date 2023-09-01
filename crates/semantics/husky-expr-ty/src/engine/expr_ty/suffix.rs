@@ -4,6 +4,7 @@ mod unwrap;
 pub(crate) use self::unveil::*;
 
 use super::*;
+use maybe_result::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_suffix_expr_ty(
@@ -114,7 +115,52 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::AnyDerived => todo!(),
                 FinalDestination::Ritchie(_) => todo!(),
             },
-            Unveiler::UniquePartiallyInstanted {} => todo!(),
+            Unveiler::UniquePartiallyInstanted { template } => {
+                let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+                    todo!()
+                };
+                match opd_ty.base_ty_data(self) {
+                    FluffyBaseTypeData::TypeOntology {
+                        ty_path,
+                        refined_ty_path: Left(PreludeTypePath::Indirection(_)),
+                        ty_arguments,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FluffyBaseTypeData::TypeOntology {
+                        ty_path,
+                        refined_ty_path,
+                        ty_arguments,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FluffyBaseTypeData::Curry {
+                        curry_kind,
+                        variance,
+                        parameter_variable,
+                        parameter_ty,
+                        return_ty,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FluffyBaseTypeData::Hole(_, _) => todo!(),
+                    FluffyBaseTypeData::Category(_) => todo!(),
+                    FluffyBaseTypeData::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys,
+                        return_ty,
+                    } => todo!(),
+                    FluffyBaseTypeData::Symbol { term } => todo!(),
+                }
+                // match opd_ty.base_resolved(self) {
+                //     FluffyTermBase::Ethereal(opd_ty) => {
+                //         match template.instantiate_trai(&[opd_ty], self.db) {
+                //             JustOk(_) => todo!(),
+                //             JustErr(_) => todo!(),
+                //             Nothing => todo!(),
+                //         }
+                //     }
+                //     FluffyTermBase::Solid(_) => todo!(),
+                //     FluffyTermBase::Hollow(_) => todo!(),
+                // }
+            }
             Unveiler::Nothing => todo!(),
             Unveiler::ErrUnableToInferReturnTypeForUnveiling
             | Unveiler::ErrEtherealSignature(_) => {

@@ -33,7 +33,7 @@ pub struct DeclarativeTypeJar(
     ty_ontology_path_declarative_ty,
     ty_instance_constructor_path_declarative_ty,
     trai_path_declarative_ty,
-    form_path_declarative_ty,
+    fugitive_path_declarative_ty,
     ty_template_parameter_variances,
     ty_template_parameter_variance_reprs,
     declarative_ty_item_variance_crate_dependencies,

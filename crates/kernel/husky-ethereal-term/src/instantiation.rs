@@ -16,7 +16,7 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
-    pub unsafe fn add_self_ty_parameter(
+    pub unsafe fn add_self_ty_parameter_mapping(
         &mut self,
         symbol: EtherealTermSymbol,
         mapped: EtherealTerm,
@@ -29,9 +29,9 @@ impl EtherealTermPartialInstantiation {
     /// JustErr(_) means something is wrong
     pub fn try_add_rules_from_application(
         &mut self,
-        db: &dyn EtherealTermDb,
         src: EtherealTerm,
         dst_arguments: &[EtherealTerm],
+        db: &dyn EtherealTermDb,
     ) -> EtherealTermMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
@@ -41,7 +41,7 @@ impl EtherealTermPartialInstantiation {
             src_application_expansion.arguments(db).iter().copied(),
             dst_arguments.iter().copied(),
         )
-        .try_for_each(|(src, dst)| self.try_add_rule(src, dst.into()))?;
+        .try_for_each(|(src, dst)| self.try_add_rule(src, dst.into(), db))?;
         JustOk(())
     }
 
@@ -52,6 +52,7 @@ impl EtherealTermPartialInstantiation {
         &mut self,
         src: EtherealTerm,
         dst: EtherealTerm,
+        db: &dyn EtherealTermDb,
     ) -> EtherealTermMaybeResult<()> {
         if src == dst {
             return JustOk(());
@@ -84,7 +85,28 @@ impl EtherealTermPartialInstantiation {
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Application(_) => {
+                let src_application_expansion = src.application_expansion(db);
+                let dst_application_expansion = dst.application_expansion(db);
+                if src_application_expansion.function() != dst_application_expansion.function() {
+                    p!(
+                        src_application_expansion.function().debug(db),
+                        dst_application_expansion.function().debug(db)
+                    );
+                    todo!()
+                }
+                let src_application_arguments = src_application_expansion.arguments(db);
+                let dst_application_arguments = dst_application_expansion.arguments(db);
+                if src_application_arguments.len() != dst_application_arguments.len() {
+                    todo!()
+                }
+                for (&src_arg, &dst_arg) in
+                    std::iter::zip(src_application_arguments, dst_application_arguments)
+                {
+                    self.try_add_rule(src_arg, dst_arg, db)?
+                }
+                JustOk(())
+            }
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
