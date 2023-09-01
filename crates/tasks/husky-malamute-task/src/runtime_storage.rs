@@ -18,6 +18,12 @@ pub struct MlDevRuntimeStorage {
     map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(HirValDeps, VMResult<RegularValue>)>>>>,
 }
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+pub struct MlDevRuntimeStorageKey {
+    val: Val,
+    input: Option<DevInput>,
+}
+
 impl MlDevRuntimeStorage {
     pub fn get_or_try_init<E>(
         &self,
@@ -41,10 +47,4 @@ impl MlDevRuntimeStorage {
         };
         share(&opt_stored_value.as_ref().expect("should be some").1)
     }
-}
-
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub struct MlDevRuntimeStorageKey {
-    val: Val,
-    input: Option<DevInput>,
 }
