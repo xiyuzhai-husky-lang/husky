@@ -23,7 +23,10 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 Ok(unveil_output_ty.into())
             }
-            Unveiler::UniquePartiallyInstanted {} => todo!(),
+            Unveiler::UniquePartiallyInstanted { template } => {
+                template;
+                todo!()
+            }
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
@@ -41,7 +44,9 @@ pub(crate) enum Unveiler {
         unveil_output_ty: EtherealTerm,
         unveil_output_ty_final_destination: FinalDestination,
     },
-    UniquePartiallyInstanted {},
+    UniquePartiallyInstanted {
+        template: TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
+    },
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
     ErrEtherealSignature(EtherealSignatureError),
@@ -89,7 +94,7 @@ impl Unveiler {
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
                     })
                 } else {
-                    JustOk(Unveiler::UniquePartiallyInstanted {})
+                    JustOk(Unveiler::UniquePartiallyInstanted { template })
                 }
             }
             _ => todo!(),

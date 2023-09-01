@@ -4,59 +4,59 @@ Ok(
             data: [
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        1,
-                    ),
-                    variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                        ident: `Within`,
-                    },
-                    vertical_token: VerticalToken(
-                        TokenIdx(
-                            6,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `Within`,
-                        token_idx: TokenIdx(
-                            7,
-                        ),
-                    },
-                    state_after: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            8,
-                        ),
-                        drained: false,
-                    },
-                },
-                Ast::TypeVariant {
-                    token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                        ident: `Within`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            15,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `Within`,
+                        token_idx: TokenIdx(
+                            16,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            17,
+                        ),
+                        drained: false,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::Class`, `Enum`),
                         ident: `Other`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            11,
+                            20,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Other`,
                         token_idx: TokenIdx(
-                            12,
+                            21,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            13,
+                            22,
                         ),
                         drained: true,
                     },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        6,
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -64,25 +64,25 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            24,
+                            42,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Yes`,
                         token_idx: TokenIdx(
-                            25,
+                            43,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            26,
+                            44,
                         ),
                         drained: true,
                     },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        7,
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -90,25 +90,25 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            26,
+                            44,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `No`,
                         token_idx: TokenIdx(
-                            27,
+                            45,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            28,
+                            46,
                         ),
                         drained: true,
                     },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        9,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -127,76 +127,76 @@ Ok(
                     },
                     ident_token: IdentToken {
                         ident: `Output`,
-                        token_idx: TokenIdx(
-                            50,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            51,
-                        ),
-                        drained: false,
-                    },
-                    block: AssociatedItem {
-                        body: None,
-                    },
-                },
-                Ast::TypeVariant {
-                    token_group_idx: TokenGroupIdx(
-                        9,
-                    ),
-                    variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        ident: `ConfidentYes`,
-                    },
-                    vertical_token: VerticalToken(
-                        TokenIdx(
-                            65,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `ConfidentYes`,
-                        token_idx: TokenIdx(
-                            66,
-                        ),
-                    },
-                    state_after: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            67,
-                        ),
-                        drained: true,
-                    },
-                },
-                Ast::TypeVariant {
-                    token_group_idx: TokenGroupIdx(
-                        10,
-                    ),
-                    variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        ident: `ConfidentNo`,
-                    },
-                    vertical_token: VerticalToken(
-                        TokenIdx(
-                            67,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `ConfidentNo`,
                         token_idx: TokenIdx(
                             68,
                         ),
                     },
-                    state_after: TokenStreamState {
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             69,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `ConfidentYes`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            92,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `ConfidentYes`,
+                        token_idx: TokenIdx(
+                            93,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            94,
                         ),
                         drained: true,
                     },
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        11,
+                        13,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `ConfidentNo`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            94,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `ConfidentNo`,
+                        token_idx: TokenIdx(
+                            95,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            96,
+                        ),
+                        drained: true,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        14,
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -204,25 +204,25 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            69,
+                            96,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Unconfident`,
                         token_idx: TokenIdx(
-                            70,
+                            97,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            71,
+                            98,
                         ),
                         drained: true,
                     },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        13,
+                        16,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -242,13 +242,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
-                            94,
+                            121,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            95,
+                            122,
                         ),
                         drained: false,
                     },
@@ -256,16 +256,22 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Defn {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         0,
+                    ),
+                    ident: `derive`,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        1,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    0,
+                                    9,
                                 ),
                             },
                         },
@@ -279,13 +285,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Class`,
                         token_idx: TokenIdx(
-                            2,
+                            11,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            3,
+                            12,
                         ),
                         drained: false,
                     },
@@ -304,16 +310,22 @@ Ok(
                         ),
                     },
                 },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    ident: `derive`,
+                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        5,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    13,
+                                    31,
                                 ),
                             },
                         },
@@ -327,13 +339,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            15,
+                            33,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            16,
+                            34,
                         ),
                         drained: false,
                     },
@@ -354,7 +366,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        8,
                     ),
                     items: Some(
                         TraitForType(
@@ -366,16 +378,22 @@ Ok(
                         ),
                     ),
                 },
+                Ast::Decr {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    ident: `derive`,
+                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        11,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    54,
+                                    81,
                                 ),
                             },
                         },
@@ -389,13 +407,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAllResult`,
                         token_idx: TokenIdx(
-                            56,
+                            83,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            57,
+                            84,
                         ),
                         drained: false,
                     },
@@ -416,7 +434,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        15,
                     ),
                     items: Some(
                         TraitForType(
@@ -430,14 +448,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        14,
+                        17,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    98,
+                                    125,
                                 ),
                             },
                         },
@@ -451,13 +469,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            100,
+                            127,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            101,
+                            128,
                         ),
                         drained: false,
                     },
@@ -473,7 +491,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            9..15,
+            9..18,
         ),
         siblings: [
             ArenaIdxRange(
@@ -492,7 +510,7 @@ Ok(
                 9..9,
             ),
             ArenaIdxRange(
-                9..15,
+                9..18,
             ),
         ],
     },
