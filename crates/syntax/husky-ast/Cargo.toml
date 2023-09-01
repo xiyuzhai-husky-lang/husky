@@ -8,7 +8,7 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 lsp-types.workspace = true
-either = "1.8.1"
+either.workspace = true
 ordered-float.workspace = true
 thiserror.workspace = true
 # forks

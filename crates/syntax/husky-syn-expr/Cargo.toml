@@ -9,7 +9,7 @@ ordered-float.workspace = true
 optional = "0.5.0"
 thiserror.workspace = true
 smallvec.workspace = true
-either = "1.8.1"
+either.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction

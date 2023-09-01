@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 smallvec.workspace = true
-either = "1.8.1"
+either.workspace = true
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
@@ -16,7 +16,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 original-error = { path = "../../abstraction/original-error" }
 maybe-result = { path = "../../abstraction/maybe-result" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] } 
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }

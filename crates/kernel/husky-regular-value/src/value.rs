@@ -59,6 +59,12 @@ pub enum RegularValue {
     Intrinsic(Box<dyn __RegularStandDyn>),
 }
 
+impl RegularValue {
+    pub fn share(&self) -> RegularValue {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct StringLiteralId(NonZeroU32);
 

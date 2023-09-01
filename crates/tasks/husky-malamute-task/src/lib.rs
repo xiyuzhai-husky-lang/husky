@@ -11,7 +11,7 @@ pub struct MlTask<ComptimeDb>
 where
     ComptimeDb: HirDepsDb,
 {
-    _marker: PhantomData<(ComptimeDb)>,
+    _marker: PhantomData<(ComptimeDb,)>,
 }
 
 impl<ComptimeDb> IsTask for MlTask<ComptimeDb>
@@ -21,7 +21,7 @@ where
     type DevAscension = MlDevAscension<ComptimeDb>;
 }
 
-pub struct MlDevAscension<ComptimeDb>(PhantomData<(ComptimeDb)>)
+pub struct MlDevAscension<ComptimeDb>(PhantomData<(ComptimeDb,)>)
 where
     ComptimeDb: HirDepsDb;
 

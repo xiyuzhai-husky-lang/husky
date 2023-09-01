@@ -10,10 +10,7 @@ use husky_trace_protocol::{SampleId, VisualData};
 
 use husky_val_repr::{db::ValReprDb, *};
 use husky_vm::{RegularValue, VMConfig, __VMResult};
-use std::{
-    panic::RefUnwindSafe,
-    sync::{Arc, Mutex},
-};
+use std::sync::{Arc, Mutex};
 
 pub trait Runtime {
     fn db(&self) -> &dyn ValReprDb;
