@@ -4,37 +4,47 @@ use dashmap::{
     DashMap,
 };
 use either::*;
+use husky_hir_deps::{HasDeps, HirDepsDb, HirValDeps};
 use husky_regular_value::RegularValue;
 use husky_val::Val;
-use std::panic::AssertUnwindSafe;
+use husky_vm::VMResult;
+use std::{
+    panic::AssertUnwindSafe,
+    sync::{Arc, Mutex, OnceLock},
+};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    feature_maps: DashMap<MlDevRuntimeStorageKey, RegularValue>,
+    map: DashMap<MlDevRuntimeStorageKey, Arc<Mutex<Option<(HirValDeps, VMResult<RegularValue>)>>>>,
 }
 
 impl MlDevRuntimeStorage {
-    pub fn get_value_or_guard(
+    pub fn get_or_try_init<E>(
         &self,
         key: MlDevRuntimeStorageKey,
-    ) -> Either<RegularValue, MlDevRuntimeStorageGuard> {
-        match self.feature_maps.entry(key) {
-            Entry::Occupied(occupied_entry) => Left(occupied_entry.get().share()),
-            Entry::Vacant(vacant_entry) => Right(MlDevRuntimeStorageGuard(vacant_entry)),
+        f: impl FnOnce() -> VMResult<RegularValue>,
+        db: &dyn HirDepsDb,
+    ) -> VMResult<RegularValue> {
+        fn share(result: &VMResult<RegularValue>) -> VMResult<RegularValue> {
+            match result {
+                Ok(ref value) => Ok(value.share()),
+                Err(_) => todo!(),
+            }
         }
+
+        let mu = self.map.entry(key).or_default().clone();
+        let mut opt_stored_value = mu.lock().expect("todo");
+        let new_deps = key.val.deps(db);
+        match *opt_stored_value {
+            Some((old_deps, ref result)) if old_deps == new_deps => return share(result),
+            _ => *opt_stored_value = Some((new_deps, f())),
+        };
+        share(&opt_stored_value.as_ref().expect("should be some").1)
     }
 }
 
-pub struct MlDevRuntimeStorageGuard<'a>(VacantEntry<'a, MlDevRuntimeStorageKey, RegularValue>);
-
-#[derive(Debug, Default)]
-pub struct FeatureMap {
-    // data:Dashmap<>,
-}
-
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub enum MlDevRuntimeStorageKey {
-    ModelInternal { val: Val },
-    ConstantVal { val: Val },
-    NonConstantVal { val: Val, input: DevInput },
+pub struct MlDevRuntimeStorageKey {
+    val: Val,
+    input: Option<DevInput>,
 }

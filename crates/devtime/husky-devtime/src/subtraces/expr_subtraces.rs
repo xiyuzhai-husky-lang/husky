@@ -15,7 +15,7 @@ impl Devtime {
             &mut Self,
             &A,
             &'static str,
-        ) -> (TraceId, Option<__VMResult<RegularValue>>),
+        ) -> (TraceId, Option<VMResult<RegularValue>>),
     ) -> Vec<TraceId> {
         todo!()
         // if self.state.presentation().opt_sample_id().is_some() {

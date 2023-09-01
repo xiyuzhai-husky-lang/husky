@@ -3,14 +3,14 @@ use crate::*;
 use husky_print_utils::msg_once;
 
 use husky_trace_protocol::TraceStats;
-use husky_vm::{RegularValue, __VMResult};
+use husky_vm::{RegularValue, VMResult};
 
 impl TraceVariant {
     pub fn opt_stats_result(
         &self,
         runtime: &dyn TraceRuntime,
         partitions: &Partitions,
-    ) -> __VMResult<Option<TraceStats>> {
+    ) -> VMResult<Option<TraceStats>> {
         match self {
             TraceVariant::Main(..) => todo!(),
             // val_repr_opt_stats(runtime, partitions, repr, None),
@@ -41,7 +41,7 @@ fn val_repr_opt_stats(
     partitions: &Partitions,
     // repr: &ValRepr,
     opt_arrival_indicator: Option<&ValDomain>,
-) -> __VMResult<Option<TraceStats>> {
+) -> VMResult<Option<TraceStats>> {
     todo!()
     // feature_opt_stats(
     //     db,
@@ -56,7 +56,7 @@ fn feature_stmt_opt_stats(
     _db: &dyn TraceRuntime,
     _partitions: &Partitions,
     _stmt: &ValStmt,
-) -> __VMResult<Option<TraceStats>> {
+) -> VMResult<Option<TraceStats>> {
     todo!()
     // match stmt.variant {
     //     ValStmtData::Init { .. } | ValStmtData::Assert { .. } => Ok(None),
@@ -80,7 +80,7 @@ fn feature_branch_opt_stats(
     db: &dyn TraceRuntime,
     partitions: &Partitions,
     // branch: ValBranch,
-) -> __VMResult<Option<TraceStats>> {
+) -> VMResult<Option<TraceStats>> {
     todo!()
     // msg_once!("consider whether condition is satisfied");
     // feature_opt_stats(
@@ -111,7 +111,7 @@ fn feature_expr_opt_stats(
     db: &dyn TraceRuntime,
     partitions: &Partitions,
     expr: ValExpr,
-) -> __VMResult<Option<TraceStats>> {
+) -> VMResult<Option<TraceStats>> {
     todo!()
     // feature_opt_stats(
     //     db,
@@ -126,9 +126,9 @@ fn feature_opt_stats(
     _db: &dyn TraceRuntime,
     _partitions: &Partitions,
     _feature_ty: EtherealTerm,
-    _compute_value: impl Fn(SampleId) -> __VMResult<RegularValue>,
+    _compute_value: impl Fn(SampleId) -> VMResult<RegularValue>,
     _opt_arrival_indicator: Option<&ValDomain>,
-) -> __VMResult<Option<TraceStats>> {
+) -> VMResult<Option<TraceStats>> {
     todo!()
     // let target_return_ty = db.target_return_ty().unwrap();
     // // todo check this could cause some problem

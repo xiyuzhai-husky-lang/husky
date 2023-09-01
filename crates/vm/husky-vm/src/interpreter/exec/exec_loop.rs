@@ -50,7 +50,7 @@ impl<'temp> Interpreter<'temp> {
         exec_before_each_frame: impl Fn(&mut Self),
         exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl),
         mode: Mode,
-    ) -> __VMResult<VMControl> {
+    ) -> VMResult<VMControl> {
         let control = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,

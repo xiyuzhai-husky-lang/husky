@@ -5,7 +5,7 @@ pub use division::*;
 use husky_vfs::PackagePath;
 
 use crate::*;
-use husky_vm::{__VMResult, eval_fast};
+use husky_vm::{eval_fast, VMResult};
 use std::sync::Arc;
 
 #[derive(Debug)]
@@ -17,7 +17,7 @@ pub struct Session {
 }
 
 impl Session {
-    pub fn new(package: PackagePath, db: &dyn ValReprDb, vm_config: &VMConfig) -> __VMResult<Self> {
+    pub fn new(package: PackagePath, db: &dyn ValReprDb, vm_config: &VMConfig) -> VMResult<Self> {
         todo!()
         // let config = package.config.clone();
         // let dataset: Dataset = eval_fast(

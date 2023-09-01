@@ -7,7 +7,7 @@ impl<'temp> Interpreter<'temp> {
         mode: Mode,
         ins: &Instruction,
         ty: EtherealTerm,
-    ) -> __VMResult<()> {
+    ) -> VMResult<()> {
         let ctx = self.opt_ctx.unwrap();
         let result = ctx.eval_feature_from_uid(feature_uid.raw());
         match mode {

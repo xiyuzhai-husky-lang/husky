@@ -31,7 +31,7 @@ impl __ResolvedLinkage {
         self,
         opt_ctx: Option<&dyn __EvalContext>,
         mut arguments: Vec<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         todo!()
         // catch_unwind(move || self.call(opt_ctx, &mut arguments)).map_err(|e| {
         //     if let Some(msg) = e.downcast_ref::<String>() {

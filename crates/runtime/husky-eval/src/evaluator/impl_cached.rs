@@ -7,8 +7,8 @@ impl<'temp> Evaluator<'temp> {
     pub(super) fn eval_cached(
         &self,
         eval_key: EvalKey,
-        f: impl FnOnce(&Self) -> __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+        f: impl FnOnce(&Self) -> VMResult<RegularValue>,
+    ) -> VMResult<RegularValue> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {

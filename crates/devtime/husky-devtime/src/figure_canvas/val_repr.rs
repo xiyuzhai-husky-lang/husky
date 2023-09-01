@@ -137,14 +137,14 @@ impl Devtime {
         arrival_presentation_kind: RestrictionKind,
         partitions: &Partitions,
         sample_id: SampleId,
-    ) -> __VMResult<bool> {
+    ) -> VMResult<bool> {
         match arrival_presentation_kind {
             RestrictionKind::Arrival => self.is_trace_arrived(trace_id, sample_id),
             RestrictionKind::Return => self.is_trace_returned(trace_id, sample_id),
         }
     }
 
-    fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
+    fn is_trace_arrived(&self, trace_id: TraceId, sample_id: SampleId) -> VMResult<bool> {
         todo!()
         // let trace = self.trace(trace_id);
         // match trace.variant {
@@ -172,7 +172,7 @@ impl Devtime {
         // }
     }
 
-    fn is_trace_returned(&self, trace_id: TraceId, sample_id: SampleId) -> __VMResult<bool> {
+    fn is_trace_returned(&self, trace_id: TraceId, sample_id: SampleId) -> VMResult<bool> {
         // // ad hoc, without this, we get bugs
         // if !self.is_trace_arrived(trace_id, sample_id)? {
         //     return Ok(false);
@@ -222,7 +222,7 @@ impl Devtime {
         trace_id: TraceId,
         sample_id: SampleId,
         partitions: &Partitions,
-    ) -> __VMResult<bool> {
+    ) -> VMResult<bool> {
         // let trace = self.trace(trace_id);
         // let (value, ty) = match trace.variant {
         //     TraceVariant::Main(ref repr) => {

@@ -24,8 +24,8 @@ impl<T: Iterator<Item = RegularValue>> From<T> for VMStack {
 
 impl VMStack {
     pub(crate) fn try_new(
-        argument_iter: impl Iterator<Item = __VMResult<RegularValue>>,
-    ) -> __VMResult<Self> {
+        argument_iter: impl Iterator<Item = VMResult<RegularValue>>,
+    ) -> VMResult<Self> {
         let mut values = ArrayVec::new();
         for result in argument_iter {
             values.push(result?)

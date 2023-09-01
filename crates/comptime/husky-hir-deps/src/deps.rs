@@ -1,6 +1,8 @@
 mod linkage;
+mod val;
 
 pub use self::linkage::*;
+pub use self::val::*;
 
 use crate::*;
 

@@ -11,7 +11,7 @@ impl<'temp> Evaluator<'temp> {
     pub(crate) fn eval_opt_domain_indicator_cached(
         &self,
         opt_arrival_indicator: Option<&ValDomain>,
-    ) -> __VMResult<bool> {
+    ) -> VMResult<bool> {
         todo!()
         // if let Some(arrival_indicator) = opt_arrival_indicator {
         //     self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
@@ -25,7 +25,7 @@ impl<'temp> Evaluator<'temp> {
         // }
     }
 
-    fn eval_arrival_indicator(&self, arrival_indicator: &ValDomain) -> __VMResult<bool> {
+    fn eval_arrival_indicator(&self, arrival_indicator: &ValDomain) -> VMResult<bool> {
         todo!()
         // Ok(match arrival_indicator.variant {
         //     ValDomainData::AfterStmtNotReturn { ref stmt } => {

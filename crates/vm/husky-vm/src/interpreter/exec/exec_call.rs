@@ -6,7 +6,7 @@ impl<'temp> Interpreter<'temp> {
         f: __ResolvedLinkage,
         nargs: u8,
         discard: bool,
-    ) -> __VMResult<()> {
+    ) -> VMResult<()> {
         let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
         for argument in arguments.iter() {
             todo!()
@@ -31,7 +31,7 @@ impl<'temp> Interpreter<'temp> {
         sheet: &Instructions,
         nargs: u8,
         discard: bool,
-    ) -> __VMResult<()> {
+    ) -> VMResult<()> {
         let mut interpreter = Interpreter::new(
             self.db,
             self.opt_ctx,

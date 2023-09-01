@@ -56,7 +56,7 @@ impl Devtime {
         self.state.presentation().opt_active_trace_id()
     }
 
-    pub fn activate_trace(&mut self, trace_id: TraceId) -> __VMResult<DevtimeStateChange> {
+    pub fn activate_trace(&mut self, trace_id: TraceId) -> VMResult<DevtimeStateChange> {
         self.state.activate_trace(trace_id);
         self.update_figure_canvases()?;
         self.update_figure_controls()?;
@@ -172,7 +172,7 @@ impl Devtime {
         // trace_id
     }
 
-    pub fn toggle_expansion(&mut self, trace_id: TraceId) -> __VMResult<DevtimeStateChange> {
+    pub fn toggle_expansion(&mut self, trace_id: TraceId) -> VMResult<DevtimeStateChange> {
         todo!()
         // self.state
         //     .trace_nodes

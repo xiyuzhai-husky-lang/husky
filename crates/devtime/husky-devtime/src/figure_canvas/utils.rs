@@ -11,7 +11,7 @@ impl Devtime {
         ty: EtherealTerm,
         file: DiffPath,
         range: TextRange,
-    ) -> __VMResult<VisualData> {
+    ) -> VMResult<VisualData> {
         todo!()
         // let eval_time = self.runtime();
         // let sample_id = self.state.presentation().opt_sample_id().unwrap();
@@ -45,7 +45,7 @@ impl Devtime {
         }
     }
 
-    pub(crate) fn update_figure_canvases(&mut self) -> __VMResult<()> {
+    pub(crate) fn update_figure_canvases(&mut self) -> VMResult<()> {
         if let Some(active_trace_id) = self.opt_active_trace_id() {
             self.update_figure_canvas(active_trace_id)?;
         }
@@ -54,12 +54,12 @@ impl Devtime {
         }
         Ok(())
     }
-    fn update_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
+    fn update_figure_canvas(&mut self, trace_id: TraceId) -> VMResult<()> {
         self.update_trace_generic_figure_canvas(trace_id);
         self.update_trace_specific_figure_canvas(trace_id)
     }
 
-    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
+    fn update_trace_generic_figure_canvas(&mut self, trace_id: TraceId) -> VMResult<()> {
         if let Some(key) = self.gen_generic_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =
@@ -73,7 +73,7 @@ impl Devtime {
         Ok(())
     }
 
-    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) -> __VMResult<()> {
+    fn update_trace_specific_figure_canvas(&mut self, trace_id: TraceId) -> VMResult<()> {
         if let Some(key) = self.gen_specific_figure_canvas_key(trace_id) {
             // todo: clean all this trouble
             let f =

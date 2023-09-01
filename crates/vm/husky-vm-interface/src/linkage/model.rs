@@ -53,13 +53,13 @@ pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
         &self,
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
-    ) -> __VMResult<RegularValue>;
+    ) -> VMResult<RegularValue>;
 
     fn eval_dyn(
         &self,
         internal: &RegularValue,
         arguments: &[RegularValue],
-    ) -> __VMResult<RegularValue>;
+    ) -> VMResult<RegularValue>;
 }
 
 pub trait Model:
@@ -67,16 +67,9 @@ pub trait Model:
 {
     type Internal: __Regular;
 
-    fn train(
-        &self,
-        arguments: Vec<GenericArgument>,
-        labels: Vec<i32>,
-    ) -> __VMResult<Self::Internal>;
-    fn eval(
-        &self,
-        internal: &Self::Internal,
-        arguments: &[RegularValue],
-    ) -> __VMResult<RegularValue>;
+    fn train(&self, arguments: Vec<GenericArgument>, labels: Vec<i32>) -> VMResult<Self::Internal>;
+    fn eval(&self, internal: &Self::Internal, arguments: &[RegularValue])
+        -> VMResult<RegularValue>;
 }
 
 impl<T: Model> ModelDyn for T {
@@ -84,7 +77,7 @@ impl<T: Model> ModelDyn for T {
         &self,
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         todo!()
         // Ok(self.train(arguments, labels)?.to_register())
     }
@@ -93,7 +86,7 @@ impl<T: Model> ModelDyn for T {
         &self,
         internal: &RegularValue,
         arguments: &[RegularValue],
-    ) -> __VMResult<RegularValue> {
+    ) -> VMResult<RegularValue> {
         todo!()
         // let internal: &T::Internal = internal.downcast_temp_ref(T::internal_ty_vtable());
         // self.eval(internal, arguments)

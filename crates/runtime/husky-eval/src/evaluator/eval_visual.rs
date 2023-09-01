@@ -6,7 +6,7 @@ use husky_vm::*;
 use std::sync::Arc;
 
 impl<'temp> Evaluator<'temp> {
-    pub fn eval_visual(&self, this: ValRepr) -> __VMResult<VisualData> {
+    pub fn eval_visual(&self, this: ValRepr) -> VMResult<VisualData> {
         let within_domain = self.eval_opt_domain_indicator_cached(this.opt_domain_indicator())?;
         if within_domain {
             self.as_static().visualize_static(this)
@@ -16,7 +16,7 @@ impl<'temp> Evaluator<'temp> {
     }
 }
 impl<'temp> Evaluator<'temp> {
-    pub fn visualize_static(&self, this: ValRepr) -> __VMResult<VisualData> {
+    pub fn visualize_static(&self, this: ValRepr) -> VMResult<VisualData> {
         todo!()
         // let ty = this.ty();
         // let visualizer: Arc<Visualizer> = self.db.visualizer(ty.intrinsic());

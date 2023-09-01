@@ -23,8 +23,8 @@ pub use sheet::*;
 use crate::*;
 use husky_trace_protocol::SampleId;
 use husky_val::Val;
+use husky_vm::{c_void, VMResult};
 use husky_vm::{EntityUid, RegularValue, VMConfig, __EvalContext};
-use husky_vm::{__VMResult, c_void};
 
 pub struct Evaluator<'a> {
     pub(crate) sample_id: SampleId,
@@ -46,23 +46,19 @@ impl<'a> __EvalContext for Evaluator<'a> {
         &self,
         this: *const c_void,
         uid: u32,
-    ) -> Option<__VMResult<RegularValue>> {
+    ) -> Option<VMResult<RegularValue>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
             this,
             field_uid: unsafe { EntityUid::from_raw(uid) },
         })
     }
 
-    fn opt_cached_feature(&self, feature: u32) -> Option<__VMResult<RegularValue>> {
+    fn opt_cached_feature(&self, feature: u32) -> Option<VMResult<RegularValue>> {
         self.sheet
             .cached_value(EvalKey::Feature(unsafe { Val::from_raw(feature) }))
     }
 
-    fn cache_feature(
-        &self,
-        feature: u32,
-        value: __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+    fn cache_feature(&self, feature: u32, value: VMResult<RegularValue>) -> VMResult<RegularValue> {
         self.sheet
             .cache(EvalKey::Feature(unsafe { Val::from_raw(feature) }), value)
     }
@@ -71,8 +67,8 @@ impl<'a> __EvalContext for Evaluator<'a> {
         &self,
         this: *const std::ffi::c_void,
         uid: u32,
-        value: __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+        value: VMResult<RegularValue>,
+    ) -> VMResult<RegularValue> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
                 this,
@@ -95,7 +91,7 @@ impl<'a> __EvalContext for Evaluator<'a> {
         // }
     }
 
-    fn eval_feature_from_uid(&self, uid_raw: u32) -> __VMResult<RegularValue> {
+    fn eval_feature_from_uid(&self, uid_raw: u32) -> VMResult<RegularValue> {
         todo!()
         // let uid = unsafe { EntityUid::from_declarative(uid_raw) };
         // let route = self.db.item_route_by_uid(uid);
@@ -128,8 +124,8 @@ impl<'a> Evaluator<'a> {
     fn cache(
         &self,
         eval_key: EvalKey,
-        compute_value: impl FnOnce(&Self) -> __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+        compute_value: impl FnOnce(&Self) -> VMResult<RegularValue>,
+    ) -> VMResult<RegularValue> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {

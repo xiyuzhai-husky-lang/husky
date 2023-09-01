@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
 use husky_check_utils::should;
-use husky_vm::{EntityUid, RegularValue, __VMResult};
+use husky_vm::{EntityUid, RegularValue, VMResult};
 
 use super::*;
 
 #[derive(Default, Debug)]
 pub struct EvalSheet {
-    values: Mutex<HashMap<EvalKey, __VMResult<RegularValue>>>,
+    values: Mutex<HashMap<EvalKey, VMResult<RegularValue>>>,
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -24,7 +24,7 @@ unsafe impl Send for EvalKey {}
 unsafe impl Sync for EvalKey {}
 
 impl EvalSheet {
-    pub(crate) fn cached_value(&self, eval_key: EvalKey) -> Option<__VMResult<RegularValue>> {
+    pub(crate) fn cached_value(&self, eval_key: EvalKey) -> Option<VMResult<RegularValue>> {
         self.values
             .lock()
             .unwrap()
@@ -35,8 +35,8 @@ impl EvalSheet {
     pub(crate) fn try_cache(
         &self,
         eval_key: EvalKey,
-        mut value: __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+        mut value: VMResult<RegularValue>,
+    ) -> VMResult<RegularValue> {
         let mut values = self.values.lock().unwrap();
         if !values.contains_key(&eval_key) {
             let result = unsafe { cache_raw_eval_value(&mut value) };
@@ -50,8 +50,8 @@ impl EvalSheet {
     pub(crate) fn cache(
         &self,
         eval_key: EvalKey,
-        mut value: __VMResult<RegularValue>,
-    ) -> __VMResult<RegularValue> {
+        mut value: VMResult<RegularValue>,
+    ) -> VMResult<RegularValue> {
         let result = unsafe { cache_raw_eval_value(&mut value) };
         should!(
             self.values
@@ -65,7 +65,7 @@ impl EvalSheet {
     }
 }
 
-unsafe fn cache_raw_eval_value(raw: &mut __VMResult<RegularValue>) -> __VMResult<RegularValue> {
+unsafe fn cache_raw_eval_value(raw: &mut VMResult<RegularValue>) -> VMResult<RegularValue> {
     todo!()
     // match raw {
     //     Ok(ref mut value) => value.cache_eval(),
@@ -74,7 +74,7 @@ unsafe fn cache_raw_eval_value(raw: &mut __VMResult<RegularValue>) -> __VMResult
     // share_cached(raw)
 }
 
-unsafe fn share_cached(cached: &__VMResult<RegularValue>) -> __VMResult<RegularValue> {
+unsafe fn share_cached(cached: &VMResult<RegularValue>) -> VMResult<RegularValue> {
     todo!()
     // match cached {
     //     Ok(value) => Ok(value.share_cached()),
