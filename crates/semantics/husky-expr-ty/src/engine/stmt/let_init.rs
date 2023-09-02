@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
-        let_variable_decls: &SynExprResult<LetVariableDecls>,
+        let_variable_decls: &SynExprResult<LetVariableObelisk>,
         initial_value: SynExprIdx,
     ) -> Option<FluffyTerm> {
         let annotated_pattern_ty = match let_variable_decls {

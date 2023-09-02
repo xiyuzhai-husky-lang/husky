@@ -286,7 +286,7 @@ impl<'a> BlockExprParser<'a> {
                 let frame_var_symbol_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],
-                        Some(PatternTypeConstraint::FrameVariable),
+                        Some(ObeliskTypeConstraint::FrameVariable),
                     )
                     .start();
                 self.expr_arena.set(

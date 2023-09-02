@@ -6,7 +6,7 @@ pub use self::specific::*;
 
 use crate::*;
 use husky_syn_expr::{
-    SpecificParameterDecl, SynExprRegionData, TemplateParameterDecl,
-    TemplateParameterDeclPatternVariant,
+    SpecificParameterObelisk, SynExprRegionData, TemplateParameterDeclPatternVariant,
+    TemplateParameterObelisk,
 };
 use husky_token::VarianceToken;

@@ -10,7 +10,7 @@ pub struct TypeImplBlockSynNodeDecl {
     pub impl_token: ImplToken,
     #[return_ref]
     template_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub self_ty_expr: SelfTypeExpr,
+    pub self_ty_expr: SelfTypeObelisk,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
@@ -111,7 +111,7 @@ pub struct TypeImplBlockSynDecl {
     pub path: TypeImplBlockPath,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
-    pub self_ty_expr: SelfTypeExpr,
+    pub self_ty_expr: SelfTypeObelisk,
     pub syn_expr_region: SynExprRegion,
 }
 

@@ -11,7 +11,7 @@ pub struct ExternTypeSynNodeDecl {
 }
 
 impl ExternTypeSynNodeDecl {
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
         todo!()
         // self.template_parameter_decl_list(db)
         //     .as_ref()

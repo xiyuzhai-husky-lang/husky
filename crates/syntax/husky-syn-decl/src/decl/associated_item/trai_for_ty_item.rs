@@ -48,7 +48,7 @@ impl TraitForTypeItemSynNodeDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
         match self {
             TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -199,7 +199,7 @@ impl TraitForTypeItemSynDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
         match self {
             TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.template_parameters(db),
             TraitForTypeItemSynDecl::MethodFn(decl) => decl.template_parameters(db),

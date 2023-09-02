@@ -20,7 +20,7 @@ pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
 pub enum SynStmt {
     Let {
         let_token: LetToken,
-        let_variables_pattern: SynExprResult<LetVariableDecls>,
+        let_variables_pattern: SynExprResult<LetVariableObelisk>,
         assign_token: SynExprResult<EqToken>,
         initial_value: SynExprIdx,
     },

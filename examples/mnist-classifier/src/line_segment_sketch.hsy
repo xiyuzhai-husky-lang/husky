@@ -13,8 +13,8 @@ use line_segment::*
 
 pub struct LineSegmentStroke {
     points: ~CyclicSlice Point2d,
-    start: Point2d := self.points.first()!.clone(),
-    end: Point2d := self.points.last()!.clone(),
+    start: Point2d := points.first()!.clone(),
+    end: Point2d := points.last()!.clone(),
 }
 
 impl Visualize for LineSegmentStroke:

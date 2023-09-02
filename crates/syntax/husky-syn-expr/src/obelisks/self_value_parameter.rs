@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 // #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct SelfParameterDeclPattern {
+pub struct SelfParameterObelisk {
     ephem_symbol_modifier_token_group: Option<EphemSymbolModifierTokenGroup>,
     self_value_token: SelfValueToken,
 }
 
-impl SelfParameterDeclPattern {
+impl SelfParameterObelisk {
     pub fn ephem_symbol_modifier_token_group(&self) -> Option<EphemSymbolModifierTokenGroup> {
         self.ephem_symbol_modifier_token_group
     }
@@ -17,7 +17,7 @@ impl SelfParameterDeclPattern {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPattern {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SelfParameterObelisk {
     type Error = ExprError;
 
     // needs more testing

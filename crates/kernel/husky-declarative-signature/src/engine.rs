@@ -85,7 +85,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             .pattern_ty_constraints()
         {
             match pattern_ty_constraint {
-                PatternTypeConstraint::TemplateTypeParameter => {
+                ObeliskTypeConstraint::TemplateTypeParameter => {
                     let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
@@ -157,7 +157,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                             term_symbol,
                         )
                 }
-                PatternTypeConstraint::ExplicitRegularParameter {
+                ObeliskTypeConstraint::ExplicitRegularParameter {
                     pattern_expr_idx: pattern_expr,
                     ty_expr_idx: ty,
                 } => self.init_current_symbol_signatures_in_parenate_parameter(
@@ -165,12 +165,16 @@ impl<'a> DeclarativeTermEngine<'a> {
                     *ty,
                     *symbols,
                 ),
-                PatternTypeConstraint::LetVariables { .. }
-                | PatternTypeConstraint::FrameVariable => {
+                ObeliskTypeConstraint::FieldVariable {
+                    ident_token,
+                    ty_expr_idx,
+                } => todo!(),
+                ObeliskTypeConstraint::LetVariables { .. }
+                | ObeliskTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
                     return;
                 }
-                PatternTypeConstraint::ExplicitVariadicParameter { ty } => {
+                ObeliskTypeConstraint::ExplicitVariadicParameter { ty } => {
                     let ty = self.infer_new_expr_term(*ty).map_err(|_| todo!());
                     let symbol = DeclarativeTermSymbol::new_ephem(
                         self.db,

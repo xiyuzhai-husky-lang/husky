@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct BeVariablesPattern {
+pub struct BeVariablesObelisk {
     pattern_expr: SynPatternExprIdx,
     variables: CurrentSynSymbolIdxRange,
 }
@@ -13,7 +13,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn parse_be_variables_pattern_expected(
         &mut self,
         access_end: TokenIdxRangeEnd,
-    ) -> SynExprResult<BeVariablesPattern> {
+    ) -> SynExprResult<BeVariablesObelisk> {
         let state = self.save_state();
         let Some(pattern_expr) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
             Err(OriginalExprError::ExpectedBeVariablesPattern(state))?
@@ -37,14 +37,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             })
             .collect::<Vec<_>>();
         let variables = self.define_symbols(symbols, None);
-        Ok(BeVariablesPattern {
+        Ok(BeVariablesObelisk {
             pattern_expr,
             variables,
         })
     }
 }
 
-impl BeVariablesPattern {
+impl BeVariablesObelisk {
     pub fn pattern_expr(&self) -> SynPatternExprIdx {
         self.pattern_expr
     }

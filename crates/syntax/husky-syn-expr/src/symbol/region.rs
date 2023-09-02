@@ -39,11 +39,11 @@ pub struct SynSymbolRegion {
     current_symbol_arena: CurrentSynSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    pattern_ty_constraints: Vec<(PatternTypeConstraint, CurrentSynSymbolIdxRange)>,
+    pattern_ty_constraints: Vec<(ObeliskTypeConstraint, CurrentSynSymbolIdxRange)>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum PatternTypeConstraint {
+pub enum ObeliskTypeConstraint {
     TemplateTypeParameter,
     ExplicitRegularParameter {
         pattern_expr_idx: SynPatternExprIdx,
@@ -55,6 +55,10 @@ pub enum PatternTypeConstraint {
     LetVariables {
         pattern: SynPatternExprIdx,
         ty: SynExprIdx,
+    },
+    FieldVariable {
+        ident_token: IdentToken,
+        ty_expr_idx: SynExprIdx,
     },
     FrameVariable,
 }
@@ -97,7 +101,7 @@ impl SynSymbolRegion {
     pub(crate) fn define_symbol(
         &mut self,
         variable: CurrentSynSymbol,
-        ty_constraint: Option<PatternTypeConstraint>,
+        ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdx {
         let symbol = self.current_symbol_arena.alloc_one(variable);
         self.pattern_ty_constraints.extend(
@@ -112,7 +116,7 @@ impl SynSymbolRegion {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSynSymbol>,
-        ty_constraint: Option<PatternTypeConstraint>,
+        ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         let symbols = self.current_symbol_arena.alloc_batch(variables);
         self.pattern_ty_constraints.extend(
@@ -193,6 +197,7 @@ impl SynSymbolRegion {
                 CurrentSynSymbolVariant::SelfValue {
                     symbol_modifier_keyword_group,
                 } => todo!(),
+                CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
             };
             inherited_symbol_arena.alloc_one(InheritedSynSymbol {
                 kind,
@@ -226,7 +231,7 @@ impl SynSymbolRegion {
         self.pattern_ty_constraints
             .iter()
             .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-                PatternTypeConstraint::ExplicitRegularParameter {
+                ObeliskTypeConstraint::ExplicitRegularParameter {
                     pattern_expr_idx: pattern,
                     ty_expr_idx: ty,
                 } if *pattern == target => Some(*ty),
@@ -234,7 +239,7 @@ impl SynSymbolRegion {
             })
     }
 
-    pub fn pattern_ty_constraints(&self) -> &[(PatternTypeConstraint, CurrentSynSymbolIdxRange)] {
+    pub fn pattern_ty_constraints(&self) -> &[(ObeliskTypeConstraint, CurrentSynSymbolIdxRange)] {
         &self.pattern_ty_constraints
     }
 }

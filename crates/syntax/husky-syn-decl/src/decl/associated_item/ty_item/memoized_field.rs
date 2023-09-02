@@ -7,7 +7,7 @@ pub struct TypeMemoizedFieldSynNodeDecl {
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeEq>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeEqObelisk>>,
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<SynExprIdx>,
@@ -70,7 +70,7 @@ impl<'a> DeclParser<'a> {
 pub struct TypeMemoizedFieldSynDecl {
     #[id]
     pub path: TypeItemPath,
-    pub return_ty: Option<ReturnTypeExprBeforeEq>,
+    pub return_ty: Option<ReturnTypeBeforeEqObelisk>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }

@@ -148,7 +148,7 @@ impl FugitiveSynDecl {
         })
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterObelisk] {
         match self {
             FugitiveSynDecl::Fn(decl) => decl.template_parameters(db),
             FugitiveSynDecl::Val(_decl) => &[],

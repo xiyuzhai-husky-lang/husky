@@ -4,13 +4,13 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct TemplateParameterDecl {
+pub struct TemplateParameterObelisk {
     annotated_variance_token: Option<VarianceToken>,
     symbol: CurrentSynSymbolIdx,
     variant: TemplateParameterDeclPatternVariant,
 }
 
-impl TemplateParameterDecl {
+impl TemplateParameterObelisk {
     pub fn symbol(&self) -> ArenaIdx<CurrentSynSymbol> {
         self.symbol
     }
@@ -45,7 +45,7 @@ pub enum TemplateParameterDeclPatternVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplateParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplateParameterObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -69,9 +69,9 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
             );
             let symbols = ctx.define_symbols(
                 [parameter_symbol],
-                Some(PatternTypeConstraint::TemplateTypeParameter),
+                Some(ObeliskTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(TemplateParameterDecl {
+            Ok(Some(TemplateParameterObelisk {
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
@@ -107,16 +107,16 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token },
                     },
                 )],
-                Some(PatternTypeConstraint::TemplateTypeParameter),
+                Some(ObeliskTypeConstraint::TemplateTypeParameter),
             );
-            Ok(Some(TemplateParameterDecl {
+            Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol: symbols.start(),
                 variant: TemplateParameterDeclPatternVariant::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<BindingLabelToken>()? {
             let symbol = todo!();
-            Ok(Some(TemplateParameterDecl {
+            Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
                 variant: TemplateParameterDeclPatternVariant::Binding { label_token },
@@ -149,10 +149,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplatePara
                                 },
                         },
                     )],
-                    Some(PatternTypeConstraint::TemplateTypeParameter),
+                    Some(ObeliskTypeConstraint::TemplateTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
-            Ok(Some(TemplateParameterDecl {
+            Ok(Some(TemplateParameterObelisk {
                 annotated_variance_token,
                 symbol,
                 variant: TemplateParameterDeclPatternVariant::Constant {

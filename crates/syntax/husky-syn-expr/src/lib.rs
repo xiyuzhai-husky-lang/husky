@@ -3,9 +3,9 @@
 #![feature(let_chains)]
 mod db;
 mod error;
-mod helpers;
 mod html;
 mod list_item;
+mod obelisks;
 mod parser;
 mod pattern;
 mod precedence;
@@ -20,9 +20,9 @@ mod tests;
 
 pub use self::db::*;
 pub use self::error::*;
-pub use self::helpers::*;
 pub use self::html::*;
 pub use self::list_item::*;
+pub use self::obelisks::*;
 pub use self::parser::*;
 pub use self::pattern::*;
 pub use self::principal_entity_path::*;
@@ -121,7 +121,7 @@ pub enum SynExpr {
     Be {
         src: SynExprIdx,
         be_token_idx: TokenIdx,
-        target: SynExprResult<BeVariablesPattern>,
+        target: SynExprResult<BeVariablesObelisk>,
     },
     Prefix {
         opr: PrefixOpr,
