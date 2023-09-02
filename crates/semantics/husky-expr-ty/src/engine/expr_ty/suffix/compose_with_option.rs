@@ -1,23 +1,26 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_unwrap_expr_ty(
+    pub(super) fn calc_compose_with_option_expr_ty(
         &mut self,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<FluffyTerm> {
-        let opd_ty: FluffyTerm = todo!();
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        todo!()
+    }
+
+    pub(super) fn calc_compose_with_option_expr_ty_give_opd_ty(
+        &mut self,
+        opd_ty: FluffyTerm,
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ty_ethereal_term,
-            } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok(arguments[0]),
-                _ => Err(OriginalExprTypeError::CannotUnwrap)?,
-            },
+            } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -32,8 +35,9 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
+                ..
             } => todo!(),
-            FluffyTermData::Symbol { term, ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),
         }
