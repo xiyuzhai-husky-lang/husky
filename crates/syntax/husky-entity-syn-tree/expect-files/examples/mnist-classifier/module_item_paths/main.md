@@ -35,5 +35,10 @@ Ok(
                 `mnist_classifier::major`,
             ),
         ),
+        ItemPath::MajorItem(
+            MajorItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::main`, `Val`),
+            ),
+        ),
     ],
 )

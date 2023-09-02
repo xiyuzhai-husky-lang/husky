@@ -410,128 +410,184 @@ Ok(
                         11,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                26,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    32,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                33,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    39,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                40,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    46,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                47,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                54,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    60,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                61,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    67,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                68,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 28,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    74,
+                                ),
+                            },
+                        },
                     },
-                    state_after_visibility_expr: None,
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                75,
+                            ),
+                            drained: false,
+                        },
+                    ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(

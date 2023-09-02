@@ -30,7 +30,17 @@
                                 },
                             ],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -226,7 +236,28 @@
                     body: Some(
                         1,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                Todo,
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Eval {
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),

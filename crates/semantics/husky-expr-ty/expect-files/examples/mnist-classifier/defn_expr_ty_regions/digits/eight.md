@@ -112,7 +112,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 50,
+                                                                value: 79,
                                                             },
                                                         ),
                                                     ),
@@ -137,7 +137,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 52,
+                                                                value: 81,
                                                             },
                                                         ),
                                                     ),
@@ -249,7 +249,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 50,
+                                                                                    value: 79,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -266,7 +266,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 52,
+                                                                                    value: 81,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -489,55 +489,55 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
+                                        value: 50,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 52,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            },
+            PatternExprTypeInfo {
+                ty: Ok(
+                    FluffyTerm {
+                        place: None,
+                        base: Ethereal(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
                                         value: 56,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            },
-            PatternExprTypeInfo {
-                ty: Ok(
-                    FluffyTerm {
-                        place: None,
-                        base: Ethereal(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 62,
                                     },
                                 ),
                             ),
@@ -571,7 +571,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 45,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -587,7 +587,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 45,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -607,61 +607,61 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
+                                                value: 50,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
+                ),
+                Some(
+                    PatternSymbolTypeInfo {
+                        ty: Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: Ethereal(
+                                    Application(
+                                        EtherealTermApplication(
+                                            Id {
                                                 value: 56,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 58,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 60,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ),
-                    },
-                ),
-                Some(
-                    PatternSymbolTypeInfo {
-                        ty: Ok(
-                            FluffyTerm {
-                                place: None,
-                                base: Ethereal(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 62,
                                             },
                                         ),
                                     ),
@@ -699,7 +699,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 45,
+                                                value: 74,
                                             },
                                         ),
                                     ),
@@ -717,7 +717,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 45,
+                                                value: 74,
                                             },
                                         ),
                                     ),
@@ -1112,7 +1112,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 46,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
@@ -1169,7 +1169,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 45,
+                                                            value: 74,
                                                         },
                                                     ),
                                                 ),
@@ -1294,7 +1294,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 46,
+                                                        value: 75,
                                                     },
                                                 ),
                                             ),
@@ -1351,7 +1351,7 @@
                                                 Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 45,
+                                                            value: 74,
                                                         },
                                                     ),
                                                 ),
@@ -2608,7 +2608,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -2649,7 +2649,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -2780,7 +2780,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -2821,7 +2821,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -3343,10 +3343,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 7,
@@ -3459,10 +3457,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 13,

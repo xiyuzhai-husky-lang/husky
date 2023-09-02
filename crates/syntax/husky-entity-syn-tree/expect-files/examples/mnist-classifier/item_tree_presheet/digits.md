@@ -410,14 +410,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 11,
                     use_expr_idx: 4,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         ),
@@ -431,14 +429,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 12,
                     use_expr_idx: 7,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    32,
+                                    34,
                                 ),
                             },
                         ),
@@ -452,14 +448,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 13,
                     use_expr_idx: 10,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    38,
+                                    41,
                                 ),
                             },
                         ),
@@ -473,14 +467,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 14,
                     use_expr_idx: 13,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    48,
                                 ),
                             },
                         ),
@@ -494,14 +486,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 15,
                     use_expr_idx: 16,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    50,
+                                    55,
                                 ),
                             },
                         ),
@@ -515,14 +505,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 16,
                     use_expr_idx: 19,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    56,
+                                    62,
                                 ),
                             },
                         ),
@@ -536,14 +524,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 17,
                     use_expr_idx: 22,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    62,
+                                    69,
                                 ),
                             },
                         ),
@@ -557,14 +543,12 @@ Ok(
                 OnceUseRule {
                     ast_idx: 18,
                     use_expr_idx: 25,
-                    visibility: Scope::PubUnder(
-                        `mnist_classifier::digits`,
-                    ),
+                    visibility: Scope::Pub,
                     variant: OnceUseRuleVariant::Parent {
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    68,
+                                    76,
                                 ),
                             },
                         ),
@@ -585,7 +569,7 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    74,
+                                    82,
                                 ),
                             },
                         ),
@@ -639,7 +623,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_six`,
                         token_idx: TokenIdx(
-                            30,
+                            31,
                         ),
                     },
                 },
@@ -649,14 +633,14 @@ Ok(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
-                                    28,
+                                    29,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    29,
+                                    30,
                                 ),
                             ),
                         ),
@@ -672,14 +656,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    27,
+                                    28,
                                 ),
                             ),
                         ),
@@ -694,7 +678,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
-                            36,
+                            38,
                         ),
                     },
                 },
@@ -704,14 +688,14 @@ Ok(
                             IdentToken {
                                 ident: `zero`,
                                 token_idx: TokenIdx(
-                                    34,
+                                    36,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    35,
+                                    37,
                                 ),
                             ),
                         ),
@@ -727,14 +711,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    32,
+                                    34,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    33,
+                                    35,
                                 ),
                             ),
                         ),
@@ -749,7 +733,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_two`,
                         token_idx: TokenIdx(
-                            42,
+                            45,
                         ),
                     },
                 },
@@ -759,14 +743,14 @@ Ok(
                             IdentToken {
                                 ident: `two`,
                                 token_idx: TokenIdx(
-                                    40,
+                                    43,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    41,
+                                    44,
                                 ),
                             ),
                         ),
@@ -782,14 +766,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    38,
+                                    41,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    39,
+                                    42,
                                 ),
                             ),
                         ),
@@ -804,7 +788,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            48,
+                            52,
                         ),
                     },
                 },
@@ -814,14 +798,14 @@ Ok(
                             IdentToken {
                                 ident: `three`,
                                 token_idx: TokenIdx(
-                                    46,
+                                    50,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    47,
+                                    51,
                                 ),
                             ),
                         ),
@@ -837,14 +821,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    48,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    45,
+                                    49,
                                 ),
                             ),
                         ),
@@ -859,7 +843,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_five`,
                         token_idx: TokenIdx(
-                            54,
+                            59,
                         ),
                     },
                 },
@@ -869,14 +853,14 @@ Ok(
                             IdentToken {
                                 ident: `five`,
                                 token_idx: TokenIdx(
-                                    52,
+                                    57,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    53,
+                                    58,
                                 ),
                             ),
                         ),
@@ -892,14 +876,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    50,
+                                    55,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    51,
+                                    56,
                                 ),
                             ),
                         ),
@@ -914,61 +898,6 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            60,
-                        ),
-                    },
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::Ident(
-                            IdentToken {
-                                ident: `seven`,
-                                token_idx: TokenIdx(
-                                    58,
-                                ),
-                            },
-                        ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
-                                TokenIdx(
-                                    59,
-                                ),
-                            ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 17,
-                            },
-                        ),
-                    },
-                ),
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: PathNameToken::SelfMod(
-                            SelfModToken {
-                                token_idx: TokenIdx(
-                                    56,
-                                ),
-                            },
-                        ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
-                                TokenIdx(
-                                    57,
-                                ),
-                            ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 18,
-                            },
-                        ),
-                    },
-                ),
-                UseExpr::Leaf {
-                    ident_token: IdentToken {
-                        ident: `is_eight`,
-                        token_idx: TokenIdx(
                             66,
                         ),
                     },
@@ -977,7 +906,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: PathNameToken::Ident(
                             IdentToken {
-                                ident: `eight`,
+                                ident: `seven`,
                                 token_idx: TokenIdx(
                                     64,
                                 ),
@@ -992,7 +921,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 20,
+                                child: 17,
                             },
                         ),
                     },
@@ -1015,6 +944,61 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
+                                child: 18,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Leaf {
+                    ident_token: IdentToken {
+                        ident: `is_eight`,
+                        token_idx: TokenIdx(
+                            73,
+                        ),
+                    },
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `eight`,
+                                token_idx: TokenIdx(
+                                    71,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    72,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 20,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::SelfMod(
+                            SelfModToken {
+                                token_idx: TokenIdx(
+                                    69,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    70,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
                                 child: 21,
                             },
                         ),
@@ -1024,7 +1008,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_nine`,
                         token_idx: TokenIdx(
-                            72,
+                            80,
                         ),
                     },
                 },
@@ -1034,14 +1018,14 @@ Ok(
                             IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(
-                                    70,
+                                    78,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    71,
+                                    79,
                                 ),
                             ),
                         ),
@@ -1057,14 +1041,14 @@ Ok(
                         parent_name_token: PathNameToken::SelfMod(
                             SelfModToken {
                                 token_idx: TokenIdx(
-                                    68,
+                                    76,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    69,
+                                    77,
                                 ),
                             ),
                         ),
@@ -1078,7 +1062,7 @@ Ok(
                 UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
-                            76,
+                            84,
                         ),
                     ),
                 },
@@ -1087,14 +1071,14 @@ Ok(
                         parent_name_token: PathNameToken::CrateRoot(
                             CrateToken {
                                 token_idx: TokenIdx(
-                                    74,
+                                    82,
                                 ),
                             },
                         ),
                         scope_resolution_token: Ok(
                             ScopeResolutionToken(
                                 TokenIdx(
-                                    75,
+                                    83,
                                 ),
                             ),
                         ),

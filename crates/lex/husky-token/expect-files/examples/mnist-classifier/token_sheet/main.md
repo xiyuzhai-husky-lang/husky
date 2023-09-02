@@ -292,11 +292,27 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Main,
+                Keyword::Fugitive(
+                    Val,
+                ),
+            ),
+            Token::Ident(
+                `main`,
             ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `Class`,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
                 ),
             ),
             Token::Ident(
@@ -372,6 +388,26 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `Class`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Known`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
                 `MnistLabel`,
             ),
             Token::Punctuation(
@@ -383,6 +419,13 @@ Ok(
             ),
             Token::Ident(
                 `Four`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
             ),
         ],
         group_starts: [
@@ -404,8 +447,6 @@ Ok(
             59,
             61,
             64,
-            66,
-            68,
             70,
             72,
             74,
@@ -414,6 +455,8 @@ Ok(
             80,
             82,
             84,
+            86,
+            88,
         ],
         indents: [
             0,

@@ -4,7 +4,7 @@
             Enum(
                 EnumTypeHirDecl(
                     Id {
-                        value: 7,
+                        value: 8,
                     },
                 ),
             ),
@@ -69,7 +69,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 67,
+                            value: 68,
                         },
                     ),
                 ),
@@ -101,7 +101,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 67,
+                            value: 68,
                         },
                     ),
                 ),
@@ -140,7 +140,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 67,
+                            value: 68,
                         },
                     ),
                 ),
@@ -152,7 +152,7 @@
             AssociatedType(
                 TraitForTypeAssociatedTypeHirDecl(
                     Id {
-                        value: 4,
+                        value: 5,
                     },
                 ),
             ),
@@ -179,7 +179,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 68,
+                            value: 69,
                         },
                     ),
                 ),
@@ -211,7 +211,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 68,
+                            value: 69,
                         },
                     ),
                 ),
@@ -250,7 +250,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 68,
+                            value: 69,
                         },
                     ),
                 ),
@@ -262,7 +262,7 @@
             AssociatedType(
                 TraitForTypeAssociatedTypeHirDecl(
                     Id {
-                        value: 5,
+                        value: 6,
                     },
                 ),
             ),

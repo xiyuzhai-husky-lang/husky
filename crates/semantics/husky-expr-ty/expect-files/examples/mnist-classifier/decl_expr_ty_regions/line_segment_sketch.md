@@ -147,7 +147,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
                     ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                        DerivedExprTypeError::UnableToInferUnwrapOperand,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -212,7 +212,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
                     ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferSuffixOperandType,
+                        DerivedExprTypeError::UnableToInferUnwrapOperand,
                     ),
                 ),
                 expectation_rule_idx: None,

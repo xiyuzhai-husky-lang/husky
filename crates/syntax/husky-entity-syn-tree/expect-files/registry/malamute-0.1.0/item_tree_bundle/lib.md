@@ -11,29 +11,77 @@ Ok(
                                     syn_node_path: MajorItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                path: TypePath(`malamute::Class`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
+                                    ast_idx: 10,
                                     ident_token: IdentToken {
-                                        ident: `OneVsAll`,
+                                        ident: `Class`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            11,
                                         ),
                                     },
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 69,
+                                                value: 70,
                                             },
                                         ),
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
                                                     0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                },
+                            ),
+                            syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`malamute::Class`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `Class`,
+                            visibility: Scope::Pub,
+                        },
+                        EntityNodeEntry {
+                            node: ItemSynNode::MajorItem(
+                                MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
+                                        TypeSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `OneVsAll`,
+                                        token_idx: TokenIdx(
+                                            33,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 71,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    2..4,
                                                 ),
                                             },
                                         ),
@@ -65,23 +113,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 7,
+                                    ast_idx: 15,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
-                                            17,
+                                            83,
                                         ),
                                     },
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 70,
+                                                value: 72,
                                             },
                                         ),
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    2..5,
+                                                    5..8,
                                                 ),
                                             },
                                         ),
@@ -113,17 +161,17 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 9,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            61,
+                                            127,
                                         ),
                                     },
                                     block: Fugitive {
                                         path: FugitivePath(
                                             Id {
-                                                value: 79,
+                                                value: 80,
                                             },
                                         ),
                                         body: None,
@@ -148,6 +196,47 @@ Ok(
                 item_symbol_table: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
+                            ident: `Class`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::MajorItem {
+                                module_item_path: MajorItemPath::Type(
+                                    TypePath(`malamute::Class`, `Enum`),
+                                ),
+                                node: MajorItemSynNode {
+                                    syn_node_path: MajorItemSynNodePath::Type(
+                                        TypeSynNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::Class`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `Class`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 70,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAll`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::MajorItem {
@@ -164,23 +253,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
+                                    ast_idx: 12,
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            33,
                                         ),
                                     },
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 69,
+                                                value: 71,
                                             },
                                         ),
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    0..2,
+                                                    2..4,
                                                 ),
                                             },
                                         ),
@@ -205,23 +294,23 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 7,
+                                    ast_idx: 15,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
-                                            17,
+                                            83,
                                         ),
                                     },
                                     block: Type {
                                         path: TypePath(
                                             Id {
-                                                value: 70,
+                                                value: 72,
                                             },
                                         ),
                                         variants: Some(
                                             TypeVariants {
                                                 ast_idx_range: ArenaIdxRange(
-                                                    2..5,
+                                                    5..8,
                                                 ),
                                             },
                                         ),
@@ -246,17 +335,17 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 9,
+                                    ast_idx: 17,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            61,
+                                            127,
                                         ),
                                     },
                                     block: Fugitive {
                                         path: FugitivePath(
                                             Id {
-                                                value: 79,
+                                                value: 80,
                                             },
                                         ),
                                         body: None,
@@ -267,6 +356,56 @@ Ok(
                     ],
                 ),
                 impl_block_syn_node_table: [
+                    (
+                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNodePath {
+                                path: TraitForTypeImplBlockPath {
+                                    module_path: `malamute`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_sketch: TypeSketch::Path(
+                                        TypePath(`malamute::Class`, `Enum`),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                        ImplBlockSynNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNode {
+                                syn_node_path: TraitForTypeImplBlockSynNodePath {
+                                    path: TraitForTypeImplBlockPath {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::Class`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 13,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        46,
+                                    ),
+                                },
+                                trai_expr: 2,
+                                for_token: TokenIdx(
+                                    63,
+                                ),
+                                ty_sketch_expr: Path(
+                                    3,
+                                ),
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                4..5,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
                     (
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                             TraitForTypeImplBlockSynNodePath {
@@ -292,24 +431,24 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 8,
+                                ast_idx: 16,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
-                                        32,
+                                        98,
                                     ),
                                 },
-                                trai_expr: 2,
+                                trai_expr: 6,
                                 for_token: TokenIdx(
-                                    49,
+                                    115,
                                 ),
                                 ty_sketch_expr: Path(
-                                    3,
+                                    7,
                                 ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                5..6,
+                                                8..9,
                                             ),
                                         },
                                     ),
@@ -334,7 +473,7 @@ Ok(
                         IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
-                                45,
+                                59,
                             ),
                         },
                     ),
@@ -349,13 +488,13 @@ Ok(
                         IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
-                                43,
+                                57,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            44,
+                            58,
                         ),
                     ),
                     subexpr: 0,
@@ -365,13 +504,13 @@ Ok(
                         IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
-                                41,
+                                55,
                             ),
                         },
                     ),
                     scope_resolution_token: ScopeResolutionToken(
                         TokenIdx(
-                            42,
+                            56,
                         ),
                     ),
                     subexpr: 1,
@@ -379,9 +518,71 @@ Ok(
                 MajorItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
+                            ident: `Class`,
+                            token_idx: TokenIdx(
+                                64,
+                            ),
+                        },
+                    ),
+                    major_path: MajorEntityPath::MajorItem(
+                        MajorItemPath::Type(
+                            TypePath(`malamute::Class`, `Enum`),
+                        ),
+                    ),
+                },
+                MajorItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Unveil`,
+                            token_idx: TokenIdx(
+                                111,
+                            ),
+                        },
+                    ),
+                    major_path: MajorEntityPath::MajorItem(
+                        MajorItemPath::Trait(
+                            TraitPath(`core::ops::Unveil`),
+                        ),
+                    ),
+                },
+                MajorItemPathExpr::Subitem {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ops`,
+                            token_idx: TokenIdx(
+                                109,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            110,
+                        ),
+                    ),
+                    subexpr: 4,
+                },
+                MajorItemPathExpr::Subitem {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `core`,
+                            token_idx: TokenIdx(
+                                107,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            108,
+                        ),
+                    ),
+                    subexpr: 5,
+                },
+                MajorItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                50,
+                                116,
                             ),
                         },
                     ),

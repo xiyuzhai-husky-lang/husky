@@ -454,27 +454,145 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                MajorItem {
+                    module_item_kind: Fugitive(
+                        Val,
+                    ),
+                    connection: Connected,
+                },
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`malamute::Class`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`malamute::Class`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::Class`, `Enum`),
+                        ident: `Known`,
+                    },
+                ),
+            ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Four`,
+                    },
+                ),
+            ),
             TokenInfo::None,
         ],
     },

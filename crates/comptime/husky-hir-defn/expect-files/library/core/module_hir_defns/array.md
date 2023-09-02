@@ -32,7 +32,17 @@
                                 },
                             ],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),

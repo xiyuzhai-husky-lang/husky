@@ -36,16 +36,9 @@ impl<'a> ExprTypeEngine<'a> {
             SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
                 opd,
                 final_destination,
-                |this, opd_ty| todo!(),
-                |this, opd| todo!(),
-                // (
-                //     UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
-                //     Self::calc_unwrap_expr_ty,
-                // ),
-                |this, _, _| todo!(), // (
-                                      //     UnwrapOrComposeWithNotExprDisambiguation::ComposeWithNot,
-                                      //     Self::calc_compose_with_option_expr_ty,
-                                      // ),
+                Self::calc_unwrap_expr_ty_given_opd_ty,
+                Self::calc_unwrap_expr_ty,
+                Self::calc_compose_with_not_expr_ty,
             ),
         }
     }
@@ -93,94 +86,94 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit_ty_ontology().into())
     }
 
-    fn calc_unveil_or_compose_with_option_expr_ty(
-        &mut self,
-        opd: SynExprIdx,
-        expected_final_destination: FinalDestination,
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        self.unveiler.initialize_if_not(self.return_ty, self.db);
-        match self.unveiler {
-            Unveiler::UniqueFullyInstantiated {
-                opd_ty,
-                unveil_output_ty,
-                unveil_output_ty_final_destination,
-            } => match unveil_output_ty_final_destination {
-                FinalDestination::Sort => todo!(),
-                FinalDestination::TypeOntology => match expected_final_destination {
-                    FinalDestination::Sort => todo!(),
-                    FinalDestination::TypeOntology => {
-                        self.infer_new_expr_ty_discarded(
-                            opd,
-                            ExpectCoersion::new(Contract::Move, opd_ty.into()),
-                        );
-                        Ok((
-                            SynExprDisambiguation::UnveilOrComposeWithOption(
-                                UnveilOrComposeWithOptionExprDisambiguation::Unveil,
-                            ),
-                            Ok(unveil_output_ty.into()),
-                        ))
-                    }
-                    FinalDestination::AnyOriginal => todo!(),
-                    FinalDestination::AnyDerived => todo!(),
-                    FinalDestination::Ritchie(_) => todo!(),
-                },
-                FinalDestination::AnyOriginal => todo!(),
-                FinalDestination::AnyDerived => todo!(),
-                FinalDestination::Ritchie(_) => todo!(),
-            },
-            Unveiler::UniquePartiallyInstanted { template } => {
-                let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
-                    todo!()
-                };
-                match opd_ty.base_ty_data(self) {
-                    FluffyBaseTypeData::TypeOntology {
-                        ty_path,
-                        refined_ty_path: Left(PreludeTypePath::Indirection(_)),
-                        ty_arguments,
-                        ty_ethereal_term,
-                    } => todo!(),
-                    FluffyBaseTypeData::TypeOntology {
-                        ty_path,
-                        refined_ty_path,
-                        ty_arguments,
-                        ty_ethereal_term,
-                    } => todo!(),
-                    FluffyBaseTypeData::Curry {
-                        curry_kind,
-                        variance,
-                        parameter_variable,
-                        parameter_ty,
-                        return_ty,
-                        ty_ethereal_term,
-                    } => todo!(),
-                    FluffyBaseTypeData::Hole(_, _) => todo!(),
-                    FluffyBaseTypeData::Category(_) => todo!(),
-                    FluffyBaseTypeData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys,
-                        return_ty,
-                    } => todo!(),
-                    FluffyBaseTypeData::Symbol { term } => todo!(),
-                }
-                // match opd_ty.base_resolved(self) {
-                //     FluffyTermBase::Ethereal(opd_ty) => {
-                //         match template.instantiate_trai(&[opd_ty], self.db) {
-                //             JustOk(_) => todo!(),
-                //             JustErr(_) => todo!(),
-                //             Nothing => todo!(),
-                //         }
-                //     }
-                //     FluffyTermBase::Solid(_) => todo!(),
-                //     FluffyTermBase::Hollow(_) => todo!(),
-                // }
-            }
-            Unveiler::Nothing => todo!(),
-            Unveiler::ErrUnableToInferReturnTypeForUnveiling
-            | Unveiler::ErrEtherealSignature(_) => {
-                self.infer_new_expr_ty_discarded(opd, ExpectAnyDerived);
-                Err(DerivedExprTypeError::UnveilerError)?
-            }
-            Unveiler::Uninitialized => todo!(),
-        }
-    }
+    // fn calc_unveil_or_compose_with_option_expr_ty(
+    //     &mut self,
+    //     opd: SynExprIdx,
+    //     expected_final_destination: FinalDestination,
+    // ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    //     self.unveiler.initialize_if_not(self.return_ty, self.db);
+    //     match self.unveiler {
+    //         Unveiler::UniqueFullyInstantiated {
+    //             opd_ty,
+    //             unveil_output_ty,
+    //             unveil_output_ty_final_destination,
+    //         } => match unveil_output_ty_final_destination {
+    //             FinalDestination::Sort => todo!(),
+    //             FinalDestination::TypeOntology => match expected_final_destination {
+    //                 FinalDestination::Sort => todo!(),
+    //                 FinalDestination::TypeOntology => {
+    //                     self.infer_new_expr_ty_discarded(
+    //                         opd,
+    //                         ExpectCoersion::new(Contract::Move, opd_ty.into()),
+    //                     );
+    //                     Ok((
+    //                         SynExprDisambiguation::UnveilOrComposeWithOption(
+    //                             UnveilOrComposeWithOptionExprDisambiguation::Unveil,
+    //                         ),
+    //                         Ok(unveil_output_ty.into()),
+    //                     ))
+    //                 }
+    //                 FinalDestination::AnyOriginal => todo!(),
+    //                 FinalDestination::AnyDerived => todo!(),
+    //                 FinalDestination::Ritchie(_) => todo!(),
+    //             },
+    //             FinalDestination::AnyOriginal => todo!(),
+    //             FinalDestination::AnyDerived => todo!(),
+    //             FinalDestination::Ritchie(_) => todo!(),
+    //         },
+    //         Unveiler::UniquePartiallyInstanted { template } => {
+    //             let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+    //                 todo!()
+    //             };
+    //             match opd_ty.base_ty_data(self) {
+    //                 FluffyBaseTypeData::TypeOntology {
+    //                     ty_path,
+    //                     refined_ty_path: Left(PreludeTypePath::Indirection(_)),
+    //                     ty_arguments,
+    //                     ty_ethereal_term,
+    //                 } => todo!(),
+    //                 FluffyBaseTypeData::TypeOntology {
+    //                     ty_path,
+    //                     refined_ty_path,
+    //                     ty_arguments,
+    //                     ty_ethereal_term,
+    //                 } => todo!(),
+    //                 FluffyBaseTypeData::Curry {
+    //                     curry_kind,
+    //                     variance,
+    //                     parameter_variable,
+    //                     parameter_ty,
+    //                     return_ty,
+    //                     ty_ethereal_term,
+    //                 } => todo!(),
+    //                 FluffyBaseTypeData::Hole(_, _) => todo!(),
+    //                 FluffyBaseTypeData::Category(_) => todo!(),
+    //                 FluffyBaseTypeData::Ritchie {
+    //                     ritchie_kind,
+    //                     parameter_contracted_tys,
+    //                     return_ty,
+    //                 } => todo!(),
+    //                 FluffyBaseTypeData::Symbol { term } => todo!(),
+    //             }
+    //             // match opd_ty.base_resolved(self) {
+    //             //     FluffyTermBase::Ethereal(opd_ty) => {
+    //             //         match template.instantiate_trai(&[opd_ty], self.db) {
+    //             //             JustOk(_) => todo!(),
+    //             //             JustErr(_) => todo!(),
+    //             //             Nothing => todo!(),
+    //             //         }
+    //             //     }
+    //             //     FluffyTermBase::Solid(_) => todo!(),
+    //             //     FluffyTermBase::Hollow(_) => todo!(),
+    //             // }
+    //         }
+    //         Unveiler::Nothing => todo!(),
+    //         Unveiler::ErrUnableToInferReturnTypeForUnveiling
+    //         | Unveiler::ErrEtherealSignature(_) => {
+    //             self.infer_new_expr_ty_discarded(opd, ExpectAnyDerived);
+    //             Err(DerivedExprTypeError::UnveilerError)?
+    //         }
+    //         Unveiler::Uninitialized => todo!(),
+    //     }
+    // }
 }

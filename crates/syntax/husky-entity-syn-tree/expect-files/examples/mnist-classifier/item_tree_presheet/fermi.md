@@ -67,7 +67,7 @@ Ok(
                             block: Fugitive {
                                 path: FugitivePath(
                                     Id {
-                                        value: 54,
+                                        value: 55,
                                     },
                                 ),
                                 body: Some(

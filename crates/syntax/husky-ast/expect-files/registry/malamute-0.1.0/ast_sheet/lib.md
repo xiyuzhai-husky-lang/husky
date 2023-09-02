@@ -8,7 +8,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                        ident: `Within`,
+                        ident: `Known`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -16,7 +16,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `Within`,
+                        ident: `Known`,
                         token_idx: TokenIdx(
                             16,
                         ),
@@ -34,7 +34,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                        ident: `Other`,
+                        ident: `Unknown`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -42,7 +42,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `Other`,
+                        ident: `Unknown`,
                         token_idx: TokenIdx(
                             21,
                         ),

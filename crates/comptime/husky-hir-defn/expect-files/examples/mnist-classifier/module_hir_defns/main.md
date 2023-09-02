@@ -48,4 +48,35 @@
             },
         },
     ),
+    HirDefn::MajorItem(
+        MajorItemHirDefn::Fugitive(
+            FugitiveHirDefn::Val(
+                ValHirDefn {
+                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                    hir_decl: ValFugitiveHirDecl {
+                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                        hir_expr_region: Eager(
+                            HirEagerExprRegion(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    },
+                    body: Some(
+                        Eager(
+                            21,
+                        ),
+                    ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
 ]

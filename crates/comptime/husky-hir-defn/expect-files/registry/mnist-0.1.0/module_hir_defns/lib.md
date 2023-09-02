@@ -9,7 +9,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -30,13 +40,23 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 68,
+                                            value: 69,
                                         },
                                     ),
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -57,13 +77,23 @@
                                 ty: PathLeading(
                                     HirTypePathLeading(
                                         Id {
-                                            value: 68,
+                                            value: 69,
                                         },
                                     ),
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -117,7 +147,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 69,
+                            value: 70,
                         },
                     ),
                 ),
@@ -161,7 +191,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 69,
+                                        value: 70,
                                     },
                                 ),
                             ),
@@ -178,7 +208,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -197,7 +237,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 69,
+                            value: 70,
                         },
                     ),
                 ),
@@ -236,14 +276,34 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 69,
+                                    value: 70,
                                 },
                             ),
                         ),
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -269,7 +329,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 69,
+                            value: 70,
                         },
                     ),
                 ),
@@ -341,7 +401,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 70,
+                            value: 71,
                         },
                     ),
                 ),
@@ -385,7 +445,7 @@
                             ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 70,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -402,7 +462,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -421,7 +491,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 70,
+                            value: 71,
                         },
                     ),
                 ),
@@ -460,14 +530,34 @@
                         return_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 70,
+                                    value: 71,
                                 },
                             ),
                         ),
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -493,7 +583,7 @@
                 self_ty: PathLeading(
                     HirTypePathLeading(
                         Id {
-                            value: 70,
+                            value: 71,
                         },
                     ),
                 ),

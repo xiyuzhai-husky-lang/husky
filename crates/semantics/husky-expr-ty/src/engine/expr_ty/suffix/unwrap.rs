@@ -1,12 +1,22 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
+    pub(super) fn calc_unwrap_expr_ty_given_opd_ty(
+        &mut self,
+        opd_ty: FluffyTerm,
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        todo!()
+    }
+
     pub(super) fn calc_unwrap_expr_ty(
         &mut self,
         opd: SynExprIdx,
-        final_destination: FinalDestination,
-    ) -> ExprTypeResult<FluffyTerm> {
-        let opd_ty: FluffyTerm = todo!();
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+            // p!(self.expr_region_data.path().debug(self.db));
+            // todo!();
+            Err(DerivedExprTypeError::UnableToInferUnwrapOperand)?
+        };
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
@@ -15,7 +25,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ty_arguments: arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok(arguments[0]),
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok((
+                    UnwrapOrComposeWithNotExprDisambiguation::Unwrap.into(),
+                    Ok(arguments[0]),
+                )),
                 _ => Err(OriginalExprTypeError::CannotUnwrap)?,
             },
             FluffyTermData::Curry {

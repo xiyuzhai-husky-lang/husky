@@ -193,6 +193,8 @@ pub enum DerivedExprTypeError {
     EtherealSignature(#[from] EtherealSignatureError),
     #[error("UnveilerError")]
     UnveilerError,
+    #[error("UnableToInferUnwrapOperand")]
+    UnableToInferUnwrapOperand,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

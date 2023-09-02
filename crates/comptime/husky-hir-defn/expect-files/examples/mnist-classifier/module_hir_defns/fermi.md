@@ -31,7 +31,17 @@
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -51,7 +61,285 @@
                     body: Some(
                         17,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 375,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 0,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 144,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                List {
+                                    items: [],
+                                },
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 437,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 3,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 138,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 437,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 259,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Index {
+                                    owner: 5,
+                                    items: [
+                                        6,
+                                    ],
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 247,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 438,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 9,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 149,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            10,
+                                        ),
+                                    ],
+                                },
+                                MethodCall {
+                                    self_argument: 8,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 139,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            11,
+                                        ),
+                                    ],
+                                },
+                                PrincipalEntityPath(
+                                    MajorItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 247,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                FnCall {
+                                    function: 13,
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            14,
+                                        ),
+                                        Regular(
+                                            15,
+                                        ),
+                                    ],
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        2..6,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 2,
+                                        ty: None,
+                                    },
+                                    initial_value: 7,
+                                },
+                                Eval {
+                                    expr_idx: 12,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 0,
+                                        ty: None,
+                                    },
+                                    initial_value: 1,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 1,
+                                        ty: Some(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    initial_value: 2,
+                                },
+                                ForBetween {
+                                    particulars: HirEagerForBetweenParticulars {
+                                        frame_var_ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 259,
+                                                },
+                                            ),
+                                        ),
+                                        range: HirEagerForBetweenRange {
+                                            initial_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: None,
+                                                kind: LowerClosed,
+                                            },
+                                            final_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: Some(
+                                                    4,
+                                                ),
+                                                kind: UpperOpen,
+                                            },
+                                            step: Constant(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                    block: ArenaIdxRange(
+                                        0..2,
+                                    ),
+                                },
+                                Return {
+                                    result: 16,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 247,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 438,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -107,12 +395,213 @@
                                 },
                             ),
                         ),
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                     body: Some(
                         14,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            0.0,
+                                        ),
+                                    ),
+                                ),
+                                SelfValue,
+                                Field {
+                                    owner: 1,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 2,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 138,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                SelfValue,
+                                Field {
+                                    owner: 6,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 259,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Index {
+                                    owner: 7,
+                                    items: [
+                                        8,
+                                    ],
+                                },
+                                Field {
+                                    owner: 9,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 5,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            10,
+                                        ),
+                                    ],
+                                },
+                                Binary {
+                                    lopd: 4,
+                                    opr: Assign,
+                                    ropd: 11,
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        1..4,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Eval {
+                                    expr_idx: 12,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 0,
+                                        ty: Some(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 14,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    initial_value: 0,
+                                },
+                                ForBetween {
+                                    particulars: HirEagerForBetweenParticulars {
+                                        frame_var_ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 259,
+                                                },
+                                            ),
+                                        ),
+                                        range: HirEagerForBetweenRange {
+                                            initial_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: None,
+                                                kind: LowerClosed,
+                                            },
+                                            final_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: Some(
+                                                    3,
+                                                ),
+                                                kind: UpperOpen,
+                                            },
+                                            step: Constant(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                    block: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                                Return {
+                                    result: 13,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -147,12 +636,213 @@
                                 },
                             ),
                         ),
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                     body: Some(
                         14,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            0.0,
+                                        ),
+                                    ),
+                                ),
+                                SelfValue,
+                                Field {
+                                    owner: 1,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 2,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 138,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                SelfValue,
+                                Field {
+                                    owner: 6,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 259,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Index {
+                                    owner: 7,
+                                    items: [
+                                        8,
+                                    ],
+                                },
+                                Field {
+                                    owner: 9,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 411,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 5,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            10,
+                                        ),
+                                    ],
+                                },
+                                Binary {
+                                    lopd: 4,
+                                    opr: Assign,
+                                    ropd: 11,
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        1..4,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Eval {
+                                    expr_idx: 12,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 0,
+                                        ty: Some(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 14,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    initial_value: 0,
+                                },
+                                ForBetween {
+                                    particulars: HirEagerForBetweenParticulars {
+                                        frame_var_ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 259,
+                                                },
+                                            ),
+                                        ),
+                                        range: HirEagerForBetweenRange {
+                                            initial_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: None,
+                                                kind: LowerClosed,
+                                            },
+                                            final_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: Some(
+                                                    3,
+                                                ),
+                                                kind: UpperOpen,
+                                            },
+                                            step: Constant(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                    block: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                                Return {
+                                    result: 13,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),
@@ -187,12 +877,225 @@
                                 },
                             ),
                         ),
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                     body: Some(
                         15,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            0.0,
+                                        ),
+                                    ),
+                                ),
+                                SelfValue,
+                                Field {
+                                    owner: 1,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 2,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 138,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                SelfValue,
+                                Field {
+                                    owner: 6,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 434,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 259,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Index {
+                                    owner: 7,
+                                    items: [
+                                        8,
+                                    ],
+                                },
+                                Field {
+                                    owner: 9,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 10,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                MethodCall {
+                                    self_argument: 5,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [
+                                        Regular(
+                                            11,
+                                        ),
+                                    ],
+                                },
+                                Binary {
+                                    lopd: 4,
+                                    opr: Assign,
+                                    ropd: 12,
+                                },
+                                CurrentSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        1..4,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Eval {
+                                    expr_idx: 13,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 0,
+                                        ty: Some(
+                                            PathLeading(
+                                                HirTypePathLeading(
+                                                    Id {
+                                                        value: 14,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    initial_value: 0,
+                                },
+                                ForBetween {
+                                    particulars: HirEagerForBetweenParticulars {
+                                        frame_var_ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 259,
+                                                },
+                                            ),
+                                        ),
+                                        range: HirEagerForBetweenRange {
+                                            initial_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: None,
+                                                kind: LowerClosed,
+                                            },
+                                            final_boundary: HirEagerForBetweenLoopBoundary {
+                                                bound_expr: Some(
+                                                    3,
+                                                ),
+                                                kind: UpperOpen,
+                                            },
+                                            step: Constant(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                    block: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                                Return {
+                                    result: 14,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [
+                                Ident {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                    },
                 },
             ),
         ),

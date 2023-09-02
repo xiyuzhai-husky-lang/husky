@@ -10,14 +10,13 @@ mod nine
 mod two
 
 pub use one::is_one
-
-use self::six::is_six
-use self::zero::is_zero
-use self::two::is_two
-use self::three::is_three
-use self::five::is_five
-use self::seven::is_seven
-use self::eight::is_eight
-use self::nine::is_nine
+pub use self::six::is_six
+pub use self::zero::is_zero
+pub use self::two::is_two
+pub use self::three::is_three
+pub use self::five::is_five
+pub use self::seven::is_seven
+pub use self::eight::is_eight
+pub use self::nine::is_nine
 
 use crate::*
