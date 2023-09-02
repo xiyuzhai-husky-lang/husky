@@ -210,7 +210,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 29,
+                                            value: 30,
                                         },
                                     ),
                                     body: Some(
@@ -226,6 +226,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
@@ -310,7 +311,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 35,
+                                            value: 36,
                                         },
                                     ),
                                     body: Some(
@@ -326,6 +327,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
@@ -410,7 +412,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 27,
+                                            value: 28,
                                         },
                                     ),
                                     body: Some(
@@ -426,6 +428,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
@@ -510,7 +513,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 69,
+                                            value: 70,
                                         },
                                     ),
                                     body: Some(
@@ -526,6 +529,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
@@ -610,7 +614,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 39,
+                                            value: 40,
                                         },
                                     ),
                                     body: Some(
@@ -626,6 +630,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
@@ -710,7 +715,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 50,
+                                            value: 51,
                                         },
                                     ),
                                     body: Some(
@@ -726,6 +731,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 19,
@@ -810,7 +816,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 56,
+                                            value: 57,
                                         },
                                     ),
                                     body: Some(
@@ -826,6 +832,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 22,
@@ -910,7 +917,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 58,
+                                            value: 59,
                                         },
                                     ),
                                     body: Some(
@@ -926,6 +933,7 @@ Ok(
                     ),
                 },
             },
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 25,
@@ -1010,7 +1018,7 @@ Ok(
                                 block: Fugitive {
                                     path: FugitivePath(
                                         Id {
-                                            value: 62,
+                                            value: 63,
                                         },
                                     ),
                                     body: Some(

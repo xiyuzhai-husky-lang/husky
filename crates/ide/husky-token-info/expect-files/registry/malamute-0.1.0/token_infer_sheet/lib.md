@@ -3,6 +3,67 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Type(
+                        TypeSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypePath(`malamute::Class`, `Enum`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                MajorItem {
+                    module_item_kind: Type(
+                        Enum,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::EntityNode(
                 ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
@@ -29,7 +90,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                4,
+                                35,
                             ),
                         },
                     },
@@ -45,7 +106,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                7,
+                                38,
                             ),
                         },
                     },
@@ -60,13 +121,179 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                4,
+                                35,
                             ),
                         },
                     },
                 },
                 syn_expr_region: ExprRegionLeash(_),
             },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                48,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                        ident_token: IdentToken {
+                            ident: `label`,
+                            token_idx: TokenIdx(
+                                51,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                48,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::Module(
+                    `core`,
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::Module(
+                    `core::ops`,
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::ops::Unveil`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`malamute::OneVsAll`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                48,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                        ident_token: IdentToken {
+                            ident: `label`,
+                            token_idx: TokenIdx(
+                                51,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`malamute::Class`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                48,
+                            ),
+                        },
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                ItemSynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`malamute::Class`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `Output`,
+                                    item_kind: AssociatedType,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        AssociatedType,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::UnitLeftParenthesis,
+            TokenInfo::UnitRightParenthesis,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -100,7 +327,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                19,
+                                85,
                             ),
                         },
                     },
@@ -116,7 +343,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                22,
+                                88,
                             ),
                         },
                     },
@@ -131,7 +358,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                19,
+                                85,
                             ),
                         },
                     },
@@ -154,7 +381,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                34,
+                                100,
                             ),
                         },
                     },
@@ -170,7 +397,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                37,
+                                103,
                             ),
                         },
                     },
@@ -185,7 +412,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                34,
+                                100,
                             ),
                         },
                     },
@@ -226,7 +453,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                34,
+                                100,
                             ),
                         },
                     },
@@ -240,7 +467,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                37,
+                                103,
                             ),
                         },
                     },
@@ -262,7 +489,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                34,
+                                100,
                             ),
                         },
                     },
@@ -276,7 +503,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                37,
+                                103,
                             ),
                         },
                     },
@@ -344,7 +571,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                63,
+                                129,
                             ),
                         },
                     },
@@ -360,7 +587,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                66,
+                                132,
                             ),
                         },
                     },
@@ -375,7 +602,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                63,
+                                129,
                             ),
                         },
                     },
@@ -393,7 +620,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            74,
+                            140,
                         ),
                     },
                 },
@@ -442,7 +669,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                63,
+                                129,
                             ),
                         },
                     },
@@ -456,7 +683,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                66,
+                                132,
                             ),
                         },
                     },

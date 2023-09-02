@@ -269,6 +269,58 @@ Ok(
                         `mnist_classifier`,
                     ),
                 },
+                EntityNodeEntry {
+                    node: ItemSynNode::MajorItem(
+                        MajorItemSynNode {
+                            syn_node_path: MajorItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 27,
+                            ident_token: IdentToken {
+                                ident: `main`,
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            1..11,
+                                        ),
+                                    },
+                                ),
+                            },
+                        },
+                    ),
+                    syn_node_path: ItemSynNodePath::MajorItem(
+                        MajorItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `main`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                },
             ],
         },
         use_one_trackers: OnceUseRules(

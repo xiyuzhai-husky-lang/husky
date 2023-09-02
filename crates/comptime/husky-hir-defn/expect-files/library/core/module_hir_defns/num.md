@@ -9,7 +9,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -25,7 +35,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -41,7 +61,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -57,7 +87,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -73,7 +113,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -89,7 +139,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -105,7 +165,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -121,7 +191,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -137,7 +217,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -153,7 +243,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -169,7 +269,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -185,7 +295,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -201,7 +321,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -217,7 +347,17 @@
                         template_parameters: HirTemplateParameters {
                             data: [],
                         },
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -299,7 +439,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -370,7 +520,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -478,7 +638,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -559,7 +729,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -630,7 +810,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -738,7 +928,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -819,7 +1019,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -890,7 +1100,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -961,7 +1181,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1069,7 +1299,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1150,7 +1390,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1258,7 +1508,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1339,7 +1599,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1447,7 +1717,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1528,7 +1808,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1636,7 +1926,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1717,7 +2017,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1825,7 +2135,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -1906,7 +2226,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2014,7 +2344,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2095,7 +2435,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2203,7 +2553,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2284,7 +2644,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2392,7 +2762,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2473,7 +2853,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2581,7 +2971,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2662,7 +3062,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2770,7 +3180,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2851,7 +3271,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2911,7 +3341,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -2982,7 +3422,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3053,7 +3503,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3113,7 +3573,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3173,7 +3643,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3233,7 +3713,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3293,7 +3783,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3401,7 +3901,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3482,7 +3992,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3542,7 +4062,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),
@@ -3650,7 +4180,17 @@
                         ),
                     },
                     body: None,
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),

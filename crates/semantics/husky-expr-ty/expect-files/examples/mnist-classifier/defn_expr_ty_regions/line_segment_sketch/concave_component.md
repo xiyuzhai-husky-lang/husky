@@ -21,7 +21,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 49,
+                                        value: 78,
                                     },
                                 ),
                             ),
@@ -95,7 +95,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 49,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -285,7 +285,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 95,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -1274,7 +1274,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 95,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -1392,7 +1392,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 66,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -1486,7 +1486,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 63,
+                                                                value: 82,
                                                             },
                                                         ),
                                                     ),
@@ -1511,7 +1511,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 66,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -3502,7 +3502,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 63,
+                                                                                    value: 82,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3519,7 +3519,7 @@
                                                                         Application(
                                                                             EtherealTermApplication(
                                                                                 Id {
-                                                                                    value: 66,
+                                                                                    value: 85,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4140,7 +4140,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -5353,7 +5353,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -5394,7 +5394,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -5697,7 +5697,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -5804,7 +5804,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -5911,7 +5911,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -6509,10 +6509,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 3,
@@ -7405,7 +7403,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -7464,7 +7462,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -7657,7 +7655,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -7764,7 +7762,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -7871,7 +7869,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -9469,7 +9467,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -9510,7 +9508,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -9883,7 +9881,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -9990,7 +9988,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -10097,7 +10095,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -11534,10 +11532,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -13160,7 +13156,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 63,
+                                                        value: 82,
                                                     },
                                                 ),
                                             ),
@@ -13696,7 +13692,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -13737,7 +13733,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -13912,7 +13908,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -13953,7 +13949,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -14324,10 +14320,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 3,
@@ -14456,10 +14450,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 9,
@@ -14693,7 +14685,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -14734,7 +14726,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -14954,10 +14946,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -15156,7 +15146,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -15197,7 +15187,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -15417,10 +15407,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -15917,7 +15905,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -15958,7 +15946,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -16135,10 +16123,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -16318,7 +16304,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 66,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -16359,7 +16345,7 @@
                                                     Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 68,
+                                                                value: 87,
                                                             },
                                                         ),
                                                     ),
@@ -16536,10 +16522,8 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: Expectation::FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: AnyOriginal,
-                                },
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
                                 idx: 2,

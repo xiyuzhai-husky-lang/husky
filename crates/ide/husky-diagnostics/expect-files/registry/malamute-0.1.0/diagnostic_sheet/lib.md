@@ -23,7 +23,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Term Error: expected category",
                 severity: Error,
-                range: [11:19, 11:21),
+                range: [12:19, 12:21),
+            },
+            Diagnostic {
+                message: "Term Error: expected category",
+                severity: Error,
+                range: [21:19, 21:21),
             },
         ],
     },

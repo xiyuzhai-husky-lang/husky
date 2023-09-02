@@ -81,6 +81,9 @@ Ok(
                 `is_one`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Use,
             ),
             Token::Keyword(
@@ -107,6 +110,9 @@ Ok(
             ),
             Token::Ident(
                 `is_six`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -137,6 +143,9 @@ Ok(
                 `is_zero`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Use,
             ),
             Token::Keyword(
@@ -163,6 +172,9 @@ Ok(
             ),
             Token::Ident(
                 `is_two`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -193,6 +205,9 @@ Ok(
                 `is_three`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Use,
             ),
             Token::Keyword(
@@ -219,6 +234,9 @@ Ok(
             ),
             Token::Ident(
                 `is_five`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -249,6 +267,9 @@ Ok(
                 `is_seven`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Use,
             ),
             Token::Keyword(
@@ -275,6 +296,9 @@ Ok(
             ),
             Token::Ident(
                 `is_eight`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -338,14 +362,14 @@ Ok(
             18,
             20,
             25,
-            31,
-            37,
-            43,
-            49,
-            55,
-            61,
+            32,
+            39,
+            46,
+            53,
+            60,
             67,
-            73,
+            74,
+            81,
         ],
         indents: [
             0,

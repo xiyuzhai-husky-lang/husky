@@ -209,7 +209,7 @@ impl<'a> DeclParser<'a> {
             syn_node_path,
             None,
             AllowSelfType::True,
-            AllowSelfValue::True,
+            AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let template_parameters = ctx.try_parse_option();

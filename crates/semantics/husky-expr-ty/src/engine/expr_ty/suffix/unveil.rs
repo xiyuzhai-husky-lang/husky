@@ -30,6 +30,8 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Unveiler::UniquePartiallyInstanted { template } => {
                 let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+                    p!(self.expr_region_data.path().debug(self.db));
+                    p!(self.expr_region_data[opd].debug(self.db));
                     todo!()
                 };
                 let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {

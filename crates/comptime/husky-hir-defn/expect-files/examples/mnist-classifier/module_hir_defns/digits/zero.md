@@ -22,7 +22,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 1,
+                                value: 57,
                             },
                         ),
                     ),
@@ -44,7 +44,118 @@
                     body: Some(
                         12,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 285,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Field {
+                                    owner: 0,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            0.0,
+                                        ),
+                                    ),
+                                ),
+                                Binary {
+                                    lopd: 1,
+                                    opr: Closed(
+                                        Add,
+                                    ),
+                                    ropd: 2,
+                                },
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            140.0,
+                                        ),
+                                    ),
+                                ),
+                                Prefix {
+                                    opr: Minus,
+                                    opd: 4,
+                                },
+                                Binary {
+                                    lopd: 3,
+                                    opr: Comparison(
+                                        Less,
+                                    ),
+                                    ropd: 5,
+                                },
+                                InheritedSymbol {
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 285,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Field {
+                                    owner: 7,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                Prefix {
+                                    opr: Minus,
+                                    opd: 8,
+                                },
+                                Literal(
+                                    F32(
+                                        NotNan(
+                                            0.0,
+                                        ),
+                                    ),
+                                ),
+                                Binary {
+                                    lopd: 9,
+                                    opr: Closed(
+                                        Add,
+                                    ),
+                                    ropd: 10,
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        0..2,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Require {
+                                    condition: 6,
+                                },
+                                Eval {
+                                    expr_idx: 11,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),

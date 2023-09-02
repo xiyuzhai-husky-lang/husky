@@ -32,7 +32,7 @@ Ok(
         ),
         (
             TokenIdx(
-                3,
+                4,
             ),
             Some(
                 HoverResult {
@@ -40,47 +40,17 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `one`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::one`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 1,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 1,
-                                    character: 7,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                6,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 6;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 3,
+                                    line: 2,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 3,
+                                    line: 2,
                                     character: 3,
                                 },
                             },
@@ -92,7 +62,7 @@ Ok(
         ),
         (
             TokenIdx(
-                9,
+                8,
             ),
             Some(
                 HoverResult {
@@ -100,18 +70,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `four`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::four`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 4,
+                                    character: 0,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 8,
+                                    character: 3,
                                 },
                             },
                         ),
@@ -152,7 +122,7 @@ Ok(
         ),
         (
             TokenIdx(
-                15,
+                16,
             ),
             Some(
                 HoverResult {
@@ -160,47 +130,17 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    ItemSynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::eight`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "Other\ntoken_idx = 16;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
-                                    character: 4,
-                                },
-                                end: Position {
-                                    line: 7,
-                                    character: 9,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                18,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "Other\ntoken_idx = 18;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 9,
+                                    line: 8,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 9,
+                                    line: 8,
                                     character: 3,
                                 },
                             },
@@ -212,7 +152,7 @@ Ok(
         ),
         (
             TokenIdx(
-                21,
+                20,
             ),
             Some(
                 HoverResult {
@@ -220,18 +160,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 21;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 20;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 11,
-                                    character: 4,
+                                    character: 0,
                                 },
                                 end: Position {
                                     line: 11,
-                                    character: 7,
+                                    character: 3,
                                 },
                             },
                         ),
@@ -250,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: OnceUseRuleIdx(\n        10,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 63,\n                    ident_token: IdentToken {\n                        ident: `is_one`,\n                        token_idx: TokenIdx(\n                            23,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 29,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    48..51,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: OnceUseRuleIdx(\n        10,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::Pub,\n                    ast_idx: 63,\n                    ident_token: IdentToken {\n                        ident: `is_one`,\n                        token_idx: TokenIdx(\n                            23,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 30,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    48..51,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -272,7 +212,7 @@ Ok(
         ),
         (
             TokenIdx(
-                27,
+                28,
             ),
             Some(
                 HoverResult {
@@ -280,18 +220,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 27;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 28;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 13,
-                                    character: 8,
+                                    line: 12,
+                                    character: 12,
                                 },
                                 end: Position {
-                                    line: 13,
-                                    character: 10,
+                                    line: 12,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -302,7 +242,7 @@ Ok(
         ),
         (
             TokenIdx(
-                30,
+                32,
             ),
             Some(
                 HoverResult {
@@ -310,48 +250,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Ident(\n    `is_six`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: OnceUseRuleIdx(\n        19,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 52,\n                    ident_token: IdentToken {\n                        ident: `is_six`,\n                        token_idx: TokenIdx(\n                            37,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 35,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    26..38,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 32;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 13,
-                                    character: 15,
+                                    character: 0,
                                 },
                                 end: Position {
                                     line: 13,
-                                    character: 21,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                33,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 33;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 14,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 14,
-                                    character: 10,
+                                    character: 3,
                                 },
                             },
                         ),
@@ -370,18 +280,48 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `is_zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 5,\n    rule_idx: OnceUseRuleIdx(\n        20,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 28,\n                    ident_token: IdentToken {\n                        ident: `is_zero`,\n                        token_idx: TokenIdx(\n                            49,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 27,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    11..25,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: OnceUseRuleIdx(\n        12,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::zero`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::zero`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 0,\n                    ident_token: IdentToken {\n                        ident: `zero`,\n                        token_idx: TokenIdx(\n                            1,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 13,
+                                    character: 14,
+                                },
+                                end: Position {
+                                    line: 13,
+                                    character: 18,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                40,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 40;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 14,
-                                    character: 16,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 14,
-                                    character: 23,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -392,7 +332,7 @@ Ok(
         ),
         (
             TokenIdx(
-                39,
+                44,
             ),
             Some(
                 HoverResult {
@@ -400,78 +340,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 39;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 15,
-                                    character: 8,
+                                    line: 14,
+                                    character: 17,
                                 },
                                 end: Position {
-                                    line: 15,
-                                    character: 10,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                42,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `is_two`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 8,\n    rule_idx: OnceUseRuleIdx(\n        21,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 54,\n                    ident_token: IdentToken {\n                        ident: `is_two`,\n                        token_idx: TokenIdx(\n                            113,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 69,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    31..49,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 15,
-                                    character: 15,
-                                },
-                                end: Position {
-                                    line: 15,
-                                    character: 21,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                45,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 45;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 16,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 16,
-                                    character: 10,
+                                    line: 14,
+                                    character: 19,
                                 },
                             },
                         ),
@@ -490,108 +370,78 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `is_three`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: OnceUseRuleIdx(\n        22,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 29,\n                    ident_token: IdentToken {\n                        ident: `is_three`,\n                        token_idx: TokenIdx(\n                            26,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 39,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    1..18,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 48;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: OnceUseRuleIdx(\n        4,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::SelfModule {\n                module_path: `mnist_classifier::digits`,\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 8,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 12,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                52,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `is_three`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: OnceUseRuleIdx(\n        22,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 29,\n                    ident_token: IdentToken {\n                        ident: `is_three`,\n                        token_idx: TokenIdx(\n                            26,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 40,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    1..18,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 21,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 29,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                56,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 56;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 16,
-                                    character: 17,
+                                    character: 12,
                                 },
                                 end: Position {
                                     line: 16,
-                                    character: 25,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                51,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 51;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 17,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 17,
-                                    character: 10,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                54,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 54;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `is_five`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: OnceUseRuleIdx(\n        23,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 2,\n                    ident_token: IdentToken {\n                        ident: `is_five`,\n                        token_idx: TokenIdx(\n                            9,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 50,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    0..1,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 17,
-                                    character: 16,
-                                },
-                                end: Position {
-                                    line: 17,
-                                    character: 23,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                57,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 57;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 18,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 18,
-                                    character: 10,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -610,108 +460,78 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `is_seven`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: OnceUseRuleIdx(\n        24,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 44,\n                    ident_token: IdentToken {\n                        ident: `is_seven`,\n                        token_idx: TokenIdx(\n                            164,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 56,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    28..38,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 60;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 17,
+                                    character: 0,
+                                },
+                                end: Position {
+                                    line: 17,
+                                    character: 3,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                64,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 64;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `seven`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: OnceUseRuleIdx(\n        16,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::Submodule {\n                submodule_path: SubmodulePath(\n                    `mnist_classifier::digits::seven`,\n                ),\n                node: SubmoduleSynNode {\n                    syn_node_path: SubmoduleSynNodePath {\n                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                            path: SubmodulePath(\n                                `mnist_classifier::digits::seven`,\n                            ),\n                            disambiguator: 0,\n                        },\n                    },\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 6,\n                    ident_token: IdentToken {\n                        ident: `seven`,\n                        token_idx: TokenIdx(\n                            13,\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 17,
+                                    character: 14,
+                                },
+                                end: Position {
+                                    line: 17,
+                                    character: 19,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                68,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 68;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 18,
-                                    character: 17,
+                                    character: 4,
                                 },
                                 end: Position {
                                     line: 18,
-                                    character: 25,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                63,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 63;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 19,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 19,
-                                    character: 10,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                66,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 66;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Ident(\n    `is_eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 20,\n    rule_idx: OnceUseRuleIdx(\n        25,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 19,\n                    ident_token: IdentToken {\n                        ident: `is_eight`,\n                        token_idx: TokenIdx(\n                            22,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 58,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    6..13,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 19,
-                                    character: 17,
-                                },
-                                end: Position {
-                                    line: 19,
-                                    character: 25,
-                                },
-                            },
-                        ),
-                    },
-                    actions: [],
-                },
-            ),
-        ),
-        (
-            TokenIdx(
-                69,
-            ),
-            Some(
-                HoverResult {
-                    hover: Hover {
-                        contents: Markup(
-                            MarkupContent {
-                                kind: Markdown,
-                                value: "\ntoken_idx = 69;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
-                            },
-                        ),
-                        range: Some(
-                            Range {
-                                start: Position {
-                                    line: 20,
-                                    character: 8,
-                                },
-                                end: Position {
-                                    line: 20,
-                                    character: 10,
+                                    character: 7,
                                 },
                             },
                         ),
@@ -730,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 23,\n    rule_idx: OnceUseRuleIdx(\n        26,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 38,\n                    ident_token: IdentToken {\n                        ident: `is_nine`,\n                        token_idx: TokenIdx(\n                            35,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 62,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    17..28,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 20,
-                                    character: 16,
+                                    line: 18,
+                                    character: 19,
                                 },
                                 end: Position {
-                                    line: 20,
-                                    character: 23,
+                                    line: 18,
+                                    character: 21,
                                 },
                             },
                         ),
@@ -752,7 +572,7 @@ Ok(
         ),
         (
             TokenIdx(
-                75,
+                76,
             ),
             Some(
                 HoverResult {
@@ -760,18 +580,78 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 75;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 76;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: OnceUseRuleIdx(\n        8,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::SelfModule {\n                module_path: `mnist_classifier::digits`,\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 22,
-                                    character: 9,
+                                    line: 19,
+                                    character: 8,
                                 },
                                 end: Position {
-                                    line: 22,
+                                    line: 19,
+                                    character: 12,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                80,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 80;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 23,\n    rule_idx: OnceUseRuleIdx(\n        26,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::MajorItem {\n                module_item_path: MajorItemPath::Fugitive(\n                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                ),\n                node: MajorItemSynNode {\n                    syn_node_path: MajorItemSynNodePath::Fugitive(\n                        FugitiveSynNodePath {\n                            maybe_ambiguous_path: MaybeAmbiguousPath {\n                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),\n                                disambiguator: 0,\n                            },\n                        },\n                    ),\n                    visibility: Scope::PubUnder(\n                        `mnist_classifier::digits`,\n                    ),\n                    ast_idx: 38,\n                    ident_token: IdentToken {\n                        ident: `is_nine`,\n                        token_idx: TokenIdx(\n                            35,\n                        ),\n                    },\n                    block: Fugitive {\n                        path: FugitivePath(\n                            Id {\n                                value: 63,\n                            },\n                        ),\n                        body: Some(\n                            FugitiveBody {\n                                ast_idx_range: ArenaIdxRange(\n                                    17..28,\n                                ),\n                            },\n                        ),\n                    },\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 19,
+                                    character: 20,
+                                },
+                                end: Position {
+                                    line: 19,
+                                    character: 27,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                84,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 19\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Star,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 21,
                                     character: 11,
+                                },
+                                end: Position {
+                                    line: 21,
+                                    character: 12,
                                 },
                             },
                         ),

@@ -2,6 +2,11 @@ Ok(
     [
         ItemPath::MajorItem(
             MajorItemPath::Type(
+                TypePath(`malamute::Class`, `Enum`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
                 TypePath(`malamute::OneVsAll`, `Enum`),
             ),
         ),
@@ -13,6 +18,34 @@ Ok(
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
                 FugitivePath(`malamute::narrow_down`, `Gn`),
+            ),
+        ),
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath {
+                    module_path: `malamute`,
+                    trai_path: TraitPath(`core::ops::Unveil`),
+                    ty_sketch: TypeSketch::Path(
+                        TypePath(`malamute::Class`, `Enum`),
+                    ),
+                    disambiguator: 0,
+                },
+            ),
+        ),
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `malamute`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`malamute::Class`, `Enum`),
+                        ),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
             ),
         ),
         ItemPath::ImplBlock(

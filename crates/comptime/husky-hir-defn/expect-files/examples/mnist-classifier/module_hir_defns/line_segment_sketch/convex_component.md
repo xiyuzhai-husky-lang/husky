@@ -31,7 +31,17 @@
                                 ),
                             },
                         ],
-                        hir_expr_region: HirEagerExprRegion,
+                        hir_expr_region: HirEagerExprRegion {
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                        },
                     },
                 },
             ),
@@ -121,7 +131,50 @@
                     body: Some(
                         3,
                     ),
-                    hir_expr_region: HirEagerExprRegion,
+                    hir_expr_region: HirEagerExprRegion {
+                        expr_arena: Arena {
+                            data: [
+                                SelfValue,
+                                Field {
+                                    owner: 0,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 399,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                MethodCall {
+                                    self_argument: 1,
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 156,
+                                            },
+                                        ),
+                                    ),
+                                    generic_arguments: None,
+                                    item_groups: [],
+                                },
+                                Block {
+                                    stmts: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                Eval {
+                                    expr_idx: 2,
+                                },
+                            ],
+                        },
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                    },
                 },
             ),
         ),

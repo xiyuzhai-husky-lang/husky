@@ -25,7 +25,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 60,
+                                        value: 61,
                                     },
                                 ),
                                 variants: Some(
@@ -73,7 +73,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 61,
+                                        value: 62,
                                     },
                                 ),
                                 variants: None,
@@ -115,7 +115,7 @@ Ok(
                             block: Type {
                                 path: TypePath(
                                     Id {
-                                        value: 62,
+                                        value: 63,
                                     },
                                 ),
                                 variants: None,
@@ -157,7 +157,7 @@ Ok(
                             block: Fugitive {
                                 path: FugitivePath(
                                     Id {
-                                        value: 78,
+                                        value: 79,
                                     },
                                 ),
                                 body: None,

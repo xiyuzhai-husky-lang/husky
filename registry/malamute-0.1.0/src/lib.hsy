@@ -1,7 +1,7 @@
 @derive(Debug, Clone, Copy)
 pub enum Class<Label>
-| Within(Label)
-| Other
+| Known(Label)
+| Unknown
 
 @derive(Debug, Clone, Copy)
 pub enum OneVsAll<Label, const label: Label>

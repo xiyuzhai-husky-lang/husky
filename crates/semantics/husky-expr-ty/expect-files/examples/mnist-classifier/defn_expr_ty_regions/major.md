@@ -73,7 +73,7 @@
                                                         TypeOntology(
                                                             TypePath(
                                                                 Id {
-                                                                    value: 64,
+                                                                    value: 65,
                                                                 },
                                                             ),
                                                         ),
@@ -187,7 +187,7 @@
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     Id {
-                                                                                        value: 64,
+                                                                                        value: 65,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -2567,7 +2567,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 43,
+                                                        value: 72,
                                                     },
                                                 ),
                                             ),
@@ -2785,7 +2785,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 43,
+                                                        value: 72,
                                                     },
                                                 ),
                                             ),
@@ -3415,7 +3415,7 @@
                                             Application(
                                                 EtherealTermApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 78,
                                                     },
                                                 ),
                                             ),
