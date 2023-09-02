@@ -1,3 +1,4 @@
+use super::*;
 use husky_ethereal_signature::{
     helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
     EtherealSignatureResult, TraitForTypeImplBlockEtherealSignature,
@@ -6,10 +7,11 @@ use husky_ethereal_signature::{
 };
 use maybe_result::*;
 
-use super::*;
-
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_unveil_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
+    pub(super) fn calc_unveil_expr_ty(
+        &mut self,
+        opd: SynExprIdx,
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         self.unveiler.initialize_if_not(self.return_ty, self.db);
         match self.unveiler {
             Unveiler::UniqueFullyInstantiated {
@@ -21,11 +23,56 @@ impl<'a> ExprTypeEngine<'a> {
                     opd,
                     ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
-                Ok(unveil_output_ty.into())
+                Ok((
+                    UnveilOrComposeWithOptionExprDisambiguation::Unveil.into(),
+                    Ok(unveil_output_ty.into()),
+                ))
             }
             Unveiler::UniquePartiallyInstanted { template } => {
-                template;
-                todo!()
+                let Some(opd_ty) = self.infer_new_expr_ty(opd, ExpectAnyOriginal) else {
+                    todo!()
+                };
+                let reduced_opd_ty: FluffyTerm = match opd_ty.base_ty_data(self) {
+                    FluffyBaseTypeData::TypeOntology {
+                        ty_path,
+                        refined_ty_path: Left(PreludeTypePath::Indirection(indirection_path)),
+                        ty_arguments,
+                        ty_ethereal_term,
+                    } => {
+                        match indirection_path {
+                            PreludeIndirectionTypePath::Ref => todo!(),
+                            PreludeIndirectionTypePath::RefMut => todo!(),
+                            PreludeIndirectionTypePath::Leash => {
+                                // ad hoc
+                                // needs to check more
+                                ty_arguments[0]
+                            }
+                        }
+                    }
+                    _ => opd_ty,
+                };
+                match reduced_opd_ty.base_resolved(self) {
+                    FluffyTermBase::Ethereal(opd_ty) => {
+                        match template.instantiate_trai(&[opd_ty], self.db) {
+                            JustOk(template) => {
+                                let Some(output_ty_template) = template
+                                    .associated_output_template(self.db)?
+                                    .try_into_signature(self.db)
+                                else {
+                                    todo!()
+                                };
+                                Ok((
+                                    UnveilOrComposeWithOptionExprDisambiguation::Unveil.into(),
+                                    Ok(output_ty_template.ty_term().into()),
+                                ))
+                            }
+                            JustErr(_) => todo!(),
+                            Nothing => todo!(),
+                        }
+                    }
+                    FluffyTermBase::Solid(_) => todo!(),
+                    FluffyTermBase::Hollow(_) => todo!(),
+                }
             }
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
@@ -34,6 +81,13 @@ impl<'a> ExprTypeEngine<'a> {
             Unveiler::ErrEtherealSignature(e) => Err(e.into()),
             Unveiler::Uninitialized => unreachable!(),
         }
+    }
+
+    pub(super) fn calc_unveil_expr_ty_given_opd_ty(
+        &mut self,
+        opd_ty: FluffyTerm,
+    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        todo!()
     }
 }
 

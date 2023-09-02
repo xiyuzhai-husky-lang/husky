@@ -1,5 +1,8 @@
+mod compose_with_not;
+mod compose_with_option;
 mod unveil;
 mod unwrap;
+mod utils;
 
 pub(crate) use self::unveil::*;
 
@@ -20,19 +23,29 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_incr_or_decr_expr_ty(opd),
             )),
             SuffixOpr::UnveilOrComposeWithOption => {
-                self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
+                // self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
+                self.calc_ambiguous_suffix_expr_ty(
+                    opd,
+                    final_destination,
+                    Self::calc_unveil_expr_ty_given_opd_ty,
+                    Self::calc_unveil_expr_ty,
+                    Self::calc_compose_with_option_expr_ty,
+                    // Self::calc_compose_with_option_expr_ty_give_opd_ty,
+                )
             }
             SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
                 opd,
                 final_destination,
-                (
-                    UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
-                    Self::calc_unwrap_expr_ty,
-                ),
-                (
-                    UnwrapOrComposeWithNotExprDisambiguation::ComposeWithNot,
-                    Self::calc_compose_with_option_expr_ty,
-                ),
+                |this, opd_ty| todo!(),
+                |this, opd| todo!(),
+                // (
+                //     UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                //     Self::calc_unwrap_expr_ty,
+                // ),
+                |this, _, _| todo!(), // (
+                                      //     UnwrapOrComposeWithNotExprDisambiguation::ComposeWithNot,
+                                      //     Self::calc_compose_with_option_expr_ty,
+                                      // ),
             ),
         }
     }
@@ -168,82 +181,6 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(DerivedExprTypeError::UnveilerError)?
             }
             Unveiler::Uninitialized => todo!(),
-        }
-    }
-
-    fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<SynExprDisambiguation>>(
-        &mut self,
-        opd: SynExprIdx,
-        final_destination: FinalDestination,
-        (true_suffix, true_suffix_f): (
-            D,
-            fn(&mut Self, opd_ty: FluffyTerm) -> ExprTypeResult<FluffyTerm>,
-        ),
-        (application_composition, application_composition_f): (
-            D,
-            fn(&mut Self, opd_ty: FluffyTerm) -> ExprTypeResult<FluffyTerm>,
-        ),
-    ) -> ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
-            Some(opd_ty) => match opd_ty.data(self) {
-                FluffyTermData::Literal(_) => todo!(),
-                FluffyTermData::TypeOntology { .. } => {
-                    Ok((true_suffix.into(), true_suffix_f(self, opd_ty)))
-                }
-                FluffyTermData::Curry {
-                    curry_kind,
-                    variance,
-                    parameter_variable,
-                    parameter_ty,
-                    return_ty,
-                    ty_ethereal_term,
-                } => todo!(),
-                FluffyTermData::Hole(_, _) => todo!(),
-                FluffyTermData::Category(_) => todo!(),
-                FluffyTermData::Ritchie {
-                    ritchie_kind,
-                    parameter_contracted_tys,
-                    return_ty,
-                } => todo!(),
-                FluffyTermData::Symbol { .. } => todo!(),
-                FluffyTermData::Variable { ty } => todo!(),
-                FluffyTermData::TypeVariant { path } => todo!(),
-            },
-            None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
-        }
-    }
-
-    fn calc_compose_with_option_expr_ty(
-        &mut self,
-        opd_ty: FluffyTerm,
-    ) -> ExprTypeResult<FluffyTerm> {
-        match opd_ty.data(self) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path: refined_path,
-                ty_arguments: arguments,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Curry {
-                curry_kind,
-                variance,
-                parameter_variable,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-                ..
-            } => todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
