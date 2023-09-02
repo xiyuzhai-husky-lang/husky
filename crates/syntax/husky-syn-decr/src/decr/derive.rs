@@ -10,7 +10,7 @@ pub struct DeriveDecr {
     pub at_token: AtToken,
     pub derive_token: IdentToken,
     pub lpar_token: LparToken,
-    pub trai_exprs: Vec<TraitExpr>,
+    pub trai_exprs: Vec<TraitObelisk>,
     pub commas: Vec<CommaToken>,
     pub rpar_token: RparToken,
     pub syn_expr_region: SynExprRegion,

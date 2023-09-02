@@ -33,7 +33,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum SpecificParameterDecl {
+pub enum SpecificParameterObelisk {
     Regular {
         pattern: SynPatternExprIdx,
         variables: CurrentSynSymbolIdxRange,
@@ -62,7 +62,7 @@ pub enum SpecificParameterDecl {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificParameterObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -95,7 +95,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             );
             let variables = ctx.define_symbols(
                 variables,
-                Some(PatternTypeConstraint::ExplicitRegularParameter {
+                Some(ObeliskTypeConstraint::ExplicitRegularParameter {
                     pattern_expr_idx,
                     ty_expr_idx,
                 }),
@@ -118,7 +118,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                         OriginalExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(SpecificParameterDecl::Keyed {
+                Ok(Some(SpecificParameterObelisk::Keyed {
                     pattern: pattern_expr_idx,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -129,7 +129,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                     default,
                 }))
             } else {
-                Ok(Some(SpecificParameterDecl::Regular {
+                Ok(Some(SpecificParameterObelisk::Regular {
                     pattern: pattern_expr_idx,
                     variables,
                     colon,
@@ -160,9 +160,9 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             );
             let variable = ctx.define_symbol(
                 variable,
-                Some(PatternTypeConstraint::ExplicitVariadicParameter { ty }),
+                Some(ObeliskTypeConstraint::ExplicitVariadicParameter { ty }),
             );
-            Ok(Some(SpecificParameterDecl::Variadic {
+            Ok(Some(SpecificParameterObelisk::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,

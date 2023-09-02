@@ -1,5 +1,5 @@
 use husky_hir_ty::HirType;
-use husky_syn_expr::{BeVariablesPattern, LetVariableDecls};
+use husky_syn_expr::{BeVariablesObelisk, LetVariableObelisk};
 
 use crate::*;
 
@@ -13,7 +13,7 @@ pub struct HirLazyLetVariablesPattern {
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
         &mut self,
-        let_variables_pattern: &LetVariableDecls,
+        let_variables_pattern: &LetVariableObelisk,
     ) -> HirLazyLetVariablesPattern {
         HirLazyLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.pattern_expr_idx()),
@@ -28,7 +28,7 @@ impl<'a> HirLazyExprBuilder<'a> {
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirLazyBeVariablesPattern {}
 
-impl ToHirLazy for BeVariablesPattern {
+impl ToHirLazy for BeVariablesObelisk {
     type Output = HirLazyBeVariablesPattern;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {

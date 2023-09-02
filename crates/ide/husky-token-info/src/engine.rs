@@ -493,6 +493,7 @@ impl<'a> InferContext<'a> {
                     current_symbol_kind,
                 },
             ),
+            CurrentSynSymbolKind::FieldVariable { ident_token } => todo!(),
         }
     }
 }

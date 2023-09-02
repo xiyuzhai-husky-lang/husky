@@ -4,19 +4,19 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct TupleFieldDeclPattern {
+pub struct TupleFieldObelisk {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
     ty: SynExprIdx,
 }
 
-impl TupleFieldDeclPattern {
+impl TupleFieldObelisk {
     pub fn ty(&self) -> SynExprIdx {
         self.ty
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TupleFieldDeclPattern {
+impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TupleFieldObelisk {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -29,7 +29,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Tupl
             ExprRootKind::TupleStructFieldType,
             OriginalExprError::ExpectedFieldType,
         );
-        Ok(Some(TupleFieldDeclPattern {
+        Ok(Some(TupleFieldObelisk {
             decorators,
             visibility,
             ty,

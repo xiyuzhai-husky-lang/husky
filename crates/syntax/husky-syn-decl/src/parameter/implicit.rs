@@ -1,7 +1,7 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterDecl; 2]>;
+pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterObelisk; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
@@ -18,7 +18,7 @@ impl Generics {
         self.langle
     }
 
-    pub fn template_parameters(&self) -> &[TemplateParameterDecl] {
+    pub fn template_parameters(&self) -> &[TemplateParameterObelisk] {
         &self.template_parameters
     }
 

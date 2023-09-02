@@ -70,6 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
             CurrentSynSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
+            CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
         }
     }
 

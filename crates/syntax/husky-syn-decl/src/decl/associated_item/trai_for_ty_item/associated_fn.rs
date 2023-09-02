@@ -11,7 +11,7 @@ pub struct TraitForTypeAssociatedFnSynNodeDecl {
     pub parenate_parameter_decl_list: NodeDeclResult<RitchieParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
@@ -44,7 +44,7 @@ pub struct TraitForTypeAssociatedFnSynDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
-    pub return_ty: Option<ReturnTypeExprBeforeColon>,
+    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
 

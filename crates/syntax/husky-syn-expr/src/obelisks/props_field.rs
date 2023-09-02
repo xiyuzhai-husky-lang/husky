@@ -11,6 +11,7 @@ pub struct PropsFieldDeclPattern {
     colon: ColonToken,
     ty_expr_idx: SynExprIdx,
     initialization: Option<PropsFieldInitialization>,
+    variable: CurrentSynSymbolIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -72,6 +73,19 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Prop
             None
         };
         let access_start = ctx.save_state().next_token_idx();
+        let symbol = CurrentSynSymbol::new(
+            ctx.pattern_expr_region(),
+            access_start,
+            None,
+            CurrentSynSymbolVariant::FieldVariable { ident_token },
+        );
+        let variable = ctx.define_symbol(
+            symbol,
+            Some(ObeliskTypeConstraint::FieldVariable {
+                ident_token,
+                ty_expr_idx,
+            }),
+        );
         Ok(Some(PropsFieldDeclPattern {
             decorators,
             visibility,
@@ -79,6 +93,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Prop
             colon,
             ty_expr_idx,
             initialization,
+            variable,
         }))
     }
 }

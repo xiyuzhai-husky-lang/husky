@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct LetVariableDecls {
+pub struct LetVariableObelisk {
     pattern_expr_idx: SynPatternExprIdx,
     variables: CurrentSynSymbolIdxRange,
     colon_token: SynExprResult<Option<ColonToken>>,
@@ -15,7 +15,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: TokenIdxRangeEnd,
-    ) -> SynExprResult<LetVariableDecls> {
+    ) -> SynExprResult<LetVariableObelisk> {
         let state = self.save_state();
         let Some(pattern) = self.parse_pattern_expr(SynPatternExprInfo::Let)? else {
             Err(OriginalExprError::ExpectedLetVariableDecls(state))?
@@ -45,9 +45,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             )),
             _ => None,
         };
-        let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
+        let ty_constraint = ty.map(|ty| ObeliskTypeConstraint::LetVariables { pattern, ty });
         let variables = self.define_symbols(symbols, ty_constraint);
-        Ok(LetVariableDecls {
+        Ok(LetVariableObelisk {
             pattern_expr_idx: pattern,
             variables,
             colon_token,
@@ -56,7 +56,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 }
 
-impl LetVariableDecls {
+impl LetVariableObelisk {
     pub fn pattern_expr_idx(&self) -> SynPatternExprIdx {
         self.pattern_expr_idx
     }

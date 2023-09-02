@@ -12,7 +12,7 @@ pub struct TupleStructTypeSynNodeDecl {
     lpar: LparToken,
     #[return_ref]
     field_comma_list:
-        NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
+        NodeDeclResult<SeparatedSmallList<TupleFieldObelisk, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rpar: NodeDeclResult<TupleStructRparToken>,
     pub syn_expr_region: SynExprRegion,
@@ -53,7 +53,7 @@ pub struct TupleStructTypeSynDecl {
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
+    pub fields: SmallVec<[TupleFieldObelisk; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 

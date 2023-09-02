@@ -135,7 +135,7 @@ impl SynDefn {
         // self.decl(db).ast_idx(db)
     }
 
-    pub fn template_parameters<'a>(self, db: &'a dyn SynDefnDb) -> &'a [TemplateParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDefnDb) -> &'a [TemplateParameterObelisk] {
         self.syn_decl(db).template_parameters(db)
     }
 

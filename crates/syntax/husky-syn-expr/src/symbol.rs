@@ -119,9 +119,8 @@ impl CurrentSynSymbol {
                     | CurrentTemplateParameterSynSymbolVariant::Constant { ident_token, .. },
                 ..
             }
-            | CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
-                Some(ident_token.ident())
-            }
+            | CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. }
+            | CurrentSynSymbolVariant::FieldVariable { ident_token } => Some(ident_token.ident()),
             CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. }
             | CurrentSynSymbolVariant::LetVariable { ident, .. }
             | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
@@ -153,6 +152,9 @@ pub enum CurrentSynSymbolKind {
     },
     LetVariable {
         pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    FieldVariable {
+        ident_token: IdentToken,
     },
     FrameVariable(SynExprIdx),
 }
@@ -188,6 +190,9 @@ pub enum CurrentSynSymbolVariant {
     LetVariable {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
+    },
+    FieldVariable {
+        ident_token: IdentToken,
     },
     FrameVariable {
         ident: Ident,
@@ -247,6 +252,7 @@ impl CurrentSynSymbolVariant {
             CurrentSynSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
+            CurrentSynSymbolVariant::FieldVariable { ident_token } => SymbolModifier::None,
         }
     }
 }
@@ -321,6 +327,11 @@ impl CurrentSynSymbolVariant {
             CurrentSynSymbolVariant::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
+            CurrentSynSymbolVariant::FieldVariable { ident_token } => {
+                CurrentSynSymbolKind::FieldVariable {
+                    ident_token: *ident_token,
+                }
+            }
         }
     }
 }

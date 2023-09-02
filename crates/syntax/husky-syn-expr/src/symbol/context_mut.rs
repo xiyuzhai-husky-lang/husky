@@ -70,7 +70,7 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn define_symbol(
         &mut self,
         variable: CurrentSynSymbol,
-        ty_constraint: Option<PatternTypeConstraint>,
+        ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdx {
         self.symbol_region.define_symbol(variable, ty_constraint)
     }
@@ -78,7 +78,7 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSynSymbol>,
-        ty_constraint: Option<PatternTypeConstraint>,
+        ty_constraint: Option<ObeliskTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         self.symbol_region.define_symbols(variables, ty_constraint)
     }

@@ -11,7 +11,7 @@ pub struct TupleTypeVariantSynNodeDecl {
     lpar_token_idx: TokenIdx,
     #[return_ref]
     field_comma_list:
-        NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
+        NodeDeclResult<SeparatedSmallList<TupleFieldObelisk, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rpar: NodeDeclResult<TupleTypeVariantRparToken>,
     pub syn_expr_region: SynExprRegion,
@@ -38,7 +38,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleTypeVariantRp
 pub struct TupleTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
-    pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
+    pub fields: SmallVec<[TupleFieldObelisk; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 

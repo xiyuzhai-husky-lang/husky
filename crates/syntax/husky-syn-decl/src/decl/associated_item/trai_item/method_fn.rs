@@ -13,7 +13,7 @@ pub struct TraitMethodFnSynNodeDecl {
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeBeforeColonObelisk>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub syn_expr_region: SynExprRegion,
@@ -98,10 +98,10 @@ pub struct TraitMethodFnSynDecl {
     pub path: TraitItemPath,
     #[return_ref]
     pub template_parameters: ImplicitParameterDeclPatterns,
-    pub self_value_parameter: Option<SelfParameterDeclPattern>,
+    pub self_value_parameter: Option<SelfParameterObelisk>,
     #[return_ref]
     pub parenate_parameters: ExplicitParameterDeclPatterns,
-    pub return_ty: Option<ReturnTypeExprBeforeColon>,
+    pub return_ty: Option<ReturnTypeBeforeColonObelisk>,
     pub syn_expr_region: SynExprRegion,
 }
 

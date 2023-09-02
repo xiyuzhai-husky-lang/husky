@@ -47,6 +47,7 @@ fn token_to_semantic_token(
             CurrentSynSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
             CurrentSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
             CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
+            CurrentSynSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {
