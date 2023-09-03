@@ -49,12 +49,13 @@ impl InheritedSynSymbol {
 
     pub fn ident(&self) -> Option<Ident> {
         match self.kind {
-            InheritedSynSymbolKind::ImplicitParameter(kind) => match kind {
-                InheritedImplicitParameterSynSymbol::Lifetime { label } => None,
-                InheritedImplicitParameterSynSymbol::Type { ident }
-                | InheritedImplicitParameterSynSymbol::Constant { ident } => Some(ident),
+            InheritedSynSymbolKind::TemplateParameter(kind) => match kind {
+                InheritedTemplateParameterSynSymbol::Lifetime { label } => None,
+                InheritedTemplateParameterSynSymbol::Type { ident }
+                | InheritedTemplateParameterSynSymbol::Constant { ident } => Some(ident),
             },
-            InheritedSynSymbolKind::ExplicitParameter { ident } => Some(ident),
+            InheritedSynSymbolKind::ParenateParameter { ident } => Some(ident),
+            InheritedSynSymbolKind::FieldVariable { ident } => Some(ident),
         }
     }
 }
@@ -62,13 +63,14 @@ impl InheritedSynSymbol {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
 pub enum InheritedSynSymbolKind {
-    ImplicitParameter(InheritedImplicitParameterSynSymbol),
-    ExplicitParameter { ident: Ident },
+    TemplateParameter(InheritedTemplateParameterSynSymbol),
+    ParenateParameter { ident: Ident },
+    FieldVariable { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = SynExprDb)]
-pub enum InheritedImplicitParameterSynSymbol {
+pub enum InheritedTemplateParameterSynSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },
     Constant { ident: Ident },
@@ -274,22 +276,22 @@ pub enum CurrentTemplateParameterSynSymbolVariant {
 }
 
 impl CurrentTemplateParameterSynSymbolVariant {
-    fn bequeath(&self) -> InheritedImplicitParameterSynSymbol {
+    fn bequeath(&self) -> InheritedTemplateParameterSynSymbol {
         match self {
             CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token } => {
-                InheritedImplicitParameterSynSymbol::Lifetime {
+                InheritedTemplateParameterSynSymbol::Lifetime {
                     label: label_token.label(),
                 }
             }
             CurrentTemplateParameterSynSymbolVariant::Type { ident_token, .. } => {
-                InheritedImplicitParameterSynSymbol::Type {
+                InheritedTemplateParameterSynSymbol::Type {
                     ident: ident_token.ident(),
                 }
             }
             CurrentTemplateParameterSynSymbolVariant::Constant {
                 ident_token,
                 ty_expr_idx,
-            } => InheritedImplicitParameterSynSymbol::Constant {
+            } => InheritedTemplateParameterSynSymbol::Constant {
                 ident: ident_token.ident(),
             },
         }

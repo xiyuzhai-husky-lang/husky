@@ -861,7 +861,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -949,7 +949,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -1003,7 +1003,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -1027,7 +1027,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -1041,7 +1041,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -1066,7 +1066,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `cc`,
                 },
                 syn_expr_region: ExprRegionLeash(_),

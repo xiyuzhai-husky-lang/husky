@@ -280,7 +280,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     eol_colon: Ok(

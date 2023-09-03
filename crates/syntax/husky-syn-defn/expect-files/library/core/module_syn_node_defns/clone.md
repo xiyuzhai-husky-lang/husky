@@ -98,7 +98,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     for_token: ConnectionForToken {
@@ -315,7 +315,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),

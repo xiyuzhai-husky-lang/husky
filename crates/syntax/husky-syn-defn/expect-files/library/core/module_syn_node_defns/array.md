@@ -27,7 +27,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Constant {
@@ -50,7 +50,7 @@ Ok(
                                                     ty_expr: 0,
                                                 },
                                             },
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {

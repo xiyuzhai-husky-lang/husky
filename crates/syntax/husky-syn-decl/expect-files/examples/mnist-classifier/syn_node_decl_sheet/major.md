@@ -35,7 +35,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 2,
                                         },
                                     ),
@@ -185,7 +185,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -329,7 +329,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -466,7 +466,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 3,
                                         },
                                     ),
@@ -623,7 +623,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -767,7 +767,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -911,7 +911,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeEq {
+                                        ReturnTypeBeforeEqObelisk {
                                             expr: 3,
                                         },
                                     ),

@@ -55,6 +55,7 @@ Ok(
                                             ),
                                             ty_expr_idx: 0,
                                             initialization: None,
+                                            variable: 0,
                                         },
                                         PropsFieldDeclPattern {
                                             decorators: [],
@@ -78,6 +79,7 @@ Ok(
                                             ),
                                             ty_expr_idx: 1,
                                             initialization: None,
+                                            variable: 1,
                                         },
                                     ],
                                     separators: [
@@ -201,11 +203,83 @@ Ok(
                                             data: [],
                                         },
                                         current_symbol_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        13,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        ident_token: IdentToken {
+                                                            ident: `start`,
+                                                            token_idx: TokenIdx(
+                                                                10,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        17,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        ident_token: IdentToken {
+                                                            ident: `end`,
+                                                            token_idx: TokenIdx(
+                                                                14,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
-                                        pattern_ty_constraints: [],
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [
+                                            (
+                                                FieldVariable {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Coword(
+                                                                Id {
+                                                                    value: 146,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                    ty_expr_idx: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                            (
+                                                FieldVariable {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Coword(
+                                                                Id {
+                                                                    value: 147,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            14,
+                                                        ),
+                                                    },
+                                                    ty_expr_idx: 1,
+                                                },
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                        ],
                                     },
                                     roots: [
                                         SynExprRoot {
@@ -290,7 +364,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     eol_colon: Ok(
@@ -481,7 +555,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -1081,7 +1155,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -1113,7 +1187,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 1,
                                     },
                                 ),
@@ -1725,7 +1799,7 @@ Ok(
                                                 66,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `pt`,
                                             },
                                         },
@@ -1876,7 +1950,7 @@ Ok(
                                                 94,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `pt`,
                                             },
                                         },
@@ -2146,7 +2220,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -2223,7 +2297,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -2250,7 +2324,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -2415,7 +2489,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `pt`,
                                                 },
                                             },

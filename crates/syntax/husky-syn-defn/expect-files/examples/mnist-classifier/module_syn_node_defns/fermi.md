@@ -55,6 +55,7 @@ Ok(
                                             ),
                                             ty_expr_idx: 4,
                                             initialization: None,
+                                            variable: 0,
                                         },
                                         PropsFieldDeclPattern {
                                             decorators: [],
@@ -78,6 +79,7 @@ Ok(
                                             ),
                                             ty_expr_idx: 8,
                                             initialization: None,
+                                            variable: 1,
                                         },
                                     ],
                                     separators: [
@@ -248,11 +250,83 @@ Ok(
                                             data: [],
                                         },
                                         current_symbol_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        15,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        ident_token: IdentToken {
+                                                            ident: `matches`,
+                                                            token_idx: TokenIdx(
+                                                                8,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                                CurrentSynSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        22,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSynSymbolVariant::FieldVariable {
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                16,
+                                                            ),
+                                                        },
+                                                    },
+                                                },
+                                            ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
-                                        pattern_ty_constraints: [],
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [
+                                            (
+                                                FieldVariable {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Coword(
+                                                                Id {
+                                                                    value: 247,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                    ty_expr_idx: 4,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                            (
+                                                FieldVariable {
+                                                    ident_token: IdentToken {
+                                                        ident: Ident(
+                                                            Coword(
+                                                                Id {
+                                                                    value: 434,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        token_idx: TokenIdx(
+                                                            16,
+                                                        ),
+                                                    },
+                                                    ty_expr_idx: 8,
+                                                },
+                                                ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            ),
+                                        ],
                                     },
                                     roots: [
                                         SynExprRoot {
@@ -328,7 +402,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -340,7 +414,7 @@ Ok(
                                             ),
                                             ty: 3,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -378,7 +452,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 11,
                                     },
                                 ),
@@ -1116,7 +1190,7 @@ Ok(
                                                 184,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `concave_components`,
                                             },
                                         },
@@ -1192,7 +1266,7 @@ Ok(
                                                 204,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `templates`,
                                             },
                                         },
@@ -1242,7 +1316,7 @@ Ok(
                                                 213,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `templates`,
                                             },
                                         },
@@ -1455,7 +1529,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         3..4,
@@ -1488,7 +1562,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -1515,7 +1589,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -1706,7 +1780,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `concave_components`,
                                                 },
                                             },
@@ -1715,7 +1789,7 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `templates`,
                                                 },
                                             },
@@ -1889,7 +1963,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     eol_colon: Ok(
@@ -2036,7 +2110,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2682,7 +2756,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -2950,7 +3024,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -3596,7 +3670,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -3864,7 +3938,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -4530,7 +4604,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,

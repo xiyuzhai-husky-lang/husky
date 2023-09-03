@@ -493,7 +493,14 @@ impl<'a> InferContext<'a> {
                     current_symbol_kind,
                 },
             ),
-            CurrentSynSymbolKind::FieldVariable { ident_token } => todo!(),
+            CurrentSynSymbolKind::FieldVariable { ident_token } => self.sheet.add(
+                ident_token.token_idx(),
+                TokenInfo::CurrentSymbol {
+                    current_symbol_idx,
+                    syn_expr_region: self.syn_expr_region,
+                    current_symbol_kind,
+                },
+            ),
         }
     }
 }

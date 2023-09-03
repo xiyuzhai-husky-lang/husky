@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `line_segments`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `line_segments`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSynSymbolKind::FieldVariable {\n        ident_token: IdentToken {\n            ident: `line_segments`,\n            token_idx: TokenIdx(\n                14,\n            ),\n        },\n    },\n    syn_expr_region: ExprRegionLeash(_),\n};\n\nCurrentSynSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        19,\n    ),\n    access_end: None,\n    variant: CurrentSynSymbolVariant::FieldVariable {\n        ident_token: IdentToken {\n            ident: `line_segments`,\n            token_idx: TokenIdx(\n                14,\n            ),\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(

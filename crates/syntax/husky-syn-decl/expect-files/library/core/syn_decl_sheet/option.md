@@ -14,7 +14,7 @@ Ok(
                             EnumTypeSynDecl {
                                 path: TypePath(`core::option::Option`, `Enum`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 0,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -98,7 +98,7 @@ Ok(
                                                 ],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [
                                                 (
                                                     TemplateTypeParameter,

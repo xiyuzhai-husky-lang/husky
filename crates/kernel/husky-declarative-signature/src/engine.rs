@@ -168,7 +168,11 @@ impl<'a> DeclarativeTermEngine<'a> {
                 ObeliskTypeConstraint::FieldVariable {
                     ident_token,
                     ty_expr_idx,
-                } => todo!(),
+                } => {
+                    let ty = self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into);
+                    self.symbol_declarative_term_region
+                        .add_new_field_variable_symbol_signature(self.db, symbols.start(), ty)
+                }
                 ObeliskTypeConstraint::LetVariables { .. }
                 | ObeliskTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
@@ -249,8 +253,9 @@ impl<'a> DeclarativeTermEngine<'a> {
     fn init_expr_roots(&mut self) {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
-                ExprRootKind::PropsStructFieldType { .. }
-                | ExprRootKind::Trait
+                // omit props struct field because they are inferred for field variable
+                ExprRootKind::PropsStructFieldType { .. } => continue,
+                ExprRootKind::Trait
                 | ExprRootKind::ReturnType
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ReturnType
@@ -311,6 +316,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         )
     }
 
+    #[track_caller]
     fn save_expr_term(
         &mut self,
         expr_idx: SynExprIdx,

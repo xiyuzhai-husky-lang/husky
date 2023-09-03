@@ -62,7 +62,7 @@ Ok(
                                                 data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [],
@@ -86,7 +86,7 @@ Ok(
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    TupleFieldDeclPattern {
+                                    TupleFieldObelisk {
                                         decorators: [],
                                         visibility: None,
                                         ty: 3,
@@ -195,7 +195,7 @@ Ok(
                                                 data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [
@@ -224,7 +224,7 @@ Ok(
                                 path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                                 template_parameters: [],
                                 fields: [
-                                    TupleFieldDeclPattern {
+                                    TupleFieldObelisk {
                                         decorators: [],
                                         visibility: None,
                                         ty: 3,
@@ -333,7 +333,7 @@ Ok(
                                                 data: [],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
                                         roots: [
@@ -361,7 +361,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist::input`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -482,11 +482,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -650,7 +650,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -895,7 +895,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             syn_expr_region: SynExprRegion {
@@ -1019,7 +1019,7 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -1214,11 +1214,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -1711,11 +1711,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -1879,7 +1879,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2124,7 +2124,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             syn_expr_region: SynExprRegion {
@@ -2248,7 +2248,7 @@ Ok(
                                 template_parameters: [],
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2443,11 +2443,11 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 1,
                                 },
                             ),

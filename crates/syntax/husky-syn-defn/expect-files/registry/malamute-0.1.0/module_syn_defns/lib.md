@@ -8,7 +8,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::Class`, `Enum`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -92,7 +92,7 @@ Ok(
                                             ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
@@ -118,7 +118,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -131,7 +131,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -265,7 +265,7 @@ Ok(
                                             ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
@@ -302,7 +302,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -315,7 +315,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -449,7 +449,7 @@ Ok(
                                             ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
@@ -486,7 +486,7 @@ Ok(
                         decl: GnSynDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -499,7 +499,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -524,7 +524,7 @@ Ok(
                                 },
                             ],
                             parenate_parameters: [
-                                SpecificParameterDecl::Variadic {
+                                SpecificParameterObelisk::Variadic {
                                     dot_dot_dot_token: DotDotDotToken(
                                         TokenIdx(
                                             137,
@@ -557,7 +557,7 @@ Ok(
                                     ),
                                     ty: 1,
                                 },
-                                SpecificParameterDecl::Keyed {
+                                SpecificParameterObelisk::Keyed {
                                     pattern: 0,
                                     symbol_modifier_keyword_group: None,
                                     ident_token: IdentToken {
@@ -584,7 +584,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 8,
                                 },
                             ),
@@ -1341,8 +1341,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -1352,8 +1352,8 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Constant {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -1363,7 +1363,7 @@ Ok(
                                                     2,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `f`,
                                                 },
                                             },
@@ -1372,7 +1372,7 @@ Ok(
                                                     3,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `skip`,
                                                 },
                                             },
@@ -1404,7 +1404,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterDecl {
+                        TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 0,
                             variant: TemplateParameterDeclPatternVariant::Type {
@@ -1417,7 +1417,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterDecl {
+                        TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 1,
                             variant: TemplateParameterDeclPatternVariant::Constant {
@@ -1441,11 +1441,11 @@ Ok(
                             },
                         },
                     ],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 7,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 10,
                         },
                     ),
@@ -2214,8 +2214,8 @@ Ok(
                                                         0,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
@@ -2225,8 +2225,8 @@ Ok(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Constant {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -2652,8 +2652,8 @@ Ok(
                                                                 0,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `Label`,
                                                                 },
                                                             ),
@@ -2663,8 +2663,8 @@ Ok(
                                                                 1,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Constant {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Constant {
                                                                     ident: `label`,
                                                                 },
                                                             ),
@@ -2743,8 +2743,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -2754,8 +2754,8 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Constant {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
@@ -2788,7 +2788,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [
-                        TemplateParameterDecl {
+                        TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 0,
                             variant: TemplateParameterDeclPatternVariant::Type {
@@ -2801,7 +2801,7 @@ Ok(
                                 traits: None,
                             },
                         },
-                        TemplateParameterDecl {
+                        TemplateParameterObelisk {
                             annotated_variance_token: None,
                             symbol: 1,
                             variant: TemplateParameterDeclPatternVariant::Constant {
@@ -2825,11 +2825,11 @@ Ok(
                             },
                         },
                     ],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 7,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 12,
                         },
                     ),
@@ -3640,8 +3640,8 @@ Ok(
                                                         0,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
@@ -3651,8 +3651,8 @@ Ok(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Constant {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -4099,8 +4099,8 @@ Ok(
                                                                 0,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `Label`,
                                                                 },
                                                             ),
@@ -4110,8 +4110,8 @@ Ok(
                                                                 1,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Constant {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Constant {
                                                                     ident: `label`,
                                                                 },
                                                             ),
@@ -4190,8 +4190,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
@@ -4201,8 +4201,8 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Constant {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),

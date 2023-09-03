@@ -8,7 +8,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -392,7 +392,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 4,
                                 },
                             ),
@@ -773,7 +773,7 @@ Ok(
                                                 32,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -797,7 +797,7 @@ Ok(
                                                 36,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -821,7 +821,7 @@ Ok(
                                                 40,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -845,7 +845,7 @@ Ok(
                                                 44,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 3,
                                                     variables: ArenaIdxRange(
                                                         3..4,
@@ -972,7 +972,7 @@ Ok(
                                                 65,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 5,
                                                     variables: ArenaIdxRange(
                                                         5..6,
@@ -1045,7 +1045,7 @@ Ok(
                                                 77,
                                             ),
                                             target: Ok(
-                                                BeVariablesPattern {
+                                                BeVariablesObelisk {
                                                     pattern_expr: 6,
                                                     variables: ArenaIdxRange(
                                                         6..7,
@@ -1335,7 +1335,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 4,
                                                     variables: ArenaIdxRange(
                                                         4..5,
@@ -1744,7 +1744,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             template_parameters: [],
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -1758,7 +1758,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -2146,7 +2146,7 @@ Ok(
                                                 100,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -2212,7 +2212,7 @@ Ok(
                                                 111,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -2273,7 +2273,7 @@ Ok(
                                                 124,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -2368,7 +2368,7 @@ Ok(
                                                 136,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -2484,7 +2484,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `cc`,
                                                 },
                                             },

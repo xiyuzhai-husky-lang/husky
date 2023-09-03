@@ -14,7 +14,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::Ref`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -34,7 +34,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -199,7 +199,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::RefMut`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -219,7 +219,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Invariant(
                                                 InvariantToken {
@@ -384,7 +384,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::Leash`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -527,7 +527,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -541,11 +541,11 @@ Ok(
                                     },
                                 },
                             ],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),

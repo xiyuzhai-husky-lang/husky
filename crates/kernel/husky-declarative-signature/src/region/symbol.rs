@@ -14,12 +14,24 @@ pub struct SymbolDeclarativeTermRegion {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
+    kind: SymbolSignatureKind,
     term_symbol: Option<DeclarativeTermSymbol>,
     modifier: SymbolModifier,
     ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum SymbolSignatureKind {
+    TemplateParameter,
+    ParenateParameter,
+    FieldVariable,
+}
+
 impl SymbolSignature {
+    pub fn kind(self) -> SymbolSignatureKind {
+        self.kind
+    }
+
     pub fn term_symbol(self) -> Option<DeclarativeTermSymbol> {
         self.term_symbol
     }
@@ -50,6 +62,7 @@ impl SymbolDeclarativeTermRegion {
             db,
             idx,
             SymbolSignature {
+                kind: SymbolSignatureKind::TemplateParameter,
                 term_symbol: Some(term_symbol),
                 ty,
                 modifier: SymbolModifier::Const,
@@ -77,9 +90,30 @@ impl SymbolDeclarativeTermRegion {
             db,
             current_symbol,
             SymbolSignature {
+                kind: SymbolSignatureKind::ParenateParameter,
                 modifier,
                 ty,
                 term_symbol: symbol,
+            },
+        )
+    }
+
+    #[inline(always)]
+    pub(crate) fn add_new_field_variable_symbol_signature(
+        &mut self,
+        db: &dyn DeclarativeSignatureDb,
+        current_symbol: CurrentSynSymbolIdx,
+        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
+    ) {
+        self.add_new_current_symbol_signature(
+            db,
+            current_symbol,
+            SymbolSignature {
+                kind: SymbolSignatureKind::FieldVariable,
+                modifier: SymbolModifier::None,
+                ty,
+                // ad hoc
+                term_symbol: None,
             },
         )
     }
@@ -182,12 +216,16 @@ impl SymbolDeclarativeTermRegion {
         let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
         for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
         {
-            self_ty = self_ty.apply(
-                db,
-                current_symbol_signature
-                    .term_symbol()
-                    .expect("should have term"),
-            )
+            match current_symbol_signature.kind {
+                SymbolSignatureKind::TemplateParameter => {
+                    let argument = current_symbol_signature
+                        .term_symbol()
+                        .expect("should have term");
+                    self_ty = self_ty.apply(db, argument)
+                }
+                SymbolSignatureKind::ParenateParameter => unreachable!(),
+                SymbolSignatureKind::FieldVariable => break,
+            }
         }
         self_ty
     }

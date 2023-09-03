@@ -109,6 +109,7 @@ impl<T, V> ArenaMap<T, V> {
         self.data.iter().filter_map(|v| v.as_ref())
     }
 
+    #[track_caller]
     pub fn insert_new(&mut self, idx: ArenaIdx<T>, v: V) {
         should!(self.data[idx.raw].is_none());
         self.data[idx.raw] = Some(v)

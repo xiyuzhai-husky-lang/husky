@@ -210,7 +210,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {

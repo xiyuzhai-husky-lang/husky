@@ -3995,7 +3995,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentSketch`,
                                                         token_idx: TokenIdx(
-                                                            174,
+                                                            170,
                                                         ),
                                                     },
                                                     block: Type {
