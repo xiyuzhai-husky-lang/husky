@@ -117,7 +117,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -139,7 +139,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -387,7 +387,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -409,7 +409,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {

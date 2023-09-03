@@ -947,7 +947,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -1067,7 +1067,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -1530,7 +1530,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -1544,7 +1544,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -2127,7 +2127,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -2159,11 +2159,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -2350,7 +2350,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -2364,7 +2364,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -3078,7 +3078,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -3107,7 +3107,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -3227,7 +3227,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -3690,7 +3690,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -3704,7 +3704,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -4287,7 +4287,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -4319,11 +4319,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -4510,7 +4510,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -4524,7 +4524,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -5238,7 +5238,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -5267,7 +5267,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -5387,7 +5387,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -5850,7 +5850,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -5864,7 +5864,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -6447,7 +6447,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -6493,7 +6493,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -6507,7 +6507,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -7090,7 +7090,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -7122,11 +7122,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -7313,7 +7313,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -7327,7 +7327,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -8041,7 +8041,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -8070,7 +8070,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -8190,7 +8190,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -8639,11 +8639,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -8830,7 +8830,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -8844,7 +8844,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -9558,7 +9558,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -9587,7 +9587,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -9707,7 +9707,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -10156,11 +10156,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -10347,7 +10347,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -10361,7 +10361,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -11075,7 +11075,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -11104,7 +11104,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -11224,7 +11224,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -11673,11 +11673,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -11864,7 +11864,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -11878,7 +11878,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -12592,7 +12592,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -12621,7 +12621,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -12741,7 +12741,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -13190,11 +13190,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -13381,7 +13381,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -13395,7 +13395,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -14109,7 +14109,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -14138,7 +14138,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -14258,7 +14258,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -14707,11 +14707,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -14898,7 +14898,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -14912,7 +14912,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -15626,7 +15626,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -15655,7 +15655,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -15775,7 +15775,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -16224,11 +16224,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -16415,7 +16415,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -16429,7 +16429,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -17143,7 +17143,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -17172,7 +17172,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -17292,7 +17292,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -17741,11 +17741,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -17932,7 +17932,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -17946,7 +17946,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -18660,7 +18660,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -18689,7 +18689,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -18809,7 +18809,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -19258,11 +19258,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -19449,7 +19449,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -19463,7 +19463,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -20177,7 +20177,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -20206,7 +20206,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -20326,7 +20326,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -20775,11 +20775,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -20966,7 +20966,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -20980,7 +20980,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -21694,7 +21694,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -21723,7 +21723,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -21843,7 +21843,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -22307,7 +22307,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -22770,7 +22770,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -22784,7 +22784,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -23367,7 +23367,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -23413,7 +23413,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -23427,7 +23427,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -24010,7 +24010,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -24057,7 +24057,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -24521,7 +24521,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -24985,7 +24985,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -25449,7 +25449,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -25898,11 +25898,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -26089,7 +26089,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -26103,7 +26103,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -26817,7 +26817,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },
@@ -26846,7 +26846,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     syn_expr_region: SynExprRegion {
@@ -26966,7 +26966,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -27430,7 +27430,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -27879,11 +27879,11 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 2,
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 3,
                         },
                     ),
@@ -28070,7 +28070,7 @@ Ok(
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
-                                SpecificParameterDecl::Regular {
+                                SpecificParameterObelisk::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -28084,7 +28084,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -28798,7 +28798,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `other`,
                                                 },
                                             },

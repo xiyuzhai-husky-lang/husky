@@ -14,7 +14,7 @@ Ok(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 0,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -38,7 +38,7 @@ Ok(
                                     },
                                 ],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -276,7 +276,7 @@ Ok(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 0,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -300,7 +300,7 @@ Ok(
                                     },
                                 ],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -312,7 +312,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -324,7 +324,7 @@ Ok(
                                         ),
                                         ty: 4,
                                     },
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -702,7 +702,7 @@ Ok(
                             FnSynDecl {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 0,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -726,7 +726,7 @@ Ok(
                                     },
                                 ],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -738,7 +738,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -750,7 +750,7 @@ Ok(
                                         ),
                                         ty: 4,
                                     },
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -764,7 +764,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 6,
                                     },
                                 ),

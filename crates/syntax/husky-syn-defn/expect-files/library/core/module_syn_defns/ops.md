@@ -8,7 +8,7 @@ Ok(
                         path: TraitPath(`core::ops::Add`),
                         ast_idx: 32,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -117,7 +117,7 @@ Ok(
                         path: TraitPath(`core::ops::AddAssign`),
                         ast_idx: 34,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -226,7 +226,7 @@ Ok(
                         path: TraitPath(`core::ops::BitAnd`),
                         ast_idx: 36,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -335,7 +335,7 @@ Ok(
                         path: TraitPath(`core::ops::BitAndAssign`),
                         ast_idx: 38,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -444,7 +444,7 @@ Ok(
                         path: TraitPath(`core::ops::BitOr`),
                         ast_idx: 40,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -553,7 +553,7 @@ Ok(
                         path: TraitPath(`core::ops::BitOrAssign`),
                         ast_idx: 42,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -662,7 +662,7 @@ Ok(
                         path: TraitPath(`core::ops::BitXor`),
                         ast_idx: 44,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -771,7 +771,7 @@ Ok(
                         path: TraitPath(`core::ops::BitXorAssign`),
                         ast_idx: 46,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -880,7 +880,7 @@ Ok(
                         path: TraitPath(`core::ops::Div`),
                         ast_idx: 48,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -989,7 +989,7 @@ Ok(
                         path: TraitPath(`core::ops::DivAssign`),
                         ast_idx: 50,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1164,7 +1164,7 @@ Ok(
                         path: TraitPath(`core::ops::Mul`),
                         ast_idx: 53,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1273,7 +1273,7 @@ Ok(
                         path: TraitPath(`core::ops::MulAssign`),
                         ast_idx: 55,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1514,7 +1514,7 @@ Ok(
                         path: TraitPath(`core::ops::Sub`),
                         ast_idx: 61,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1623,7 +1623,7 @@ Ok(
                         path: TraitPath(`core::ops::Unveil`),
                         ast_idx: 62,
                         template_parameters: [
-                            TemplateParameterDecl {
+                            TemplateParameterObelisk {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1732,7 +1732,7 @@ Ok(
                         decl: EnumTypeSynDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -1745,7 +1745,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -1850,7 +1850,7 @@ Ok(
                                             ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,

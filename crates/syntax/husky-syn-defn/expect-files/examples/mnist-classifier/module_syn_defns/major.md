@@ -8,7 +8,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 2,
                                 },
                             ),
@@ -371,7 +371,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -903,7 +903,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         3..4,
@@ -958,7 +958,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -985,7 +985,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -1291,7 +1291,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 0,
                                 },
                             ),
@@ -1734,7 +1734,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -1944,7 +1944,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -2292,7 +2292,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -2639,7 +2639,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 1,
                                 },
                             ),
@@ -2961,7 +2961,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 3,
                                 },
                             ),

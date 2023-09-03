@@ -74,7 +74,18 @@ Ok(
                 },
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                    ident_token: IdentToken {
+                        ident: `start`,
+                        token_idx: TokenIdx(
+                            10,
+                        ),
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
@@ -84,7 +95,18 @@ Ok(
                 ),
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                    ident_token: IdentToken {
+                        ident: `end`,
+                        token_idx: TokenIdx(
+                            14,
+                        ),
+                    },
+                },
+                syn_expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::MajorItem(
@@ -234,7 +256,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `pt`,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -292,7 +314,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                     ident: `pt`,
                 },
                 syn_expr_region: ExprRegionLeash(_),

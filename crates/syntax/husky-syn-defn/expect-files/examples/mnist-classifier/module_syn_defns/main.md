@@ -78,7 +78,7 @@ Ok(
                         decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::main`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExprBeforeEq {
+                                ReturnTypeBeforeEqObelisk {
                                     expr: 2,
                                 },
                             ),

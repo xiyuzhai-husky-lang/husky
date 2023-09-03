@@ -33,7 +33,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -129,7 +129,7 @@ Ok(
                                                 ],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [
                                                 (
                                                     TemplateTypeParameter,
@@ -178,7 +178,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -191,7 +191,7 @@ Ok(
                                                         traits: None,
                                                     },
                                                 },
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -343,7 +343,7 @@ Ok(
                                                 ],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [
                                                 (
                                                     TemplateTypeParameter,
@@ -403,7 +403,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -416,7 +416,7 @@ Ok(
                                                         traits: None,
                                                     },
                                                 },
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -568,7 +568,7 @@ Ok(
                                                 ],
                                             },
                                             allow_self_type: True,
-                                            allow_self_value: True,
+                                            allow_self_value: False,
                                             pattern_ty_constraints: [
                                                 (
                                                     TemplateTypeParameter,
@@ -979,7 +979,7 @@ Ok(
                                                 ),
                                             ),
                                             template_parameters: [
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -992,7 +992,7 @@ Ok(
                                                         traits: None,
                                                     },
                                                 },
-                                                TemplateParameterDecl {
+                                                TemplateParameterObelisk {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Constant {
@@ -1044,7 +1044,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Variadic {
+                                            SpecificParameterObelisk::Variadic {
                                                 dot_dot_dot_token: DotDotDotToken(
                                                     TokenIdx(
                                                         137,
@@ -1077,7 +1077,7 @@ Ok(
                                                 ),
                                                 ty: 1,
                                             },
-                                            SpecificParameterDecl::Keyed {
+                                            SpecificParameterObelisk::Keyed {
                                                 pattern: 0,
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
@@ -1133,7 +1133,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 8,
                                         },
                                     ),
@@ -1195,7 +1195,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -1208,7 +1208,7 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Constant {
@@ -1250,7 +1250,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 7,
                             },
                             for_token: ConnectionForToken {
@@ -1259,7 +1259,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 10,
                                 },
                             ),
@@ -2088,8 +2088,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `Label`,
                                                             },
                                                         ),
@@ -2099,8 +2099,8 @@ Ok(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Constant {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Constant {
                                                                 ident: `label`,
                                                             },
                                                         ),
@@ -2170,7 +2170,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -2183,7 +2183,7 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Constant {
@@ -2225,7 +2225,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 7,
                             },
                             for_token: ConnectionForToken {
@@ -2234,7 +2234,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 12,
                                 },
                             ),
@@ -3105,8 +3105,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `Label`,
                                                             },
                                                         ),
@@ -3116,8 +3116,8 @@ Ok(
                                                             1,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Constant {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Constant {
                                                                 ident: `label`,
                                                             },
                                                         ),

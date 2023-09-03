@@ -31,7 +31,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -43,7 +43,7 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -81,7 +81,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 2,
                                     },
                                 ),
@@ -591,7 +591,7 @@ Ok(
                                                 36,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -633,7 +633,7 @@ Ok(
                                                 46,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -655,7 +655,7 @@ Ok(
                                                 50,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `index`,
                                             },
                                         },
@@ -720,7 +720,7 @@ Ok(
                                                 61,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -742,7 +742,7 @@ Ok(
                                                 66,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `index`,
                                             },
                                         },
@@ -932,7 +932,7 @@ Ok(
                                                 100,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -954,7 +954,7 @@ Ok(
                                                 105,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `index`,
                                             },
                                         },
@@ -1130,7 +1130,7 @@ Ok(
                                                 132,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -1344,7 +1344,7 @@ Ok(
                                                 168,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -1366,7 +1366,7 @@ Ok(
                                                 172,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `index`,
                                             },
                                         },
@@ -1513,7 +1513,7 @@ Ok(
                                                 196,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `line_segment_sketch`,
                                             },
                                         },
@@ -1779,7 +1779,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 6,
                                                     variables: ArenaIdxRange(
                                                         7..8,
@@ -1812,7 +1812,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 9,
                                                     variables: ArenaIdxRange(
                                                         11..12,
@@ -1845,7 +1845,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 4,
                                                     variables: ArenaIdxRange(
                                                         4..5,
@@ -1872,7 +1872,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 5,
                                                     variables: ArenaIdxRange(
                                                         5..6,
@@ -1945,7 +1945,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 7,
                                                     variables: ArenaIdxRange(
                                                         8..9,
@@ -1972,7 +1972,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 8,
                                                     variables: ArenaIdxRange(
                                                         9..10,
@@ -2061,7 +2061,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -2088,7 +2088,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -2115,7 +2115,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -2142,7 +2142,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 3,
                                                     variables: ArenaIdxRange(
                                                         3..4,
@@ -2470,7 +2470,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `line_segment_sketch`,
                                                 },
                                             },
@@ -2479,7 +2479,7 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `index`,
                                                 },
                                             },

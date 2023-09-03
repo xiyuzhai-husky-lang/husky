@@ -14,7 +14,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -123,7 +123,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -137,7 +137,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -336,7 +336,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -445,7 +445,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -459,7 +459,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -659,7 +659,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -673,7 +673,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -872,7 +872,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 4,
                                     },
                                 ),

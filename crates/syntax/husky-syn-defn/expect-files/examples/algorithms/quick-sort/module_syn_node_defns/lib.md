@@ -27,7 +27,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -72,7 +72,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -550,7 +550,7 @@ Ok(
                                                 21,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -590,7 +590,7 @@ Ok(
                                                 28,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -743,7 +743,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -822,8 +822,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T`,
                                                     },
                                                 ),
@@ -833,7 +833,7 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Mut,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `arr`,
                                                 },
                                             },
@@ -911,7 +911,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -956,7 +956,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -968,7 +968,7 @@ Ok(
                                             ),
                                             ty: 3,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -980,7 +980,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 2,
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -1749,7 +1749,7 @@ Ok(
                                                 66,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `low`,
                                             },
                                         },
@@ -1759,7 +1759,7 @@ Ok(
                                                 68,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `high`,
                                             },
                                         },
@@ -1789,7 +1789,7 @@ Ok(
                                                 75,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -1799,7 +1799,7 @@ Ok(
                                                 77,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `low`,
                                             },
                                         },
@@ -1809,7 +1809,7 @@ Ok(
                                                 79,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `high`,
                                             },
                                         },
@@ -1861,7 +1861,7 @@ Ok(
                                                 83,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -1871,7 +1871,7 @@ Ok(
                                                 85,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `low`,
                                             },
                                         },
@@ -1953,7 +1953,7 @@ Ok(
                                                 93,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -1993,7 +1993,7 @@ Ok(
                                                 99,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `high`,
                                             },
                                         },
@@ -2094,7 +2094,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -2207,8 +2207,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T`,
                                                     },
                                                 ),
@@ -2218,7 +2218,7 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Mut,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `arr`,
                                                 },
                                             },
@@ -2227,7 +2227,7 @@ Ok(
                                                     2,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `low`,
                                                 },
                                             },
@@ -2236,7 +2236,7 @@ Ok(
                                                     3,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `high`,
                                                 },
                                             },
@@ -2318,7 +2318,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -2363,7 +2363,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -2375,7 +2375,7 @@ Ok(
                                             ),
                                             ty: 3,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -2387,7 +2387,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 2,
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -2430,7 +2430,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 6,
                                     },
                                 ),
@@ -3224,7 +3224,7 @@ Ok(
                                                 131,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `high`,
                                             },
                                         },
@@ -3252,7 +3252,7 @@ Ok(
                                                 138,
                                             ),
                                             inherited_symbol_idx: 2,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `low`,
                                             },
                                         },
@@ -3282,7 +3282,7 @@ Ok(
                                                 145,
                                             ),
                                             inherited_symbol_idx: 3,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `high`,
                                             },
                                         },
@@ -3330,7 +3330,7 @@ Ok(
                                                 153,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -3368,7 +3368,7 @@ Ok(
                                                 160,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -3508,7 +3508,7 @@ Ok(
                                                 176,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -3546,7 +3546,7 @@ Ok(
                                                 183,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -3686,7 +3686,7 @@ Ok(
                                                 199,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -3785,7 +3785,7 @@ Ok(
                                                 211,
                                             ),
                                             inherited_symbol_idx: 1,
-                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
                                                 ident: `arr`,
                                             },
                                         },
@@ -4148,7 +4148,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -4175,7 +4175,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -4202,7 +4202,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -4369,8 +4369,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T`,
                                                     },
                                                 ),
@@ -4380,7 +4380,7 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Mut,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `arr`,
                                                 },
                                             },
@@ -4389,7 +4389,7 @@ Ok(
                                                     2,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `low`,
                                                 },
                                             },
@@ -4398,7 +4398,7 @@ Ok(
                                                     3,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `high`,
                                                 },
                                             },
@@ -4950,7 +4950,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -5407,7 +5407,7 @@ Ok(
                                                 ),
                                             },
                                             let_variables_pattern: Ok(
-                                                LetVariableDecls {
+                                                LetVariableObelisk {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,

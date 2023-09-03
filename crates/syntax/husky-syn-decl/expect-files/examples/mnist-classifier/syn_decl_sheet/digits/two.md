@@ -14,7 +14,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -123,7 +123,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -137,7 +137,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -337,7 +337,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -351,7 +351,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -551,7 +551,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -565,7 +565,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -764,7 +764,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 4,
                                     },
                                 ),

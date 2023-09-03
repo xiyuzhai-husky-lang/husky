@@ -134,7 +134,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 2,
                                     },
                                 ),

@@ -69,7 +69,7 @@ Ok(
                                             data: [],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [],
@@ -109,7 +109,7 @@ Ok(
                             field_comma_list: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        TupleFieldDeclPattern {
+                                        TupleFieldObelisk {
                                             decorators: [],
                                             visibility: None,
                                             ty: 3,
@@ -231,7 +231,7 @@ Ok(
                                             data: [],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
@@ -276,7 +276,7 @@ Ok(
                             field_comma_list: Ok(
                                 SeparatedSmallList {
                                     elements: [
-                                        TupleFieldDeclPattern {
+                                        TupleFieldObelisk {
                                             decorators: [],
                                             visibility: None,
                                             ty: 3,
@@ -398,7 +398,7 @@ Ok(
                                             data: [],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
@@ -443,7 +443,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -716,7 +716,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     for_token: ConnectionForToken {
@@ -725,7 +725,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 1,
                         },
                     ),
@@ -958,7 +958,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -1518,7 +1518,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     eol_colon: Ok(
@@ -1686,7 +1686,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2113,7 +2113,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     for_token: ConnectionForToken {
@@ -2122,7 +2122,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 1,
                         },
                     ),
@@ -2988,7 +2988,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     for_token: ConnectionForToken {
@@ -2997,7 +2997,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 1,
                         },
                     ),
@@ -3230,7 +3230,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -3790,7 +3790,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    self_ty_expr: SelfTypeExpr {
+                    self_ty_expr: SelfTypeObelisk {
                         expr: 0,
                     },
                     eol_colon: Ok(
@@ -3958,7 +3958,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -4385,7 +4385,7 @@ Ok(
                     template_parameter_decl_list: Ok(
                         None,
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     for_token: ConnectionForToken {
@@ -4394,7 +4394,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 1,
                         },
                     ),

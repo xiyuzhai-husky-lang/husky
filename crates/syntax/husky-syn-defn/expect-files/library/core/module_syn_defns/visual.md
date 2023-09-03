@@ -143,7 +143,7 @@ Ok(
                         disambiguator: 0,
                     },
                     template_parameters: [],
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 0,
                     },
                     self_ty_decl: DeriveAny {
@@ -283,7 +283,7 @@ Ok(
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExprBeforeColon {
+                                ReturnTypeBeforeColonObelisk {
                                     expr: 0,
                                 },
                             ),

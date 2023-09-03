@@ -75,7 +75,7 @@ Ok(
                         decl: StructureTypeSynDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -97,7 +97,7 @@ Ok(
                                         ),
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -304,7 +304,7 @@ Ok(
                         decl: InductiveTypeSynDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -326,7 +326,7 @@ Ok(
                                         ),
                                     },
                                 },
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {

@@ -27,7 +27,7 @@ Ok(
                                             ),
                                         ),
                                         template_parameters: [
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -40,7 +40,7 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            TemplateParameterDecl {
+                                            TemplateParameterObelisk {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
@@ -163,7 +163,7 @@ Ok(
                                             ],
                                         },
                                         allow_self_type: True,
-                                        allow_self_value: True,
+                                        allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
@@ -215,7 +215,7 @@ Ok(
                                     ),
                                 ),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 0,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -228,7 +228,7 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 1,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -241,7 +241,7 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 2,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -254,7 +254,7 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: None,
                                         symbol: 3,
                                         variant: TemplateParameterDeclPatternVariant::Type {
@@ -296,7 +296,7 @@ Ok(
                             },
                         ),
                     ),
-                    trai_expr: TraitExpr {
+                    trai_expr: TraitObelisk {
                         expr: 6,
                     },
                     for_token: ConnectionForToken {
@@ -305,7 +305,7 @@ Ok(
                         ),
                     },
                     self_ty_decl: PathLeadingExpr(
-                        SelfTypeExpr {
+                        SelfTypeObelisk {
                             expr: 11,
                         },
                     ),
@@ -1199,8 +1199,8 @@ Ok(
                                                     53,
                                                 ),
                                                 inherited_symbol_idx: 3,
-                                                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
                                                 ),
@@ -1237,8 +1237,8 @@ Ok(
                                                         0,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
@@ -1248,8 +1248,8 @@ Ok(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
@@ -1259,8 +1259,8 @@ Ok(
                                                         2,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
@@ -1270,8 +1270,8 @@ Ok(
                                                         3,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },
                                                     ),
@@ -1716,8 +1716,8 @@ Ok(
                                                             53,
                                                         ),
                                                         inherited_symbol_idx: 3,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E2`,
                                                             },
                                                         ),
@@ -1754,8 +1754,8 @@ Ok(
                                                                 0,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `T1`,
                                                                 },
                                                             ),
@@ -1765,8 +1765,8 @@ Ok(
                                                                 1,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `T2`,
                                                                 },
                                                             ),
@@ -1776,8 +1776,8 @@ Ok(
                                                                 2,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `E1`,
                                                                 },
                                                             ),
@@ -1787,8 +1787,8 @@ Ok(
                                                                 3,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `E2`,
                                                                 },
                                                             ),
@@ -1867,8 +1867,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T1`,
                                                     },
                                                 ),
@@ -1878,8 +1878,8 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T2`,
                                                     },
                                                 ),
@@ -1889,8 +1889,8 @@ Ok(
                                                     2,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E1`,
                                                     },
                                                 ),
@@ -1900,8 +1900,8 @@ Ok(
                                                     3,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
                                                 ),
@@ -2001,7 +2001,7 @@ Ok(
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        SpecificParameterDecl::Regular {
+                                        SpecificParameterObelisk::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -2033,7 +2033,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 9,
                                     },
                                 ),
@@ -2475,8 +2475,8 @@ Ok(
                                                     60,
                                                 ),
                                                 inherited_symbol_idx: 1,
-                                                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T2`,
                                                     },
                                                 ),
@@ -2491,8 +2491,8 @@ Ok(
                                                     61,
                                                 ),
                                                 inherited_symbol_idx: 3,
-                                                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
                                                 ),
@@ -2517,8 +2517,8 @@ Ok(
                                                     65,
                                                 ),
                                                 inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T1`,
                                                     },
                                                 ),
@@ -2533,8 +2533,8 @@ Ok(
                                                     66,
                                                 ),
                                                 inherited_symbol_idx: 2,
-                                                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E1`,
                                                     },
                                                 ),
@@ -2633,8 +2633,8 @@ Ok(
                                                         0,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T1`,
                                                         },
                                                     ),
@@ -2644,8 +2644,8 @@ Ok(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `T2`,
                                                         },
                                                     ),
@@ -2655,8 +2655,8 @@ Ok(
                                                         2,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E1`,
                                                         },
                                                     ),
@@ -2666,8 +2666,8 @@ Ok(
                                                         3,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E2`,
                                                         },
                                                     ),
@@ -3150,8 +3150,8 @@ Ok(
                                                             60,
                                                         ),
                                                         inherited_symbol_idx: 1,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T2`,
                                                             },
                                                         ),
@@ -3166,8 +3166,8 @@ Ok(
                                                             61,
                                                         ),
                                                         inherited_symbol_idx: 3,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E2`,
                                                             },
                                                         ),
@@ -3192,8 +3192,8 @@ Ok(
                                                             65,
                                                         ),
                                                         inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `T1`,
                                                             },
                                                         ),
@@ -3208,8 +3208,8 @@ Ok(
                                                             66,
                                                         ),
                                                         inherited_symbol_idx: 2,
-                                                        inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E1`,
                                                             },
                                                         ),
@@ -3308,8 +3308,8 @@ Ok(
                                                                 0,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `T1`,
                                                                 },
                                                             ),
@@ -3319,8 +3319,8 @@ Ok(
                                                                 1,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `T2`,
                                                                 },
                                                             ),
@@ -3330,8 +3330,8 @@ Ok(
                                                                 2,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `E1`,
                                                                 },
                                                             ),
@@ -3341,8 +3341,8 @@ Ok(
                                                                 3,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSynSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::TemplateParameter(
+                                                                InheritedTemplateParameterSynSymbol::Type {
                                                                     ident: `E2`,
                                                                 },
                                                             ),
@@ -3465,8 +3465,8 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T1`,
                                                     },
                                                 ),
@@ -3476,8 +3476,8 @@ Ok(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `T2`,
                                                     },
                                                 ),
@@ -3487,8 +3487,8 @@ Ok(
                                                     2,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E1`,
                                                     },
                                                 ),
@@ -3498,8 +3498,8 @@ Ok(
                                                     3,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSynSymbol::Type {
+                                                kind: InheritedSynSymbolKind::TemplateParameter(
+                                                    InheritedTemplateParameterSynSymbol::Type {
                                                         ident: `E2`,
                                                     },
                                                 ),
@@ -3509,7 +3509,7 @@ Ok(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSynSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ParenateParameter {
                                                     ident: `result`,
                                                 },
                                             },

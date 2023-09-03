@@ -1230,7 +1230,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -1424,7 +1424,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -1697,7 +1697,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1729,7 +1729,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -2045,7 +2045,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -2054,7 +2054,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -2300,7 +2300,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -2332,7 +2332,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -2727,7 +2727,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -2921,7 +2921,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -3194,7 +3194,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -3226,7 +3226,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -3542,7 +3542,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -3551,7 +3551,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -3797,7 +3797,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -3829,7 +3829,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -4224,7 +4224,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -4418,7 +4418,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -4691,7 +4691,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -4723,7 +4723,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -5074,7 +5074,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -5106,7 +5106,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -5422,7 +5422,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -5431,7 +5431,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -5679,7 +5679,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -5711,7 +5711,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -6106,7 +6106,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -6300,7 +6300,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -6538,7 +6538,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -6547,7 +6547,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -6793,7 +6793,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -6825,7 +6825,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -7220,7 +7220,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -7414,7 +7414,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -7652,7 +7652,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -7661,7 +7661,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -7907,7 +7907,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -7939,7 +7939,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -8334,7 +8334,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -8528,7 +8528,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -8766,7 +8766,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -8775,7 +8775,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -9021,7 +9021,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -9053,7 +9053,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -9448,7 +9448,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -9642,7 +9642,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -9880,7 +9880,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -9889,7 +9889,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -10135,7 +10135,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -10167,7 +10167,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -10562,7 +10562,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -10756,7 +10756,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -10994,7 +10994,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -11003,7 +11003,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -11249,7 +11249,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -11281,7 +11281,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -11676,7 +11676,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -11870,7 +11870,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -12108,7 +12108,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -12117,7 +12117,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -12363,7 +12363,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -12395,7 +12395,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -12790,7 +12790,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -12984,7 +12984,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -13222,7 +13222,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -13231,7 +13231,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -13477,7 +13477,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -13509,7 +13509,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -13904,7 +13904,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -14098,7 +14098,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -14336,7 +14336,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -14345,7 +14345,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -14591,7 +14591,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -14623,7 +14623,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -15018,7 +15018,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -15212,7 +15212,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -15450,7 +15450,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -15459,7 +15459,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -15705,7 +15705,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -15737,7 +15737,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -16132,7 +16132,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -16326,7 +16326,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -16618,7 +16618,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -16891,7 +16891,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -16923,7 +16923,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -17274,7 +17274,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -17306,7 +17306,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -17676,7 +17676,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -17968,7 +17968,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -18260,7 +18260,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -18552,7 +18552,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -18790,7 +18790,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -18799,7 +18799,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -19047,7 +19047,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -19079,7 +19079,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),
@@ -19474,7 +19474,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 0,
                             },
                             eol_colon: Ok(
@@ -19668,7 +19668,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -19960,7 +19960,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 0,
                                         },
                                     ),
@@ -20198,7 +20198,7 @@ Ok(
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 2,
                             },
                             for_token: ConnectionForToken {
@@ -20207,7 +20207,7 @@ Ok(
                                 ),
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -20453,7 +20453,7 @@ Ok(
                                         self_value_parameter: None,
                                         comma_after_self_parameter: None,
                                         parenate_parameters: [
-                                            SpecificParameterDecl::Regular {
+                                            SpecificParameterObelisk::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -20485,7 +20485,7 @@ Ok(
                                 ),
                                 return_ty: Ok(
                                     Some(
-                                        ReturnTypeExprBeforeColon {
+                                        ReturnTypeBeforeColonObelisk {
                                             expr: 1,
                                         },
                                     ),

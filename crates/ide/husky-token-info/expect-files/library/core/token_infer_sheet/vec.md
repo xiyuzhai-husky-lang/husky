@@ -183,8 +183,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -231,8 +231,8 @@ Ok(
             ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -278,8 +278,8 @@ Ok(
             ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -328,8 +328,8 @@ Ok(
             ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -373,8 +373,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -455,8 +455,8 @@ Ok(
             ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -507,8 +507,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -529,8 +529,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSynSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                    InheritedTemplateParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),

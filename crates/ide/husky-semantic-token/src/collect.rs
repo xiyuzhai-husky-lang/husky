@@ -54,8 +54,9 @@ fn token_to_semantic_token(
             inherited_symbol_kind,
             ..
         } => match inherited_symbol_kind {
-            InheritedSynSymbolKind::ExplicitParameter { .. } => SemanticToken::Parameter,
-            InheritedSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
+            InheritedSynSymbolKind::ParenateParameter { .. } => SemanticToken::Parameter,
+            InheritedSynSymbolKind::TemplateParameter { .. } => SemanticToken::ImplicitParameter,
+            InheritedSynSymbolKind::FieldVariable { .. } => SemanticToken::Variable,
         },
         TokenInfo::SelfType => SemanticToken::SelfType,
         TokenInfo::SelfValue => SemanticToken::SelfValue,

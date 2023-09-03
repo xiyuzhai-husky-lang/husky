@@ -14,7 +14,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::slice::Slice`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -144,7 +144,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                 template_parameters: [
-                                    TemplateParameterDecl {
+                                    TemplateParameterObelisk {
                                         annotated_variance_token: Some(
                                             VarianceToken::Covariant(
                                                 CovariantToken {
@@ -281,7 +281,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -295,7 +295,7 @@ Ok(
                                     },
                                 },
                             ],
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 2,
                             },
                             syn_expr_region: SynExprRegion {
@@ -470,7 +470,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -695,8 +695,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -752,7 +752,7 @@ Ok(
                                 },
                                 template_parameters: [],
                                 self_value_parameter: Some(
-                                    SelfParameterDeclPattern {
+                                    SelfParameterObelisk {
                                         ephem_symbol_modifier_token_group: Some(
                                             AmbersandMut(
                                                 AmbersandToken(
@@ -776,7 +776,7 @@ Ok(
                                     },
                                 ),
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -788,7 +788,7 @@ Ok(
                                         ),
                                         ty: 0,
                                     },
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1096,8 +1096,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -1195,7 +1195,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -1209,11 +1209,11 @@ Ok(
                                     },
                                 },
                             ],
-                            trai_expr: TraitExpr {
+                            trai_expr: TraitObelisk {
                                 expr: 0,
                             },
                             self_ty_decl: PathLeadingExpr(
-                                SelfTypeExpr {
+                                SelfTypeObelisk {
                                     expr: 3,
                                 },
                             ),
@@ -1711,8 +1711,8 @@ Ok(
                                                         75,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -1749,8 +1749,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -1796,7 +1796,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             template_parameters: [
-                                TemplateParameterDecl {
+                                TemplateParameterObelisk {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: TemplateParameterDeclPatternVariant::Type {
@@ -1810,7 +1810,7 @@ Ok(
                                     },
                                 },
                             ],
-                            self_ty_expr: SelfTypeExpr {
+                            self_ty_expr: SelfTypeObelisk {
                                 expr: 2,
                             },
                             syn_expr_region: SynExprRegion {
@@ -1985,7 +1985,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2210,8 +2210,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -2269,7 +2269,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2494,8 +2494,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -2553,7 +2553,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -2778,8 +2778,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -2837,7 +2837,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 2,
                                     },
                                 ),
@@ -3010,8 +3010,8 @@ Ok(
                                                         115,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -3062,8 +3062,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -3121,7 +3121,7 @@ Ok(
                                 self_value_parameter: None,
                                 parenate_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 2,
                                     },
                                 ),
@@ -3294,8 +3294,8 @@ Ok(
                                                         125,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSynSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::TemplateParameter(
+                                                        InheritedTemplateParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -3346,8 +3346,8 @@ Ok(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSynSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::TemplateParameter(
+                                                            InheritedTemplateParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),

@@ -14,7 +14,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 4,
                                     },
                                 ),

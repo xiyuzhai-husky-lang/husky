@@ -178,7 +178,7 @@ impl SynSymbolRegion {
         for (current_symbol_idx, current_symbol) in self.current_symbol_indexed_iter() {
             let kind = match current_symbol.variant {
                 CurrentSynSymbolVariant::ParenateRegularParameter { ident, .. } => {
-                    InheritedSynSymbolKind::ExplicitParameter { ident }
+                    InheritedSynSymbolKind::ParenateParameter { ident }
                 }
                 CurrentSynSymbolVariant::LetVariable { .. } => todo!(),
                 CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
@@ -186,10 +186,10 @@ impl SynSymbolRegion {
                     ref template_parameter_variant,
                     ..
                 } => {
-                    InheritedSynSymbolKind::ImplicitParameter(template_parameter_variant.bequeath())
+                    InheritedSynSymbolKind::TemplateParameter(template_parameter_variant.bequeath())
                 }
                 CurrentSynSymbolVariant::ParenateVariadicParameter { ident_token, .. } => {
-                    InheritedSynSymbolKind::ExplicitParameter {
+                    InheritedSynSymbolKind::ParenateParameter {
                         ident: ident_token.ident(),
                     }
                 }
@@ -197,7 +197,11 @@ impl SynSymbolRegion {
                 CurrentSynSymbolVariant::SelfValue {
                     symbol_modifier_keyword_group,
                 } => todo!(),
-                CurrentSynSymbolVariant::FieldVariable { ident_token } => todo!(),
+                CurrentSynSymbolVariant::FieldVariable { ident_token } => {
+                    InheritedSynSymbolKind::FieldVariable {
+                        ident: ident_token.ident(),
+                    }
+                }
             };
             inherited_symbol_arena.alloc_one(InheritedSynSymbol {
                 kind,

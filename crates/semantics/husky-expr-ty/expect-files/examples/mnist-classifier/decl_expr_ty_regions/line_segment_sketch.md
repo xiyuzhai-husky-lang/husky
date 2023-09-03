@@ -119,46 +119,133 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         SynExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice Point2d`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    5,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 57,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    6,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    7,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferUnwrapOperand,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 49,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
+                expectation_rule_idx: Some(
+                    8,
                 ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -177,53 +264,140 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    9,
                 ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         SynExprDisambiguation::Trivial,
-                        Err(
-                            ExprTypeError::Derived(
-                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
-                            ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash CyclicSlice Point2d`),
+                                ),
+                            },
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    10,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    Application(
+                                                        EtherealTermApplication(
+                                                            Id {
+                                                                value: 57,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Option Leash Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    11,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::UnwrapOrComposeWithNot(
+                            UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Leash Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    12,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::UnableToInferUnwrapOperand,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        SynExprDisambiguation::MethodCallOrApplication(
+                            MethodCallOrApplicationDisambiguation::MethodCall {
+                                method_dispatch: FluffyDynamicDispatch {
+                                    indirections: [
+                                        Leash,
+                                    ],
+                                    signature: MethodFn(
+                                        MethodFnFluffySignature {
+                                            parenate_parameters: [],
+                                            return_ty: FluffyTerm {
+                                                place: None,
+                                                base: Ethereal(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 49,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
+                                ritchie_parameter_argument_matches: Ok(
+                                    [],
+                                ),
+                            },
+                        ),
+                        Ok(
+                            FluffyTerm {
+                                place: None,
+                                base: FluffyTermBase::Ethereal(
+                                    EtherealTerm(`Point2d`),
+                                ),
+                            },
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    ExprTypeError::Derived(
-                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
-                    ),
+                expectation_rule_idx: Some(
+                    13,
                 ),
-                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -247,7 +421,32 @@
         ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [],
-            current_symbol_map: [],
+            current_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash CyclicSlice Point2d`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Point2d`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Point2d`),
+                        ),
+                    },
+                ),
+            ],
         },
         symbol_terms: SymbolMap {
             inherited_symbol_map: [],
@@ -444,6 +643,98 @@
                             },
                         },
                         ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 5,
+                                src: ExpectationSource {
+                                    expr_idx: 5,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 6,
+                                src: ExpectationSource {
+                                    expr_idx: 6,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 7,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Point2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
                             expectation: Expectation::EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -452,9 +743,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 5,
+                                idx: 9,
                                 src: ExpectationSource {
-                                    expr_idx: 10,
+                                    expr_idx: 9,
                                     kind: Expr,
                                 },
                                 expectee: FluffyTerm {
@@ -468,6 +759,98 @@
                                         FluffyTermExpectationOutcome::EqsSort(
                                             TermUniverse(
                                                 1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 10,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash CyclicSlice Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 11,
+                                src: ExpectationSource {
+                                    expr_idx: 11,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Option Leash Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 12,
+                                src: ExpectationSource {
+                                    expr_idx: 12,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Leash Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: Expectation::ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: FluffyTerm {
+                                        place: None,
+                                        base: FluffyTermBase::Ethereal(
+                                            EtherealTerm(`Point2d`),
+                                        ),
+                                    },
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 13,
+                                src: ExpectationSource {
+                                    expr_idx: 13,
+                                    kind: Expr,
+                                },
+                                expectee: FluffyTerm {
+                                    place: None,
+                                    base: FluffyTermBase::Ethereal(
+                                        EtherealTerm(`Point2d`),
+                                    ),
+                                },
+                                resolve_progress: ExpectationProgress::Resolved(
+                                    Ok(
+                                        FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                                            Trivial(
+                                                Todo,
                                             ),
                                         ),
                                     ),
@@ -603,7 +986,24 @@
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
             inherited_symbol_map: [],
-            current_symbol_map: [],
+            current_symbol_map: [
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Leash RawContour`),
+                        ),
+                    },
+                ),
+                SymbolType(
+                    FluffyTerm {
+                        place: None,
+                        base: FluffyTermBase::Ethereal(
+                            EtherealTerm(`Vec LineSegmentStroke`),
+                        ),
+                    },
+                ),
+            ],
         },
         symbol_terms: SymbolMap {
             inherited_symbol_map: [],

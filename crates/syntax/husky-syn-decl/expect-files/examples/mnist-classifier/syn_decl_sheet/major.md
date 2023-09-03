@@ -14,7 +14,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 2,
                                     },
                                 ),
@@ -135,7 +135,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 1,
                                     },
                                 ),
@@ -250,7 +250,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -358,7 +358,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -486,7 +486,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 1,
                                     },
                                 ),
@@ -601,7 +601,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 1,
                                     },
                                 ),
@@ -716,7 +716,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 3,
                                     },
                                 ),

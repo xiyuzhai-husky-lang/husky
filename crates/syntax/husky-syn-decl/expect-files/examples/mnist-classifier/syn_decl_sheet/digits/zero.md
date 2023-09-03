@@ -14,7 +14,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 0,
                                     },
                                 ),
@@ -123,7 +123,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                 template_parameters: [],
                                 parenate_parameters: [
-                                    SpecificParameterDecl::Regular {
+                                    SpecificParameterObelisk::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -137,7 +137,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeColon {
+                                    ReturnTypeBeforeColonObelisk {
                                         expr: 3,
                                     },
                                 ),
@@ -336,7 +336,7 @@ Ok(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExprBeforeEq {
+                                    ReturnTypeBeforeEqObelisk {
                                         expr: 4,
                                     },
                                 ),
