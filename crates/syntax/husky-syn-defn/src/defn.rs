@@ -68,6 +68,7 @@ impl HasSynNodeDefn for ItemSynNodePath {
             ItemSynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
             ItemSynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
+            ItemSynNodePath::Decr(_) => todo!(),
         }
     }
 }

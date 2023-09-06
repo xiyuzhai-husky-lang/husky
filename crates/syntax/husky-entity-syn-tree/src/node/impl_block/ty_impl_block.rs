@@ -1,6 +1,5 @@
-use husky_entity_taxonomy::AssociatedItemKind;
-
 use super::*;
+use husky_entity_taxonomy::AssociatedItemKind;
 
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -129,6 +129,7 @@ impl HasSynNodeDecl for ItemSynNodePath {
             ItemSynNodePath::ImplBlock(_) => todo!(),
             ItemSynNodePath::AssociatedItem(_) => todo!(),
             ItemSynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::Decr(_) => todo!(),
         }
     }
 }
