@@ -75,7 +75,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),

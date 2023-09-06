@@ -13,7 +13,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
@@ -150,7 +150,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
@@ -287,7 +287,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
@@ -507,7 +507,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
@@ -771,7 +771,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Fugitive(
                         FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {

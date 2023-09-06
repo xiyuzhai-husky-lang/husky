@@ -13,7 +13,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
@@ -97,7 +97,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Structure(
                             StructureTypeSynNodeDecl {
@@ -367,7 +367,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Inductive(
                             InductiveTypeSynNodeDecl {

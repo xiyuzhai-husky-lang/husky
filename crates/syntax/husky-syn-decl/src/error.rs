@@ -18,7 +18,7 @@ pub enum NodeDeclError {
 }
 
 pub type NodeDeclResult<T> = Result<T, NodeDeclError>;
-pub type NodeDeclErrorRefs<'a> = smallvec::SmallVec<[&'a NodeDeclError; 4]>;
+pub type SynNodeDeclErrorRefs<'a> = smallvec::SmallVec<[&'a NodeDeclError; 4]>;
 
 impl From<TokenError> for NodeDeclError {
     fn from(error: TokenError) -> Self {

@@ -12,7 +12,7 @@ pub struct IllFormedImplBlockSynNodeDecl {
 }
 
 impl IllFormedImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         // ad hoc
         SmallVec::default()
     }

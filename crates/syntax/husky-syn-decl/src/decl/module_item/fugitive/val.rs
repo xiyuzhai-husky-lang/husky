@@ -16,7 +16,7 @@ pub struct ValSynNodeDecl {
 }
 
 impl ValSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
                 .as_ref()

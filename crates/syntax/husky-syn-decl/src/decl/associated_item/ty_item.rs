@@ -27,9 +27,9 @@ pub enum TypeItemSynNodeDecl {
     MemoizedField(TypeMemoizedFieldSynNodeDecl),
 }
 
-impl From<TypeItemSynNodeDecl> for SynNodeDecl {
+impl From<TypeItemSynNodeDecl> for ItemSynNodeDecl {
     fn from(decl: TypeItemSynNodeDecl) -> Self {
-        SynNodeDecl::AssociatedItem(decl.into())
+        ItemSynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
@@ -74,7 +74,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),

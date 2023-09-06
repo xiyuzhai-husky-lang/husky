@@ -74,7 +74,7 @@ Ok(
                         body: None,
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),

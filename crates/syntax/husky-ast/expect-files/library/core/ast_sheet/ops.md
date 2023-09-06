@@ -1078,7 +1078,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -1129,7 +1129,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
@@ -1180,7 +1180,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
@@ -1231,7 +1231,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
@@ -1282,7 +1282,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
@@ -1333,7 +1333,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         20,
                     ),
@@ -1384,7 +1384,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
@@ -1435,7 +1435,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         27,
                     ),
@@ -1486,7 +1486,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
@@ -1537,7 +1537,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         34,
                     ),
@@ -1634,7 +1634,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         39,
                     ),
@@ -1685,7 +1685,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -1736,7 +1736,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         46,
                     ),
@@ -1787,7 +1787,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
@@ -1838,7 +1838,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         54,
                     ),

@@ -23,9 +23,9 @@ pub enum TraitForTypeItemSynNodeDecl {
     AssociatedVal(TraitForTypeAssociatedValSynNodeDecl),
 }
 
-impl From<TraitForTypeItemSynNodeDecl> for SynNodeDecl {
+impl From<TraitForTypeItemSynNodeDecl> for ItemSynNodeDecl {
     fn from(decl: TraitForTypeItemSynNodeDecl) -> Self {
-        SynNodeDecl::AssociatedItem(decl.into())
+        ItemSynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
@@ -66,7 +66,7 @@ impl TraitForTypeItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             TraitForTypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
             TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),

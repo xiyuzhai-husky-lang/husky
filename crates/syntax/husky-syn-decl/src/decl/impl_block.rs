@@ -47,7 +47,7 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),
             ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.errors(db),

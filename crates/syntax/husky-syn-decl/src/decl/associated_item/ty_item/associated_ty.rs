@@ -10,7 +10,7 @@ pub struct TypeAssociatedTypeSynNodeDecl {
 }
 
 impl TypeAssociatedTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         Default::default()
     }
 }

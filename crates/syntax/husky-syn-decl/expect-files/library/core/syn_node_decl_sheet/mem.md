@@ -13,7 +13,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
@@ -235,7 +235,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
@@ -457,7 +457,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
@@ -622,7 +622,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ImplBlock(
+                ItemSynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockSynNodeDecl {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {

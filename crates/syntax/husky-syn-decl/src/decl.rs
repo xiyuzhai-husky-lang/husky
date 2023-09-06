@@ -1,10 +1,12 @@
 mod associated_item;
+mod decr;
 mod impl_block;
 mod module_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
+pub use self::decr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::submodule::*;
@@ -19,52 +21,61 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
-pub enum SynNodeDecl {
+pub enum ItemSynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
     MajorItem(MajorItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
     AssociatedItem(AssociatedItemSynNodeDecl),
     TypeVariant(TypeVariantSynNodeDecl),
+    Decr(DecrSynNodeDecl),
 }
 
-impl SynNodeDecl {
+impl ItemSynNodeDecl {
     pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
-            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
-            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.ast_idx(db),
-            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.ast_idx(db),
-            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.ast_idx(db),
+            ItemSynNodeDecl::Decr(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
-            SynNodeDecl::Submodule(_) => None,
-            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
-            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
-            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
-            SynNodeDecl::TypeVariant(_node_decl) => todo!(),
+            ItemSynNodeDecl::Submodule(_) => None,
+            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => {
+                syn_node_decl.syn_expr_region(db).into()
+            }
+            ItemSynNodeDecl::TypeVariant(_node_decl) => todo!(),
+            ItemSynNodeDecl::Decr(_) => todo!(),
         }
     }
 
     pub fn syn_node_path(self, db: &dyn SynDeclDb) -> ItemSynNodePath {
         match self {
-            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
-            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => {
+                syn_node_decl.syn_node_path(db).into()
+            }
+            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            ItemSynNodeDecl::Decr(_) => todo!(),
         }
     }
 
-    pub fn node_decl_errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn node_decl_errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
-            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
-            SynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.errors(db),
-            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.errors(db),
-            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.errors(db),
-            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::MajorItem(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.errors(db),
+            ItemSynNodeDecl::Decr(_) => todo!(),
         }
     }
 }
@@ -120,7 +131,7 @@ pub trait HasSynNodeDecl: Copy {
 }
 
 impl HasSynNodeDecl for ItemSynNodePath {
-    type NodeDecl = SynNodeDecl;
+    type NodeDecl = ItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {

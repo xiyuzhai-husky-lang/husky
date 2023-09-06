@@ -45,7 +45,7 @@ impl FugitiveSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             FugitiveSynNodeDecl::Fn(syn_node_decl) => syn_node_decl.errors(db),
             FugitiveSynNodeDecl::Val(syn_node_decl) => syn_node_decl.errors(db),

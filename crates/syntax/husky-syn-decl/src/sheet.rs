@@ -4,7 +4,7 @@ use vec_like::VecPairMap;
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynNodeDeclSheet {
     #[return_ref]
-    pub decls: Vec<(ItemSynNodePath, SynNodeDecl)>,
+    pub decls: Vec<(ItemSynNodePath, ItemSynNodeDecl)>,
 }
 
 pub trait HasSynNodeDeclSheet: Copy {
@@ -24,7 +24,7 @@ pub fn syn_node_decl_sheet(
     path: ModulePath,
 ) -> EntitySynTreeResult<SynNodeDeclSheet> {
     let item_tree_sheet = db.item_syn_tree_sheet(path)?;
-    let mut decls: Vec<(ItemSynNodePath, SynNodeDecl)> = Default::default();
+    let mut decls: Vec<(ItemSynNodePath, ItemSynNodeDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         decls.push((syn_node_path, syn_node_path.syn_node_decl(db)))
     }

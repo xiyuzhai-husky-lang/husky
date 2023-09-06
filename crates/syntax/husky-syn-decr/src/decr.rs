@@ -73,6 +73,7 @@ impl HasDecr for DecrPath {
     }
 }
 
+#[deprecated]
 #[salsa::tracked(jar = SynDecrJar, return_ref)]
 pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<Decr>> {
     let module_path = path.module_path(db);

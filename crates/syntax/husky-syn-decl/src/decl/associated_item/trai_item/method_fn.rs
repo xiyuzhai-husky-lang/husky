@@ -19,14 +19,14 @@ pub struct TraitMethodFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl From<TraitMethodFnSynNodeDecl> for SynNodeDecl {
+impl From<TraitMethodFnSynNodeDecl> for ItemSynNodeDecl {
     fn from(syn_node_decl: TraitMethodFnSynNodeDecl) -> Self {
         todo!()
     }
 }
 
 impl TraitMethodFnSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
                 .as_ref()

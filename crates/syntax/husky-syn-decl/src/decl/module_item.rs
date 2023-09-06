@@ -44,7 +44,7 @@ impl MajorItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             MajorItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),
             MajorItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.errors(db),
