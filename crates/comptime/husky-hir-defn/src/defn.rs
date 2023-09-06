@@ -1,10 +1,12 @@
 mod associated_item;
+mod decr;
 mod impl_block;
 mod module_item;
 mod submodule;
 mod ty_variant;
 
 pub use self::associated_item::*;
+pub use self::decr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::submodule::*;
@@ -28,6 +30,7 @@ pub enum HirDefn {
     TypeVariant(TypeVariantHirDefn),
     ImplBlock(ImplBlockHirDecl),
     AssociatedItem(AssociatedItemHirDefn),
+    Decr(DecrHirDefn),
 }
 
 impl HirDefn {
@@ -38,6 +41,7 @@ impl HirDefn {
             HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
             HirDefn::ImplBlock(hir_decl) => hir_decl.into(),
             HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            HirDefn::Decr(hir_defn) => hir_defn.hir_decl().into(),
         }
     }
 
@@ -52,6 +56,7 @@ impl HirDefn {
             HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
             HirDefn::TypeVariant(_defn) => None,
             HirDefn::ImplBlock(_) => None,
+            HirDefn::Decr(_) => None,
         }
     }
 }
@@ -86,6 +91,7 @@ impl HasHirDefn for ItemPath {
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_) => todo!(),
+            ItemPath::Decr(_) => todo!(),
         })
     }
 }

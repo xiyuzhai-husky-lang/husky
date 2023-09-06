@@ -56,19 +56,21 @@ pub trait HasDecr: Copy {
 impl HasDecr for DecrPath {
     fn decr<'a>(self, db: &'a dyn DecrDb) -> DecrResultRef<&'a Decr> {
         match self.parent(db) {
-            DecrParent::Defn(path) => match path {
-                ItemPath::Submodule(_) => todo!(),
-                ItemPath::MajorItem(path) => match path {
-                    MajorItemPath::Type(path) => {
-                        Ok(&ty_path_decrs(db, path).as_ref()?[self.disambiguator(db) as usize])
-                    }
-                    MajorItemPath::Trait(_) => todo!(),
-                    MajorItemPath::Fugitive(_) => todo!(),
-                },
-                ItemPath::AssociatedItem(_) => todo!(),
-                ItemPath::TypeVariant(_) => todo!(),
-                ItemPath::ImplBlock(_) => todo!(),
-            },
+            DecrParent::Type(path) => todo!(),
+            // match path {
+            //     ItemPath::Submodule(_) => todo!(),
+            //     ItemPath::MajorItem(path) => match path {
+            //         MajorItemPath::Type(path) => {
+            //             todo!()
+            //         }
+            //         MajorItemPath::Trait(_) => todo!(),
+            //         MajorItemPath::Fugitive(_) => todo!(),
+            //     },
+            //     ItemPath::AssociatedItem(_) => todo!(),
+            //     ItemPath::TypeVariant(_) => todo!(),
+            //     ItemPath::ImplBlock(_) => todo!(),
+            //     ItemPath::Decr(_) => todo!(),
+            // },
         }
     }
 }
@@ -81,6 +83,7 @@ pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<D
     let ast_idx = path.syn_node_path(db).node(db).ast_idx(db);
     ast_sheet.gen_decrs(
         ast_idx,
+        path.into(),
         |ast_idx, token_group_idx, decr_id| {
             Decr::new(db, path.into(), ast_idx, token_group_idx, decr_id)
         },

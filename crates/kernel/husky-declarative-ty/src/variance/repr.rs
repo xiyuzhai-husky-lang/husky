@@ -43,6 +43,7 @@ pub(crate) fn item_variance_reprs(
         },
         ItemPath::TypeVariant(_) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
+        ItemPath::Decr(_) => todo!(),
     }
     .as_ref()
     .map(|t| t.as_ref())

@@ -179,6 +179,7 @@ impl HasSynDefn for ItemPath {
             ItemPath::ImplBlock(path) => path.syn_defn(db)?.into(),
             ItemPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
             ItemPath::TypeVariant(_) => todo!(),
+            ItemPath::Decr(_) => todo!(),
         })
     }
 }

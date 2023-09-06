@@ -33,6 +33,7 @@ impl HasHirDecl for ItemPath {
             ItemPath::AssociatedItem(path) => path.hir_decl(db)?.into(),
             ItemPath::TypeVariant(path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
+            ItemPath::Decr(_) => todo!(),
         })
     }
 }
@@ -46,6 +47,7 @@ pub enum HirDecl {
     ImplBlock(ImplBlockHirDecl),
     AssociatedItem(AssociatedItemHirDecl),
     TypeVariant(TypeVariantHirDecl),
+    Decr(DecrHirDecl),
 }
 
 impl HirDecl {
@@ -56,6 +58,7 @@ impl HirDecl {
             HirDecl::ImplBlock(decl) => decl.template_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
             HirDecl::TypeVariant(decl) => &[],
+            HirDecl::Decr(_) => todo!(),
         }
     }
 
@@ -76,6 +79,7 @@ impl HirDecl {
             HirDecl::ImplBlock(decl) => decl.path(db).into(),
             HirDecl::AssociatedItem(decl) => decl.path(db).into(),
             HirDecl::TypeVariant(decl) => decl.path(db).into(),
+            HirDecl::Decr(decl) => decl.path(db).into(),
         }
     }
 }

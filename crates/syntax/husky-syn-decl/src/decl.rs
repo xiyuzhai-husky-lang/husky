@@ -161,6 +161,7 @@ impl HasSynDecl for ItemPath {
             ItemPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
             ItemPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
             ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::Decr(_) => todo!(),
         }
     }
 }

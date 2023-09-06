@@ -74,6 +74,7 @@ impl HasSynNodePath for ItemPath {
             ItemPath::AssociatedItem(_) => todo!(),
             ItemPath::TypeVariant(_) => todo!(),
             ItemPath::ImplBlock(_) => todo!(),
+            ItemPath::Decr(_) => todo!(),
         }
     }
 }
@@ -172,6 +173,7 @@ impl ItemSynNode {
             ),
             ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_) => None,
             ItemPath::ImplBlock(_) => todo!(),
+            ItemPath::Decr(_) => todo!(),
         }
     }
 

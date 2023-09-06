@@ -10,14 +10,15 @@ pub struct DecrPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
 pub enum DecrParent {
-    Defn(ItemPath),
+    Type(TypePath),
 }
 
 impl DecrPath {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self.parent(db) {
-            DecrParent::Defn(path) => path.module_path(db),
+            DecrParent::Type(path) => path.module_path(db),
         }
     }
 
