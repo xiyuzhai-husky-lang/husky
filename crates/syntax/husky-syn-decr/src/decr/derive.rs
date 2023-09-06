@@ -6,7 +6,7 @@ use super::*;
 #[salsa::tracked(db = DecrDb, jar = SynDecrJar, constructor = new_inner)]
 pub struct DeriveDecr {
     #[id]
-    pub decr_id: DecrId,
+    pub decr_id: DecrPath,
     pub at_token: AtToken,
     pub derive_token: IdentToken,
     pub lpar_token: LparToken,
@@ -22,7 +22,7 @@ impl DeriveDecr {
         path: ItemPath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        decr_id: DecrId,
+        decr_id: DecrPath,
     ) -> DecrResult<Self> {
         let parser_factory = DecrParserFactory::new(db, path.module_path(db))?;
         let mut expr_parser =
