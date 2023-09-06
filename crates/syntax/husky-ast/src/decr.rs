@@ -7,22 +7,11 @@ impl AstSheet {
     pub fn gen_decrs<'a, D, E>(
         &self,
         target: AstIdx,
+        decr_parent: DecrParent,
         f: impl Fn(AstIdx, TokenGroupIdx, DecrPath) -> Result<D, E>,
         invalid_parent: impl FnOnce() -> E,
         db: &dyn AstDb,
     ) -> Result<Vec<D>, E> {
-        let decr_parent = match self.ast_arena[target] {
-            Ast::Defn { block, .. } => DecrParent::Defn(match block {
-                DefnBlock::Fugitive { path, body } => todo!(),
-                DefnBlock::Submodule { path } => todo!(),
-                DefnBlock::Type { path, variants } => path.into(),
-                DefnBlock::Trait { path, items } => todo!(),
-                DefnBlock::AssociatedItem { body } => todo!(),
-            }),
-            // Some(item_path) => item_path,
-            // None => return Err(invalid_parent()),
-            _ => todo!(),
-        };
         let mut registry = DecrRegistry::new(decr_parent);
         let mut decrs: Vec<D> = vec![];
         for (ast_idx, token_group_idx, ident) in self

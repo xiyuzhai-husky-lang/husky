@@ -130,6 +130,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     EntityKind::TypeVariant => todo!(),
                                     EntityKind::Trait => todo!(),
                                     EntityKind::ImplBlock => todo!(),
+                                    EntityKind::Decr => todo!(),
                                 }
                             }
                             _ => DisambiguatedToken::BinaryOpr(

@@ -60,6 +60,7 @@ impl HasEtherealSignatureTemplate for ItemPath {
             ItemPath::AssociatedItem(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.ethereal_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.ethereal_signature_template(db)?.into(),
+            ItemPath::Decr(_) => todo!(),
         })
     }
 }

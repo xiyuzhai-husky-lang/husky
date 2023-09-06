@@ -31,21 +31,22 @@ impl<'a> DecrParserFactory<'a> {
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
-        let parent_expr_region = match decr_id.parent(self.db) {
-            DecrParent::Defn(path) => path
-                .syn_decl(self.db)
-                .ok()
-                .map(|decl| decl.syn_expr_region(self.db))
-                .flatten(),
-        };
-        ExprParser::new(
-            self.db,
-            decr_id.into(),
-            self.token_sheet_data,
-            self.module_symbol_context,
-            parent_expr_region,
-            allow_self_type,
-            allow_self_value,
-        )
+        todo!()
+        // let parent_expr_region = match decr_id.parent(self.db) {
+        //     DecrParent::Type(path) => path
+        //         .syn_decl(self.db)
+        //         .ok()
+        //         .map(|decl| decl.syn_expr_region(self.db))
+        //         .flatten(),
+        // };
+        // ExprParser::new(
+        //     self.db,
+        //     decr_id.into(),
+        //     self.token_sheet_data,
+        //     self.module_symbol_context,
+        //     parent_expr_region,
+        //     allow_self_type,
+        //     allow_self_value,
+        // )
     }
 }

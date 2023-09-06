@@ -117,6 +117,7 @@ pub enum ItemPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
+    Decr(DecrPath),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -134,6 +135,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => Some(path.ident(db)),
             ItemPath::TypeVariant(path) => Some(path.ident(db)),
             ItemPath::ImplBlock(_) => None,
+            ItemPath::Decr(_) => None,
         }
     }
 
@@ -155,6 +157,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => path.module_path(db),
             ItemPath::TypeVariant(path) => path.module_path(db),
             ItemPath::ImplBlock(path) => path.module_path(db),
+            ItemPath::Decr(path) => path.module_path(db),
         }
     }
 
@@ -173,6 +176,7 @@ impl ItemPath {
             ItemPath::AssociatedItem(path) => path.item_kind(db),
             ItemPath::TypeVariant(_) => EntityKind::TypeVariant,
             ItemPath::ImplBlock(_) => EntityKind::ImplBlock,
+            ItemPath::Decr(_) => EntityKind::Decr,
         }
     }
 
@@ -181,7 +185,10 @@ impl ItemPath {
         match self {
             ItemPath::Submodule(path) => Some(path.inner().into()),
             ItemPath::MajorItem(path) => Some(path.into()),
-            ItemPath::AssociatedItem(_) | ItemPath::TypeVariant(_) | ItemPath::ImplBlock(_) => None,
+            ItemPath::AssociatedItem(_)
+            | ItemPath::TypeVariant(_)
+            | ItemPath::ImplBlock(_)
+            | ItemPath::Decr(_) => None,
         }
     }
 }
@@ -203,6 +210,7 @@ where
             ItemPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::TypeVariant(path) => path.display_with_db_fmt(f, db, level),
             ItemPath::ImplBlock(_) => todo!(),
+            ItemPath::Decr(_) => todo!(),
         }
     }
 }

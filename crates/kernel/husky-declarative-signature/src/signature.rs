@@ -46,6 +46,7 @@ impl HasDeclarativeSignatureTemplate for ItemPath {
             ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::Decr(_) => todo!(),
         })
     }
 }
