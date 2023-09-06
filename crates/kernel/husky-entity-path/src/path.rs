@@ -1,9 +1,11 @@
 mod associated_item;
+mod decr;
 mod impl_block;
 mod module_item;
 mod variant;
 
 pub use self::associated_item::*;
+pub use self::decr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::variant::*;
@@ -19,16 +21,18 @@ pub enum EntityPath {
     AssociatedItem(AssociatedItemPath),
     TypeVariant(TypeVariantPath),
     ImplBlock(ImplBlockPath),
+    Decr(DecrPath),
 }
 
 impl EntityPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Option<Ident> {
         match self {
-            EntityPath::Module(path) => path.ident(db),
-            EntityPath::MajorItem(path) => path.ident(db),
-            EntityPath::AssociatedItem(path) => path.ident(db),
-            EntityPath::TypeVariant(path) => path.ident(db),
-            EntityPath::ImplBlock(_) => todo!(),
+            EntityPath::Module(path) => Some(path.ident(db)),
+            EntityPath::MajorItem(path) => Some(path.ident(db)),
+            EntityPath::AssociatedItem(path) => Some(path.ident(db)),
+            EntityPath::TypeVariant(path) => Some(path.ident(db)),
+            EntityPath::ImplBlock(_) => None,
+            EntityPath::Decr(_) => None,
         }
     }
 
@@ -50,6 +54,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(path) => path.module_path(db),
             EntityPath::TypeVariant(path) => path.module_path(db),
             EntityPath::ImplBlock(path) => path.module_path(db),
+            EntityPath::Decr(_) => todo!(),
         }
     }
 
@@ -68,6 +73,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(path) => path.item_kind(db),
             EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
             EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
+            EntityPath::Decr(_) => todo!(),
         }
     }
 
@@ -79,6 +85,7 @@ impl EntityPath {
             EntityPath::AssociatedItem(_)
             | EntityPath::TypeVariant(_)
             | EntityPath::ImplBlock(_) => None,
+            EntityPath::Decr(_) => todo!(),
         }
     }
 }

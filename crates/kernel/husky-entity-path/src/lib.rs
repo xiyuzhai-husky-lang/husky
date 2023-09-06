@@ -36,5 +36,6 @@ pub struct EntityPathJar(
     TypeImplBlockPath,
     TraitForTypeImplBlockPath,
     IllFormedImplBlockPath,
+    DecrPath,
     item_path_menu,
 );

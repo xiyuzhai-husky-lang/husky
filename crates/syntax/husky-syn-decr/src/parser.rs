@@ -1,6 +1,6 @@
 use crate::*;
 use either::Either;
-use husky_ast::{AstSheet, DecrId, DecrParent};
+use husky_ast::{AstSheet, DecrParent, DecrPath};
 use husky_entity_syn_tree::{
     EntitySynTreeCrateBundle, EntitySynTreeResult, EntitySynTreeSheet, ModuleSymbolContext,
 };
@@ -27,11 +27,11 @@ impl<'a> DecrParserFactory<'a> {
 
     pub(crate) fn expr_parser(
         &self,
-        decr_id: DecrId,
+        decr_id: DecrPath,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
-        let parent_expr_region = match decr_id.parent() {
+        let parent_expr_region = match decr_id.parent(self.db) {
             DecrParent::Defn(path) => path
                 .syn_decl(self.db)
                 .ok()

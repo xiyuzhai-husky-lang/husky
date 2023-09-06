@@ -6,7 +6,7 @@ use crate::*;
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum RegionPath {
     Snippet(ModulePath),
-    Decr(DecrId),
+    Decr(DecrPath),
     Decl(ItemSynNodePath),
     Defn(ItemSynNodePath),
 }
@@ -33,8 +33,8 @@ impl RegionPath {
     }
 }
 
-impl From<DecrId> for RegionPath {
-    fn from(v: DecrId) -> Self {
+impl From<DecrPath> for RegionPath {
+    fn from(v: DecrPath) -> Self {
         Self::Decr(v)
     }
 }
