@@ -3,7 +3,7 @@ mod derive;
 pub use derive::*;
 
 use crate::*;
-use husky_ast::{AstIdx, DecrParent, DecrPath};
+use husky_ast::AstIdx;
 use husky_entity_syn_tree::{EntitySynTreeResult, HasSynNodePath};
 use husky_print_utils::p;
 use husky_scope::ReferenceModulePath;
