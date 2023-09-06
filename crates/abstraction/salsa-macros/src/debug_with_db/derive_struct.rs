@@ -6,7 +6,6 @@ pub(super) fn struct_debug_with_db_impl(
     item: &ItemStruct,
 ) -> proc_macro2::TokenStream {
     let ident = &item.ident;
-    let _ident_string = ident.to_string();
 
     let body = match item.fields {
         syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &item.fields),

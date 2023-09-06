@@ -10,6 +10,8 @@ use proc_macro2::Span;
 use syn::{spanned::Spanned, Item};
 use syn::{Ident, ItemStruct, Path};
 
+type Args = Options<DeriveDebugWithDb>;
+
 pub(crate) fn debug_with_db(
     args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
@@ -32,8 +34,6 @@ pub(crate) fn debug_with_db(
     }
     .into()
 }
-
-type Args = Options<DeriveDebugWithDb>;
 
 struct DeriveDebugWithDb;
 

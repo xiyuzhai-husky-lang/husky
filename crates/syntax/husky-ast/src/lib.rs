@@ -48,9 +48,9 @@ pub enum Ast {
         visibility_expr: VisibilityExpr,
         state_after_visibility_expr: Option<TokenStreamState>,
     },
-    /// specify comptime hints(sorceries)
+    /// specify comptime sorceries
     /// doesn't need to be processed until comptime
-    Hint { token_group_idx: TokenGroupIdx },
+    Sorc { token_group_idx: TokenGroupIdx },
     /// decoration, used for deriving trait implementations, etc.
     /// needs to be processed before inference
     Decr {

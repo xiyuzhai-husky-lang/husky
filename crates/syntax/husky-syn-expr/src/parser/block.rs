@@ -121,7 +121,7 @@ impl<'a> BlockExprParser<'a> {
             }
             Ast::Err { .. }
             | Ast::Use { .. }
-            | Ast::Hint { .. }
+            | Ast::Sorc { .. }
             | Ast::Decr { .. }
             | Ast::Defn { .. }
             | Ast::TypeVariant { .. }
