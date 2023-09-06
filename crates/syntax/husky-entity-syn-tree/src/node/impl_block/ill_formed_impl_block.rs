@@ -4,27 +4,9 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
+#[salsa::wrap_id(jar = EntitySynTreeJar)]
 pub struct IllFormedImplBlockSynNodePath {
     path: IllFormedImplBlockPath,
-}
-
-impl salsa::AsId for IllFormedImplBlockSynNodePath {
-    fn as_id(self) -> salsa::Id {
-        self.path.as_id()
-    }
-
-    fn from_id(id: salsa::Id) -> Self {
-        IllFormedImplBlockSynNodePath {
-            path: IllFormedImplBlockPath::from_id(id),
-        }
-    }
-}
-
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for IllFormedImplBlockSynNodePath
-where
-    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
-{
-    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
 impl IllFormedImplBlockSynNodePath {

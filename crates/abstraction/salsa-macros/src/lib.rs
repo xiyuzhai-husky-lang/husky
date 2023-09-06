@@ -40,6 +40,7 @@ mod salsa_struct;
 mod tracked;
 mod tracked_fn;
 mod tracked_struct;
+mod wrap_id;
 
 #[proc_macro_attribute]
 pub fn accumulator(args: TokenStream, input: TokenStream) -> TokenStream {
@@ -54,6 +55,11 @@ pub fn jar(args: TokenStream, input: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
     debug_with_db::debug_with_db(args, input)
+}
+
+#[proc_macro_attribute]
+pub fn wrap_id(args: TokenStream, input: TokenStream) -> TokenStream {
+    wrap_id::wrap_id(args, input)
 }
 
 #[proc_macro_attribute]
