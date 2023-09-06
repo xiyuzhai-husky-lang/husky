@@ -13,7 +13,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::MajorItem(
+                ItemSynNodeDecl::MajorItem(
                     MajorItemSynNodeDecl::Type(
                         TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
@@ -342,7 +342,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::ImplBlock(
+                ItemSynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::Type(
                         TypeImplBlockSynNodeDecl {
                             syn_node_path: TypeImplBlockSynNodePath {
@@ -504,7 +504,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::AssociatedItem(
+                ItemSynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
@@ -798,7 +798,7 @@ Ok(
                         },
                     ),
                 ),
-                SynNodeDecl::AssociatedItem(
+                ItemSynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {

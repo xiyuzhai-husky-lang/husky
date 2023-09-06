@@ -13,7 +13,7 @@ Ok(
                         },
                     },
                 ),
-                SynNodeDecl::Submodule(
+                ItemSynNodeDecl::Submodule(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -38,7 +38,7 @@ Ok(
                         },
                     },
                 ),
-                SynNodeDecl::Submodule(
+                ItemSynNodeDecl::Submodule(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -63,7 +63,7 @@ Ok(
                         },
                     },
                 ),
-                SynNodeDecl::Submodule(
+                ItemSynNodeDecl::Submodule(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -88,7 +88,7 @@ Ok(
                         },
                     },
                 ),
-                SynNodeDecl::Submodule(
+                ItemSynNodeDecl::Submodule(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -113,7 +113,7 @@ Ok(
                         },
                     },
                 ),
-                SynNodeDecl::Submodule(
+                ItemSynNodeDecl::Submodule(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {

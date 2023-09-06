@@ -80,7 +80,7 @@ impl TypeSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         match self {
             TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.errors(db),
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),

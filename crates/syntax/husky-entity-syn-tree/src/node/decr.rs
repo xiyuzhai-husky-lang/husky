@@ -12,4 +12,5 @@ pub struct DecrSynNodePath {
 pub struct DecrSynNode {
     #[id]
     pub syn_node_path: DecrSynNodePath,
+    pub ast_idx: AstIdx,
 }

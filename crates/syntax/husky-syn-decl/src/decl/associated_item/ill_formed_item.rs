@@ -7,9 +7,9 @@ pub struct IllFormedItemSynNodeDecl {
     pub node: IllFormedItemSynNode,
 }
 
-impl From<IllFormedItemSynNodeDecl> for SynNodeDecl {
+impl From<IllFormedItemSynNodeDecl> for ItemSynNodeDecl {
     fn from(decl: IllFormedItemSynNodeDecl) -> Self {
-        SynNodeDecl::AssociatedItem(decl.into())
+        ItemSynNodeDecl::AssociatedItem(decl.into())
     }
 }
 

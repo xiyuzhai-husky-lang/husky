@@ -198,7 +198,7 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Hint {
+                Ast::Sorc {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),

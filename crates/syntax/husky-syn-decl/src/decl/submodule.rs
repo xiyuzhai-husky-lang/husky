@@ -8,7 +8,7 @@ pub struct SubmoduleSynNodeDecl {
 }
 
 impl SubmoduleSynNodeDecl {
-    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> SynNodeDeclErrorRefs {
         Default::default()
     }
 }

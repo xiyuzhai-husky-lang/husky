@@ -27,7 +27,7 @@ pub enum SynNodeDefn {
 }
 
 impl SynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> SynNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> ItemSynNodeDecl {
         match self {
             SynNodeDefn::Submodule(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
             SynNodeDefn::MajorItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
