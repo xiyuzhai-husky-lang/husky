@@ -1,5 +1,5 @@
 use proc_macro2::Ident;
-use syn::{Field, Item, ItemEnum};
+use syn::{Field, Generics, Item, ItemEnum};
 
 pub(crate) fn from_variants(
     _args: proc_macro::TokenStream,
@@ -29,6 +29,7 @@ fn enum_from_variant_impls(item: &ItemEnum) -> proc_macro2::TokenStream {
             }
             match variant.fields {
                 syn::Fields::Unnamed(_) => Some(enum_from_variant_impl(
+                    &item.generics,
                     ty_ident,
                     &variant.ident,
                     variant.fields.iter().next().unwrap(),
@@ -40,6 +41,7 @@ fn enum_from_variant_impls(item: &ItemEnum) -> proc_macro2::TokenStream {
 }
 
 fn enum_from_variant_impl(
+    generics: &Generics,
     ty_ident: &Ident,
     variant_ident: &Ident,
     field: &Field,
@@ -47,7 +49,7 @@ fn enum_from_variant_impl(
     let field_ty = &field.ty;
     // todo: generics
     quote! {
-        impl From<#field_ty> for #ty_ident {
+        impl #generics From<#field_ty> for #ty_ident #generics {
             fn from(value: #field_ty) -> Self {
                 #ty_ident::#variant_ident(value)
             }

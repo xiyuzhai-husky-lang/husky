@@ -1,5 +1,6 @@
 use crate::*;
 
+/// syntax tree down to TokenGroup level
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = AstDb)]
 pub enum Ast {
