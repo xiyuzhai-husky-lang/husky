@@ -234,7 +234,7 @@
                         ),
                     },
                     body: Some(
-                        1,
+                        2,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -242,7 +242,7 @@
                                 Todo,
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..1,
+                                        1..2,
                                     ),
                                 },
                             ],
@@ -250,7 +250,7 @@
                         stmt_arena: Arena {
                             data: [
                                 Eval {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                             ],
                         },

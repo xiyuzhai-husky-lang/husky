@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `Slice`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `CyclicSlice`,
                                 token_idx: TokenIdx(
@@ -92,8 +92,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 8,
-                    use_expr_idx: 1,
+                    ast_idx: 9,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `core::slice`,
                     ),
@@ -106,7 +106,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -144,7 +144,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },

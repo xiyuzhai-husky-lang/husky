@@ -130,7 +130,7 @@ Ok(
                         items: Some(
                             TraitItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..1,
+                                    1..2,
                                 ),
                             },
                         ),
@@ -186,7 +186,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    1..2,
+                                    2..3,
                                 ),
                             },
                         ),
@@ -195,15 +195,9 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            2..6,
+            3..7,
         ),
         siblings: [
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..1,
-            ),
             ArenaIdxRange(
                 1..1,
             ),
@@ -211,7 +205,13 @@ Ok(
                 1..2,
             ),
             ArenaIdxRange(
-                2..6,
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..3,
+            ),
+            ArenaIdxRange(
+                3..7,
             ),
         ],
     },

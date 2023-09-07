@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Super,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: OnceUseRuleIdx(\n        0,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::SuperModule {\n                current_module_path: `mnist_classifier::digits::five`,\n                super_module_path: `mnist_classifier::digits`,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Super,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: OnceUseRuleIdx(\n        0,\n    ),\n    state: OnceUseRuleState::Resolved {\n        original_symbol: Some(\n            EntitySymbol::SuperModule {\n                current_module_path: `mnist_classifier::digits::five`,\n                super_module_path: `mnist_classifier::digits`,\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

@@ -12,7 +12,7 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Copy`),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -82,7 +82,7 @@ Ok(
                     MajorItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Sized`),
-                            ast_idx: 2,
+                            ast_idx: 3,
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            ast_idx: 3,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `ConvexComponent`,
                                 token_idx: TokenIdx(
@@ -54,8 +54,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 2,
-                    use_expr_idx: 2,
+                    ast_idx: 3,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
@@ -68,7 +68,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
@@ -107,7 +107,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -130,7 +130,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },

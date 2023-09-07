@@ -259,7 +259,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..5,
+                                    1..6,
                                 ),
                             },
                         ),
@@ -268,29 +268,29 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..10,
+            6..11,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..5,
+                1..6,
             ),
             ArenaIdxRange(
-                5..10,
+                6..11,
             ),
         ],
     },

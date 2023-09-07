@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 79,
+                            ast_idx: 80,
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 81,
+                            ast_idx: 82,
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
@@ -99,7 +99,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 82,
+                            ast_idx: 83,
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
@@ -141,7 +141,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 84,
+                            ast_idx: 85,
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
@@ -183,7 +183,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 86,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
@@ -225,7 +225,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 88,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(
@@ -276,7 +276,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 79,
+                            ast_idx: 80,
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
@@ -311,7 +311,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 81,
+                            ast_idx: 82,
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
@@ -346,7 +346,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 82,
+                            ast_idx: 83,
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
@@ -381,7 +381,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 84,
+                            ast_idx: 85,
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
@@ -416,7 +416,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 86,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
@@ -451,7 +451,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 88,
+                            ast_idx: 89,
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(
@@ -491,16 +491,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 80,
+                        ast_idx: 81,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
-                        ty_expr: 6,
+                        ty_expr: 7,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                5..10,
+                                6..11,
                             ),
                         },
                     },
@@ -525,16 +525,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 83,
+                        ast_idx: 84,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 178,
                             ),
                         },
-                        ty_expr: 7,
+                        ty_expr: 8,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                41..49,
+                                42..50,
                             ),
                         },
                     },
@@ -559,16 +559,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 85,
+                        ast_idx: 86,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 507,
                             ),
                         },
-                        ty_expr: 8,
+                        ty_expr: 9,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                56..58,
+                                57..59,
                             ),
                         },
                     },
@@ -593,16 +593,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 87,
+                        ast_idx: 88,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 617,
                             ),
                         },
-                        ty_expr: 9,
+                        ty_expr: 10,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                64..70,
+                                65..71,
                             ),
                         },
                     },
@@ -627,16 +627,16 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 89,
+                        ast_idx: 90,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 751,
                             ),
                         },
-                        ty_expr: 10,
+                        ty_expr: 11,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                74..78,
+                                75..79,
                             ),
                         },
                     },

@@ -222,7 +222,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..1,
+                                    1..2,
                                 ),
                             },
                         ),
@@ -293,7 +293,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    1..18,
+                                    2..19,
                                 ),
                             },
                         ),
@@ -341,7 +341,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    18..21,
+                                    19..22,
                                 ),
                             },
                         ),
@@ -389,7 +389,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    21..24,
+                                    22..25,
                                 ),
                             },
                         ),
@@ -437,7 +437,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    24..27,
+                                    25..28,
                                 ),
                             },
                         ),
@@ -446,107 +446,107 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            27..33,
+            28..34,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..1,
-            ),
-            ArenaIdxRange(
                 1..1,
             ),
             ArenaIdxRange(
-                1..1,
+                1..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..1,
+                2..2,
             ),
             ArenaIdxRange(
-                1..18,
+                2..2,
             ),
             ArenaIdxRange(
-                18..18,
+                2..2,
             ),
             ArenaIdxRange(
-                18..18,
+                2..19,
             ),
             ArenaIdxRange(
-                18..18,
+                19..19,
             ),
             ArenaIdxRange(
-                18..21,
+                19..19,
             ),
             ArenaIdxRange(
-                21..21,
+                19..19,
             ),
             ArenaIdxRange(
-                21..21,
+                19..22,
             ),
             ArenaIdxRange(
-                21..21,
+                22..22,
             ),
             ArenaIdxRange(
-                21..24,
+                22..22,
             ),
             ArenaIdxRange(
-                24..24,
+                22..22,
             ),
             ArenaIdxRange(
-                24..24,
+                22..25,
             ),
             ArenaIdxRange(
-                24..24,
+                25..25,
             ),
             ArenaIdxRange(
-                24..27,
+                25..25,
             ),
             ArenaIdxRange(
-                27..33,
+                25..25,
+            ),
+            ArenaIdxRange(
+                25..28,
+            ),
+            ArenaIdxRange(
+                28..34,
             ),
         ],
     },

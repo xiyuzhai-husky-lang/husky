@@ -267,7 +267,7 @@ impl SymbolDeclarativeTermRegion {
     ) -> Option<SymbolSignature> {
         self.symbol_signatures
             .current_symbol_map()
-            .get(current_symbol_idx.raw())
+            .get(current_symbol_idx.index())
             .copied()
     }
 }

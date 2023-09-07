@@ -20,10 +20,10 @@ impl SynPatternExprRegion {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
-        assert_eq!(idx.raw(), self.pattern_infos.len());
+        assert_eq!(idx.index(), self.pattern_infos.len());
         self.pattern_infos.push(env);
         let symbols = self.collect_symbols(idx);
-        assert_eq!(idx.raw(), self.pattern_symbol_maps.len());
+        assert_eq!(idx.index(), self.pattern_symbol_maps.len());
         self.pattern_symbol_maps.insert_next(idx, symbols);
         self.pattern_expr_contracts.insert_next(idx, contract);
         idx
@@ -83,7 +83,7 @@ impl SynPatternExprRegion {
     }
 
     pub fn pattern_info(&self, pattern_expr_idx: SynPatternExprIdx) -> SynPatternExprInfo {
-        self.pattern_infos[pattern_expr_idx.raw()]
+        self.pattern_infos[pattern_expr_idx.index()]
     }
 
     pub fn pattern_expr_arena(&self) -> &SynPatternExprArena {

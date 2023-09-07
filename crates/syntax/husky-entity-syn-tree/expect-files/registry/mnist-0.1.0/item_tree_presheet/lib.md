@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 16,
+                            ast_idx: 17,
                             ident_token: IdentToken {
                                 ident: `MnistLabel`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..10,
+                                            1..11,
                                         ),
                                     },
                                 ),
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 18,
+                            ast_idx: 19,
                             ident_token: IdentToken {
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
@@ -105,7 +105,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `BinaryGrid28`,
                                 token_idx: TokenIdx(
@@ -147,7 +147,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 26,
+                            ast_idx: 27,
                             ident_token: IdentToken {
                                 ident: `input`,
                                 token_idx: TokenIdx(

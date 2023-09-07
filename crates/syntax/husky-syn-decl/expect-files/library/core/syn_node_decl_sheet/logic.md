@@ -23,7 +23,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 3,
+                                ast_idx: 4,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -107,7 +107,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 4,
+                                ast_idx: 5,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -119,7 +119,7 @@ Ok(
                                             template_parameters: [
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 0,
+                                                    symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `P`,
@@ -134,14 +134,14 @@ Ok(
                                                                         14,
                                                                     ),
                                                                 ),
-                                                                0,
+                                                                1,
                                                             ),
                                                         ),
                                                     },
                                                 },
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 1,
+                                                    symbol: 2,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Q`,
@@ -156,7 +156,7 @@ Ok(
                                                                         18,
                                                                     ),
                                                                 ),
-                                                                1,
+                                                                2,
                                                             ),
                                                         ),
                                                     },
@@ -198,7 +198,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 0,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -208,7 +208,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    item_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -328,13 +328,13 @@ Ok(
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        0..1,
+                                                        1..2,
                                                     ),
                                                 ),
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        1..2,
+                                                        2..3,
                                                     ),
                                                 ),
                                             ],
@@ -342,11 +342,11 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: Traits,
-                                                expr_idx: 0,
+                                                expr_idx: 1,
                                             },
                                             SynExprRoot {
                                                 kind: Traits,
-                                                expr_idx: 1,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -377,7 +377,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 5,
+                                ast_idx: 6,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -389,7 +389,7 @@ Ok(
                                             template_parameters: [
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 0,
+                                                    symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `P`,
@@ -404,14 +404,14 @@ Ok(
                                                                         36,
                                                                     ),
                                                                 ),
-                                                                0,
+                                                                1,
                                                             ),
                                                         ),
                                                     },
                                                 },
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 1,
+                                                    symbol: 2,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Q`,
@@ -426,7 +426,7 @@ Ok(
                                                                         40,
                                                                     ),
                                                                 ),
-                                                                1,
+                                                                2,
                                                             ),
                                                         ),
                                                     },
@@ -468,7 +468,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 0,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -478,7 +478,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    item_path_expr: 1,
+                                                    item_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::MajorItem(
                                                             MajorItemPath::Type(
@@ -598,13 +598,13 @@ Ok(
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        0..1,
+                                                        1..2,
                                                     ),
                                                 ),
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        1..2,
+                                                        2..3,
                                                     ),
                                                 ),
                                             ],
@@ -612,11 +612,11 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: Traits,
-                                                expr_idx: 0,
+                                                expr_idx: 1,
                                             },
                                             SynExprRoot {
                                                 kind: Traits,
-                                                expr_idx: 1,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },

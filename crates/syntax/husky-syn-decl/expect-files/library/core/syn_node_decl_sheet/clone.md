@@ -22,7 +22,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 3,
+                            ast_idx: 4,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -108,7 +108,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 4,
+                            ast_idx: 5,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     16,
@@ -118,7 +118,7 @@ Ok(
                                 None,
                             ),
                             trai_expr: TraitObelisk {
-                                expr: 0,
+                                expr: 1,
                             },
                             for_token: ConnectionForToken {
                                 token_idx: TokenIdx(
@@ -171,7 +171,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -234,7 +234,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: Trait,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -298,7 +298,7 @@ Ok(
                                             disambiguator: 0,
                                         },
                                     },
-                                    ast_idx: 1,
+                                    ast_idx: 2,
                                     ident: `clone`,
                                     item_kind: MethodFn,
                                     visibility: Scope::PubUnder(
@@ -306,7 +306,7 @@ Ok(
                                     ),
                                     is_generic: false,
                                 },
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 template_parameter_decl_list: Ok(
                                     None,
                                 ),
@@ -340,7 +340,7 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeBeforeColonObelisk {
-                                            expr: 0,
+                                            expr: 1,
                                         },
                                     ),
                                 ),
@@ -376,7 +376,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                item_path_expr: 0,
+                                                                item_path_expr: 1,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::MajorItem(
                                                                         MajorItemPath::Trait(
@@ -439,7 +439,7 @@ Ok(
                                                     roots: [
                                                         SynExprRoot {
                                                             kind: Trait,
-                                                            expr_idx: 0,
+                                                            expr_idx: 1,
                                                         },
                                                     ],
                                                 },
@@ -511,7 +511,7 @@ Ok(
                                         roots: [
                                             SynExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 0,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },

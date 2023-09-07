@@ -6,7 +6,7 @@ Ok(
                     path: TraitPath(`core::cmp::PartialEq`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::PartialEq`),
-                        ast_idx: 1,
+                        ast_idx: 2,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -72,7 +72,7 @@ Ok(
                     path: TraitPath(`core::cmp::Eq`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::Eq`),
-                        ast_idx: 2,
+                        ast_idx: 3,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -138,7 +138,7 @@ Ok(
                     path: TraitPath(`core::cmp::PartialOrd`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::PartialOrd`),
-                        ast_idx: 3,
+                        ast_idx: 4,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -204,7 +204,7 @@ Ok(
                     path: TraitPath(`core::cmp::Ord`),
                     decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::Ord`),
-                        ast_idx: 4,
+                        ast_idx: 5,
                         template_parameters: [],
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {

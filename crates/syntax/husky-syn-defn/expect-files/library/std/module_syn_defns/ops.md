@@ -6,11 +6,11 @@ Ok(
                     path: TraitPath(`std::ops::Add`),
                     decl: TraitSynDecl {
                         path: TraitPath(`std::ops::Add`),
-                        ast_idx: 3,
+                        ast_idx: 4,
                         template_parameters: [
                             TemplateParameterObelisk {
                                 annotated_variance_token: None,
-                                symbol: 0,
+                                symbol: 1,
                                 variant: TemplateParameterDeclPatternVariant::Type {
                                     ident_token: IdentToken {
                                         ident: `B`,
@@ -97,7 +97,7 @@ Ok(
                                         (
                                             TemplateTypeParameter,
                                             ArenaIdxRange(
-                                                0..1,
+                                                1..2,
                                             ),
                                         ),
                                     ],

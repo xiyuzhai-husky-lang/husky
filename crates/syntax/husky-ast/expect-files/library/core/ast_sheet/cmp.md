@@ -181,23 +181,23 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..5,
+            1..6,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..5,
+                1..6,
             ),
         ],
     },

@@ -9,13 +9,13 @@ use crate::*;
 pub struct ExprTypeInfo {
     disambiguation_and_ty_result:
         ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
-    expectation_rule_idx: OptionFluffyTermExpectationIdx,
+    expectation_rule_idx: Option<FluffyTermExpectationIdx>,
 }
 
 impl ExprTypeInfo {
     pub(crate) fn new(
         ty_result: ExprTypeResult<(SynExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
-        expectation_rule_idx: OptionFluffyTermExpectationIdx,
+        expectation_rule_idx: Option<FluffyTermExpectationIdx>,
     ) -> Self {
         Self {
             disambiguation_and_ty_result: ty_result,

@@ -65,7 +65,7 @@
                     },
                     body: Some(
                         Eager(
-                            21,
+                            22,
                         ),
                     ),
                     hir_expr_region: Eager(

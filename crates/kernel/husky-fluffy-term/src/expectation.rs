@@ -28,7 +28,7 @@ pub use self::subtype::*;
 
 use super::*;
 use husky_print_utils::p;
-use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
+use idx_arena::{Arena, ArenaIdx};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -153,8 +153,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     ) -> AltOption<FluffyTermEffect>;
 }
 
-pub type ExpectationIdx = ArenaIdx<ExpectationEntry>;
-pub type OptionFluffyTermExpectationIdx = OptionArenaIdx<ExpectationEntry>;
+pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = FluffyTermDb)]
@@ -263,7 +262,7 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
-    Duplication(ExpectationIdx),
+    Duplication(FluffyTermExpectationIdx),
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
     #[error("type path {ty_path:?} type error {error}")]

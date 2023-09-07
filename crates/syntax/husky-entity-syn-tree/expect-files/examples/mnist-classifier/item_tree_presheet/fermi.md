@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 22,
+                            ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `FermiMatchResult`,
                                 token_idx: TokenIdx(
@@ -57,7 +57,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 24,
+                            ast_idx: 25,
                             ident_token: IdentToken {
                                 ident: `fermi_match`,
                                 token_idx: TokenIdx(
@@ -73,7 +73,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            17..21,
+                                            18..22,
                                         ),
                                     },
                                 ),
@@ -98,8 +98,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 21,
-                    use_expr_idx: 1,
+                    ast_idx: 22,
+                    use_expr_idx: 2,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::fermi`,
                     ),
@@ -112,7 +112,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            0..1,
+                            1..2,
                         ),
                     },
                     parent: None,
@@ -150,7 +150,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },

@@ -13,7 +13,7 @@ Ok(
                         path: SubmodulePath(
                             `core::array`,
                         ),
-                        ast_idx: 0,
+                        ast_idx: 1,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@ Ok(
                         path: SubmodulePath(
                             `core::basic`,
                         ),
-                        ast_idx: 1,
+                        ast_idx: 2,
                     },
                 ),
             ),
@@ -43,7 +43,7 @@ Ok(
                         path: SubmodulePath(
                             `core::clone`,
                         ),
-                        ast_idx: 2,
+                        ast_idx: 3,
                     },
                 ),
             ),
@@ -58,7 +58,7 @@ Ok(
                         path: SubmodulePath(
                             `core::cmp`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 4,
                     },
                 ),
             ),
@@ -73,7 +73,7 @@ Ok(
                         path: SubmodulePath(
                             `core::default`,
                         ),
-                        ast_idx: 4,
+                        ast_idx: 5,
                     },
                 ),
             ),
@@ -88,7 +88,7 @@ Ok(
                         path: SubmodulePath(
                             `core::fmt`,
                         ),
-                        ast_idx: 5,
+                        ast_idx: 6,
                     },
                 ),
             ),
@@ -103,7 +103,7 @@ Ok(
                         path: SubmodulePath(
                             `core::logic`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 7,
                     },
                 ),
             ),
@@ -118,7 +118,7 @@ Ok(
                         path: SubmodulePath(
                             `core::marker`,
                         ),
-                        ast_idx: 7,
+                        ast_idx: 8,
                     },
                 ),
             ),
@@ -133,7 +133,7 @@ Ok(
                         path: SubmodulePath(
                             `core::mem`,
                         ),
-                        ast_idx: 8,
+                        ast_idx: 9,
                     },
                 ),
             ),
@@ -148,7 +148,7 @@ Ok(
                         path: SubmodulePath(
                             `core::num`,
                         ),
-                        ast_idx: 9,
+                        ast_idx: 10,
                     },
                 ),
             ),
@@ -163,7 +163,7 @@ Ok(
                         path: SubmodulePath(
                             `core::ops`,
                         ),
-                        ast_idx: 10,
+                        ast_idx: 11,
                     },
                 ),
             ),
@@ -178,7 +178,7 @@ Ok(
                         path: SubmodulePath(
                             `core::option`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 12,
                     },
                 ),
             ),
@@ -193,7 +193,7 @@ Ok(
                         path: SubmodulePath(
                             `core::prelude`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 13,
                     },
                 ),
             ),
@@ -208,7 +208,7 @@ Ok(
                         path: SubmodulePath(
                             `core::raw_bits`,
                         ),
-                        ast_idx: 13,
+                        ast_idx: 14,
                     },
                 ),
             ),
@@ -223,7 +223,7 @@ Ok(
                         path: SubmodulePath(
                             `core::result`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 15,
                     },
                 ),
             ),
@@ -238,7 +238,7 @@ Ok(
                         path: SubmodulePath(
                             `core::vec`,
                         ),
-                        ast_idx: 15,
+                        ast_idx: 16,
                     },
                 ),
             ),
@@ -253,7 +253,7 @@ Ok(
                         path: SubmodulePath(
                             `core::slice`,
                         ),
-                        ast_idx: 16,
+                        ast_idx: 17,
                     },
                 ),
             ),
@@ -268,7 +268,7 @@ Ok(
                         path: SubmodulePath(
                             `core::str`,
                         ),
-                        ast_idx: 17,
+                        ast_idx: 18,
                     },
                 ),
             ),
@@ -283,7 +283,7 @@ Ok(
                         path: SubmodulePath(
                             `core::visual`,
                         ),
-                        ast_idx: 18,
+                        ast_idx: 19,
                     },
                 ),
             ),

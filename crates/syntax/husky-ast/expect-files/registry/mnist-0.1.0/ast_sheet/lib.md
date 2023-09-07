@@ -520,7 +520,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..10,
+                                    1..11,
                                 ),
                             },
                         ),
@@ -582,7 +582,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    10..11,
+                                    11..12,
                                 ),
                             },
                         ),
@@ -596,7 +596,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    11..12,
+                                    12..13,
                                 ),
                             },
                         ),
@@ -610,7 +610,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    12..13,
+                                    13..14,
                                 ),
                             },
                         ),
@@ -666,7 +666,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    13..14,
+                                    14..15,
                                 ),
                             },
                         ),
@@ -680,7 +680,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    14..15,
+                                    15..16,
                                 ),
                             },
                         ),
@@ -694,7 +694,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    15..16,
+                                    16..17,
                                 ),
                             },
                         ),
@@ -745,15 +745,9 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            16..27,
+            17..28,
         ),
         siblings: [
-            ArenaIdxRange(
-                10..10,
-            ),
-            ArenaIdxRange(
-                10..11,
-            ),
             ArenaIdxRange(
                 11..11,
             ),
@@ -788,7 +782,13 @@ Ok(
                 16..16,
             ),
             ArenaIdxRange(
-                16..27,
+                16..17,
+            ),
+            ArenaIdxRange(
+                17..17,
+            ),
+            ArenaIdxRange(
+                17..28,
             ),
         ],
     },

@@ -22,7 +22,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 32,
+                            ast_idx: 33,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -34,7 +34,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -133,7 +133,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -165,7 +165,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 34,
+                            ast_idx: 35,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -177,7 +177,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -276,7 +276,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -308,7 +308,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 36,
+                            ast_idx: 37,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -320,7 +320,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -419,7 +419,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -451,7 +451,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 38,
+                            ast_idx: 39,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -463,7 +463,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -562,7 +562,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -594,7 +594,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 40,
+                            ast_idx: 41,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -606,7 +606,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -705,7 +705,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -737,7 +737,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 42,
+                            ast_idx: 43,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -749,7 +749,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -848,7 +848,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -880,7 +880,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 44,
+                            ast_idx: 45,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -892,7 +892,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -991,7 +991,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1023,7 +1023,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 46,
+                            ast_idx: 47,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1035,7 +1035,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -1134,7 +1134,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1166,7 +1166,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 48,
+                            ast_idx: 49,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1178,7 +1178,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -1277,7 +1277,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1309,7 +1309,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 50,
+                            ast_idx: 51,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1321,7 +1321,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -1420,7 +1420,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1452,7 +1452,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 51,
+                            ast_idx: 52,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1534,7 +1534,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 53,
+                            ast_idx: 54,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1546,7 +1546,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -1645,7 +1645,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1677,7 +1677,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 55,
+                            ast_idx: 56,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1689,7 +1689,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -1788,7 +1788,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -1820,7 +1820,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 57,
+                            ast_idx: 58,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1902,7 +1902,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 59,
+                            ast_idx: 60,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -1984,7 +1984,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 61,
+                            ast_idx: 62,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -1996,7 +1996,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Rhs`,
@@ -2095,7 +2095,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -2127,7 +2127,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 62,
+                            ast_idx: 63,
                             template_parameter_decl_list: Ok(
                                 Some(
                                     Generics {
@@ -2139,7 +2139,7 @@ Ok(
                                         template_parameters: [
                                             TemplateParameterObelisk {
                                                 annotated_variance_token: None,
-                                                symbol: 0,
+                                                symbol: 1,
                                                 variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `T`,
@@ -2238,7 +2238,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -2271,7 +2271,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 63,
+                                ast_idx: 64,
                                 template_parameter_decl_list: Ok(
                                     Some(
                                         Generics {
@@ -2283,7 +2283,7 @@ Ok(
                                             template_parameters: [
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 0,
+                                                    symbol: 1,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `R`,
@@ -2296,7 +2296,7 @@ Ok(
                                                 },
                                                 TemplateParameterObelisk {
                                                     annotated_variance_token: None,
-                                                    symbol: 1,
+                                                    symbol: 2,
                                                     variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `C`,
@@ -2422,13 +2422,13 @@ Ok(
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        0..1,
+                                                        1..2,
                                                     ),
                                                 ),
                                                 (
                                                     TemplateTypeParameter,
                                                     ArenaIdxRange(
-                                                        1..2,
+                                                        2..3,
                                                     ),
                                                 ),
                                             ],

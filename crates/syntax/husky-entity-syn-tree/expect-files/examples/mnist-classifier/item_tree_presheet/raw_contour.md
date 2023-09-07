@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 203,
+                            ast_idx: 204,
                             ident_token: IdentToken {
                                 ident: `RawContour`,
                                 token_idx: TokenIdx(
@@ -59,7 +59,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 206,
+                            ast_idx: 207,
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
@@ -75,7 +75,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            34..38,
+                                            35..39,
                                         ),
                                     },
                                 ),
@@ -111,7 +111,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 207,
+                            ast_idx: 208,
                             ident_token: IdentToken {
                                 ident: `get_pixel_pair`,
                                 token_idx: TokenIdx(
@@ -127,7 +127,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            38..39,
+                                            39..40,
                                         ),
                                     },
                                 ),
@@ -163,7 +163,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 208,
+                            ast_idx: 209,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
@@ -179,7 +179,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            39..40,
+                                            40..41,
                                         ),
                                     },
                                 ),
@@ -215,7 +215,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 209,
+                            ast_idx: 210,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
@@ -231,7 +231,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            40..41,
+                                            41..42,
                                         ),
                                     },
                                 ),
@@ -267,7 +267,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 210,
+                            ast_idx: 211,
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
@@ -283,7 +283,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            66..69,
+                                            67..70,
                                         ),
                                     },
                                 ),
@@ -319,7 +319,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 211,
+                            ast_idx: 212,
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
@@ -335,7 +335,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            75..77,
+                                            76..78,
                                         ),
                                     },
                                 ),
@@ -371,7 +371,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 212,
+                            ast_idx: 213,
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
@@ -387,7 +387,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            119..122,
+                                            120..123,
                                         ),
                                     },
                                 ),
@@ -423,7 +423,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 213,
+                            ast_idx: 214,
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
@@ -469,7 +469,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 214,
+                            ast_idx: 215,
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
@@ -485,7 +485,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            122..126,
+                                            123..127,
                                         ),
                                     },
                                 ),
@@ -519,7 +519,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 215,
+                            ast_idx: 216,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
@@ -535,7 +535,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            194..199,
+                                            195..200,
                                         ),
                                     },
                                 ),
@@ -560,8 +560,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 199,
-                    use_expr_idx: 2,
+                    ast_idx: 200,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
@@ -574,15 +574,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 200,
-                    use_expr_idx: 5,
+                    ast_idx: 201,
+                    use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
@@ -595,15 +595,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 201,
-                    use_expr_idx: 8,
+                    ast_idx: 202,
+                    use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
@@ -616,15 +616,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            8..9,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 202,
-                    use_expr_idx: 10,
+                    ast_idx: 203,
+                    use_expr_idx: 11,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
@@ -637,7 +637,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            9..10,
+                            10..11,
                         ),
                     },
                     parent: None,
@@ -676,7 +676,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -699,7 +699,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -730,7 +730,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -753,7 +753,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -784,7 +784,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -807,7 +807,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
@@ -837,7 +837,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },

@@ -10,7 +10,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
@@ -97,7 +97,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -120,7 +120,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
@@ -133,7 +133,7 @@ Ok(
                                 },
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
@@ -151,7 +151,7 @@ Ok(
                                                 40,
                                             ),
                                         ),
-                                        ty_expr: 0,
+                                        ty_expr: 1,
                                     },
                                 },
                             ],
@@ -177,7 +177,7 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     41,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
@@ -258,7 +258,7 @@ Ok(
                                                                     39,
                                                                 ),
                                                             },
-                                                            ty_expr_idx: 0,
+                                                            ty_expr_idx: 1,
                                                         },
                                                     },
                                                 },
@@ -270,13 +270,13 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],
@@ -284,7 +284,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ConstantImplicitParameterType,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -304,7 +304,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
@@ -317,7 +317,7 @@ Ok(
                                 },
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
@@ -335,7 +335,7 @@ Ok(
                                                 90,
                                             ),
                                         ),
-                                        ty_expr: 0,
+                                        ty_expr: 1,
                                     },
                                 },
                             ],
@@ -361,7 +361,7 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     91,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
@@ -442,7 +442,7 @@ Ok(
                                                                     89,
                                                                 ),
                                                             },
-                                                            ty_expr_idx: 0,
+                                                            ty_expr_idx: 1,
                                                         },
                                                     },
                                                 },
@@ -454,13 +454,13 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],
@@ -468,7 +468,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ConstantImplicitParameterType,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -488,7 +488,7 @@ Ok(
                             template_parameters: [
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
@@ -501,7 +501,7 @@ Ok(
                                 },
                                 TemplateParameterObelisk {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
@@ -519,7 +519,7 @@ Ok(
                                                 134,
                                             ),
                                         ),
-                                        ty_expr: 0,
+                                        ty_expr: 1,
                                     },
                                 },
                             ],
@@ -549,16 +549,16 @@ Ok(
                                             141,
                                         ),
                                     },
-                                    variable: 2,
+                                    variable: 3,
                                     colon: ColonToken(
                                         TokenIdx(
                                             142,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 2,
                                 },
                                 SpecificParameterObelisk::Keyed {
-                                    pattern: 0,
+                                    pattern: 1,
                                     symbol_modifier_keyword_group: None,
                                     ident_token: IdentToken {
                                         ident: `skip`,
@@ -566,26 +566,26 @@ Ok(
                                             145,
                                         ),
                                     },
-                                    variable: 3,
+                                    variable: 4,
                                     colon: ColonToken(
                                         TokenIdx(
                                             146,
                                         ),
                                     ),
-                                    ty: 2,
+                                    ty: 3,
                                     eq_token: EqToken(
                                         TokenIdx(
                                             148,
                                         ),
                                     ),
                                     default: Right(
-                                        3,
+                                        4,
                                     ),
                                 },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonObelisk {
-                                    expr: 8,
+                                    expr: 9,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -610,7 +610,7 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     135,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
@@ -623,7 +623,7 @@ Ok(
                                                 },
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 0,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -633,7 +633,7 @@ Ok(
                                                 ),
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 1,
+                                                item_path_expr: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -653,7 +653,7 @@ Ok(
                                                 ),
                                             ),
                                             SynExpr::PrincipalEntityPath {
-                                                item_path_expr: 2,
+                                                item_path_expr: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -667,7 +667,7 @@ Ok(
                                                 token_idx: TokenIdx(
                                                     154,
                                                 ),
-                                                current_symbol_idx: 0,
+                                                current_symbol_idx: 1,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
@@ -680,15 +680,15 @@ Ok(
                                                 },
                                             },
                                             SynExpr::ExplicitApplication {
-                                                function_expr_idx: 4,
-                                                argument_expr_idx: 5,
+                                                function_expr_idx: 5,
+                                                argument_expr_idx: 6,
                                             },
                                             SynExpr::CurrentSymbol {
                                                 ident: `label`,
                                                 token_idx: TokenIdx(
                                                     155,
                                                 ),
-                                                current_symbol_idx: 1,
+                                                current_symbol_idx: 2,
                                                 current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                     template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentToken {
@@ -701,8 +701,8 @@ Ok(
                                                 },
                                             },
                                             SynExpr::ExplicitApplication {
-                                                function_expr_idx: 6,
-                                                argument_expr_idx: 7,
+                                                function_expr_idx: 7,
+                                                argument_expr_idx: 8,
                                             },
                                         ],
                                     },
@@ -783,7 +783,7 @@ Ok(
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 SynPatternSymbol::Atom(
-                                                    0,
+                                                    1,
                                                 ),
                                             ],
                                         },
@@ -791,7 +791,7 @@ Ok(
                                             [
                                                 (
                                                     `skip`,
-                                                    0,
+                                                    1,
                                                 ),
                                             ],
                                         ],
@@ -846,7 +846,7 @@ Ok(
                                                                     133,
                                                                 ),
                                                             },
-                                                            ty_expr_idx: 0,
+                                                            ty_expr_idx: 1,
                                                         },
                                                     },
                                                 },
@@ -874,7 +874,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                         ident: `skip`,
-                                                        pattern_symbol_idx: 0,
+                                                        pattern_symbol_idx: 1,
                                                     },
                                                 },
                                             ],
@@ -885,30 +885,30 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                            ),
-                                            (
-                                                ExplicitVariadicParameter {
-                                                    ty: 1,
-                                                },
-                                                ArenaIdxRange(
                                                     2..3,
                                                 ),
                                             ),
                                             (
-                                                ExplicitRegularParameter {
-                                                    pattern_expr_idx: 0,
-                                                    ty_expr_idx: 2,
+                                                ExplicitVariadicParameter {
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     3..4,
+                                                ),
+                                            ),
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 1,
+                                                    ty_expr_idx: 3,
+                                                },
+                                                ArenaIdxRange(
+                                                    4..5,
                                                 ),
                                             ),
                                         ],
@@ -916,10 +916,6 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: ConstantImplicitParameterType,
-                                            expr_idx: 0,
-                                        },
-                                        SynExprRoot {
-                                            kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
                                         SynExprRoot {
@@ -927,14 +923,18 @@ Ok(
                                             expr_idx: 2,
                                         },
                                         SynExprRoot {
-                                            kind: ExplicitParameterDefaultValue {
-                                                ty_expr_idx: 2,
-                                            },
+                                            kind: ExplicitParameterType,
                                             expr_idx: 3,
                                         },
                                         SynExprRoot {
+                                            kind: ExplicitParameterDefaultValue {
+                                                ty_expr_idx: 3,
+                                            },
+                                            expr_idx: 4,
+                                        },
+                                        SynExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 8,
+                                            expr_idx: 9,
                                         },
                                     ],
                                 },
@@ -966,7 +966,7 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             135,
                                                         ),
-                                                        current_symbol_idx: 0,
+                                                        current_symbol_idx: 1,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
@@ -979,7 +979,7 @@ Ok(
                                                         },
                                                     },
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 0,
+                                                        item_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -989,7 +989,7 @@ Ok(
                                                         ),
                                                     },
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 1,
+                                                        item_path_expr: 2,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -1009,7 +1009,7 @@ Ok(
                                                         ),
                                                     ),
                                                     SynExpr::PrincipalEntityPath {
-                                                        item_path_expr: 2,
+                                                        item_path_expr: 3,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::MajorItem(
                                                                 MajorItemPath::Type(
@@ -1023,7 +1023,7 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             154,
                                                         ),
-                                                        current_symbol_idx: 0,
+                                                        current_symbol_idx: 1,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
@@ -1036,15 +1036,15 @@ Ok(
                                                         },
                                                     },
                                                     SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 4,
-                                                        argument_expr_idx: 5,
+                                                        function_expr_idx: 5,
+                                                        argument_expr_idx: 6,
                                                     },
                                                     SynExpr::CurrentSymbol {
                                                         ident: `label`,
                                                         token_idx: TokenIdx(
                                                             155,
                                                         ),
-                                                        current_symbol_idx: 1,
+                                                        current_symbol_idx: 2,
                                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                 ident_token: IdentToken {
@@ -1057,8 +1057,8 @@ Ok(
                                                         },
                                                     },
                                                     SynExpr::ExplicitApplication {
-                                                        function_expr_idx: 6,
-                                                        argument_expr_idx: 7,
+                                                        function_expr_idx: 7,
+                                                        argument_expr_idx: 8,
                                                     },
                                                 ],
                                             },
@@ -1139,7 +1139,7 @@ Ok(
                                                 pattern_symbol_arena: Arena {
                                                     data: [
                                                         SynPatternSymbol::Atom(
-                                                            0,
+                                                            1,
                                                         ),
                                                     ],
                                                 },
@@ -1147,7 +1147,7 @@ Ok(
                                                     [
                                                         (
                                                             `skip`,
-                                                            0,
+                                                            1,
                                                         ),
                                                     ],
                                                 ],
@@ -1202,7 +1202,7 @@ Ok(
                                                                             133,
                                                                         ),
                                                                     },
-                                                                    ty_expr_idx: 0,
+                                                                    ty_expr_idx: 1,
                                                                 },
                                                             },
                                                         },
@@ -1230,7 +1230,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSynSymbolVariant::ParenateRegularParameter {
                                                                 ident: `skip`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol_idx: 1,
                                                             },
                                                         },
                                                     ],
@@ -1241,30 +1241,30 @@ Ok(
                                                     (
                                                         TemplateTypeParameter,
                                                         ArenaIdxRange(
-                                                            0..1,
+                                                            1..2,
                                                         ),
                                                     ),
                                                     (
                                                         TemplateTypeParameter,
                                                         ArenaIdxRange(
-                                                            1..2,
-                                                        ),
-                                                    ),
-                                                    (
-                                                        ExplicitVariadicParameter {
-                                                            ty: 1,
-                                                        },
-                                                        ArenaIdxRange(
                                                             2..3,
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitRegularParameter {
-                                                            pattern_expr_idx: 0,
-                                                            ty_expr_idx: 2,
+                                                        ExplicitVariadicParameter {
+                                                            ty: 2,
                                                         },
                                                         ArenaIdxRange(
                                                             3..4,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 1,
+                                                            ty_expr_idx: 3,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            4..5,
                                                         ),
                                                     ),
                                                 ],
@@ -1272,10 +1272,6 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: ConstantImplicitParameterType,
-                                                    expr_idx: 0,
-                                                },
-                                                SynExprRoot {
-                                                    kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
                                                 SynExprRoot {
@@ -1283,14 +1279,18 @@ Ok(
                                                     expr_idx: 2,
                                                 },
                                                 SynExprRoot {
-                                                    kind: ExplicitParameterDefaultValue {
-                                                        ty_expr_idx: 2,
-                                                    },
+                                                    kind: ExplicitParameterType,
                                                     expr_idx: 3,
                                                 },
                                                 SynExprRoot {
+                                                    kind: ExplicitParameterDefaultValue {
+                                                        ty_expr_idx: 3,
+                                                    },
+                                                    expr_idx: 4,
+                                                },
+                                                SynExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 8,
+                                                    expr_idx: 9,
                                                 },
                                             ],
                                         },
@@ -1338,7 +1338,7 @@ Ok(
                                         data: [
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    0,
+                                                    1,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(
@@ -1349,7 +1349,7 @@ Ok(
                                             },
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    1,
+                                                    2,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(
@@ -1360,7 +1360,7 @@ Ok(
                                             },
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    2,
+                                                    3,
                                                 ),
                                                 modifier: None,
                                                 kind: InheritedSynSymbolKind::ParenateParameter {
@@ -1369,7 +1369,7 @@ Ok(
                                             },
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    3,
+                                                    4,
                                                 ),
                                                 modifier: None,
                                                 kind: InheritedSynSymbolKind::ParenateParameter {
@@ -1406,7 +1406,7 @@ Ok(
                     template_parameters: [
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
-                            symbol: 0,
+                            symbol: 1,
                             variant: TemplateParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `Label`,
@@ -1419,7 +1419,7 @@ Ok(
                         },
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
-                            symbol: 1,
+                            symbol: 2,
                             variant: TemplateParameterDeclPatternVariant::Constant {
                                 const_token: ConstToken {
                                     token_idx: TokenIdx(
@@ -1437,16 +1437,16 @@ Ok(
                                         53,
                                     ),
                                 ),
-                                ty_expr: 0,
+                                ty_expr: 1,
                             },
                         },
                     ],
                     trai_expr: TraitObelisk {
-                        expr: 7,
+                        expr: 8,
                     },
                     self_ty_decl: PathLeadingExpr(
                         SelfTypeObelisk {
-                            expr: 10,
+                            expr: 11,
                         },
                     ),
                     syn_expr_region: SynExprRegion {
@@ -1475,7 +1475,7 @@ Ok(
                                         token_idx: TokenIdx(
                                             54,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -1488,7 +1488,7 @@ Ok(
                                         },
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 2,
+                                        item_path_expr: 3,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -1498,7 +1498,7 @@ Ok(
                                         ),
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 3,
+                                        item_path_expr: 4,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -1508,15 +1508,15 @@ Ok(
                                         ),
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 1,
-                                        argument_expr_idx: 2,
+                                        function_expr_idx: 2,
+                                        argument_expr_idx: 3,
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `Label`,
                                         token_idx: TokenIdx(
                                             62,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -1529,15 +1529,15 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 3,
-                                        argument_expr_idx: 4,
+                                        function_expr_idx: 4,
+                                        argument_expr_idx: 5,
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `label`,
                                         token_idx: TokenIdx(
                                             63,
                                         ),
-                                        current_symbol_idx: 1,
+                                        current_symbol_idx: 2,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
@@ -1550,11 +1550,11 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 5,
-                                        argument_expr_idx: 6,
+                                        function_expr_idx: 6,
+                                        argument_expr_idx: 7,
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 4,
+                                        item_path_expr: 5,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -1568,7 +1568,7 @@ Ok(
                                         token_idx: TokenIdx(
                                             66,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -1581,8 +1581,8 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 8,
-                                        argument_expr_idx: 9,
+                                        function_expr_idx: 9,
+                                        argument_expr_idx: 10,
                                     },
                                 ],
                             },
@@ -1602,7 +1602,7 @@ Ok(
                                         ),
                                     },
                                     PrincipalEntityPathExpr::Subitem {
-                                        parent: 0,
+                                        parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
                                                 57,
@@ -1623,7 +1623,7 @@ Ok(
                                         ),
                                     },
                                     PrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
+                                        parent: 2,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
                                                 59,
@@ -1741,7 +1741,7 @@ Ok(
                                                             52,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 0,
+                                                    ty_expr_idx: 1,
                                                 },
                                             },
                                         },
@@ -1753,13 +1753,13 @@ Ok(
                                     (
                                         TemplateTypeParameter,
                                         ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     ),
                                     (
                                         TemplateTypeParameter,
                                         ArenaIdxRange(
-                                            1..2,
+                                            2..3,
                                         ),
                                     ),
                                 ],
@@ -1767,15 +1767,15 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: ConstantImplicitParameterType,
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                                 SynExprRoot {
                                     kind: Trait,
-                                    expr_idx: 7,
+                                    expr_idx: 8,
                                 },
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 10,
+                                    expr_idx: 11,
                                 },
                             ],
                         },
@@ -1813,7 +1813,7 @@ Ok(
                                 item_kind: AssociatedType,
                             },
                             template_parameters: [],
-                            ty_term_expr_idx: 0,
+                            ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: Some(
@@ -1843,7 +1843,7 @@ Ok(
                                                             token_idx: TokenIdx(
                                                                 54,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -1856,7 +1856,7 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 2,
+                                                            item_path_expr: 3,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Trait(
@@ -1866,7 +1866,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 3,
+                                                            item_path_expr: 4,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1876,15 +1876,15 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 1,
-                                                            argument_expr_idx: 2,
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
                                                                 62,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -1897,15 +1897,15 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 3,
-                                                            argument_expr_idx: 4,
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
                                                                 63,
                                                             ),
-                                                            current_symbol_idx: 1,
+                                                            current_symbol_idx: 2,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
@@ -1918,11 +1918,11 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 5,
-                                                            argument_expr_idx: 6,
+                                                            function_expr_idx: 6,
+                                                            argument_expr_idx: 7,
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 4,
+                                                            item_path_expr: 5,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1936,7 +1936,7 @@ Ok(
                                                             token_idx: TokenIdx(
                                                                 66,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -1949,8 +1949,8 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 8,
-                                                            argument_expr_idx: 9,
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
                                                         },
                                                     ],
                                                 },
@@ -1970,7 +1970,7 @@ Ok(
                                                             ),
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
-                                                            parent: 0,
+                                                            parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
                                                                     57,
@@ -1991,7 +1991,7 @@ Ok(
                                                             ),
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
-                                                            parent: 1,
+                                                            parent: 2,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
                                                                     59,
@@ -2109,7 +2109,7 @@ Ok(
                                                                                 52,
                                                                             ),
                                                                         },
-                                                                        ty_expr_idx: 0,
+                                                                        ty_expr_idx: 1,
                                                                     },
                                                                 },
                                                             },
@@ -2121,13 +2121,13 @@ Ok(
                                                         (
                                                             TemplateTypeParameter,
                                                             ArenaIdxRange(
-                                                                0..1,
+                                                                1..2,
                                                             ),
                                                         ),
                                                         (
                                                             TemplateTypeParameter,
                                                             ArenaIdxRange(
-                                                                1..2,
+                                                                2..3,
                                                             ),
                                                         ),
                                                     ],
@@ -2135,15 +2135,15 @@ Ok(
                                                 roots: [
                                                     SynExprRoot {
                                                         kind: ConstantImplicitParameterType,
-                                                        expr_idx: 0,
+                                                        expr_idx: 1,
                                                     },
                                                     SynExprRoot {
                                                         kind: Trait,
-                                                        expr_idx: 7,
+                                                        expr_idx: 8,
                                                     },
                                                     SynExprRoot {
                                                         kind: SelfType,
-                                                        expr_idx: 10,
+                                                        expr_idx: 11,
                                                     },
                                                 ],
                                             },
@@ -2211,7 +2211,7 @@ Ok(
                                             data: [
                                                 InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
-                                                        0,
+                                                        1,
                                                     ),
                                                     modifier: Const,
                                                     kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2222,7 +2222,7 @@ Ok(
                                                 },
                                                 InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
-                                                        1,
+                                                        2,
                                                     ),
                                                     modifier: Const,
                                                     kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2243,7 +2243,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: AssociatedTypeTerm,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -2281,7 +2281,7 @@ Ok(
                                                                     token_idx: TokenIdx(
                                                                         54,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -2294,7 +2294,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 2,
+                                                                    item_path_expr: 3,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Trait(
@@ -2304,7 +2304,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 3,
+                                                                    item_path_expr: 4,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -2314,15 +2314,15 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
+                                                                    function_expr_idx: 2,
+                                                                    argument_expr_idx: 3,
                                                                 },
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
                                                                         62,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -2335,15 +2335,15 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 3,
-                                                                    argument_expr_idx: 4,
+                                                                    function_expr_idx: 4,
+                                                                    argument_expr_idx: 5,
                                                                 },
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
                                                                         63,
                                                                     ),
-                                                                    current_symbol_idx: 1,
+                                                                    current_symbol_idx: 2,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
@@ -2356,11 +2356,11 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 5,
-                                                                    argument_expr_idx: 6,
+                                                                    function_expr_idx: 6,
+                                                                    argument_expr_idx: 7,
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 4,
+                                                                    item_path_expr: 5,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -2374,7 +2374,7 @@ Ok(
                                                                     token_idx: TokenIdx(
                                                                         66,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -2387,8 +2387,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 8,
-                                                                    argument_expr_idx: 9,
+                                                                    function_expr_idx: 9,
+                                                                    argument_expr_idx: 10,
                                                                 },
                                                             ],
                                                         },
@@ -2408,7 +2408,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 0,
+                                                                    parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
                                                                             57,
@@ -2429,7 +2429,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 1,
+                                                                    parent: 2,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
                                                                             59,
@@ -2547,7 +2547,7 @@ Ok(
                                                                                         52,
                                                                                     ),
                                                                                 },
-                                                                                ty_expr_idx: 0,
+                                                                                ty_expr_idx: 1,
                                                                             },
                                                                         },
                                                                     },
@@ -2559,13 +2559,13 @@ Ok(
                                                                 (
                                                                     TemplateTypeParameter,
                                                                     ArenaIdxRange(
-                                                                        0..1,
+                                                                        1..2,
                                                                     ),
                                                                 ),
                                                                 (
                                                                     TemplateTypeParameter,
                                                                     ArenaIdxRange(
-                                                                        1..2,
+                                                                        2..3,
                                                                     ),
                                                                 ),
                                                             ],
@@ -2573,15 +2573,15 @@ Ok(
                                                         roots: [
                                                             SynExprRoot {
                                                                 kind: ConstantImplicitParameterType,
-                                                                expr_idx: 0,
+                                                                expr_idx: 1,
                                                             },
                                                             SynExprRoot {
                                                                 kind: Trait,
-                                                                expr_idx: 7,
+                                                                expr_idx: 8,
                                                             },
                                                             SynExprRoot {
                                                                 kind: SelfType,
-                                                                expr_idx: 10,
+                                                                expr_idx: 11,
                                                             },
                                                         ],
                                                     },
@@ -2649,7 +2649,7 @@ Ok(
                                                     data: [
                                                         InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
-                                                                0,
+                                                                1,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2660,7 +2660,7 @@ Ok(
                                                         },
                                                         InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
-                                                                1,
+                                                                2,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2681,7 +2681,7 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: AssociatedTypeTerm,
-                                                    expr_idx: 0,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -2740,7 +2740,7 @@ Ok(
                                         data: [
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    0,
+                                                    1,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2751,7 +2751,7 @@ Ok(
                                             },
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    1,
+                                                    2,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(
@@ -2790,7 +2790,7 @@ Ok(
                     template_parameters: [
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
-                            symbol: 0,
+                            symbol: 1,
                             variant: TemplateParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `Label`,
@@ -2803,7 +2803,7 @@ Ok(
                         },
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
-                            symbol: 1,
+                            symbol: 2,
                             variant: TemplateParameterDeclPatternVariant::Constant {
                                 const_token: ConstToken {
                                     token_idx: TokenIdx(
@@ -2821,16 +2821,16 @@ Ok(
                                         105,
                                     ),
                                 ),
-                                ty_expr: 0,
+                                ty_expr: 1,
                             },
                         },
                     ],
                     trai_expr: TraitObelisk {
-                        expr: 7,
+                        expr: 8,
                     },
                     self_ty_decl: PathLeadingExpr(
                         SelfTypeObelisk {
-                            expr: 12,
+                            expr: 13,
                         },
                     ),
                     syn_expr_region: SynExprRegion {
@@ -2859,7 +2859,7 @@ Ok(
                                         token_idx: TokenIdx(
                                             106,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -2872,7 +2872,7 @@ Ok(
                                         },
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 2,
+                                        item_path_expr: 3,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -2882,7 +2882,7 @@ Ok(
                                         ),
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 3,
+                                        item_path_expr: 4,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2892,15 +2892,15 @@ Ok(
                                         ),
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 1,
-                                        argument_expr_idx: 2,
+                                        function_expr_idx: 2,
+                                        argument_expr_idx: 3,
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `Label`,
                                         token_idx: TokenIdx(
                                             114,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -2913,15 +2913,15 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 3,
-                                        argument_expr_idx: 4,
+                                        function_expr_idx: 4,
+                                        argument_expr_idx: 5,
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `label`,
                                         token_idx: TokenIdx(
                                             115,
                                         ),
-                                        current_symbol_idx: 1,
+                                        current_symbol_idx: 2,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
@@ -2934,11 +2934,11 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 5,
-                                        argument_expr_idx: 6,
+                                        function_expr_idx: 6,
+                                        argument_expr_idx: 7,
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 4,
+                                        item_path_expr: 5,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -2952,7 +2952,7 @@ Ok(
                                         token_idx: TokenIdx(
                                             118,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -2965,15 +2965,15 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 8,
-                                        argument_expr_idx: 9,
+                                        function_expr_idx: 9,
+                                        argument_expr_idx: 10,
                                     },
                                     SynExpr::CurrentSymbol {
                                         ident: `label`,
                                         token_idx: TokenIdx(
                                             119,
                                         ),
-                                        current_symbol_idx: 1,
+                                        current_symbol_idx: 2,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
@@ -2986,8 +2986,8 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 10,
-                                        argument_expr_idx: 11,
+                                        function_expr_idx: 11,
+                                        argument_expr_idx: 12,
                                     },
                                 ],
                             },
@@ -3007,7 +3007,7 @@ Ok(
                                         ),
                                     },
                                     PrincipalEntityPathExpr::Subitem {
-                                        parent: 0,
+                                        parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
                                                 109,
@@ -3028,7 +3028,7 @@ Ok(
                                         ),
                                     },
                                     PrincipalEntityPathExpr::Subitem {
-                                        parent: 1,
+                                        parent: 2,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
                                                 111,
@@ -3146,7 +3146,7 @@ Ok(
                                                             104,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 0,
+                                                    ty_expr_idx: 1,
                                                 },
                                             },
                                         },
@@ -3158,13 +3158,13 @@ Ok(
                                     (
                                         TemplateTypeParameter,
                                         ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     ),
                                     (
                                         TemplateTypeParameter,
                                         ArenaIdxRange(
-                                            1..2,
+                                            2..3,
                                         ),
                                     ),
                                 ],
@@ -3172,15 +3172,15 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: ConstantImplicitParameterType,
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                                 SynExprRoot {
                                     kind: Trait,
-                                    expr_idx: 7,
+                                    expr_idx: 8,
                                 },
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 12,
+                                    expr_idx: 13,
                                 },
                             ],
                         },
@@ -3218,7 +3218,7 @@ Ok(
                                 item_kind: AssociatedType,
                             },
                             template_parameters: [],
-                            ty_term_expr_idx: 0,
+                            ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: Some(
@@ -3248,7 +3248,7 @@ Ok(
                                                             token_idx: TokenIdx(
                                                                 106,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -3261,7 +3261,7 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 2,
+                                                            item_path_expr: 3,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Trait(
@@ -3271,7 +3271,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 3,
+                                                            item_path_expr: 4,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3281,15 +3281,15 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 1,
-                                                            argument_expr_idx: 2,
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
                                                                 114,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -3302,15 +3302,15 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 3,
-                                                            argument_expr_idx: 4,
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
                                                                 115,
                                                             ),
-                                                            current_symbol_idx: 1,
+                                                            current_symbol_idx: 2,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
@@ -3323,11 +3323,11 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 5,
-                                                            argument_expr_idx: 6,
+                                                            function_expr_idx: 6,
+                                                            argument_expr_idx: 7,
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            item_path_expr: 4,
+                                                            item_path_expr: 5,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3341,7 +3341,7 @@ Ok(
                                                             token_idx: TokenIdx(
                                                                 118,
                                                             ),
-                                                            current_symbol_idx: 0,
+                                                            current_symbol_idx: 1,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
@@ -3354,15 +3354,15 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 8,
-                                                            argument_expr_idx: 9,
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
                                                         },
                                                         SynExpr::CurrentSymbol {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
                                                                 119,
                                                             ),
-                                                            current_symbol_idx: 1,
+                                                            current_symbol_idx: 2,
                                                             current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                 template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
@@ -3375,8 +3375,8 @@ Ok(
                                                             },
                                                         },
                                                         SynExpr::ExplicitApplication {
-                                                            function_expr_idx: 10,
-                                                            argument_expr_idx: 11,
+                                                            function_expr_idx: 11,
+                                                            argument_expr_idx: 12,
                                                         },
                                                     ],
                                                 },
@@ -3396,7 +3396,7 @@ Ok(
                                                             ),
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
-                                                            parent: 0,
+                                                            parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
                                                                     109,
@@ -3417,7 +3417,7 @@ Ok(
                                                             ),
                                                         },
                                                         PrincipalEntityPathExpr::Subitem {
-                                                            parent: 1,
+                                                            parent: 2,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
                                                                     111,
@@ -3535,7 +3535,7 @@ Ok(
                                                                                 104,
                                                                             ),
                                                                         },
-                                                                        ty_expr_idx: 0,
+                                                                        ty_expr_idx: 1,
                                                                     },
                                                                 },
                                                             },
@@ -3547,13 +3547,13 @@ Ok(
                                                         (
                                                             TemplateTypeParameter,
                                                             ArenaIdxRange(
-                                                                0..1,
+                                                                1..2,
                                                             ),
                                                         ),
                                                         (
                                                             TemplateTypeParameter,
                                                             ArenaIdxRange(
-                                                                1..2,
+                                                                2..3,
                                                             ),
                                                         ),
                                                     ],
@@ -3561,15 +3561,15 @@ Ok(
                                                 roots: [
                                                     SynExprRoot {
                                                         kind: ConstantImplicitParameterType,
-                                                        expr_idx: 0,
+                                                        expr_idx: 1,
                                                     },
                                                     SynExprRoot {
                                                         kind: Trait,
-                                                        expr_idx: 7,
+                                                        expr_idx: 8,
                                                     },
                                                     SynExprRoot {
                                                         kind: SelfType,
-                                                        expr_idx: 12,
+                                                        expr_idx: 13,
                                                     },
                                                 ],
                                             },
@@ -3637,7 +3637,7 @@ Ok(
                                             data: [
                                                 InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
-                                                        0,
+                                                        1,
                                                     ),
                                                     modifier: Const,
                                                     kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3648,7 +3648,7 @@ Ok(
                                                 },
                                                 InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
-                                                        1,
+                                                        2,
                                                     ),
                                                     modifier: Const,
                                                     kind: InheritedSynSymbolKind::TemplateParameter(
@@ -3669,7 +3669,7 @@ Ok(
                                     roots: [
                                         SynExprRoot {
                                             kind: AssociatedTypeTerm,
-                                            expr_idx: 0,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -3707,7 +3707,7 @@ Ok(
                                                                     token_idx: TokenIdx(
                                                                         106,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -3720,7 +3720,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 2,
+                                                                    item_path_expr: 3,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Trait(
@@ -3730,7 +3730,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 3,
+                                                                    item_path_expr: 4,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -3740,15 +3740,15 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 1,
-                                                                    argument_expr_idx: 2,
+                                                                    function_expr_idx: 2,
+                                                                    argument_expr_idx: 3,
                                                                 },
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
                                                                         114,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -3761,15 +3761,15 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 3,
-                                                                    argument_expr_idx: 4,
+                                                                    function_expr_idx: 4,
+                                                                    argument_expr_idx: 5,
                                                                 },
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
                                                                         115,
                                                                     ),
-                                                                    current_symbol_idx: 1,
+                                                                    current_symbol_idx: 2,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
@@ -3782,11 +3782,11 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 5,
-                                                                    argument_expr_idx: 6,
+                                                                    function_expr_idx: 6,
+                                                                    argument_expr_idx: 7,
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    item_path_expr: 4,
+                                                                    item_path_expr: 5,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::MajorItem(
                                                                             MajorItemPath::Type(
@@ -3800,7 +3800,7 @@ Ok(
                                                                     token_idx: TokenIdx(
                                                                         118,
                                                                     ),
-                                                                    current_symbol_idx: 0,
+                                                                    current_symbol_idx: 1,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
@@ -3813,15 +3813,15 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 8,
-                                                                    argument_expr_idx: 9,
+                                                                    function_expr_idx: 9,
+                                                                    argument_expr_idx: 10,
                                                                 },
                                                                 SynExpr::CurrentSymbol {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
                                                                         119,
                                                                     ),
-                                                                    current_symbol_idx: 1,
+                                                                    current_symbol_idx: 2,
                                                                     current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                                                         template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
@@ -3834,8 +3834,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 SynExpr::ExplicitApplication {
-                                                                    function_expr_idx: 10,
-                                                                    argument_expr_idx: 11,
+                                                                    function_expr_idx: 11,
+                                                                    argument_expr_idx: 12,
                                                                 },
                                                             ],
                                                         },
@@ -3855,7 +3855,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 0,
+                                                                    parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
                                                                             109,
@@ -3876,7 +3876,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 PrincipalEntityPathExpr::Subitem {
-                                                                    parent: 1,
+                                                                    parent: 2,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
                                                                             111,
@@ -3994,7 +3994,7 @@ Ok(
                                                                                         104,
                                                                                     ),
                                                                                 },
-                                                                                ty_expr_idx: 0,
+                                                                                ty_expr_idx: 1,
                                                                             },
                                                                         },
                                                                     },
@@ -4006,13 +4006,13 @@ Ok(
                                                                 (
                                                                     TemplateTypeParameter,
                                                                     ArenaIdxRange(
-                                                                        0..1,
+                                                                        1..2,
                                                                     ),
                                                                 ),
                                                                 (
                                                                     TemplateTypeParameter,
                                                                     ArenaIdxRange(
-                                                                        1..2,
+                                                                        2..3,
                                                                     ),
                                                                 ),
                                                             ],
@@ -4020,15 +4020,15 @@ Ok(
                                                         roots: [
                                                             SynExprRoot {
                                                                 kind: ConstantImplicitParameterType,
-                                                                expr_idx: 0,
+                                                                expr_idx: 1,
                                                             },
                                                             SynExprRoot {
                                                                 kind: Trait,
-                                                                expr_idx: 7,
+                                                                expr_idx: 8,
                                                             },
                                                             SynExprRoot {
                                                                 kind: SelfType,
-                                                                expr_idx: 12,
+                                                                expr_idx: 13,
                                                             },
                                                         ],
                                                     },
@@ -4096,7 +4096,7 @@ Ok(
                                                     data: [
                                                         InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
-                                                                0,
+                                                                1,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSynSymbolKind::TemplateParameter(
@@ -4107,7 +4107,7 @@ Ok(
                                                         },
                                                         InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
-                                                                1,
+                                                                2,
                                                             ),
                                                             modifier: Const,
                                                             kind: InheritedSynSymbolKind::TemplateParameter(
@@ -4128,7 +4128,7 @@ Ok(
                                             roots: [
                                                 SynExprRoot {
                                                     kind: AssociatedTypeTerm,
-                                                    expr_idx: 0,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -4187,7 +4187,7 @@ Ok(
                                         data: [
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    0,
+                                                    1,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(
@@ -4198,7 +4198,7 @@ Ok(
                                             },
                                             InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
-                                                    1,
+                                                    2,
                                                 ),
                                                 modifier: Const,
                                                 kind: InheritedSynSymbolKind::TemplateParameter(

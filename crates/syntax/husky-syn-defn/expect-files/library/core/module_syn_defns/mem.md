@@ -18,7 +18,7 @@ Ok(
                                             },
                                         ),
                                     ),
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Lifetime {
                                         label_token: LifetimeToken {
                                             label: `'a`,
@@ -38,7 +38,7 @@ Ok(
                                             },
                                         ),
                                     ),
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
@@ -162,13 +162,13 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],
@@ -199,7 +199,7 @@ Ok(
                                             },
                                         ),
                                     ),
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Lifetime {
                                         label_token: LifetimeToken {
                                             label: `'a`,
@@ -219,7 +219,7 @@ Ok(
                                             },
                                         ),
                                     ),
-                                    symbol: 1,
+                                    symbol: 2,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
@@ -343,13 +343,13 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    2..3,
                                                 ),
                                             ),
                                         ],
@@ -380,7 +380,7 @@ Ok(
                                             },
                                         ),
                                     ),
-                                    symbol: 0,
+                                    symbol: 1,
                                     variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
@@ -475,7 +475,7 @@ Ok(
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    0..1,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
@@ -502,7 +502,7 @@ Ok(
                     template_parameters: [
                         TemplateParameterObelisk {
                             annotated_variance_token: None,
-                            symbol: 0,
+                            symbol: 1,
                             variant: TemplateParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `E`,
@@ -515,11 +515,11 @@ Ok(
                         },
                     ],
                     trai_expr: TraitObelisk {
-                        expr: 0,
+                        expr: 1,
                     },
                     self_ty_decl: PathLeadingExpr(
                         SelfTypeObelisk {
-                            expr: 3,
+                            expr: 4,
                         },
                     ),
                     syn_expr_region: SynExprRegion {
@@ -544,7 +544,7 @@ Ok(
                             expr_arena: Arena {
                                 data: [
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 0,
+                                        item_path_expr: 1,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Trait(
@@ -554,7 +554,7 @@ Ok(
                                         ),
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        item_path_expr: 1,
+                                        item_path_expr: 2,
                                         opt_path: Some(
                                             PrincipalEntityPath::MajorItem(
                                                 MajorItemPath::Type(
@@ -568,7 +568,7 @@ Ok(
                                         token_idx: TokenIdx(
                                             42,
                                         ),
-                                        current_symbol_idx: 0,
+                                        current_symbol_idx: 1,
                                         current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
                                             template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
@@ -581,8 +581,8 @@ Ok(
                                         },
                                     },
                                     SynExpr::ExplicitApplication {
-                                        function_expr_idx: 1,
-                                        argument_expr_idx: 2,
+                                        function_expr_idx: 2,
+                                        argument_expr_idx: 3,
                                     },
                                 ],
                             },
@@ -674,7 +674,7 @@ Ok(
                                     (
                                         TemplateTypeParameter,
                                         ArenaIdxRange(
-                                            0..1,
+                                            1..2,
                                         ),
                                     ),
                                 ],
@@ -682,11 +682,11 @@ Ok(
                             roots: [
                                 SynExprRoot {
                                     kind: Trait,
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                 },
                                 SynExprRoot {
                                     kind: SelfType,
-                                    expr_idx: 3,
+                                    expr_idx: 4,
                                 },
                             ],
                         },

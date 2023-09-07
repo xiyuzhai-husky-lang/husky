@@ -304,7 +304,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -358,7 +358,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..4,
+                                    3..5,
                                 ),
                             },
                         ),
@@ -372,7 +372,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    4..5,
+                                    5..6,
                                 ),
                             },
                         ),
@@ -426,7 +426,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    5..8,
+                                    6..9,
                                 ),
                             },
                         ),
@@ -440,7 +440,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    8..9,
+                                    9..10,
                                 ),
                             },
                         ),
@@ -491,26 +491,26 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            9..18,
+            10..19,
         ),
         siblings: [
             ArenaIdxRange(
-                4..4,
+                5..5,
             ),
             ArenaIdxRange(
-                4..5,
-            ),
-            ArenaIdxRange(
-                8..8,
-            ),
-            ArenaIdxRange(
-                8..9,
+                5..6,
             ),
             ArenaIdxRange(
                 9..9,
             ),
             ArenaIdxRange(
-                9..18,
+                9..10,
+            ),
+            ArenaIdxRange(
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..19,
             ),
         ],
     },

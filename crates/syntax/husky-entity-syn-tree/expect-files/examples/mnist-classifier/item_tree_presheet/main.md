@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `connected_component`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 11,
+                            ast_idx: 12,
                             ident_token: IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 13,
+                            ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
@@ -169,7 +169,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 14,
+                            ast_idx: 15,
                             ident_token: IdentToken {
                                 ident: `fermi`,
                                 token_idx: TokenIdx(
@@ -207,7 +207,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 15,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `digits`,
                                 token_idx: TokenIdx(
@@ -245,7 +245,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 16,
+                            ast_idx: 17,
                             ident_token: IdentToken {
                                 ident: `major`,
                                 token_idx: TokenIdx(
@@ -283,7 +283,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            ast_idx: 25,
+                            ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `main`,
                                 token_idx: TokenIdx(
@@ -299,7 +299,7 @@ Ok(
                                 body: Some(
                                     FugitiveBody {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..10,
+                                            1..11,
                                         ),
                                     },
                                 ),
@@ -326,8 +326,8 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 17,
-                    use_expr_idx: 2,
+                    ast_idx: 18,
+                    use_expr_idx: 3,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -340,15 +340,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            1..2,
+                            2..3,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 18,
-                    use_expr_idx: 5,
+                    ast_idx: 19,
+                    use_expr_idx: 6,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -361,15 +361,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            4..5,
+                            5..6,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 19,
-                    use_expr_idx: 8,
+                    ast_idx: 20,
+                    use_expr_idx: 9,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -382,15 +382,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            7..8,
+                            8..9,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 20,
-                    use_expr_idx: 11,
+                    ast_idx: 21,
+                    use_expr_idx: 12,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -403,15 +403,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            10..11,
+                            11..12,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 21,
-                    use_expr_idx: 14,
+                    ast_idx: 22,
+                    use_expr_idx: 15,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -424,15 +424,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            13..14,
+                            14..15,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 22,
-                    use_expr_idx: 17,
+                    ast_idx: 23,
+                    use_expr_idx: 18,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -445,15 +445,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            16..17,
+                            17..18,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 23,
-                    use_expr_idx: 19,
+                    ast_idx: 24,
+                    use_expr_idx: 20,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -467,15 +467,15 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            18..19,
+                            19..20,
                         ),
                     },
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
                 OnceUseRule {
-                    ast_idx: 24,
-                    use_expr_idx: 21,
+                    ast_idx: 25,
+                    use_expr_idx: 22,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -489,7 +489,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            20..21,
+                            21..22,
                         ),
                     },
                     parent: None,
@@ -528,7 +528,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 0,
+                                child: 1,
                             },
                         ),
                     },
@@ -551,7 +551,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 1,
+                                child: 2,
                             },
                         ),
                     },
@@ -582,7 +582,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 3,
+                                child: 4,
                             },
                         ),
                     },
@@ -605,7 +605,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 4,
+                                child: 5,
                             },
                         ),
                     },
@@ -636,7 +636,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 6,
+                                child: 7,
                             },
                         ),
                     },
@@ -659,7 +659,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 7,
+                                child: 8,
                             },
                         ),
                     },
@@ -690,7 +690,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 9,
+                                child: 10,
                             },
                         ),
                     },
@@ -713,7 +713,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 10,
+                                child: 11,
                             },
                         ),
                     },
@@ -744,7 +744,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 12,
+                                child: 13,
                             },
                         ),
                     },
@@ -767,7 +767,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 13,
+                                child: 14,
                             },
                         ),
                     },
@@ -798,7 +798,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 15,
+                                child: 16,
                             },
                         ),
                     },
@@ -821,7 +821,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 16,
+                                child: 17,
                             },
                         ),
                     },
@@ -852,7 +852,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 18,
+                                child: 19,
                             },
                         ),
                     },
@@ -883,7 +883,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 20,
+                                child: 21,
                             },
                         ),
                     },

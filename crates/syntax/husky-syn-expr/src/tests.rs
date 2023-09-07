@@ -114,12 +114,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 0,
+                        expr_idx: 1,
                     },
                 ],
             },
             Some(
-                0,
+                1,
             ),
         )
     "#]]
@@ -153,7 +153,7 @@ fn parse_expr_works() {
                             opr_token_idx: TokenIdx(
                                 1,
                             ),
-                            opd: 0,
+                            opd: 1,
                         },
                     ],
                 },
@@ -195,12 +195,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        expr_idx: 2,
                     },
                 ],
             },
             Some(
-                1,
+                2,
             ),
         )
     "#]]
@@ -269,12 +269,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 0,
+                        expr_idx: 1,
                     },
                 ],
             },
             Some(
-                0,
+                1,
             ),
         )
     "#]]
@@ -343,12 +343,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 0,
+                        expr_idx: 1,
                     },
                 ],
             },
             Some(
-                0,
+                1,
             ),
         )
     "#]]
@@ -414,12 +414,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 0,
+                        expr_idx: 1,
                     },
                 ],
             },
             Some(
-                0,
+                1,
             ),
         )
     "#]]
@@ -459,14 +459,14 @@ fn parse_expr_works() {
                             ),
                         ),
                         Binary {
-                            lopd: 0,
+                            lopd: 1,
                             opr: Closed(
                                 Add,
                             ),
                             opr_token_idx: TokenIdx(
                                 2,
                             ),
-                            ropd: 1,
+                            ropd: 2,
                         },
                     ],
                 },
@@ -508,12 +508,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 2,
+                        expr_idx: 3,
                     },
                 ],
             },
             Some(
-                2,
+                3,
             ),
         )
     "#]]
@@ -546,114 +546,6 @@ fn parse_expr_works() {
                                 UnrecognizedIdent {
                                     token_idx: TokenIdx(
                                         3,
-                                    ),
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                        ExplicitApplication {
-                            function_expr_idx: 0,
-                            argument_expr_idx: 1,
-                        },
-                    ],
-                },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternExprRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_infos: [],
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                symbol_region: SynSymbolRegion {
-                    inherited_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_symbol_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                roots: [
-                    SynExprRoot {
-                        kind: Snippet,
-                        expr_idx: 2,
-                    },
-                ],
-            },
-            Some(
-                2,
-            ),
-        )
-    "#]]
-    .assert_debug_eq(&t(&db, "[]i32"));
-
-    expect_test::expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: Snippet(
-                    ModulePath(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        Literal(
-                            TokenIdx(
-                                2,
-                            ),
-                            Integer(
-                                UnspecifiedRegular(
-                                    3,
-                                ),
-                            ),
-                        ),
-                        List {
-                            lbox_token_idx: TokenIdx(
-                                1,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    expr_idx: 0,
-                                    comma_token_idx: None,
-                                },
-                            ],
-                            rbox_token_idx: TokenIdx(
-                                3,
-                            ),
-                        },
-                        Err(
-                            Original(
-                                UnrecognizedIdent {
-                                    token_idx: TokenIdx(
-                                        4,
                                     ),
                                     ident: Ident(
                                         Coword(
@@ -718,6 +610,114 @@ fn parse_expr_works() {
             ),
         )
     "#]]
+    .assert_debug_eq(&t(&db, "[]i32"));
+
+    expect_test::expect![[r#"
+        (
+            SynExprRegionData {
+                parent: None,
+                path: Snippet(
+                    ModulePath(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+                expr_arena: Arena {
+                    data: [
+                        Literal(
+                            TokenIdx(
+                                2,
+                            ),
+                            Integer(
+                                UnspecifiedRegular(
+                                    3,
+                                ),
+                            ),
+                        ),
+                        List {
+                            lbox_token_idx: TokenIdx(
+                                1,
+                            ),
+                            items: [
+                                SynCommaListItem {
+                                    expr_idx: 1,
+                                    comma_token_idx: None,
+                                },
+                            ],
+                            rbox_token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        4,
+                                    ),
+                                    ident: Ident(
+                                        Coword(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        ExplicitApplication {
+                            function_expr_idx: 2,
+                            argument_expr_idx: 3,
+                        },
+                    ],
+                },
+                principal_item_path_expr_arena: Arena {
+                    data: [],
+                },
+                stmt_arena: Arena {
+                    data: [],
+                },
+                pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_contracts: ArenaMap {
+                        data: [],
+                    },
+                    pattern_infos: [],
+                    pattern_symbol_arena: Arena {
+                        data: [],
+                    },
+                    pattern_symbol_maps: ArenaMap {
+                        data: [],
+                    },
+                    pattern_symbol_modifiers: ArenaMap {
+                        data: [],
+                    },
+                },
+                symbol_region: SynSymbolRegion {
+                    inherited_symbol_arena: Arena {
+                        data: [],
+                    },
+                    current_symbol_arena: Arena {
+                        data: [],
+                    },
+                    allow_self_type: False,
+                    allow_self_value: False,
+                    pattern_ty_constraints: [],
+                },
+                roots: [
+                    SynExprRoot {
+                        kind: Snippet,
+                        expr_idx: 4,
+                    },
+                ],
+            },
+            Some(
+                4,
+            ),
+        )
+    "#]]
     .assert_debug_eq(&t(&db, "[3]i32"));
 
     expect_test::expect![[r#"
@@ -771,7 +771,7 @@ fn parse_expr_works() {
                             ),
                             items: [
                                 SynCommaListItem {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     comma_token_idx: Some(
                                         TokenIdx(
                                             3,
@@ -779,7 +779,7 @@ fn parse_expr_works() {
                                     ),
                                 },
                                 SynCommaListItem {
-                                    expr_idx: 1,
+                                    expr_idx: 2,
                                     comma_token_idx: None,
                                 },
                             ],
@@ -827,12 +827,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 2,
+                        expr_idx: 3,
                     },
                 ],
             },
             Some(
-                2,
+                3,
             ),
         )
     "#]]
@@ -926,7 +926,7 @@ fn parse_expr_works() {
                             ),
                         ),
                         Field {
-                            owner: 0,
+                            owner: 1,
                             dot_token_idx: TokenIdx(
                                 2,
                             ),
@@ -983,12 +983,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        expr_idx: 2,
                     },
                 ],
             },
             Some(
-                1,
+                2,
             ),
         )
     "#]]
@@ -1024,7 +1024,7 @@ fn parse_expr_works() {
                             ),
                         ),
                         MethodApplicationOrCall {
-                            self_argument: 0,
+                            self_argument: 1,
                             dot_token_idx: TokenIdx(
                                 2,
                             ),
@@ -1089,12 +1089,12 @@ fn parse_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 1,
+                        expr_idx: 2,
                     },
                 ],
             },
             Some(
-                1,
+                2,
             ),
         )
     "#]]
@@ -1139,8 +1139,8 @@ fn parse_application_expr_works() {
                             ),
                         ),
                         ExplicitApplication {
-                            function_expr_idx: 0,
-                            argument_expr_idx: 1,
+                            function_expr_idx: 1,
+                            argument_expr_idx: 2,
                         },
                         Literal(
                             TokenIdx(
@@ -1153,8 +1153,8 @@ fn parse_application_expr_works() {
                             ),
                         ),
                         ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
+                            function_expr_idx: 3,
+                            argument_expr_idx: 4,
                         },
                     ],
                 },
@@ -1196,12 +1196,12 @@ fn parse_application_expr_works() {
                 roots: [
                     SynExprRoot {
                         kind: Snippet,
-                        expr_idx: 4,
+                        expr_idx: 5,
                     },
                 ],
             },
             Some(
-                4,
+                5,
             ),
         )
     "#]]

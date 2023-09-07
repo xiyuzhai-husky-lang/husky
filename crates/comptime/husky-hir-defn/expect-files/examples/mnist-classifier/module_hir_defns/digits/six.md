@@ -16,7 +16,7 @@
                     },
                     body: Some(
                         Eager(
-                            5,
+                            6,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -47,7 +47,7 @@
                     },
                     body: Some(
                         Eager(
-                            6,
+                            7,
                         ),
                     ),
                     hir_expr_region: Eager(
@@ -78,7 +78,7 @@
                     },
                     body: Some(
                         Lazy(
-                            108,
+                            109,
                         ),
                     ),
                     hir_expr_region: Lazy(
@@ -104,7 +104,7 @@
                         },
                     },
                     body: Some(
-                        8,
+                        9,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -119,7 +119,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -140,7 +140,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -157,11 +157,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 3,
+                                    lopd: 4,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 4,
+                                    ropd: 5,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -173,7 +173,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 6,
+                                    owner: 7,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -184,7 +184,7 @@
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        0..3,
+                                        1..4,
                                     ),
                                 },
                             ],
@@ -193,16 +193,16 @@
                             data: [
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
+                                        pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 1,
+                                    initial_value: 2,
                                 },
                                 Require {
-                                    condition: 5,
+                                    condition: 6,
                                 },
                                 Eval {
-                                    expr_idx: 7,
+                                    expr_idx: 8,
                                 },
                             ],
                         },
@@ -236,7 +236,7 @@
                         },
                     },
                     body: Some(
-                        34,
+                        35,
                     ),
                     hir_expr_region: HirEagerExprRegion {
                         expr_arena: Arena {
@@ -251,7 +251,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 0,
+                                    self_argument: 1,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -272,7 +272,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 2,
+                                    owner: 3,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -290,14 +290,14 @@
                                 ),
                                 Prefix {
                                     opr: Minus,
-                                    opd: 4,
+                                    opd: 5,
                                 },
                                 Binary {
-                                    lopd: 3,
+                                    lopd: 4,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 5,
+                                    ropd: 6,
                                 },
                                 CurrentSymbol {
                                     ident: Ident(
@@ -309,7 +309,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 7,
+                                    owner: 8,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -328,7 +328,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 9,
+                                    owner: 10,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -338,14 +338,14 @@
                                     ),
                                 },
                                 Binary {
-                                    lopd: 8,
+                                    lopd: 9,
                                     opr: Closed(
                                         Div,
                                     ),
-                                    ropd: 10,
+                                    ropd: 11,
                                 },
                                 MethodCall {
-                                    self_argument: 11,
+                                    self_argument: 12,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -364,11 +364,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 12,
+                                    lopd: 13,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 13,
+                                    ropd: 14,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -380,7 +380,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 15,
+                                    owner: 16,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -390,7 +390,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 16,
+                                    self_argument: 17,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -409,11 +409,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 17,
+                                    lopd: 18,
                                     opr: Comparison(
                                         Less,
                                     ),
-                                    ropd: 18,
+                                    ropd: 19,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -425,7 +425,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 20,
+                                    owner: 21,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -435,7 +435,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 21,
+                                    owner: 22,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -454,7 +454,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 23,
+                                    self_argument: 24,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -466,7 +466,7 @@
                                     item_groups: [],
                                 },
                                 MethodCall {
-                                    self_argument: 22,
+                                    self_argument: 23,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -477,7 +477,7 @@
                                     generic_arguments: None,
                                     item_groups: [
                                         Regular(
-                                            24,
+                                            25,
                                         ),
                                     ],
                                 },
@@ -491,7 +491,7 @@
                                     ),
                                 },
                                 Field {
-                                    owner: 26,
+                                    owner: 27,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -508,11 +508,11 @@
                                     ),
                                 ),
                                 Binary {
-                                    lopd: 27,
+                                    lopd: 28,
                                     opr: Comparison(
                                         Greater,
                                     ),
-                                    ropd: 28,
+                                    ropd: 29,
                                 },
                                 InheritedSymbol {
                                     ident: Ident(
@@ -524,7 +524,7 @@
                                     ),
                                 },
                                 MethodCall {
-                                    self_argument: 30,
+                                    self_argument: 31,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -536,7 +536,7 @@
                                     item_groups: [],
                                 },
                                 Field {
-                                    owner: 31,
+                                    owner: 32,
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -547,11 +547,11 @@
                                 },
                                 Prefix {
                                     opr: Minus,
-                                    opd: 32,
+                                    opd: 33,
                                 },
                                 Block {
                                     stmts: ArenaIdxRange(
-                                        1..7,
+                                        2..8,
                                     ),
                                 },
                             ],
@@ -559,40 +559,40 @@
                         stmt_arena: Arena {
                             data: [
                                 Require {
-                                    condition: 14,
-                                },
-                                Let {
-                                    pattern: HirEagerLetVariablesPattern {
-                                        pattern_expr_idx: 0,
-                                        ty: None,
-                                    },
-                                    initial_value: 1,
-                                },
-                                IfElse {
-                                    if_branch: HirEagerIfBranch {
-                                        condition: 6,
-                                        stmts: ArenaIdxRange(
-                                            0..1,
-                                        ),
-                                    },
-                                    elif_branches: [],
-                                    else_branch: None,
-                                },
-                                Require {
-                                    condition: 19,
+                                    condition: 15,
                                 },
                                 Let {
                                     pattern: HirEagerLetVariablesPattern {
                                         pattern_expr_idx: 1,
                                         ty: None,
                                     },
-                                    initial_value: 25,
+                                    initial_value: 2,
+                                },
+                                IfElse {
+                                    if_branch: HirEagerIfBranch {
+                                        condition: 7,
+                                        stmts: ArenaIdxRange(
+                                            1..2,
+                                        ),
+                                    },
+                                    elif_branches: [],
+                                    else_branch: None,
                                 },
                                 Require {
-                                    condition: 29,
+                                    condition: 20,
+                                },
+                                Let {
+                                    pattern: HirEagerLetVariablesPattern {
+                                        pattern_expr_idx: 2,
+                                        ty: None,
+                                    },
+                                    initial_value: 26,
+                                },
+                                Require {
+                                    condition: 30,
                                 },
                                 Eval {
-                                    expr_idx: 33,
+                                    expr_idx: 34,
                                 },
                             ],
                         },

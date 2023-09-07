@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 10,
+                            ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `Class`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            0..2,
+                                            1..3,
                                         ),
                                     },
                                 ),
@@ -63,7 +63,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 12,
+                            ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `OneVsAll`,
                                 token_idx: TokenIdx(
@@ -79,7 +79,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            2..4,
+                                            3..5,
                                         ),
                                     },
                                 ),
@@ -111,7 +111,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 15,
+                            ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
@@ -127,7 +127,7 @@ Ok(
                                 variants: Some(
                                     TypeVariants {
                                         ast_idx_range: ArenaIdxRange(
-                                            5..8,
+                                            6..9,
                                         ),
                                     },
                                 ),
@@ -159,7 +159,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 17,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(

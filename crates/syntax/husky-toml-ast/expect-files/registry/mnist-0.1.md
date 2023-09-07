@@ -50,7 +50,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    0,
+                                    1,
                                 ),
                             },
                             TomlSectionEntry {
@@ -63,7 +63,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    1,
+                                    2,
                                 ),
                             },
                             TomlSectionEntry {
@@ -76,7 +76,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    2,
+                                    3,
                                 ),
                             },
                             TomlSectionEntry {
@@ -89,7 +89,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    3,
+                                    4,
                                 ),
                             },
                             TomlSectionEntry {
@@ -102,7 +102,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    5,
                                 ),
                             },
                         ],
@@ -129,7 +129,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    6,
                                 ),
                             },
                             TomlSectionEntry {
@@ -142,7 +142,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    6,
+                                    7,
                                 ),
                             },
                         ],
@@ -165,7 +165,7 @@ Ok(
                     "name",
                 ),
                 Some(
-                    0,
+                    1,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -173,7 +173,7 @@ Ok(
                     "version",
                 ),
                 Some(
-                    1,
+                    2,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -181,7 +181,7 @@ Ok(
                     "license",
                 ),
                 Some(
-                    2,
+                    3,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -189,7 +189,7 @@ Ok(
                     "repository",
                 ),
                 Some(
-                    3,
+                    4,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -197,7 +197,7 @@ Ok(
                     "description",
                 ),
                 Some(
-                    4,
+                    5,
                 ),
             ),
             TomlLineGroup::SectionTitle {
@@ -213,7 +213,7 @@ Ok(
                     "test",
                 ),
                 Some(
-                    5,
+                    6,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -221,7 +221,7 @@ Ok(
                     "bench",
                 ),
                 Some(
-                    6,
+                    7,
                 ),
             ),
         ],
@@ -232,14 +232,14 @@ Ok(
                         value: 3,
                     },
                 ): Section(
-                    0,
+                    1,
                 ),
                 Coword(
                     Id {
                         value: 13,
                     },
                 ): Section(
-                    1,
+                    2,
                 ),
             },
         },

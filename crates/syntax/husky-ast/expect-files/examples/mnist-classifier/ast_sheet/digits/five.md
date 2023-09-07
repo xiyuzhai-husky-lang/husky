@@ -89,7 +89,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..1,
+                                    1..2,
                                 ),
                             },
                         ),
@@ -98,17 +98,17 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            1..3,
+            2..4,
         ),
         siblings: [
             ArenaIdxRange(
-                0..0,
+                1..1,
             ),
             ArenaIdxRange(
-                0..1,
+                1..2,
             ),
             ArenaIdxRange(
-                1..3,
+                2..4,
             ),
         ],
     },

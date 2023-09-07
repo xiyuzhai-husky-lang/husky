@@ -132,7 +132,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..3,
+                                    3..4,
                                 ),
                             },
                         ),
@@ -219,7 +219,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..2,
+                                    1..3,
                                 ),
                             },
                         ),
@@ -233,7 +233,7 @@ Ok(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    3..5,
+                                    4..6,
                                 ),
                             },
                         ),
@@ -242,23 +242,23 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..9,
+            6..10,
         ),
         siblings: [
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..2,
+                3..3,
             ),
             ArenaIdxRange(
-                2..3,
+                3..4,
             ),
             ArenaIdxRange(
-                3..5,
+                4..6,
             ),
             ArenaIdxRange(
-                5..9,
+                6..10,
             ),
         ],
     },
